@@ -9,3 +9,5 @@ The **quick** brown dog ~~jumped~~ lept over the _lazy_ fox.
   * Item 3
 
 [Concepts](concepts)
+
+[Scott's Page](https://swharden.github.io/)
