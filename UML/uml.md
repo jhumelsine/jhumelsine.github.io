@@ -40,8 +40,33 @@ UML is often used as a development tool. That may not be the right focus. I was 
 **The value of UML is not to define the solution. The value of UML is helping understand the domain of the problem.** This work often leads to an implementation, but I don't think that's it's main value.
 
 # My Favorite Diagrams
+I only use a few UML diagrams. Here are the ones I tend to use.
 
 ## Class Diagrams
+[Class diagrams](https://en.wikipedia.org/wiki/Class_diagram) are by far my most frequently used UML diagram. I tend to use them to understand the relationships among the elements of my domain. This often evolves into a solution as well. The diagrams tend to be easier to read and definitely easier to write than the OMT diagrams.
+
+Class diagrams represent classes as rectangles. This includes abstract classes and interfaces too. The representation includes their attributes, methods and their relationship to other classes. These relationships come in 3 forms:
+* Reference, which tends to be an unadorned line between two classes.
+* Inheritance/Implements/Extends, which is represented by a triangle pointing to the base class. It represents an **IS-A** relationship.
+* Composition/Aggregation, which is represented by a diamond that represents the collector of a set of other classes. It represents a **HAS-A** relationship.
+    * Composition is a closed diamond indicating that the collection is an integral part of the whole. For example, a runner has-a heart and two lungs. When a runner runs, this propagates an effect on the heart to beat faster and the lungs to breath harder. None survive without the unless part of the whole.
+    * Aggregation is a closed diamond indicating that the collection is managed. For example, a runner has many pairs of shoes. Other than wear and tear, they are not affected by running. The runner and shoes can both exist even when not being worn.
+
+The lines can also contain arrows indicating dependency, so **A -> B** means that A depends upon B, but not the other direction. It also means that A probaby invokes a method upon B.
+
+Finally, some relationships have multiplicity. This is usally with Compostion or Aggregation. For example, in the above a runner has 1 heart and 2 lungs. This will not vary. But they runner may posses any number of shows. Multiplicity is often represented by a number or range of numbers where the relationship line connects to the rectangle class. A star, *, represents any number of instances, including zero. 
+
+Here's a sample taken from [EdrawMax UML Class Diagrams Explained](https://www.edrawmax.com/article/uml-class-diagram-explained.html). Hopefully there's enough context to get the gist. ![Order System](https://images.edrawmax.com/images/knowledge/class-diagram-uml/example2.jpg)
+
+I don't usually even use this much detail. I don't tend to inclde the attributes,such as name, address or date. I only include the methods that are really important.
+
+Here are some references to learn more:
+* [Wikipedia Class Diagrams](https://en.wikipedia.org/wiki/Class_diagram)
+* [What is Class Diagram?](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-class-diagram/)
+* [UML Class Diagram Tutorial](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/)
+* [Class Diagram Explained](https://www.edrawmax.com/article/uml-class-diagram-explained.html)
+
+<iframe src="https://www.youtube.com/watch?v=UI6lqHOVHic" width="560" height="315" frameborder="0" allowfullscreen> </iframe>
 
 ## Use Case Diagrams
 
