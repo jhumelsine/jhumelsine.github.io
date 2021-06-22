@@ -96,6 +96,7 @@ Object Diagram Resources:
 * [UML - Object Diagrams](https://www.tutorialspoint.com/uml/uml_object_diagram.htm)
 
 ## Use Case Diagrams
+Ever start a project and you have no idea where to start? 
 
 ## State Diagrams
 
