@@ -56,17 +56,44 @@ The lines can also contain arrows indicating dependency, so **A -> B** means tha
 
 Finally, some relationships have multiplicity. This is usally with Compostion or Aggregation. For example, in the above a runner has 1 heart and 2 lungs. This will not vary. But they runner may posses any number of shows. Multiplicity is often represented by a number or range of numbers where the relationship line connects to the rectangle class. A star, *, represents any number of instances, including zero. 
 
-Here's a sample taken from [EdrawMax UML Class Diagrams Explained](https://www.edrawmax.com/article/uml-class-diagram-explained.html). Hopefully there's enough context to get the gist. ![Order System](https://images.edrawmax.com/images/knowledge/class-diagram-uml/example2.jpg)
+Here's a sample taken from [EdrawMax UML Class Diagrams Explained](https://www.edrawmax.com/article/uml-class-diagram-explained.html). ![Order System](https://images.edrawmax.com/images/knowledge/class-diagram-uml/example2.jpg)
 
-I don't usually even use this much detail. I don't tend to inclde the attributes,such as name, address or date. I only include the methods that are really important.
+Let's consider some of the relationships in the above:
+* A Customer may have any number of Orders. A solitary * would have worked instead of 0..* as well.
+* An Order can only be submitted by one Customer.
+* And Order has at lease one OrderDetail.
+* Any Order can be paid by at least one Payment method.
+* Cash is a Payment method.
+* Check is a Payment method.
+* Credit is a Payment method.
 
-Here are some references to learn more:
+I don't usually even use this much detail in each class. I don't tend to inclde the attributes,such as name, address or date. I only include the methods that are really important.
+
+Class Diagram References:
 * [Wikipedia Class Diagrams](https://en.wikipedia.org/wiki/Class_diagram)
 * [What is Class Diagram?](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-class-diagram/)
 * [UML Class Diagram Tutorial](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/)
 * [Class Diagram Explained](https://www.edrawmax.com/article/uml-class-diagram-explained.html)
 * [UML Class Diagram Tutorial - Video](https://www.youtube.com/watch?v=UI6lqHOVHic)
 
+## Object Diagrams
+I don't use [Object Diagrams](https://en.wikipedia.org/wiki/Object_diagram), but I feel I should mention them as a counterpoint against Class Diagrams.
+
+Object diagrams represent object instances, their attribute values and shttps://www.tutorialspoint.com/uml/uml_object_diagram.htmome relationships. Here's an example of an Object Diagram (Source: [TutorialsPoint UML - Object Diagrams]()) 
+
+![Order Management System](https://www.tutorialspoint.com/uml/images/uml_object_diagram.jpg)
+
+In the above Customer, C, has 3 Orders and each Order has a SpecialOrder too.
+
+The [Composite Design Pattern](https://en.wikipedia.org/wiki/Composite_pattern) provides a good comparison of Class and Object Diagrams for the same concept (Source: [File:W3sDesign Composite Design Pattern UML.jpg](https://en.wikipedia.org/wiki/File:W3sDesign_Composite_Design_Pattern_UML.jpg)):
+![Composite Class and Object Diagrams](https://upload.wikimedia.org/wikipedia/commons/6/65/W3sDesign_Composite_Design_Pattern_UML.jpg)
+
+Class Diagrams define the model. Object Diagrams are scenarios that help evaluate the Class Diagram model.
+
+Object Diagram Resources:
+* [Wikipedia Object Diagrams](https://en.wikipedia.org/wiki/Object_diagram)
+* [Object Diagram Tutorial](https://www.lucidchart.com/pages/uml-object-diagram)
+* [UML - Object Diagrams](https://www.tutorialspoint.com/uml/uml_object_diagram.htm)
 
 ## Use Case Diagrams
 
