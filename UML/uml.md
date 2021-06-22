@@ -65,8 +65,8 @@ Here are some references to learn more:
 * [What is Class Diagram?](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-class-diagram/)
 * [UML Class Diagram Tutorial](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/)
 * [Class Diagram Explained](https://www.edrawmax.com/article/uml-class-diagram-explained.html)
+* [UML Class Diagram Tutorial - Video](https://www.youtube.com/watch?v=UI6lqHOVHic)
 
-<iframe src="https://www.youtube.com/watch?v=UI6lqHOVHic" width="560" height="315" frameborder="0" allowfullscreen> </iframe>
 
 ## Use Case Diagrams
 
