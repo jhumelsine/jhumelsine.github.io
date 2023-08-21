@@ -9,7 +9,7 @@
 * The final scene was the dinner reveal where the chef served the family always with rave reviews for the meal.
 <p>The family was often shocked with the caliber of the meal. A meal like that had come out of their kitchen, but how? Was the wife a bad cook? Probably not. She may have been an excellent cook. But why was she surprised by a meal for which she had all the ingredients?</p>
 <p>She may have been a great cook and could follow any recipe well with the desired outcome. But she wasn’t a chef. Chefs don’t follow recipes. Chefs create meals. Watch any competitive cooking show on television, even one featuring children. They never consult recipes.</p>
-<p></p>Chefs understand how food works. They know flavors, textures, and techniques. These building blocks allow them to design a meal with the resources at their disposal. They are not constrained by a recipe.</p>
+<p>Chefs understand how food works. They know flavors, textures, and techniques. These building blocks allow them to design a meal with the resources at their disposal. They are not constrained by a recipe.</p>
 <p>Becoming a chef requires expertise that requires additional training and/or experience. Chefs must devote resources to learn these building blocks.</p>
 <p>Many software developers are good “cooks.” They can follow software recipes. But how well do they understand the building blocks to become software chefs?</p>
 <p>Just as a chef knows flavors, textures and techniques, a software chef knows data structures, algorithms, and design patterns. These provide the building blocks to design a software product or feature with the resources at one’s disposal. Developers must devote resources to learn these building blocks to become software chefs.</p>
