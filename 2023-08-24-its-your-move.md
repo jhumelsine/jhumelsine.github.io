@@ -42,6 +42,6 @@ I recommend the Gang of Four Design Pattern book once someone already has a soli
 It covers 15 of the original 23 design patterns, and it covers them with good descriptions, diagrams, code examples and humor. Had the authors covered all 23, I suspect the book would have been too heavy to lift.
 
 Here are my favorite online design pattern resources:
-* https://sourcemaking.com/design_patterns
-* https://refactoring.guru/design-patterns
-* https://en.wikipedia.org/wiki/Software_design_pattern
+* [https://sourcemaking.com/design_patterns](https://sourcemaking.com/design_patterns)
+* [https://refactoring.guru/design-patterns](https://refactoring.guru/design-patterns)
+* [https://en.wikipedia.org/wiki/Software_design_pattern](https://en.wikipedia.org/wiki/Software_design_pattern)
