@@ -1,12 +1,12 @@
 # It’s Your Move
 
-![Chess Board](https://techcrunch.com/wp-content/uploads/2016/07/gettyimages-479960728.jpg?w=990&crop=1)
+<img src="https://techcrunch.com/wp-content/uploads/2016/07/gettyimages-479960728.jpg" alt="Chess Pieces" width = "50%">
 
 I learned the rules of chess when I was about eight years old. The rules fit on a single piece of paper that came with most chess sets. I could play the game casually with friends, but I was never really any good.
 
 Fast forward 15 or so years, soon after starting my first job. I was in the bookstore at the local mall, and I spotted this book, [The Logical Approach To Chess](https://www.amazon.com/Logical-Approach-Chess-Max-Euwe/dp/4871874729) by Euwe, et al.:
 
-<img src="https://pictures.abebooks.com/isbn/9780486243535-us.jpg" alt="The Logical Approach to Chess Book Cover" width = "20%">
+<img src="https://pictures.abebooks.com/isbn/9780486243535-us.jpg" alt="The Logical Approach To Chess Book Cover" width = "20%" align="left" style="padding-right: 20px;">
 
 I picked it up and thumbed through it, but it wasn’t a beginner chess book. It wasn’t an advanced one either. There were no set up chess problems with prompts to find white’s move to force checkmate in 20.
 
@@ -19,7 +19,7 @@ Fast forward another 15 years or so again. I had been a C developer and a C++ de
 I had heard of “Design Patterns” in the mid-1990s. I had even attended a few technical presentations, but they never held my imagination. By 2000 I was working at a startup and some developers mentioned design patterns off and on … mostly Singleton. 
 A coworker had a copy of the Gang of Four [Design Patterns Book](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/) on his desk.
 
-<img src="https://m.media-amazon.com/images/I/51JYkEpbhzL.jpg" alt="Design Pattern Book Cover" width = "20%">
+<img src="https://m.media-amazon.com/images/I/51JYkEpbhzL.jpg" alt="Design Pattern Book Cover" width = "20%" align="right" style="padding-right: 20px;">
 
 I was curious, and I asked if I could borrow it. He obliged.
 
@@ -37,7 +37,7 @@ If you haven’t found the time to learn design patterns, try and carve out some
 
 I recommend the Gang of Four Design Pattern book once someone already has a solid grasp of design patterns. I recommend [Head First Design Patterns](https://www.amazon.com/Head-First-Design-Patterns-Object-Oriented/dp/149207800X) as a primer.
 
-<img src="https://m.media-amazon.com/images/P/149207800X.01._SCLZZZZZZZ_SX500_.jpg" alt="Head First Design Patterns Book Cover" width = "20%">
+<img src="https://m.media-amazon.com/images/P/149207800X.01._SCLZZZZZZZ_SX500_.jpg" alt="Head First Design Patterns Book Cover" width = "20%" align="left" style="padding-right: 20px;">
 
 It covers 15 of the original 23 design patterns, and it covers them with good descriptions, diagrams, code examples and humor. Had the authors covered all 23, I suspect the book would have been too heavy to lift.
 
