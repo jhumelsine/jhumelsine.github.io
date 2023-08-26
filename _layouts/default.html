@@ -18,6 +18,7 @@
     <a id="skip-to-content" href="#content">Skip to the content.</a>
 
     <header class="page-header" role="banner" style="padding: 0px;">
+        {% if page.layout != 'home' %}
         <div style="position: inherit; background-color: rgba(0, 0, 0, .1);">
             <div style="max-width: 55rem; padding: 1rem 2rem; text-align: left; margin: auto;">
                 <a href="https://jhumelsine.github.io/" style="color: white; font-size: 1.5em;">
@@ -25,6 +26,7 @@
                 </a>
             </div>
         </div>
+        {% endif %}
         <div style="padding: 2rem">
             <h1 class="project-name">
                 {{ page.title | default: site.title | default: site.github.repository_name }}
