@@ -1,4 +1,3 @@
-## Knock, Knock … Who’s There?
 ---
 title: Knock, Knock ... Who's There?
 description: Are you a software cook or software chef?
