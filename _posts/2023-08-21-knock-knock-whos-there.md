@@ -1,4 +1,8 @@
 ## Knock, Knock … Who’s There?
+---
+title: Knock, Knock ... Who's There?
+description: Are you a software cook or software chef?
+---
 
 ![Doorknocker](https://www.oldwestiron.com/cdn/shop/articles/loadimage_1100x.jpg)
 

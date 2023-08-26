@@ -1,4 +1,7 @@
-# It’s Your Move
+---
+title: It's Your Move
+description: Do you know how to truly play the game, or do you only know the rules?
+---
 
 <img src="https://techcrunch.com/wp-content/uploads/2016/07/gettyimages-479960728.jpg" alt="Chess Pieces" width = "50%">
 
