@@ -1,7 +1,6 @@
 ---
 title: Problem Solvers
 description: Software developers aren't hired to write code
-unlisted: true
 ---
 
 ![Solving a problem at a whiteboard](https://www.potential.com/wp-content/uploads/2017/11/problem-solving.png)
