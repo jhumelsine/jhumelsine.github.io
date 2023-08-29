@@ -3,8 +3,8 @@
   {% unless post.unlisted %}
     <li style='margin-top: 1em;'>
       <div><b><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></b></div>
-      <div>{{ post.date | date_to_long_string }}</div>
       <div>{{ post.description }}</div>
+      <div>{{ post.date | date: "%b %d, %Y" }}</div>
     </li>
   {% endunless %}
 {% endfor %}
