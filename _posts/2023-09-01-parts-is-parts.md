@@ -11,7 +11,7 @@ Many cuisines are comprised of different combinations of the same basic ingredie
 
 Design patterns are much the same. The Gang of Four’s (GoF) [Design Patterns](https://en.wikipedia.org/wiki/Design_Patterns) address repeating problems in an Object-Oriented (OO) paradigm. Most of their design patterns are comprised of different configurations of the same repeating OO constructs. Developers who understand these constructs will be able to learn design patterns a bit quicker than those who don’t.
 
-<img src="https://static.wikia.nocookie.net/harrypotterspellscursesandcharms/images/f/fd/Expecto_Patronum.jpg/revision/latest?cb=20090803092123" alt="Harry Potter with magic wand" width = "20%" align="right" style="padding-right: 20px;">
+<img src="https://static.wikia.nocookie.net/harrypotterspellscursesandcharms/images/f/fd/Expecto_Patronum.jpg" alt="Harry Potter with magic wand" width = "20%" align="right" style="padding-right: 20px;">
 
 There are no magic incantations. Design patterns are about intent and the problem being addressed than they are the constructs. In some cases, the OO construct configuration may feel so obvious, that’s not even worth the effort to have cataloged it as a design pattern.
 
