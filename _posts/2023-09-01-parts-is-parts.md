@@ -13,19 +13,19 @@ Design patterns are much the same. The Gang of Four’s (GoF) [Design Patterns](
 
 <img src="https://static.wikia.nocookie.net/harrypotterspellscursesandcharms/images/f/fd/Expecto_Patronum.jpg/revision/latest?cb=20090803092123" alt="Harry Potter with magic wand" width = "20%" align="right" style="padding-right: 20px;">
 
-There are no magic incantations. Design patterns are about intent and the problem being addressed than they are the constructs. In some cases, the OO construct configuration may feel so obvious, that’s not even worth the effort to have cataloged it as a design pattern. Harry Potter Image.
+There are no magic incantations. Design patterns are about intent and the problem being addressed than they are the constructs. In some cases, the OO construct configuration may feel so obvious, that’s not even worth the effort to have cataloged it as a design pattern.
 
 There is value with simple obvious configurations. Even the simplest pattern frames its OO constructs within a context. The pattern provides intent, especially within the context of the problem being addressed. The pattern provides a common name. The pattern provides a chunkable unit for the configuration.
 
 # Object-Oriented Constructs
 
 There are two types of OO constructs. The first is about references between classes. The second is about the method calls the objects of those referenced classes.
-The following [UML class diagrams](https://jhumelsine.github.io/2021/06/22/uml.html) illustrates these references.
+The following UML class diagrams illustrates these references (See: [UML Class Diagram](https://jhumelsine.github.io/2021/06/22/uml.html) for notation references).
 
-![Basic UML Relationships](assets/UML.png)
+![Basic UML Relationships](/assets/UML.png)
 
 ## Class Relationships
-A class relationship indicates when one class knows of the other. It’s a pair-wise relationship, much like the edge of a graph indicates the relationship between two nodes. The relationship is usually directional.## That is, one class knows about the other class, but usually not the other way. The arrowheads, as shown above, indicate the direction of knowledge. When **A -> B**, then A knows of B, but B does not know of A.
+A class relationship indicates when one class knows of the other. It’s a pair-wise relationship, much like the edge of a graph indicates the relationship between two nodes. The relationship is usually directional. That is, one class knows about the other class, but usually not the other way. The arrowheads, as shown above, indicate the direction of knowledge. When **A -> B**, then A knows of B, but B does not know of A.
 ### HAS-A
 The **HAS-A** relationship is when one class **has a** reference to another class. This occurs with field attributes, method parameters, field attributes, etc.
 
