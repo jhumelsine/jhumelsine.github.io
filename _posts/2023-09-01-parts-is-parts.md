@@ -1,7 +1,6 @@
 ---
 title: Parts is Parts
 description: Design patterns are comprised of different configurations of the same repeating Object-Oriented constructs. 
-unlisted: true
 ---
 
 ![Taco Bell Menu](https://www.nrn.com/sites/nrn.com/files/styles/article_featured_retina/public/NEW_TacoBellMenuBoards_Sept2019.png?itok=FMsGqWRz)
