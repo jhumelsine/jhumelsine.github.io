@@ -27,7 +27,7 @@ This is usually okay for some classes such as utility classes – String or Date
 
 <img src="https://www.skillpundit.com/java/img/Skillpundit-Java_encapsulat.jpg" alt="Image of pill/capsule to demonstrate encapsulation" width = "30%" align="left" style="padding-right: 20px;">
 
-The GoF are big fans of encapsulation. In addition to keeping class implementation details encapsulated via private field attributes and methods, they advocate keeping the class type itself encapsulated. Encapsulation image
+The GoF are big fans of encapsulation. In addition to keeping class implementation details encapsulated via private field attributes and methods, they advocate keeping the class type itself encapsulated.
 
 In this principle, the GoF are advocating that instead of object references to concrete classes, code should have references to their interfaces. It’s subtle, but there’s a distinction between references to interfaces and references to classes.
 
