@@ -4,9 +4,10 @@ description: Design patterns are governed by two design principles.
 unlisted: true
 ---
 
-![Basic UML Relationships](/assets/UML.png)
+<img src="/assets/DesignPrinciples.png" alt="Design Pattern Principles Artwork" width = "50%" style="padding-right: 20px;">
+<p>
 
-# Design Principles
+# Design Pattern Principles
 
 The Gang of Four (GoF) cataloged 23 Object-Oriented (OO) Design Patterns, which are mostly comprised of combinations of basic [OO components](https://jhumelsine.github.io/2023/09/01/parts-is-parts.html), but these components are not applied randomly. There are repeating component configurations for the design patterns, which emerge from two design principles in their book:
 
