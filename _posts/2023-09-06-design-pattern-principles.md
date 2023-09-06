@@ -4,7 +4,7 @@ description: Design patterns are governed by two design principles.
 unlisted: true
 ---
 
-**DALL-E image**
+![Basic UML Relationships](/assets/UML.png)
 
 # Design Principles
 
