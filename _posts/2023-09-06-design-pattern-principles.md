@@ -5,6 +5,7 @@ unlisted: true
 ---
 
 <img src="/assets/DesignPrinciples.png" alt="Design Pattern Principles Artwork" width = "50%" style="padding-right: 20px;">
+
 <p>
 
 # Design Pattern Principles
