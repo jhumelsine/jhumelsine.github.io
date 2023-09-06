@@ -33,9 +33,9 @@ In this principle, the GoF are advocating that instead of object references to c
 
 >**SIDE NOTE**: The design patterns book and the Java programming language were both released at about the same time. While GoF use of “interface” is not a direct reference to Java interfaces, it’s still consistent. The GoF also consider abstract base classes as interfaces in their principle as well. Erich Gamma presents some reasons why he prefers an abstract base class over an interface in the interview referenced above.
 
-An interface defines a contract by declaring a set of method signatures. A contract defines expectations and obligations of the method behaviors declared in the interface without an indication of the implementation. A class that implements an interface contains the code that executes the behaviors of methods.
+An interface defines a contract by declaring a set of method signatures. A contract defines expectations and obligations of the method behaviors declared in the interface without an indication of the implementation. A class that implements an interface contains the code that provides the implementations for those methods.
 
-The client code will still require a reference to a class that implements the interface, but I’ll write about that later.
+The client code will still require a reference to a class that implements the interface, but I’ll write about that in an upcoming blog post.
 
 There are several advantages to following this principle:
 * The interface can be defined before the implementation. This provides the interface designer an opportunity to consider the contract before it could be influenced by the implementation.
