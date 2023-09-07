@@ -4,7 +4,7 @@ description: Seven essential design patterns that should be in every developerâ€
 unlisted: true
 ---
 
-![Abstraction of Essential Design Patterns]([https://www.craiyon.com/image/WtXpLkoyRHqBG6KALvoHlQ](https://img.craiyon.com/2023-09-07/700375d8e3ed4876a2629a35a465ee1a13ecbd44.webp)
+![Abstraction of Essential Design Patterns](assets/craiyon_161039_abstract_artwork_showcasing_the_concept_of_strategy_adapter_with_UML_class_diagrams_i.png)
 
 # Gang of Four Struggles
 
