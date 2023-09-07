@@ -4,7 +4,7 @@ description: Seven essential design patterns that should be in every developerâ€
 unlisted: true
 ---
 
-<img src="/assets/craiyon_161039_abstract_artwork_showcasing_the_concept_of_strategy_adapter_with_UML_class_diagrams_i.png" alt="Abstraction of Essential Design Patterns" width = "50%" style="padding-right: 20px;">
+<img src="/assets/craiyon_161039_abstract_artwork_showcasing_the_concept_of_strategy_adapter_with_UML_class_diagrams_i.png" alt="Abstraction of Essential Design Patterns" width = "40%" style="padding-right: 20px;">
 
 # Gang of Four Struggles
 
@@ -38,6 +38,6 @@ While I love Scottâ€™s acronym to help recall the set of essential design patter
 
 # Summary
 
-Most of these patterns demonstrate Program to an interface, not an implementation (REFERENCE) in that most of them have an interface or abstract base class at the top of their diagrams.
+Most of these patterns demonstrate [Program to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html) in that most of them have an interface or abstract base class at the top of their diagrams.
 
-Many of these patterns work well together. I think this is demonstrated best with Hexagonal Architecture (REFERENCE).
+Many of these patterns work well together. I think this is demonstrated best with [Hexagonal Architecture](https://www.youtube.com/watch?v=aayl6FysZ_U).
