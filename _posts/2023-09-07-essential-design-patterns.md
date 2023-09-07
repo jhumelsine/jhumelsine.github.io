@@ -4,7 +4,7 @@ description: Seven essential design patterns that should be in every developer�
 unlisted: true
 ---
 
-<img src="/assets/craiyon_161039_abstract_artwork_showcasing_the_concept_of_strategy_adapter_with_UML_class_diagrams_i.png" alt="Abstraction of Essential Design Patterns" width = "40%" style="padding-right: 20px;">
+<img src="/assets/craiyon_161039_abstract_artwork_showcasing_the_concept_of_strategy_adapter_with_UML_class_diagrams_i.png" alt="Abstraction of Essential Design Patterns" width = "50%" style="padding-right: 20px;">
 
 # Gang of Four Struggles
 
@@ -14,7 +14,7 @@ I [struggled with the original Design Patterns book](https://jhumelsine.github.i
 
 <img src="https://www.joepaduda.com/wp-content/uploads/2023/07/Screen-Shot-2023-07-31-at-7.37.32-AM.png" alt="Just the Facts Ma'am" width = "30%" align="right" style="padding-right: 20px;">
 
-I [learned the design patterns](with the original Design Patterns book) via other online resources. Some of the design patterns were like hammers and screwdrivers in my [toolbox](https://jhumelsine.github.io/2023/08/29/toolbox.html). I used them in many of my designs. Other patterns, not so much. They were great tools to have, but I didn’t use them as often.
+I [learned the design patterns](https://jhumelsine.github.io/2023/08/24/its-your-move.html) via other online resources. Some of the design patterns were like hammers and screwdrivers in my [toolbox](https://jhumelsine.github.io/2023/08/29/toolbox.html). I used them in many of my designs. Other patterns, not so much. They were great tools to have, but I didn’t use them as often.
 
 Everyone will have their own favorite set of design patterns, but here are the seven that I personally feel are essential to all developers. When I rattled off some of them in a Zoom call a few weeks ago, my friend Scott Harden blurted out **FACTS** as an acronym, which covered most of them. When I considered the entire list, I had to make a few adjustments, but here they are in acronym order:
 * **D**ependency Injection
