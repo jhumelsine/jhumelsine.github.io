@@ -29,11 +29,11 @@ Everyone will have their own favorite set of design patterns, but here are the s
 
 While I love Scott’s acronym to help recall the set of essential design patterns, this is not the order in which I prefer to present them. Some of these design patterns are natural extensions of others. I will introduce them in what I consider to be logical order with **_highlights_** to their [basic OO components](https://jhumelsine.github.io/2023/09/01/parts-is-parts.html). (NOTE: The links are temporary. I will be creating blog entries for each individually and updating the links when posted):
 
-<img src="" alt="Command" width = "20%" align="right" style="padding-right: 20px;">
+<img src="/assets/SimpleCommand.png" alt="Command" width = "20%" align="right" style="padding-right: 20px;">
 
 * [Command](https://refactoring.guru/design-patterns/command) wraps a function in an object, so that a function can become a first-class citizen in an Object-Oriented (OO) language. By objectifying a function, it allows us to span time and space with functions. That is, we easily pass functions are arguments, schedule them for execution later in a queue, etc. Command is inheritance and polymorphism. There’s nothing special about it like most of these patterns. However, the pattern provides intent and context.
 
-<img src="" alt="Strategy" width = "20%" align="right" style="padding-right: 20px;">
+<img src="/assets/SimpleStragegy.png" alt="Strategy" width = "20%" align="right" style="padding-right: 20px;">
 
 * [Strategy](https://refactoring.guru/design-patterns/strategy) is Command with multiple implementations for the interface. It’s structurally the same as Command, except with multiple ways to do the same thing. This is a scaled-up version of inheritance and polymorphism. Consider data structures. Many data structures implement an abstract Container, which declares basic Create, Read, Update and Delete operations. And there are several specific data structure classes that will implement those abstractions, such as List, Queue, Set. And even those classes will have more concrete specific classes, such as Linked List, Array List, Hash Set, Tree Set, etc. One interface and many potential implementations.
 * [Template Method](https://refactoring.guru/design-patterns/template-method) is Strategy (inheritance and polymorphism) where an abstract base class at the “top” of the design, which replaces the interface of Strategy. This is done when most of the behavior is so consistent in different contexts that it can reside in a base class. However, the implementation still needs specific details to complete the behavior. These specifics reside in the inherited concrete classes. Framework designs are an example of Template Method.
