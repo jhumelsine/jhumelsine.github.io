@@ -49,7 +49,7 @@ While I love Scott’s acronym to help recall the set of essential design patter
 
 * [Façade](https://refactoring.guru/design-patterns/facade) is similar to Adapter, in that it **_delegates_**, but it tends to delegate to several classes, whereas Adapter tends to delegate to one. Façade might also use **_inheritance_** and **_polymorphism_**, but that’s optional. Façades are useful when delegate components that you must use are complicated and/or nasty to use. Rather than pollute your business logic with delegate API details, encapsulate them behind a streamlined bespoke interface to keep your business logic clean. The façade will still contain the complicated and/or nasty code, but this separation of concerns will make it easier to manage.
 
-<img src="/assets/SimpleFactoryMethod.png" alt="FactoryMethod" width = "20%" align="right" style="padding-right: 20px;">
+<img src="/assets/SimpleFactoryMethod.png" alt="FactoryMethod" width = "23%" align="right" style="padding-right: 20px;">
   
 * [Factory Method](https://refactoring.guru/design-patterns/factory-method) is a means of acquiring a reference to an interface or abstract base class without calling `new` directly. This is done via a **_static method invocation_**. The `new` operation is still invoked to create a reference to a specific class, but it resides in a static method which is often part of a separate Factory Class. It encapsulates the class type from the client code.
 
