@@ -53,7 +53,7 @@ While I love Scott’s acronym to help recall the set of essential design patter
   
 * [Factory Method](https://refactoring.guru/design-patterns/factory-method) is a means of acquiring a reference to an interface or abstract base class without calling `new` directly. This is done via a **_static method invocation_**. The `new` operation is still invoked to create a reference to a specific class, but it resides in a static method which is often part of a separate Factory Class. It encapsulates the class type from the client code.
 
-<img src="/assets/SimpleDependencyInjection.png" alt="Dependency Injection" width = "32%" align="right" style="padding-right: 20px;">
+<img src="/assets/SimpleDependencyInjection.png" alt="Dependency Injection" width = "30%" align="right" style="padding-right: 20px;">
   
 * [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection) continues the theme of Factory Method. While Factory Method encapsulates the class type for object references returned, there’s still a dependency from the client code to the Factory Method and onto the actual class reference being returned. Dependency Injection removes that dependency by not allowing the client code to resolve its own external references. The external references are directly or indirectly resolved outside of the scope of the client and injected into the client, often as a constructor parameter. Dependency Injection is not in the GoF design pattern catalog I suspect because references to Dependency Injection seem to happen after the publication of the book. It may have been a technique at the time, but it may not have been widely known enough to have made it into the catalog.
 
