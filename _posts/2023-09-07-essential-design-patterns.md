@@ -41,15 +41,15 @@ While I love Scott’s acronym to help recall the set of essential design patter
 
 * [Template Method](https://refactoring.guru/design-patterns/template-method) is Strategy (**_inheritance_** and **_polymorphism_**) where an abstract base class at the “top” of the design, which replaces the interface of Strategy. This is done when most of the behavior is so consistent in different contexts that it can reside in a base class. However, the implementation still needs specific details to complete the behavior. These specifics reside in the inherited concrete classes. Framework designs are an example of Template Method.
 
-<img src="/assets/SimpleAdapter.png" alt="Adapter" width = "15%" align="right" style="padding-right: 20px;">
+<img src="/assets/SimpleAdapter.png" alt="Adapter" width = "20%" align="right" style="padding-right: 20px;">
   
 * [Adapter](https://refactoring.guru/design-patterns/adapter) is Strategy (**_inheritance_** and **_polymorphism_**) where most of the implementation does not reside in the concrete Strategy class. Instead, concrete class **_delegates_** to another class to perform the desired behavior. This is often within the context of when the interface and the delegate class APIs are similar, but the method signatures are slightly different. Strategy is a type of plug-in design. The Adapter plugs into the Strategy interface and then delegates to the delegate class. Adapters allow delegate classes to do work within a Strategy, even when the delegate classes have no knowledge of the Strategy. Adapters translate the Strategy API into the delegate class API. I’ve often used Strategy and Adapter together in a partnership.
 
-<img src="/assets/SimpleFacade.png" alt="Facade" width = "15%" align="right" style="padding-right: 20px;">
+<img src="/assets/SimpleFacade.png" alt="Facade" width = "20%" align="right" style="padding-right: 20px;">
 
 * [Façade](https://refactoring.guru/design-patterns/facade) is similar to Adapter, in that it **_delegates_**, but it tends to delegate to several classes, whereas Adapter tends to delegate to one. Façade might also use **_inheritance_** and **_polymorphism_**, but that’s optional. Façades are useful when delegate components that you must use are complicated and/or nasty to use. Rather than pollute your business logic with delegate API details, encapsulate them behind a streamlined bespoke interface to keep your business logic clean. The façade will still contain the complicated and/or nasty code, but this separation of concerns will make it easier to manage.
 
-<img src="/assets/SimpleFactoryMethod.png" alt="FactoryMethod" width = "25%" align="right" style="padding-right: 20px;">
+<img src="/assets/SimpleFactoryMethod.png" alt="FactoryMethod" width = "20%" align="right" style="padding-right: 20px;">
   
 * [Factory Method](https://refactoring.guru/design-patterns/factory-method) is a means of acquiring a reference to an interface or abstract base class without calling `new` directly. This is done via a **_static method invocation_**. The `new` operation is still invoked to create a reference to a specific class, but it resides in a static method which is often part of a separate Factory Class. It encapsulates the class type from the client code.
 
