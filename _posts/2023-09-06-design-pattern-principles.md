@@ -23,7 +23,7 @@ It took me a while before I fully appreciated the wisdom in these two design pri
 
 When most developers first learn how to code in OO programming languages, they tend to acquire references to the classes directly, often via a class constructor by calling the `new` operator. This works fine, but code that calls `new` directly will be tightly coupled to that class.
 
-This is usually okay for some classes such as utility classes – String or Date. But for classes that represent business domains, acquiring objects via `new` directly may not be the best practice.
+This is usually okay for some classes such as utility classes – String or Date. But for classes that represent business domains, acquiring objects via `new` directly may not be the best practice due to that tight coupling.
 
 <img src="https://www.skillpundit.com/java/img/Skillpundit-Java_encapsulat.jpg" alt="Image of pill/capsule to demonstrate encapsulation" width = "30%" align="left" style="padding-right: 20px;">
 
