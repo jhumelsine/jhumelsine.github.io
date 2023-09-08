@@ -8,15 +8,15 @@ unlisted: true
 
 # Gang of Four Struggles
 
-I [struggled with the original Design Patterns book](https://jhumelsine.github.io/2023/08/24/its-your-move.html) by the Gang of Four (GoF). The detailed patterns are mostly presented in alphabetical order, which is fine for reference, but it didn’t work for me for learning the patterns. Several of the more complex and less frequently used patterns are near the beginning of the alphabet, whereas some of the less complex and more frequently used patterns are near the end of the alphabet. I became overwhelmed by the complex ones, and I was unable to continue through the book alone.
+I [struggled with the original Design Patterns book](https://jhumelsine.github.io/2023/08/24/its-your-move.html) by the Gang of Four (GoF). The detailed patterns are mostly presented in alphabetical order, which is fine for reference, but it didn’t work for me for learning the patterns. Several of the more complex and less frequently used patterns are near the beginning of the alphabet, and hence near the start of the book. Whereas some of the less complex and more frequently used patterns are near the end of the alphabet, and hence near the end of the book. I became overwhelmed by the complex ones, and I was unable to continue learning the design patterns via the book.
 
 # Dems D'FFACTS
 
 <img src="https://www.joepaduda.com/wp-content/uploads/2023/07/Screen-Shot-2023-07-31-at-7.37.32-AM.png" alt="Just the Facts Ma'am" width = "30%" align="right" style="padding-right: 20px;">
 
-I [learned the design patterns](https://jhumelsine.github.io/2023/08/24/its-your-move.html) via other online resources. Some of the design patterns are like hammers and screwdrivers in my [toolbox](https://jhumelsine.github.io/2023/08/29/toolbox.html). I used them in many of my designs. Other patterns, not so much. These less used tools are still great tools to have even if I don't use them as often.
+I [learned the design patterns](https://jhumelsine.github.io/2023/08/24/its-your-move.html) via other online resources. Some of the design patterns are like hammers and screwdrivers in my [toolbox](https://jhumelsine.github.io/2023/08/29/toolbox.html). I use them in many of my designs. Other patterns, not so much. These less used tools are still great tools to have even if I don't use them as often.
 
-Everyone will have their own favorite set of design patterns, but here are the seven that I personally feel are essential to all developers. When I rattled off some of them in a Zoom call a few weeks ago, my friend Scott Harden blurted out **FACTS** as an acronym, which covered most of them. When I considered the entire list, I make a few adjustments, but here they are in this acronym order:
+Everyone will have their own favorite set of design patterns, but here are the seven that I personally feel are essential to all developers. When I rattled off some of them in a Zoom call a few weeks ago, my friend Scott Harden blurted out **FACTS** as an acronym, which covered most of them. When I considered the entire list, I make a few adjustments, and here they are in this acronym order:
 * **D**ependency Injection
 * **F**açade
 * **F**actory Method
@@ -27,7 +27,7 @@ Everyone will have their own favorite set of design patterns, but here are the s
 
 # Seven Essential Design Patterns in Logical Order
 
-While I love Scott’s acronym to help recall the set of essential design patterns, this is not the order in which I prefer to present them. Some of these design patterns are natural extensions of others. I will introduce them in what I consider to be logical order with **_highlights_** to their [basic OO components](https://jhumelsine.github.io/2023/09/01/parts-is-parts.html). (NOTE: The links to external resources are temporary. I will blog about each pattern individually and update the links. Those individual pattern blogs will contain the external resource links as other references):
+While I love Scott’s acronym to help recall the set of essential design patterns, this is not the order in which I prefer to present them. Some of these design patterns are natural extensions of others. I will introduce them in what I consider logical order with **_highlights_** to their [basic OO components](https://jhumelsine.github.io/2023/09/01/parts-is-parts.html). (NOTE: The links to external resources are temporary. I will blog about each pattern individually and update the links here reference the blog entries. The individual pattern blogs will contain the external resource links as other references):
 
 <img src="/assets/SimpleCommand.png" alt="Command" width = "15%" align="right" style="padding-right: 20px;">
 
