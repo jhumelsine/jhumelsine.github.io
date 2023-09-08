@@ -1,7 +1,6 @@
 ---
 title: Dems D’FFACTS
 description: Seven essential design patterns that should be in every developer’s toolbox
-unlisted: true
 ---
 
 <img src="/assets/craiyon_161039_abstract_artwork_showcasing_the_concept_of_strategy_adapter_with_UML_class_diagrams_i.png" alt="Abstraction of Essential Design Patterns" width = "50%" style="padding-right: 20px;">
