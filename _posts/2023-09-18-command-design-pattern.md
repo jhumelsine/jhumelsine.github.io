@@ -21,13 +21,13 @@ interface Command {
 
 # That’s it… but what is it?
 
-Bob Martin changed my mind in the Command portion of his "Agile Principles, Patterns, and Practices in C#" book, Chapter 21, ([O'Reilly](https://learning.oreilly.com/library/view/agile-principles-patterns/0131857258/) and [Amazon](https://www.amazon.com/Agile-Principles-Patterns-Practices-C/dp/0131857258)) and "Clean Code: Design Patterns, Episode 25" video ([Clean Coders](https://cleancoders.com/episode/clean-code-episode-25) and [O'Reilly](https://learning.oreilly.com/videos/clean-code-fundamentals/9780134661742/9780134661742-code_03_25_00/)).
+Bob Martin changed my mind in the Command portion of his **_Agile Principles, Patterns, and Practices in C#_** book, Chapter 21, ([O'Reilly](https://learning.oreilly.com/library/view/agile-principles-patterns/0131857258/) and [Amazon](https://www.amazon.com/Agile-Principles-Patterns-Practices-C/dp/0131857258)) and **_Clean Code: Design Patterns_** video. Episode 25 ([Clean Coders](https://cleancoders.com/episode/clean-code-episode-25) and [O'Reilly](https://learning.oreilly.com/videos/clean-code-fundamentals/9780134661742/9780134661742-code_03_25_00/)).
 
 Objects are first-class citizens in Object-Oriented languages. There’s a popular saying in Java: *Everything is an object in Java*.
 
 Functions are declared in classes as methods. They are not objects. They can be called directly, but that’s about it. They cannot be passed as arguments, added to data structures, etc. Other than calling them, there’s not much else we can do with them.
 
- The Command Design Pattern allows us to wrap a function within a Class, instantiate it as an object and then execute it through an Interface via polymorphism. By “objectifying” the function, it becomes a first-class citizen. **A function wrapped within an object can do anything an object can do.**
+ The Command Design Pattern allows us to wrap a function within a class, instantiate it as an object and then execute it through an Interface via polymorphism. By “objectifying” the function, it becomes a first-class citizen. **A function wrapped within an object can do anything an object can do.**
 
 There is nothing difficult or sophisticated in the implementation of Command. It’s about intent, context and mindset. Once a function is an object, we can do much more with it.
 Here’s a simple example of a Command implementation:
@@ -107,14 +107,14 @@ Here is generally how execute/undo/redo would work:
 * When a redo is requested, the `undone` stack will pop its top Command and its `execute()` method will be executed. It will be pushed onto the `done` stack once more.
 * If a new Command is executed, then it will clear the `undone` stack, since the new Command invalidates the previous undone history.
 
-More details can be found in [The Evolution of Command Pattern (II): How Command Pattern has evolved overtime](https://www.lvguowei.me/post/the-evolution-of-command-pattern-2/) also by Guowei Lv. I think there’s a typo in the implementation. The `RedoCommand.undoable()` returns `false`, when I think it should return `true`. He also does not clear the `undoneStack` when a new Command is executed. I don't know if this is his oversight or whether I'm incorrect in my thinking it should be cleared.
+More details can be found in [The Evolution of Command Pattern (II): How Command Pattern has evolved overtime](https://www.lvguowei.me/post/the-evolution-of-command-pattern-2/) also by Guowei Lv. I think there’s a typo in the implementation. The `RedoCommand.undoable()` returns `false`, when I think it should return `true`. He also does not clear the `undoneStack` when a new Command is executed. I don't know if this is his oversight or whether I'm incorrect in my thinking that it should be cleared.
 # Command Processor Design Pattern
 Most of what I’ve written about scheduling, undo, redo isn’t about Command directly. It’s more about how to leverage Command via the [Command Processor Design Pattern](https://www.dre.vanderbilt.edu/~schmidt/cs282/PDFs/CommandProcessor.pdf), which is not in the Gang of Four catalog. It's part of the [Pattern-Oriented Software Architecture](https://en.wikipedia.org/wiki/Pattern-Oriented_Software_Architecture) series, also known as POSA.
 
 The Command Design Pattern provides a foundation from which the Command Processor Design Pattern can extend it.
 
 # Real-World Example with Java
-Java’s [Runnable interface](https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html) is an example of Command only with different nomenclature. The structure is identical, but instead of `execute()`, it declares `void run()`. This is part of its [description](https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html#run--):
+Java’s [Runnable](https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html) interface is an example of Command only with different nomenclature. The structure is identical, but instead of `execute()`, it declares `void run()`. This is part of `run`'s [description](https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html#run--):
 > The general contract of the method run is that it may take any action whatsoever.
 
 I love that definition. So unobstructed. Runnable allows developers the freedom to objectify "any action whatsoever."
