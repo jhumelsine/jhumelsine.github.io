@@ -30,7 +30,7 @@ While I love Scott’s acronym to help recall the set of essential design patter
 
 <img src="/assets/SimpleCommand.png" alt="Command" width = "15%" align="right" style="padding-right: 20px;">
 
-* [Command](https://refactoring.guru/design-patterns/command) wraps a function in an object, so that a function can become a first-class citizen in an Object-Oriented (OO) language. By objectifying a function, it allows us to span time and space with functions. That is, we can easily pass functions are arguments, schedule them for execution later in a queue, etc. Command is **_inheritance_** and **_polymorphism_**. There’s nothing special about it, like most of these patterns, other than it provides intent and context.
+* [Command](https://jhumelsine.github.io/2023/09/18/command-design-pattern.html) wraps a function in an object, so that a function can become a first-class citizen in an Object-Oriented (OO) language. By objectifying a function, it allows us to span time and space with functions. That is, we can easily pass functions are arguments, schedule them for execution later in a queue, etc. Command is **_inheritance_** and **_polymorphism_**. There’s nothing special about it, like most of these patterns, other than it provides intent and context.
 
 <img src="/assets/SimpleStrategy.png" alt="Strategy" width = "30%" align="right" style="padding-right: 20px;">
 
