@@ -1,7 +1,6 @@
 ---
 title: Command Design Pattern
 description: Turn a function into a first-class citizen object so that it can do much more than before.
-unlisted: true
 ---
 
 ![Picard Make It So](https://i.stack.imgur.com/MNeE7.jpg)
