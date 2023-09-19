@@ -85,11 +85,11 @@ A feature can support many different actions. Each would have their own Action s
 
 For more details, see [The Evolution of Command Pattern (I): How Command Pattern has evolved overtime](https://www.lvguowei.me/post/the-evolution-of-command-pattern/) by Guowei Lv.
 # Command Decouples What from When
-What if `processEvent(Action action)` is executed on the user thread that requires fast response time? It’s possible for a Command to take a significant amount of time before it returns. We can’t block a user thread while waiting for a long running process.
+What if `processAction(Action action)` is executed on the user thread that requires fast response time? It’s possible for a Command to take a significant amount of time before it returns. We can’t block a user thread while waiting for a long running process.
 
 Instead, we can schedule the Command to execute asynchronously on another thread by doing something like this:
 ```java
-void processCommand(Action action) {
+void processAction(Action action) {
     Command actionCommand = Commands.acquire(action);
     processQueue.add(actionCommand);
 }
