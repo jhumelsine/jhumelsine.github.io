@@ -12,7 +12,7 @@ I wasn’t even sure why it was listed as a design pattern originally.
 It just seemed like polymorphism. 
 
 This is the essence of the Command Design Pattern:
-```
+```java
 interface Command {
      void execute();
 }
@@ -30,7 +30,7 @@ Functions are declared in classes as methods. They are not objects. They can be 
 
 There is nothing difficult or sophisticated in the implementation of Command. It’s about intent, context and mindset. Once a function is an object, we can do much more with it.
 Here’s a simple example of a Command implementation:
-```
+```java
 class HelloWorld implements Command {
     void execute() {
         System.out.println(“Hello World!”);
@@ -44,7 +44,7 @@ command.execute();
 ```
 
 Command can support parameters by passing them as constructor arguments. Here's a more generalized version of the HelloWorld above, but this version prints any String:
-```
+```java
 class Printer implements Command {
     private final String text;
 
@@ -65,7 +65,7 @@ printer.execute();
 # Command Decouples What from Whom
 The examples above created instances of `HelloWorld` and `Printer` directly by invoking the `new()` operation. This violates the first design principle: [Program to an interface rather than an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation).
 We can use another [Essential Design Pattern](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html), [Factory Method](https://refactoring.guru/design-patterns/factory-method), and acquire the Command this way:
-```
+```java
 Command command = Commands.acquire(“Hello World”);
 Command.execute();
 ```
@@ -73,7 +73,7 @@ Command.execute();
 This decouples what is being executed from the code that is executing it.
 
 A controller that could look something like this:
-```
+```java
 void processAction(Action action) {
     Command actionCommand = Commands.acquire(action);
     actionCommand.execute();
@@ -88,7 +88,7 @@ For more details, see [The Evolution of Command Pattern (I): How Command Pattern
 What if `processEvent(Action action)` is executed on the user thread that requires fast response time? It’s possible for a Command to take a significant amount of time before it returns. We can’t block a user thread while waiting for a long running process.
 
 Instead, we can schedule the Command to execute asynchronously on another thread by doing something like this:
-```
+```java
 void processCommand(Action action) {
     Command actionCommand = Commands.acquire(action);
     processQueue.add(actionCommand);
