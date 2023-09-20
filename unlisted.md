@@ -1,7 +1,8 @@
 ---
-title: Unlisted Posts
+title: Unlisted Posts and Pages
 description: All posts with "unlisted" in their frontmatter
 unlisted: true
+comments: false
 ---
 
 # Unlisted Posts and Pages
