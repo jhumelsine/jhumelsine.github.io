@@ -148,6 +148,6 @@ Here are some free resources:
 
 Here are some resources that can be purchased or are included in a subscription service:
 * [Gang of Four Command Design Pattern](https://learning.oreilly.com/library/view/design-patterns-elements/0201633612/ch05.html#page_233)
-* Agile Principles, Patterns, and Practices in C#, Chapter 21, ([O'Reilly](https://learning.oreilly.com/library/view/agile-principles-patterns/0131857258/) and [Amazon](https://www.amazon.com/Agile-Principles-Patterns-Practices-C/dp/0131857258))
+* Agile Principles, Patterns, and Practices in C#, Chapter 21 ([O'Reilly](https://learning.oreilly.com/library/view/agile-principles-patterns/0131857258/) and [Amazon](https://www.amazon.com/Agile-Principles-Patterns-Practices-C/dp/0131857258))
 * Clean Code: Design Patterns, Episode 25 video ([Clean Coders](https://cleancoders.com/episode/clean-code-episode-25) and [O'Reilly](https://learning.oreilly.com/videos/clean-code-fundamentals/9780134661742/9780134661742-code_03_25_00/))
 * Head First Design Patterns ([O'Reilly](https://learning.oreilly.com/library/view/head-first-design/9781492077992/ch06.html#home_automation_or_bust) and [Amazon](https://www.amazon.com/Head-First-Design-Patterns-Object-Oriented-ebook/dp/B08P3X99QP))
