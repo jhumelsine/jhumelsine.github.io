@@ -34,7 +34,7 @@ While I love Scott’s acronym to help recall the set of essential design patter
 
 <img src="/assets/SimpleStrategy.png" alt="Strategy" width = "30%" align="right" style="padding-right: 20px;">
 
-* [Strategy](https://refactoring.guru/design-patterns/strategy) is Command with multiple implementations for the interface. It’s structurally the same as Command, except with multiple ways to do the same thing. This is a scaled-up version of **_inheritance_** and **_polymorphism_**. Consider data structures.  Many data structures implement an abstract Container, which declares Create, Read, Update and Delete operations. There are several specific data structure classes that will implement those abstractions, such as List, Queue, Set. And even those classes will have more concrete specific classes, such as Linked List, Array List, Hash Set, Tree Set, etc. One interface and many potential implementations.
+* [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) is Command with multiple implementations for the interface. It’s structurally the same as Command, except with multiple ways to do the same thing. This is a scaled-up version of **_inheritance_** and **_polymorphism_**. Consider data structures.  Many data structures implement an abstract Container, which declares Create, Read, Update and Delete operations. There are several specific data structure classes that will implement those abstractions, such as List, Queue, Set. And even those classes will have more concrete specific classes, such as Linked List, Array List, Hash Set, Tree Set, etc. One interface and many potential implementations.
 
 <img src="/assets/SimpleTemplateMethod.png" alt="Template Method" width = "30%" align="right" style="padding-right: 20px;">
 
