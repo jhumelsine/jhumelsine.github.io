@@ -21,9 +21,9 @@ Strategy’s intent is a more narrowly scoped contract focused upon what the cli
 The contract, which is usually implemented as an interface, may consist of multiple cohesive methods. For example, if the contract’s single responsibility is persistence, then there may be four methods to Create, Read, Update and Delete business entities.
 
 # Separation of Concerns and Modularity
-Strategy leverages [Separation of Concerns](https://en.wikipedia.org/wiki/Separation_of_concerns) and [Modularity](https://en.wikipedia.org/wiki/Modular_programming). It separates what the client application wishes to accomplish from how it will be accomplished.
+Strategy leverages [Separation of Concerns](https://en.wikipedia.org/wiki/Separation_of_concerns) and [Modularity](https://en.wikipedia.org/wiki/Modular_programming). It separates **what** the client application wishes to accomplish from **how** it will be accomplished.
 
-The Strategy interface contract should be defined from the client application’s point of view. It should convey what the client application needs, not what the implementation can provide.
+The Strategy interface contract should be defined from the client application’s point of view. It should convey **what** the client application needs, **not what** the implementation can provide.
 
 The client application should neither know nor care about its concrete dependencies since it does not have a direct dependency upon those concrete classes. This provides a lot of flexibility. The client application will only have knowledge of and a reference to the Strategy interface.
 
@@ -44,10 +44,10 @@ Since a picture is worth a thousand words, here’s the traditional Strategy UML
 align="center" width = "70%" style="padding-right: 20px;">
 
 Here are the elements and their relationships:
-* _Strategy_ is an interface.
-* AlgorithmInterface() is a method that declares the contract that fulfills a need of the Context (AKA Client Application). There may be several cohesive methods in the contract, not just one as depicted here. “Algorithm” is the term chosen by the GoF. It’s not my favorite term, but it appears repeatedly in descriptions of Strategy.
-* Context is the Client Application, and I will use the term “Client Application” rather than “Context,” since I feel that it’s a more accurate term. The Client Application delegates behavior responsibility to the Strategy interface via a reference to a Strategy object. The Client Application will maintain this reference, often as a private field attribute. Delegating to an interface demonstrates the first design principle: [Program to an interface rather than an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation).
-* ConcreteStrategyA, ConcreteStrategyB and ConcreteStrategyC are three different implementations of the Strategy implementation. There could be any number of concrete Strategy implementation classes. The design does not dictate how many there must be.
+* `Strategy` is an interface.
+* `AlgorithmInterface()` is a method that declares the contract that fulfills a need of the `Context` (AKA Client Application). There may be several cohesive methods in the contract, not just one as depicted here. _Algorithm_ is the term chosen by the GoF. It’s not my favorite term, but it appears repeatedly in descriptions of Strategy.
+* `Context` is the Client Application, and I will use the term “Client Application” rather than “Context,” since I feel that it’s a more accurate term. The Client Application delegates behavior responsibility to the Strategy interface via a reference to a Strategy object. The Client Application will maintain this reference, often as a private field attribute. Delegating to an interface demonstrates the first design principle: [Program to an interface rather than an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation).
+* `ConcreteStrategyA`, `ConcreteStrategyB` and `ConcreteStrategyC` are three different implementations of the `Strategy` interface. There could be any number of concrete `Strategy` implementation classes. The design does not dictate how many there must be.
 
 # The Shape of Things to Come
 Strategy is polymorphism. Let’s return to one of our old Object-Oriented friends that’s often used to describe polymorphism – Shape. Shape works perfectly well as an example for Strategy as well. Do a Google Image search on [object-oriented programming shape UML](https://www.google.com/search?sca_esv=567284796&sxsrf=AM9HkKnfpfcU850pj7ZY3qvSDj_LdN8gVQ:1695306945452&q=object-oriented+programming+shape+UML&tbm=isch&source=lnms&sa=X&ved=2ahUKEwiKg5PC9ruBAxV7kIkEHbaJDYUQ0pQJegQIDBAB&biw=1536&bih=747&dpr=1.25) and you’ll see examples that mirror the UML diagrams I’ve presented here.
@@ -59,7 +59,7 @@ align="center" width = "85%" style="padding-right: 20px;">
  
 This is part of the design for a Computer Aided Design (CAD) client application. One of its operations is to render a set of shapes. We want to use Strategy so that the ComputerAidedDesign class does not depend upon the specific concrete Shape classes. 
 
-Shape is a Strategy, and its contract is for the Shape to draw itself. 
+`Shape` is a Strategy, and its contract is for the `Shape` to draw itself. 
 While I didn’t add it, I could have also added additional contract operations such as perimeter and area with similar implementations in the concrete classes.
 
 New Shapes, such as Oval, can easily be added without an impact upon existing classes. Oval would be another class that implements Shape.
@@ -70,7 +70,7 @@ Even if there’s only one concrete class that the Client Application would ever
 Strategy’s primary concern is to provide a means for the Client Application to accomplish its goal. It’s about supporting the interaction between the Client Application and the Strategy interface contract without tightly coupling the Client Application to a Concrete Strategy class. Strategy also allows us to test the Client Application/Strategy interaction without that tight coupling as well.
 
 The diagram below is a UML sketch of how that might be done. 
-The ComputerAidedDesign and Shape elements are identical to the UML diagram above. The purple elements have been added for testing. ComputerAidedDesignTest runs a test scenario confirming that render draws shapes. TestDoubleShape emulates Shape behavior. It doesn’t draw anything, but it remembers that there had been a request for it to be drawn. I don’t want to drift too far astray from Strategy. Testing deserves its own set of blogs, which are in my backlog.
+The `ComputerAidedDesign` and Shape elements are identical to the UML diagram above. The purple elements have been added for testing. `ComputerAidedDesignTest` runs a test scenario confirming that render draws shapes. `TestDoubleShape` emulates `Shape` behavior. It doesn’t draw anything, but it remembers that there had been a request for it to be drawn. I don’t want to drift too far astray from Strategy. Testing deserves its own set of blogs, which are in my backlog.
 
 <img src="/assets/ShapeTesting.png" alt="Shape Testing UML Class Diagram" 
 align="center" width = "95%" style="padding-right: 20px;">
