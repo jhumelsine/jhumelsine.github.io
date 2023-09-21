@@ -50,7 +50,7 @@ Here are the elements and their relationships:
 * ConcreteStrategyA, ConcreteStrategyB and ConcreteStrategyC are three different implementations of the Strategy implementation. There could be any number of concrete Strategy implementation classes. The design does not dictate how many there must be.
 
 # The Shape of Things to Come
-Strategy is polymorphism. Let’s return to one of our old Object-Oriented friends that’s often used to describe polymorphism – Shape. Shape works perfectly well as an example for Strategy as well. Do a Google Image search on object-oriented programming shape UML and you’ll see examples that mirror the UML diagrams I’ve presented here.
+Strategy is polymorphism. Let’s return to one of our old Object-Oriented friends that’s often used to describe polymorphism – Shape. Shape works perfectly well as an example for Strategy as well. Do a Google Image search on [object-oriented programming shape UML](https://www.google.com/search?sca_esv=567284796&sxsrf=AM9HkKnfpfcU850pj7ZY3qvSDj_LdN8gVQ:1695306945452&q=object-oriented+programming+shape+UML&tbm=isch&source=lnms&sa=X&ved=2ahUKEwiKg5PC9ruBAxV7kIkEHbaJDYUQ0pQJegQIDBAB&biw=1536&bih=747&dpr=1.25) and you’ll see examples that mirror the UML diagrams I’ve presented here.
 
 Here’s my version of a UML class diagram using Shape. The structure is almost identical to the traditional Strategy diagram shown above:
 
