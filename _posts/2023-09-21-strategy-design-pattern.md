@@ -57,7 +57,7 @@ Here’s my version of a UML class diagram using Shape. The structure is almost 
 <img src="/assets/Shapes.png" alt="Shapes UML Class Diagram" 
 align="center" width = "85%" style="padding-right: 20px;">
  
-This is part of the design for a Computer Aided Design (CAD) client application. One of its operations is to render a set of shapes. We want to use Strategy so that the ComputerAidedDesign class does not depend upon the specific concrete Shape classes. 
+This is part of the design for a Computer Aided Design (CAD) client application. One of its operations is to render a set of shapes. We want to use Strategy so that the `ComputerAidedDesign` class does not depend upon the specific concrete `Shape` classes. 
 
 `Shape` is a Strategy, and its contract is for the `Shape` to draw itself. 
 While I didn’t add it, I could have also added additional contract operations such as perimeter and area with similar implementations in the concrete classes.
@@ -70,7 +70,7 @@ Even if there’s only one concrete class that the Client Application would ever
 Strategy’s primary concern is to provide a means for the Client Application to accomplish its goal. It’s about supporting the interaction between the Client Application and the Strategy interface contract without tightly coupling the Client Application to a Concrete Strategy class. Strategy also allows us to test the Client Application/Strategy interaction without that tight coupling as well.
 
 The diagram below is a UML sketch of how that might be done. 
-The `ComputerAidedDesign` and Shape elements are identical to the UML diagram above. The purple elements have been added for testing. `ComputerAidedDesignTest` runs a test scenario confirming that render draws shapes. `TestDoubleShape` emulates `Shape` behavior. It doesn’t draw anything, but it remembers that there had been a request for it to be drawn. I don’t want to drift too far astray from Strategy. Testing deserves its own set of blogs, which are in my backlog.
+The `ComputerAidedDesign` and `Shape` elements are identical to the UML diagram above. The purple elements have been added for testing. `ComputerAidedDesignTest` runs a test scenario confirming that render draws shapes. `TestDoubleShape` emulates `Shape` behavior. It doesn’t draw anything, but it remembers that there had been a request for it to be drawn. I don’t want to drift too far astray from Strategy. Testing deserves its own set of blogs, which are in my backlog.
 
 <img src="/assets/ShapeTesting.png" alt="Shape Testing UML Class Diagram" 
 align="center" width = "95%" style="padding-right: 20px;">
