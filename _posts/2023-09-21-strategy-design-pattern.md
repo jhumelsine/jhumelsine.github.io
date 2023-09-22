@@ -1,7 +1,6 @@
 ---
 title: Strategy Design Pattern
 description: When there’s more than one way to get the job done.
-unlisted: true
 ---
 
 <img src="https://i0.wp.com/s802022855.onlinehome.us/wp-content/uploads/2014/12/settlers_settled.jpg" alt="Settlers of Catan" width = "75%" style="padding-right: 20px;">
