@@ -95,7 +95,7 @@ I examined the TR class implementations. I found duplicate code across the TR cl
 
 Some of the methods were identical in all three TR classes. I suspect that the original developer started with the `TR48` implementation. When he found that he needed the same behavior in the `TR96` and then later the `TR192`, he used copy-and-paste to get it working.
 
-This was a [Don’t Repeat Yourself](https://en.wikipedia.org/wiki/Copy-and-paste_programming) code smell – and once more before I knew the term. I pulled the identical method up into the `CircuitPack` as one method.
+This was a [Don’t Repeat Yourself](https://en.wikipedia.org/wiki/Copy-and-paste_programming) code smell – and once more this was before I knew the term. I pulled the identical method up into the `CircuitPack` as one method.
 
 I was [refactoring](https://refactoring.guru/refactoring) code before I knew what refactoring was. I was changing structure without changing behavior. I also didn’t have any unit tests, so I was flying without a net! 
 
