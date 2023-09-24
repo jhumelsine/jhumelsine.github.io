@@ -16,7 +16,7 @@ Abstraction is a reoccurring theme in many software design patterns. But we must
 # Fiber Optic Switch
 I worked at a start up in the early 2000s. We built a fiber optic switch. It was a beast of a machine. It had the capacity for over 500 circuit packs. It consisted of several bays each about 6 feet (about 2 meters) tall and in total it was about 10 to 12 feet (about 3 to 4 meters) wide. It looked a bit like the wall of a legal library, except instead of law books, the shelves held circuit packs. The image below from [Northern Ohio University - Pettit College of Law](https://law.onu.edu/academics) is about the same size as our switch.
 
-<img src="https://law.onu.edu/sites/default/files/2022-09/law04.jpg" alt="Law Library" width = "40%" style="padding-right: 20px;">
+<img src="https://law.onu.edu/sites/default/files/2022-09/law04.jpg" alt="Law Library" width = "50%" style="padding-right: 20px;">
 
  
 # Circuit Packs
