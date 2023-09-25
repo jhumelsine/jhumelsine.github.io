@@ -9,12 +9,12 @@ _The purpose of abstraction is not to be vague, but to create a new semantic lev
 
 Abstraction is a reoccurring theme in many software design patterns. But we must balance this against:
 * _All problems in computer science can be solved with another layer of abstraction, except of course for the problem of too many layers of abstraction._ This is often listed with _indirection_ rather than _abstraction_ but it's the same theme. It's been attributed to several people.
-* _Premature abstraction is the root of all evil._ I can't find a specific source, but it's derivation of Knuth's _Premature Optimization_ quote.
+* _Premature abstraction is the root of all evil._ I can't find a specific source, but it's a derivation of Knuth's _Premature Optimization_ quote.
 
 **The only thing worse than no abstraction is the wrong abstraction. Getting the right abstraction can be tricky.**
 
 # Fiber Optic Switch
-I worked at a start up in the early 2000s. We built a fiber optic switch. It was a beast of a machine. It had the capacity for over 500 circuit packs. It consisted of several bays each about 6 feet (about 2 meters) tall and in total it was about 10 to 12 feet (about 3 to 4 meters) wide. It looked a bit like the wall of a legal library, except instead of law books, the shelves held circuit packs. The image below from [Northern Ohio University - Pettit College of Law](https://law.onu.edu/academics) is about the same size as our switch.
+I worked at a start up in the early 2000s. We built a fiber optic switch. It was a beast of a machine. It had the capacity for over 500 circuit packs. It consisted of several bays each about 6 feet (about 2 meters) tall and in total it was about 10 to 12 feet (about 3 to 4 meters) wide. It looked a bit like a set of bookshelves in a legal library, except instead of law books, the shelves held circuit packs. The image below from [Northern Ohio University - Pettit College of Law](https://law.onu.edu/academics) is about the same size as our switch.
 
 <img src="https://law.onu.edu/sites/default/files/2022-09/law04.jpg" alt="Law Library" width = "60%" style="padding-right: 20px;">
 
@@ -31,9 +31,9 @@ I took over ownership of some code when the original developer moved to another 
 # Time to Think
 <img src="https://i.stack.imgur.com/G4tJM.jpg" alt="Green Bar Printer Paper" align="right" width = "35%" style="padding-right: 20px;">
 
-This was my code now, and I was responsible. This was before Agile had swept the software engineering industry. The Agile Industrial Complex had not yet squeezed time to think out of our schedules for their ceremonies.
+This was my code now, and I was responsible. This was before "Agile" practices had swept the software engineering industry. The Agile Industrial Complex had not yet squeezed time to think out of our schedules for their ceremonies.
 
-I printed the code on glorious printer paper sheets the size of placemats, and I hunkered down to think. I spread the printouts out on my large cubical workspace, we had reasonable desks then too, and I scribbled notes in the margins with my analysis using ink and highlighter pens.
+I printed the code on glorious printer paper sheets the size of placemats, and I hunkered down to think. I spread the printouts out on my large cubical workspace, we had reasonable desks then too, and I scribbled notes in the margins using ink and highlighter pens.
 
 # This Doesn’t Seem Right
 `CircuitPack` had several methods with the equivalent of this:
@@ -77,7 +77,9 @@ abstract class CircuitPack {
 }
 ```
 
-Each TR class, which extended `CircuitPack`, had a new compile error until `doProcess()` was implemented. I was pushing TR specific implementation details into the concrete TR classes where they belonged. And the `CircuitPack` base class could still access them through polymorphism. The updated `TR48` class would look something like this:
+Each TR class, which extended `CircuitPack`, had a new compile error until `doProcess()` was implemented. I was pushing TR specific implementation details into the concrete TR classes where they belonged. And the `CircuitPack` base class could still access them through polymorphism. The cascading if/else-if/else statements were gone.
+
+The updated `TR48` class would look something like this:
 ```java
 class TR48 extends CircuitPack {
    ...
@@ -100,7 +102,7 @@ This was a [Don’t Repeat Yourself](https://en.wikipedia.org/wiki/Copy-and-past
 I was [refactoring](https://refactoring.guru/refactoring) code before I knew what refactoring was. I was changing structure without changing behavior. I also didn’t have any unit tests, so I was flying without a net! 
 
 # Close But No Cigar
-The TR classes still had similar methods, but these methods had internal differences. They weren’t character-for-character identical copies of one another. I couldn’t just pull the method to `CircuitPack`.
+The TR classes still had similar methods, but these methods had internal differences. They weren’t character-for-character identical copies of one another. I couldn’t just pull the method up to `CircuitPack` to remove the duplication.
 
 `TR48` had a field attribute `Component` while the other TR classes had a collection of `Component`s such as `Collection<Component>`. Other than one instance versus a collection of instances, the `Component` methods were similar across all three TR classes.
 
@@ -178,7 +180,7 @@ class TR192 implements CircuitPack {
 }
 ```
 
-I used the same technique that I had used in the `instanceof` refactoring. But instead of pushing TR details down from the `CircuitPack` into each TR class, I pulled the common code from the TR classes up into the `CircuitPack` and left the TR details in the TR classes where it belonged.
+I used the same technique that I had used in the `instanceof` refactoring. But instead of pushing TR details down from the `CircuitPack` into each TR class, I pulled the common code from the TR classes up into the `CircuitPack` and left the TR details in the TR classes where they belonged.
 ```java
 abstract class CircuitPack {
    ...
@@ -220,7 +222,7 @@ This technique is the Template Method Design Pattern. I had applied it a few yea
 # Refactored Code
 Once I had refactored the code, it made much more sense. The `CircuitPack` class made sense as an abstraction. Most of the implementation was in the `CircuitPack`, which made sense since most of the behavior was the same regardless of OC rates. The differences were mostly minor, and they resided in the specific TR classes to support the `CircuitPack`. The separation of concerns between the `CircuitPack` and TR abstraction layers became more obvious.
 
-I also felt confident that if a `TR768` were ever developed, all I would have needed to do would be to derive a `TR768` class from `CircuitPack` and provide the implementations for the abstract protected methods, which would be easily identified as a compile time errors until implemented.
+I also felt confident that if a `TR768` were ever developed, all I would have needed to do would be to derive a `TR768` class from `CircuitPack` and provide the implementations for the abstract protected methods, which would be easily identified as a compile time errors until implemented. This would still involve work, but it would be isolated to the new `TR768` class. There would probably be no need to modify the other classes as well.
 
 # Hindsight is 20/20
 I do not blame the developer who originally created these classes. He was under tremendous pressure to deliver anything within extremely tight schedules. I suspect he started with just the `TR48`, and he later determined that a `CircuitPack` base class would be needed. He took his best guess as to what belonged in the `CircuitPack` base class and what belonged in the derived `TR48` class. When he added the `TR98` and `TR196` he may have realized that he had problems, and he did the best he could to get it working in his current design given his time constraints.
