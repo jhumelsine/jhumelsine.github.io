@@ -1,7 +1,6 @@
 ---
 title: Getting the Right Abstraction is Hard
 description: Sometimes you don’t know the right abstraction until you see a few examples.
-unlisted: true
 ---
 ![Abstraction](https://qph.cf2.quoracdn.net/main-qimg-a5f531f31c67bb181a343b318a34e943-lq)
 # Abstraction
