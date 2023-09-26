@@ -38,7 +38,7 @@ While I love Scott’s acronym to help recall the set of essential design patter
 
 <img src="/assets/SimpleTemplateMethod.png" alt="Template Method" width = "30%" align="right" style="padding-right: 20px;">
 
-* [Template Method](https://refactoring.guru/design-patterns/template-method) is Strategy (**_inheritance_** and **_polymorphism_**) except that an abstract base class at the “top” of the design replaces the interface of Strategy. This is done when most of the behavior is so consistent in different contexts that it can reside in a base class. However, the implementation still needs specific details to complete the behavior. These specifics reside in the inherited concrete classes. Framework designs are an example of Template Method.
+* [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html) is Strategy (**_inheritance_** and **_polymorphism_**) except that an abstract base class at the “top” of the design replaces the interface of Strategy. This is done when most of the behavior is so consistent in different contexts that it can reside in a base class. However, the implementation still needs specific details to complete the behavior. These specifics reside in the inherited concrete classes. Framework designs are an example of Template Method.
 
 <img src="/assets/SimpleAdapter.png" alt="Adapter" width = "20%" align="right" style="padding-right: 20px;">
   
