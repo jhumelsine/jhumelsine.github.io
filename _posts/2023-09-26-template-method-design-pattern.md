@@ -48,12 +48,9 @@ In this example:
 Imagine how this would be updated to make `HotCocoa`. Assume that the Cocoa powder does not require heated milk. What would be the condiments?
 
 # Situations Where Template Method Could Be Useful
-<!--
-<img src="https://i.pinimg.com/originals/ae/20/73/ae207372837cec0d56db1db481893176.jpg" alt="Spider Man Great Power Great Responsibility" align="right" width = "15%" style="padding-right: 20px;">
-<P>
--->
-
 Template Method houses more implementation than the Command and Strategy design patterns. There are some behaviors that the client application cannot avoid. For example, in the `HotDrink` example above there are exactly four steps, and the extended classes are unable to affect them.
+
+<img src="https://i.pinimg.com/originals/ae/20/73/ae207372837cec0d56db1db481893176.jpg" alt="Spider Man Great Power Great Responsibility" align="center" width = "15%" style="padding-right: 20px;">
 
 This is a great power that the Template Method wields over the rest of the classes in the pattern. **With great power comes great responsibility.** Make sure that Template Method is being used appropriately.
 
@@ -98,8 +95,6 @@ Sometimes things must be executed in a specific order. For example, with our `Ho
 Template Method provides a means to ensure order. `HotDrink` will always perform the same operations in the same order, even if some of them are delegated to extending classes.
 
 ## Frameworks and Hollywood Principle
-
-
 There are two basic techniques for code reuse:
 * Libraries, where the application code delegates to methods in other classes. Utility libraries are like this.
 * Frameworks, where the application code implements methods declared by the framework and called by the framework.
