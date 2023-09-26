@@ -216,7 +216,7 @@ class TR192 implements CircuitPack {
 }
 ```
 
-This technique is the Template Method Design Pattern. I had applied it a few years before I had learned the design patterns. I’ll provide a more formal description of the Template Method design pattern in my next blog entry.
+This technique is the Template Method Design Pattern. I had applied it a few years before I had learned the design patterns. I’ll provide a more formal description of the Template Method design pattern in my [next blog entry](https://jhumelsine.github.io/2023/09/26/template-method.html).
 
 # Refactored Code
 Once I had refactored the code, it made much more sense. The `CircuitPack` class made sense as an abstraction. Most of the implementation was in the `CircuitPack`, which made sense since most of the behavior was the same regardless of OC rates. The differences were mostly minor, and they resided in the specific TR classes to support the `CircuitPack`. The separation of concerns between the `CircuitPack` and TR abstraction layers became more obvious.
