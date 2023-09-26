@@ -20,7 +20,7 @@ Template Method’s UML Class Diagram looks very similar to Strategy’s, except
 
 The [Project Management Institute](https://www.pmi.org/disciplined-agile/the-design-patterns-repository/the-template-method-pattern) provides a good diagram. I like this diagram, since it includes the Client. Here’s a brief description of each element:
 * `TargetAbstraction` – This is the abstract base class which declares the contract as it’s represented in the `templateMethod()`.
-* `templateMethod()` – This is the contract. It’s a public method, and the diagram shows a bit of it. Not only does this contract specify what the contract is, but it also declares a little bit about how it will be implemented. In this example, `templateMethod()` is implemented as three steps, which declared as protected abstract methods. Not all methods must be protected abstract methods. It’s common for private methods to be part of the template method’s definition too.
+* `templateMethod()` – This is the contract. It’s a public method, and the diagram shows a bit of it. Not only does this contract specify what the contract is, but it also declares a little bit about how it will be implemented. In this example, `templateMethod()` is implemented as three steps, which are declared as protected abstract methods. Not all methods must be protected abstract methods. It’s common for private methods to be part of the template method’s definition too.
 * `ImplementationA` and `ImplementationB` - These are classes that extend `TargetAbstraction`. They must provide implementations for each of the steps, and each class determines the behavior that’s appropriate for it.
 
 ![Template Method UML Class Diagram](https://www.pmi.org/-/media/pmi/microsites/disciplined-agile/the-design-patterns/template_method_0.jpg
@@ -35,7 +35,6 @@ In this example, `templateMethod()` is the only method that the `Client` can acc
 # Coffee, Tea or Me
 A common example of Template Method is a Coffee Shop, and it’s often named Starbuzz.
 Here’s an example from [CodeProject](https://www.codeproject.com/Articles/21221/Template-Method-Design-Pattern-vs-Functional-Progr).
-
 In this example:
 * `HotDrink` contains the contract `MakeRecipe`. While not show in the diagram the recipe consists of the following in this order:
     * `BoilWater` - Never Changes
@@ -48,7 +47,7 @@ In this example:
 Imagine how this would be updated to make `HotCocoa`. Assume that the Cocoa powder does not require heated milk. What would be the condiments?
 
 # Situations Where Template Method Could Be Useful
-Template Method houses more implementation than the Command and Strategy design patterns. There are some behaviors that the client application cannot avoid. For example, in the `HotDrink` example above there are exactly four steps, and the extended classes are unable to affect them.
+Template Method manages more implementation than the Command and Strategy design patterns. There are some behaviors that the client application cannot avoid. For example, in the `HotDrink` example above there are exactly four steps, and the extended classes are unable to affect them.
 
 <img src="https://i.pinimg.com/originals/ae/20/73/ae207372837cec0d56db1db481893176.jpg" alt="Spider Man Great Power Great Responsibility" align="center" width = "15%" style="padding-right: 20px;">
 
@@ -62,7 +61,7 @@ One of my pet peeves with some OO practices, and I’m talking to you Java, is t
 
 With an overridable default, a class developer is basically conveying in the contract, “I think this method will satisfy your needs. But it may not. If it doesn’t then override it. Oh, and if you do decide to override it, be sure to honor the intent of the contract.” I’m not sure all developers honor contracts when overriding methods.
 
-What if the method being overridden performs authentication and authorization rejecting an invalid client request? How do we know that the extending class will also perform the authentication and authorization? We don’t.
+What if the method being overridden performs authentication and authorization rejecting an invalid User? How do we know that the extending class will also perform the authentication and authorization? We don’t.
 
 But we can use the Template Method to get the best of both worlds. Authentication and Authorization cannot be overridden, and the extending class can still override the basic behavior.
 ```java
@@ -95,7 +94,7 @@ class SpecialBehavior extends Behavior {
 }
 ```
 The above is not a classical Template Method. `Behavior` is not an abstract class and `behavior` is not an abstract method. However, it’s the same principle.
-If we make `behavior()` abstract, then there is not default implementation, and it is Template Method.
+If we declare `Behavior` and `behavior()` abstract, then there is not default implementation, and it is Template Method.
 
 ## Temporal Coupling
 Sometimes things must be executed in a specific order. For example, with our `HotDrink` pouring the water into the cup before boiling it wouldn’t work so well.
