@@ -48,11 +48,12 @@ In this example:
 Imagine how this would be updated to make `HotCocoa`. Assume that the Cocoa powder does not require heated milk. What would be the condiments?
 
 # Situations Where Template Method Could Be Useful
+<!--
 <img src="https://i.pinimg.com/originals/ae/20/73/ae207372837cec0d56db1db481893176.jpg" alt="Spider Man Great Power Great Responsibility" align="right" width = "15%" style="padding-right: 20px;">
 <P>
+-->
 
 Template Method houses more implementation than the Command and Strategy design patterns. There are some behaviors that the client application cannot avoid. For example, in the `HotDrink` example above there are exactly four steps, and the extended classes are unable to affect them.
-<P>
 
 This is a great power that the Template Method wields over the rest of the classes in the pattern. **With great power comes great responsibility.** Make sure that Template Method is being used appropriately.
 
