@@ -55,7 +55,7 @@ Template Method houses more implementation than the Command and Strategy design 
 This is a great power that the Template Method wields over the rest of the classes in the pattern. **With great power comes great responsibility.** Make sure that Template Method is being used appropriately.
 
 ## Consolidate Similar Methods/Behaviors
-As was seen in my [CircuitPack example](https://jhumelsine.github.io/2023/09/22/RightAbstractionIsHard.html), Template Method can be used to implement abstractions once they’re discovered. It’s useful when the classes are similar, but still a little different. The similarities can be moved into an abstract base class and the differences can remain in the extended classes.
+As was seen in my [CircuitPack example](https://jhumelsine.github.io/2023/09/22/right-abstraction-is-hard.html), Template Method can be used to implement abstractions once they’re discovered. It’s useful when the classes are similar, but still a little different. The similarities can be moved into an abstract base class and the differences can remain in the extended classes.
 
 ## Don’t Abdicate Responsibility
 One of my pet peeves with some OO practices, and I’m talking to you Java, is that it’s too easy to override methods. By default, all methods in Java can be overridden. Developers can prevent this by making a method `final`, but I’d prefer a paradigm where the method is final unless declared as overridable. Of course, the horse is out of the barn on this one with Java.
@@ -71,6 +71,14 @@ class Behavior {
         if (!isAuthenticated(user)) throw new NotAuthenticatedException(user);
         if (!isAuthorized(user)) throw new NotAuthorizedException(user);
         behavior(user);
+    }
+
+    private final boolean isAuthenticated(User user) {
+        // Confirms User authentication
+    }
+
+    private final boolean isAuthorized(User user) {
+        // Confirms User authorization
     }
 
     protected void behavior(User user) {
@@ -105,7 +113,7 @@ Frameworks are also known by the [Hollywood Principle](https://dzone.com/article
  
 While Frameworks may use different implementations, the underlying concepts are still what we see in the Template Method design pattern. All of the previous examples provided are examples of frameworks, even if very small. `HotDrink` is a framework for making a hot drink.
 
-The Android [`Activity`](https://developer.android.com/reference/android/app/Activity) class is part of the Android framework. For the most part, each Android window has an `Activity` that manages its state depending upon whether it’s actively running, partially covered, newly visible, etc.
+The [Android Activity](https://developer.android.com/reference/android/app/Activity) class is part of the Android framework. For the most part, each Android window has an `Activity` that manages its state depending upon whether it’s actively running, partially covered, newly visible, etc.
 
 Several states in the state machine call the protected methods, and if the application developer has implemented them, they will be executed. One can think of these protected methods as a means for the application developer to manage resources used by the Activity. For example, if the Activity is not visible, then a battery draining resource, such as the GSP, could be deactivated in `onPause()` and reactivated in `onRestart()`.
 
