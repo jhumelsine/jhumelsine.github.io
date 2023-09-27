@@ -95,6 +95,7 @@ There are many online resources with diagrams and implementations in different p
 * [Source Making Strategy Design Pattern](https://sourcemaking.com/design_patterns/strategy)
 * [Refactoring Guru Strategy Design Pattern](https://refactoring.guru/design-patterns/strategy)
 * [DoFactory Strategy Design Pattern](https://www.dofactory.com/net/strategy-design-pattern)
+* [Project Management Institute Strategy Design Pattern](https://www.pmi.org/disciplined-agile/the-design-patterns-repository/the-strategy-pattern)
 * and for more Google “Strategy Design Pattern”
 
 Here are some resources that can be purchased or are included in a subscription service:
