@@ -1,7 +1,6 @@
 ---
 title: Template Design Pattern
 description: For when your algorithm is only a skeleton, and you need to put some meat on those bones.
-unlisted: true
 ---
 
 ![MadLibs](https://miro.medium.com/v2/resize:fit:1400/1*8M2JfaTacGjI8YQlO9qF5A.jpeg)
