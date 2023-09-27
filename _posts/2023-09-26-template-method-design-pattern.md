@@ -1,5 +1,5 @@
 ---
-title: Template Design Pattern
+title: Template Method Design Pattern
 description: For when your algorithm is only a skeleton, and you need to put some meat on those bones.
 ---
 
