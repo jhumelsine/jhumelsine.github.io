@@ -71,11 +71,11 @@ class Behavior {
         behavior(user);
     }
 
-    private final boolean isAuthenticated(User user) {
+    private boolean isAuthenticated(User user) {
         // Confirms User authentication
     }
 
-    private final boolean isAuthorized(User user) {
+    private boolean isAuthorized(User user) {
         // Confirms User authorization
     }
 
