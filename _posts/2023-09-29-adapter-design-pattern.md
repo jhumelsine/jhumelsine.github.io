@@ -16,7 +16,7 @@ Adapter continues the main theme of the [Command](https://jhumelsine.github.io/2
 Adapter is about a change in the contract interface but not a change in behavior.
 
 # Structure
-The previous design patterns, mentioned above, contain extending classes, but for the most part, they aren’t the main features of those designs. Adapter features extending classes showing how they use delegation.
+The previous design patterns, mentioned above, contain extending classes, but for the most part, they aren’t the main features of those designs. Adapter features extending classes showing how they use delegation or inheritance to bridge the communication gap.
 
 ## Adapter Scenario
 Before getting into the nuts-and-bolts, let’s start with a scenario. We start with a `Target` interface that declares a `request()` method.
@@ -46,7 +46,7 @@ Adapter can bridge this gap, and there are two variations of Adapter:
 * Object Adapters
 * Class Adapters
 
-I think better terms would have been _Composition Adapters_ and _Inheritance Adapter_ respectively. They compare and contrast in the same way that the Strategy and Template Method do. Both pairs solve the same problem, but in different ways with one favoring composition and the other favoring inheritance. Neither is necessarily better or worse than the other. Both mechanisms have their own strengths and weaknesses.
+I think better terms would have been _Composition Adapters_ and _Inheritance Adapter_ respectively, but no one asked me. They compare and contrast in the same way that the Strategy and Template Method do. Both pairs solve the same problem, but in different ways with one favoring composition and the other favoring inheritance. Neither is necessarily better or worse than the other. Both mechanisms have their own strengths and weaknesses.
 
 Regardless of the technique, Adapter allows two classes to communicate when they are not designed to communicate. In our scenario, the `Client` ultimately wants to access `Service`, but `Service` doesn’t fit in the `Client`/`Target` ecosystem. Adapters are translators. They translate the nomenclature of the `Client` with the nomenclature of the `Service`.
 
