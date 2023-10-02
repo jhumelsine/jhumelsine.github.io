@@ -16,7 +16,7 @@ Adapter continues the main theme of the [Command](https://jhumelsine.github.io/2
 Adapter is about a change in the contract interface but not a change in behavior.
 
 # Structure
-The previous design patterns, mentioned above, contain extending classes, but for the most part, they aren’t the main features of those designs. Adapter features extending classes showing how they use delegation or inheritance to bridge the communication gap.
+The previous design patterns, mentioned above contain extending classes but for the most part, they aren’t the main features of those designs. Adapter features the extending classes showing how they use delegation or inheritance to bridge the communication gap.
 
 ## Adapter Scenario
 Before getting into the nuts-and-bolts, let’s start with a scenario. We start with a `Target` interface that declares a `request()` method.
@@ -27,12 +27,12 @@ We have a `Client` that follows the design principle to [Program to an interface
 
 <img src="/assets/AdapterClientTarget.png" alt="Client Target Relationship" align="center" width = "50%" style="padding-right: 20px;">
 
-If I were describing Command or Strategy, then the next diagram would show add an extending concrete class from `Target` that implements `request()` and we’d be done.
+If I were describing Command or Strategy, then the next diagram would add a concrete class extending from `Target` that implements `request()`, and we’d be done.
 But in this scenario, the desired behavior has already been implemented in another class, `Service` via a method called `action()`. Now we have this:
 
 <img src="/assets/AdapterScenario.png" alt="Adapter Scenario" align="center" width = "75%" style="padding-right: 20px;">
  
-We have a few problems. Command and Strategy are based upon a plug-in technique where the extending concrete class plugs into the interface. The implementation needs to know about and implement the interface method(s). But `Service` doesn’t implement `Target`. We can’t plug it in.
+We have a few problems. Command and Strategy are based upon a plug-in technique where the extending concrete class plugs into the interface. The extending concrete needs to know about and implement the interface method(s). But `Service` doesn’t implement `Target`. We can’t plug it in.
 
 What are our options?
 * We could have `Client` access `Service` directly, but that would violate the first design principle. Additionally, there could be several other classes extending `Target` that `Client` is already using. We cannot change `Client`.
@@ -46,7 +46,10 @@ Adapter can bridge this gap, and there are two variations of Adapter:
 * Object Adapters
 * Class Adapters
 
-I think better terms would have been _Composition Adapters_ and _Inheritance Adapter_ respectively, but no one asked me. They compare and contrast in the same way that the Strategy and Template Method do. Both pairs solve the same problem, but in different ways with one favoring composition and the other favoring inheritance. Neither is necessarily better or worse than the other. Both mechanisms have their own strengths and weaknesses.
+I think better terms would have been _Composition Adapters_ and _Inheritance Adapter_ respectively, but no one asked me.
+They compare and contrast in the same way that the Strategy and Template Method do.
+Both pairs of patterns solve their similar problems, but in different ways with one favoring composition and the other favoring inheritance.
+Neither is necessarily better or worse than the other. Both mechanisms have their own strengths and weaknesses.
 
 Regardless of the technique, Adapter allows two classes to communicate when they are not designed to communicate. In our scenario, the `Client` ultimately wants to access `Service`, but `Service` doesn’t fit in the `Client`/`Target` ecosystem. Adapters are translators. They translate the nomenclature of the `Client` with the nomenclature of the `Service`.
 
@@ -54,7 +57,7 @@ Regardless of the technique, Adapter allows two classes to communicate when they
 The Object Adapter is based upon composition and delegation. Here are the basic elements:
 * `Target` is the interface contract. It declares `request()`.
 * The `Client` has a reference to the `Target` interface, and it delegates to the `Target`’s `request()` method. The `Client` is programming to an interface, not an implementation.
-* `Adapter` implements `Target`, and it must implement `request()`. It has a reference to `Service`, and it implements `request()` with a one-line method that calls `service.action()`.
+* `Adapter` implements `Target`, and it must implement `request()`. **It has a reference to `Service`, and it implements `request()` with a one-line method that calls `service.action()`.**
 
 <img src="/assets/ObjectAdapter.png" alt="Object Adapter" align="center" width = "75%" style="padding-right: 20px;">
  
@@ -64,11 +67,12 @@ That’s it … mostly. The field attributes still need to be resolved. I’ll g
 The Class Adapter is based upon inheritance and tradition. Here are the basic elements:
 * `Target` is the interface contract. It declared `request()`.
 * The `Client` has a reference to the `Target` interface, and it delegates to the `Target`’s `request()` method. The `Client` is programming to an interface, not an implementation.
-* `Adapter` implements `Target`, and it must implement `request()`. `Adapter` extends `Service`, but it only does this so that it has access to `action()`.
+* `Adapter` implements `Target`, and it must implement `request()`. **`Adapter` extends `Service`, and it implements `request()` with a one-line method that calls `action()`.**
 
 <img src="/assets/ClassAdapter.png" alt="Class Adapter" align="center" width = "75%" style="padding-right: 20px;">
  
 We still need to resolve a field attribute, but it’s not quite as much to set up as with the Object Adapter technique.
+
 Both Adapter approaches work. I tend to prefer Object Adapters, but Class Adapters work as well. It depends upon whether you prefer composition or inheritance.
 
 # Pairs With Strategy
@@ -77,7 +81,7 @@ Do a Google Image Search for [Adapter Design Pattern UML class diagram](https://
 
 # Summary
 Adapter allows one class to access another class even when their APIs differ. However, the adapted class needs to be similar enough in intent so that using an Adapter makes sense.
-Adapters might need to account for argument types and return types as well, which was not shown in the diagrams here.
+Adapters might need additional implementation to translate argument types and return types as well, which was not shown in the diagrams here.
 
 Adapter implementations tend to be small. Each method is usually only a few lines long.
 
