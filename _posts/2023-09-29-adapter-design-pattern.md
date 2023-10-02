@@ -80,8 +80,12 @@ Adapter is rarely designed without it being paired with Strategy. Let me rephras
 Do a Google Image Search for [Adapter Design Pattern UML class diagram](https://www.google.com/search?sca_esv=569265910&rlz=1C1EKKP_enUS733US733&sxsrf=AM9HkKkXNiPuOH_Y8M1pM4YYJTc4Gf-V6w:1695946688167&q=Adapter+Design+Pattern+UML+class+diagram&tbm=isch&source=lnms&sa=X&ved=2ahUKEwjct5_fxc6BAxX8MVkFHdbtDIUQ0pQJegQIDRAB&biw=1536&bih=747&dpr=1.25) and you’ll see the telltale signs for Strategy as well.
 
 # Summary
-Adapter allows one class to access another class even when their APIs differ. However, the adapted class needs to be similar enough in intent so that using an Adapter makes sense.
+The Adapter Design Pattern allows one class to access another class even when their APIs differ. However, the adapted class needs to be similar enough in intent so that using an Adapter makes sense.
 Adapters might need additional implementation to translate argument types and return types as well, which was not shown in the diagrams here.
+
+The Adapter Design Pattern does one more thing, which I haven't mentioned yet. It helps keep the implementation modular and loosely coupled. 
+The `Client`/`Target` code still doesn't know about the `Service` code and vice versa even after being bridged by the `Adapter`.
+If `Service` changes its contract interface, then an Adapter based design may be able to absorb the impact of the interface change in the `Adapter` without any change to the `Client`/`Target` code.
 
 Adapter implementations tend to be small. Each method is usually only a few lines long.
 
