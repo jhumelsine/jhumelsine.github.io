@@ -1,7 +1,6 @@
 ---
 title: Adapter Design Pattern
 description: What we've got here is... failure to communicate. Maybe there's a cool pattern that could give us a hand with that.
-unlisted: true
 ---
 
 ![Electrical Plug Adapters](https://www.ceptics.com/cdn/shop/files/CT-11PK_B07DRBHRVM_REV_LI_IMG_01_600x600.jpg?v=1694694225)
