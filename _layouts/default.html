@@ -59,16 +59,32 @@
 
         <!-- previous/next buttons -->
         {% if page.path contains "_post" %}
+        
             {% if page.previous.url %}
-            <h3><a style="border-radius: .5em; padding: 1em; background-color: #159957; color: white;" href="{{page.previous.url}}"><b>Previous:</b> {{page.previous.title}}</a></h3>
+            <h3 style="padding:2em 0em;">
+                <a style="border-radius: .5em; padding: 1em; background-color: #159957; color: white;" href="{{page.previous.url}}">
+                    <b>Previous:</b> {{page.previous.title}}
+                </a>
+            </h3>
             {% endif %}
+        
             {% if page.next.url %}
-            <h3><a style="border-radius: .5em; padding: 1em; background-color: #159957; color: white;" href="{{page.next.url}}"><b>Next:</b> {{page.next.title}}</a></h3>
+            <h3 style="padding:2em 0em;">
+                <a style="border-radius: .5em; padding: 1em; background-color: #159957; color: white;" href="{{page.next.url}}">
+                    <b>Next:</b> {{page.next.title}}
+                </a>
+            </h3>
             {% endif %}
-            <h3><a style="border-radius: .5em; padding: 1em; background-color: #159957; color: white;" href="/"><b>Home:</b> Design Pattern Evangelist Blog</a></h3>
+        
+            <h3 style="padding:2em 0em;">
+                <a style="border-radius: .5em; padding: 1em; background-color: #159957; color: white;" href="/">
+                    <b>Home:</b> Design Pattern Evangelist Blog
+                </a>
+            </h3>
+        
         {% endif %}
         
-        <footer class="site-footer">
+        <footer class="site-footer" style="margin-top: 3em;">
             <span class="site-footer-credits">
                 Maintained by
                 <a href="https://jhumelsine.github.io/about">
