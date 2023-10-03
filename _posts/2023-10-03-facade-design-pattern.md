@@ -11,9 +11,10 @@ I was not impressed with Façade when I first read about it. There didn’t seem
 # I Have to Implement How Many Classes?
 Almost 20 years ago, I was on a project where the primary task was to build a [middleware](https://en.wikipedia.org/wiki/Middleware) platform supporting a huge software ecosystem. We just weren’t creators of the middleware, we were users of it too. Often, we were using other middleware components about as quickly as they were being implemented.
 
-My feature required a Client/Server structure, which would be supported by the Communication Manager system in the middleware. I wasn’t sure how to use it since there wasn’t any user documentation yet. Fortunately, one of the developers of the Communication Manager was in the office next to mine.
+My feature required a Client/Server structure, which would be supported by the Communication Manager system in the middleware. I wasn’t sure how to use it since there wasn’t any user documentation yet. Fortunately, one of the developers of the Communication Manager sat in the office next to mine.
 
-I stopped by and asked him how it worked. I described my relatively simple Client/Server needs, and he rattled off all the classes I would need to implement. It was somewhere along the lines:
+I stopped by and asked him how it worked. I described my relatively simple Client/Server needs, and he rattled off all the classes I would need to implement.
+It was somewhere along the lines of:
 * `Request` which had to be serializable.
 * `Response` which had to be serializable as well.
 * `Reader`
@@ -26,7 +27,8 @@ That was only for the Client. I’d need to implement pretty much the same set o
 The tests weren’t designed in a _Given/When/Then_ or _Assign/Act/Assert_ structure. They were just pages upon pages of code that tried to cover all possible scenario combinations in as few test methods as possible. I wanted to curl up in a ball in the corner of my office and whimper. In all fairness, this was before most of us had any idea how to design tests properly.
 
 I returned to his office with the test printouts and a pen. We reviewed the test code together. We crossed out parts that I didn’t need. We circled parts that were needed.
-Using the test code as a reference, I started to implement my classes by implementing the Command Manager interfaces. There were dozens of methods defined in each interface. But only a few were needed for Client/Server communication. The other methods were for other communication styles, such as Broadcast, Pub/Sub, etc. I had to provide an implementation for all methods even the communication styles that I was not using. The architect/designer apparently had not heard of the [Interface Segregation Principle](https://en.wikipedia.org/wiki/Interface_segregation_principle).
+
+Using the test code as a reference, I started to implement my classes by implementing the Command Manager interfaces. There were dozens of methods defined in each interface. But only a few were needed for Client/Server communication. The other methods were for other communication styles, such as Broadcast, Pub/Sub, etc. I had to provide an implementation for all methods even for the communication styles that I was not using. The architect/designer apparently had not heard of the [Interface Segregation Principle](https://en.wikipedia.org/wiki/Interface_segregation_principle).
 
 I implemented the Client/Server methods. I didn’t want a silent no-op implementation for the other communication styles, so each of those threw a `NotImplementedException` in case they were executed.
 
@@ -73,11 +75,11 @@ I used to be frustrated when class designers hoisted complicated interfaces upon
 
 Later I realized that in most cases, this is pretty much what must happen. The developers of the complicated class have no idea what I need. Admittedly, they could have probably done a better job in designing a better interface based upon what the client application may need rather than what they provide. But they can never provide an interface that meets all client application needs precisely.
 
-**Creating your own Façade is a bit of an illusion, but it is also the great power of this design pattern.** You can design an interface that meets your client application needs precisely. You can put as much or as little into your Façade as you desire. Start with a Façade interface first and then figure out later how to implement it. If the Façade interface gets too large or loses cohesion, then split it into separate Facades interfaces that retain their own cohesion.
+**Creating your own Façade is a bit of an illusion, but it is also the great power of this design pattern.** You can design a bespoke Façade interface that meets your client application needs precisely. You can put as much or as little into your Façade as you desire. Start with a Façade interface first and then figure out later how to implement it. If the Façade interface gets too large or loses cohesion, then split it into separate Facades interfaces that each retain their own cohesion.
 
-If contract interfaces in the dependencies change, then you may be able to absorb those changes in the Façade implementation without having to change the Façade interface or the Client Application.
+If contract interfaces for the dependencies change, then you may be able to absorb those changes in the Façade implementation without having to change the Façade interface or the Client Application.
 
-This power is why Façade is on my [Essential Design Pattern](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html) list.
+**This power is why Façade is on my [Essential Design Pattern](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html) list.**
 
 # References
 There are many online resources with diagrams and implementations in different programming languages. Here are some free resources:
