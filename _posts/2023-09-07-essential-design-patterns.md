@@ -46,7 +46,7 @@ While I love Scott’s acronym to help recall the set of essential design patter
 
 <img src="/assets/SimpleFacade.png" alt="Facade" width = "20%" align="right" style="padding-right: 20px;">
 
-* [Façade](https://refactoring.guru/design-patterns/facade) is similar to Adapter, in that it **_delegates_**, but it tends to delegate to several classes, whereas Adapter tends to delegate to one. Façade might also use **_inheritance_** and **_polymorphism_**, but that’s optional. Façades are useful when delegate components that you must use have complicated and/or nasty APIs. Rather than pollute your business logic with delegate API details, encapsulate them behind a streamlined bespoke Façade to keep your business logic clean. The façade will still contain the complicated and/or nasty code, but this separation of concerns will make it easier to manage.
+* [Façade](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html) is similar to Adapter, in that it **_delegates_**, but it tends to delegate to several classes, whereas Adapter tends to delegate to one. Façade might also use **_inheritance_** and **_polymorphism_**, but that’s optional. Façades are useful when delegate components that you must use have complicated and/or nasty APIs. Rather than pollute your business logic with delegate API details, encapsulate them behind a streamlined bespoke Façade to keep your business logic clean. The façade will still contain the complicated and/or nasty code, but this separation of concerns will make it easier to manage.
 
 <img src="/assets/SimpleFactoryMethod.png" alt="FactoryMethod" width = "24%" align="right" style="padding-right: 20px;">
   
