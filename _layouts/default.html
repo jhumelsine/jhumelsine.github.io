@@ -58,7 +58,8 @@
         {% endif %}
 
         <!-- previous/next buttons -->
-        {% if page.path contains '_posts' %}
+        {% if page.type == "post" %}
+            <!-- is post -->
             <div style="margin: 2em 0em;">
               {% if post.previous.url %}
                 <a class="prev" href="{{post.previous.url}}">&laquo; {{post.previous.title}}</a>
