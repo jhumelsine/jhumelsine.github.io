@@ -61,12 +61,11 @@
         {% if page.path contains "_post" %}
             <!-- is post -->
             <div style="margin: 2em 0em;">
-              {% if post.previous.url %}
-                <a class="prev" href="{{post.previous.url}}">&laquo; {{post.previous.title}}</a>
-                <br />
+              {% if page.previous.url %}
+                <h3><a class="prev" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a></h3>
               {% endif %}
-              {% if post.next.url %}
-                <a class="next" href="{{post.next.url}}">{{post.next.title}} &raquo;</a>
+              {% if page.next.url %}
+                <h3><a class="next" href="{{page.next.url}}">{{page.next.title}} &raquo;</a></h3>
               {% endif %}
             </div>
         {% endif %}
