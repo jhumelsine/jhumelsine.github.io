@@ -24,7 +24,7 @@ It was somewhere along the lines of:
 
 That was only for the Client. I’d need to implement pretty much the same set on the Server too. My head was spinning. I asked if there were any code examples that I could follow to get a sense of what was needed. They were still working on code examples for the documentation, but they did have some tests.
 
-The tests weren’t designed in a _Given/When/Then_ or _Assign/Act/Assert_ structure. They were just pages upon pages of code that tried to cover all possible scenario combinations in as few test methods as possible. I wanted to curl up in a ball in the corner of my office and whimper. In all fairness, this was before most of us had any idea how to design tests properly.
+The tests weren’t designed in a _Given/When/Then_ or _Assign/Act/Assert_ structure. They were just page upon page of code that tried to cover all possible scenario combinations in as few test methods as possible. I wanted to curl up in a ball in the corner of my office and whimper. In all fairness, this was before most of us had any idea how to design tests properly.
 
 I returned to his office with the test printouts and a pen. We reviewed the test code together. We crossed out parts that I didn’t need. We circled parts that were needed.
 
@@ -43,16 +43,16 @@ interface ClientConnection {
 ```
 The `ClientConnection` implementation hid all the complicated coordination interactions among `Reader`, `Writer`, `Listener`, etc. The cumbersome infrastructure was still there, but it was encapsulated within the `ClientConnectionImpl`. It wasn’t visible in my business logic.
 
-**I had created a Façade.** I showed my neighbor what I had created, and said, “You should provide a Façade to do this too.” He just stared at me. It never materialized.
+**I had created a Façade.** I showed my neighbor what I had created and said, “You should provide a Façade to do this too.” He just stared at me. It never materialized.
 
-The online documentation was eventually written, but long after I needed it. We had the ability to generate a PDF file of the documentation for the entire middleware. It was over 6,000 PDF pages! That’s enough to contain the sacred texts of several major religions with room left over for a Stephen King novel or two. The Communication Manager section alone was over 1,000 PDF pages.
+The online documentation was eventually written, but long after I needed it. I generated a PDF file for the documentation for the entire middleware. It was over 6,000 PDF pages! That’s enough to contain the sacred texts of several major religions with room left over for a Stephen King novel or two. The Communication Manager section alone was over 1,000 PDF pages.
 
 # Structure
 There is no structure with Façade. There are no nifty UML class diagrams. It’s all about intent. It’s about creating a Façade interface that presents more clarity for the Client Application.
 
 It’s just an implementation that delegates to other classes/objects. Each Façade implementation will be different, because the delegate classes and objects will differ in each scenario.
 
-Here’s a sketch of the `ClientConnection` Façade design from my story:
+Here’s a representational sketch of the `ClientConnection` Façade design from my story:
 ![ClientConnection UML Class Diagram](/assets/ClientConnectionUML.png)
  
 # Isn’t This the Adapter Design Pattern?
@@ -75,7 +75,10 @@ I used to be frustrated when class designers hoisted complicated interfaces upon
 
 Later I realized that in most cases, this is pretty much what must happen. The developers of the complicated class have no idea what I need. Admittedly, they could have probably done a better job in designing a better interface based upon what the client application may need rather than what they provide. But they can never provide an interface that meets all client application needs precisely.
 
-**Creating your own Façade is a bit of an illusion, but it is also the great power of this design pattern.** You can design a bespoke Façade interface that meets your client application needs precisely. You can put as much or as little into your Façade as you desire. Start with a Façade interface first and then figure out later how to implement it. If the Façade interface gets too large or loses cohesion, then split it into separate Facades interfaces that each retain their own cohesion.
+**Creating your own Façade is a bit of an illusion, but it is also the great power of this design pattern.**
+You can design a bespoke Façade interface that meets your client application needs precisely. You can put as much or as little into your Façade as you desire.
+Start with a Façade interface first. Add methods that the client application needs and then later figure out how to implement them.
+If the Façade interface gets too large or loses cohesion, then split it into separate Facades interfaces that each retain their own cohesion.
 
 If contract interfaces for the dependencies change, then you may be able to absorb those changes in the Façade implementation without having to change the Façade interface or the Client Application.
 
