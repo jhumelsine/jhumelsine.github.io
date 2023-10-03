@@ -1,6 +1,6 @@
 ---
 title: Façade Design Pattern
-description: It’s just an illusion making a task appear easier than it really is.
+description: A Façade is just an illusion making a task appear easier than it really is.
 unlisted: true
 ---
 ![Movie Facade](https://static.ferrovial.com/wp-content/uploads/sites/3/2018/03/13150850/set-for-a-movie.png)
@@ -39,7 +39,7 @@ interface ClientConnection {
     Response send(Request request);
 }
 ```
-The ` ClientConnection` implementation hid all the complicated coordination interactions among `Reader`, `Writer`, `Listener`, etc. The cumbersome infrastructure was still there, but it was encapsulated within the `ClientConnectionImpl`. It wasn’t visible in my business logic.
+The `ClientConnection` implementation hid all the complicated coordination interactions among `Reader`, `Writer`, `Listener`, etc. The cumbersome infrastructure was still there, but it was encapsulated within the `ClientConnectionImpl`. It wasn’t visible in my business logic.
 
 **I had created a Façade.** I showed my neighbor what I had created, and said, “You should provide a Façade to do this too.” He just stared at me. It never materialized.
 
