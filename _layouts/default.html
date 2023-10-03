@@ -50,12 +50,26 @@
     <main id="content" class="main-content" role="main">
         {{ content }}
 
+        <!-- comments -->
         {% if page.url != '/' %}
             {% if page.comments %}
                 {% include comments.html %}
             {% endif %}
         {% endif %}
 
+        <!-- previous/next buttons -->
+        {% if page.path contains '_posts' %}
+            <div style="margin: 2em 0em;">
+              {% if post.previous.url %}
+                <a class="prev" href="{{post.previous.url}}">&laquo; {{post.previous.title}}</a>
+                <br />
+              {% endif %}
+              {% if post.next.url %}
+                <a class="next" href="{{post.next.url}}">{{post.next.title}} &raquo;</a>
+              {% endif %}
+            </div>
+        {% endif %}
+        
         <footer class="site-footer">
             <span class="site-footer-credits">
                 Maintained by
