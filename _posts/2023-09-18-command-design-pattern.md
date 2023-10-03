@@ -142,10 +142,11 @@ Here are some free resources:
 * [Wikipedia Command Design Pattern](https://en.wikipedia.org/wiki/Command_pattern)
 * [Source Making Command Design Pattern](https://sourcemaking.com/design_patterns/command)
 * [Refactoring Guru Command Design pattern](https://refactoring.guru/design-patterns/command)
+* [DoFactory Command Design Pattern](https://www.dofactory.com/net/command-design-pattern)
+* [Project Management Institute Command Design Pattern](https://www.pmi.org/disciplined-agile/the-design-patterns-repository/the-command-pattern)
 * The Evolution of Command Pattern [Part I](https://www.lvguowei.me/post/the-evolution-of-command-pattern/) and [Part II](https://www.lvguowei.me/post/the-evolution-of-command-pattern-2/)
 * [The Command Processor Design Pattern](https://www.dre.vanderbilt.edu/~schmidt/cs282/PDFs/CommandProcessor.pdf)
-* [Project Management Institute Command Design Pattern](https://www.pmi.org/disciplined-agile/the-design-patterns-repository/the-command-pattern)
-* and for more Google "Command Design Pattern"
+* and for more Google [Command Design Pattern](https://www.google.com/search?q=command+design+pattern)
 
 Here are some resources that can be purchased or are included in a subscription service:
 * [Gang of Four Command Design Pattern](https://learning.oreilly.com/library/view/design-patterns-elements/0201633612/ch05.html#page_233)
