@@ -24,7 +24,9 @@ It was somewhere along the lines of:
 
 That was only for the Client. I’d need to implement pretty much the same set on the Server too. My head was spinning. I asked if there were any code examples that I could follow to get a sense of what was needed. They were still working on code examples for the documentation, but they did have some tests.
 
-The tests weren’t designed in a _Given/When/Then_ or _Assign/Act/Assert_ structure. They were just page upon page of code that tried to cover all possible scenario combinations in as few test methods as possible. I wanted to curl up in a ball in the corner of my office and whimper. In all fairness, this was before most of us had any idea how to design tests properly.
+The tests weren’t designed in a [_Given/When/Then_](https://en.wikipedia.org/wiki/Given-When-Then#:~:text=Given-When-Then) or [_Arrange/Act/Assert_](http://wiki.c2.com/?ArrangeActAssert) structure.
+They were just page upon page of code that tried to cover all possible scenario combinations in as few test methods as possible.
+I wanted to curl up in a ball in the corner of my office and whimper. In all fairness, this was before most of us had any idea how to design tests properly.
 
 I returned to his office with the test printouts and a pen. We reviewed the test code together. We crossed out parts that I didn’t need. We circled parts that were needed.
 
@@ -59,8 +61,7 @@ Here’s a representational sketch of the `ClientConnection` Façade design from
 Façade looks very much like the [Adapter Design Pattern](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html).
 Both solve similar problems in that they both allow delegation when the contract interfaces in dependencies don't align with busines logic needs.
 
-Adapter bridges a communication gap.
-Façade bridges a complexity gap. 
+**Adapter bridges a communication gap. Façade bridges a complexity gap.**
 
 Adapter allows one class to interact with another class.
 Façade allows one class to interact with many different classes.
