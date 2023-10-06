@@ -23,7 +23,7 @@ I was on the team that managed circuit pack (CP) higher level features, such as 
 
 <img src="/assets/CircuitPack.webp" alt="CircuitPack" align="center" width = "50%" style="padding-right: 20px;">
 
-I took over ownership of some code when the original developer moved to another department. He had designed a `CircuitBack` class with extended classes for `TR48`, `TR96` and `TR192`.
+I took over ownership of some code when the original developer moved to another department. He had designed a `CircuitPack` class with extended classes for `TR48`, `TR96` and `TR192`.
 
 <img src="/assets/CircuitPack.png" alt="CircuitPack UML Class Diagram" align="center" width = "40%" style="padding-right: 20px;">
 
