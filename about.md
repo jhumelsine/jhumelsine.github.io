@@ -17,7 +17,7 @@ Fast forward about 45 years. I earned a BS and MS in Computer Science. I've been
 I learned a lot in those years. I want to share what I've learned with others, so I've started a blog. I think that most of this will be in the realm of Software Engineering, which I view as related to but separate from Computer Science. However, I suspect I will dabble in Computer Science topics as well. I'm starting with my favorite topic, Design Patterns, hence my handle on some social media handle on some platforms - **Design Pattern Evangelist (Jim)**. But I'll be writing about other Software topics, such as Test-Driven Development, Domain-Driven Development, Refactoring, Legacy Code, etc.
 
 It may take me a whole to find my own style, but here are some guidelines that I'm going to try to adhere to:
-* I will try to limit each blog entry to no more that about 1,000 words.
+* I will try to limit each blog entry to no more that about 1,000 words. (Trying but really not succeeding. Under 2,000 words is probably more accurate.)
 * I will try to present one core idea per blog entry, but I will post individual blogs for a set of cohesive ideas.
 * I will try to use metaphors where possible.
 * I will try to tell a story.
