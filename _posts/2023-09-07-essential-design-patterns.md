@@ -50,7 +50,7 @@ While I love Scott’s acronym to help recall the set of essential design patter
 
 <img src="/assets/SimpleFactoryMethod.png" alt="FactoryMethod" width = "24%" align="right" style="padding-right: 20px;">
   
-* [Factory Method](https://refactoring.guru/design-patterns/factory-method) is a means of acquiring a reference to an interface or abstract base class without calling `new` directly. This is done via a **_static method invocation_**. The `new` operation is still invoked to create a reference to a specific class, but it resides in a static method which is often part of a separate Factory Class. It encapsulates the class type from the client code.
+* [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) is a means of acquiring a reference to an interface or abstract base class without calling `new` directly. This is done via a **_static method invocation_**. The `new` operation is still invoked to create a reference to a specific class, but it resides in a static method which is often part of a separate Factory Class. It encapsulates the class type from the client code.
 
 <img src="/assets/SimpleDependencyInjection.png" alt="Dependency Injection" width = "30%" align="right" style="padding-right: 20px;">
   
