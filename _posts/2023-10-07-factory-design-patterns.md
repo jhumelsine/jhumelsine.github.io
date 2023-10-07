@@ -22,7 +22,7 @@ While object creation and configuration are implicit themes in the Gang of Four 
 # Ways To Instantiate Object Instances
 
 ## The Problem with `new`
-Steve Ardalis used the phrase, _New is Glue_, in a [2012 blog](https://ardalis.com/new-is-glue/). Any code that instantiates an object via a constructor directly, often calling `new`, will depend upon that class type. It will be glued to it.
+Steve Ardalis used, and I think coined, the phrase, _New is Glue_, in a [2012 blog](https://ardalis.com/new-is-glue/). Any code that instantiates an object via a constructor directly, often calling `new`, will depend upon that class type. It will be glued to it.
 
 We don’t want the Client Application to depend upon the objects that it uses. `new` will create a dependency.
 
@@ -180,3 +180,7 @@ There are many online resources with diagrams and implementations in different p
 * and for more Google [Creational Design Pattern](https://www.google.com/search?q=creational+design+patterns)
 
 Here are some resources that can be purchased or are included in a subscription service:
+* [Gang of Four Creational Design Patterns](https://learning.oreilly.com/library/view/design-patterns-elements/0201633612/ch03.html)
+* Agile Principles, Patterns, and Practices in C#, Chapter 29 ([O'Reilly](https://learning.oreilly.com/library/view/agile-principles-patterns/0131857258/) and [Amazon](https://www.amazon.com/Agile-Principles-Patterns-Practices-C/dp/0131857258))
+* Clean Code: Design Patterns, Episode 26 video ([Clean Coders](https://cleancoders.com/episode/clean-code-episode-26) and [O'Reilly](https://learning.oreilly.com/videos/clean-code-fundamentals/9780134661742/9780134661742-code_03_33_00/))
+* Head First Design Patterns, Chapter 4 ([O'Reilly](https://learning.oreilly.com/library/view/head-first-design/9781492077992/ch04.html) and [Amazon](https://www.amazon.com/Head-First-Design-Patterns-Object-Oriented-ebook/dp/B08P3X99QP))
