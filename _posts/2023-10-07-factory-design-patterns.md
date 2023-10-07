@@ -17,7 +17,7 @@ I only told half the story before with previous design patterns [Command](https:
 
 Patterns that involve pluggable concrete classes are incomplete until a **Creational Design Pattern** completes them.
 
-While object creation and configuration are implicit themes in the Gang of Four (GoF), I think they should have been more explicit about it. Their patterns rarely complete the story, which I’ll try to do.
+While object creation and configuration are implicit themes in the Gang of Four (GoF), I think they should have been more explicit about it. Their patterns presentations rarely complete the story, which I’ll try to do.
 
 # Ways To Instantiate Object Instances
 
@@ -28,17 +28,17 @@ We don’t want the Client Application to depend upon the objects that it uses. 
 
 We want to avoid using `new` to create domain objects as shown below.
 
-<img src="/assets/FactoryNewIsGlue.png" alt="New Is Glue" width = "50%" align="center" style="padding-right: 20px;">
+<img src="/assets/FactoryNewIsGlue.png" alt="New Is Glue" width = "60%" align="center" style="padding-right: 20px;">
 
-Using `new` is often fine for utilities, such as:
+Using `new` is usually fine for utilities, such as:
 ```java
 String name = new String()
 ```
-The GoF addressed this conceptually with their first design principle [Program to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation). This principle states that the code should depend upon interfaces and not specific classes. But it doesn’t state how references to interfaces are resolved.
+The GoF addressed this conceptually with their first design principle: [Program to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation). This principle states that the code should depend upon interfaces and not specific classes. But it doesn’t state how references to interfaces are resolved.
 
 A naive approach could look like this, where the Client Application declares the reference as an interface, but it’s still calling `new` to instantiate the reference.
 
-<img src="/assets/FactoryInterfaceOnly.png" alt="Programming to Interface but calling new()" width = "50%" align="center" style="padding-right: 20px;">
+<img src="/assets/FactoryInterfaceOnly.png" alt="Programming to Interface but calling new()" width = "60%" align="center" style="padding-right: 20px;">
 
 The GoF continued their interface theme with their Creational Design Patterns, which complete the story for most design patterns when paired together. The Creational Design Patterns instantiate objects without the Client Application having direct knowledge of the class type for the instantiated object. The GoF were obsessed with encapsulating class type within a Creational Design Patterns so that the Client Application would not know the type.
 
@@ -53,24 +53,24 @@ Static methods are associated with classes, not objects. Therefore, static metho
 ### Factory Method
 Here’s an example of Factory Method. The Client Application calls the static `acquire(Kind)` method, which returns a `MyInterface` object. `Kind` refers to the type of class that the Client Application may desire. Notice that `acquire(Kind)` can return a class instance of `MyClassA` and `MyClassB` for `Kind` `A` and `B` respectively. While the Client Application does know `Kind` it does not know `MyClassA` or `MyClassB`. `MyInterfaceFactory` could return any class for `A` or `B` as long as those classes extend `MyInterface`.
 
-<img src="/assets/FactoryMethod.png" alt="Factory Method" width = "80%" align="center" style="padding-right: 20px;">
+<img src="/assets/FactoryMethod.png" alt="Factory Method" width = "90%" align="center" style="padding-right: 20px;">
  
 ### Factory Class
 Factory Class is like Factory Method. The main difference is that the `MyInterfaceFactory` is not part of the `MyInterface` hierarchy. Notice that nothing changes from the Client Application’s point of view.
 The GoF tend to feature the Factory Method technique, but I prefer the Factory Class technique. While it’s still a matter of personal choice, I prefer Factory Class over Factory Method, because:
-* Since Java doesn’t support multiple inheritance, I don’t want to introduce a base class for the purpose of creating the subclasses.
+* Java doesn’t support multiple inheritance, I don’t want to introduce a base class solely for the purpose of instantiating descendnt objects.
 * I prefer the separation of concerns with this design. The interface contract and its concrete implementations are separate from the mechanism that creates the object instances.
 
-<img src="/assets/FactoryClass.png" alt="Factory Class" width = "80%" align="center" style="padding-right: 20px;">
+<img src="/assets/FactoryClass.png" alt="Factory Class" width = "90%" align="center" style="padding-right: 20px;">
  
 ## Abstract Factory
 Abstract Factory is the first one you encounter in detail when reading the GoF book. It’s a bit overwhelming as the first pattern encountered. I’ve presented it here as a modification to the Factory Class:
 * `MyInterfaceFactory` is a new element. It’s an interface that defines a contract for creating an instance of `MyInterface`.
 * Client Application is a little different. It doesn’t access a static class method. It accesses `acquire(Kind)` via a reference to `interfaceFactory`. And I’m going to kick the resolution can of `interfaceFactory` down the road once more. Its resolution will be in the next blog.
 * The <virtual> creation line from `MyInterfaceFactory` to `MyInterface` is only to highlight that as far as the Client Application is concerned, `MyInterfaceFactory` created `MyInterface`, but it is actually created by `MyInterfaceFactoryImpl`.
-* The curved line is not an implementation detail. It defines an architectural/design boundary. All the business logic resides above the line. All dependency details reside below the line. This gives us great freedom in plugging in different factory implementations for different needs, such as production dependencies or test double dependencies.
+* The curved line is not an implementation detail. It defines an architectural/design boundary. All the business logic abstraction resides above the line. All dependency details reside below the line. This gives us great freedom in plugging in different factory implementations for different needs, such as production dependencies or test double dependencies.
 
-<img src="/assets/AbstractFactory.png" alt="Abstract Factory" width = "80%" align="center" style="padding-right: 20px;">
+<img src="/assets/AbstractFactory.png" alt="Abstract Factory" width = "90%" align="center" style="padding-right: 20px;">
  
 NOTE: The above diagram is inspired by a diagram in Bob Martin’s Clean Architecture book. I’ve basically added a bit more detail:
 <img src="https://i.stack.imgur.com/RUJt2.png" alt="Bob Martin's Abstract Factory" width = "70%" align="center" style="padding-right: 20px;">
@@ -80,10 +80,10 @@ The previous creational patterns required knowledge of the concrete classes, bec
 * `MyInterface` declares the `acquire()` method. This creational pattern requires a method in the contract interface.
 * Each concrete class must implement `acquire()`. `MyClass` creates and returns an instance of itself. At one time, I had used a copy-constructor for this technique. Then I realized that the application only needed another object instance. It didn’t need a copy. The default constructor worked fine.
 * If constructor attributes are required, then they can be added to `acquire()` as needed.
-* While `new` appears in the diagram, it only appears in the class from which it is called. In this example, it’s contained definition in `MyClass`. The class type knowledge is only known with itself. It’s not known to the rest of the technique.
-* `MyClass` isn’t really part of this creation mechanism, but it’s a critical supporting player. The mechanism needs an object from which its `acquire()` method can be called. It still doesn’t eliminate `new`. It just moves it to a different location, which is completely outside of the mechanism itself. It doesn’t care how the object is created. It only needs an object exists. And that object can be instantiated from any class type as long as it implements `MyInterface`.
+* While `new` appears in the diagram, it only appears in the class from which it is called. In this example, it’s contained completely within the definition in `MyClass` itself. The class type knowledge is only known within itself. It’s not known in the rest of the technique.
+* `MyClass` isn’t really part of this creation mechanism, but it’s a critical supporting player. The mechanism needs an object from which its `acquire()` method can be called. It still doesn’t eliminate `new`. It just moves it to a different location, which is completely outside of the mechanism itself. It doesn’t care how the object is created. It only needs an object to exist and be accessible. And that object can be instantiated from any class type as long as it implements `MyInterface`.
 
-<img src="/assets/FactoryCopy.png" alt="Object Cloning" width = "60%" align="center" style="padding-right: 20px;">
+<img src="/assets/FactoryCopy.png" alt="Object Cloning" width = "70%" align="center" style="padding-right: 20px;">
 
 # Gang Of Four Creational Design Pattern Inventory
 The GoF Creational Design Patterns used the techniques listed above. In some cases, their patterns are mostly identical to the above, but they often provide additional features or context. I’ll list them with brief descriptions. See the references section below for more resources for specific Creational Design Patterns.
@@ -92,7 +92,7 @@ The GoF Creational Design Patterns used the techniques listed above. In some cas
 The GoF Factory Method is so close to what I described above that I don’t need to provide any additional context.
 
 ## Singleton
-Singleton ensures that only one instance of the class is ever created. It’s quite possibly the most overly used and incorrectly used design pattern. The GoF’s implementation is not thread safe.
+Singleton ensures that only one instance of the class is ever created. It’s quite possibly the most overly used and incorrectly used design pattern. The GoF’s implementation is not thread safe. Singletons should not contain state unless that state applies to all Client Applications globally.
 
 There are legitimate uses for Singleton. Just make sure you only use it for those reasons.
 
@@ -100,18 +100,18 @@ There are legitimate uses for Singleton. Just make sure you only use it for thos
 Flyweight is not listed as a Creational Design Pattern by the GoF. It’s in the Structural Patterns group. It’s similar to Singleton in that it ensures a single object instance, but it does so based upon a unique key. There can be more than one instance of a class, but there can only be one instance for each unique key. This is why it’s also known as Multiton, which is a play on words with Singleton.
 
 ## Object Pool
-Object Pools is not in the GoF inventory. With an Object Pool, the number of possible Objects for a class is fixed. An Object Pool is usually used for classes where creation of the class is resource intensive. A Thread Pool is a type of Object Pool.
+Object Pool is not in the GoF inventory. With an Object Pool, the number of possible Objects for a class is fixed. An Object Pool is usually used for classes where creation of the class is resource intensive. A Thread Pool is a type of Object Pool.
 
-Object Pool has several additional concerns:
+Object Pool has several additional considerations:
 * An object in the pool needs to be sanitized before it can be reused.
 * A policy is required when there’s a request for an object and all existing objects are being used. Possible policies include:
     * Block Waiting
-    * Notification availability
-    * Resource exception
+    * Callback notification availability
+    * Unavailable resource exception
     * Expanding the pool
 
 ## Abstract Factory
-The GoF Abstract Factory is so close to what I described above, but Abstract Factory descriptions usually focus upon the ability create instances of interface family types. That is, they help ensure a consistent set of objects when several interfaces need to interact consistently. For example, you wouldn't want one factory that returned a production objet another one that returned a test object to interact. Abstract Factory helps avoid that.
+The GoF Abstract Factory is close to what I described above, but Abstract Factory descriptions usually focus upon the ability create consistent instances of interface family types. That is, they help ensure a consistent set of objects when several interfaces need to interact consistently. For example, you wouldn't want one factory that returned a production objet another one that returned a test object to interact. Abstract Factory helps avoid that.
 
 Abstract Factory is a Factory of Factory of Factory Methods.
 
@@ -145,20 +145,20 @@ I think the GoF goofed in at least two aspects of their Creational Design Patter
 ## What Happened to Encapsulation?
 The GoF were obsessed with encapsulation. Don’t let the Client Application know the class type. Then they feature method names for each Creational Design Pattern that suggests the creation mechanism:
 * Factory Method and Abstract Factory feature `create()` or `make()`
-* Singleton features `instance()`
+* Singleton features `instance()` or `getInstance()`
 * Builder features `construct()`
 * Prototype features `clone()`
 
-Using method names that indicate creation mechanism breaks encapsulation. Let’s also consider the Client Application. Its main concern is acquiring a method. It doesn’t care about the creation mechanism. That’s why I used `acquire()` in all of my examples.
+Using method names that indicate creation mechanism breaks encapsulation. Let’s consider the Client Application. Its main concern is acquiring a method. It doesn’t care about the creation mechanism. That’s why I used `acquire()` in all of my examples.
 
 ## Memory Leaks?
 The GoF tend to use C++ for their creational design pattern examples, and this is C++ from 1995.
 
-I don’t recall any sample code where they delete any objects created via their design patterns. Some of their examples leak memory. I assume they assumed that developers would handle the memory management.
+I don’t recall any sample code where they delete any objects created via their design patterns. Some of their examples leak memory. I assume they assumed that developers would know enough to handle the memory management.
 
-When I was a C++ developer, I’d pair `acquire()` with `release(object)` when I designed creational mechanisms. When the Client Application was done with object, it would `release` it. The `release(object)` method would manage any cleanup that was needed. Keep in mind that Factory Method objects would be deleted. Object Pool objects would be cleaned and returned to the Pool. Singletons would not be affected.
+When I was a C++ developer, I’d pair `acquire()` with `release(object)` when I designed creational mechanisms. When the Client Application was done with an object, it would `release` it. The `release(object)` method would manage any cleanup that was needed. Keep in mind that Factory Method objects would be deleted. Object Pool objects would be cleaned and returned to the Pool. Singletons would not be affected. By adding `release`, the creation mechanism was also resonsible for any clean up. The only developer resonsibility was calling `release`.
 
-Even then, I didn’t trust developers to always call `release(object)`. So I used [Resource Allocation Is Instantiation](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization) (RAII) where `acquire()` was called in the constructor and `release(object)` was called in the destructor. I’d had come full circle and completely encapsulated the use of creational design patterns within an object whose lifecycle was traditional C++.
+I didn’t trust developers to always call `release(object)`. So I used [Resource Allocation Is Instantiation](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization) (RAII). A small wrapper class managed the object lifecycle. `acquire()` was called in the wrapper's constructor and `release(object)` was called in its destructor. I’d had come full circle and completely encapsulated the use of creational design patterns within an object whose lifecycle was traditional C++.
 
 Java has garbage collection, so memory management isn’t as necessary, but it shouldn’t be ignored. I don’t think there’s a need for `release(object)` in Java, but Singleton and Flyweight/Multiton can leak memory. Once these objects are allocated, they are never released. [Weak references](https://www.baeldung.com/java-weak-reference) might be a way to ensure that their memory is recovered when no longer in use.
 
