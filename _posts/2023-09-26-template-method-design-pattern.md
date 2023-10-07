@@ -134,6 +134,7 @@ There are many online resources with diagrams and implementations in different p
 * [Wikipedia Template Method Design Pattern](https://en.wikipedia.org/wiki/Template_method_pattern)
 * [Source Making Template Method Design Pattern](https://sourcemaking.com/design_patterns/strategy)
 * [Refactoring Guru Template Method Design Pattern](https://refactoring.guru/design-patterns/template-method)
+* [DoFactory Template method Design Pattern](https://www.dofactory.com/net/template-method-design-pattern)
 * [Project Management Institute Template Method Design Pattern](https://www.pmi.org/disciplined-agile/the-design-patterns-repository/the-template-method-pattern)
 * and for more Google [Template Method Design Pattern](https://www.google.com/search?q=template+method+design+pattern)
 
