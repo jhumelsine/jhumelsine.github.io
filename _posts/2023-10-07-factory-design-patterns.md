@@ -74,16 +74,6 @@ Abstract Factory is the first one you encounter in detail when reading the GoF b
  
 NOTE: The above diagram is inspired by a diagram in Bob Martin’s Clean Architecture book. I’ve basically added a bit more detail:
 <img src="https://i.stack.imgur.com/RUJt2.png" alt="Bob Martin's Abstract Factory" width = "70%" align="center" style="padding-right: 20px;">
- 
-## Object Cloning
-The previous creational patterns required knowledge of the concrete classes, because `new` was called within the pattern mechanism itself. This cloning mechanism is a little different in that it creates an object instance from another object instance:
-* `MyInterface` declares the `acquire()` method. This creational pattern requires a method in the contract interface.
-* Each concrete class must implement `acquire()`. `MyClass` creates and returns an instance of itself. At one time, I had used a copy-constructor for this technique. Then I realized that the application only needed another object instance. It didn’t need a copy. The default constructor worked fine.
-* If constructor attributes are required, then they can be added to `acquire()` as needed.
-* While `new` appears in the diagram, it only appears in the class from which it is called. In this example, it’s contained completely within the definition in `MyClass` itself. The class type knowledge is only known within itself. It’s not known in the rest of the technique.
-* `MyClass` isn’t really part of this creation mechanism, but it’s a critical supporting player. The mechanism needs an object from which its `acquire()` method can be called. It still doesn’t eliminate `new`. It just moves it to a different location, which is completely outside of the mechanism itself. It doesn’t care how the object is created. It only needs an object to exist and be accessible. And that object can be instantiated from any class type as long as it implements `MyInterface`.
-
-<img src="/assets/FactoryCopy.png" alt="Object Cloning" width = "70%" align="center" style="padding-right: 20px;">
 
 # Gang Of Four Creational Design Pattern Inventory
 The GoF Creational Design Patterns used the techniques listed above. In some cases, their patterns are mostly identical to the above, but they often provide additional features or context. I’ll list them with brief descriptions. See the references section below for more resources for specific Creational Design Patterns.
@@ -116,11 +106,11 @@ The GoF Abstract Factory is close to what I described above, but Abstract Factor
 Abstract Factory is a Factory of Factory of Factory Methods.
 
 ## Prototype
-Prototype uses the clone technique listed above. The GoF describe it with the method name `clone()`. I’m avoiding `clone()`, since `clone()` has additional connotations and baggage in Java.
+Prototype is different from Factories. Factory patterns often encapsulate `new` within a static method. Factories still need to know the class type. Prototype's mechanism encapsulates `new` within a non-static method. A new object is acquired with Prototype by calling the non-static method of an existing object, which calls its own constructor via `new` and returns a new object instance.
 
-When I’ve used Prototype, I’ve created a repository of breeder objects with key identifiers, such as a class name. The Prototype mechanism would acquire an object based upon a key name. If a breeder object with that key is found in the repository, then a newly object is created from the breeder and returned.
+Prototype includes a repository. _Breeder_ objects are created and added to the Prototype repository. Each object is identifiable via a key, which could be a name or any unique key. When a new object is needed, the repository is searched using the key. If a breeder object is found for that key, then its non-static method is called, and the object it instantiates is returned.
 
-Prototype has the unique feature that it can return copies of any breeder object stored in the repository without knowing their class types.
+Prototype doesn't know class types. It can return a new object for any breeder object in its respository. This makes it a flexible creational pattern when the set of possible class types aren't known in advance.
 
 ## Builder
 I don’t think I can describe Builder in a paragraph or two and give it justice. I’ll just state that it’s useful when you need to initialize and assemble a composite of objects rather than a single object instance.
