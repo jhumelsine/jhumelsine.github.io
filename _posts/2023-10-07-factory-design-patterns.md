@@ -1,7 +1,6 @@
 ---
 title: Factory Design Patterns
 description: How do you instantiate an object without knowing its type?
-unlisted: true
 ---
 
 ![Painting of Factories](https://www.brooklineconnection.com/history/Facts/images/steelmills16.JPG)
