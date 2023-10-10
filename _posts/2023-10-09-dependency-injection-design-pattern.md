@@ -1,22 +1,21 @@
 ---
 title: Dependency Injection
-description: Dependency Injection Demystified - Crafting Clean Code with Ease
+description: How Dependency Injection resolves object resolution cleanly
 unlisted: true
 ---
 
 <img src="https://ae01.alicdn.com/kf/S7fdd40fce12042769a255dce921cb97dg/Stainless-Steel-Spice-Syringe-Marinade-Injector-Flavor-Syringe-Cooking-Meat-Poultry-Turkey-Chicken-Kitchen-BBQ-Tool.jpg" alt="Meat Injector" width = "55%" align="center" style="padding-right: 20px;">
-
  
 # Introduction
 I’m finally done kicking the object resolution can down the road. This wraps up the [Essential Design Patterns](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html).
 
-About a dozen years ago, I worked on a small team with a tightly knit group of developers. I wrote some of the best code of my career while on that team. It just wasn’t the team that was tight. Our code was tightly coupled as well. It was modular, but it was still tightly coupled.
+About a dozen years ago, I worked on a tightly knit small team. I wrote some of the best code of my career while on that team. It just wasn’t the team that was tight. Our code was tightly coupled as well. It was modular, but it was still tightly coupled.
 
-Often when we needed to test new behavior, we’d compile the entire product on our desktop machines, copy the executable to a thumb drive, carry it into our QA lab, which had about 3 servers on it, and hope that at least one of them was available. We’d copy our latest executable from the thumb drive to a server and then try to observe the new or updated functionality through the user interface.
+Often when we needed to test new behavior, we’d compile the entire product on our desktop machines, copy the executable to a thumb drive, walk it into our QA lab, copy our latest executable from the thumb drive to a server and then try to observe the new or updated functionality through the user interface.
 
-If the behavior was broad, then we could probably see it. If the behavior was more subtle, then we probably couldn’t see it. Edge cases were very difficult to confirm.
+If the behavior was broad, then we could probably observe it. If the behavior was more subtle, then we probably couldn’t observe it. Edge cases were very difficult to confirm.
 
-We had [CppUnit](https://en.wikipedia.org/wiki/CppUnit), which is the C++ version of [xUnit](https://en.wikipedia.org/wiki/XUnit). We could write tests in CppUnit, but we didn’t really understand unit testing. I tried writing CppUnit tests several times, but after a few weeks, they would start breaking, because they were brittle. It was another several years and another company before I figured out unit testing.
+We had [CppUnit](https://en.wikipedia.org/wiki/CppUnit), which is the C++ version of [xUnit](https://en.wikipedia.org/wiki/XUnit). We could write tests in CppUnit, but we didn’t really understand how to structure tests well. I tried writing CppUnit tests several times, but after a few weeks, they would start breaking, because they were brittle. It was several years before I figured out unit testing.
 
 Some of my code was decoupled enough that I could test it on my desktop. I could test the sunny day scenarios, but I was having a real problem testing the rainy-day scenarios. For example, I wanted to confirm that my code handled an Exception correctly, but I couldn’t make the code throw an Exception easily.
 
@@ -41,18 +40,35 @@ This worked, but it was painful. A test took a long time to set up and it requir
 # Dependency Inversion Principle
 What was I doing wrong?
 
-I was violating the [Dependency Inversion Principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle) (DIP), even though I had not heard of it before. 
-If an application is delegating to an interface, then the application should not be responsible to resolve that interface even if doing so indirectly.
+I was violating the [Dependency Inversion Principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle) (DIP), even though I had not heard of it before.
+
+When code instantiates an object directly via `new()`, it is tighly coupled to that class. If the coupled class does the same, then it's tightly coupled to its dependencies. This tight coupling can daisychain through the system to the point that the entire system is tightly coupled from top to bottom. You can see how the arrows show dependency from left to right:
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Traditional_Layers_Pattern.png" alt="Tight Coupling" width = "55%" align="center" style="padding-right: 20px;">
+
+[Programming to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-implementation-not-an-interface) helps break that dependency. Placing an interface between classes as a buffer inverts the dependency when we notice that the interface implementation dependency is inverted. The classes only depend upon interfaces. They don't depend upon each other. They don't even know about each other.
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/DIPLayersPattern.png" alt="Dependency Inversion Principle" width = "55%" align="center" style="padding-right: 20px;">
+
+But this only part of the story. We did this in our project. I did this in my code. Notice above that there are two potential paths from `ClientApplication` to `MyClass`. 
+
+<img src="/assets/DependencyInjectionSetUp.png" alt="Dependency Injection Set Up" width = "55%" align="center" style="padding-right: 20px;">
+
+One path is across the top and then down. That's inverted, and no longer a problem. The second path is down and across the bottom. That one is the problem. Follow the arrows. There's a dependency chain from `ClientApplication` to `MyInterfaceFactory` and onto `MyClass`. `ClientApplication` still depends upon `MyClass`, but it's just not quite as obvious. I had not inverted all of the dependencies.
+
+<!--
+But it was still tightly coupled, since our object references were still resolved with other components in the system, even when that resolution was occurring in Factories. As a result, many components directly or indirectly depended upon much of the rest of the components in the project. The only place to test them was in the lab.
 
 `ClientApplication` as still deterministically resolving `MyInterface` as `MyClass` even if it didn’t know `MyClass`. `ClientApplication` was delegating to `MyInterfaceFactory`, which was creating `MyClass`.
 
 Each of the lines in the diagram above has an arrowhead, which indicates knowledge and dependency, even if that knowledge and dependency is indirect. `ClientApplication` indirectly depends upon `MyClass`. Even my hack with `MyTestDouble` has the same problem.
+-->
 
 # Dependency Injection
 <img src="https://m.media-amazon.com/images/I/A1d1xag7ZeL._SL1500_.jpg" alt="Meat Injector" width = "20%" align="right" style="padding-right: 20px;">
  
 At about that same time, I was reading [Martin Reddy](https://www.martinreddy.net/)’s [API Design for C++](https://www.amazon.com/API-Design-C-Martin-Reddy/dp/0123850037)
-I think this was one of the first times I had heard of Dependency Injection (DI). Here is some of what he wrote:
+I think this was one of the first times I had heard of [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection) (DI). Here is some of what he wrote:
 
 >Dependency injection is a technique where an object is passed into a class (injected) instead of having the class create and store the object itself. Martin Fowler coined the term in 2004 as a more specific form of the Inversion of Control concept.
 
@@ -79,7 +95,7 @@ class ClientApplication {
     private MyInterface myInterface;
     
     public ClientApplication(MyInterface myInterface) {
-        This.myInterface = myInterface;
+        this.myInterface = myInterface;
     }
     …
     myInterface.doThis();
@@ -99,11 +115,11 @@ And here’s how I could test the Exception case. I would not have needed to cha
  
 There’s a lot in both diagrams. I need to clarify some details.
 ## `MyInterface` and `ClientApplication`
-`MyInterface` is the same in all these diagrams in the blog.
+`MyInterface` is the same in all these diagrams in the blog. It's an interface contract. It has now external knowledge of how it's used or how it's implemented.
 
 `ClientApplication` is almost the same. The only difference is that the object reference to `MyInterface` is injected into it via a constructor argument/parameter. This breaks the dependency that `ClientApplication` had upon `MyClass` and `MyTestDouble` in the previous diagrams. Now, it only depends upon `MyInterface`. `ClientApplication` will rarely change in subsequent diagrams.
 ## Configurer?
-`Configurer`? It’s not a real word. I made it up. I prefer Orchestrator but it’s too close to Orchestration, which has other meanings. I considered Dependency Injector or Injector, but that’s an implementation technique. I want to convey design intent.
+`Configurer`? It’s not a real word. I made it up. I prefer _Orchestrator_ but it’s too close to _Orchestration_, which has other meanings. I considered _Dependency Injector_ or _Injector_, but that’s an implementation technique. I want to convey design intent.
 
 I have finally settled on a term I used many years ago when presenting Design Patterns Lunch & Learn seminars. The Configurer appears in many of my Design Pattern diagrams. It rarely appears in the Gang of Four diagrams. This is another sin of omission in their book in my humble opinion.
 
@@ -113,7 +129,7 @@ The red lines are design/architectural boundaries, and they convey the same inte
 I could go deep into the implications of knowledge boundaries and arrows, and I may go into more detail a future blog, but I’ll try to highlight what’s important now:
 * `ClientApplication` and `MyInterface` are isolated in the upper right quadrant of this diagram. All class relationships cross the red boundary pointing inward. These entities have no knowledge or dependency upon other elements of the design. The rest of the design is invisible to them.
 * `Configurer` and `TestConfigurer` are on the far left of the diagram. All class relationships cross the red boundary pointing outwardly from these classes. These elements have knowledge and dependency of the entire design, but they restrain themselves. They only use this knowledge to create and configure the objects in the rest of the design. They don’t contain any business logic. Not only are Configurers invisible to the rest of the design. They are invisible to each other as well. The design supports as many Configurers as needed.
-* `MyClass` and `MyTestDouble` are in the lower right quadrant of this diagram. They have knowledge of and depend upon `MyInterface`. Only the `Configurer` knows about them, so they can be swapped out easily as well.
+* `MyClass` and `MyTestDouble` are in the lower right quadrant of this diagram. They have knowledge of and depend upon `MyInterface`. They tend to be small and they are often [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) or [Façades](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html). Only the `Configurer` knows about them, so they can be swapped out easily as needed.
 
 But what a second! `Configurer` is instantiating `MyClass` via `new()`. What happened to those [Factories Design Patterns](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) from the previous blog post?
 
@@ -123,7 +139,7 @@ I think it’s okay to resolve object references via `new` via DI, but we’ll s
 
 I think there’s another reason why `new()` is okay in Configurers. Bob Martin talks about these boundaries in his _Clean Architecture_ designs:
 * The upper right quadrant is cocooned business logic. It has no concrete dependencies.
-* The lower right quadrant contains the concrete dependencies. They tend to be small implementations, especially when they are [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html).
+* The lower right quadrant contains the concrete dependencies. They tend to be small implementations, especially when they are [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) or [Façades](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html).
 * The Configurers are in the “lowest” section of your code. They reside in the bootstrap portion of the feature, possibly `main()`. It’s so “low” in the code that you can use `new()` and not get yourself into too much trouble.
 
 # Dependency Inject and Factories
@@ -150,9 +166,9 @@ There are Dependency Injection frameworks as well, with Spring probably being th
  
 # Dependency Injection vs Dependency Inversion Principle vs Inversion of Control
 These are three concepts with similar names and similar concepts, but still different:
-* Dependency Injection is a design pattern/technique that injects dependencies into a class, usually as a constructor argument.
-* Dependency Inversion Principle is not allowing a class that depends upon an interface to instantiate the reference to that interface.
-* Inversion of Control is how frameworks work. The inversion is that the framework calls your code.
+* **Dependency Injection** is a design pattern/technique that injects dependencies into a class, usually as a constructor argument.
+* **Dependency Inversion Principle** is not allowing a class to have any knowledge or dependency upon a class that it delegates to.
+* **Inversion of Control** is how frameworks work. The inversion is that the framework calls your code.
 
 # Summary
 Dependency Injection feels a little strange at first glance, but it’s a useful way to resolve dependencies while maintaining flexibility in the design.
@@ -160,18 +176,20 @@ This wraps up the [Essential Design Patterns](https://jhumelsine.github.io/2023/
 
 # References
 Here are some free resources:
-* https://en.wikipedia.org/wiki/Dependency_injection
-* https://www.smashingmagazine.com/2020/12/practical-introduction-dependency-injection/
-* https://www.baeldung.com/inversion-control-and-dependency-injection-in-spring
-* https://www.digitalocean.com/community/tutorials/java-dependency-injection-design-pattern-example-tutorial
-* https://martinfowler.com/articles/injection.html
-* https://en.wikipedia.org/wiki/Dependency_inversion_principle
-* https://www.baeldung.com/cs/dip
-* https://en.wikipedia.org/wiki/Inversion_of_control
-* https://martinfowler.com/articles/injection.html
-* https://martinfowler.com/bliki/InversionOfControl.html
-* https://www.baeldung.com/spring-autowire
+* Dependency Injection:
+    * [Wikipedia](https://en.wikipedia.org/wiki/Dependency_injection)
+    * [Inversion of Control Containers and the Dependency Injection pattern](https://martinfowler.com/articles/injection.html) by Martin Fowler
+    * [A Practical Introduction To Dependency Injection](https://www.smashingmagazine.com/2020/12/practical-introduction-dependency-injection/) by Jamie Corkhill
+    * [Java Dependency Injection - DI Design Pattern Example Tutorial](https://www.digitalocean.com/community/tutorials/java-dependency-injection-design-pattern-example-tutorial) by Pankaj
+    * [Guide to Spring @Autowired](https://www.baeldung.com/spring-autowire) by Baeldung
+* Dependency Inversion Principle:
+    * [Wikipedia](https://en.wikipedia.org/wiki/Dependency_inversion_principle)
+    * [System Design: Dependency Inversion Principle](https://www.baeldung.com/cs/dip) by Baeldung
+* Inversion Of Control:
+    * [Wikipedia](https://en.wikipedia.org/wiki/Inversion_of_control)
+    * [Inversion of Control](https://martinfowler.com/bliki/InversionOfControl.html) by Martin Fowler
+    * [Intro to Inversion of Control and Dependency Injection with Spring](https://www.baeldung.com/inversion-control-and-dependency-injection-in-spring) by Baeldung
 
 Here are some resources that can be purchased or are included in a subscription service:
-* https://learning.oreilly.com/library/view/api-design-for/9780123850034/xhtml/chp003.xhtml
-* https://learning.oreilly.com/library/view/clean-architecture-a/9780134494272/
+* **API Design in C++** Chapter 3 by Martin Reddy ([O'Reilly](https://learning.oreilly.com/library/view/api-design-for/9780123850034/xhtml/chp003.xhtml) and [Amazon](https://www.amazon.com/API-Design-C-Martin-Reddy/dp/0123850037/))
+* **Clean Architecture** Chapter 11 by Robert Martin ([O'Reilly]([https://learning.oreilly.com/library/view/clean-architecture-a/9780134494272/](https://learning.oreilly.com/library/view/clean-architecture-a/9780134494272/ch11.xhtml)https://learning.oreilly.com/library/view/clean-architecture-a/9780134494272/ch11.xhtml) and [Amazon](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164/))
