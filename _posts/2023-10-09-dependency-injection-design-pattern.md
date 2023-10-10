@@ -39,13 +39,14 @@ I figured out a way to force an Exception, but it was nasty:
 This worked, but it was painful. A test took a long time to set up and it required a change to the Factory. What if I ever forgot to revert the Factory back to its proper implementation?
 
 # Dependency Inversion Principle
-What was I doing wrong? I was violating the [Dependency Inversion Principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle) (DIP), even though I had not heard of it before.
+What was I doing wrong?
+
+I was violating the [Dependency Inversion Principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle) (DIP), even though I had not heard of it before. 
+If an application is delegating to an interface, then the application should not be responsible to resolve that interface even if doing so indirectly.
 
 `ClientApplication` as still deterministically resolving `MyInterface` as `MyClass` even if it didn’t know `MyClass`. `ClientApplication` was delegating to `MyInterfaceFactory`, which was creating `MyClass`.
 
 Each of the lines in the diagram above has an arrowhead, which indicates knowledge and dependency, even if that knowledge and dependency is indirect. `ClientApplication` indirectly depends upon `MyClass`. Even my hack with `MyTestDouble` has the same problem.
-
-The “inversion” in DIP means that if an application is delegating to an interface, then the application should not resolve that interface even if doing so indirectly, which is exactly what I had been doing.
 
 # Dependency Injection
 <img src="https://m.media-amazon.com/images/I/A1d1xag7ZeL._SL1500_.jpg" alt="Meat Injector" width = "20%" align="right" style="padding-right: 20px;">
