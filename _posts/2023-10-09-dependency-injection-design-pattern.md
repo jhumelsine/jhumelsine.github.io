@@ -21,7 +21,7 @@ Some of my code was decoupled enough that I could test it on my desktop. I could
 
 I had been using Design Patterns for about 7 years by this point. What was I missing? Here’s an extremely high-level sketch of my basic design. Keep in mind that I want to confirm the expected behavior in `ClientApplication` when it calls `myInterface.doThis()` and an Exception is thrown.
 
-<img src="/assets/DependencyInjectionSetUp.png" alt="Dependency Injection Set Up" width = "55%" align="center" style="padding-right: 20px;">
+<img src="/assets/DependencyInjectionSetUp.png" alt="Dependency Injection Set Up" width = "65%" align="center" style="padding-right: 20px;">
  
 Why am I having this problem? I’m following good Design Pattern Principles:
 * I’m [programming to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-implementation-not-an-interface).
@@ -33,7 +33,7 @@ I figured out a way to force an Exception, but it was nasty:
 * I would confirm the behavior via a manual test.
 * I would change `MyInterfaceFactory` back to its original implementation to return `MyClass`.
 
-<img src="/assets/DependencyInjectionForcedException.png" alt="Dependency Injection Forced Exception" width = "55%" align="center" style="padding-right: 20px;">
+<img src="/assets/DependencyInjectionForcedException.png" alt="Dependency Injection Forced Exception" width = "65%" align="center" style="padding-right: 20px;">
  
 This worked, but it was painful. A test took a long time to set up and it required a change to the Factory. What if I ever forgot to revert the Factory back to its proper implementation?
 
@@ -46,15 +46,15 @@ When code instantiates an object directly via `new()`, it is tighly coupled to t
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Traditional_Layers_Pattern.png" alt="Tight Coupling" width = "55%" align="center" style="padding-right: 20px;">
 
-[Programming to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-implementation-not-an-interface) helps break that dependency. Placing an interface between classes as a buffer inverts the dependency when we notice that the interface implementation dependency is inverted. The classes only depend upon interfaces. They don't depend upon each other. They don't even know about each other.
+[Programming to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation) helps break that dependency. Placing an interface between classes as a buffer inverts the dependency when we notice that the interface implementation points up tothe implemenation. This is the inversion. The classes only depend upon interfaces. They don't depend upon each other. They don't even know about each other.
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/DIPLayersPattern.png" alt="Dependency Inversion Principle" width = "55%" align="center" style="padding-right: 20px;">
 
-But this only part of the story. We did this in our project. I did this in my code. Notice above that there are two potential paths from `ClientApplication` to `MyClass`. 
+But this only part of the story. We did this in our project. I did this in my code. Yet the code was still coupled. Notice above that there are two potential paths from `ClientApplication` to `MyClass`. 
 
 <img src="/assets/DependencyInjectionSetUp.png" alt="Dependency Injection Set Up" width = "55%" align="center" style="padding-right: 20px;">
 
-One path is across the top and then down. That's inverted, and no longer a problem. The second path is down and across the bottom. That one is the problem. Follow the arrows. There's a dependency chain from `ClientApplication` to `MyInterfaceFactory` and onto `MyClass`. `ClientApplication` still depends upon `MyClass`, but it's just not quite as obvious. I had not inverted all of the dependencies.
+One path is across the top and then down. That's inverted, and not the problem. The second path is down and across the bottom. That one is the problem. Follow the arrows. There's a dependency chain from `ClientApplication` to `MyInterfaceFactory` to `MyClass`. `ClientApplication` still depends upon `MyClass`, but it's just not quite as obvious. I had not inverted all of the dependencies.
 
 <!--
 But it was still tightly coupled, since our object references were still resolved with other components in the system, even when that resolution was occurring in Factories. As a result, many components directly or indirectly depended upon much of the rest of the components in the project. The only place to test them was in the lab.
@@ -74,7 +74,7 @@ I think this was one of the first times I had heard of [Dependency Injection](ht
 
 I didn’t understand Dependency Injection at first, and I definitely didn’t realize it could be the design solution to my problem.
 
-DI is a technique we’ve all used before. We inject data into objects all the time. Consider the following code where we inject a name into `Person` via a constructor argument:
+DI is a technique we’ve all used before. We inject data into objects all the time. Consider the following code that injects a name into `Person` via a constructor argument:
 ```java
 class Person {
     private String name;
@@ -89,7 +89,7 @@ Person person = new Person(“Tommy”);
 
 The `Person` class does not depend upon the name being “Tommy” or “Joe” or “Jane”. It can handle any of these names.
 
-We can do the exact same thing with dependencies. The only distinction is that dependencies usually aren’t basic types.
+We can do the exact same thing with Dependency Injection. The only distinction is that dependencies usually aren’t basic types.
 ```java
 class ClientApplication {
     private MyInterface myInterface;
@@ -105,40 +105,40 @@ ClientApplication clientApplication = new ClientApplication(new MyClass());
 ```
 
 # Dependency Injection Helps Support Dependency Inverse Principle
-Let’s see how DI would have helped solve my DIP issue:
+Let’s see how DI would have helped solve my DIP issue. There is no path from `ClientApplication` to `MyClass`:
 
 <img src="/assets/DependencyInjection.png" alt="Dependency Injection" width = "85%" align="center" style="padding-right: 20px;">
  
-And here’s how I could test the Exception case. I would not have needed to change any existing code. I only needed to introduce `MyTestDouble` and `TestConfigurer`, which doesn’t affect the previous design.
+And here’s how I could test the Exception case. I would not have needed to change any existing code. I only needed to introduce `MyTestDouble` and `TestConfigurer`, which doesn’t affect the previous design. `ClientApplication` and `MyInterface` are untouched. `MyClass` does not appear in this design, but that's okay. I'm not interested in `MyClass` for this test. I'm only interested in how `ClientApplication` response when a call to `MyInterface` throws an exception.
 
 <img src="/assets/DependencyInjectionTesting.png" alt="Dependency Injection Testing" width = "85%" align="center" style="padding-right: 20px;">
  
 There’s a lot in both diagrams. I need to clarify some details.
 ## `MyInterface` and `ClientApplication`
-`MyInterface` is the same in all these diagrams in the blog. It's an interface contract. It has now external knowledge of how it's used or how it's implemented.
+`MyInterface` is the same in all these diagrams in this blog. It's an interface contract. It has no external knowledge of how it's used or how it's implemented.
 
 `ClientApplication` is almost the same. The only difference is that the object reference to `MyInterface` is injected into it via a constructor argument/parameter. This breaks the dependency that `ClientApplication` had upon `MyClass` and `MyTestDouble` in the previous diagrams. Now, it only depends upon `MyInterface`. `ClientApplication` will rarely change in subsequent diagrams.
 ## Configurer?
 `Configurer`? It’s not a real word. I made it up. I prefer _Orchestrator_ but it’s too close to _Orchestration_, which has other meanings. I considered _Dependency Injector_ or _Injector_, but that’s an implementation technique. I want to convey design intent.
 
-I have finally settled on a term I used many years ago when presenting Design Patterns Lunch & Learn seminars. The Configurer appears in many of my Design Pattern diagrams. It rarely appears in the Gang of Four diagrams. This is another sin of omission in their book in my humble opinion.
+I have finally settled on a term I used many years ago when presenting Design Patterns Lunch & Learn seminars at the office. The Configurer appears in many of my Design Pattern diagrams. It rarely appears in the Gang of Four diagrams. This is another sin of omission in their book in my humble opinion.
 
 ## Red Lines
 The red lines are design/architectural boundaries, and they convey the same intent as seen in [Factories: Abstract Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#abstract-factory). They constrain the flow of knowledge in a design.
 
 I could go deep into the implications of knowledge boundaries and arrows, and I may go into more detail a future blog, but I’ll try to highlight what’s important now:
 * `ClientApplication` and `MyInterface` are isolated in the upper right quadrant of this diagram. All class relationships cross the red boundary pointing inward. These entities have no knowledge or dependency upon other elements of the design. The rest of the design is invisible to them.
-* `Configurer` and `TestConfigurer` are on the far left of the diagram. All class relationships cross the red boundary pointing outwardly from these classes. These elements have knowledge and dependency of the entire design, but they restrain themselves. They only use this knowledge to create and configure the objects in the rest of the design. They don’t contain any business logic. Not only are Configurers invisible to the rest of the design. They are invisible to each other as well. The design supports as many Configurers as needed.
-* `MyClass` and `MyTestDouble` are in the lower right quadrant of this diagram. They have knowledge of and depend upon `MyInterface`. They tend to be small and they are often [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) or [Façades](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html). Only the `Configurer` knows about them, so they can be swapped out easily as needed.
+* `Configurer` and `TestConfigurer` are on the far left of the diagram. All class relationships cross the red boundary pointing outwardly from these classes. These elements have knowledge and dependency of the entire design, but they restrain themselves. They only use this knowledge to create and configure the objects in the rest of the design. They don’t contain any business logic. Not only are Configurers invisible to the rest of the design. They are invisible to each other as well. This design supports as many Configurers as needed.
+* `MyClass` and `MyTestDouble` are in the lower right quadrant of this diagram. They have knowledge of and depend upon `MyInterface`. They tend to be small, and they are often [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) or [Façades](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html). Only the `Configurer` knows about them, so they can be swapped out easily as needed.
 
-But what a second! `Configurer` is instantiating `MyClass` via `new()`. What happened to those [Factories Design Patterns](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) from the previous blog post?
+But wait a second! `Configurer` is instantiating `MyClass` via `new()`. What happened to those [Factories Design Patterns](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) from the previous blog post?
 
 Dependency Injection is a Creational Design Pattern, even if it wasn’t included by the GoF. I don’t think this was a sin of omission as much as it was a case of DI not being too well known when they were writing their book.
 
 I think it’s okay to resolve object references via `new` via DI, but we’ll soon see that we can use Factories with DI as well.
 
-I think there’s another reason why `new()` is okay in Configurers. Bob Martin talks about these boundaries in his _Clean Architecture_ designs:
-* The upper right quadrant is cocooned business logic. It has no concrete dependencies.
+I think there’s another reason why `new()` is okay in Configurers. Bob Martin talks about these boundaries in [Clean Architecture](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164/):
+* The upper right quadrant is cocooned business logic. It has no concrete external dependencies. All communication to external dependencies is via interfaces
 * The lower right quadrant contains the concrete dependencies. They tend to be small implementations, especially when they are [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) or [Façades](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html).
 * The Configurers are in the “lowest” section of your code. They reside in the bootstrap portion of the feature, possibly `main()`. It’s so “low” in the code that you can use `new()` and not get yourself into too much trouble.
 
@@ -146,23 +146,23 @@ I think there’s another reason why `new()` is okay in Configurers. Bob Martin 
 While we can call `new()` using DI, we can still use Factories with them as well.
 Here’s one example:
 
-<img src="/assets/DependencyInjectionFactory.png" alt="Dependency Injection Factory" width = "85%" align="center" style="padding-right: 20px;">
+<img src="/assets/DependencyInjectionFactory.png" alt="Dependency Injection Factory" width = "95%" align="center" style="padding-right: 20px;">
 
 As for the Exception set up, it would be identical to the Exception Test UML class diagram shown above. There’s no need for a Factory in that test.
 
 And here’s how DI can work with Abstract Factory:
 
-<img src="/assets/DependencyInjectionAbstractFactory.png" alt="Dependency Injection Abstract Factory" width = "85%" align="center" style="padding-right: 20px;">
+<img src="/assets/DependencyInjectionAbstractFactory.png" alt="Dependency Injection Abstract Factory" width = "95%" align="center" style="padding-right: 20px;">
  
 Here’s the Exception Test diagram:
 
-<img src="/assets/DependencyInjectionAbstractFactoryTest.png" alt="Dependency Injection Factory Test" width = "85%" align="center" style="padding-right: 20px;">
+<img src="/assets/DependencyInjectionAbstractFactoryTest.png" alt="Dependency Injection Factory Test" width = "95%" align="center" style="padding-right: 20px;">
 
  
 # Spring
 There are Dependency Injection frameworks as well, with Spring probably being the most well-known for Java. It’s very similar to what I’ve shown previously, except that there are a few annotations:
 
-<img src="/assets/DependencyInjectionSpring.png" alt="Dependency Injection Spring" width = "85%" align="center" style="padding-right: 20px;">
+<img src="/assets/DependencyInjectionSpring.png" alt="Dependency Injection Spring" width = "95%" align="center" style="padding-right: 20px;">
  
 # Dependency Injection vs Dependency Inversion Principle vs Inversion of Control
 These are three concepts with similar names and similar concepts, but still different:
