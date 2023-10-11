@@ -13,7 +13,7 @@ About a dozen years ago, I worked on a tightly knit small team. I wrote some of 
 
 Often when we needed to test new behavior, we’d compile the entire product on our desktop machines, copy the executable to a thumb drive, walk it into our QA lab, copy the executable from the thumb drive to a server and then try to observe the new or updated functionality through the user interface.
 
-If the behavior was broad, then we could probably observe it. If the behavior was more subtle, then we probably couldn’t observe it. Edge cases were very difficult to confirm.
+If the behavior was broad, then we could probably observe it. If the behavior was more subtle, then we probably couldn’t observe it. Edge cases were very difficult to confirm. We'd ship our code and hope for the best. I don't recall any major issues with what we wrote.
 
 We had [CppUnit](https://en.wikipedia.org/wiki/CppUnit), which is the C++ version of [xUnit](https://en.wikipedia.org/wiki/XUnit). We could write tests in CppUnit, but we didn’t really understand how to structure tests well. I tried writing CppUnit tests several times, but after a few weeks, they would start breaking, because they were brittle. It was several years before I figured out unit testing.
 
@@ -47,13 +47,13 @@ When code instantiates an object directly via `new()`, it is tighly coupled to t
 <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Traditional_Layers_Pattern.png" alt="Tight Coupling" width = "65%" align="center" style="padding-right: 20px;">
 
 [Programming to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation) helps break that dependency.
-Placing an interface between classes as a buffer inverts the dependency. Notice that the interface implementation points up to the implemenation. It's the inverse of the arrows we see in the illustration above.
+Placing an interface between classes acts as a buffer that inverts the dependency. Notice that the interface implementation points up to the implemenation. It flips the dependency flow as seen above. It inverts the dependency.
 
 The classes only depend upon interfaces. They don't depend upon each other. They don't even know about each other.
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/DIPLayersPattern.png" alt="Dependency Inversion Principle" width = "65%" align="center" style="padding-right: 20px;">
 
-But this only part of the story. We did this in our project, mostly. I did this in my code, mostly. Yet the code was still coupled. Notice above that there are two potential paths from `ClientApplication` to `MyClass`. 
+But this only part of the story. We inverted the depencencies in our project, mostly. I inverted the dependencies in my code, mostly. Yet the code was still coupled. Notice above that there are two potential paths from `ClientApplication` to `MyClass`. 
 
 <img src="/assets/DependencyInjectionSetUp.png" alt="Dependency Injection Set Up" width = "75%" align="center" style="padding-right: 20px;">
 
@@ -100,7 +100,7 @@ ClientApplication clientApplication = new ClientApplication(new MyClass());
 ```
 
 # Dependency Injection Helps Support Dependency Inverse Principle
-Let’s see how DI would have helped solve my DIP issue. There is no path from `ClientApplication` to `MyClass`:
+Let’s see how DI would have helped solve my DIP issue. There is no dependency path from `ClientApplication` to `MyClass`:
 
 <img src="/assets/DependencyInjection.png" alt="Dependency Injection" width = "95%" align="center" style="padding-right: 20px;">
  
@@ -127,8 +127,25 @@ I could go deep into the implications of knowledge boundaries and arrows, and I 
 * `Configurer` and `TestConfigurer` are on the far left of the diagram. All class relationships cross the red boundary pointing outwardly from these classes. These elements have knowledge and dependency of the entire design, but they restrain themselves. They only use this knowledge to create and configure the objects in the rest of the design. They don’t contain any business logic. Not only are Configurers invisible to the rest of the design. They are invisible to each other as well. This design supports as many Configurers as needed.
 * `MyClass` and `MyTestDouble` are in the lower right quadrant of this diagram. They have knowledge of and depend upon `MyInterface`. They tend to be small, and they are often [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) or [Façades](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html). Only the `Configurer` knows about them, so they can be swapped out easily as needed.
 
+# Turtles All the Way Down
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/47/River_terrapin.jpg" alt="Turtles All the Way Down" width = "35%" align="right" style="padding-right: 20px;">
+
 But wait a second! `Configurer` is instantiating `MyClass` via `new()`. What happened to those [Factories Design Patterns](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) from the previous blog post?
 
+I had two mental blocks with Dependency Injection when I first started to read about it:
+* Was I still going to have to inject all dependencies for production and unit testing?
+* Where does it end? We're kicking the can down the road anymore so much as we're kicking it under the rug, which really isn't a very good metaphor.
+
+## The Complete Set of Dependencies
+Was I still going to have to inject all dependencies for production and unit testing?
+
+Short answer, Yes and No.
+
+Production configuraiton will require resolution for all layers dependencies, even dependencies of dependencies. This might get a bit large and complex, but it's only creating instances and assembling them together. An understanding of the parts of the architecture is needed, but there is no business logic.
+
+Unit test configuration will require resolution for the first layer of dependencies only. The interface is a contract. It is not an implementation. Implementation knowledge and dependencies are encapsulated behind it. It doesn't matter how simple or complex the actual implementation is. We only need to configure the bare minimim in our `Test Doubles`, and that may only be a single behavior for a single method too.
+
+## Kicking the Can Under the Rug
 Dependency Injection is a Creational Design Pattern, even if it wasn’t included by the GoF. I don’t think this was a sin of omission as much as it was a case of DI not being too well known when they were writing their book.
 
 I think it’s okay to resolve object references via `new` via DI, but we’ll soon see that we can use Factories with DI as well.
@@ -136,7 +153,7 @@ I think it’s okay to resolve object references via `new` via DI, but we’ll s
 I think there’s another reason why `new()` is okay in Configurers. Bob Martin talks about these boundaries in [Clean Architecture](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164/):
 * The upper right quadrant is cocooned business logic. It has no concrete external dependencies. All communication to external dependencies is via interfaces
 * The lower right quadrant contains the concrete dependencies. They tend to be small implementations, especially when they are [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) or [Façades](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html).
-* The Configurers are in the “lowest” section of your code. They reside in the bootstrap portion of the feature, possibly `main()`. It’s so “low” in the code that you can use `new()` and not get yourself into too much trouble.
+* We are kicking the can under the rug, but we will eventually reach the bottom. The Configurers are in the “lowest” section of your code. They reside in the bootstrap portion of the feature, possibly `main()`. It’s so “low” in the code that you can use `new()` and not get yourself into too much trouble.
 
 # Dependency Inject and Factories
 While we can call `new()` using DI, we can still use Factories with them as well.
@@ -154,9 +171,8 @@ Here’s the Exception Test diagram:
 
 <img src="/assets/DependencyInjectionAbstractFactoryTest.png" alt="Dependency Injection Factory Test" width = "95%" align="center" style="padding-right: 20px;">
 
- 
 # Spring
-There are Dependency Injection frameworks as well, with Spring probably being the most well-known for Java. It’s very similar to what I’ve shown previously, except that there are a few annotations. As for that _Spring Magic_, that's part of the Spring framework. It will handle everything you need as long as what you need resides in the framework. You won't have direct access to the _Spring Magic_ itself.
+There are Dependency Injection frameworks as well, with Spring probably being the most well-known for Java. It’s very similar to what I’ve shown previously, except that there are a few annotations. As for that _Spring Magic_, that's part of the Spring framework. It will handle everything you need as long as what you need resides in the framework. You won't have direct access to the _Spring Magic_ itself. For the most part, you don't even see it.
 
 <img src="/assets/DependencyInjectionSpring.png" alt="Dependency Injection Spring" width = "95%" align="center" style="padding-right: 20px;">
 
