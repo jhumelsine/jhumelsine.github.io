@@ -11,7 +11,7 @@ I’m finally done kicking the object resolution can down the road. This wraps u
 
 About a dozen years ago, I worked on a tightly knit small team. I wrote some of the best code of my career while on that team. It just wasn’t the team that was tight. Our code was tightly coupled as well. It was modular, but it was still tightly coupled.
 
-Often when we needed to test new behavior, we’d compile the entire product on our desktop machines, copy the executable to a thumb drive, walk it into our QA lab, copy our latest executable from the thumb drive to a server and then try to observe the new or updated functionality through the user interface.
+Often when we needed to test new behavior, we’d compile the entire product on our desktop machines, copy the executable to a thumb drive, walk it into our QA lab, copy the executable from the thumb drive to a server and then try to observe the new or updated functionality through the user interface.
 
 If the behavior was broad, then we could probably observe it. If the behavior was more subtle, then we probably couldn’t observe it. Edge cases were very difficult to confirm.
 
@@ -19,13 +19,13 @@ We had [CppUnit](https://en.wikipedia.org/wiki/CppUnit), which is the C++ versio
 
 Some of my code was decoupled enough that I could test it on my desktop. I could test the sunny day scenarios, but I was having a real problem testing the rainy-day scenarios. For example, I wanted to confirm that my code handled an Exception correctly, but I couldn’t make the code throw an Exception easily.
 
-I had been using Design Patterns for about 7 years by this point. What was I missing? Here’s an extremely high-level sketch of my basic design. Keep in mind that I want to confirm the expected behavior in `ClientApplication` when it calls `myInterface.doThis()` and an Exception is thrown.
+I had been using Design Patterns for about 7 years by this point. What was I missing? Here’s an extremely high-level sketch of my basic design. Keep in mind that I want to confirm the expected behavior in `ClientApplication` when it calls `myInterface.doThis()` and an Exception is thrown by `MyClass`. But I couldn't figure out a way to force `MyClass` to throw the Exception.
 
 <img src="/assets/DependencyInjectionSetUp.png" alt="Dependency Injection Set Up" width = "75%" align="center" style="padding-right: 20px;">
  
 Why am I having this problem? I’m following good Design Pattern Principles:
 * I’m [programming to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-implementation-not-an-interface).
-* I’m encapsulating the implementation, `MyClass`, from `ClientApplication` by acquiring it via a [factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html).
+* I’m encapsulating the implementation, `MyClass`, from `ClientApplication` by acquiring it via a [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html).
 
 I figured out a way to force an Exception, but it was nasty:
 * I created a new class, `MyTestDouble`, which threw the Exception when `doThis()` was called.
@@ -46,15 +46,18 @@ When code instantiates an object directly via `new()`, it is tighly coupled to t
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Traditional_Layers_Pattern.png" alt="Tight Coupling" width = "65%" align="center" style="padding-right: 20px;">
 
-[Programming to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation) helps break that dependency. Placing an interface between classes as a buffer inverts the dependency when we notice that the interface implementation points up tothe implemenation. This is the inversion. The classes only depend upon interfaces. They don't depend upon each other. They don't even know about each other.
+[Programming to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation) helps break that dependency.
+Placing an interface between classes as a buffer inverts the dependency. Notice that the interface implementation points up to the implemenation. It's the inverse of the arrows we see in the illustration above.
+
+The classes only depend upon interfaces. They don't depend upon each other. They don't even know about each other.
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/DIPLayersPattern.png" alt="Dependency Inversion Principle" width = "65%" align="center" style="padding-right: 20px;">
 
-But this only part of the story. We did this in our project. I did this in my code. Yet the code was still coupled. Notice above that there are two potential paths from `ClientApplication` to `MyClass`. 
+But this only part of the story. We did this in our project, mostly. I did this in my code, mostly. Yet the code was still coupled. Notice above that there are two potential paths from `ClientApplication` to `MyClass`. 
 
 <img src="/assets/DependencyInjectionSetUp.png" alt="Dependency Injection Set Up" width = "75%" align="center" style="padding-right: 20px;">
 
-One path is across the top and then down. That's inverted, and not the problem. The second path is down and across the bottom. That one is the problem. Follow the arrows. There's a dependency chain from `ClientApplication` to `MyInterfaceFactory` to `MyClass`. `ClientApplication` still depends upon `MyClass`, but it's just not quite as obvious. I had not inverted all of the dependencies.
+One path is across the top and then down. That path is inverted, and not the problem. The second path is down and across the bottom. That one is the problem. Follow the arrows. There's a dependency chain from `ClientApplication` to `MyInterfaceFactory` to `MyClass` in the object resolution. `ClientApplication` still depends upon `MyClass`, but it's just not quite as obvious. I had not inverted all of the dependencies.
 
 # Dependency Injection
 <img src="https://m.media-amazon.com/images/I/A1d1xag7ZeL._SL1500_.jpg" alt="Meat Injector" width = "20%" align="right" style="padding-right: 20px;">
@@ -112,9 +115,9 @@ There’s a lot in both diagrams. I need to clarify some details.
 `ClientApplication` is almost the same. The only difference is that the object reference to `MyInterface` is injected into it via a constructor argument/parameter. This breaks the dependency that `ClientApplication` had upon `MyClass` and `MyTestDouble` in the previous diagrams. Now, it only depends upon `MyInterface`. `ClientApplication` will rarely change in subsequent diagrams.
 
 ## Configurer?
-`Configurer`? It’s not a real word. I made it up. I prefer _Orchestrator_ but it’s too close to _Orchestration_, which has other meanings. I considered _Dependency Injector_ or _Injector_, but that’s an implementation technique. I want to convey design intent.
+`Configurer`? It’s not a real word. I made it up. I prefer _Orchestrator_ but it’s too close to _Orchestration_, which has other meanings. I considered _Dependency Injector_ or _Injector_, but that’s an implementation technique. I want to convey design intent. Martin Fowler used the term _Assembler_ in [Inversion of Control Containers and the Dependency Injection pattern](https://martinfowler.com/articles/injection.html), but that's a term that used elsewhere too.
 
-I have finally settled on a term I used many years ago when presenting Design Patterns Lunch & Learn seminars at the office. The Configurer appears in many of my Design Pattern diagrams. It rarely appears in the Gang of Four diagrams. This is another sin of omission in their book in my humble opinion.
+I have finally settled on a term I used many years ago when presenting Design Patterns Lunch & Learn seminars at the office. _Configurer_ appeared in many of my Lunch & Learn Design Pattern diagrams, often as an external actor. I'm resurrecting it for these blogs too. The concept rarely appears in the Gang of Four diagrams. This is another sin of omission in their book in my humble opinion.
 
 ## Red Lines
 The red lines are design/architectural boundaries, and they convey the same intent as seen in [Factories: Abstract Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#abstract-factory). They constrain the flow of knowledge in a design.
