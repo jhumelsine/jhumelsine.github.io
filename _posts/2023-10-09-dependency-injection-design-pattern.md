@@ -156,9 +156,13 @@ Here’s the Exception Test diagram:
 
  
 # Spring
-There are Dependency Injection frameworks as well, with Spring probably being the most well-known for Java. It’s very similar to what I’ve shown previously, except that there are a few annotations:
+There are Dependency Injection frameworks as well, with Spring probably being the most well-known for Java. It’s very similar to what I’ve shown previously, except that there are a few annotations. As for that _Spring Magic_, that's part of the Spring framework. It will handle everything you need as long as what you need resides in the framework. You won't have direct access to the _Spring Magic_ itself.
 
 <img src="/assets/DependencyInjectionSpring.png" alt="Dependency Injection Spring" width = "95%" align="center" style="padding-right: 20px;">
+
+You have at least two options with testing, and they will be very similar to what we've seen above. I'll describe them without providing additional images:
+* It's really no different than the test designs shown before. Even with Spring annotations, they are still Java classes. A _Test Double_ can be created and injected when an object instance of `ClientApplication` as its constructor argument when created via `new()`. This can be done in the test code without depending upon the Spring framework.
+* [JUnit](https://en.wikipedia.org/wiki/JUnit) can create _Test Doubles_ via [Mockito](https://en.wikipedia.org/wiki/Mockito) with Spring (and also without Spring), to inject what's needed as well.
  
 # Dependency Injection vs Dependency Inversion Principle vs Inversion of Control
 These are three concepts with similar names and similar concepts, but still different:
