@@ -133,7 +133,7 @@ But wait a second! `Configurer` is instantiating `MyClass` via `new()`. What hap
 
 I had two mental blocks with Dependency Injection when I first started to read about it:
 * Was I still going to have to inject all dependencies for production and unit testing?
-* Where does it end? We're kicking the can down the road anymore so much as we're kicking it under the rug, which really isn't a very good metaphor.
+* Where does it end? We're not kicking the can down the road anymore so much as we're kicking it under the rug, which really isn't a very good metaphor.
 
 ## The Complete Set of Dependencies
 Was I still going to have to inject all dependencies for production and unit testing?
