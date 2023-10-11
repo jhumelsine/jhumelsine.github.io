@@ -1,7 +1,6 @@
 ---
 title: Dependency Injection
 description: How Dependency Injection resolves object resolution cleanly
-unlisted: true
 ---
 
 <img src="https://ae01.alicdn.com/kf/S7fdd40fce12042769a255dce921cb97dg/Stainless-Steel-Spice-Syringe-Marinade-Injector-Flavor-Syringe-Cooking-Meat-Poultry-Turkey-Chicken-Kitchen-BBQ-Tool.jpg" alt="Meat Injector" width = "55%" align="center" style="padding-right: 20px;">
