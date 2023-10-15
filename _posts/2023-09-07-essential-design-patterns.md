@@ -26,7 +26,7 @@ Everyone will have their own favorite set of design patterns, but here are the s
 
 # Seven Essential Design Patterns in Logical Order
 
-While I love Scott’s acronym to help recall the set of essential design patterns, this is not the order in which I prefer to present them. Some of these design patterns are natural extensions of others. I will introduce them in what I consider logical order with **_highlights_** to their [basic OO components](https://jhumelsine.github.io/2023/09/01/parts-is-parts.html). (NOTE: The links to external resources are temporary. I will blog about each pattern individually and update the links here with a reference the blog entries when posted. The individual pattern blogs will contain the external resource links as well as other references):
+While I love Scott’s acronym to help recall the set of essential design patterns, this is not the order in which I prefer to present them. Some of these design patterns are natural extensions of others. I will introduce them in what I consider logical order with **_highlights_** to their [basic OO components](https://jhumelsine.github.io/2023/09/01/parts-is-parts.html):
 
 <img src="/assets/SimpleCommand.png" alt="Command" width = "15%" align="right" style="padding-right: 20px;">
 
@@ -54,7 +54,7 @@ While I love Scott’s acronym to help recall the set of essential design patter
 
 <img src="/assets/SimpleDependencyInjection.png" alt="Dependency Injection" width = "30%" align="right" style="padding-right: 20px;">
   
-* [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection) continues the theme of Factory Method. While Factory Method encapsulates the class type for object references returned, there’s still a dependency from the client code to the Factory Method and onto the actual class reference being returned. Dependency Injection removes that dependency by not allowing the client code to resolve its own external references. The external references are directly or indirectly resolved outside of the scope of the client and injected into the client, often as a constructor argument. Dependency Injection is not in the GoF design pattern catalog I suspect because references to Dependency Injection seem to occur after the publication of the book. It may have been a technique at the time, but it may not have been widely known enough to have made it into the GoF catalog.
+* [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) continues the theme of Factory Method. While Factory Method encapsulates the class type for object references returned, there’s still a dependency from the client code to the Factory Method and onto the actual class reference being returned. Dependency Injection removes that dependency by not allowing the client code to resolve its own external references. The external references are directly or indirectly resolved outside of the scope of the client and injected into the client, often as a constructor argument. Dependency Injection is not in the GoF design pattern catalog I suspect because references to Dependency Injection seem to occur after the publication of the book. It may have been a technique at the time, but it may not have been widely known enough to have made it into the GoF catalog.
 
 # Summary
 
