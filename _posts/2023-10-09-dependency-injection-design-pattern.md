@@ -138,11 +138,41 @@ I had two mental blocks with Dependency Injection when I first started to read a
 ## The Complete Set of Dependencies
 Was I still going to have to inject all dependencies for production and unit testing?
 
-Short answer, Yes and No.
+Short answer: Yes and No.
 
-Production configuraiton will require resolution for all layers dependencies, even dependencies of dependencies. This might get a bit large and complex, but it's only creating instances and assembling them together. An understanding of the parts of the architecture is needed, but there is no business logic.
+Production configuration will require resolution for all layers dependencies, even dependencies of dependencies. This might get a bit large and complex, but it's only creating instances and assembling them together. An understanding of the parts of the architecture is needed, but there is no business logic.
+
+Here's an example where:
+* `ClientApplication` delegate to `Interface1`
+* `Implementation1` implements `Interface1`, and it delegates to `Interface2` and Interface3`
+* `Implementation2` and `Implementation3` implement `Interface2` and Interface3` respectively.
+* `ProductionConfigurer` creates and connects the dependencies as follows:
+
+<img src="/assets/DependencyInjectionProductionConfigurer.png" alt="Dependency Injection Production Configurer" width = "75%" align="center" style="padding-right: 20px;">
+
+We can see that `ProductionConfigurer` is creating an instance of `ClientApplication` by creating instances of its dependencies and injecting them as constructor arguments. The developer who implements `ProductionConfigurer` will most likely be an architect or team lead. It's more important to have knowledge of the overall design than it is to have specific knowledge about any of the individual classes.
+
+`ProductionConfigurer` is not limited to calling `new` directly. Here are a few other options:
+* `ProductionConfigurer` could create and inject using [Factories Design Patterns](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html)
+* `ProductionConfigurer` could be based upon an inject framework, such as **Spring** described below
+* If configuration is more dynamic or configurable, then `ProductionConfigurer` could leverage the **Builder Design Pattern** (See: [Source Making Builder](https://sourcemaking.com/design_patterns/builder) or [Refactoring Guru Builder](https://refactoring.guru/design-patterns/builder))
 
 Unit test configuration will require resolution for the first layer of dependencies only. The interface is a contract. It is not an implementation. Implementation knowledge and dependencies are encapsulated behind it. It doesn't matter how simple or complex the actual implementation is. We only need to configure the bare minimim in our `Test Doubles`, and that may only be a single behavior for a single method too.
+
+Here's how we could test `ClientApplication` in isolation with `Test Doubles`:
+
+<img src="/assets/DependencyInjectionClientApplicationTestConfigurer.png" alt="Dependency Injection Client Application Test Configurer" width = "50%" align="center" style="padding-right: 20px;">
+
+Notice how all of the `Implementation` classes and their interfaces are not present, except for `Interface1`. And `Interface1` is only shown, because `ClientApplication` depends upon it. This is part of the elegance of [Program to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation).
+The dependency chain stops at `Interface1`. There is no dependency upon `Implementation1` even if `Implemenation1` will implement `Interface1` in production as was shown in the previous diagram.
+
+Even if the production configuration requires multiple layers of dependency, we only need to configure one layer at a time for testing.
+
+Here's how we could test `Implemenation1` in isolation with `Test Doubles`:
+
+<img src="/assets/DependencyInjectionImplementation1TestConfigurer.png" alt="Dependency Injection Client Application Test Configurer" width = "50%" align="center" style="padding-right: 20px;">
+
+And like the previous diagram, we only need to to configure one layer to resolve the dependencies.
 
 ## Kicking the Can Under the Rug
 Dependency Injection is a Creational Design Pattern, even if it wasn’t included by the GoF. I don’t think this was a sin of omission as much as it was a case of DI not being too well known when they were writing their book.
