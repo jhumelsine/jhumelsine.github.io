@@ -9,7 +9,7 @@ description: Design patterns are governed by two design principles.
 
 The Gang of Four (GoF) cataloged 23 Object-Oriented (OO) Design Patterns, which are mostly comprised of combinations of basic [OO components](https://jhumelsine.github.io/2023/09/01/parts-is-parts.html), but these components are not applied randomly. There are repeating component configurations for the design patterns, which emerge from two design principles in their book:
 
-<img src="https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2F16312b76-c652-11e8-a4a5-a34bea2c1d04.jpg?crop=1878%2C1252%2C838%2C376" alt="Winston Churchill holding up 2 fingers for V for Victory" width = "30%" align="right" style="padding-right: 20px;">
+<img src="https://live.staticflickr.com/1939/43776489590_2aec5c8cf5_b.jpg" alt="Winston Churchill holding up 2 fingers for V for Victory" title="Image Source: https://www.flickr.com/photos/levanrami/43776489590/in/photostream/" width = "20%" align="right" style="padding-right: 20px;">
 
 * Program to an interface, not an implementation
 * Favor object composition over class inheritance
@@ -24,7 +24,7 @@ When most developers first learn how to code in OO programming languages, they t
 
 This is usually okay for some classes such as utility classes – String or Date. But for classes that represent business domains, acquiring objects via `new` directly may not be the best practice due to that tight coupling.
 
-<img src="https://www.skillpundit.com/java/img/Skillpundit-Java_encapsulat.jpg" alt="Image of pill/capsule to demonstrate encapsulation" width = "30%" align="left" style="padding-right: 20px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/EncapsulationinOOPs.png" alt="Encapsulation" title="Image Source: https://commons.wikimedia.org/wiki/File:EncapsulationinOOPs.png" width = "30%" align="left" style="padding-right: 20px;">
 
 The GoF are big fans of encapsulation. In addition to keeping class implementation details encapsulated via private field attributes and methods, they advocate keeping the class type itself encapsulated.
 
