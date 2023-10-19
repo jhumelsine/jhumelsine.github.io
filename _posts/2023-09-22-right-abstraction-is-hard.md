@@ -2,7 +2,7 @@
 title: Getting the Right Abstraction is Hard
 description: Sometimes you don’t know the right abstraction until you see a few examples.
 ---
-![Abstraction](https://qph.cf2.quoracdn.net/main-qimg-a5f531f31c67bb181a343b318a34e943-lq)
+![Abstraction](https://www.ruthiev.com/wp-content/uploads/2015/01/1914.jpg "Image Source: https://www.ruthiev.com/piet-modrian/")
 # Abstraction
 _The purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise._ - Edsger W. Dijkstra
 
@@ -15,7 +15,7 @@ Abstraction is a reoccurring theme in many software design patterns. But we must
 # Fiber Optic Switch
 I worked at a start up in the early 2000s. We built a fiber optic switch. It was a beast of a machine. It had the capacity for over 500 circuit packs. It consisted of several bays each about 6 feet (about 2 meters) tall and in total it was about 10 to 12 feet (about 3 to 4 meters) wide. It looked a bit like a set of bookshelves in a legal library, except instead of law books, the shelves held circuit packs. The image below from [Northern Ohio University - Pettit College of Law](https://law.onu.edu/academics) is about the same size as our switch.
 
-<img src="https://law.onu.edu/sites/default/files/2022-09/law04.jpg" alt="Law Library" width = "60%" style="padding-right: 20px;">
+<img src="https://law.onu.edu/sites/default/files/2022-09/law04.jpg" alt="Law Library" title="Image Source: https://law.onu.edu/academics" width = "60%" style="padding-right: 20px;">
 
  
 # Circuit Packs
@@ -28,7 +28,7 @@ I took over ownership of some code when the original developer moved to another 
 <img src="/assets/CircuitPack.png" alt="CircuitPack UML Class Diagram" align="center" width = "40%" style="padding-right: 20px;">
 
 # Time to Think
-<img src="https://i.stack.imgur.com/G4tJM.jpg" alt="Green Bar Printer Paper" align="right" width = "35%" style="padding-right: 20px;">
+<img src="https://i.stack.imgur.com/G4tJM.jpg" alt="Green Bar Printer Paper" title="Image Source: https://superuser.com/questions/1628953/alternate-green-blue-bars-in-pdf-printout-like-old-paper-on-dot-matrix-printers" align="right" width = "35%" style="padding-right: 20px;">
 
 This was my code now, and I was responsible. This was before "Agile" practices had swept the software engineering industry. The Agile Industrial Complex had not yet squeezed time to think out of our schedules for their ceremonies.
 
@@ -57,7 +57,7 @@ I was still figuring out Object-Oriented principles myself, and this was well be
 * I generally don’t like down casting, especially casting like this. It feels like a code smell or design flaw to me. While `instanceof` isn’t technically down casting, they hang around in the same neighborhood.
 * The `CircuitPack` base class had knowledge of its derived classes.
 * Behavior for specific TRs was in the `CircuitPack` base class.
-* What happens when we added a fourth TR, such as `TR768`?
+* What happens when we add a fourth TR, such as `TR768`?
     * `doTR768Process()` would have to be added to `CircuitPack`.
     * Each cascading if/else-if/else statement would have to be updated. 
     * Miss one, and there would be no compile error or warning. The `doTR192Process()` would be executed for the `TR768` case by default, and we'd be lucky if we found an obvious runtime issue during QA.
