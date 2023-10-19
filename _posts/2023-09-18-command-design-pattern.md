@@ -3,7 +3,7 @@ title: Command Design Pattern
 description: Turn a function into a first-class citizen object so that it can do much more than before.
 ---
 
-![Picard Make It So](https://i.stack.imgur.com/MNeE7.jpg)
+![Picard Make It So](https://i.imgflip.com/8363fx.jpg)
 
 # Command, Meh
 
@@ -129,7 +129,7 @@ Java has extended Thread management via these Executor interfaces:
 * [ScheduledExecutorService](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ScheduledExecutorService.html) – Extends scheduling management to ExecutorService
 
 The [Executors](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executors.html) class provides factory methods to acquire various ExecutorServices.
-Baeldung provides a brief tutoral for ExecutorServices: [A Guide to the Java ExecutorService](https://www.baeldung.com/java-executor-service-tutorial).
+Baeldung provides a brief tutorial for ExecutorServices: [A Guide to the Java ExecutorService](https://www.baeldung.com/java-executor-service-tutorial).
 
 `Runnable`, `Thread` and `ExecutorService` can be a little daunting, but with knowledge of the Command and Command Processor Design Patterns they may be a little less daunting.
 
