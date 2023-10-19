@@ -56,7 +56,7 @@ But this only part of the story. We inverted the dependencies in our project, mo
 
 <img src="/assets/DependencyInjectionSetUp.png" alt="Dependency Injection Set Up" width = "75%" align="center" style="padding-right: 20px;">
 
-One path is across the top and then down. That path is inverted, and not the problem. The second path is down and across the bottom. That one is the problem. Follow the arrows. There's a dependency chain from `ClientApplication` to `MyInterfaceFactory` to `MyClass` in the object resolution. `ClientApplication` still depends upon `MyClass`, but it's just not quite as obvious. I had not inverted all of the dependencies.
+One path is across the top and then down. That path is inverted, and not the problem. The second path is down and across the bottom. That one is the problem. Follow the arrows. There's a dependency chain from `ClientApplication` to `MyInterfaceFactory` to `MyClass` in the object resolution. `ClientApplication` still depends upon `MyClass`, but it's just not quite as obvious. I had not inverted all the dependencies.
 
 # Dependency Injection
 <img src="https://m.media-amazon.com/images/I/A1d1xag7ZeL._SL1500_.jpg" alt="Meat Injector" width = "20%" align="right" style="padding-right: 20px;">
@@ -66,7 +66,7 @@ I think this was one of the first times I had heard of [Dependency Injection](ht
 
 >Dependency injection is a technique where an object is passed into a class (injected) instead of having the class create and store the object itself. Martin Fowler coined the term in 2004 as a more specific form of the Inversion of Control concept.
 
-I didn’t understand Dependency Injection at first, and I definitely didn’t realize it could be the design solution to my problem.
+I didn’t understand Dependency Injection at first, and I didn’t realize it could be the design solution to my problem.
 
 DI is a technique we’ve all used before. We inject data into objects all the time. Consider the following code that injects a name into `Person` via a constructor argument:
 ```java
@@ -140,7 +140,7 @@ Was I still going to have to inject all dependencies for production and unit tes
 
 Short answer: Yes and No.
 
-Production configuration will require resolution for all layers dependencies, even dependencies of dependencies. This might get a bit large and complex, but it's only creating instances and assembling them together. An understanding of the parts of the architecture is needed, but there is no business logic.
+Production configuration will require resolution for all layers of dependencies, even dependencies of dependencies. This might get a bit large and complex, but it's only creating instances and assembling them together. An understanding of the parts of the architecture is needed, but there is no business logic.
 
 Here's an example where:
 * `ClientApplication` delegate to `Interface1`
@@ -157,13 +157,13 @@ We can see that `ProductionConfigurer` is creating an instance of `ClientApplica
 * `ProductionConfigurer` could be based upon an inject framework, such as **Spring** described below
 * If configuration is more dynamic or configurable, then `ProductionConfigurer` could leverage the **Builder Design Pattern** (See: [Source Making Builder](https://sourcemaking.com/design_patterns/builder) or [Refactoring Guru Builder](https://refactoring.guru/design-patterns/builder))
 
-Unit test configuration will require resolution for the first layer of dependencies only. The interface is a contract. It is not an implementation. Implementation knowledge and dependencies are encapsulated behind it. It doesn't matter how simple or complex the actual implementation is. We only need to configure the bare minimim in our `Test Doubles`, and that may only be a single behavior for a single method too.
+Unit test configuration will require resolution for the first layer of dependencies only. The interface is a contract. It is not an implementation. Implementation knowledge and dependencies are encapsulated behind it. It doesn't matter how simple or complex the actual implementation is. We only need to configure the bare minimum in our `Test Doubles`, and that may only be a single behavior for a single method too.
 
 Here's how we could test `ClientApplication` in isolation with `Test Doubles`:
 
 <img src="/assets/DependencyInjectionClientApplicationTestConfigurer.png" alt="Dependency Injection Client Application Test Configurer" width = "50%" align="center" style="padding-right: 20px;">
 
-Notice how all of the `Implementation` classes and their interfaces are not present, except for `Interface1`. And `Interface1` is only shown, because `ClientApplication` depends upon it. This is part of the elegance of [Program to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation).
+Notice how all the `Implementation` classes and their interfaces are not present, except for `Interface1`. And `Interface1` is only shown, because `ClientApplication` depends upon it. This is part of the elegance of [Program to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation).
 The dependency chain stops at `Interface1`. There is no dependency upon `Implementation1` even if `Implementation1` will implement `Interface1` in production as was shown in the previous diagram.
 
 Even if the production configuration requires multiple layers of dependency, we only need to configure one layer at a time for testing.
@@ -172,10 +172,10 @@ Here's how we could test `Implementation1` in isolation with `Test Doubles`:
 
 <img src="/assets/DependencyInjectionImplementation1TestConfigurer.png" alt="Dependency Injection Client Application Test Configurer" width = "50%" align="center" style="padding-right: 20px;">
 
-And like the previous diagram, we only need to to configure one layer to resolve the dependencies.
+And like the previous diagram, we only need to configure one layer to resolve the dependencies.
 
 ## Kicking the Can Under the Rug
-Dependency Injection is a Creational Design Pattern, even if it wasn’t included by the GoF. I don’t think this was a sin of omission as much as it was a case of DI not being too well known when they were writing their book.
+Dependency Injection is a Creational Design Pattern, even if it wasn’t included by the Gang of Four. I don’t think this was a sin of omission as much as it was a case of DI not being too well known when they were writing their book.
 
 I think it’s okay to resolve object references via `new` via DI, but we’ll soon see that we can use Factories with DI as well.
 
@@ -201,12 +201,12 @@ Here’s the Exception Test diagram:
 <img src="/assets/DependencyInjectionAbstractFactoryTest.png" alt="Dependency Injection Factory Test" width = "95%" align="center" style="padding-right: 20px;">
 
 # Spring
-There are Dependency Injection frameworks as well, with Spring probably being the most well-known for Java. It’s very similar to what I’ve shown previously, except that there are a few annotations. As for that _Spring Magic_, that's part of the Spring framework. It will handle everything you need as long as what you need resides in the framework. You won't have direct access to the _Spring Magic_ itself. For the most part, you don't even see it.
+There are Dependency Injection frameworks as well, with Spring probably being the most well-known for Java. It’s very similar to what I’ve shown previously, except that there are a few annotations. As for that _Spring Magic_, that's part of the Spring framework. It will handle everything you need if what you need resides in the framework. You won't have direct access to the _Spring Magic_ itself. For the most part, you don't even see it.
 
 <img src="/assets/DependencyInjectionSpring.png" alt="Dependency Injection Spring" width = "95%" align="center" style="padding-right: 20px;">
 
 You have at least two options with testing, and they will be very similar to what we've seen above. I'll describe them without providing additional images:
-* It's really no different than the test designs shown before. Even with Spring annotations, they are still Java classes. A _Test Double_ can be created and injected when an object instance of `ClientApplication` as its constructor argument when created via `new()`. This can be done in the test code without depending upon the Spring framework.
+* It's no different than the test designs shown before. Even with Spring annotations, they are still Java classes. A _Test Double_ can be created and injected when an object instance of `ClientApplication` as its constructor argument when created via `new()`. This can be done in the test code without depending upon the Spring framework.
 * [JUnit](https://en.wikipedia.org/wiki/JUnit) can create _Test Doubles_ via [Mockito](https://en.wikipedia.org/wiki/Mockito) with Spring (and also without Spring), to inject what's needed as well.
  
 # Dependency Injection vs Dependency Inversion Principle vs Inversion of Control
