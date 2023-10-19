@@ -3,13 +3,13 @@ title: It's Your Move
 description: Do you know how to truly play the game, or do you only know the rules?
 ---
 
-<img src="https://techcrunch.com/wp-content/uploads/2016/07/gettyimages-479960728.jpg" alt="Chess Pieces" width = "50%">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Chess_pieces_bokeh.jpg/1125px-Chess_pieces_bokeh.jpg?20120227125434" alt="Chess Pieces" title="Image Source: https://commons.wikimedia.org/wiki/File:Chess_pieces_bokeh.jpg" width = "50%">
 
 I learned the rules of chess when I was about eight years old. The rules fit on a single piece of paper that came with most chess sets. I could play the game casually with friends, but I was never really any good.
 
 Fast forward 15 or so years, soon after starting my first job. I was in the bookstore at the local mall, and I spotted this book, [The Logical Approach To Chess](https://www.amazon.com/Logical-Approach-Chess-Max-Euwe/dp/4871874729) by Euwe, et al.:
 
-<img src="https://pictures.abebooks.com/isbn/9780486243535-us.jpg" alt="The Logical Approach To Chess Book Cover" width = "25%" align="right" style="padding-right: 20px;">
+<img src="https://pictures.abebooks.com/isbn/9780486243535-us.jpg" alt="The Logical Approach To Chess Book Cover" title="Image Source: https://www.abebooks.com/servlet/BookDetailsPL?bi=31643813477" width = "25%" align="right" style="padding-right: 20px;">
 
 I picked it up and thumbed through it, but it wasn’t a beginner chess book. It wasn’t an advanced one either. There were no set up chess problems with prompts to find white’s move to force checkmate in 20.
 
@@ -22,7 +22,7 @@ Fast forward another 15 years or so again. I had been a C developer and a C++ de
 I had heard of “Design Patterns” in the mid-1990s. I had even attended a few technical presentations, but they never held my imagination. By 2000 I was working at a startup and some developers mentioned design patterns off and on … mostly Singleton. 
 A coworker had a copy of the Gang of Four [Design Patterns Book](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/) on his desk.
 
-<img src="https://m.media-amazon.com/images/I/51JYkEpbhzL.jpg" alt="Design Pattern Book Cover" width = "25%" align="left" style="padding-right: 20px;">
+<img src="https://m.media-amazon.com/images/I/51JYkEpbhzL.jpg" alt="Design Pattern Book Cover" title="Image Source: https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612" width = "25%" align="left" style="padding-right: 20px;">
 
 I was curious, and I asked if I could borrow it. He obliged.
 
@@ -32,7 +32,7 @@ Then I took an unplanned eight-month sabbatical sponsored by the New Jersey Depa
 
 I turned to the internet. I found a very useful page on Wikipedia: [Software Design Pattern](https://en.wikipedia.org/wiki/Software_design_pattern) as well as a few follow up sites. I was taking a Java course at a local community college as well, so this became a perfect opportunity to learn design patterns and Java together.
 
-Once more I felt as if the scales had fallen from my eyes. I had been programming in C++ poorly for years. I was following the rules of the programming language but without good Object-Oriented design. But now I knew some techniques of how to design in OO. My software improved appreciably from this knowledge – fewer mysteries, fewer errors and fewer late nights.
+Once more I felt as if the scales had fallen from my eyes. I had been programming in C++ poorly for years. I was following the rules of the programming language but without good Object-Oriented design. But now I knew some techniques of how to design in OO. My software improved appreciably from this knowledge – fewer mysteries, fewer errors, and fewer late nights.
 
 Learning design patterns during those months of unemployed was the best investment I made in my career outside of my college experience.
 
@@ -40,7 +40,7 @@ If you haven’t found the time to learn design patterns, try and carve out some
 
 I recommend the Gang of Four Design Pattern book once someone already has a solid grasp of design patterns. I recommend [Head First Design Patterns](https://www.amazon.com/Head-First-Design-Patterns-Object-Oriented/dp/149207800X) as a primer.
 
-<img src="https://m.media-amazon.com/images/P/149207800X.01._SCLZZZZZZZ_SX500_.jpg" alt="Head First Design Patterns Book Cover" width = "25%" align="right" style="padding-right: 20px;">
+<img src="https://m.media-amazon.com/images/P/149207800X.01._SCLZZZZZZZ_SX500_.jpg" alt="Head First Design Patterns Book Cover" title="Image Source: https://www.amazon.com/Head-First-Design-Patterns-Object-Oriented/dp/149207800X/" width = "25%" align="right" style="padding-right: 20px;">
 
 It covers 15 of the original 23 design patterns, and it covers them with good descriptions, diagrams, code examples and humor. Had the authors covered all 23, I suspect the book would have been too heavy to lift.
 
