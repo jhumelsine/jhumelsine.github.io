@@ -11,7 +11,7 @@ I [struggled with the original Design Patterns book](https://jhumelsine.github.i
 
 # Dems D'FFACTS
 
-<img src="https://www.joepaduda.com/wp-content/uploads/2023/07/Screen-Shot-2023-07-31-at-7.37.32-AM.png" alt="Just the Facts Ma'am" width = "30%" align="right" style="padding-right: 20px;">
+<img src="https://www.joepaduda.com/wp-content/uploads/2023/07/Screen-Shot-2023-07-31-at-7.37.32-AM.png" alt="Just the Facts Ma'am" title="Image Source: https://www.joepaduda.com/2023/07/31/just-the-facts-maam-2/" width = "30%" align="right" style="padding-right: 20px;">
 
 I [learned the design patterns](https://jhumelsine.github.io/2023/08/24/its-your-move.html) via other online resources. Some of the design patterns are like hammers and screwdrivers in my [toolbox](https://jhumelsine.github.io/2023/08/29/toolbox.html). I use them in many of my designs. Other patterns, not so much. These less used tools are still great tools to have even if I don't use them as often.
 
