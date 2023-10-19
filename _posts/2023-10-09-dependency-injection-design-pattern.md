@@ -41,18 +41,18 @@ What was I doing wrong?
 
 I was violating the [Dependency Inversion Principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle) (DIP), even though I had not heard of it before.
 
-When code instantiates an object directly via `new()`, it is tighly coupled to that class. If the coupled class does the same, then it's tightly coupled to its dependencies. This tight coupling can daisychain through the system to the point that the entire system is tightly coupled from top to bottom. You can see how the arrows show dependency from left to right:
+When code instantiates an object directly via `new()`, it is tightly coupled to that class. If the coupled class does the same, then it's tightly coupled to its dependencies. This tight coupling can daisy chain through the system to the point that the entire system is tightly coupled from top to bottom. You can see how the arrows show dependency from left to right:
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Traditional_Layers_Pattern.png" alt="Tight Coupling" width = "65%" align="center" style="padding-right: 20px;">
 
 [Programming to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation) helps break that dependency.
-Placing an interface between classes acts as a buffer that inverts the dependency. Notice that the interface implementation points up to the implemenation. It flips the dependency flow as seen above. It inverts the dependency.
+Placing an interface between classes acts as a buffer that inverts the dependency. Notice that the interface implementation points up to the Implementation. It flips the dependency flow as seen above. It inverts the dependency.
 
 The classes only depend upon interfaces. They don't depend upon each other. They don't even know about each other.
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/DIPLayersPattern.png" alt="Dependency Inversion Principle" width = "65%" align="center" style="padding-right: 20px;">
 
-But this only part of the story. We inverted the depencencies in our project, mostly. I inverted the dependencies in my code, mostly. Yet the code was still coupled. Notice above that there are two potential paths from `ClientApplication` to `MyClass`. 
+But this only part of the story. We inverted the dependencies in our project, mostly. I inverted the dependencies in my code, mostly. Yet the code was still coupled. Notice above that there are two potential paths from `ClientApplication` to `MyClass`. 
 
 <img src="/assets/DependencyInjectionSetUp.png" alt="Dependency Injection Set Up" width = "75%" align="center" style="padding-right: 20px;">
 
@@ -144,8 +144,8 @@ Production configuration will require resolution for all layers dependencies, ev
 
 Here's an example where:
 * `ClientApplication` delegate to `Interface1`
-* `Implementation1` implements `Interface1`, and it delegates to `Interface2` and Interface3`
-* `Implementation2` and `Implementation3` implement `Interface2` and Interface3` respectively.
+* `Implementation1` implements `Interface1`, and it delegates to `Interface2` and `Interface3`
+* `Implementation2` and `Implementation3` implement `Interface2` and `Interface3` respectively.
 * `ProductionConfigurer` creates and connects the dependencies as follows:
 
 <img src="/assets/DependencyInjectionProductionConfigurer.png" alt="Dependency Injection Production Configurer" width = "75%" align="center" style="padding-right: 20px;">
@@ -164,11 +164,11 @@ Here's how we could test `ClientApplication` in isolation with `Test Doubles`:
 <img src="/assets/DependencyInjectionClientApplicationTestConfigurer.png" alt="Dependency Injection Client Application Test Configurer" width = "50%" align="center" style="padding-right: 20px;">
 
 Notice how all of the `Implementation` classes and their interfaces are not present, except for `Interface1`. And `Interface1` is only shown, because `ClientApplication` depends upon it. This is part of the elegance of [Program to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation).
-The dependency chain stops at `Interface1`. There is no dependency upon `Implementation1` even if `Implemenation1` will implement `Interface1` in production as was shown in the previous diagram.
+The dependency chain stops at `Interface1`. There is no dependency upon `Implementation1` even if `Implementation1` will implement `Interface1` in production as was shown in the previous diagram.
 
 Even if the production configuration requires multiple layers of dependency, we only need to configure one layer at a time for testing.
 
-Here's how we could test `Implemenation1` in isolation with `Test Doubles`:
+Here's how we could test `Implementation1` in isolation with `Test Doubles`:
 
 <img src="/assets/DependencyInjectionImplementation1TestConfigurer.png" alt="Dependency Injection Client Application Test Configurer" width = "50%" align="center" style="padding-right: 20px;">
 
