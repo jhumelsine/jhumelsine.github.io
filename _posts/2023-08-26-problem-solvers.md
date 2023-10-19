@@ -3,17 +3,17 @@ title: Problem Solvers
 description: Software developers aren't hired to write code
 ---
 
-![Solving a problem at a whiteboard](https://www.potential.com/wp-content/uploads/2017/11/problem-solving.png)
+![Solving a problem at a whiteboard](https://www.potential.com/wp-content/uploads/2017/11/problem-solving.png "Image Source: https://www.potential.com/articles/six-steps-develop-effective-problem-solving-process/")
 
 Software developers aren’t hired to write code. We’re hired to solve problems. We just happen to solve problems using code most of the time.
 
-<img src="https://miro.medium.com/v2/resize:fit:1400/1*gUxm1H3dLt2Rde_okiPbGA.jpeg" alt="Data Structures" width = "45%" align="right" style="padding-right: 20px;">
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*gUxm1H3dLt2Rde_okiPbGA.jpeg" alt="Data Structures" title="Image Source: https://medium.com/@pepcoding/data-structures-in-everyday-life-3d2f26243a38" width = "45%" align="right" style="padding-right: 20px;">
 
 Most developers, with or without computer science degrees, have studied data structures and algorithms. We use them to store, retrieve and sort data efficiently. These are well-defined problems with narrow scope within the domain of computer science. Their solutions can be proven correct. Their solutions often are available directly in programming languages, utilities, or open-source libraries because of these problem well-defined attributes.
 
 Most software engineering problems aren’t well-defined or narrowly scoped. Customers can’t articulate what they really want often because they don’t really know what they want. These are business domain problems. There are no off-the-shelf solutions. Software developers usually design these solutions individually.
 
-While each business problem will usually be unique, we often don’t have to start from scratch. Most business problems contain similar problems elements that we encounter repeatedly in our careers, even if they're in slightly different forms. There’s enough repetitiveness for us to recognize these sub-problems again and again, but they’re just different enough that we can’t plug an as-is solution such as a data structure, algorithm, or open-source library. Data structures and similar components may be part of the solution, but they usually aren’t the complete solution.
+While each business problem will usually be unique, we often don’t have to start from scratch. Most business problems contain similar problems elements that we encounter repeatedly in our careers, even if they're in slightly different forms. There’s enough repetitiveness for us to recognize these sub-problems again and again, but they’re just different enough that we can’t plug in an as-is solution such as a data structure, algorithm, or open-source library. Data structures and similar components may be part of the solution, but they usually aren’t the complete solution.
 
 Design patterns are a set of techniques to solve repeatedly occurring problems. They are a starting point, not the final destination. Each application of a design pattern will have to be tailored for the situation in which it’s being applied.
 
