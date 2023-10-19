@@ -3,7 +3,7 @@ title: Dependency Injection
 description: How Dependency Injection resolves object resolution cleanly
 ---
 
-<img src="https://ae01.alicdn.com/kf/S7fdd40fce12042769a255dce921cb97dg/Stainless-Steel-Spice-Syringe-Marinade-Injector-Flavor-Syringe-Cooking-Meat-Poultry-Turkey-Chicken-Kitchen-BBQ-Tool.jpg" alt="Meat Injector" width = "55%" align="center" style="padding-right: 20px;">
+<img src="/assets/Stainless-Steel-Spice-Syringe-Marinade-Injector-Flavor-Syringe-Cooking-Meat-Poultry-Turkey-Chicken-Kitchen-BBQ-Tool.jpg" alt="Meat Injector" title = "Image Source: https://www.aliexpress.us/item/3256803324827558.html" width = "55%" align="center" style="padding-right: 20px;">
  
 # Introduction
 I’m finally done kicking the object resolution can down the road. This wraps up the [Essential Design Patterns](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html).
@@ -43,23 +43,23 @@ I was violating the [Dependency Inversion Principle](https://en.wikipedia.org/wi
 
 When code instantiates an object directly via `new()`, it is tightly coupled to that class. If the coupled class does the same, then it's tightly coupled to its dependencies. This tight coupling can daisy chain through the system to the point that the entire system is tightly coupled from top to bottom. You can see how the arrows show dependency from left to right:
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Traditional_Layers_Pattern.png" alt="Tight Coupling" width = "65%" align="center" style="padding-right: 20px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Traditional_Layers_Pattern.png" alt="Tight Coupling" title = "Image Source: https://en.wikipedia.org/wiki/File:Traditional_Layers_Pattern.png" width = "65%" align="center" style="padding-right: 20px;">
 
 [Programming to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation) helps break that dependency.
 Placing an interface between classes acts as a buffer that inverts the dependency. Notice that the interface implementation points up to the Implementation. It flips the dependency flow as seen above. It inverts the dependency.
 
 The classes only depend upon interfaces. They don't depend upon each other. They don't even know about each other.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/DIPLayersPattern.png" alt="Dependency Inversion Principle" width = "65%" align="center" style="padding-right: 20px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/DIPLayersPattern.png" alt="Dependency Inversion Principle" title = "https://en.wikipedia.org/wiki/File:DIPLayersPattern.png" width = "65%" align="center" style="padding-right: 20px;">
 
 But this only part of the story. We inverted the dependencies in our project, mostly. I inverted the dependencies in my code, mostly. Yet the code was still coupled. Notice above that there are two potential paths from `ClientApplication` to `MyClass`. 
 
-<img src="/assets/DependencyInjectionSetUp.png" alt="Dependency Injection Set Up" width = "75%" align="center" style="padding-right: 20px;">
+<img src="/assets/DependencyInjectionSetUp.png" alt="Dependency Injection Set Up" title = "Image Source: https://en.wikipedia.org/wiki/File:DIPLayersPattern.png"  width = "75%" align="center" style="padding-right: 20px;">
 
 One path is across the top and then down. That path is inverted, and not the problem. The second path is down and across the bottom. That one is the problem. Follow the arrows. There's a dependency chain from `ClientApplication` to `MyInterfaceFactory` to `MyClass` in the object resolution. `ClientApplication` still depends upon `MyClass`, but it's just not quite as obvious. I had not inverted all the dependencies.
 
 # Dependency Injection
-<img src="https://m.media-amazon.com/images/I/A1d1xag7ZeL._SL1500_.jpg" alt="Meat Injector" width = "20%" align="right" style="padding-right: 20px;">
+<img src="https://m.media-amazon.com/images/I/A1d1xag7ZeL._SL1500_.jpg" alt="API Design for C++" title = "https://www.amazon.com/API-Design-C-Martin-Reddy/dp/0123850037" width = "20%" align="right" style="padding-right: 20px;">
  
 At about that same time, I was reading [Martin Reddy](https://www.martinreddy.net/)’s [API Design for C++](https://www.amazon.com/API-Design-C-Martin-Reddy/dp/0123850037)
 I think this was one of the first times I had heard of [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection) (DI). Here is some of what he wrote:
@@ -127,7 +127,7 @@ I could go deep into the implications of knowledge boundaries and arrows, and I 
 * `MyClass` and `MyTestDouble` are in the lower right quadrant of this diagram. They have knowledge of and depend upon `MyInterface`. They tend to be small, and they are often [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) or [Façades](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html). Only the `Configurer` knows about them, so they can be swapped out easily as needed.
 
 # Turtles All the Way Down
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/47/River_terrapin.jpg" alt="Turtles All the Way Down" width = "35%" align="right" style="padding-right: 20px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/47/River_terrapin.jpg" alt="Turtles All the Way Down" title = "https://en.wikipedia.org/wiki/File:River_terrapin.jpg" width = "35%" align="right" style="padding-right: 20px;">
 
 But wait a second! `Configurer` is instantiating `MyClass` via `new()`. What happened to those [Factories Design Patterns](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) from the previous blog post?
 
