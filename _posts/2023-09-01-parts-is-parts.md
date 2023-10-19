@@ -3,14 +3,14 @@ title: Parts is Parts
 description: Design patterns are comprised of different configurations of the same repeating Object-Oriented constructs. 
 ---
 
-![Taco Bell Menu](https://www.nrn.com/sites/nrn.com/files/styles/article_featured_retina/public/NEW_TacoBellMenuBoards_Sept2019.png?itok=FMsGqWRz)
+![Taco Bell Menu](https://www.nrn.com/sites/nrn.com/files/styles/article_featured_retina/public/NEW_TacoBellMenuBoards_Sept2019.png?itok=FMsGqWRz "Image Source: https://www.nrn.com/quick-service/taco-bell-eliminating-9-menu-items")
 
 # Parts is Parts
 Many cuisines are comprised of different combinations of the same basic ingredients. Fast food businesses, such as Taco Bell, come to mind. These kitchens have vats of meat, cheese, rice, beans, and other basic ingredients. Wrap them in a tortilla, and it’s a burrito. Put them in a corn shell, and it’s a taco. Put some on a bed of chips, and it’s a nacho platter.
 
 Design patterns are much the same. The Gang of Four’s (GoF) [Design Patterns](https://en.wikipedia.org/wiki/Design_Patterns) address repeating problems in an Object-Oriented (OO) paradigm. Most of their design patterns are comprised of different configurations of the same repeating OO constructs. Developers who understand these constructs will be able to learn design patterns a bit quicker than those who don’t.
 
-<img src="https://static.wikia.nocookie.net/harrypotterspellscursesandcharms/images/f/fd/Expecto_Patronum.jpg" alt="Harry Potter with magic wand" width = "20%" align="right" style="padding-right: 20px;">
+<img src="https://www.wallpaperuse.com/wallp/42-424153_m.png" alt="Harry Potter Spells" title="Image Source: https://www.wallpaperuse.com/vien/hmwJhx/" width = "35%" align="right" style="padding-right: 20px;">
 
 There are no magic incantations. Design patterns are about intent and the problem being addressed than they are the constructs. In some cases, the OO construct configuration may feel so obvious, that’s not even worth the effort to have cataloged it as a design pattern.
 
