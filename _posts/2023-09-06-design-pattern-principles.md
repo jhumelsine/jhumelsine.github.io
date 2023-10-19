@@ -44,7 +44,7 @@ There are several advantages to following this principle:
 
 # Favor object composition over class inheritance
 
-<img src="https://i.stack.imgur.com/gXREq.png" alt="Bart" width = "50%" align="right" style="padding-right: 20px;">
+<img src="/assets/BartReuseInheritance.png" alt="Bart" width = "50%" align="right" style="padding-right: 20px;">
 
 This principle seems contrary to one of a fundamental OO component – inheritance. I would argue that inheritance was a major factor in convincing developers to use OO. We could finally achieve code reuse in a way that was part of the paradigm. But it wasn’t quite the panacea we were hoping for. The reuse was static. Children classes had direct knowledge of and dependencies upon all their ancestor classes. Any changes in the ancestor classes could cause unintended consequences in the descendant classes. And the inheritance family trees could grow huge to the point where you really weren’t quite sure what behavior a child class was inheriting. For clarity, this is class inheritance, which is about inheriting an implementation. It is not about interface inheritance, which is about inheriting method signatures.
 
