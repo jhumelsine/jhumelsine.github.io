@@ -3,7 +3,7 @@ title: Strategy Design Pattern
 description: When there’s more than one way to get the job done.
 ---
 
-<img src="https://i0.wp.com/s802022855.onlinehome.us/wp-content/uploads/2014/12/settlers_settled.jpg" alt="Settlers of Catan" width = "75%" style="padding-right: 20px;">
+<img src="https://i0.wp.com/s802022855.onlinehome.us/wp-content/uploads/2014/12/settlers_settled.jpg" alt="Settlers of Catan" title="Image Source: https://islaythedragon.com/featured/we-live-in-catan-we-die-in-catan-a-review-of-settlers-of-catan/" width = "75%" style="padding-right: 20px;">
 
 # Settlers of Catan Victory
 Victory is achieved in Settlers of Catan by acquiring Victory Points received via different criteria in the game. Players may use different strategies to receive these points. There are multiple ways to win this game.
@@ -34,13 +34,12 @@ The client application’s Strategy reference is resolved at runtime, and it can
 
 Reference resolution doesn’t get as much attention in Strategy and other similar design patterns as it probably should. The Gang of Four (GoF) provide a few vague suggestions, but I don’t feel they provide clear guidance.
 
-I will provide my own thoughts as I continue with [Essential Design Patterns](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html) blog entries, but I don’t want to get the cart before the horse. For now, assume that the Client Applications will have the Strategy references they require. Rest assured, I’ll provide blogs on how to achieve that. Spoiler Alert: I’ll cover this with [Factory Method](https://refactoring.guru/design-patterns/factory-method), [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection) and possibly more.
+I will provide my own thoughts as I continue with [Essential Design Patterns](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html) blog entries, but I don’t want to get the cart before the horse. For now, assume that the Client Applications will have the Strategy references they require. Rest assured; I’ll provide blogs on how to achieve that. Spoiler Alert: I’ll cover this with [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html), [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) and possibly more.
 
 # Strategy’s Structure
 Since a picture is worth a thousand words, here’s the traditional Strategy UML class diagram from [DoFactory.com](https://www.dofactory.com/net/strategy-design-pattern):
 
-<img src="https://www.dofactory.com/img/diagrams/net/strategy.png" alt="Strategy UML Class Diagram" 
-align="center" width = "70%" style="padding-right: 20px;">
+<img src="https://www.dofactory.com/img/diagrams/net/strategy.png" alt="Strategy UML Class Diagram" title="Image Source: https://www.dofactory.com/net/strategy-design-pattern" align="center" width = "70%" style="padding-right: 20px;">
 
 Here are the elements and their relationships:
 * `Strategy` is an interface.
