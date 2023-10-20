@@ -3,7 +3,7 @@ title: Factory Design Patterns
 description: How do you instantiate an object without knowing its type?
 ---
 
-![Painting of Factories](https://www.brooklineconnection.com/history/Facts/images/steelmills16.JPG)
+![Bethlehem Steel Factories circa 1912](/assets/FactoryBethlehemSteel.jpg "Image Source: https://picryl.com/media/panorama-of-the-bethlehem-steel-works-south-bethlehem-pa-1")
  
 # Introduction
 I kicked the object reference resolution can down the road in previous [Essential Design Patterns](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html) blogs. I said that I’d eventually get to it and sit tight. I’m done kicking the can. I’ll resolve it here … well at least I’ll start to resolve it here.
@@ -12,7 +12,7 @@ I only told half the story before with previous design patterns [Command](https:
 
 # You Complete Me
 
-<img src="https://4.bp.blogspot.com/-6tlhDrIj6TE/UGtw50LZijI/AAAAAAAAIhg/ByTYV1Ll6nM/w1200-h630-p-k-no-nu/you-complete-me.png" alt="You Complete Me" width = "35%" align="right" style="padding-right: 20px;">
+<img src="https://i.imgflip.com/839whe.jpg" alt="You Complete Me" title="Image Source: https://imgflip.com/i/839whe" width = "35%" align="right" style="padding-right: 20px;">
 
 Patterns that involve pluggable concrete classes are incomplete until a **Creational Design Pattern** completes them.
 
@@ -39,7 +39,7 @@ A naive approach could look like this, where the Client Application declares the
 
 <img src="/assets/FactoryInterfaceOnly.png" alt="Programming to Interface but calling new()" width = "60%" align="center" style="padding-right: 20px;">
 
-The GoF continued their interface theme with their Creational Design Patterns, which complete the story for most design patterns when paired together. The Creational Design Patterns instantiate objects without the Client Application having direct knowledge of the class type for the instantiated object. The GoF were obsessed with encapsulating class type within a Creational Design Patterns so that the Client Application would not know the type.
+The GoF continued their interface theme with their Creational Design Patterns, which complete the story for most design patterns when paired together. The Creational Design Patterns instantiate objects without the Client Application having direct knowledge of the class type for the instantiated object. The GoF were obsessed with encapsulating class type within a Creational Design Pattern so that the Client Application would not know the type.
 
 ## Resolving Object References Without Calling `new` Directly
 We have a bit of a paradox. We need to resolve references to interfaces without direct knowledge of the class type, but the only way to instantiate an object is via a constructor which requires direct knowledge of the class type. We can resolve this paradox with a little indirection. I can think of several ways to resolve an object reference without the Client Application calling `new` directly. The constructor is still invoked via `new` but never by the Client Application.
@@ -50,14 +50,14 @@ Static methods are associated with classes, not objects. Therefore, static metho
 * Factory Class
 
 ### Factory Method
-Here’s an example of Factory Method. The Client Application calls the static `acquire(Kind)` method, which returns a `MyInterface` object. `Kind` refers to the type of class that the Client Application may desire. Notice that `acquire(Kind)` can return a class instance of `MyClassA` and `MyClassB` for `Kind` `A` and `B` respectively. While the Client Application does know `Kind` it does not know `MyClassA` or `MyClassB`. `MyInterfaceFactory` could return any class for `A` or `B` as long as those classes extend `MyInterface`.
+Here’s an example of Factory Method. The Client Application calls the static `acquire(Kind)` method, which returns a `MyInterface` object. `Kind` refers to the type of class that the Client Application may desire. Notice that `acquire(Kind)` can return a class instance of `MyClassA` and `MyClassB` for `Kind` `A` and `B` respectively. While the Client Application does know `Kind` it does not know `MyClassA` or `MyClassB`. `MyInterfaceFactory` could return any class for `A` or `B` if those classes extend `MyInterface`.
 
 <img src="/assets/FactoryMethod.png" alt="Factory Method" width = "90%" align="center" style="padding-right: 20px;">
  
 ### Factory Class
 Factory Class is like Factory Method. The main difference is that the `MyInterfaceFactory` is not part of the `MyInterface` hierarchy. Notice that nothing changes from the Client Application’s point of view.
 The GoF tend to feature the Factory Method technique, but I prefer the Factory Class technique. While it’s still a matter of personal choice, I prefer Factory Class over Factory Method, because:
-* Java doesn’t support multiple inheritance, I don’t want to introduce a base class solely for the purpose of instantiating descendnt objects.
+* Java doesn’t support multiple inheritance; I don’t want to introduce a base class solely for the purpose of instantiating descendant objects.
 * I prefer the separation of concerns with this design. The interface contract and its concrete implementations are separate from the mechanism that creates the object instances.
 
 <img src="/assets/FactoryClass.png" alt="Factory Class" width = "90%" align="center" style="padding-right: 20px;">
@@ -72,7 +72,7 @@ Abstract Factory is the first one you encounter in detail when reading the GoF b
 <img src="/assets/AbstractFactory.png" alt="Abstract Factory" width = "90%" align="center" style="padding-right: 20px;">
  
 NOTE: The above diagram is inspired by a diagram in Bob Martin’s Clean Architecture book. I’ve basically added a bit more detail:
-<img src="https://i.stack.imgur.com/RUJt2.png" alt="Bob Martin's Abstract Factory" width = "70%" align="center" style="padding-right: 20px;">
+<img src="https://i.stack.imgur.com/RUJt2.png" alt="Bob Martin's Abstract Factory" title="Image Source: https://stackoverflow.com/questions/74775195/why-do-we-need-the-abstract-factory-pattern" width = "70%" align="center" style="padding-right: 20px;">
 
 # Gang Of Four Creational Design Pattern Inventory
 The GoF Creational Design Patterns used the techniques listed above. In some cases, their patterns are mostly identical to the above, but they often provide additional features or context. I’ll list them with brief descriptions. See the references section below for more resources for specific Creational Design Patterns.
@@ -86,7 +86,7 @@ Singleton ensures that only one instance of the class is ever created. It’s qu
 There are legitimate uses for Singleton. Just make sure you only use it for those reasons.
 
 ## Flyweight/Multiton
-Flyweight is not listed as a Creational Design Pattern by the GoF. It’s in the Structural Patterns group. It’s similar to Singleton in that it ensures a single object instance, but it does so based upon a unique key. There can be more than one instance of a class, but there can only be one instance for each unique key. This is why it’s also known as Multiton, which is a play on words with Singleton.
+Flyweight is not listed as a Creational Design Pattern by the GoF. It’s in the Structural Patterns group. It’s like Singleton in that it ensures a single object instance, but it does so based upon a unique key. There can be more than one instance of a class, but there can only be one instance for each unique key. This is why it’s also known as Multiton, which is a play on words with Singleton.
 
 ## Object Pool
 Object Pool is not in the GoF inventory. With an Object Pool, the number of possible Objects for a class is fixed. An Object Pool is usually used for classes where creation of the class is resource intensive. A Thread Pool is a type of Object Pool.
@@ -100,7 +100,7 @@ Object Pool has several additional considerations:
     * Expanding the pool
 
 ## Abstract Factory
-The GoF Abstract Factory is close to what I described above, but Abstract Factory descriptions usually focus upon the ability create consistent instances of interface family types. That is, they help ensure a consistent set of objects when several interfaces need to interact consistently. For example, you wouldn't want one factory that returned a production objet another one that returned a test object to interact. Abstract Factory helps avoid that.
+The GoF Abstract Factory is close to what I described above, but Abstract Factory descriptions usually focus upon the ability create consistent instances of interface family types. That is, they help ensure a consistent set of objects when several interfaces need to interact consistently. For example, you wouldn't want one factory that returned a production object another one that returned a test object to interact. Abstract Factory helps avoid that.
 
 Abstract Factory is a Factory of Factory of Factory Methods.
 
@@ -109,7 +109,7 @@ Prototype is different from Factories. Factory patterns often encapsulate `new` 
 
 Prototype includes a repository. _Breeder_ objects are created and added to the Prototype repository. Each object is identifiable via a key, which could be a name or any unique key. When a new object is needed, the repository is searched using the key. If a breeder object is found for that key, then its non-static method is called, and the object it instantiates is returned.
 
-Prototype doesn't know class types. It can return a new object for any breeder object in its respository. This makes it a flexible creational pattern when the set of possible class types aren't known in advance.
+Prototype doesn't know class types. It can return a new object for any breeder object in its repository. This makes it a flexible creational pattern when the set of possible class types aren't known in advance.
 
 ## Builder
 I don’t think I can describe Builder in a paragraph or two and give it justice. I’ll just state that it’s useful when you need to initialize and assemble a composite of objects rather than a single object instance.
@@ -145,7 +145,7 @@ The GoF tend to use C++ for their creational design pattern examples, and this i
 
 I don’t recall any sample code where they delete any objects created via their design patterns. Some of their examples leak memory. I assume they assumed that developers would know enough to handle the memory management.
 
-When I was a C++ developer, I’d pair `acquire()` with `release(object)` when I designed creational mechanisms. When the Client Application was done with an object, it would `release` it. The `release(object)` method would manage any cleanup that was needed. Keep in mind that Factory Method objects would be deleted. Object Pool objects would be cleaned and returned to the Pool. Singletons would not be affected. By adding `release`, the creation mechanism was also resonsible for any clean up. The only developer resonsibility was calling `release`.
+When I was a C++ developer, I’d pair `acquire()` with `release(object)` when I designed creational mechanisms. When the Client Application was done with an object, it would `release` it. The `release(object)` method would manage any cleanup that was needed. Keep in mind that Factory Method objects would be deleted. Object Pool objects would be cleaned and returned to the Pool. Singletons would not be affected. By adding `release`, the creation mechanism was also responsible for any clean up. The only developer responsibility was calling `release`.
 
 I didn’t trust developers to always call `release(object)`. So I used [Resource Allocation Is Instantiation](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization) (RAII). A small wrapper class managed the object lifecycle. `acquire()` was called in the wrapper's constructor and `release(object)` was called in its destructor. I’d had come full circle and completely encapsulated the use of creational design patterns within an object whose lifecycle was traditional C++.
 
@@ -154,7 +154,7 @@ Java has garbage collection, so memory management isn’t as necessary, but it s
 And Object Pool will always leak memory; although, a fixed amount of memory.
 
 # References
-Previous blogs tended to focus upon one design pattern. This one expanded into several. There are too many for individual references. However, most Creational Design Patterns references tend to be clustered. I'll present as many clusters as possible, from it should be relatively easy to find details for a specific design pattern.
+Previous blogs tended to focus upon one design pattern. This one expanded into several. There are too many for individual references. However, most Creational Design Patterns references tend to be clustered. I'll present as many clusters as possible, since it should be relatively easy to find details for a specific design pattern.
 
 There are many online resources with diagrams and implementations in different programming languages. Here are some free resources:
 
