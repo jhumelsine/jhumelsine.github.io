@@ -2,13 +2,13 @@
 title: Façade Design Pattern
 description: A Façade is just an illusion making a task appear easier than it really is.
 ---
-![Movie Facade](https://static.ferrovial.com/wp-content/uploads/sites/3/2018/03/13150850/set-for-a-movie.png)
+![Movie Facade](https://live.staticflickr.com/65535/51005335572_ac30e7bbd9_b.jpg "Image Source: https://www.flickr.com/photos/lego-castor/51005335572")
  
 # Introduction
 I was not impressed with Façade when I first read about it. There didn’t seem to be any repeatable pattern associated with the design. But later I realized it’s such a useful concept that it made my [Essential Design Pattern](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html) list.
 
 # I Have to Implement How Many Classes?
-Almost 20 years ago, I was on a project where the primary task was to build a [middleware](https://en.wikipedia.org/wiki/Middleware) platform supporting a huge software ecosystem. We just weren’t creators of the middleware, we were users of it too. Often, we were using other middleware components about as quickly as they were being implemented.
+Almost 20 years ago, I was on a project where the primary task was to build a [middleware](https://en.wikipedia.org/wiki/Middleware) platform supporting a huge software ecosystem. We just weren’t creators of the middleware; we were users of it too. Often, we were using other middleware components about as quickly as they were being implemented.
 
 My feature required a Client/Server structure, which would be supported by the Communication Manager system in the middleware. I wasn’t sure how to use it since there wasn’t any user documentation yet. Fortunately, one of the developers of the Communication Manager sat in the office next to mine.
 
@@ -46,7 +46,7 @@ The `ClientConnection` implementation hid all the complicated coordination inter
 
 **I had created a Façade.** I showed my neighbor what I had created and said, “You should provide a Façade to do this too.” He just stared at me. It never materialized.
 
-The online documentation was eventually written, but long after I needed it. I generated a PDF file for the documentation for the entire middleware. It was over 6,000 PDF pages! That’s enough to contain the sacred texts of several major religions with room left over for a Stephen King novel or two. The Communication Manager section alone was over 1,000 PDF pages.
+The online documentation was eventually written, but long after I needed it. I generated a PDF file for the documentation for the entire middleware. It was over 6,000 PDF pages! That’s enough to contain the sacred texts of several major religions with room left over for a Stephen King novel or two. The Communication Manager section alone was over 1,000 PDF pages long.
 
 # Structure
 There is no structure with Façade. There are no nifty UML class diagrams. It’s all about intent. It’s about creating a Façade interface that presents more clarity for the Client Application.
@@ -58,7 +58,7 @@ Here’s a representational sketch of the `ClientConnection` Façade design from
  
 # Isn’t This the Adapter Design Pattern?
 Façade looks very much like the [Adapter Design Pattern](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html).
-Both solve similar problems in that they both allow delegation when the contract interfaces in dependencies don't align with busines logic needs.
+Both solve similar problems in that they both allow delegation when the contract interfaces in dependencies don't align with business logic needs.
 
 **Adapter bridges a communication gap. Façade bridges a complexity gap.**
 
