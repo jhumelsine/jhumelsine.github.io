@@ -3,19 +3,19 @@ title: Adapter Design Pattern
 description: What we've got here is... failure to communicate. Maybe there's a cool pattern that could give us a hand with that.
 ---
 
-![Electrical Plug Adapters](https://www.ceptics.com/cdn/shop/files/CT-11PK_B07DRBHRVM_REV_LI_IMG_01_600x600.jpg?v=1694694225)
+![Electrical Plug Adapters](https://www.ceptics.com/cdn/shop/files/CT-11PK_B07DRBHRVM_REV_LI_IMG_01_600x600.jpg "Image Source: https://www.ceptics.com/products/ceptics-11pcs-international-travel-adapter-plug-set-ct-11pk-grounded")
  
 # Introduction
 You’re traveling internationally, and your electrical devices won’t work in your destination(s). You’ll need to take a set of electrical adapter plugs much like the ones shown above. You plug the adapter into the electrical outlet, and then you plug your device into the adapter. The adapter plug accommodates different outlet shapes as well as voltage, current frequency, and other differences.
 
 The Adapter Design Pattern is much the same. It tends to be a relatively simple class that allows two classes to interact when their APIs don’t directly allow it.
 
-Adapter continues the main theme of the [Command](https://jhumelsine.github.io/2023/09/18/command-design-pattern.html), [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) and [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html) design patterns – polymorphism. But Adapter sometimes adds another trick, delegation or inheritance. Other design patterns use these, but Adapter uses them in a special way.
+Adapter continues the main theme of the [Command](https://jhumelsine.github.io/2023/09/18/command-design-pattern.html), [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) and [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html) design patterns – polymorphism. But Adapter sometimes adds another trick, delegation, or inheritance. Other design patterns use these, but Adapter uses them in a special way.
 
 Adapter is about a change in the contract interface but not a change in behavior.
 
 # Structure
-The previous design patterns, mentioned above contain extending classes but for the most part, they aren’t the main features of those designs. Adapter features the extending classes showing how they use delegation or inheritance to bridge the communication gap.
+The previous design patterns, mentioned above, contain extending classes but for the most part, they aren’t the main features of those designs. Adapter features the extending classes showing how they use delegation or inheritance to bridge the communication gap.
 
 ## Adapter Scenario
 Before getting into the nuts-and-bolts, let’s start with a scenario. We start with a `Target` interface that declares a `request()` method.
