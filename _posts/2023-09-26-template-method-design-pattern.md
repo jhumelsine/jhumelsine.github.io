@@ -47,7 +47,7 @@ Imagine how this would be updated to make `HotCocoa`. Assume that the Cocoa powd
 # Situations Where Template Method Could Be Useful
 Template Method manages more implementation than the Command and Strategy design patterns. There are some behaviors that the client application cannot avoid. For example, in the `HotDrink` example above there are exactly four steps, and the extended classes are unable to affect them.
 
-<img src="https://live.staticflickr.com/5493/14522082812_b3b456269d.jpg" alt="Spider Man Great Power Great Responsibility" title="Image Source: https://www.flickr.com/photos/mckln/14522082812" align="center" width = "20%" style="padding-right: 20px;">
+<img src="https://live.staticflickr.com/5493/14522082812_b3b456269d.jpg" alt="Spider Man Great Power Great Responsibility" title="Image Source: https://www.flickr.com/photos/mckln/14522082812" align="center" width = "25%" style="padding-right: 20px;">
 
 This is a great power that the Template Method wields over the rest of the classes in the pattern. **With great power comes great responsibility.** Make sure that Template Method is being used appropriately.
 
