@@ -15,7 +15,7 @@ I [struggled with the original Design Patterns book](https://jhumelsine.github.i
 
 I [learned the design patterns](https://jhumelsine.github.io/2023/08/24/its-your-move.html) via other online resources. Some of the design patterns are like hammers and screwdrivers in my [toolbox](https://jhumelsine.github.io/2023/08/29/toolbox.html). I use them in many of my designs. Other patterns, not so much. These less used tools are still great tools to have even if I don't use them as often.
 
-Everyone will have their own favorite set of design patterns, but here are the seven that I personally feel are essential to all developers. When I rattled off some of them in a Zoom call a few weeks ago, my friend Scott Harden blurted out **FACTS** as an acronym, which covered most of them. When I considered the entire list, I make a few adjustments, and here they are in this acronym order:
+Everyone will have their own favorite set of design patterns, but here are the seven that I personally feel are essential to all developers. When I rattled off some of them in a Zoom call a few weeks ago, my friend Scott Harden blurted out **FACTS** as an acronym, which covered most of them. When I considered the entire list, I made a few adjustments, and here they are in this acronym order:
 * **D**ependency Injection
 * **F**açade
 * **F**actory Method
@@ -30,11 +30,14 @@ While I love Scott’s acronym to help recall the set of essential design patter
 
 <img src="/assets/SimpleCommand.png" alt="Command" width = "15%" align="right" style="padding-right: 20px;">
 
-* [Command](https://jhumelsine.github.io/2023/09/18/command-design-pattern.html) wraps a function in an object, so that a function can become a first-class citizen in an Object-Oriented (OO) language. By objectifying a function, it allows us to span time and space with functions. That is, we can easily pass functions are arguments, schedule them for execution later in a queue, etc. Command is **_inheritance_** and **_polymorphism_**. There’s nothing special about it, like most of these patterns, other than it provides intent and context.
+* The [Command](https://jhumelsine.github.io/2023/09/18/command-design-pattern.html) pattern wraps a function in an object, so that a function can become a first-class citizen in an Object-Oriented (OO) language.
+By objectifying a function, we have more control over where a function is executed and by whom.
+That is, we can easily pass functions are arguments, schedule them for execution later in a queue, etc. Command is **_inheritance_** and **_polymorphism_**.
+There’s nothing special about it, like most of these patterns, other than it provides intent and context.
 
 <img src="/assets/SimpleStrategy.png" alt="Strategy" width = "30%" align="right" style="padding-right: 20px;">
 
-* [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) is Command with multiple implementations for the interface. It’s structurally the same as Command, except with multiple ways to do the same thing. This is a scaled-up version of **_inheritance_** and **_polymorphism_**. Consider data structures.  Many data structures implement an abstract Container, which declares Create, Read, Update and Delete operations. There are several specific data structure classes that will implement those abstractions, such as List, Queue, Set. And even those classes will have more concrete specific classes, such as Linked List, Array List, Hash Set, Tree Set, etc. One interface and many potential implementations.
+* The [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) pattern is a variant of the Command pattern with multiple implementations for the interface. It’s structurally the same as Command, except with multiple ways to do the same thing. This is a scaled-up version of **_inheritance_** and **_polymorphism_**. Consider data structures.  Many data structures implement an abstract Container, which declares Create, Read, Update and Delete operations. There are several specific data structure classes that will implement those abstractions, such as List, Queue, Set. And even those classes will have more concrete specific classes, such as Linked List, Array List, Hash Set, Tree Set, etc. One interface and many potential implementations.
 
 <img src="/assets/SimpleTemplateMethod.png" alt="Template Method" width = "30%" align="right" style="padding-right: 20px;">
 
