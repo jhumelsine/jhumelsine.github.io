@@ -3,7 +3,7 @@ title: Template Method Design Pattern
 description: For when your algorithm is only a skeleton, and you need to put some meat on those bones.
 ---
 
-![MadLibs](https://miro.medium.com/v2/resize:fit:1400/1*8M2JfaTacGjI8YQlO9qF5A.jpeg)
+![MadLibs](https://www.columbusmonthly.com/gcdn/authoring/2019/09/26/NCOA/ghows-OH-eb7d8c1d-8083-4302-9b40-b711e9a40ed6-905d8093.jpeg "Image Source: https://www.columbusmonthly.com/story/entertainment/arts/2019/09/26/a-adjective-mad-lib-to/2689013007/")
  
 # Strategy and Template Method are the Same, Except When They’re Not
 The Template Method Design pattern continues the themes also found in the [Command](https://jhumelsine.github.io/2023/09/18/command-design-pattern.html) and [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) design patterns. **The primary Object-Oriented (OO) mechanism in all three patterns is polymorphism.** Of the three, Template Method and Strategy are the most closely related. 
@@ -22,8 +22,7 @@ The [Project Management Institute](https://www.pmi.org/disciplined-agile/the-des
 * `templateMethod()` – This is the contract. It’s a public method, and the diagram shows a bit of it. Not only does this contract specify what the contract is, but it also declares a little bit about how it will be implemented. In this example, `templateMethod()` is implemented as three steps, which are declared as protected abstract methods. Not all methods must be protected abstract methods. It’s common for private methods to be part of the template method’s definition too.
 * `ImplementationA` and `ImplementationB` - These are classes that extend `TargetAbstraction`. They must provide implementations for each of the steps, and each class determines the behavior that’s appropriate for it.
 
-![Template Method UML Class Diagram](https://www.pmi.org/-/media/pmi/microsites/disciplined-agile/the-design-patterns/template_method_0.jpg
-)
+![Template Method UML Class Diagram](https://www.pmi.org/-/media/pmi/microsites/disciplined-agile/the-design-patterns/template_method_0.jpg "Image Source: https://www.pmi.org/disciplined-agile/the-design-patterns-repository/the-template-method-pattern")
  
 The diagram doesn’t indicate what’s in the `Client`. It will probably be something along the lines of:
 ```java
@@ -41,14 +40,14 @@ In this example:
     * `PourInCup` - Never Changes
     * `AddCondiments` - Changes depending upon Coffee or Tea
 
-![HotDrink UML Class Diagram](https://www.codeproject.com/KB/architecture/TMDPvsLambda/image002.jpg)
+![HotDrink UML Class Diagram](https://www.codeproject.com/KB/architecture/TMDPvsLambda/image002.jpg "Source Image: https://www.codeproject.com/Articles/21221/Template-Method-Design-Pattern-vs-Functional-Progr")
  
 Imagine how this would be updated to make `HotCocoa`. Assume that the Cocoa powder does not require heated milk. What would be the condiments?
 
 # Situations Where Template Method Could Be Useful
 Template Method manages more implementation than the Command and Strategy design patterns. There are some behaviors that the client application cannot avoid. For example, in the `HotDrink` example above there are exactly four steps, and the extended classes are unable to affect them.
 
-<img src="https://i.pinimg.com/originals/ae/20/73/ae207372837cec0d56db1db481893176.jpg" alt="Spider Man Great Power Great Responsibility" align="center" width = "15%" style="padding-right: 20px;">
+<img src="https://live.staticflickr.com/5493/14522082812_b3b456269d.jpg" alt="Spider Man Great Power Great Responsibility" title="Image Source: https://www.flickr.com/photos/mckln/14522082812" align="center" width = "20%" style="padding-right: 20px;">
 
 This is a great power that the Template Method wields over the rest of the classes in the pattern. **With great power comes great responsibility.** Make sure that Template Method is being used appropriately.
 
@@ -105,7 +104,7 @@ There are two basic techniques for code reuse:
 * Libraries, where the application code delegates to methods in other classes. Utility libraries are like this.
 * Frameworks, where the application code implements methods declared by the framework and called by the framework.
 
-<img src="https://lh3.googleusercontent.com/60NpYzzxYr4v60JZTR9c__o-7bABBoYI1ff9ancTw42FYlS6MKsWjjyXpMPlQ8g1LzTJ0uVKQMcKvRioCuswfkKMKFoWUKQg23zCQTZJ0-ruGQ1uMJNKDPv-gxV-W5ufHNTIG4ii" alt="Don't Call Us, We'll Call You" align="right" width = "25%" style="padding-right: 20px;">
+<img src="https://lh3.googleusercontent.com/60NpYzzxYr4v60JZTR9c__o-7bABBoYI1ff9ancTw42FYlS6MKsWjjyXpMPlQ8g1LzTJ0uVKQMcKvRioCuswfkKMKFoWUKQg23zCQTZJ0-ruGQ1uMJNKDPv-gxV-W5ufHNTIG4ii" title="Image Source: https://dzone.com/articles/the-hollywood-principle" alt="Don't Call Us, We'll Call You" align="right" width = "25%" style="padding-right: 20px;">
 
 Frameworks are also known by the [Hollywood Principle](https://dzone.com/articles/the-hollywood-principle) – _Don’t call us, we’ll call you._
  
@@ -116,7 +115,7 @@ The [Android Activity](https://developer.android.com/reference/android/app/Activ
 Several states in the state machine call the protected methods, and if the application developer has implemented them, they will be executed. One can think of these protected methods as a means for the application developer to manage resources used by the Activity. For example, if the Activity is not visible, then a battery draining resource, such as the GSP, could be deactivated in `onPause()` and reactivated in `onRestart()`.
 
 Keep in mind that the developer never calls these methods directly. It’s the Activity framework that calls what the developer has provided.
-![Activity State Machine Lifecycle](https://developer.android.com/images/activity_lifecycle.png)
+![Activity State Machine Lifecycle](https://developer.android.com/images/activity_lifecycle.png "Image Source: https://developer.android.com/guide/components/activities/activity-lifecycle")
  
 # Template Method and Strategy Comparison
 Template Method and Strategy solve the same problem but in different ways.
