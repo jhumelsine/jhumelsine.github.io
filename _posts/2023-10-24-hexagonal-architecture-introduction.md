@@ -98,6 +98,7 @@ Here are some free resources:
 * [Summary of book "Clean Architecture" by Robert C. Martin](https://gist.github.com/ygrenzinger/14812a56b9221c9feca0b3621518635b)
 * [Clean architecture for the rest of us](https://pusher.com/tutorials/clean-architecture-introduction/)
 * [Use Case Diagrams Wikipedia](https://en.wikipedia.org/wiki/Use_case_diagram) - Use Cases are referenced quite a bit in Clean Architecture and sometimes in Hexagonal Architecture
+* and for more Google [Hexagonal Architecture Ports and Adapters Clean Architecture Onion Architecture](https://www.google.com/search?q=Hexagonal+Architecture+Ports+and+Adapters+Clean+Architecture+Onion+Architecture)
 
 Here are some free online video resources:
 * ["Hexagonal Architecture & Legacy Code" by Jim Humelsine](https://www.youtube.com/watch?v=aayl6FysZ_U)
