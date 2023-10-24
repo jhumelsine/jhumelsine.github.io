@@ -40,7 +40,7 @@ I’m taking this detour into HexArch/P&A because it will reinforce those design
 Regardless of the name, HexArch/P&A, CleanArch, and OnionArch are all based upon a pluggable design.
 
 <img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHg3NjQ3NjUtaW1hZ2Uta3d2dXpmZ3EuanBn.jpg" alt="Cocoons" title="Image Source: https://www.rawpixel.com/image/5905381/photo-image-flower-public-domain-green
-https://images.rawpixel.com/image_800/" width = "30%" align="right" style="padding-right: 35px;">
+https://images.rawpixel.com/image_800/" width = "35%" align="right" style="padding-right: 35px;">
  
 The common core theme is that Business Domain implementation is sheltered in its own cocoon protected from external dependencies. I’ll spend more time in future blogs about what an external dependency may be, but to make it a bit more concrete here, one common example of an external dependency is the database.
 
@@ -60,7 +60,7 @@ I’m convinced that HexArch/P&A works because of boundaries and constraints it 
 I will provide a separate blog about the boundaries and constraints. It’s one of the blogs of this series that I’m looking most forward to.
 
 # That Hexagon Really Pulled the Room Together
-<img src="https://media.makeameme.org/created/that-hexagon-really.jpg" alt="The Dude" title="Image Source: https://makeameme.org/meme/that-hexagon-really" width = "20%" align="right" style="padding-right: 35px;">
+<img src="https://media.makeameme.org/created/that-hexagon-really.jpg" alt="The Dude" title="Image Source: https://makeameme.org/meme/that-hexagon-really" width = "30%" align="right" style="padding-right: 35px;">
  
 HexArch/P&A pulls a lot of ideas together. It’s a structure which can be layered on top of other software engineering concepts, such as: Domain-Driven Design, Agile, Framework management, Form Factor management, Internationalization (I18n), Localization (L10n) and Accessibility (A11y).
 
