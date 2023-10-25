@@ -6,9 +6,9 @@ unlisted: true
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Hexagon_windows_%28Unsplash%29.jpg/1185px-Hexagon_windows_%28Unsplash%29.jpg?20170903070532" alt="Building with Hexagons" title="Image Source: [https://pixabay.com/photos/hexagon-building-pattern-abstract-6233333/](https://commons.wikimedia.org/wiki/File:Hexagon_windows_%28Unsplash%29.jpg)" width = "70%" align="center" style="padding-right: 35px;">
 
 # Introduction to Hexagonal Architecture
-I’m introducing a _Hexagonal Architecture_ (also known as _Ports and Adapters_) blog series. My previous blog posts have featured specific design patterns. This series is, in a way, continuing the design pattern theme. But instead of focusing upon specific design patterns, it will show how we can apply the design patterns that have already been presented. I will return to more design patterns once this _Hexagonal Architecture_ series has completed.
+I’m introducing a new blog series about _Hexagonal Architecture_ (also known as _Ports and Adapters_). My previous blog posts have featured specific design patterns. This series is, in a way, continuing the design pattern theme. But instead of focusing upon specific design patterns, it will show how we can apply the design patterns that have already been presented. I will return to more design patterns once this _Hexagonal Architecture_ series has completed.
 
-The internet is swarming with information about _Hexagonal Architecture/Ports & Adapters_ HexArch/P&A. I don’t want to replicate content that others have already provided. I’ll try to focus upon what I find interesting about HexArch/P&A that may not get as much coverage.
+The internet is swarming with information about _Hexagonal Architecture/Ports & Adapters_ (HexArch/P&A). I don’t want to replicate content that others have already provided. I’ll try to focus upon what I find interesting about HexArch/P&A that may not get as much coverage.
 
 # What is a Name?
 I first heard of _Hexagonal Architecture_ about 6 or 7 years ago. The name sounded funny. Later I heard that it’s also called _Ports and Adapters_. The same design has two names. _Sigh_. But that’s not all. The design basics are extremely similar to other designs, such as _Clean Architecture_ (CleanArch) and _Onion Architecture_ (OnionArch).
@@ -25,9 +25,9 @@ He wanted to convey something different. His design focuses upon design boundary
 
 The 6-sided hexagon has no architectural/design implications. Any number of sides would have sufficed. He chose the hexagon mainly because it was the easiest non-rectangular polygon to draw. Here's 1-minute [video](https://www.youtube.com/watch?v=jkZiEtvjL-g) where Cockburn talks about his choice of a hexagon.
 
-Cockburn did want a shape with sides rather than a circle, which is the main design shape in CleanArch. He wanted each side of a polygon to represent a _facet_ as an access point. A polygon could have any number of facets or access points that it needed.
+Cockburn did want a shape with sides rather than a circle, which distinguishes HexArch from CleanArch in the diagrams. He wanted each side of a polygon to represent a _facet_ as an access point. A polygon could have any number of facets or access points that it needed.
 
-The polygon, whether a hexagon or other shape, isn’t an element in the implementation. It’s not a class, object, or other implementation element. The hexagon is a design concept that defines a closed boundary and constraints associated with those boundaries. I’ll address the boundaries and constraints in future blog posts.
+The polygon, whether a hexagon or other shape, isn’t an element in the implementation. It’s not a class, object, or other implementation concern. The hexagon is a design concept that defines a closed boundary and dependency and knowledge constraints associated with those boundaries. I’ll address the boundaries and constraints in future blog posts.
 
 Several years after his first designs, Cockburn was also learning more about design patterns, He realized that a _facet_ is really a _port_, and he changed the name to _Ports and Adapters_. He still prefers this new name, since it’s more descriptive of the pattern. But by then, many had been calling it _Hexagonal Architecture_ and the original name still stuck. So now we have both names.
 
@@ -50,7 +50,7 @@ Using the Gang of Four nomenclature, _Ports_ will tend to be [Strategies]( https
 
 Since the pluggable design isolates the Business Domain from external dependencies, the design allows us to delay dependency decisions. It allows us more flexibility to change external dependencies. I know that many projects will argue that they’re never going to change their external dependencies. **Is it a case that they are never going to change to those external dependencies because they choose not to, or that they never can change them because they’ve become too tightly coupled to them?** 
 
-And sometimes projects don’t have a choice. A dependency may be an external vendor who goes out of business. A project may be forced to change external dependencies even if that was never the initial plan.
+And sometimes projects don’t have a choice. A dependency may be an external vendor who goes out of business. A project may be forced to change external dependencies even if that was never the plan.
 
 Even if a project is 100% certain that an external dependency will never change, another reason to favor a pluggable design is for testing. A pluggable design accommodates test doubles more easily.
 
