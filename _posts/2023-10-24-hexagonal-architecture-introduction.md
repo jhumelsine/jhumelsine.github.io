@@ -6,7 +6,7 @@ unlisted: true
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Hexagon_windows_%28Unsplash%29.jpg/1185px-Hexagon_windows_%28Unsplash%29.jpg?20170903070532" alt="Building with Hexagons" title="Image Source: [https://pixabay.com/photos/hexagon-building-pattern-abstract-6233333/](https://commons.wikimedia.org/wiki/File:Hexagon_windows_%28Unsplash%29.jpg)" width = "70%" align="center" style="padding-right: 35px;">
 
 # Introduction to Hexagonal Architecture
-I’m introducing a new blog series about _Hexagonal Architecture_ (also known as _Ports and Adapters_). My previous blog posts have featured specific design patterns. This series is, in a way, continuing the design pattern theme. But instead of focusing upon specific design patterns, it will show how we can apply the design patterns that have already been presented. I will return to more design patterns once this _Hexagonal Architecture_ series has completed.
+I’m introducing a new blog series about _Hexagonal Architecture_ (also known as _Ports and Adapters_). My previous blog posts have featured specific design patterns. This series is, in a way, continuing the design pattern theme. But instead of focusing upon specific design patterns, it will show how we can apply the design patterns that have already been presented. I will return to more design patterns once this _Hexagonal Architecture_ series has been completed.
 
 The internet is swarming with information about _Hexagonal Architecture/Ports & Adapters_ (HexArch/P&A). I don’t want to replicate content that others have already provided. I’ll try to focus upon what I find interesting about HexArch/P&A that may not get as much coverage.
 
@@ -29,7 +29,7 @@ Cockburn did want a shape with sides rather than a circle, which distinguishes H
 
 The polygon, whether a hexagon or other shape, isn’t an element in the implementation. It’s not a class, object, or other implementation concern. The hexagon is a design concept that defines a closed boundary and dependency and knowledge constraints associated with those boundaries. I’ll address the boundaries and constraints in future blog posts.
 
-Several years after his first designs, Cockburn was also learning more about design patterns, He realized that a _facet_ is really a _port_, and he changed the name to _Ports and Adapters_. He still prefers this new name, since it’s more descriptive of the pattern. But by then, many had been calling it _Hexagonal Architecture_ and the original name still stuck. So now we have both names.
+Several years after his first designs, Cockburn was also learning more about design patterns, He realized that a _facet_ is really a _port_, and he changed the name to _Ports and Adapters_. He still prefers this new name since it’s more descriptive of the pattern. But by then, many had been calling it _Hexagonal Architecture_ and the original name still stuck. So now we have both names.
 
 # Design Patterns
 The HexArch/P&A design is a _pattern of design patterns_, which only requires knowledge of the [7 Essential Design Patterns](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html) to understand.
