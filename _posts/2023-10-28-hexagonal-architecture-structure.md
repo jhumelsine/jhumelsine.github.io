@@ -136,8 +136,8 @@ Keep in mind that in the above, the `ProductionConfigurer` is the only element t
 ```java
 FrameworkAdapter frameworkAdapter =
     new FrameworkAdapter(
-        new (BusinessLogic(
-            new DependencyAdapter())
+        new BusinessLogic(
+            new DependencyAdapter()
         )
     );
 ```
