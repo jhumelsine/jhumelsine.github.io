@@ -131,6 +131,20 @@ Here a design that includes object creation. The Production Configurator’s res
 * Injecting the Business Object into the Framework Adapter object when creating it
 
 <img src="/assets/HexArchConfigurator.png" alt="Configurator" width = "100%" align="center" style="padding-right: 35px;">
+
+Keep in mind that in the above, the `ProductionConfigurer` is the only element that has knowledge of all three concrete classes. Its implementation will tend to be fairly straight forward as something along these lines:
+```java
+FrameworkAdapter frameworkAdapter =
+    new FrameworkAdapter(
+        new (BusinessLogic(
+            new DependencyAdapter())
+        )
+    );
+```
+
+Additional configuration may be needed in `ProductionConfiguror` to ensure that `frameworkAdapter` is registered with the Framework.
+
+The `FrameworkAdapter` has no information about the concrete `DependencyAdapter`. It doesn't even have knowledge of the `DrivenDependencyInterfacePortContract`. The `FrameworkAdapter` only has knowledge of ***a*** `DriverBusinessLogicPortInterfaceContract`. It doesn't even know its concrete class.
  
 ## Variants
 This diagrams in this blog post only include one example for each element type so as to keep the diagrams from becoming too cluttered.
