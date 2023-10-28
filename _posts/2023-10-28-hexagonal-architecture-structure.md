@@ -4,7 +4,7 @@ description: Why it’s also called Ports and Adapters
 unlisted: true
 ---
 
-<img src="https://www.theboardgamefamily.com/wp-content/uploads/2013/05/CarcRiverLayout.jpg" alt="Carcassonne Tiles" title="Image Source: https://www.theboardgamefamily.com/2013/05/carcassonne-the-river-mini-expansion-review/" width = "70%" align="center" style="padding-right: 35px;">
+<img src="https://www.theboardgamefamily.com/wp-content/uploads/2013/05/CarcRiverLayout.jpg" alt="Carcassonne Tiles" title="Image Source: https://www.theboardgamefamily.com/2013/05/carcassonne-the-river-mini-expansion-review/" width = "80%" align="center" style="padding-right: 35px;">
  
 # Introduction
 This continues the [Hexagonal Architecture series](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html) with the structure of the Hexagonal Architectures.
@@ -15,7 +15,7 @@ As I mentioned in [It’s Your Move](https://jhumelsine.github.io/2023/08/24/its
 The first lesson in the chess book isn’t about the pieces. It’s about the chessboard. Specifically, it’s about the importance of the center squares of a chessboard. Controlling those squares gives you more options than if your opponent controls them.
 
 # The Developer Chessboard
-<img src="https://www.workshopplus.com/cdn/shop/products/carcassonne-board-game_800x800.jpg" alt="Carcassonne Game Box" title="Image Source: https://www.workshopplus.com/products/carcassonne-game" width = "30%" align="right" style="padding-right: 35px;">
+<img src="https://www.workshopplus.com/cdn/shop/products/carcassonne-board-game_800x800.jpg" alt="Carcassonne Game Box" title="Image Source: https://www.workshopplus.com/products/carcassonne-game" width = "40%" align="right" style="padding-right: 35px;">
  
 Is there a developer chessboard? Sort of, but not quite the same. The empty developer chessboard is mostly a blank slate. It doesn't have any predefined features at the start. The landscape doesn’t take shape until we start to put things in it. Maybe [Carcassonne](https://en.wikipedia.org/wiki/Carcassonne_(board_game)) is a more apropos game, so let’s roll with that for a bit.
 
@@ -60,9 +60,9 @@ Here’s a simple example of Business Logic that implements a Framework, possibl
 
 The design runs into problems since the Business Logic is tightly coupled to its Dependencies. I’ve colored the External Dependencies red to indicate that they’re a little dangerous, since their management resides outside of the control of the developer of the Business Logic.
 
-<img src="/assets/HexArchTightCoupling1.png" alt="Tight Coupling" width = "50%" align="center" style="padding-right: 35px;">
+<img src="/assets/HexArchTightCoupling1.png" alt="Tight Coupling" width = "60%" align="center" style="padding-right: 35px;">
 
-<img src="https://thecozyapron.com/wp-content/uploads/2021/01/chicken-stew_thecozyapron_1.jpg" alt="Chicken Stew" title="Image Source: https://thecozyapron.com/chicken-stew/" width = "20%" align="right" style="padding-right: 35px;">
+<img src="https://thecozyapron.com/wp-content/uploads/2021/01/chicken-stew_thecozyapron_1.jpg" alt="Chicken Stew" title="Image Source: https://thecozyapron.com/chicken-stew/" width = "30%" align="right" style="padding-right: 35px;">
  
 I have encountered this design more times than I care to remember. I’ve seen Controllers where everything was in one huge multi-hundred line method. The REST code, business logic, database and other dependencies were mixed together like the ingredients in a stew. The ingredients were so intermingled, it became difficult to distinguish which parts did what. 
 
@@ -79,7 +79,7 @@ It’s not just that the Business Logic depends upon an Interface, which is most
  
 A Port is a design element with Hexagonal Architecture. An Interface is an implementation detail. The methods declared within it are a Contract. A Contract declares the expectations and obligations of both the user and provider of the methods without indicating  implementation details. The Contract should honor the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) and the [Interface Segregation Principle](https://en.wikipedia.org/wiki/Interface_segregation_principle) by being a cohesive set of methods.
 
-<img src="https://basinelectric.files.wordpress.com/2016/11/2016-0910-basin-electric-adds-flexibility-to-member-load-forecast.jpg" alt="Etch-A-Sketch" title="Image Source: https://basinelectric.wordpress.com/2016/11/28/shaking-the-etch-a-sketch-basin-electric-adds-flexibility-to-member-load-forecast/" width = "40%" align="right" style="padding-right: 35px;">
+<img src="https://basinelectric.files.wordpress.com/2016/11/2016-0910-basin-electric-adds-flexibility-to-member-load-forecast.jpg" alt="Etch-A-Sketch" title="Image Source: https://basinelectric.wordpress.com/2016/11/28/shaking-the-etch-a-sketch-basin-electric-adds-flexibility-to-member-load-forecast/" width = "50%" align="right" style="padding-right: 35px;">
 
 External APIs are often thrust upon us. They aren’t always a cohesive set of methods that honor the principles listed above. In this Ports design we have the opportunity to shake the Etch-A-Sketch.
 
@@ -88,7 +88,7 @@ We can design the Contracts that the Business Logic needs; not the one we’re s
 ### Introducing Ports
 Ports are design elements often implemented as Interfaces, which declare a Contract. Here’s how the Business Logic would depend upon Ports/Interfaces/Contracts. I’ve colored them green to indicate that they’re benign, since their management resides completely within the control of the developer of the Business Logic.
 
-<img src="/assets/HexArchPorts.png" alt="Ports" width = "50%" align="center" style="padding-right: 35px;">
+<img src="/assets/HexArchPorts.png" alt="Ports" width = "60%" align="center" style="padding-right: 35px;">
  
 The Driver Business Logic Port is an interface that declares the Contract of the Business Logic. Defining a Contract allows the developer to encapsulate the Business Logic design. I’ve represented the Business Logic as a single rectangle, which suggests a single class in UML class diagrams, but this could be an entire package as well.
 
@@ -105,7 +105,7 @@ The design to do this, along with the testing, would look something like this wh
 * Injects it into a created Business Logic object
 * Validates behavior via a test via the Driver Business Logic
 
-<img src="/assets/HexArchUnitTest.png" alt="Unit Test" width = "50%" align="center" style="padding-right: 35px;">
+<img src="/assets/HexArchUnitTest.png" alt="Unit Test" width = "60%" align="center" style="padding-right: 35px;">
 
 ## The Adapter
 The above works well, but eventually you’ll want to see the Business Logic in production. And you’re practicing Agile, you’ll want to get into the hands of the user for feedback.
@@ -118,7 +118,7 @@ The Dependency Adapter implements the Dependency Contract by delegating to the E
 
 This design allows the Business Logic to interact with the External Frameworks and Dependencies without being tightly coupled to them.
 
-<img src="/assets/HexArchPortsAndAdapters.png" alt="Ports and Adapters" width = "90%" align="center" style="padding-right: 35px;">
+<img src="/assets/HexArchPortsAndAdapters.png" alt="Ports and Adapters" width = "100%" align="center" style="padding-right: 35px;">
 
 The design doesn't eliminate the blood, sweat and tears needed to figure out how to interact with External Dependency APIs. But this interaction is segregated in the Adapters, which may make it a little bit easier to manage, especially since it's not intermingled with the Business Logic implementation.
 
@@ -130,7 +130,7 @@ Here a design that includes object creation. The Production Configurator’s res
 * Injecting that object into the Business Object when creating it
 * Injecting the Business Object into the Framework Adapter object when creating it
 
-<img src="/assets/HexArchConfigurator.png" alt="Configurator" width = "90%" align="center" style="padding-right: 35px;">
+<img src="/assets/HexArchConfigurator.png" alt="Configurator" width = "100%" align="center" style="padding-right: 35px;">
  
 ## Variants
 This diagrams in this blog post only include one example for each element type so as to keep the diagrams from becoming too cluttered.
@@ -157,7 +157,7 @@ This diagram is the same as the previous diagram, but with two hexagons added:
 * The space beyond the purple hexagon is where all External Dependencies reside.
 * The space between the red and purple hexagons is reserved for the Adapters and Configurators that allow the Business Logic to interact with the External Dependencies without being tightly coupled to them.
 
-<img src="/assets/HexArchHexagons.png" alt="Hexagons" width = "90%" align="center" style="padding-right: 35px;">
+<img src="/assets/HexArchHexagons.png" alt="Hexagons" width = "100%" align="center" style="padding-right: 35px;">
 
 # Summary
 That’s the basic structure of the Hexagonal Architecture/Ports & Adapters. There are several moving parts, but it's not too difficult to grasp given a little time to study it.
