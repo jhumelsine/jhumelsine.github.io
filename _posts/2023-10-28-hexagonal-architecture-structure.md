@@ -43,9 +43,9 @@ These are the other parts of the system. Some of these will be internal componen
 
 There is a distinction between dependencies. They come in two flavors.
 
-The first is more obvious. These are dependencies that your code delegates to. **Calls to these dependencies is DRIVEN by Business Logic**. For example, the Business Logic code may delegate to the Database, Open-Source Library, File System and Clock APIs. These dependencies traditionally appear on the right hand side of Hexagnal Arcitecture diagrams.
+The first is more obvious. These are dependencies that your code delegates to. **Calls to these dependencies is DRIVEN by Business Logic**. For example, the Business Logic code may delegate to the Database, Open-Source Library, File System and Clock APIs. These dependencies traditionally appear on the right-hand side of Hexagonal Architecture diagrams.
 
-The second is a bit more subtle. These are dependencies that delegate to the Business Logic code. **Calls from these dependencies DRIVE the Business Logic**. Frameworks are an example of this. How often do you declare `main()`? I’d be willing to bet that it’s probably not too often. `main()` often resides within the framework, and it eventually calls your code. These dependencies traditionally appear on the left hand side of Hexagonal Architecture diagrams.
+The second is a bit more subtle. These are dependencies that delegate to the Business Logic code. **Calls from these dependencies DRIVE the Business Logic**. Frameworks are an example of this. How often do you declare `main()`? I’d be willing to bet that it’s probably not too often. `main()` often resides within the framework, and it eventually calls your code. These dependencies traditionally appear on the left-hand side of Hexagonal Architecture diagrams.
 
 Sometimes there’s a hybrid, such as with a Messaging Platform. The Business Logic might produce events, in which case it delegates to the Messaging Platform. The Business Logic might consume events, in which case it’s called by the Messaging Platform. And it’s possible that the Business Logic could be a consumer and a producer.
 
