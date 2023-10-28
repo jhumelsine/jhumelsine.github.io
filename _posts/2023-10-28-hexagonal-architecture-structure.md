@@ -145,6 +145,8 @@ FrameworkAdapter frameworkAdapter =
 Additional configuration may be needed in `ProductionConfiguror` to ensure that `frameworkAdapter` is registered with the Framework.
 
 The `FrameworkAdapter` has no information about the concrete `DependencyAdapter`. It doesn't even have knowledge of the `DrivenDependencyInterfacePortContract`. The `FrameworkAdapter` only has knowledge of ***a*** `DriverBusinessLogicPortInterfaceContract`. It doesn't even know its concrete class.
+
+If there are more parts to assemble, then the configuration might be delegated to [Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) at the appropriate encapsulation.
  
 ## Variants
 This diagrams in this blog post only include one example for each element type so as to keep the diagrams from becoming too cluttered.
@@ -160,6 +162,7 @@ So far, this design has mentioned two design patterns: [Adapters](https://jhumel
 There are potentially more in this design:
 * The Ports/Interfaces/Contracts are parts of [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html), and it’s possible, in the right circumstances, that they could be implemented using [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html).
 * Since the Ports/Interfaces/Contracts are designed for the Business Logic and not directly from the External Dependencies, a single External Dependency may not be sufficient to satisfy the Contract. It may require interaction among several External Dependencies. If that’s the case, then the design would require a [Façade](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html).
+* In addition to Dependency Injection, [Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) may also be useful in acquiring and assembling objects in the design.
 
 # Hexagonal Architecture
 I am deep into my second blog about Hexagonal Architecture, and I still haven’t shown any hexagons! I’m about to remedy that.
