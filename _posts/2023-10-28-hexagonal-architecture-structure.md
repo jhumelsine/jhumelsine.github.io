@@ -105,7 +105,7 @@ The design to do this, along with the testing, would look something like this wh
 * Injects it into a created Business Logic object
 * Validates behavior via a test via the Driver Business Logic
 
-<img src="/assets/HexArchUnitTest.png" alt="Unit Test" width = "70%" align="center" style="padding-right: 35px;">
+<img src="/assets/HexArchUnitTest.png" alt="Unit Test" width = "80%" align="center" style="padding-right: 35px;">
 
 ## The Adapter
 The above works well, but eventually you’ll want to see the Business Logic in production. And you’re practicing Agile, you’ll want to get into the hands of the user for feedback.
