@@ -43,7 +43,7 @@ These are the other parts of the system. Some of these will be internal componen
 
 There is a distinction between dependencies. They come in two flavors.
 
-The first is more obvious. These are dependencies that your code delegates to. **Calls to these dependencies is DRIVEN by business logic**. For example, the Business Logic code may delegate to the Database, Open-Source Library, File System and Clock APIs. These dependencies traditionally appear on the right hand side of Hexagnal Arcitecture diagrams.
+The first is more obvious. These are dependencies that your code delegates to. **Calls to these dependencies is DRIVEN by Business Logic**. For example, the Business Logic code may delegate to the Database, Open-Source Library, File System and Clock APIs. These dependencies traditionally appear on the right hand side of Hexagnal Arcitecture diagrams.
 
 The second is a bit more subtle. These are dependencies that delegate to the Business Logic code. **Calls from these dependencies DRIVE the Business Logic**. Frameworks are an example of this. How often do you declare `main()`? I’d be willing to bet that it’s probably not too often. `main()` often resides within the framework, and it eventually calls your code. These dependencies traditionally appear on the left hand side of Hexagonal Architecture diagrams.
 
@@ -64,7 +64,7 @@ The design runs into problems since the Business Logic is tightly coupled to its
 
 <img src="https://thecozyapron.com/wp-content/uploads/2021/01/chicken-stew_thecozyapron_1.jpg" alt="Chicken Stew" title="Image Source: https://thecozyapron.com/chicken-stew/" width = "30%" align="right" style="padding-right: 35px;">
  
-I have encountered this design more times than I care to remember. I’ve seen Controllers where everything was in one huge multi-hundred line method. The REST code, business logic, database and other dependencies were mixed together like the ingredients in a stew. The ingredients were so intermingled, it became difficult to distinguish which parts did what. 
+I have encountered this design more times than I care to remember. I’ve seen Controllers where everything was in one huge multi-hundred line method. The REST code, business logic, database and other dependencies were mixed together like the ingredients in a stew. The ingredients were so intermingled, that it became difficult to distinguish which parts did what. 
 
 # Ports and Adapters
 When we play the _game_ with only your Business Logic and its Dependencies, we end up with working code, but not necessarily flexible code. **Can we play this _game_ better?**
@@ -72,16 +72,16 @@ When we play the _game_ with only your Business Logic and its Dependencies, we e
 I think we can. I’m going to add two new types of _tiles_. I’m adding what Alistair Cockburn calls **Ports** and **Adapters**. It turns out we’ve already seen these elements before. They’re concepts that align with the [Essential Design Patterns](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html).
 
 ## The Port
-Advice to address tight coupling resides in the first design pattern principle: [Program to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-implementation-not-an-interface).
+Advice to address tight coupling resides in the first design pattern principle: [Program to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation).
 
 The Port is an Interface. I’m going to add a third term here too, **Contract**.
 It’s not just that the Business Logic depends upon an Interface, which is mostly an implementation detail. I’m more interested in the context in which the Business Logic depends upon the Port/Interface.
  
-A Port is a design element with Hexagonal Architecture. An Interface is an implementation detail. The methods declared within it are a Contract. A Contract declares the expectations and obligations of both the user and provider of the methods without indicating  implementation details. The Contract should honor the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) and the [Interface Segregation Principle](https://en.wikipedia.org/wiki/Interface_segregation_principle) by being a cohesive set of methods.
+A Port is a design element with Hexagonal Architecture. An Interface is an implementation detail. The methods declared within it are a Contract. A Contract declares the expectations and obligations of both the user and provider of the methods without indicating implementation details. The Contract should honor the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) and the [Interface Segregation Principle](https://en.wikipedia.org/wiki/Interface_segregation_principle) by being a cohesive set of methods.
 
 <img src="https://basinelectric.files.wordpress.com/2016/11/2016-0910-basin-electric-adds-flexibility-to-member-load-forecast.jpg" alt="Etch-A-Sketch" title="Image Source: https://basinelectric.wordpress.com/2016/11/28/shaking-the-etch-a-sketch-basin-electric-adds-flexibility-to-member-load-forecast/" width = "50%" align="right" style="padding-right: 35px;">
 
-External APIs are often thrust upon us. They aren’t always a cohesive set of methods that honor the principles listed above. In this Ports design we have the opportunity to shake the Etch-A-Sketch.
+External APIs are often thrust upon us. They aren’t always a cohesive set of methods that honor the principles listed above. In this Port focused design we have the opportunity to shake the Etch-A-Sketch.
 
 We can design the Contracts that the Business Logic needs; not the one we’re stuck with. Being able to create customized Interfaces/Contracts for Business Logic is addressed briefly in the [Façade Design Pattern Summary](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html#summary).
 
@@ -96,14 +96,14 @@ The Driven Dependency Port is an interface (or interfaces) that declares the Con
 
 But what happened to the red External Dependencies from the previous diagram. We don’t need them … yet.
 
-In what order do we design and implement the code? These three elements may grow organically, but I here’s one order in which the design and implementation could proceed:
+In what order do we design and implement the feature? These three elements may grow organically, but here’s one order in which the design and implementation could proceed:
 * Start with the Business Logic Contract. It does not need to be complete. One method will suffice.
 * Implement the Business Logic using Test-Driven Development.
 * When the Business Logic implementation needs behavior that it cannot provide, then declare what it needs in a Driven Dependency Contract.
-The design to do this, along with the testing, would look something like this where:
-* The Test Case creates a Drive Dependency Test Double
-* Injects it into a created Business Logic object
-* Validates behavior via a test via the Driver Business Logic
+The design to do this, along with the testing, would look something like this where Test Case:
+    * Creates a Drive Dependency Test Double
+    * Injects it into a created Business Logic object
+    * Validates behavior via a test via the Driver Business Logic
 
 <img src="/assets/HexArchUnitTest.png" alt="Unit Test" width = "80%" align="center" style="padding-right: 35px;">
 
@@ -149,7 +149,7 @@ The `FrameworkAdapter` has no information about the concrete `DependencyAdapter`
 If there are more parts to assemble, then the configuration might be delegated to [Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) at the appropriate encapsulation.
  
 ## Variants
-This diagrams in this blog post only include one example for each element type so as to keep the diagrams from becoming too cluttered.
+The diagrams in this blog post only include one example for each element type so as to keep the diagrams from becoming too cluttered.
 
 In most real Business Logic, there will be multiple Driven Dependency Contracts and almost certainly multiple External Driven Dependencies.
 
@@ -158,16 +158,15 @@ There may be multiple Frameworks too.
 This is why Cockburn used a hexagon. Each side represented a facet with a Port on one side and Adapter on another. He envisioned as many Port/Adapter pairs as would be required.
 
 ## Design Patterns
-So far, this design has mentioned two design patterns: [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) and [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html)
+So far, this design has mentioned several design patterns: [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html), [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) and [Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html).
 There are potentially more in this design:
 * The Ports/Interfaces/Contracts are parts of [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html), and it’s possible, in the right circumstances, that they could be implemented using [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html).
 * Since the Ports/Interfaces/Contracts are designed for the Business Logic and not directly from the External Dependencies, a single External Dependency may not be sufficient to satisfy the Contract. It may require interaction among several External Dependencies. If that’s the case, then the design would require a [Façade](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html).
-* In addition to Dependency Injection, [Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) may also be useful in acquiring and assembling objects in the design.
 
 # Hexagonal Architecture
 I am deep into my second blog about Hexagonal Architecture, and I still haven’t shown any hexagons! I’m about to remedy that.
 
-There is no consistent way to draw the Hexagonal Architecture. A Google image search for [Hexagonal Architecture, et al](https://www.google.com/search?sca_esv=577175651&rlz=1C1EKKP_enUS733US733&sxsrf=AM9HkKk1S0bt7Gzy32fXHAanmJ0x4G8TPQ:1698418853233&q=hexagonal+architecture+ports+and+adapters+clean+architecture+onion+architecture&tbm=isch&source=lnms&sa=X&sqi=2&ved=2ahUKEwj-z7Sjv5aCAxVPEFkFHS89CrcQ0pQJegQIDBAB) will confirm that. Everyone puts their own spin on it. I’ll be adding my own too.
+There is no consistent way to draw the Hexagonal Architecture. A Google image search for [Hexagonal Architecture, et al.](https://www.google.com/search?sca_esv=577175651&rlz=1C1EKKP_enUS733US733&sxsrf=AM9HkKk1S0bt7Gzy32fXHAanmJ0x4G8TPQ:1698418853233&q=hexagonal+architecture+ports+and+adapters+clean+architecture+onion+architecture&tbm=isch&source=lnms&sa=X&sqi=2&ved=2ahUKEwj-z7Sjv5aCAxVPEFkFHS89CrcQ0pQJegQIDBAB) will confirm that. Everyone puts their own spin on it. I’ll be adding my own too.
 
 This diagram is the same as the previous diagram, but with two hexagons added:
 * The space inside red hexagon is reserved for Business Logic. This is the **cocoon** I referenced in the previous blog entry in the [Pluggable Design]( https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html#pluggable-design) section. The Business Logic has no dependency upon nor knowledge of anything beyond the red hexagon.
