@@ -7,7 +7,7 @@ unlisted: true
 <img src="https://www.theboardgamefamily.com/wp-content/uploads/2013/05/CarcRiverLayout.jpg" alt="Carcassonne Tiles" title="Image Source: https://www.theboardgamefamily.com/2013/05/carcassonne-the-river-mini-expansion-review/" width = "80%" align="center" style="padding-right: 35px;">
  
 # Introduction
-This continues the [Hexagonal Architecture series](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html) with the structure of the Hexagonal Architectures.
+This continues the [Hexagonal Architecture series](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html) with the structure of Hexagonal Architectures.
 
 # Chess Is More Than the Pieces
 As I mentioned in [It’s Your Move](https://jhumelsine.github.io/2023/08/24/its-your-move.html), I started to learn the foundations of chess in [The Logical Approach to Chess](https://www.amazon.com/Logical-Approach-Chess-Max-Euwe/dp/4871874729) by Euwe, et al. In the same way that this book opened my eyes to how to play chess, the Design Patterns opened my eyes to how to create better Object-Oriented designs.
@@ -17,9 +17,9 @@ The first lesson in the chess book isn’t about the pieces. It’s about the ch
 # The Developer Chessboard
 <img src="https://www.workshopplus.com/cdn/shop/products/carcassonne-board-game_800x800.jpg" alt="Carcassonne Game Box" title="Image Source: https://www.workshopplus.com/products/carcassonne-game" width = "40%" align="right" style="padding-right: 35px;">
  
-Is there a developer chessboard? Sort of, but not quite the same. The empty developer chessboard is mostly a blank slate. It doesn't have any predefined features at the start. The landscape doesn’t take shape until we start to put things in it. Maybe [Carcassonne](https://en.wikipedia.org/wiki/Carcassonne_(board_game)) is a more apropos game, so let’s roll with that for a bit.
+Is there a developer chessboard? Sort of, but it's not quite the same. The empty developer chessboard is mostly a blank slate. It doesn't have any predefined features at the start. The landscape doesn’t take shape until we start to put things in it. Maybe [Carcassonne](https://en.wikipedia.org/wiki/Carcassonne_(board_game)) is a more apropos game, so let’s roll with that for a bit.
 
-Carcassonne is a tile playing game, which can be seen in the image at the top of the page. The game space is empty until tiles are played, and the tile edges must align based upon geographic features at the edges of the tiles.
+Carcassonne is a tile playing game, an example of which can be seen in the image at the top of the page. The game space is empty until tiles are played, and the tile edges must align based upon geographic features at the edges of the tiles.
 
 Much like Carcassonne, software design starts with a blank slate. Software design _game space_ takes shape as we place our _tiles_, in the form of software elements. Much like the tiles of the game, software elements must align if they interact.
 
@@ -28,10 +28,10 @@ The _game space_ of software design consists of two types of _tiles_:
 * **All the other crap**
 
 ## Your Code
-By _your code_, I’m referring to the code that tends to have your name on it when `git blame` is activated for a file. This code will also tend to be where the project’s Business Logic resides regardless of a specific developer ownership. **Your code is often someone else's crap too**.
+By _your code_, I’m referring to the code that tends to have your name on it when `git blame` is activated for a file. This code will also tend to be where the project’s Business Logic resides regardless of a specific developer ownership. It will also include some infrastructure plumbing that allows _your code_ to interact with the _other crap_. **Your code is often someone else's crap too**.
 
 ## All the Other Crap
-The _crap_ is the other parts of the system. Some of these will be internal components provided by developers on other teams, your team, or possibly even you. Some will be external components purchased from vendors, acquired via open source or part of of the system's platform. Here are some examples of external components:
+The _other crap_ are the other parts of the system and its dependencies. Some of these will be internal components provided by developers on other teams, your team, or possibly even you. Some will be external components purchased from vendors, acquired via open source or part of of the system's platform. Here are some examples of external components:
 * Database Products
 * File Systems
 * The Web
