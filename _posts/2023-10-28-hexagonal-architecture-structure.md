@@ -31,7 +31,7 @@ The _game space_ of software design consists of two types of _tiles_:
 By _your code_, I’m referring to the code that tends to have your name on it when `git blame` is activated for a file. This code will also tend to be where the project’s Business Logic resides regardless of a specific developer ownership. **Your code is often someone else's crap too**.
 
 ## All the Other Crap
-These are the other parts of the system. Some of these will be internal components provided by developers on other teams, your team, or possibly even you. Some will be external components purchased or acquired via open source. Here are some examples of external components:
+The _crap_ is the other parts of the system. Some of these will be internal components provided by developers on other teams, your team, or possibly even you. Some will be external components purchased from vendors, acquired via open source or part of of the system's platform. Here are some examples of external components:
 * Database Products
 * File Systems
 * The Web
@@ -41,7 +41,9 @@ These are the other parts of the system. Some of these will be internal componen
 * Configuration Information
 * System Clock
 
-There is a distinction between dependencies. They come in two flavors.
+These external components are External Dependencies from the point of view of _your code_.
+
+There is a distinction between external dependencies. They come in two flavors.
 
 The first is more obvious. These are dependencies that your code delegates to. **Calls to these dependencies is DRIVEN by Business Logic**. For example, the Business Logic code may delegate to the Database, Open-Source Library, File System and Clock APIs. These dependencies traditionally appear on the right-hand side of Hexagonal Architecture diagrams.
 
@@ -49,22 +51,22 @@ The second is a bit more subtle. These are dependencies that delegate to the Bus
 
 Sometimes there’s a hybrid, such as with a Messaging Platform. The Business Logic might produce events, in which case it delegates to the Messaging Platform. The Business Logic might consume events, in which case it’s called by the Messaging Platform. And it’s possible that the Business Logic could be a consumer and a producer.
 
-## How Your Code Interacting with These Dependencies
+## How "Your Code" Interacts with These Dependencies
 The Business Logic will only interact with the dependencies that it requires. This may be a fraction of the potential dependencies in the system.
 
-The External Dependency APIs were not designed with specific Business Logic needs in mind. Developers need to accommodate these APIs. They figure it out, often with the expenditure of blood, sweat and tears.
+The External Dependency APIs were not designed with _your_ specific Business Logic needs in mind. External Dependency APIs tend to be more generic. Hopefully, the External Dependency API designers considered their user's needs and design an API to accommodate those needs as much as possible. However, I found that External Dependency APIs tend to present what the dependency provides and not so much what the user needs. Developers need to accommodate External Dependency APIs. They figure it out, but often with the expenditure of blood, sweat and tears.
 
 Even after figuring it all out, these External Dependency APIs may be embedded in Business Logic code. The coupling is more than just functional dependency to execute the external behavior. The Business Logic code will have knowledge of those dependencies baked into the implementation.
 
-Here’s a simple example of Business Logic that implements a Framework, possibly something like REST, and delegates to an External Dependency API, possibly something like a Database. The design will work, but it’s not modular, flexible, or very maintainable.
+Here’s a simple example of Business Logic that implements a Framework, possibly something like REST, and delegates to an External Dependency API, possibly something like a Database. The design will work, but it’s not modular, flexible, or very maintainable. This example only highlights two External Dependencies. In most designs, there will be more. A back-of-the-envelop estimation can be acquired in some languages by counting the number of external references. For example, in Java count the number of `import` statements. I've worked in some classes that have had over 50 project specific import statements. That's almost certainly a class that's doing too much and can be refactored.
 
-The design runs into problems since the Business Logic is tightly coupled to its Dependencies. I’ve colored the External Dependencies red to indicate that they’re a little dangerous, since their management resides outside of the control of the developer of the Business Logic.
+This simple design runs into problems since the Business Logic is tightly coupled to its Dependencies. I’ve colored the External Dependencies red to indicate that they’re a little dangerous, since their management resides outside of the control of the developer of the Business Logic.
 
 <img src="/assets/HexArchTightCoupling1.png" alt="Tight Coupling" width = "60%" align="center" style="padding-right: 35px;">
 
 <img src="https://thecozyapron.com/wp-content/uploads/2021/01/chicken-stew_thecozyapron_1.jpg" alt="Chicken Stew" title="Image Source: https://thecozyapron.com/chicken-stew/" width = "30%" align="right" style="padding-right: 35px;">
  
-I have encountered this design more times than I care to remember. I’ve seen Controllers where everything was in one huge multi-hundred line method. The REST code, business logic, database and other dependencies were mixed together like the ingredients in a stew. The ingredients were so intermingled, that it became difficult to distinguish which parts did what. 
+I have encountered this design more times than I care to remember. I’ve seen Controllers where everything was in one huge multi-hundred line method. The REST code, business logic, database access and other dependencies were mixed together like the ingredients in a stew. The ingredients were so intermingled, that it became difficult to distinguish which parts did what. 
 
 # Ports and Adapters
 When we play the _game_ with only your Business Logic and its Dependencies, we end up with working code, but not necessarily flexible code. **Can we play this _game_ better?**
@@ -74,14 +76,14 @@ I think we can. I’m going to add two new types of _tiles_. I’m adding what A
 ## The Port
 Advice to address tight coupling resides in the first design pattern principle: [Program to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation).
 
-The Port is an Interface. I’m going to add a third term here too, **Contract**.
+The Port is an Interface. I’m going to introduce a third term here too, **Contract**.
 It’s not just that the Business Logic depends upon an Interface, which is mostly an implementation detail. I’m more interested in the context in which the Business Logic depends upon the Port/Interface.
  
 A Port is a design element with Hexagonal Architecture. An Interface is an implementation detail. The methods declared within it are a Contract. A Contract declares the expectations and obligations of both the user and provider of the methods without indicating implementation details. The Contract should honor the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) and the [Interface Segregation Principle](https://en.wikipedia.org/wiki/Interface_segregation_principle) by being a cohesive set of methods.
 
 <img src="https://basinelectric.files.wordpress.com/2016/11/2016-0910-basin-electric-adds-flexibility-to-member-load-forecast.jpg" alt="Etch-A-Sketch" title="Image Source: https://basinelectric.wordpress.com/2016/11/28/shaking-the-etch-a-sketch-basin-electric-adds-flexibility-to-member-load-forecast/" width = "50%" align="right" style="padding-right: 35px;">
 
-External APIs are often thrust upon us. They aren’t always a cohesive set of methods that honor the principles listed above. In this Port focused design we have the opportunity to shake the Etch-A-Sketch.
+External Dependency APIs are often thrust upon us. They aren’t always a cohesive set of methods that honor the principles listed above. In this Port focused design we have the opportunity to shake the Etch-A-Sketch.
 
 We can design the Contracts that the Business Logic needs; not the one we’re stuck with. Being able to create customized Interfaces/Contracts for Business Logic is addressed briefly in the [Façade Design Pattern Summary](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html#summary).
 
@@ -90,7 +92,7 @@ Ports are design elements often implemented as Interfaces, which declare a Contr
 
 <img src="/assets/HexArchPorts.png" alt="Ports" width = "60%" align="center" style="padding-right: 35px;">
  
-The Driver Business Logic Port is an interface that declares the Contract of the Business Logic. Defining a Contract allows the developer to encapsulate the Business Logic design. I’ve represented the Business Logic as a single rectangle, which suggests a single class in UML class diagrams, but this could be an entire package as well.
+The Driver Business Logic Port is an interface that declares the Contract of the Business Logic. Defining a Contract allows the developer to encapsulate the Business Logic design. I’ve represented the Business Logic as a single rectangle, which suggests a single class in UML class diagrams, but this could be a package consisting of multiple classes as well.
 
 The Driven Dependency Port is an interface (or interfaces) that declares the Contract for the external behaviors needed by the Business Logic.
 
@@ -100,15 +102,16 @@ In what order do we design and implement the feature? These three elements may g
 * Start with the Business Logic Contract. It does not need to be complete. One method will suffice.
 * Implement the Business Logic using Test-Driven Development.
 * When the Business Logic implementation needs behavior that it cannot provide, then declare what it needs in a Driven Dependency Contract.
+
 The design to do this, along with the testing, would look something like this where Test Case:
-    * Creates a Drive Dependency Test Double
-    * Injects it into a created Business Logic object
-    * Validates behavior via a test via the Driver Business Logic
+* Creates a Drive Dependency Test Double
+* Injects it into a created Business Logic object
+* Validates behavior via a test via the Driver Business Logic
 
 <img src="/assets/HexArchUnitTest.png" alt="Unit Test" width = "80%" align="center" style="padding-right: 35px;">
 
 ## The Adapter
-The above works well, but eventually you’ll want to see the Business Logic in production. And you’re practicing Agile, you’ll want to get into the hands of the user for feedback.
+The above works well, but eventually you’ll want to see the Business Logic in production. And if you’re practicing Agile, you’ll want to get into the hands of the user for feedback.
 
 We can add the External Dependencies back into the design using [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html).
 
@@ -144,24 +147,35 @@ FrameworkAdapter frameworkAdapter =
 
 Additional configuration may be needed in `ProductionConfiguror` to ensure that `frameworkAdapter` is registered with the Framework.
 
-The `FrameworkAdapter` has no information about the concrete `DependencyAdapter`. It doesn't even have knowledge of the `DrivenDependencyInterfacePortContract`. The `FrameworkAdapter` only has knowledge of ***a*** `DriverBusinessLogicPortInterfaceContract`. It doesn't even know its concrete class.
+The `FrameworkAdapter` has no information about the concrete `DependencyAdapter`. It doesn't have knowledge of the `DrivenDependencyInterfacePortContract`. The `FrameworkAdapter` only has knowledge of ***a*** `DriverBusinessLogicPortInterfaceContract`. It doesn't know its concrete class.
+
+It's also possible for a different `BusinessLogic` implementation to requirest a completely different set of External Dependencies. If this were the case, then the Configurer for that different implementation would need to know the approriate External Dependeny Adapters and inject them into the that specific `BusinessLogic` implementation, but the `FrameworkAdapter` would be completely independent of it. Here's an example of an alternative configuration for a different scenario, where `DifferentBusinessLogic` requires three different Dependency Adapters:
+
+```java
+FrameworkAdapter frameworkAdapter =
+    new FrameworkAdapter(
+        new DifferentBusinessLogic(
+            new DependencyAdapterA(),
+            new DependencyAdapterB(),
+            new DependencyAdapterC()
+        )
+    );
+```
 
 If there are more parts to assemble, then the configuration might be delegated to [Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) at the appropriate encapsulation.
  
 ## Variants
 The diagrams in this blog post only include one example for each element type so as to keep the diagrams from becoming too cluttered.
 
-In most real Business Logic, there will be multiple Driven Dependency Contracts and almost certainly multiple External Driven Dependencies.
-
-There may be multiple Frameworks too.
+In most real Business Logic, there will be multiple Driven Dependency Contracts and almost certainly multiple External Driven Dependencies. There may be multiple Frameworks too.
 
 This is why Cockburn used a hexagon. Each side represented a facet with a Port on one side and Adapter on another. He envisioned as many Port/Adapter pairs as would be required.
 
 ## Design Patterns
 So far, this design has mentioned several design patterns: [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html), [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) and [Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html).
 There are potentially more in this design:
-* The Ports/Interfaces/Contracts are parts of [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html), and it’s possible, in the right circumstances, that they could be implemented using [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html).
-* Since the Ports/Interfaces/Contracts are designed for the Business Logic and not directly from the External Dependencies, a single External Dependency may not be sufficient to satisfy the Contract. It may require interaction among several External Dependencies. If that’s the case, then the design would require a [Façade](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html).
+* The **Ports/Interfaces/Contracts** are parts of [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html), and it’s possible, in the right circumstances, that they could be implemented using [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html).
+* Since the **Ports/Interfaces/Contracts** are designed for the Business Logic and not directly from the External Dependencies, a single External Dependency may not be sufficient to satisfy the Contract. It may require interaction among several External Dependencies. If that’s the case, then the design would require a [Façade](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html).
 
 # Hexagonal Architecture
 I am deep into my second blog about Hexagonal Architecture, and I still haven’t shown any hexagons! I’m about to remedy that.
