@@ -54,7 +54,7 @@ Sometimes there’s a hybrid, such as with a Messaging Platform. The Business Lo
 ## How "Your Code" Interacts with These Dependencies
 The Business Logic will only interact with the dependencies that it requires. This may be a fraction of the potential dependencies in the system.
 
-The External Dependency APIs were not designed with _your_ specific Business Logic needs in mind. External Dependency APIs tend to be more generic. Hopefully, the External Dependency API designers considered their user's needs and design an API to accommodate those needs as much as possible. However, I found that External Dependency APIs tend to present what the dependency provides and not so much what the user needs. Developers need to accommodate External Dependency APIs. They figure it out, but often with the expenditure of blood, sweat and tears.
+The External Dependency APIs were not designed with _your_ specific Business Logic needs in mind. External Dependency APIs tend to be more generic. Hopefully, the External Dependency API designers considered their user's needs and designed an API to accommodate those needs as much as possible. However, I have found that External Dependency APIs tend to present what the dependency provides and not so much what the user needs. Developers need to accommodate External Dependency APIs. They figure it out, but often with the expenditure of blood, sweat and tears.
 
 Even after figuring it all out, these External Dependency APIs may be embedded in Business Logic code. The coupling is more than just functional dependency to execute the external behavior. The Business Logic code will have knowledge of those dependencies baked into the implementation.
 
@@ -66,7 +66,7 @@ This simple design runs into problems since the Business Logic is tightly couple
 
 <img src="https://thecozyapron.com/wp-content/uploads/2021/01/chicken-stew_thecozyapron_1.jpg" alt="Chicken Stew" title="Image Source: https://thecozyapron.com/chicken-stew/" width = "30%" align="right" style="padding-right: 35px;">
  
-I have encountered this design more times than I care to remember. I’ve seen Controllers where everything was in one huge multi-hundred line method. The REST code, business logic, database access and other dependencies were mixed together like the ingredients in a stew. The ingredients were so intermingled, that it became difficult to distinguish which parts did what. 
+I have encountered this design more times than I care to remember. I’ve seen Business Logic Controllers where everything was in one huge multi-hundred line method. The REST code, business logic, database access and other dependencies were mixed together like the ingredients in a stew. The ingredients were so intermingled, that it became difficult to distinguish which parts did what. 
 
 # Ports and Adapters
 When we play the _game_ with only your Business Logic and its Dependencies, we end up with working code, but not necessarily flexible code. **Can we play this _game_ better?**
@@ -183,7 +183,7 @@ I am deep into my second blog about Hexagonal Architecture, and I still haven’
 There is no consistent way to draw the Hexagonal Architecture. A Google image search for [Hexagonal Architecture, et al.](https://www.google.com/search?sca_esv=577175651&rlz=1C1EKKP_enUS733US733&sxsrf=AM9HkKk1S0bt7Gzy32fXHAanmJ0x4G8TPQ:1698418853233&q=hexagonal+architecture+ports+and+adapters+clean+architecture+onion+architecture&tbm=isch&source=lnms&sa=X&sqi=2&ved=2ahUKEwj-z7Sjv5aCAxVPEFkFHS89CrcQ0pQJegQIDBAB) will confirm that. Everyone puts their own spin on it. I’ll be adding my own too.
 
 This diagram is the same as the previous diagram, but with two hexagons added:
-* The space inside red hexagon is reserved for Business Logic. This is the **cocoon** I referenced in the previous blog entry in the [Pluggable Design]( https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html#pluggable-design) section. The Business Logic has no dependency upon nor knowledge of anything beyond the red hexagon.
+* The space inside red hexagon is reserved for Business Logic. This is the **cocoon** I referenced in the previous blog entry in the [Pluggable Design]( https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html#pluggable-design) section. The Business Logic has no dependency upon nor knowledge of anything beyond the red hexagon. The red hexagon lines are nearly identical to the [red lines](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#dependency-injection-helps-support-dependency-inverse-principle) shown in [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html)
 * The space beyond the purple hexagon is where all External Dependencies reside.
 * The space between the red and purple hexagons is reserved for the Adapters and Configurators that allow the Business Logic to interact with the External Dependencies without being tightly coupled to them.
 
