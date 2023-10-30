@@ -31,7 +31,7 @@ The _game space_ of software design consists of two types of _tiles_:
 By _your code_, I’m referring to the code that tends to have your name on it when `git blame` is activated for a file. This code will also tend to be where the project’s Business Logic resides regardless of a specific developer ownership. It will also include some infrastructure plumbing that allows _your code_ to interact with the _other crap_. **Your code is often someone else's crap too**.
 
 ## All the Other Crap
-The _other crap_ are the other parts of the system and its dependencies. Some of these will be internal components provided by developers on other teams, your team, or possibly even you. Some will be external components purchased from vendors, acquired via open source or part of of the system's platform. Here are some examples of external components:
+The _other crap_ are the other parts of the system and their dependencies. Some of these will be internal components provided by developers on other teams, your team, or possibly even you. Some will be external components purchased from vendors, acquired via open source or part of the system's platform. Here are some examples of external components:
 * Database Products
 * File Systems
 * The Web
@@ -128,12 +128,14 @@ The design doesn't eliminate the blood, sweat and tears needed to figure out how
 ## Configuration
 Most depictions of Hexagonal Architecture/Ports&Adapters stop here. They don’t indicate how the blue classes are constructed. That’s where [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) fills in the final detail.
 
-Here a design that includes object creation. The Production Configurator’s responsibility is to create and configure the objects in this design for production. It does so by:
+Here a design that includes object creation. The Production Configurer’s responsibility is to create and configure the objects in this design for production. It does so by:
 * Creating the Dependency Adapter object
 * Injecting that object into the Business Object when creating it
 * Injecting the Business Object into the Framework Adapter object when creating it
 
 <img src="/assets/HexArchConfigurator.png" alt="Configurator" width = "100%" align="center" style="padding-right: 35px;">
+
+And if the `ProductionConfigurer`'s structure looks similar to `TestCode`'s above, that's because `TestCode` is a Configurer too. It's a Configurer for a unit test environment.
 
 Keep in mind that in the above, the `ProductionConfigurer` is the only element that has knowledge of all three concrete classes. Its implementation will tend to be fairly straight forward as something along these lines:
 ```java
@@ -145,7 +147,7 @@ FrameworkAdapter frameworkAdapter =
     );
 ```
 
-Additional configuration may be needed in `ProductionConfiguror` to ensure that `frameworkAdapter` is registered with the Framework.
+Additional configuration may be needed in `ProductionConfigurer` to ensure that `frameworkAdapter` is registered with the Framework.
 
 The `FrameworkAdapter` has no information about the concrete `DependencyAdapter`. It doesn't have knowledge of the `DrivenDependencyInterfacePortContract`. The `FrameworkAdapter` only has knowledge of ***a*** `DriverBusinessLogicPortInterfaceContract`. It doesn't know its concrete class.
 
