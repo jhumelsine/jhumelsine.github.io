@@ -83,7 +83,7 @@ A Port is a design element with Hexagonal Architecture. An Interface is an imple
 
 <img src="https://basinelectric.files.wordpress.com/2016/11/2016-0910-basin-electric-adds-flexibility-to-member-load-forecast.jpg" alt="Etch-A-Sketch" title="Image Source: https://basinelectric.wordpress.com/2016/11/28/shaking-the-etch-a-sketch-basin-electric-adds-flexibility-to-member-load-forecast/" width = "50%" align="right" style="padding-right: 35px;">
 
-External Dependency APIs are often thrust upon us. They aren’t always a cohesive set of methods that honor the principles listed above. In this Port focused design we have the opportunity to shake the Etch-A-Sketch.
+External Dependency APIs are often thrust upon us. They aren’t always a cohesive set of methods that honor the principles listed above. In this Port focused design, we have the opportunity to shake the Etch-A-Sketch.
 
 We can design the Contracts that the Business Logic needs; not the one we’re stuck with. Being able to create customized Interfaces/Contracts for Business Logic is addressed briefly in the [Façade Design Pattern Summary](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html#summary).
 
@@ -151,7 +151,7 @@ Additional configuration may be needed in `ProductionConfigurer` to ensure that 
 
 The `FrameworkAdapter` has no information about the concrete `DependencyAdapter`. It doesn't have knowledge of the `DrivenDependencyInterfacePortContract`. The `FrameworkAdapter` only has knowledge of ***a*** `DriverBusinessLogicPortInterfaceContract`. It doesn't know its concrete class.
 
-It's also possible for a different `BusinessLogic` implementation to requirest a completely different set of External Dependencies. If this were the case, then the Configurer for that different implementation would need to know the approriate External Dependeny Adapters and inject them into the that specific `BusinessLogic` implementation, but the `FrameworkAdapter` would be completely independent of it. Here's an example of an alternative configuration for a different scenario, where `DifferentBusinessLogic` requires three different Dependency Adapters:
+It's also possible for a different `BusinessLogic` implementation to request a completely different set of External Dependencies. If this were the case, then the Configurer for that different implementation would need to know the appropriate External Dependency Adapters and inject them into the that specific `BusinessLogic` implementation, but the `FrameworkAdapter` would be completely independent of it. Here's an example of an alternative configuration for a different scenario, where `DifferentBusinessLogic` requires three different Dependency Adapters:
 
 ```java
 FrameworkAdapter frameworkAdapter =
@@ -167,7 +167,7 @@ FrameworkAdapter frameworkAdapter =
 If there are more parts to assemble, then the configuration might be delegated to [Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) at the appropriate encapsulation.
  
 ## Variants
-The diagrams in this blog post only include one example for each element type so as to keep the diagrams from becoming too cluttered.
+The diagrams in this blog post only include one example for each element type to keep the diagrams from becoming too cluttered.
 
 In most real Business Logic, there will be multiple Driven Dependency Contracts and almost certainly multiple External Driven Dependencies. There may be multiple Frameworks too.
 
