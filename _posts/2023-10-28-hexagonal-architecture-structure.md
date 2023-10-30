@@ -1,7 +1,6 @@
 ---
 title: Hexagonal Architecture – The Structure
 description: Why it’s also called Ports and Adapters
-unlisted: true
 ---
 
 <img src="https://www.theboardgamefamily.com/wp-content/uploads/2013/05/CarcRiverLayout.jpg" alt="Carcassonne Tiles" title="Image Source: https://www.theboardgamefamily.com/2013/05/carcassonne-the-river-mini-expansion-review/" width = "80%" align="center" style="padding-right: 35px;">
