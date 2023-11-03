@@ -20,16 +20,16 @@ Martin was mostly addressing component dependencies and their impliciations with
 **Don’t Panic!** There isn't much theory. This is mostly going to be a few straightforward definitions, implications and principles.
 
 ## Definitions
-Bob Martin separates his dependency principles in two parts: [SOLID principles](https://en.wikipedia.org/wiki/SOLID) class dependency principles and component dependency separately. I think there’s value in applying the component dependencies to classes as well. We can sort of think of a class as a component with one element in it.
+Bob Martin separates his dependency principles in two parts: class dependency via [SOLID principles](https://en.wikipedia.org/wiki/SOLID) and component dependency. I think there’s value in applying the component dependencies to classes as well. We can think of a class as a component with one element in it.
 
 Software elements, such as classes or interfaces, are rarely insular within a design. Software elements have relationships with other software elements.
 
-These are not equitable relationships. This is not the married couple where responsibilities are equally shared. Software element relationships are one-way.
-Only one element depends upon the other. It’s more than just dependency. The relationship also includes knowledge. One element depends upon and has knowledge of the other element. The element being depended upon has no dependency or even knowledge the element depending upon it.
+These are not equitable relationships. These are not relationships of elements working together and supporting each other. Software element relationships are one-way.
+Only one element depends upon and has knowledge of the other. The element being depended upon has no dependency or knowledge the element depending upon it. It doesn't even know it's in a relationship.
 
-These relationships are more like roads of one-way streets.
+Software element relationships are more like one-way streets.
 
-When **A** depends upon **B**, then **A** has knowledge of **B**. But **B** has no dependency upon **A**. **B** has no knowledge of **A**. **B** doesn’t even know that it’s in a relationship with **A**.
+When **A** depends upon **B**, then **A** has knowledge of **B**. But **B** has no dependency upon or knowledge of **A**. **B** doesn’t even know that it’s in a relationship with **A**. **A** reaps the benefit of its relationship with **B** by inheriting **B**’s behaviors or delegating to **B**. But **A** is taking all the risk too. If **B** changes, it could cause **A** to change as well. If **A** changes, **B** won’t care.
 
 Let’s put this into some concrete “Java” terms, **A** depends upon and has knowledge of **B**, when:
 * **A** implements **B**
@@ -40,8 +40,6 @@ Let’s put this into some concrete “Java” terms, **A** depends upon and has
     * a local variable
     * a parameter argument
     * a collection
-
-**A** is getting the benefit of this relationship by inheriting **B**’s behaviors or delegating to **B**. But **A** is taking all the risk too. If **B** changes, it could cause **A** to change as well. If **A** changes, **B** won’t care.
 
 We can see these relationships in [UML class diagrams](https://en.wikipedia.org/wiki/Class_diagram) via the lines that connect the elements. And the direction of the dependencies is in almost all cases represented by an arrowhead on that line. The Composite/Aggregation relationship doesn’t traditionally indicate dependency with the arrowhead, but it can be added easily.
 
