@@ -88,7 +88,7 @@ That is, design elements should depend upon design elements that are at least as
 We need both Stable/Fixed and Unstable/Flexible elements in our design. Too many Stable/Fixed elements and the design is too rigid. Too many Unstable/Flexible elements and the design has no organization or structure.
 
 ### The Stable Abstractions Principle
-The Stable Abstractions Principle of a consequence of the Stable Dependencies Principle. Unstable/Flexible design elements tend to be concrete, whereas Stable/Fixed design elements tend to be abstractions.
+The Stable Abstractions Principle is a consequence of the Stable Dependencies Principle. Unstable/Flexible design elements tend to be concrete, whereas Stable/Fixed design elements tend to be abstractions.
 
 Therefore, as we follow the flow of dependencies and knowledge in a good design that adheres to the Stable Dependencies Principle, we’ll tend to see the flow start with concrete classes move through classes of increasing stability and end with abstractions.
 
@@ -147,7 +147,7 @@ The elements between the red and purple hexagons contain Adapters/Façades and C
 
 This zone is like the DMZ as shown by J. B. Rainsberger in this Universal Architecture [Tweet](https://twitter.com/jbrains/status/1312375356284952576).
 
-<img src="https://pbs.twimg.com/media/EjZ-blIWkAAOacw?format=jpg" alt="Universal Architecture" title="Image Source: [https://commons.wikimedia.org/wiki/File:Don%27t_Panic.svg](https://twitter.com/jbrains/status/1312375356284952576)" width = "50%" align="center" style="padding-right: 35px;">
+<img src="https://pbs.twimg.com/media/EjZ-blIWkAAOacw?format=jpg" alt="Universal Architecture" title="Image Source: https://twitter.com/jbrains/status/1312375356284952576" width = "50%" align="center" style="padding-right: 35px;">
 
 ## Class-to-Class Dependencies ... There Are None
 The concrete classes have no dependencies or knowledge of any other concrete classes in the design. The Business Logic and the Adapters don’t know that the others exist. It’s only the Configurer that knows them all.
@@ -175,8 +175,9 @@ This adherence isn’t restricted to Hexagonal Architecture. Design Patterns ten
 
 # References
 I mentioned Bob Martin's Component Coupling materials in the Introduction. Unfortunately, I can no longer find his Component Coupling video on O'Reilly, so I can't provide an O'Reilly video reference here, but I can provide other references:
-* O'Reilly Book: **Clean Architecture** [_Chapter 14: Component Coupling](https://learning.oreilly.com/library/view/clean-architecture-a/9780134494272/ch14.xhtml) - Requires an O'Reilly account
-* [CleanCoders](https://cleancoders.com/) [Component Coupling: Episode 17](https://cleancoders.com/episode/clean-code-episode-17) - Video available for purchase.
+* O'Reilly Resource: **Clean Architecture** [_Chapter 14: Component Coupling](https://learning.oreilly.com/library/view/clean-architecture-a/9780134494272/ch14.xhtml) - Requires an O'Reilly account
+* Amazon Resource [**CleanArchitecture**](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164) - Book available for purchase.
+* [CleanCoders](https://cleancoders.com/) [Component Coupling: Episode 17](https://cleancoders.com/episode/clean-code-episode-17) - Video available for purchase. I believe this was the video I watched on O'Reilly years ago.
 * [Principles of Component Coupling](https://devlead.io/DevTips/PrinciplesOfComponentCoupling) - A blog, which covers what Martin covers in his book and video.
 * [The Principles of OOD](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod) - A blog by Bob Martin.
 * [Clean Architecture – How to Quantify Component Coupling](https://www.codingblocks.net/podcast/clean-architecture-how-to-quantify-component-coupling/) - Landing page for the CodingBlocks.net podcast where they covered Component Coupling.
