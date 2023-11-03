@@ -11,13 +11,13 @@ This continues the [Hexagonal Architecture series](https://jhumelsine.github.io/
 
 I feel that Hexagonal Architecture design works well because of how it manages dependency and knowledge relationships. This dependency and knowledge management epiphany came to me while reading _Chapter 14: Component Coupling_ in **Clean Architecture** by Bob Martin and watching his **CleanCoders** _Component Coupling_ video on O’Reilly.
 
-Martin was mostly addressing component dependencies and their impliciations with deployment. I realized the same principles applies to classes and their implications with design stability.
+Martin was mostly addressing component dependencies and their implications with deployment. I realized the same principles apply to classes and their implications with design stability.
 
 # The Theory
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Don%27t_Panic.svg/768px-Don%27t_Panic.svg.png" alt="Don't Panic" title="Image Source: https://commons.wikimedia.org/wiki/File:Don%27t_Panic.svg" width = "17%" align="right" style="padding-right: 35px;">
 
-**Don’t Panic!** There isn't much theory. This is mostly going to be a few straightforward definitions, implications and principles.
+**Don’t Panic!** There isn't much theory. This is mostly going to be a few straightforward definitions, implications, and principles.
 
 ## Definitions
 Bob Martin separates his dependency principles in two parts: class dependency via [SOLID principles](https://en.wikipedia.org/wiki/SOLID) and component dependency. I think there’s value in applying the component dependencies to classes as well. We can think of a class as a component with one element in it.
@@ -62,7 +62,7 @@ Classes with more inward arrowhead relationships than outward arrowhead relation
 
 Martin’s term for these elements is _Stable_. I prefer the term _Fixed_. They are Stable in that they are unlikely to change.
 
-Strings, LinkedLists and other utility classes are Stable. They are so ubiquitous that no one would dream of making a non-backwardly compatible change to them. These are classes with well-defined with narrowly scoped behaviors that don’t change and usually have no business specific context. Strings, LinkedLists and other utilities classes have thousands if not millions of inward arrowhead relationships if we could count them. On the other hand they have very few outward arrowhead relationships.
+Strings, LinkedLists and other utility classes are Stable. They are so ubiquitous that no one would dream of making a non-backwardly compatible change to them. These are classes with well-defined with narrowly scoped behaviors that don’t change and usually have no business specific context. Strings, LinkedLists and other utilities classes have thousands if not millions of inward arrowhead relationships if we could count them. On the other hand, they have very few outward arrowhead relationships.
 
 We all feel comfortable using and depending upon these utilities, since we know their behavior won’t change and rip the rug out from underneath our design.
 
@@ -78,7 +78,7 @@ Martin has referred to Stable/Fixed elements as _adults_ and Unstable/Flexible e
 
 Stable/Fixed components are _adults_. They don’t tend to depend upon other components, but other components depend upon them. The more dependency an adult component has, the more Fixed and Stable it needs to be. That’s because a change to it may have disaster effects upon the rest of the design.
 
-Unstable/Flexible components are _teenagers_. They depend upon other components, but other components don’t depend upon them. They can change at a moments notice.
+Unstable/Flexible components are _teenagers_. They depend upon other components, but other components don’t depend upon them. They can change at a moment's notice.
 
 #### The Stable Dependencies Principle Summary
 Given the definitions above, the Stable Dependencies Principle basically states that dependency/knowledge should flow in the direction toward stability.
@@ -127,7 +127,7 @@ Business Logic is Unstable/Flexible, which is sort of surprising. The Business L
 ## Configurers
 Configurers are pure Unstable/Flexible elements. Nothing depends upon them. Nothing knows about them. They are completely invisible to the rest of the design. Their only responsibility is to create objects in the design and assemble them.
 
-Configurers only depend upon concrete class constructors and their signatures. Most concrete class updates won’t affect Configurers. Configurers tend to be relatively small. When updates are required, their updates (or complete replacement!) tend to be fairly straightforward.
+Configurers only depend upon concrete class constructors and their signatures. Most concrete class updates won’t affect Configurers. Configurers tend to be relatively small. When updates are required, their updates (or complete replacement!) tend to be straightforward.
 
 Configurers are not only invisible to the rest of the design, but they are also invisible to each other. The Hexagonal Architecture design can accommodate as many Configurers as needed. The design can easily swap out Configuers for different environments, such as Production, Test, etc.
 
@@ -152,7 +152,7 @@ This zone is like the DMZ as shown by J. B. Rainsberger in this Universal Archit
 ## Class-to-Class Dependencies ... There Are None
 The concrete classes have no dependencies or knowledge of any other concrete classes in the design. The Business Logic and the Adapters don’t know that the others exist. It’s only the Configurer that knows them all.
 
-The Business Logic and Adapters are separted via the Ports/Interface/Contract elements. All arrows point inward into the Ports/Interfaces/Contracts. Nothing points outward to the Business Logic and Adapters. Therefore, you can’t start in one concrete class and find a directed path to another concrete class.
+The Business Logic and Adapters are separated via the Ports/Interface/Contract elements. All arrows point inward into the Ports/Interfaces/Contracts. Nothing points outward to the Business Logic and Adapters. Therefore, you can’t start in one concrete class and find a directed path to another concrete class.
 
 Once a Port/Interface/Contract starts to stabilize, then the concrete classes that depend upon it can proceed with their implementation in parallel by different developers or teams without stepping upon each other’s toes.
 
