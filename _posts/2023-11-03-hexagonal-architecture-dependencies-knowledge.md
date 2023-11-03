@@ -24,8 +24,7 @@ Bob Martin separates his dependency principles in two parts: class dependency vi
 
 Software elements, such as classes or interfaces, are rarely insular within a design. Software elements have relationships with other software elements.
 
-These are not equitable relationships. These are not relationships of elements working together and supporting each other. Software element relationships are one-way.
-Only one element depends upon and has knowledge of the other. The element being depended upon has no dependency or knowledge the element depending upon it. It doesn't even know it's in a relationship.
+These are not equitable relationships. These are not relationships of elements working together and supporting each other. Software element relationships are one-way. Only one element depends upon and has knowledge of the other. The element being depended upon has no dependency or knowledge the element depending upon it. It doesn't even know it's in a relationship.
 
 Software element relationships are more like one-way streets.
 
@@ -59,41 +58,41 @@ When a design contains a cycle, then consider [Dependency Inversion Principle](h
 Bob Martin’s dependency/knowledge analysis is based upon the number of inward arrowhead relationships versus the number of outward arrowhead relationships for a software element.
 
 #### Stable or Fixed Design Elements
-Classes with more inward arrowhead relationships than outward arrowhead relationships are mostly immune to updates in the design. They are much like B in the UML examples listed above.
+Classes with more inward arrowhead relationships than outward arrowhead relationships are mostly immune to updates in the design. They are much like **B** in the UML examples listed above.
 
-Martin’s term for these elements is _stable_. I prefer the term _fixed_. They are stable in that they are unlikely to change.
+Martin’s term for these elements is _Stable_. I prefer the term _Fixed_. They are Stable in that they are unlikely to change.
 
-Strings, LinkedList and other utility classes are stable. They are so ubiquitous that no one would dream of making a non-backwardly compatible change to them. These are classes with well-defined with narrowly scoped behaviors that don’t change and usually have no business specific context.
+Strings, LinkedLists and other utility classes are Stable. They are so ubiquitous that no one would dream of making a non-backwardly compatible change to them. These are classes with well-defined with narrowly scoped behaviors that don’t change and usually have no business specific context. Strings, LinkedLists and other utilities classes have thousands if not millions of inward arrowhead relationships if we could count them. On the other hand they have very few outward arrowhead relationships.
 
 We all feel comfortable using and depending upon these utilities, since we know their behavior won’t change and rip the rug out from underneath our design.
 
-Our design will also have our own business domain elements which tend to be stable and fixed as well.
+Our design will also have our own business domain elements which tend to be Stable and Fixed as well.
 
 #### Unstable or Flexible Design Elements
-Classes with more outward arrowhead relationships than inward arrowheads relationships are mostly invisible to other elements in the design. They are much like A in the UML examples listed above.
+Classes with more outward arrowhead relationships than inward arrowheads relationships are mostly invisible to other elements in the design. They are much like **A** in the UML examples listed above.
 
-Martin’s term for these elements is _instable_. I prefer the term _flexible_. They are flexible in that they can change without a major impact upon the rest of the teenage elements in the design.
+Martin’s term for these elements is _unstable_. I prefer the term _flexible_. They are Flexible in that they can change without a major impact upon the rest of the elements in the design.
 
 #### Adults Versus Teenagers
-Martin has referred to stable/fixed elements as _adults_ and unstable/flexible elements as _teenagers_.
+Martin has referred to Stable/Fixed elements as _adults_ and Unstable/Flexible elements as _teenagers_.
 
-Stable/fixed components are _adults_. They don’t tend to depend upon other components, but other components depend upon them. The more dependency an adult component has, the more fixed and stable it needs to be. That’s because a change to it may have disaster effects upon the rest of the design.
+Stable/Fixed components are _adults_. They don’t tend to depend upon other components, but other components depend upon them. The more dependency an adult component has, the more Fixed and Stable it needs to be. That’s because a change to it may have disaster effects upon the rest of the design.
 
-Unstable/flexible components are _teenagers_. They depend upon other components, but other components don’t depend upon them.
+Unstable/Flexible components are _teenagers_. They depend upon other components, but other components don’t depend upon them. They can change at a moments notice.
 
 #### The Stable Dependencies Principle Summary
-Given the definitions above, the Stable Dependencies Principle basically states that dependency/knowledge should flow in the direction of stability.
+Given the definitions above, the Stable Dependencies Principle basically states that dependency/knowledge should flow in the direction toward stability.
 
-That is, design elements should depend upon design elements that are at least as stable as they are. You don’t want Stable/Fixed elements to depend upon Unstable/Flexible ones. That would be like building a tower too top heavy and prone to collapse.
+That is, design elements should depend upon design elements that are at least as Stable as they are. You don’t want Stable/Fixed elements to depend upon Unstable/Flexible ones. That would be like building a tower too top heavy and prone to collapse.
 
-We also need both Stable/Fixed and Unstable/Flexible elements in our design. Too many Stable/Fixed elements and the design is too rigid. Too many Unstable/Flexible elements and the design has no organization or structure.
+We need both Stable/Fixed and Unstable/Flexible elements in our design. Too many Stable/Fixed elements and the design is too rigid. Too many Unstable/Flexible elements and the design has no organization or structure.
 
 ### The Stable Abstractions Principle
 The Stable Abstractions Principle of a consequence of the Stable Dependencies Principle. Unstable/Flexible design elements tend to be concrete, whereas Stable/Fixed design elements tend to be abstractions.
 
 Therefore, as we follow the flow of dependencies and knowledge in a good design that adheres to the Stable Dependencies Principle, we’ll tend to see the flow start with concrete classes move through classes of increasing stability and end with abstractions.
 
-We’ll see examples of this with the Hexagonal Architecture design.
+We’ll see examples of all these principles with the Hexagonal Architecture design.
 
 ### Implication Summary
 The dependency/knowledge principles summarize as:
@@ -102,6 +101,7 @@ The dependency/knowledge principles summarize as:
 * Unstable/Flexible elements should be those elements that may need to change often.
 * Good designs need both Stable/Fixed and Unstable/Flexible elements.
 * Unstable/Flexible elements should depend upon more Stable/Fixed elements.
+* Dependency will flow from concreteness toward abstraction.
 
 # Application of the Theory and Implications to Hexagonal Architecture
 Let’s consider how these principles apply with Hexagonal Architectures.
@@ -117,12 +117,12 @@ The Port/Interface/Contract elements are pure Stable/Fixed elements. All arrows 
 ## Adapters and Façades
 [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) and [Façades](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html) are Unstable/Flexible. Their only inward relationship is their creation. Adapters and Façades can be swapped out with ease.
 
-Adapter responsibility is limited to implementing their Contract dependency and delegating it to an External Dependency API. While it may require developer the blood, sweat and tears to understand the External Dependency API, the Adapter implementation is only concerned with the translation between the Contract and the External Dependency API. The implementation should be relatively small and straightforward once the External Dependency APIs are understood.
+Adapter responsibility is limited to implementing their Contract dependency and delegating it to an External Dependency API. While it may require developer  blood, sweat and tears to understand the External Dependency API, the Adapter implementation is only concerned with the translation between the Contract and the External Dependency API. The implementation should be relatively small and straightforward once the External Dependency APIs are understood.
 
 The Contract may require behavior that’s not provided by a single External Dependency. A Façade manages the transition to multiple External Dependencies. Since it has more External Dependencies, Façades will be more likely to change than an Adapter. It will have a larger implementation, but Façades should still not contain any business logic implementations.
 
 ## Business Logic
-Business Logic is Unstable/Flexible, which is sort of surprising. The Business Logic the main reason for the entire design and it isis mostly invisible! Like Adapters, the only Business Logic inward relationship is its creation. Since the Business Logic is Unstable/Flexible, it can be updated or even replaced without any impact upon the rest of the design.
+Business Logic is Unstable/Flexible, which is sort of surprising. The Business Logic the main reason for the entire design and it is mostly invisible! Like Adapters, the only Business Logic inward relationship is its creation. Since the Business Logic is Unstable/Flexible, it can be updated or even replaced without any impact upon the rest of the design.
 
 ## Configurers
 Configurers are pure Unstable/Flexible elements. Nothing depends upon them. Nothing knows about them. They are completely invisible to the rest of the design. Their only responsibility is to create objects in the design and assemble them.
@@ -145,7 +145,7 @@ External Dependencies mostly don't know that the behavior within the purple hexa
 ### Zone Between the Purple and Red Hexagons
 The elements between the red and purple hexagons contain Adapters/Façades and Configurers. They are Unstable/Flexible. They can be changed easily, which allows the Business Logic within the red hexagon to operate in just about any environment of External Dependencies imaginable.
 
-It's like the DMZ as shown by J. B. Rainsberger in this Universal Architecture [Tweet](https://twitter.com/jbrains/status/1312375356284952576).
+This zone is like the DMZ as shown by J. B. Rainsberger in this Universal Architecture [Tweet](https://twitter.com/jbrains/status/1312375356284952576).
 
 <img src="https://pbs.twimg.com/media/EjZ-blIWkAAOacw?format=jpg" alt="Universal Architecture" title="Image Source: [https://commons.wikimedia.org/wiki/File:Don%27t_Panic.svg](https://twitter.com/jbrains/status/1312375356284952576)" width = "50%" align="center" style="padding-right: 35px;">
 
@@ -159,11 +159,11 @@ Once a Port/Interface/Contract starts to stabilize, then the concrete classes th
 The only concrete classes that knows about other concrete classes are Configurers, and their level of knowledge is restricted to creation. And depend upon whether [Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) are used in Configurers, they may not even contain concrete class knowledge.
 
 ## Topological Sorting
-Let’s redraw the Hexagonal Architecture design using [Topological Sorting](https://en.wikipedia.org/wiki/Topological_sorting), and without the hexagons. That is, represent the flow from the design elements with the most dependencies to the design elements with the least dependencies.
+Let’s redraw the Hexagonal Architecture design using [Topological Sorting](https://en.wikipedia.org/wiki/Topological_sorting) and without the hexagons. That is, represent the flow from the design elements based upon their dependencies from concreteness to abstraction.
 
 This representation reenforces how well the Hexagonal Architecture design adheres to Bob Martin’s:
 * Acyclic Dependencies Principle – There are no cycles.
-* Stable Dependencies Principle – Elements depend upon more stable elements.
+* Stable Dependencies Principle – Elements depend upon more Stable elements.
 * Stable Abstractions Principle – The flow is from concrete elements to abstractions.
 
 ![Hexgonal Architecture Topologically Sorted](/assets/HexArchTopologicalSort.png)
@@ -174,12 +174,12 @@ I feel that Hexagonal Architecture works well because it adheres to these depend
 This adherence isn’t restricted to Hexagonal Architecture. Design Patterns tend to adhere to these principles as well. Once I realized this, I had a whole new appreciation for why the design patterns work. Keep these principles in mind as I return to design patterns in future blog posts.
 
 # References
-I mentioned Bob Martin's Component Coupling materials in the Introduction. Unfortunately, I can no longer find his Component Coupling video on O'Reilly, so I can't provide there, but I can provide other references:
+I mentioned Bob Martin's Component Coupling materials in the Introduction. Unfortunately, I can no longer find his Component Coupling video on O'Reilly, so I can't provide an O'Reilly video reference here, but I can provide other references:
 * O'Reilly Book: **Clean Architecture** [_Chapter 14: Component Coupling](https://learning.oreilly.com/library/view/clean-architecture-a/9780134494272/ch14.xhtml) - Requires an O'Reilly account
 * [CleanCoders](https://cleancoders.com/) [Component Coupling: Episode 17](https://cleancoders.com/episode/clean-code-episode-17) - Video available for purchase.
 * [Principles of Component Coupling](https://devlead.io/DevTips/PrinciplesOfComponentCoupling) - A blog, which covers what Martin covers in his book and video.
-* [The Principles of OOD](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod) - A blog by Bob Martin, I think.
-* [Clean Architecture – How to Quantify Component Coupling](https://www.codingblocks.net/podcast/clean-architecture-how-to-quantify-component-coupling/) - Landing page for CodingBlocks.net podcast where they covered Component Coupling.
-* [Robert C Martin Clean Design, Components Principles]() - A presentation by Bob Martin where he discusses Component Coupling. It's queued to start the principles listed above. The video/audio quality isn't great, but it's another means to acquire Martin's ideas.
+* [The Principles of OOD](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod) - A blog by Bob Martin.
+* [Clean Architecture – How to Quantify Component Coupling](https://www.codingblocks.net/podcast/clean-architecture-how-to-quantify-component-coupling/) - Landing page for the CodingBlocks.net podcast where they covered Component Coupling.
+* [Robert C Martin Clean Design, Components Principles]() - A presentation by Bob Martin where he discusses Component Coupling. It's queued to start the principles listed above. The video/audio quality isn't great, but it's adequate.
 
 See previous blog [References]( https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html#references).
