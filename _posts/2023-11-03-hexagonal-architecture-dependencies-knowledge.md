@@ -135,24 +135,50 @@ Configurers are not only invisible to the rest of the design, but they are also 
 Hexagons are a design element. They do not appear in the implementation. They are boundary constraints, which constrain the direction of dependency and knowledge. They are like the borders between countries, which determines who may cross the border. Laws and rules may be different on different sides of the border too.
 
 ### Red Hexagon
-The red hexagon is Stable/Fixed. All dependencies and knowledge point inward. The components within the red hexagon have no dependencies or knowledge of any other parts of the design.
+The Red Hexagon defines a pure Stable/Fixed boundary. All dependencies and knowledge point inward. The components within the Red Hexagon have no dependencies or knowledge of any other parts of the design.
 
 ### Purple Hexagon
-The purple hexagon encapsulates the entire design. All arrows point outward from it. This means that the entire design is Unstable/Flexible.
+The Purple Pexagon encapsulates the entire design. All arrows point outward from it. This means that the entire design is a pure Unstable/Flexible boundary.
 
-External Dependencies mostly don't know that the behavior within the purple hexagon exists. Frameworks may know that an Adapter has registered within it. Databases may have schema information about the domain.
+External Dependencies mostly don't know that the behavior within the Purple Hexagon exists. Frameworks may know that an Adapter has registered within it. Databases may have schema information about the domain.
 
 ### Zone Between the Purple and Red Hexagons
-The elements between the red and purple hexagons contain Adapters/Façades and Configurers. They are Unstable/Flexible. They can be changed easily, which allows the Business Logic within the red hexagon to operate in just about any environment of External Dependencies imaginable.
+The elements between the Red and Purple Hexagons contain Adapters/Façades and Configurers. They are Unstable/Flexible. They can be changed easily, which allows the Business Logic within the Red Hexagon to operate in just about any environment of External Dependencies imaginable.
 
 This zone is like the DMZ as shown by J. B. Rainsberger in this Universal Architecture [Tweet](https://twitter.com/jbrains/status/1312375356284952576).
 
-<img src="https://pbs.twimg.com/media/EjZ-blIWkAAOacw?format=jpg" alt="Universal Architecture" title="Image Source: https://twitter.com/jbrains/status/1312375356284952576" width = "50%" align="center" style="padding-right: 35px;">
+<img src="https://pbs.twimg.com/media/EjZ-blIWkAAOacw?format=jpg" alt="Universal Architecture" title="Image Source: https://twitter.com/jbrains/status/1312375356284952576" width = "45%" align="center" style="padding-right: 35px;">
+
+## Event Horizons
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Event_horizon_-_Flickr_-_Ghost_of_Kuji.jpg/900px-Event_horizon_-_Flickr_-_Ghost_of_Kuji.jpg?20200709011403" alt="Event Horizon" title="Image Source: https://commons.wikimedia.org/wiki/File:Event_horizon_-_Flickr_-_Ghost_of_Kuji.jpg" width = "20%" align="right" style="padding-right: 35px;">
+
+My use of [_Event Horizon_](https://en.wikipedia.org/wiki/Event_horizon) is inspired by Black Holes, but the metaphor is not exactly the same behavior as an event horizon for a black hole.
+
+I'm using the term as a metaphor that information cannot cross a boundary. Once mass or information crossed the event horizon of a black hole, it is no longer available to an observer beyond the event horizon. As for what happens to the mass or data on the other side of the event horizon, we, or at least I, do not know.
+
+I used the adjective _pure_ a few places above. By that I meant than the element had all inward arrowheads or all outward arrowheads. Let's consider how the concept of an Event Horizon applies to pure Unstable/Flexible elements and pure Stable/Fixed elements.
+
+### Pure Stable/Fixed Elements
+Pure Stable/Fixed elements are those with only inward arrowhead relationships. They include:
+* The Port/Interface/Contract
+* The Red Hexagon Boundary
+
+Pure Stable/Fixed element behavior is like flipped Event Horizon behavior. Any element has the ability to depend upon and have knowledge of the Port/Interface/Contract and the Red Hexagon Boundary, which is really the collection of Ports/Interfaces/Contracts. Pure Stable/Fixed elements and boundaries have no dependency or knowledge beyond their own boundaries. While other elements in the design know of them, Pure Stable/Fixed elements have no knowledge of the other elements of the design. Pure Stable/Fixed elements don't even know that they are part of a design.
+
+### Pure Unstable/Flexible Elements
+Pure Unstable/Flexible elements are those with only outward arrowhead relationships. They include:
+* The Configurer
+* The Purple Hexagon Boundary
+
+Pure Unstable/Flexible element behavior is more like Event Horizon behavior. No entity has the ability to depend upon or have knowledge of Configurers or the Purple Hexagonal Boundary. Pure Unstable/Flexible elements and boundaries have dependency and knowledge beyond their own boundaries, but the other elements have no knowledge of them. They don't know if they are implemented as one class or a thousand. The other elements of the design don't even know that Pure Unstable/Flexible elements are part of their design.
+
+Business Logic and Adapters/Façades are technically not _pure_; however, they are only known by the Configurer, which is _pure_. If one were to draw a boundary around the Configurer, Business Logic and Adapters/Façades, then that boundary would be Pure Unstable/Flexible, and it would exhibit all of the behaviors listed in the paragraph above.
 
 ## Class-to-Class Dependencies ... There Are None
 The concrete classes have no dependencies or knowledge of any other concrete classes in the design. The Business Logic and the Adapters don’t know that the others exist. It’s only the Configurer that knows them all.
 
-The Business Logic and Adapters are separated via the Ports/Interface/Contract elements. All arrows point inward into the Ports/Interfaces/Contracts. Nothing points outward to the Business Logic and Adapters. Therefore, you can’t start in one concrete class and find a directed path to another concrete class.
+The Business Logic and Adapters are separated via the Port/Interface/Contract elements. All arrows point inward into the Ports/Interfaces/Contracts. Nothing points outward to the Business Logic and Adapters. Therefore, you can’t start in one concrete class and find a directed path to another concrete class. We cannot cross the _Event Horizon_ of the Port/Interface/Contract elements, and hence hop over and depend upon or have nowledge of the other concrete classes.
 
 Once a Port/Interface/Contract starts to stabilize, then the concrete classes that depend upon it can proceed with their implementation in parallel by different developers or teams without stepping upon each other’s toes.
 
