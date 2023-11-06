@@ -66,12 +66,12 @@ Strings, LinkedLists and other utility classes are Stable. They are so ubiquitou
 
 We all feel comfortable using and depending upon these utilities, since we know their behavior won’t change and rip the rug out from underneath our design.
 
-Our design will also have our own business domain elements which tend to be Stable and Fixed as well.
+Our design will also have our own business domain elements that tend to be Stable and Fixed as well.
 
 #### Unstable or Flexible Design Elements
 Classes with more outward arrowhead relationships than inward arrowheads relationships are mostly invisible to other elements in the design. They are much like **A** in the UML examples listed above.
 
-Martin’s term for these elements is _unstable_. I prefer the term _flexible_. They are Flexible in that they can change without a major impact upon the rest of the elements in the design.
+Martin’s term for these elements is _Unstable_. I prefer the term _Flexible_. They are Flexible in that they can change without a major impact upon the rest of the elements in the design.
 
 #### Adults Versus Teenagers
 Martin has referred to Stable/Fixed elements as _adults_ and Unstable/Flexible elements as _teenagers_.
@@ -101,7 +101,7 @@ The dependency/knowledge principles summarize as:
 * Unstable/Flexible elements should be those elements that may need to change often.
 * Good designs need both Stable/Fixed and Unstable/Flexible elements.
 * Unstable/Flexible elements should depend upon more Stable/Fixed elements.
-* Dependency will flow from concreteness toward abstraction.
+* Dependency will flow from Unstable/Flexible concreteness toward Stable/Fixed abstraction.
 
 # Application of the Theory and Implications to Hexagonal Architecture
 Let’s consider how these principles apply with Hexagonal Architectures.
@@ -117,9 +117,9 @@ The Port/Interface/Contract elements are pure Stable/Fixed elements. All arrows 
 ## Adapters and Façades
 [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) and [Façades](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html) are Unstable/Flexible. Their only inward relationship is their creation. Adapters and Façades can be swapped out with ease.
 
-Adapter responsibility is limited to implementing their Contract dependency and delegating it to an External Dependency API. While it may require developer  blood, sweat and tears to understand the External Dependency API, the Adapter implementation is only concerned with the translation between the Contract and the External Dependency API. The implementation should be relatively small and straightforward once the External Dependency APIs are understood.
+Adapter responsibility is limited to implementing their Contract dependency and delegating it to an External Dependency API. While it may require developer  blood, sweat and tears to understand the External Dependency API, the Adapter implementation is only concerned with the translation between the Contract and the External Dependency API. The implementation should be relatively straightforward once the External Dependency APIs are understood.
 
-The Contract may require behavior that’s not provided by a single External Dependency. A Façade manages the transition to multiple External Dependencies. Since it has more External Dependencies, Façades will be more likely to change than an Adapter. It will have a larger implementation, but Façades should still not contain any business logic implementations.
+The Contract may require behavior that’s not provided by a single External Dependency API. A Façade manages the transition to multiple External Dependency APIs. Since it has more External Dependencies, Façades will be more likely to change than an Adapter. It will have a larger implementation, but Façades should still not contain any business logic implementations.
 
 ## Business Logic
 Business Logic is Unstable/Flexible, which is sort of surprising. The Business Logic the main reason for the entire design and it is mostly invisible! Like Adapters, the only Business Logic inward relationship is its creation. Since the Business Logic is Unstable/Flexible, it can be updated or even replaced without any impact upon the rest of the design.
@@ -155,7 +155,7 @@ This zone is like the DMZ as shown by J. B. Rainsberger in this Universal Archit
 
 My use of [_Event Horizon_](https://en.wikipedia.org/wiki/Event_horizon) is inspired by Black Holes, but the metaphor is not exactly the same behavior as an event horizon for a black hole.
 
-I'm using the term as a metaphor that information cannot cross a boundary. Once mass or information crossed the event horizon of a black hole, it is no longer available to an observer beyond the event horizon. As for what happens to the mass or data on the other side of the event horizon, we, or at least I, do not know.
+I'm using the term as a metaphor that information cannot cross a boundary. Once mass or information crosses the event horizon of a black hole, it is no longer available to an observer beyond the event horizon. As for what happens to the mass or data on the other side of the event horizon, we, or at least I, do not know.
 
 I used the adjective _pure_ a few places above. By that I meant than the element had all inward arrowheads or all outward arrowheads. Let's consider how the concept of an Event Horizon applies to pure Unstable/Flexible elements and pure Stable/Fixed elements.
 
@@ -171,14 +171,14 @@ Pure Unstable/Flexible elements are those with only outward arrowhead relationsh
 * The Configurer
 * The Purple Hexagon Boundary
 
-Pure Unstable/Flexible element behavior is more like Event Horizon behavior. No entity has the ability to depend upon or have knowledge of Configurers or the Purple Hexagonal Boundary. Pure Unstable/Flexible elements and boundaries have dependency and knowledge beyond their own boundaries, but the other elements have no knowledge of them. They don't know if they are implemented as one class or a thousand. The other elements of the design don't even know that Pure Unstable/Flexible elements are part of their design.
+Pure Unstable/Flexible element behavior is more like Event Horizon behavior. No element has the ability to depend upon or have knowledge of Configurers or the Purple Hexagonal Boundary. Pure Unstable/Flexible elements and boundaries have dependency and knowledge beyond their own boundaries, but the other elements have no knowledge of them. The other elements don't know if _pure Unstable/Flexible/ elements are implemented as one class or a thousand. The other elements of the design don't even know that Pure Unstable/Flexible elements are part of their design.
 
-Business Logic and Adapters/Façades are technically not _pure_; however, they are only known by the Configurer, which is _pure_. If one were to draw a boundary around the Configurer, Business Logic and Adapters/Façades, then that boundary would be Pure Unstable/Flexible, and it would exhibit all of the behaviors listed in the paragraph above.
+Business Logic and Adapters/Façades are technically not _pure_; however, they are only known by the Configurer, which is _pure_. If one were to draw a boundary around the Configurer, Business Logic and Adapters/Façades, then that boundary would be _Pure Unstable/Flexible_, and it would exhibit all of the behaviors listed in the paragraph above.
 
 ## Class-to-Class Dependencies ... There Are None
 The concrete classes have no dependencies or knowledge of any other concrete classes in the design. The Business Logic and the Adapters don’t know that the others exist. It’s only the Configurer that knows them all.
 
-The Business Logic and Adapters are separated via the Port/Interface/Contract elements. All arrows point inward into the Ports/Interfaces/Contracts. Nothing points outward to the Business Logic and Adapters. Therefore, you can’t start in one concrete class and find a directed path to another concrete class. We cannot cross the _Event Horizon_ of the Port/Interface/Contract elements, and hence hop over and depend upon or have nowledge of the other concrete classes.
+The Business Logic and Adapters are separated via the Port/Interface/Contract elements. All arrows point inward into the Ports/Interfaces/Contracts. Nothing points outward to the Business Logic and Adapters. Therefore, you can’t start in one concrete class and find a directed path to another concrete class. We cannot cross the _Event Horizon_ of the Port/Interface/Contract elements, and hence hop over and depend upon or have knowledge of the other concrete classes.
 
 Once a Port/Interface/Contract starts to stabilize, then the concrete classes that depend upon it can proceed with their implementation in parallel by different developers or teams without stepping upon each other’s toes.
 
