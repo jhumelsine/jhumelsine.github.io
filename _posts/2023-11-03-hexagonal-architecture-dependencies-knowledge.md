@@ -1,7 +1,6 @@
 ---
 title: Hexagonal Architecture – Why it works
 description: It’s all about dependency and knowledge management
-unlisted: true
 ---
 
 ![One-Way Sign](https://www.trafficsign.com/images/source/large-images/X4555.jpg "https://www.trafficsign.com/products/8446/one-way-right-sign-r6-1r")
@@ -157,7 +156,7 @@ My use of [_Event Horizon_](https://en.wikipedia.org/wiki/Event_horizon) is insp
 
 I'm using the term as a metaphor that information cannot cross a boundary. Once mass or information crosses the event horizon of a black hole, it is no longer available to an observer beyond the event horizon. As for what happens to the mass or data on the other side of the event horizon, we, or at least I, do not know.
 
-I used the adjective _pure_ a few places above. By that I meant than the element had all inward arrowheads or all outward arrowheads. Let's consider how the concept of an Event Horizon applies to pure Unstable/Flexible elements and pure Stable/Fixed elements.
+I used the adjective _pure_ a few places above. By that I meant that the element had all inward arrowheads or all outward arrowheads. Let's consider how the concept of an Event Horizon applies to pure Unstable/Flexible elements and pure Stable/Fixed elements.
 
 ### Pure Stable/Fixed Elements
 Pure Stable/Fixed elements are those with only inward arrowhead relationships. They include:
@@ -182,7 +181,7 @@ The Business Logic and Adapters are separated via the Port/Interface/Contract el
 
 Once a Port/Interface/Contract starts to stabilize, then the concrete classes that depend upon it can proceed with their implementation in parallel by different developers or teams without stepping upon each other’s toes.
 
-The only concrete classes that knows about other concrete classes are Configurers, and their level of knowledge is restricted to creation. And depend upon whether [Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) are used in Configurers, they may not even contain concrete class knowledge.
+The only concrete classes that know about other concrete classes are Configurers, and their level of knowledge is restricted to creation. And depend upon whether [Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) are used in Configurers, they may not even contain concrete class knowledge.
 
 ## Topological Sorting
 Let’s redraw the Hexagonal Architecture design using [Topological Sorting](https://en.wikipedia.org/wiki/Topological_sorting) and without the hexagons. That is, represent the flow from the design elements based upon their dependencies from concreteness to abstraction.
@@ -199,9 +198,9 @@ I feel that Hexagonal Architecture works well because it adheres to these depend
 * The Business Logic implementation is cocooned from its environment, so that it can execute without updates in almost any environment with the support of Adapters/Façades and Configurers.
 * The Business Logic, Adapter/Façade and Configurer implementation may consist of any number of classes without any overall implications upon the rest of the design, because they are _Unstable/Flexibie_ elements with an _Event Horizon_ that hides all details.
 * The Business Logic and Adapters/Façades are separated via Ports/Interfaces/Contracts. Therefore, an update in one implementation class won't affect the other implementation classes.
-* Once Port/Interface/Contract methods stabalize, development may progress in their corresponding Business Logic, Adapter/Façade implementations in parallel, even by different developers or teams.
+* Once Port/Interface/Contract methods stabilize, development may progress in their corresponding Business Logic, Adapter/Façade implementations in parallel, even by different developers or teams.
 
-This adherence to dependency and knowlege principles isn’t restricted to Hexagonal Architecture. Design Patterns tend to adhere to these principles as well. Once I realized this, I had a whole new appreciation for why the design patterns work. Keep these principles in mind when I return to design patterns in future blog posts.
+This adherence to dependency and knowledge principles isn’t restricted to Hexagonal Architecture. Design Patterns tend to adhere to these principles as well. Once I realized this, I had a whole new appreciation for why the design patterns work. Keep these principles in mind when I return to design patterns in future blog posts.
 
 # References
 I mentioned Bob Martin's Component Coupling materials in the Introduction. Unfortunately, I can no longer find his Component Coupling video on O'Reilly, so I can't provide an O'Reilly video reference here, but I can provide other references:
