@@ -195,9 +195,13 @@ This representation reenforces how well the Hexagonal Architecture design adhere
 ![Hexgonal Architecture Topologically Sorted](/assets/HexArchTopologicalSort.png)
 
 # Summary
-I feel that Hexagonal Architecture works well because it adheres to these dependency and knowledge principles.
+I feel that Hexagonal Architecture works well because it adheres to these dependency and knowledge principles. Here's a summary of how Hexagonal Architectures leverages these principles to its benefit:
+* The Business Logic implementation is cocooned from its environment, so that it can execute without updates in almost any environment with the support of Adapters/Façades and Configurers.
+* The Business Logic, Adapter/Façade and Configurer implementation may consist of any number of classes without any overall implications upon the rest of the design, because they are _Unstable/Flexibie_ elements with an _Event Horizon_ that hides all details.
+* The Business Logic and Adapters/Façades are separated via Ports/Interfaces/Contracts. Therefore, an update in one implementation class won't affect the other implementation classes.
+* Once Port/Interface/Contract methods stabalize, development may progress in their corresponding Business Logic, Adapter/Façade implementations in parallel, even by different developers or teams.
 
-This adherence isn’t restricted to Hexagonal Architecture. Design Patterns tend to adhere to these principles as well. Once I realized this, I had a whole new appreciation for why the design patterns work. Keep these principles in mind as I return to design patterns in future blog posts.
+This adherence to dependency and knowlege principles isn’t restricted to Hexagonal Architecture. Design Patterns tend to adhere to these principles as well. Once I realized this, I had a whole new appreciation for why the design patterns work. Keep these principles in mind when I return to design patterns in future blog posts.
 
 # References
 I mentioned Bob Martin's Component Coupling materials in the Introduction. Unfortunately, I can no longer find his Component Coupling video on O'Reilly, so I can't provide an O'Reilly video reference here, but I can provide other references:
