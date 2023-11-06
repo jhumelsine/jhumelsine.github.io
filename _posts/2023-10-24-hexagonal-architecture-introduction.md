@@ -11,6 +11,7 @@ The internet is swarming with information about _Hexagonal Architecture/Ports & 
 
 The series continues with:
 * [Hexagonal Architecture - Structure](https://jhumelsine.github.io/2023/10/28/hexagonal-architecture-structure.html) - This describes the structure of the Hexagonal Architecture design, and how it's really a pattern or design patterns.
+* [Hexagonal Architecture - Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html) - This describes why I feel that the Hexagonal Architecture design works so well. It's based upon dependency and knowledge management.
 
 # What is a Name?
 I first heard of _Hexagonal Architecture_ about 6 or 7 years ago. The name sounded funny. Later I heard that it’s also called _Ports and Adapters_. The same design has two names. _Sigh_. But that’s not all. The design basics are extremely similar to other designs, such as _Clean Architecture_ (CleanArch) and _Onion Architecture_ (OnionArch).
@@ -59,7 +60,7 @@ Even if a project is 100% certain that an external dependency will never change,
 # Boundaries and Constraints
 I’m convinced that HexArch/P&A works because of boundaries and constraints it imposes. The constraint almost screams where implementation should reside and why it should reside there.
 
-I will provide a separate blog about the boundaries and constraints. It’s one of the blogs of this series that I’m looking most forward to.
+I will provide a separate [blog](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html) about the boundaries and constraints.
 
 # That Hexagon Really Pulled the Room Together
 <img src="https://media.makeameme.org/created/that-hexagon-really.jpg" alt="The Dude" title="Image Source: https://makeameme.org/meme/that-hexagon-really" width = "30%" align="right" style="padding-right: 35px;">
