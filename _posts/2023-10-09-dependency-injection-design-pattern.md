@@ -237,4 +237,4 @@ Here are some free resources:
 
 Here are some resources that can be purchased or are included in a subscription service:
 * **API Design in C++** Chapter 3 by Martin Reddy ([O'Reilly](https://learning.oreilly.com/library/view/api-design-for/9780123850034/xhtml/chp003.xhtml) and [Amazon](https://www.amazon.com/API-Design-C-Martin-Reddy/dp/0123850037/))
-* **Clean Architecture** Chapter 11 by Robert Martin ([O'Reilly]([https://learning.oreilly.com/library/view/clean-architecture-a/9780134494272/](https://learning.oreilly.com/library/view/clean-architecture-a/9780134494272/ch11.xhtml)https://learning.oreilly.com/library/view/clean-architecture-a/9780134494272/ch11.xhtml) and [Amazon](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164/))
+* **Clean Architecture** Chapter 11 by Robert Martin ([O'Reilly](https://learning.oreilly.com/library/view/clean-architecture-a/9780134494272/ch11.xhtml) and [Amazon](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164/))
