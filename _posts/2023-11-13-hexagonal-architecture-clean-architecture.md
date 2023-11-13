@@ -4,7 +4,7 @@ description: Hexagonal Architecture and Clean Architecture are similar, but ther
 unlisted: true
 ---
 
-![Clean Architecture](https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg "https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html")
+<img src="https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg" alt="The Clean Architecture" title="Image Source: https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html" width = "60%" align="center" style="padding-right: 35px;">
 
 # Introduction
 This continues the [Hexagonal Architecture series](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html) with how Hexagonal Architecture compares to Clean Architecture. The comparison and contrasts of understanding one helps to understand the other.
@@ -23,8 +23,7 @@ Hexagonal Architecture focuses upon the structure of the design. Clean Architect
 # Screaming Architecture
 Bob Martin often starts his Clean Architecture presentations with [Screaming Architecture](https://blog.cleancoder.com/uncle-bob/2011/09/30/Screaming-Architecture.html). Martin’s purports that the first thing one should notice with an architecture is what the application does and not how it’s built. One’s first impression should be that the software is a finance, medical or social media application. It should not be that it’s developed on Ruby on Rails or Spring Boot.
 
-![School](https://cdn2.picryl.com/photo/1910/12/31/american-school-building-standards-1910-14767265011-905b54-1024.jpg
-"https://picryl.com/media/american-school-building-standards-1910-14767265011-905b54")
+<img src="https://cdn2.picryl.com/photo/1910/12/31/american-school-building-standards-1910-14767265011-905b54-1024.jpg" alt="School Floorplan" title="Image Source: https://picryl.com/media/american-school-building-standards-1910-14767265011-905b54" width = "40%" align="right" style="padding-right: 35px;">
 
 Martin uses building floorplans to illustrate his point. Floorplans convey the type of building, the rooms, how they are connected and their function. If it does convey the building materials, it tends to be more subtle. When most people are looking to buy a home, they’re probably more concerned with the number of rooms, flow between rooms, bathrooms, etc. and not so much the gauge of the electrical wiring.
 
@@ -41,8 +40,7 @@ There are primarily two diagrams that convey Bob Martin’s Clean Architecture:
 * The UML Class Architecture Diagram, which provides class-level detail, but its alignment to the high-level diagram isn’t necessarily obvious.
 
 ## High-Level Clean Architecture Diagram
-
-![Clean Architecture](https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg "https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html")
+<img src="https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg" alt="The Clean Architecture" title="Image Source: https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html" width = "60%" align="center" style="padding-right: 35px;">
  
 This diagram defines dependencies and constraints much like [Hexagons](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#hexagons) do, except that Martin uses circles rather than hexagons. He color coded the rings and provided some context as to what sort of entities reside in each ring. He provides a few examples in the rings themselves.
 
@@ -62,15 +60,15 @@ The Clean Architecture diagram is more about intent, without focusing upon struc
 Bob Martin jumps from the high-level Clean Architecture diagram to this UML class diagram. I wish he had used the same terminology in both diagrams and been more explicit with the architecture boundaries in the UML Class Diagram so it would have been more obvious how these two diagrams relate to one another.
 
 ## Hexagonal Architecture
-![Hexagonal Architecture](/assets/HexArchHexagons.png)
+<img src="/assets/HexArchHexagons.png" alt="Hexagonal Architecture" width = "70%" align="center" style="padding-right: 35px;">
  
 And here’s my Hexagonal Architecture diagram. It’s similar to Clean Architecture, yet different still.
 
 # Three Into One
 Here is my attempt to merge elements of all three diagrams into one, so that hopefully it’s a bit more obvious how the elements relate to one another among the three separate diagrams.
 
-![Enterprise Business Rules](/assets/HexArchCombined.png)
- 
+<img src="/assets/HexArchCombined.png" alt="Hexagonal and Clean Architecture Combined" width = "80%" align="center" style="padding-right: 35px;">
+
 Highlights:
 * I’ve used hexagons rather than circles. The hexagon colors have no meaning. It’s just to make them easier to distinguish. I’ve retained the red and purple hexagon colors from the previous Hexagonal Architecture diagrams.
 * The four Inbound/Outbound Boundary interfaces and their Data Models in the Clean Architecture UML class diagram have been compressed into one Input/Output Boundary interface in the unified diagram.
@@ -79,7 +77,7 @@ Highlights:
 This is a lot of absorb. I’ll present each layer from the inside out in more detail. However, I also defer additional details to Bob Martin. He has written about this in his book and in blogs. His videos also provide more detail than I’ll provide here. Please refer to some of his references, which I’ll list in the Resources section here, for more information. I can’t present it all here.
 
 ## Enterprise Business Rules
-![Enterprise Business Rules](/assets/HexArchEnterpriseBusinessLogic.png)
+<img src="/assets/HexArchEnterpriseBusinessLogic.png" alt="Enterprise Business Rules" width = "40%" align="center" style="padding-right: 35px;">
 
 I have not shown Entities in previous Hexagonal Architecture diagrams. If you look at [Hexagonal Architecture Diagrams]( https://www.google.com/search?q=hexagonal+architecture&tbm=isch) on the internet, you’ll see that Entities aren’t consistently represented, and even when they appear, they often have other names such as _Domain Model_.
 
@@ -96,8 +94,8 @@ Here are several potential Entity candidates:
 Since all relationship arrowheads point inward toward Entities, they are _pure Stable/Fixed_ elements. They depend upon nothing else in the design.
 
 ## Application Business Rules
-![Application Business Rules](/assets/HexArchApplicationBusinessRules.png)
- 
+<img src="/assets/HexArchApplicationBusinessRules.png" alt="Application Business Rules" width = "60%" align="center" style="padding-right: 35px;">
+
 Application Business Rules add the next layer around the Enterprise Business Rules.
 All three types of elements in this layer can create and reference Entities.
 
@@ -151,8 +149,8 @@ I prefer to keep primitive types out of interface contracts unless the concept i
 This aligns with the _Driven Dependency Port/Interface/Contract_ in the Hexagonal Architecture diagrams. Other than different names, the concept is identical.
 
 ## Interface Adapters
-![Interface Adapters](/assets/HexArchInterfaceAdapters.png)
- 
+<img src="/assets/HexArchInterfaceAdapters.png" alt="Interface Adapters" width = "70%" align="center" style="padding-right: 35px;">
+
 Interface Adapters add the next layer around Application Business Rules.
 Some of my classes are designed differently than what Bob Martin provided in his UML class diagram.
 
@@ -176,8 +174,8 @@ Different types of Presenters might be needed depending upon how the user might 
 The Data Access aligns with the Dependency Adapter in the Hexagonal Architecture diagram. Other than different names, the concept is identical.
 
 ## Frameworks and Drivers
-![Frameworks and Drivers](/assets/HexArchCombined.png)
- 
+<img src="/assets/HexArchCombined.png" alt="Frameworks and Drivers" width = "80%" align="center" style="padding-right: 35px;">
+
 And now we’re back to where we started with the merged diagram.
 
 Frameworks and Drivers is the layer around the Interface Adapters. It is not a separate layer in the Hexagonal Architecture diagram. In Hexagonal Architecture it’s represented as all External Dependencies beyond the purple hexagon.
@@ -196,7 +194,7 @@ Martin draws the View pointing inward depending upon the ViewModel, and in a sen
 The Database is any typical database. In most cases, it will be supplied by an external vendor.
 
 ## What’s Missing?
-There is no Configurer. Martin didn’t include one in his diagram, so I didn’t attempt to show one either. However, he has indirectly referred to concepts consistent with Configurers. A glimpse of this is visible in [Factories/Abstract Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html #abstract-factory). Martin often refers to concrete class creation as being the deepest and “dirtiest” part of the code. It often resides in `main()`. For more details on how I approach the Configurer, see [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html)
+There is no Configurer. Martin didn’t include one in his diagram, so I didn’t attempt to show one either. However, he has indirectly referred to concepts consistent with Configurers. A glimpse of this is visible in [Factories/Abstract Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#abstract-factory). Martin often refers to concrete class creation as being the deepest and “dirtiest” part of the code. It often resides in `main()`. For more details on how I approach the Configurer, see [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html)
 
 If I were to have added a Configurer in the diagram, it would still be in the Interface Adapter layer and it would create Data Access, Use Case/Interactor and Controller as I had shown in the Hexagonal Architecture diagram.
 
