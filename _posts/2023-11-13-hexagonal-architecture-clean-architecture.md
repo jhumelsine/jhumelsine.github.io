@@ -68,6 +68,8 @@ And here’s my Hexagonal Architecture diagram. It’s similar to Clean Architec
 
 # Three Into One
 Here is my attempt to merge elements of all three diagrams into one, so that hopefully it’s a bit more obvious how the elements relate to one another among the three separate diagrams.
+
+![Enterprise Business Rules](/assets/HexArchCombined.png)
  
 Highlights:
 * I’ve used hexagons rather than circles. The hexagon colors have no meaning. It’s just to make them easier to distinguish. I’ve retained the red and purple hexagon colors from the previous Hexagonal Architecture diagrams.
@@ -77,8 +79,8 @@ Highlights:
 This is a lot of absorb. I’ll present each layer from the inside out in more detail. However, I also defer additional details to Bob Martin. He has written about this in his book and in blogs. His videos also provide more detail than I’ll provide here. Please refer to some of his references, which I’ll list in the Resources section here, for more information. I can’t present it all here.
 
 ## Enterprise Business Rules
-![Enterprise Business Rules](/Assets/HexArchApplicationBusinessRules.png)
- 
+![Enterprise Business Rules](/assets/HexArchEnterpriseBusinessLogic.png)
+
 I have not shown Entities in previous Hexagonal Architecture diagrams. If you look at [Hexagonal Architecture Diagrams]( https://www.google.com/search?q=hexagonal+architecture&tbm=isch) on the internet, you’ll see that Entities aren’t consistently represented, and even when they appear, they often have other names such as _Domain Model_.
 
 Here is how Martin describes them in his [Clean Architecture Blog](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html):
