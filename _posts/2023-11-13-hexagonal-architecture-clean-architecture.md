@@ -21,9 +21,9 @@ Hexagonal Architecture focuses upon the structure of the design. Clean Architect
 # Screaming Architecture
 Bob Martin often starts his Clean Architecture presentations with [Screaming Architecture](https://blog.cleancoder.com/uncle-bob/2011/09/30/Screaming-Architecture.html). Martin proposes that the first thing one should notice with an architecture is what the application does and not how it’s built. One’s first impression should be that the application is in the finance, medical or social media domain. It should not be that it’s developed on Ruby on Rails or Spring Boot.
 
-<img src="https://cdn2.picryl.com/photo/1910/12/31/american-school-building-standards-1910-14767265011-905b54-1024.jpg" alt="School Floorplan" title="Image Source: https://picryl.com/media/american-school-building-standards-1910-14767265011-905b54" width = "40%" align="right" style="padding-right: 35px;">
+<img src="https://cdn2.picryl.com/photo/1910/12/31/american-school-building-standards-1910-14767265011-905b54-1024.jpg" alt="School Floor Plan" title="Image Source: https://picryl.com/media/american-school-building-standards-1910-14767265011-905b54" width = "40%" align="right" style="padding-right: 35px;">
 
-Martin uses building floorplans to illustrate his point. Floorplans convey the type of building, the rooms, how they are connected and their function. If it does convey the building materials, it tends to be more subtle.
+Martin uses building floor plans to illustrate his point. Floor plans convey the type of building, the rooms, how they are connected and their function. If it does convey the building materials, it tends to be more subtle.
 
 When most people are looking to buy a home, they’re probably more concerned with the number of rooms, flow between rooms, number of bathrooms, etc. and not so much the gauge of the electrical wiring.
 
@@ -66,7 +66,7 @@ Bob Martin jumps from the high-level Clean Architecture diagram to this UML clas
 Here is my Hexagonal Architecture diagram. It’s similar to Clean Architecture, yet different still.
 
 # Three Into One
-Here is my attempt to the merge elements of all three diagrams into one, so that hopefully it’s a bit more obvious how the elements relate to one another among the three separate diagrams.
+Here is my attempt to merge the elements of all three diagrams into one, so that hopefully it’s a bit more obvious how the elements relate to one another among the three separate diagrams.
 
 <img src="/assets/HexArchCombined.png" alt="Hexagonal and Clean Architecture Combined" width = "80%" align="center" style="padding-right: 35px;">
 
@@ -85,7 +85,7 @@ I have not shown Entities in previous Hexagonal Architecture diagrams. If you lo
 Here is how Martin describes them in his [Clean Architecture Blog](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html):
 > Entities encapsulate _Enterprise wide_ business rules. An entity can be an object with methods, or it can be a set of data structures and functions. It doesn’t matter so long as the entities could be used by many different applications in the enterprise.
 
-Entities are so domain specific that they transcend any specific feature of the system. I think they conceptually transend the system too. These are domain rules that would exist, even if the system didn’t exist. They are critical to the business and universal. That is, these rules should apply regardless of the context in which they reside.
+Entities are so domain specific that they transcend any specific feature of the system. I think they conceptually transcend the system too. These are domain rules that would exist, even if the system didn’t exist. They are critical to the business and universal. That is, these rules should apply regardless of the context in which they reside.
 
 Here are several Entity examples:
 * Customer
@@ -167,7 +167,7 @@ The Output/Response Model is returned by the Input/Output Boundary interfaces ha
 
 While the Controller could take upon complete responsibility to make the data presentable to the end user, Martin suggests using a Presenter. This is another class that the Controller would delegate to.
 
-The Presenter will accept the Output/Response Model and build a ViewModel based upon it. The ViewModel contains all the content that resides in the Output/Response Model, but the ViewModel content is formatted so that it’s presentable to the user. For example, if the user is using a web browser, then the ViewModel might be an HTML file, wherease the Output/Response Model should have no trace of HTML.
+The Presenter will accept the Output/Response Model and build a ViewModel based upon it. The ViewModel contains all the content that resides in the Output/Response Model, but the ViewModel content is formatted so that it’s presentable to the user. For example, if the user is using a web browser, then the ViewModel might be an HTML file, whereas the Output/Response Model should have no trace of HTML.
 
 Different types of Presenters might be needed depending upon how the user might be consuming the information.
 
@@ -214,7 +214,7 @@ _Ports/Interfaces/Contracts_ will convey intent, but they should avoid External 
 
 The Adapter can indicate through the interface that there was an error and possibly even the nature of the error, if the error makes sense within the context of the interface contract. For example, the interface contract’s intent could be persistence without an indication of the form of persistence. If the database fails to save a record, then Adapter could translate the database specific error into an interface error along the lines of: UnableToPersistException. The specific database error should be logged, since we still want to retain that information for diagnosis.
 
-Likewise, if the Adapter delegates to an RESTful internet call, then it should not leak HTTP status codes back up through the _Port/Interface/Contract_ that they implement. However, they can convey a status indicating some form of status that's independenty of HTTP status codes.
+Likewise, if the Adapter delegates to an RESTful internet call, then it should not leak HTTP status codes back up through the _Port/Interface/Contract_ that they implement. However, they can convey a status indicating some form of status that's independent of HTTP status codes.
 
 The same applies to the Framework Adapters too. Specifics on the Driver side should not leak through the Business Logic Interface into the Business Logic.
 
