@@ -1,29 +1,31 @@
 ---
-title: Hexagonal Architecture – How it compares to and constrants with Clean Architecture
-description: Hexagonal Architecture and Clean Architecture are similar, but there are some differences
+title: Hexagonal Architecture – How it compares to and compares with Clean Architecture
+description: Hexagonal vs Clean: The Devil's in the Details
 unlisted: true
 ---
 
 <img src="https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg" alt="The Clean Architecture" title="Image Source: https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html" width = "60%" align="center" style="padding-right: 35px;">
 
 # Introduction
-This continues the [Hexagonal Architecture series](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html) with how Hexagonal Architecture compares to and constrats with Clean Architecture. The comparison and contrasts of understanding one design helps to understand the other.
+This continues the [Hexagonal Architecture series](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html) with how Hexagonal Architecture compares to and contrasts with Clean Architecture. Understanding one design helps to understand the other.
 
-I feel like I’ve mentioned Clean Architecture by Bob Martin almost as much as I’ve mentioned Hexagonal Architecture by Alistair Cockburn in the Hexagonal Architecture series so far. In this blog post, I will compare and contrast Hexagonal Architecture and Clean Architecture as I interpret them.
+I feel like I’ve mentioned Clean Architecture by Bob Martin almost as much as I’ve mentioned Hexagonal Architecture by Alistair Cockburn in the Hexagonal Architecture series so far. In this blog post, I will compare and contrast Hexagonal Architecture and Clean Architecture as I view them.
 
-I encountered Clean Architecture first, and it led me to Hexagonal Architecture. I had watched Bob Martin’s **Clean Architecture videos** via O’Reilly and I read his **Clean Architecture** book. These resources are still available, but they can only be accessed via a subscription service or purchase. See the references at the bottom of this page. Fortunately, Martin blogs about Clean Architecture, and he has presented it several times at different conferences. He conveys most of the basics through these resources, which are freely available. These summarized resources take much less time to consume than the paid videos or book, and they tend to contain most of the important details.
+I encountered Clean Architecture first, and it led me to Hexagonal Architecture. I had watched Bob Martin’s **Clean Architecture videos** via O’Reilly and I read his **Clean Architecture** book. These resources are available, but they can only be accessed via a subscription service or purchase. See the **References** at the bottom of this page. Fortunately, Martin blogs about Clean Architecture, and he has presented it several times at different conferences. He conveys most of the basics through these resources, which are freely available. These summarized resources take much less time to consume than the paid videos or book, and they tend to contain most of the important details.
 
 # Basic Similarities and Differences
-The Hexagonal Architecture and Clean Architecture share the same basic design philosophy, along with the [Onion Architecture](https://jeffreypalermo.com/2008/07/the-onion-architecture-part-1/), that domain information should be cocooned within the design with external dependencies pushed to the design edges. Domain information should no depend upon the external dependencies The differences are mostly in details and terminology.
+The Hexagonal Architecture and Clean Architecture share the same basic design philosophy, along with the [Onion Architecture](https://jeffreypalermo.com/2008/07/the-onion-architecture-part-1/), that domain information should be cocooned within the design with external dependencies pushed to the design edges. Domain information should not depend upon the external dependencies. The differences are mostly in details and terminology.
 
 Hexagonal Architecture focuses upon the structure of the design. Clean Architecture provides more detail and context. Hexagonal Architecture is syntax. Clean Architecture is semantics. Hexagonal Architecture is about semantics. Clean Architecture is about behavior. In a sense, Clean Architecture conceptually extends Hexagonal Architecture.
 
 # Screaming Architecture
-Bob Martin often starts his Clean Architecture presentations with [Screaming Architecture](https://blog.cleancoder.com/uncle-bob/2011/09/30/Screaming-Architecture.html). Martin proposes that the first thing one should notice with an architecture is what the application does and not how it’s built. One’s first impression should be that the software is a finance, medical or social media application. It should not be that it’s developed on Ruby on Rails or Spring Boot.
+Bob Martin often starts his Clean Architecture presentations with [Screaming Architecture](https://blog.cleancoder.com/uncle-bob/2011/09/30/Screaming-Architecture.html). Martin proposes that the first thing one should notice with an architecture is what the application does and not how it’s built. One’s first impression should be that the application is in the finance, medical or social media domain. It should not be that it’s developed on Ruby on Rails or Spring Boot.
 
 <img src="https://cdn2.picryl.com/photo/1910/12/31/american-school-building-standards-1910-14767265011-905b54-1024.jpg" alt="School Floorplan" title="Image Source: https://picryl.com/media/american-school-building-standards-1910-14767265011-905b54" width = "40%" align="right" style="padding-right: 35px;">
 
-Martin uses building floorplans to illustrate his point. Floorplans convey the type of building, the rooms, how they are connected and their function. If it does convey the building materials, it tends to be more subtle. When most people are looking to buy a home, they’re probably more concerned with the number of rooms, flow between rooms, number of bathrooms, etc. and not so much the gauge of the electrical wiring.
+Martin uses building floorplans to illustrate his point. Floorplans convey the type of building, the rooms, how they are connected and their function. If it does convey the building materials, it tends to be more subtle.
+
+When most people are looking to buy a home, they’re probably more concerned with the number of rooms, flow between rooms, number of bathrooms, etc. and not so much the gauge of the electrical wiring.
 
 Architectures should support feature behaviors not the technical details. Martin highlights this with the following:
 * **A good architecture allows major decisions to be deferred!**
@@ -43,13 +45,13 @@ There are primarily two diagrams that convey Bob Martin’s Clean Architecture:
  
 This diagram defines dependencies and constraints much like [Hexagons](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#hexagons) do, except that Martin uses circles rather than hexagons. He color coded the rings and provided some context as to what sort of entities reside in each ring. He provides a few examples in the rings themselves.
 
-The arrows on the left of the rings pointing toward the center indicate dependency and knowledge flowing inward. I think the arrow between the blue and green rings is pointing the wrong direction. I think it should be pointing outward. I’ll address this later.
+The arrows on the left of the rings pointing toward the center to indicate dependency and knowledge flowing inward. I think the arrow between the blue and green rings is pointing the wrong direction. I think it should be pointing outward. I’ll address this later.
 
 NOTE: The number of rings is not set in stone. Each project can tweak this as needed.
 
 Hexagonal Architecture has the same basic structure, but the focus is different. The circles between the rings would correspond to hexagons. It doesn’t matter whether they’re circles or hexagons. The region between boundaries is more important than the shape of the boundary.
 
-Alistair Cockburn favors the name _Ports and Adapters_ over _Hexagonal Architecture_. _Ports and Adapters_ describes the design in terms of these structures. These elements only apply to either side of the Salmon and Green Rings in the high-level Clean Architecture diagram, when there's a bit more presented in the Clean Architecture design.
+Alistair Cockburn favors the name _Ports and Adapters_ over _Hexagonal Architecture_. _Ports and Adapters_ describes the design in terms of these structures. These elements only apply to either side of the Salmon and Green Rings in the high-level Clean Architecture diagram. Clean Architecture tends to focus upon other aspects of the design as well.
 
 The Clean Architecture diagram is more about intent, without focusing upon structural mechanisms, whereas the Hexagonal Architecture diagram is more about the structural mechanisms without focusing upon intent. Both are telling the same story. The difference is how the story is told.
 
@@ -85,7 +87,7 @@ Here is how Martin describes them in his [Clean Architecture Blog](https://blog.
 
 Entities are so domain specific that they transcend any specific feature of the system. I think they conceptually transend the system too. These are domain rules that would exist, even if the system didn’t exist. They are critical to the business and universal. That is, these rules should apply regardless of the context in which they reside.
 
-Here are several potential Entity candidates:
+Here are several Entity examples:
 * Customer
 * Order
 * Loan
@@ -140,7 +142,7 @@ The OrderPlacementDetails is a response data class, which could contain informat
 * TrackingNumber
 * EstimatedDeliveryDate
 
-These bulleted items would probably be Entities. I prefer a name more along the lines of _Domain Business Objects_, since these tend to be domain concepts. I prefer to define them as a domain concept type and not by a primitive type, such as `int`, `String`, etc. This is really a topic for another blog entry, so I won’t go into full detail here. But here's a quich summary. I prefer to keep primitive types out of interface contracts unless the contract element is truly a primitive type within the domain. I’ve seen too many methods that use primitive types when they should have considered the domain concept. There’s even a code smell using too many primitive types: _Primitive Obsession_:
+These bulleted items would probably be Entities. I prefer a name more along the lines of _Domain Business Objects_, since these tend to be domain concepts. I prefer domain element types over primitive types, such as `int`, `String`, etc. This is really a topic for another blog entry, so I won’t go into full detail here. But here's a quick summary. I prefer to keep primitive types out of interface contracts unless the contract element is truly a primitive type within the domain. I’ve seen too many methods that use primitive types when they should have considered the domain concept. There’s even a code smell using too many primitive types: _Primitive Obsession_:
 * [Primitive Obsession on SourceMaking](https://sourcemaking.com/refactoring/smells/primitive-obsession)
 * [Primitive Obsession on Refactoring.guru](https://refactoring.guru/smells/primitive-obsession)
 
@@ -179,7 +181,7 @@ And now we’re back to where we started with the merged diagram.
 
 Frameworks and Drivers is the layer around the Interface Adapters. It is not a separate layer in the Hexagonal Architecture diagram. In Hexagonal Architecture it’s represented as all External Dependencies beyond the purple hexagon.
 
-The dependency arrows point outward in my rendition. This is why I think Martin’s arrow is incorrect in the High-Level UML class diagram. I think that dependencies up and knowledge of external elements should point outward, not inward. Look at Martin's UML class diagram, and his arrow is pointing to the Database. The direction of the arrowheads in his two diagrams is inconsistent between the two of them.
+The dependency arrows point outward in my rendition. This is why I think Martin’s arrow is incorrect in the High-Level UML class diagram. I think that since Adapters have dependencies upon and knowledge of external elements then arrows should point outward, not inward. Look at Martin's UML class diagram, and his arrow is pointing to the Database. The direction of the arrowheads between his two diagrams is inconsistent.
 
 ### Controller
 The Controller is not in this layer, but I’d like to revisit it once more. In Martin’s UML class diagram, the Controller just floats in the Interface Adapter layer. I think it should be associated with something in the Framework layer, such as extending a Framework.
@@ -193,7 +195,7 @@ Martin draws the View pointing inward depending upon the ViewModel, and in a sen
 The Database is any typical database. In most cases, it will be supplied by an external vendor.
 
 ## What’s Missing?
-There is no Configurer. Martin didn’t include one in his diagram, so I didn’t attempt to show one either. However, he has indirectly referred to concepts consistent with Configurers. A glimpse of this is visible in [Factories/Abstract Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#abstract-factory). Martin often refers to concrete class creation as being the deepest and “dirtiest” part of the code. It often resides in `main()`. For more details on how I approach the Configurer, see [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html)
+There is no Configurer. Martin didn’t include one in his diagram, so I didn’t attempt to show one either. However, he has indirectly referred to concepts consistent with Configurers. A glimpse of this is visible in [Factories/Abstract Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#abstract-factory). Martin often refers to concrete class creation as being the lowest and “dirtiest” part of the code, often residing in `main()`. For more details on how I approach the Configurer, see [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html)
 
 If I were to have added a Configurer in the diagram, it would still be in the Interface Adapter layer and it would create Data Access, Use Case/Interactor and Controller as I had shown in the Hexagonal Architecture diagram.
 
@@ -220,8 +222,6 @@ Keeping leaks out of abstractions can be tricky, since it's not always clear whe
 
 # Summary
 Hexagonal Architecture and Clean Architecture have the same basic intents, but each presents it in slightly different ways. Hexagonal Architecture focuses upon structure. Clean Architecture focuses upon the semantics of the structure.
-
-The comparison and contrasts of understanding one helps to understand the other.
 
 # References
 There are many online resources with diagrams and implementations in different programming languages. Here are some free resources:
