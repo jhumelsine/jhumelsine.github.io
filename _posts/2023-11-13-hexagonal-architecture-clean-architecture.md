@@ -1,6 +1,6 @@
 ---
-title: Hexagonal Architecture – How it compares to and compares with Clean Architecture
-description: Hexagonal vs Clean: The Devil's in the Details
+title: Hexagonal Architecture and how it compares to and contrasts with Clean Architecture
+description: Hexagonal vs Clean where the Devil is in the Details
 unlisted: true
 ---
 
