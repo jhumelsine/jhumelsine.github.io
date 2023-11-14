@@ -54,7 +54,7 @@ Alistair Cockburn favors the name _Ports and Adapters_ over _Hexagonal Architect
 The Clean Architecture diagram is more about intent, without focusing upon structural mechanisms, whereas the Hexagonal Architecture diagram is more about the structural mechanisms without focusing upon intent. Both are telling the same story. The difference is how the story is told.
 
 ## Clean Architecture UML Class Diagram
-![Clean Architecture UML Class Diagram](https://georgearisty.dev/assets/img/clean-architecture-typical-scenario.jpg)
+![Clean Architecture UML Class Diagram](https://georgearisty.dev/assets/img/clean-architecture-typical-scenario.jpg "Image Source: https://georgearisty.dev/posts/clean-architecture/")
 
 Bob Martin jumps from the high-level Clean Architecture diagram to this UML class diagram. I wish he had used the same terminology in both diagrams and been more explicit with the architecture boundaries in the UML Class Diagram so it would have been more obvious how these two diagrams relate to one another.
 
@@ -102,7 +102,7 @@ All three types of elements in this layer can create and reference Entities.
 ### Use Case Interactor
 This is the _Business Logic_ in the Hexagonal Architecture diagram. Hexagonal Architecture does not specify whether the Business Logic should be large grained or fine grained.
 
-Clean Architecture favors fine grained, where _Business Logic_ is scoped to the [_Use Case_](https://en.wikipedia.org/wiki/Use_case). Use Case is UML concept. It is almost identical to a User Story. _Interactor_ is another term for it. Martin uses both terms interchangeably.
+Clean Architecture favors fine grained, where _Business Logic_ is scoped to the [_Use Case_](https://en.wikipedia.org/wiki/Use_case). Use Case is UML concept. It is almost identical to a [User Story](https://en.wikipedia.org/wiki/User_story). _Interactor_ is another term for it. Martin uses both terms interchangeably.
 
 Here are some examples of Use Cases:
 * PlaceOrder
@@ -224,9 +224,22 @@ Hexagonal Architecture and Clean Architecture have the same basic intents, but e
 The comparison and contrasts of understanding one helps to understand the other.
 
 # References
-Reference for Stable/Fixed term in the blog.
-See previous blog [References]( https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html#references “https://georgearisty.dev/posts/clean-architecture/”)
+There are many online resources with diagrams and implementations in different programming languages. Here are some free resources:
+* [Screaming Architecture](https://blog.cleancoder.com/uncle-bob/2011/09/30/Screaming-Architecture.html) blog by Bob Martin
+* [The Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) blog by Bob Martin. Excellent summary.
+* [Summary of book "Clean Architecture" by Robert C. Martin](https://gist.github.com/ygrenzinger/14812a56b9221c9feca0b3621518635b) summary on GitHub managed by Yannick Grenzinger
+* [Clean architecture for the rest of us](https://pusher.com/tutorials/clean-architecture-introduction/) blog by Suragch.
+* [Clean Architecture](https://www.linkedin.com/pulse/clean-architecture-reza-bazghaleh/) Linkedin blog by Reza Bazghaleh
+* Bob Martin as a roughly 1-hour presentation about Clean Architecture, which is available from various conferences. Here are links to several in reverse chronological order. They are all similar, but there are variations (NOTE: Martin likes to start his presentations with a ~10-minute science lesson, and he's a slow talker. I tend to jump ahead to the actual softare portion of his presentation and play at a faster than nnormal speed):
+    * [ITkonekt 2019 Robert C. Martin (Uncle Bob), Clean Architecture and Design](https://www.youtube.com/watch?v=2dKZ-dWaCiU) - June 10, 2019
+    * [The Principles of Clean Architecture by Uncle Bob Martin](https://www.youtube.com/watch?v=o_TH-Y78tt4) - Norfolk Developers, December 15, 2015
+    * [Robert C. Martin - Clean Architecture and Design](https://vimeo.com/97530863) - Norwegian Developers Conference 2014, June 4, 2014
+    * [Robert C Martin - Clean Architecture and Design](https://www.youtube.com/watch?v=Nsjsiz2A9mg) - Norwegian Developers Conference 2013, June 4, 2014
+    * [Robert C Martin - Clean Architecture](https://www.youtube.com/watch?v=Nltqi7ODZTM) - Norwegian Developers Conference 2012, June 4, 2014
+    * [Robert C Martin(Uncle Bob) -Clean Architecture and Design-2012 COHAA The Path to Agility Conference](https://www.youtube.com/watch?v=asLUTiJJqdE) COHAA, October 25, 2012
 
-# References
+Here are some resources that can be purchased or are included in a subscription service:
+* **Clean Architecture**, the book by Bob Martin ([Amazon](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164) and [O'Reilly](https://learning.oreilly.com/library/view/clean-architecture-a/9780134494272/))
+* **Architecture, Use Cases, and High Level Design**, the video by Bob Martin ([Clean Coders](https://cleancoders.com/episode/clean-code-episode-7) and [O'Reilly](https://learning.oreilly.com/videos/clean-code-fundamentals/9780134661742/9780134661742-code_01_07_00/))
+
 See previous blog [References](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html#references).
-
