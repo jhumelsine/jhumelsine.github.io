@@ -16,7 +16,7 @@ I encountered Clean Architecture first, and it led me to Hexagonal Architecture.
 # Basic Similarities and Differences
 The Hexagonal Architecture and Clean Architecture share the same basic design philosophy, along with the [Onion Architecture](https://jeffreypalermo.com/2008/07/the-onion-architecture-part-1/), that domain information should be cocooned within the design with external dependencies pushed to the design edges. Domain information should not depend upon the external dependencies. The differences are mostly in details and terminology.
 
-Hexagonal Architecture focuses upon the structure of the design. Clean Architecture provides more detail and context. Hexagonal Architecture is syntax. Clean Architecture is semantics. Hexagonal Architecture is about semantics. Clean Architecture is about behavior. In a sense, Clean Architecture conceptually extends Hexagonal Architecture.
+Hexagonal Architecture focuses upon the structure of the design. Clean Architecture provides more detail and context. Hexagonal Architecture is syntax. Clean Architecture is semantics. Hexagonal Architecture is about structure. Clean Architecture is about behavior. In a sense, Clean Architecture conceptually extends Hexagonal Architecture.
 
 # Screaming Architecture
 Bob Martin often starts his Clean Architecture presentations with [Screaming Architecture](https://blog.cleancoder.com/uncle-bob/2011/09/30/Screaming-Architecture.html). Martin proposes that the first thing one should notice with an architecture is what the application does and not how it’s built. One’s first impression should be that the application is in the finance, medical or social media domain. It should not be that it’s developed on Ruby on Rails or Spring Boot.
