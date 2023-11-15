@@ -104,7 +104,7 @@ All three types of elements in this layer can create and reference Entities.
 ### Use Case Interactor
 This is the _Business Logic_ in the Hexagonal Architecture diagram. Hexagonal Architecture does not specify whether the Business Logic should be large grained or fine grained.
 
-Clean Architecture favors fine grained, where _Business Logic_ is scoped to the [_Use Case_](https://en.wikipedia.org/wiki/Use_case). Use Case is UML concept. It is almost identical to a [User Story](https://en.wikipedia.org/wiki/User_story). _Interactor_ is another term for it. Martin uses both terms interchangeably.
+Clean Architecture favors fine grained, where _Business Logic_ is scoped to the [_Use Case_](https://en.wikipedia.org/wiki/Use_case). Use Case is a UML concept. It is almost identical to a [User Story](https://en.wikipedia.org/wiki/User_story). _Interactor_ is another term for it. Martin uses the terms interchangeably.
 
 Here are some examples of Use Cases:
 * PlaceOrder
@@ -139,10 +139,10 @@ This interface defines the method to be executed to place an Order. Order would 
 * DiscountOptions
 
 The OrderPlacementDetails is a response data class, which could contain information such as:
-* TrackingNumber
+* TrackingInformation
 * EstimatedDeliveryDate
 
-These bulleted items would probably be Entities. I prefer a name more along the lines of _Domain Business Objects_, since these tend to be domain concepts. I prefer domain element types over primitive types, such as `int`, `String`, etc. This is really a topic for another blog entry, so I won’t go into full detail here. But here's a quick summary. I prefer to keep primitive types out of interface contracts unless the contract element is truly a primitive type within the domain. I’ve seen too many methods that use primitive types when they should have considered the domain concept. There’s even a code smell using too many primitive types: _Primitive Obsession_:
+These bulleted items would probably be Entities. I prefer a name more along the lines of _Domain Business Objects_, since these tend to be domain concepts. I prefer domain element types over primitive types, such as `int`, `String`, etc. This is a topic for another blog entry, so I won’t go into full detail here. But here's a quick summary. I prefer to keep primitive types out of interface contracts unless the contract element is truly a primitive type within the domain. I’ve seen too many methods that use primitive types when they should have considered the domain concept. There’s even a code smell using too many primitive types: _Primitive Obsession_:
 * [Primitive Obsession on SourceMaking](https://sourcemaking.com/refactoring/smells/primitive-obsession)
 * [Primitive Obsession on Refactoring.guru](https://refactoring.guru/smells/primitive-obsession)
 
@@ -184,7 +184,7 @@ Frameworks and Drivers is the layer around the Interface Adapters. It is not a s
 The dependency arrows point outward in my rendition. This is why I think Martin’s arrow is incorrect in the High-Level UML class diagram. I think that since Adapters have dependencies upon and knowledge of external elements then arrows should point outward, not inward. Look at Martin's UML class diagram, and his arrow is pointing to the Database. The direction of the arrowheads between his two diagrams is inconsistent.
 
 ### Controller
-The Controller is not in this layer, but I’d like to revisit it once more. In Martin’s UML class diagram, the Controller just floats in the Interface Adapter layer. I think it should be associated with something in the Framework layer, such as extending a Framework.
+The Controller is not in this layer, but I’d like to revisit it once more. In Martin’s UML class diagram, the Controller just floats in the Interface Adapter layer. I think it should be associated with something in the Framework layer, such as extending a Framework, which is how I render it in my Hexagonal Architecture diagrams.
 
 ### View
 This is the mechanism that renders the ViewModel. For example, the View could be a web browser which is rendering an HTML ViewModel file.
@@ -212,7 +212,7 @@ Driver and Driven Adapters will have knowledge of the REST API definitions and d
 ## Leaky Abstraction
 _Ports/Interfaces/Contracts_ will convey intent, but they should avoid External Framework/Dependency details. We must be careful not to let External Framework/Dependency details leak through the Adapters. For example, if a database operation fails, it may return an error code that’s specific to the database vendor. That specific error should not be leaked by the Adapter up through interface. If a detail like this is passed up in the Business Logic/Use Case/Interactor, then that’s known as a [Leaky Abstraction](https://en.wikipedia.org/wiki/Leaky_abstraction). All abstractions leak to some degree, but we want to keep it to a minimum.
 
-The Adapter can indicate through the interface that there was an error and possibly even the nature of the error, if the error makes sense within the context of the interface contract. For example, the interface contract’s intent could be persistence without an indication of the form of persistence. If the database fails to save a record, then Adapter could translate the database specific error into an interface error along the lines of: UnableToPersistException. The specific database error should be logged, since we still want to retain that information for diagnosis.
+The Adapter can indicate through the interface that there was an error and possibly even the nature of the error, if the error makes sense within the context of the interface contract. For example, the interface contract’s intent could be persistence without an indication of the persistence vendor or mechanism. If the database fails to save a record, then the Adapter could translate the database specific error into an interface error along the lines of: UnableToPersistException. The specific database error should be logged, since we still want to retain that information for diagnosis.
 
 Likewise, if the Adapter delegates to an RESTful internet call, then it should not leak HTTP status codes back up through the _Port/Interface/Contract_ that they implement. However, they can convey a status indicating some form of status that's independent of HTTP status codes.
 
