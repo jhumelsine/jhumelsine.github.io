@@ -1,7 +1,6 @@
 ---
 title: Hexagonal Architecture and how it compares to and contrasts with Clean Architecture
 description: Hexagonal vs Clean where the Devil is in the Details
-unlisted: true
 ---
 
 <img src="https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg" alt="The Clean Architecture" title="Image Source: https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html" width = "60%" align="center" style="padding-right: 35px;">
@@ -61,7 +60,7 @@ The Clean Architecture diagram is more about intent, without focusing upon struc
 Bob Martin jumps from the high-level Clean Architecture diagram to this UML class diagram. I wish he had used the same terminology in both diagrams and been more explicit with the architecture boundaries in the UML Class Diagram so it would have been more obvious how these two diagrams relate to one another.
 
 ## Hexagonal Architecture
-<img src="/assets/HexArchHexagons.png" alt="Hexagonal Architecture" width = "70%" align="center" style="padding-right: 35px;">
+<img src="/assets/HexArchHexagons.png" alt="Hexagonal Architecture" width = "80%" align="center" style="padding-right: 35px;">
  
 Here is my Hexagonal Architecture diagram. It’s similar to Clean Architecture, yet different still.
 
@@ -130,6 +129,7 @@ For a more concrete example, the interface might look like the following:
 ```java
 interface PlaceOrder {
     OrderPlacementDetails execute(Order order);
+}
 ```
 
 This interface defines the method to be executed to place an Order. Order would be a data class, which could contain information such as:
@@ -195,7 +195,7 @@ Martin draws the View pointing inward depending upon the ViewModel, and in a sen
 The Database is any typical database. In most cases, it will be supplied by an external vendor.
 
 ## What’s Missing?
-There is no Configurer. Martin didn’t include one in his diagram, so I didn’t attempt to show one either. However, he has indirectly referred to concepts consistent with Configurers. A glimpse of this is visible in [Factories/Abstract Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#abstract-factory). Martin often refers to concrete class creation as being the lowest and “dirtiest” part of the code, often residing in `main()`. For more details on how I approach the Configurer, see [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html)
+There is no [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer). Martin didn’t include one in his diagram, so I didn’t attempt to show one either. However, he has indirectly referred to concepts consistent with Configurers. A glimpse of this is visible in [Factories/Abstract Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#abstract-factory). Martin often refers to concrete class creation as being the lowest and “dirtiest” part of the code, often residing in `main()`. For more details on how I approach the Configurer, see [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html)
 
 If I were to have added a Configurer in the diagram, it would still be in the Interface Adapter layer and it would create Data Access, Use Case/Interactor and Controller as I had shown in the Hexagonal Architecture diagram.
 
