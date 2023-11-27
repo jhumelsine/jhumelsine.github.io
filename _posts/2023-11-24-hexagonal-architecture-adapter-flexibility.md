@@ -5,25 +5,29 @@ unlisted: true
 ---
 
 # Introduction
-In the [Why It Works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html) blog, I featured some knowledge/dependency theory and why I feel that the practice of that theory is one of the main reasons that Hexagonal Architecture works so well.
+In the [Why It Works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html) blog, I featured knowledge/dependency theory and why I feel that the practice of that theory is one of the main reasons that Hexagonal Architecture works so well.
 
-This blog entry will expand upon those ideas with some additional design options that may be useful in future projects.
+This blog entry will expand upon those ideas with some additional design options that may be useful in designs that feature Hexagonal Architecture principles.
 
-These additional design options are mostly my ideas. I'm branching away from Alistair Cockburn and Bob Martin, who popularized this architecture/design to start with. Their presentations tend to be more limited. That may be because their presentations are focused upon _architecture_ whereas I feel this is really a _design_. Architecture can be a subset of design, but I think that good design can be applied at any layer of abstraction.
+These additional design options are mostly my ideas. I'm branching away from Alistair Cockburn and Bob Martin, who created and popularized this architecture/design. Their presentations tend to be more limited. That may be because their presentations are focused upon _architecture_ whereas I feel this is really a _design_. Architecture can be a subset of design, but I think that good design can be applied at any layer of abstraction.
 
 Alistair Cockburn posted this [declaration](https://twitter.com/TotherAlistair/status/1704531058023141490) on X/Twitter in September, 2023:
 > For those who keep asking about #hexagonalarchitecture layers, here it is: 
 There are only 2 layers: inside. outside. No relation to layers in Clean, Onion, DDD, Modular Monolith, nothing. Stop dragging them into the pic.
 What you do inside each layer is all your biz, not mine.
 
-I sort of understand what he's trying to say here. I interpret his statement as saying that Hexagonal Architecture (Ports and Adapters) is only about the Port and the Adapter that plugs into the port. The Port is inside. The Adapter is outside.
+I sort of understand what he's trying to say here. I interpret his statement as saying that Hexagonal Architecture (Ports and Adapters) is only about the Port and the Adapter. The Port is inside. The Adapter is outside.
 
-But I think he's throwing away so much richness of the design with this constrained definition. He views this design as basically my red hexagon. I add a few more parts to the design, including the purple hexagon. I also feel that so much of this design applies to 
-_Clean, Onion, DDD, Modular Monolith_ and more. I plan to blog more about the relationship of Hexagonal Architecture to these concepts, I've already blogged about Clean and Onion, do some degree, in my [Hexagonal/Clean Compare and Contrast blog](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html). However, after five sequential blog entries about Hexagonal Architecture, I'm going to take a break for a bit and return to other topics for a bit. I'll eventually circle back to Hexagonal Architecture.
+But I think he's throwing away so much richness of the design with this constrained definition.
+He views this design as basically the parts I represent as the red hexagon with the elements on either side.
+I add a few more elements to the design, including the purple hexagon.
+I also feel that so much of this design applies to _Clean, Onion, DDD, Modular Monolith_ and more. 
+I plan to blog more about the relationship of Hexagonal Architecture to these concepts. I've already blogged about Clean and Onion, to some degree, in [Hexagonal/Clean Compare and Contrast blog](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html).
+However, after five sequential blog entries about Hexagonal Architecture, I'm going to take a break for a bit after this blog and return to other topics for a while. I'll eventually circle back to Hexagonal Architecture.
 
-Cockburn doesn't say that you can't do more. He just says that he doesn't care what you do.
+Cockburn doesn't say that you can't do more with Hexagonal Architecture. He just says that he doesn't care what you do.
 
-Bob Martin adds a few more layers to Clean Architecture than Cockburn does in Hexagonal Architecture. Martin indicates dependency from the outer most **Frameworks and Drivers** ring pointing inward toward the **Interface Adapters** ring. I think this is the wrong direction as I mentioned in the [Frameworks and Drivers](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html#frameworks-and-drivers) section of my comparision blog. I represent this boundary as a purple hexagon, and in my diagrams the knowledge and dependency arrows all point outward.
+Bob Martin adds a few more layers to Clean Architecture than Cockburn does in Hexagonal Architecture. Martin indicates dependency from the outer most **Frameworks and Drivers** ring pointing inward toward the **Interface Adapters** ring. I think this is the wrong direction as I mentioned in the [Frameworks and Drivers](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html#frameworks-and-drivers) section of the comparision blog. I represent this boundary as a purple hexagon, and in my diagrams the knowledge and dependency arrows all point outward. That change will become important later.
 
 # Refresher
 This blog is a continuation of [Why It Works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html), but I'll include a refresher here.
@@ -35,6 +39,7 @@ Here's my basic Hexagonal Architecture diagram:
 [Pure Stable/Fixed](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#pure-stablefixed-elements) have arrows pointing into them, meaning they depend nothing. Such elements in Hexagonal Architecture include:
 * The Port/Interface/Contract
 * The Red Hexagon Boundary
+* The External Frameworks and Dependencies
 
 [Pure Unstable/Flexible](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#pure-unstableflexible-elements) have arrows pointing away from them, meaning nothing else in the design depends upon them. They are invisible to the other elements in the design. Such elements in Hexagonal Architecture include:
 * The Configurer
@@ -42,9 +47,9 @@ Here's my basic Hexagonal Architecture diagram:
 * The Adapters
 * The Purple Hexagon Boundary
 
-Technically the Configurer the Purple Hexagon Boundary are the only Pure Unstable/Flexible elements, but the Business Logic and Adapters only have a creation arrow pointing into them, which comes from the Configurer. I consider that pure enough for what I'm going to present.
+Technically the Configurer the Purple Hexagon Boundary are the only Pure Unstable/Flexible elements, but the Business Logic and Adapters only have a creation arrow pointing into them, which originate from the Configurer. I consider that pure enough for my needs.
 
-All of the design options will be with these Pure Unstable/Flexible elements, but the Hexagonal Architecture design provides a zone within which we can be very flexible without affecting the rest of the design. All the fun is in the Adapter zone. Red Hexagons are mosly the same in all of the diagrams. They don't change as we _flex_ the Adapters. Likewise, the red external frameworks and depenencies don't really change either.
+Almost all design options presented here will be with these Pure Unstable/Flexible elements. All the fun is in the Adapter zone. Red Hexagons are mosly unchanged of the diagrams. They don't change as we _flex_ the Adapters. Likewise, the red external frameworks and depenencies don't  change either.
 
 # I is for Interface, or is it?
 I will be adding a little more context with my diagrams in this blog, and that includes interface names.
@@ -54,7 +59,7 @@ Interface names start with _I_ in C# as convention. It's reminiscent of [Hungari
 Here's what Bob Martin has to say about this practice in his book: **Clean Code**:
 > These are sometimes a special case for encodings. For example, say you are building an ABSTRACT FACTORY for the creation of shapes. This factory will be an interface and will be implemented by a concrete class. What should you name them? IShapeFactory and ShapeFactory? I prefer to leave interfaces unadorned. The preceding I, so common in today’s legacy wads, is a distraction at best and too much information at worst. I don’t want my users knowing that I’m handing them an interface. I just want them to know that it’s a ShapeFactory. So if I must encode either the interface or the implementation, I choose the implementation. Calling it ShapeFactoryImp, or even the hideous CShapeFactory, is preferable to encoding the interface.
 
-I tended to agree with him on this. I avoided the **I** prefix for interfaces in my career. Then a few months ago, I stumbed upon this blog: [I, Interface](https://talesfrom.dev/blog/i-interface). The author suggested thinking of _I_ as _I_ rathern than _Interface_. This leads interface names that still have the **I** prefix, but in a way that they make so much more sense contextually. For example, we can define interfaces with names like:
+I tend to agree with him on this. I avoided the **I** prefix for interfaces in my career. Then a few months ago, I stumbed upon this blog: [I, Interface](https://talesfrom.dev/blog/i-interface). The author suggested thinking of **I** as _First Person Singular: I_ rathern than _Interface_. This leads interface names that still have the **I** prefix, but in a way that they make so much more sense contextually. For example, we can define interfaces with names like:
 * `IPlaceOrders`
 * `IUpdateOrders`
 * `ICancelOrders`
@@ -72,22 +77,18 @@ Previous Hexagonal Architecture diagrams I've presented have mostly only include
 We have flexibility in two domains and in two dimensions. The domains are behavior and structure. The dimensions are breadth and depth.
 
 ## Behavior and Breadth
+The behavior can expand its breadth as needed. The Hexagonal Architecture can support multiple frameworks and dependencies. But it does so, because the behavior requires it. Consider this diagram where the Business Logic needs to persist stuff, publish events and send email. This should be obvious in the Business Logic implementaiton.
+
 <img src="/assets/HexArchBehaviorBreadth.png" alt="Hexagonal Architecture with Multiple Adapters" width = "85%" align="center" style="padding-right: 35px;">
 
-This diagram highlights that Hexagonal Architecture can have multiple dependencies. This is why Alistair Cockburn chose a hexagon in his initial diagrams. When he draws this by hand, each framework/dependency port/adapter pair tends to have its own facet, which is a side of the hexagon. Here's an example:
-
-<img src="https://blog.allegro.tech/img/articles/2020-05-21-hexagonal-architecture-by-example/ha_example.png" alt="Hexagonal Architecture with Facets" width = "45%" align="center" title="Image Source: https://blog.allegro.tech/2020/05/hexagonal-architecture-by-example.html" style="padding-right: 35px;">
-
-My diagram doesn't have the luxury of each port/adapter having its own facet. You'll have to image it.
-
-Let's start at the bottom. The Business Logic has three dependencies based upon its domain:
+The Business Logic has three dependencies based upon its domain:
 * `IPersistStuff` implemented by `PersistStuffViaDB`, which delegates to a `DB`.
 * `IPublishEvents` implemented by `PublishEventsViaKafka`, which delegates to `Kafka`.
 * `ISendEmail` implemented by `SendEmailViaSparkPost`, which delegates to `SparkPost`.
 
 Even without any code, this hopefully makes sense.
 
-Let's look at the top. There are two frameworks:
+There are two frameworks:
 * `AndroidFramework` extended by `ManageStuffFromAndroid`, which translates Android based requests and delegates them to `IManageStuff`.
 * `RESTFramework` extended by `ManageStuffFromRest`, which translates RESTful based requeests and delegates them to `IManageStuff`.
 
@@ -95,24 +96,59 @@ Let's look at the top. There are two frameworks:
 
 I didn't have room for the `Configurer`, but if I had drawn it, it would have only been a purple rectangle with creation lines to each of the blue rectangles. Here's what the Configurer class might look like in Java:
 ```java
-IManageStuff manageStuff = new ManageStuff(
-    new PersisStuffViaDB(),
-    new PublishStuffViaKafka(),
-    new SendEmailViaSpartPost()
-);
+IManageStuff manageStuff =
+    new ManageStuff(
+        new PersisStuffViaDB(),
+        new PublishStuffViaKafka(),
+        new SendEmailViaSpartPost()
+    );
 
 ManageStuffFromAndroid manageStuffFromAndroid = new ManageStuffFromAndroid(manageStuff);
 ManageStuffFromRest manageStuffFromRest = new ManageStuffFromRest(manageStuff);
 ```
 This probably isn't exactly the way it would play out. Most likely, the Android based configuration would have dependencies that reside in the Android environment, rather than a generic DB, Kafka or SparkPost.
 
+This is why Alistair Cockburn chose a hexagon in his initial diagrams. When he draws this by hand, each framework/dependency port/adapter pair tends to have its own facet, which is a side of the hexagon. Here's an example:
+
+<img src="https://blog.allegro.tech/img/articles/2020-05-21-hexagonal-architecture-by-example/ha_example.png" alt="Hexagonal Architecture with Facets" width = "45%" align="center" title="Image Source: https://blog.allegro.tech/2020/05/hexagonal-architecture-by-example.html" style="padding-right: 35px;">
+
 ## Behavior and Depth
-...
+Many Hexagonal Architectures show external dependencies as being outside of the system. I view external dependencies as anything that resides outside of the red hexagon regardless of its location. It could easily be another service in the system. Consider this diagram where the primary business logic to Place Orders delegates to an Inventory Service.
+
+<img src="/assets/HexArchBehaviorDepth.png" alt="Hexagonal Architecture delegating to another service" width = "85%" align="center" style="padding-right: 35px;">
+
+This diagram features two red hexagons for:
+* `IPlaceOrders`
+* `IManageInventory`
+
+They do not know about each other. The glue that connects them is `UpdatePlacedOrdersViaManageInventory`, but it's really not the glue. It's the `Configurer` that glues all of the pieces together. Here's how it might look in Java:
+```java
+PlaceOrdersFromREST placeOrdersFromREST =
+    new PlaceOrdersFromRest(
+        new (PlaceOrders(
+            new (UpdatePlaceOrdersViaManageInventory(
+                new (ManageInventory(
+                    new (PersistInventoryViaDB())
+                )
+            )
+        )
+    );
+```
+This chain can go on indefinitely. Let's remove the hexagons and the Configurer to see what's left
+
+<img src="/assets/HexArchBehaviorDepthChain.png" alt="Hexagonal Architecture delegation chain" width = "85%" align="center" style="padding-right: 35px;">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Structure_of_monomers_and_polymers.jpg?20180217054949" alt="Polymer chain" width = "25%" align="right" title="Image Source: https://commons.wikimedia.org/wiki/File:Structure_of_monomers_and_polymers.jpg" style="padding-right: 35px;">
+
+This pattern sequence reminded me of a descending stair case. It's the same repeating patterns of [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) and [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html). It can continue indefinitely, much like polymer chains.
 
 ## Structure and Breadth
 ...
 
 ## Structure and Depth
+...
+
+## Breadth and Depth
 ...
 
 # Document Example
