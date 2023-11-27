@@ -30,27 +30,13 @@ This blog is a continuation of [Why It Works](https://jhumelsine.github.io/2023/
 
 Here's my basic Hexagonal Architecture diagram:
 
-<img src="/assets/HexArchHexagons.png" alt="Hexagonal Architecture" width = "75%" align="center" style="padding-right: 35px;">
+<img src="/assets/HexArchHexagons.png" alt="Hexagonal Architecture" width = "85%" align="center" style="padding-right: 35px;">
 
-The color coded rectangles are interfaces or classes:
-* Green - Interfaces
-* Blue - Class implementations
-* Purple - Class Implementations that create and configure the Blue classes
-* Red - External interfaces or class APIs that the design depends upon
-
-Relationships between them are represented by lines:
-* Dashed lines with triangles represent _implements_
-* Dashed lines with small arrows represents _creates_
-* Solid lines with triangles represent _extends_
-* Solid lines with small arrows represents _references_ or _delegates_
-
-The arrows indicate dependency, but I think my importantly they indicate the direction of knowledge. When A points to B, then A depends upon and knows of B, but B doesn't depend upon or know of A.
-
-Some elements only have arrows pointing into them. I refer to them as [Pure Stable/Fixed](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#pure-stablefixed-elements). This includes:
+[Pure Stable/Fixed](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#pure-stablefixed-elements) have arrows pointing into them, meaning they depend nothing. Such elements in Hexagonal Architecture include:
 * The Port/Interface/Contract
 * The Red Hexagon Boundary
 
-Some elements only have arrows pointing out of them. I refer to them as [Pure Unstable/Flexible](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#pure-unstableflexible-elements). This includes:
+[Pure Unstable/Flexible](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#pure-unstableflexible-elements) have arrows pointing away from them, meaning nothing else in the design depends upon them. They are invisible to the other elements in the design. Such elements in Hexagonal Architecture include:
 * The Configurer
 * The Business Logic
 * The Adapters
@@ -60,10 +46,76 @@ Technically the Configurer the Purple Hexagon Boundary are the only Pure Unstabl
 
 All of the design options will be with these Pure Unstable/Flexible elements, but the Hexagonal Architecture design provides a zone within which we can be very flexible without affecting the rest of the design. All the fun is in the Adapter zone. Red Hexagons are mosly the same in all of the diagrams. They don't change as we _flex_ the Adapters. Likewise, the red external frameworks and depenencies don't really change either.
 
-# Deep and Wide
+# I is for Interface, or is it?
+I will be adding a little more context with my diagrams in this blog, and that includes interface names.
+
+Interface names start with _I_ in C# as convention. It's reminiscent of [Hungarian Notation](https://en.wikipedia.org/wiki/Hungarian_notation), which I've not much cared for myself. Hungarian Notation always reminded me of Klingon.
+
+Here's what Bob Martin has to say about this practice in his book: **Clean Code**:
+> These are sometimes a special case for encodings. For example, say you are building an ABSTRACT FACTORY for the creation of shapes. This factory will be an interface and will be implemented by a concrete class. What should you name them? IShapeFactory and ShapeFactory? I prefer to leave interfaces unadorned. The preceding I, so common in today’s legacy wads, is a distraction at best and too much information at worst. I don’t want my users knowing that I’m handing them an interface. I just want them to know that it’s a ShapeFactory. So if I must encode either the interface or the implementation, I choose the implementation. Calling it ShapeFactoryImp, or even the hideous CShapeFactory, is preferable to encoding the interface.
+
+I tended to agree with him on this. I avoided the **I** prefix for interfaces in my career. Then a few months ago, I stumbed upon this blog: [I, Interface](https://talesfrom.dev/blog/i-interface). The author suggested thinking of _I_ as _I_ rathern than _Interface_. This leads interface names that still have the **I** prefix, but in a way that they make so much more sense contextually. For example, we can define interfaces with names like:
+* `IPlaceOrders`
+* `IUpdateOrders`
+* `ICancelOrders`
+* `IPersistPlacedOrder`, which can be implemented by a class with a name like `PersistPlacedOrderViaMongoDB`.
+
+I'll be using this convention through most of my examples. Alistair Cockburn does something similar, but slightly different. His naming convention starts with `For` as in:
+* `ForPlacingOrders`
+* `ForUpdatingOrders`
+
+Both provide context, but I rather like the **I** prefix convention.
+
+# Deep and wide. There's a fountain flowing deep and wide
+Previous Hexagonal Architecture diagrams I've presented have mostly only included one Framework Adapter and one Dependency Port/Adapter. We are not restricted to one of each.
+
+We have flexibility in two domains and in two dimensions. The domains are behavior and structure. The dimensions are breadth and depth.
+
+## Behavior and Breadth
+<img src="/assets/HexArchBehaviorBreadth.png" alt="Hexagonal Architecture with Multiple Adapters" width = "85%" align="center" style="padding-right: 35px;">
+
+This diagram highlights that Hexagonal Architecture can have multiple dependencies. This is why Alistair Cockburn chose a hexagon in his initial diagrams. When he draws this by hand, each framework/dependency port/adapter pair tends to have its own facet, which is a side of the hexagon. Here's an example:
+
+<img src="https://blog.allegro.tech/img/articles/2020-05-21-hexagonal-architecture-by-example/ha_example.png" alt="Hexagonal Architecture with Facets" width = "45%" align="center" title="Image Source: https://blog.allegro.tech/2020/05/hexagonal-architecture-by-example.html" style="padding-right: 35px;">
+
+My diagram doesn't have the luxury of each port/adapter having its own facet. You'll have to image it.
+
+Let's start at the bottom. The Business Logic has three dependencies based upon its domain:
+* `IPersistStuff` implemented by `PersistStuffViaDB`, which delegates to a `DB`.
+* `IPublishEvents` implemented by `PublishEventsViaKafka`, which delegates to `Kafka`.
+* `ISendEmail` implemented by `SendEmailViaSparkPost`, which delegates to `SparkPost`.
+
+Even without any code, this hopefully makes sense.
+
+Let's look at the top. There are two frameworks:
+* `AndroidFramework` extended by `ManageStuffFromAndroid`, which translates Android based requests and delegates them to `IManageStuff`.
+* `RESTFramework` extended by `ManageStuffFromRest`, which translates RESTful based requeests and delegates them to `IManageStuff`.
+
+`ManageStuff` has no dependency or knowledge upon either of these Frameworks.
+
+I didn't have room for the `Configurer`, but if I had drawn it, it would have only been a purple rectangle with creation lines to each of the blue rectangles. Here's what the Configurer class might look like in Java:
+```java
+IManageStuff manageStuff = new ManageStuff(
+    new PersisStuffViaDB(),
+    new PublishStuffViaKafka(),
+    new SendEmailViaSpartPost()
+);
+
+ManageStuffFromAndroid manageStuffFromAndroid = new ManageStuffFromAndroid(manageStuff);
+ManageStuffFromRest manageStuffFromRest = new ManageStuffFromRest(manageStuff);
+```
+This probably isn't exactly the way it would play out. Most likely, the Android based configuration would have dependencies that reside in the Android environment, rather than a generic DB, Kafka or SparkPost.
+
+## Behavior and Depth
 ...
 
-# Example
+## Structure and Breadth
+...
+
+## Structure and Depth
+...
+
+# Document Example
 ...
 
 # Nested Hexagons
@@ -94,10 +146,6 @@ Most HexArch presentstaions don't give a sense of scope. Is it the entire projec
 
 List who works on which parts of the design and when. Seniors, Juniors, Architects, etc. Get Business Analysists and Project/Product managers involved too. They should be able to read the business logic code. Even if they can't read code, they should be able to follow the gist of it. If not, then the implementation needs work. It's either too complex, has too much jargon or the ubiquituous language has not been used. Should be able to practice CI/CD too. Nothing "activates" until the Configurer creates the elements and assembles them into the design. Classes only depend upon interfaces so the design is modular and more easily maintained. Unit testing should be relatively simple to set up. The only classes that know other class types are the Configurers.
 
-Deep and wide, deep and wide there a ... flowing deep and wide.
-
 Polymer chains
 
 Dispatcher. Tell the Document story. Update the names in the diagram if possible.
-
-I is not for "Interface." I is for "I". Cockburn's "ForDoingSomething".
