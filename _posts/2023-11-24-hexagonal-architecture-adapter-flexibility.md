@@ -6,12 +6,15 @@ unlisted: true
 
 # Introduction
 In the [Why It Works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html) blog, I featured knowledge/dependency theory and why I feel that the practice of that theory is one of the main reasons that Hexagonal Architecture works so well.
-
 This blog entry will expand upon those ideas with some additional design options that may be useful in designs that feature Hexagonal Architecture principles.
 
-These additional design options are mostly my ideas. I'm branching away from Alistair Cockburn and Bob Martin, who created and popularized this architecture/design. Their presentations tend to be more limited. That may be because their presentations are focused upon _architecture_ whereas I feel this is really a _design_. Architecture can be a subset of design, but I think that good design can be applied at any layer of abstraction.
+These additional design options are not new, but they are my idea to present them within the context of Hexagonal Architecture.
+I'm branching away from Alistair Cockburn and Bob Martin, who created and popularized this architecture/design.
+Their presentations tend to be more bounded.
+Their presentations are focused upon _architecture_ whereas I feel this is really a _design_.
+Architecture can be a subset of design, but I think that good design can be applied at any layer of abstraction.
 
-Alistair Cockburn posted this [declaration](https://twitter.com/TotherAlistair/status/1704531058023141490) on X/Twitter in September, 2023:
+Alistair Cockburn posted [this](https://twitter.com/TotherAlistair/status/1704531058023141490) on X/Twitter in September, 2023:
 > For those who keep asking about #hexagonalarchitecture layers, here it is: 
 There are only 2 layers: inside. outside. No relation to layers in Clean, Onion, DDD, Modular Monolith, nothing. Stop dragging them into the pic.
 What you do inside each layer is all your biz, not mine.
@@ -19,19 +22,18 @@ What you do inside each layer is all your biz, not mine.
 I sort of understand what he's trying to say here. I interpret his statement as saying that Hexagonal Architecture (Ports and Adapters) is only about the Port and the Adapter. The Port is inside. The Adapter is outside.
 
 But I think he's throwing away so much richness of the design with this constrained definition.
-He views this design as basically the parts I represent as the red hexagon with the elements on either side.
-I add a few more elements to the design, including the purple hexagon.
-I also feel that so much of this design applies to _Clean, Onion, DDD, Modular Monolith_ and more. 
-I plan to blog more about the relationship of Hexagonal Architecture to these concepts. I've already blogged about Clean and Onion, to some degree, in [Hexagonal/Clean Compare and Contrast blog](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html).
-However, after five sequential blog entries about Hexagonal Architecture, I'm going to take a break for a bit after this blog and return to other topics for a while. I'll eventually circle back to Hexagonal Architecture.
+He views this design as restricted to the elements I represent on either side of the red hexagon.
+I include a few more elements to the basic design, such as the purple hexagon.
 
-Cockburn doesn't say that you can't do more with Hexagonal Architecture. He just says that he doesn't care what you do.
+I also feel that so much of this design applies to _Clean, Onion, DDD, Modular Monolith_ and more. 
+I plan to blog about the relationship of Hexagonal Architecture to these concepts. I've already blogged about Clean and Onion, to some degree, in [Hexagonal/Clean Compare and Contrast blog](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html).
+
+<img src="https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg" alt="The Clean Architecture" title="Image Source: https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html" width = "40%" align="right" style="padding-right: 35px;">
 
 Bob Martin adds a few more layers to Clean Architecture than Cockburn does in Hexagonal Architecture. Martin indicates dependency from the outer most **Frameworks and Drivers** ring pointing inward toward the **Interface Adapters** ring. I think this is the wrong direction as I mentioned in the [Frameworks and Drivers](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html#frameworks-and-drivers) section of the comparision blog. I represent this boundary as a purple hexagon, and in my diagrams the knowledge and dependency arrows all point outward. That change will become important later.
 
 # Refresher
 This blog is a continuation of [Why It Works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html), but I'll include a refresher here.
-
 Here's my basic Hexagonal Architecture diagram:
 
 <img src="/assets/HexArchHexagons.png" alt="Hexagonal Architecture" width = "85%" align="center" style="padding-right: 35px;">
@@ -47,23 +49,26 @@ Here's my basic Hexagonal Architecture diagram:
 * The Adapters
 * The Purple Hexagon Boundary
 
-Technically the Configurer the Purple Hexagon Boundary are the only Pure Unstable/Flexible elements, but the Business Logic and Adapters only have a creation arrow pointing into them, which originate from the Configurer. I consider that pure enough for my needs.
+Technically the Configurer and the Purple Hexagon Boundary are the only Pure Unstable/Flexible elements, but the Business Logic and Adapters only have a creation arrow pointing into them, which originate from the Configurer. I consider that pure enough for my needs.
 
 Almost all design options presented here will be with these Pure Unstable/Flexible elements. All the fun is in the Adapter zone. Red Hexagons are mosly unchanged of the diagrams. They don't change as we _flex_ the Adapters. Likewise, the red external frameworks and depenencies don't  change either.
 
 # I is for Interface, or is it?
-I will be adding a little more context with my diagrams in this blog, and that includes interface names.
-
 Interface names start with _I_ in C# as convention. It's reminiscent of [Hungarian Notation](https://en.wikipedia.org/wiki/Hungarian_notation), which I've not much cared for myself. Hungarian Notation always reminded me of Klingon.
 
 Here's what Bob Martin has to say about this practice in his book: **Clean Code**:
 > These are sometimes a special case for encodings. For example, say you are building an ABSTRACT FACTORY for the creation of shapes. This factory will be an interface and will be implemented by a concrete class. What should you name them? IShapeFactory and ShapeFactory? I prefer to leave interfaces unadorned. The preceding I, so common in today’s legacy wads, is a distraction at best and too much information at worst. I don’t want my users knowing that I’m handing them an interface. I just want them to know that it’s a ShapeFactory. So if I must encode either the interface or the implementation, I choose the implementation. Calling it ShapeFactoryImp, or even the hideous CShapeFactory, is preferable to encoding the interface.
 
-I tend to agree with him on this. I avoided the **I** prefix for interfaces in my career. Then a few months ago, I stumbed upon this blog: [I, Interface](https://talesfrom.dev/blog/i-interface). The author suggested thinking of **I** as _First Person Singular: I_ rathern than _Interface_. This leads interface names that still have the **I** prefix, but in a way that they make so much more sense contextually. For example, we can define interfaces with names like:
+I tend to agree with him on this.
+I avoided the **I** prefix for interfaces in my career.
+Then a few months ago, I stumbed upon this blog: [I, Interface](https://talesfrom.dev/blog/i-interface).
+The author suggested thinking of **I** as _First Person Singular: I_ rathern than _Interface_.
+This leads to interface names that still have the **I** prefix, but in a way that they make so much more sense contextually.
+For example, we can define interfaces with names like:
 * `IPlaceOrders`
 * `IUpdateOrders`
 * `ICancelOrders`
-* `IPersistPlacedOrder`, which can be implemented by a class with a name like `PersistPlacedOrderViaMongoDB`.
+* `IPersistPlacedOrders`, which can be implemented by a class with a name like `PersistPlacedOrdersViaMongoDB`.
 
 I'll be using this convention through most of my examples. Alistair Cockburn does something similar, but slightly different. His naming convention starts with `For` as in:
 * `ForPlacingOrders`
@@ -71,10 +76,11 @@ I'll be using this convention through most of my examples. Alistair Cockburn doe
 
 Both provide context, but I rather like the **I** prefix convention.
 
-# Deep and wide. There's a fountain flowing deep and wide
-Previous Hexagonal Architecture diagrams I've presented have mostly only included one Framework Adapter and one Dependency Port/Adapter. We are not restricted to one of each.
+# Deep and wide. Deep and wide. There's a fountain flowing deep and wide
+Previous Hexagonal Architecture diagrams I've presented have mostly only included one Framework Adapter and one Dependency Port/Adapter mainly to present the concepts as simply as possible. 
+The Hexagonal Architecture deisgn is not restricted to one of each.
 
-We have flexibility in two domains and in two dimensions. The domains are behavior and structure. The dimensions are breadth and depth.
+We have design flexibility in behavior and structure and then within each we have design flexibility with breadth and depth.
 
 ## Behavior and Breadth
 The behavior can expand its breadth as needed. The Hexagonal Architecture can support multiple frameworks and dependencies. But it does so, because the behavior requires it. Consider this diagram where the Business Logic needs to persist stuff, publish events and send email. This should be obvious in the Business Logic implementaiton.
