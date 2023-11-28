@@ -166,13 +166,104 @@ This chain can go on indefinitely.
 This repeating sequence pattern reminds me of a descending stair case. It's the same repeating patterns of [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) and [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html). It can continue indefinitely, much like polymer chains.
 
 ## Structure and Breadth
-...
+Imagine you're working with this fairly straightforward design:
+
+<img src="/assets/HexArchStructureBreadth1.png" alt="Basic Hexagonal Architecture" width = "85%" align="center" style="padding-right: 35px;">
+
+Your architect states that the system is going to be more distributed and that **Domain Events** will be added. So when `Stuff` is persisted, then a Domain Event, such as `PersistedStuff` needs to be created and disseminated on a Message Service.
+
+The diagram in the **Breadth and Behavior** section above shows how this could be done with a new contract for Publishing Events, but is this really a Behavior update? Is the Customer or even the Product Manager asking Domain Events? Probably not. Consider Cockburn's quote above, this is not a requriement. It's a design decision. We'd like to be able to add **Domain Events** without touching anything inside the red hexagon.
+
+The first and easiest solution is to update, or really replace, `PersistStuffViaDB` with a new Adapter possibly with the name: `PersistStuffViaDBAndNotifyStuffViaMessageService`. This Adapter would interact with the DB and a Message Service. This is one of the reasons that we favor Adapters. They allow us to swap one out for another one smoothly.
+
+But the name is rather long, but I have a different problem with it. It contains **And**. This method is doing more than one thing. We may break the DB functionality when adding the Message Service functionality. It has more than one reason to be updated. In the future it could be udpated because of DB dependencies or Message Service dependencies. An update to one runs the risk of breaking the other. This **And** Adapter violates the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) (SRP).
+
+Consider this design enhancement, which addes a new Adapter for the Message Service.
+
+<img src="/assets/HexArchStructureBreadth2.png" alt="Basic Hexagonal Architecture with Message Service" width = "85%" align="center" style="padding-right: 35px;">
+
+We no longer have an SRP violation. This is an application of the [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) design pattern.
+
+But there's still a problem. `ManageStuff` only has one reference to `IHandleStuff`, but now we have two classes that implement `IHandleStuff`.
+We could update `ManageStuff` to have two references to `IHandleStuff`, but now we're making changes in the red hexagon, and we want to avoid that, since this is an architecture update and not a behavior update.
+
+One solution is to problem is to employ the [Composite](https://en.wikipedia.org/wiki/Composite_pattern) design pattern. Here is the design diagram followed by some implementation snippets to help describe it. Notice that the only difference between this diagram and the one above is the new `HandleStuffViaComposite` class and an update the to `Configurer`. Not only is the red hexagon content unaffected, but the other Adapters are unaffected as well.
+
+<img src="/assets/HexArchStructureBreadth3.png" alt="Basic Hexagonal Architecture with Composite" width = "85%" align="center" style="padding-right: 35px;">
+
+I will blog about **Composite** in the future, but here's a brief update of how it can solve our problem.
+
+Let's assume that this is the declaration for `IHandleStuff`:
+```java
+interface IHandleStuff {
+    void handle(Stuff stuff);
+}
+```
+Each of the three Adapters has to implement this. `PersistStuffViaDB` will _handle_ stuff in the DB. `NotifyStuffViaMessageService` will create a `StuffHandled` **Domain Event** and send notifications via the Message Service.
+
+But things get very interesting with `HandleStuffViaComposite`, which doesn't have any external dependencies. It's only dependency is upon `IHandleStuff` both as its parent class as well as interfaces that are referenced. The diamond indicates it has a Container of `IHandleStuff` references. Here's the gist of what `HandleStuffViaComposite` would look like in Java:
+```java
+class HandleStuffViaComposite implements IHandleStuff {
+    private List<IHandleStuff> stuffIHandle = new LinkedList<>();
+
+    public void add(IHandleStuff iHandleStuff) {
+        stuffIHandle.add(iHandleStuff);
+    }
+
+    public void handle(Stuff stuff) {
+        for (IHandleStuff iHandleStuff : stuffIHandle) {
+            iHandleStuff.handle(stuff);
+        }
+    }
+}
+```
+
+This doesn't show what would be needed for Exceptions, but for the most part, this is the meat-and-potatoes of the pattern.
+
+But so far, this is only potential. We need the Configurer to put all the pieces together. The Configurer would looke something like this:
+```java
+HandleStuffViaComposite handleStuffViaComposite = new HandleStuffViaComposite();
+handleStuffViaComposite.add(new PersistStuffViaDB());
+handleStuffViaComposite.add(new NotifyStuffViaMessageService());
+
+ManageStuffFromRest manageStuffFromRest =
+    new (ManageStuffFromRest(
+        new (ManageStuff(handleStuffViaComposite)
+    );
+```
+
+This will be the sequence of events when `ManageStuff` calls its single reference as: `iHandleStuff.handle(stuff)`:
+1. `handleStuffViaComposite` will iterate through its List of `iHandleStuff` references with the first being `persistStuffViaDB` and the second one being `notifyStuffViaMessageService."
+2. `handleStuffViaComposite` will invoke `persistStuffViaDB.handle(stuff)`, which will persist stuff in the DB.
+3. `handleStuffViaComposite` will invoke `notifyStuffViaMessageService.handle(stuff)`, which will create the Domain Event and send notifications via the Message Service.
+4. return.
+
+`HandleStuffViaComposite` is a List of `IHandleStuff` references. It can be configured to manage as many as needed.
 
 ## Structure and Depth
-...
+**Composite** handles breadth, but what about depth? Guess what? **Composite** handles it as well. `HandleStuffViaComposite` is a List of `IHandleStuff` references, and it itself is also an `IHandleStuff` reference. It is self-referential, and it can contain references to other `HandleStuffViaComposite` references.
 
-## Breadth and Depth
-...
+**WARNING**: A `HandleStuffViaComposite` reference should never contain a reference to itself either directly or indirectly. If it would, then its call to `handle(stuff)` would get stuck in an infinite loop.
+
+I don't even need to create a new diagram, but I want you to use your imagination. Let's remove `NotifyStuffViaMessageService` and replace it with two more Adapter classes:
+* `NotifyStuffViaKafka`
+* `NotifyStuffViaRabbitMQ`
+
+Let's also assume that your architect has decided to send Domain Events to both. Once defined, then we can update the `Configurer` as follows:
+```java
+HandleStuffViaComposite notifyStuffViaMessageServices = new HandleStuffViaComposite();
+notifyStuffViaMessageServices.add(new NotifyStuffViaKafka());
+notifyStuffViaMessageServices.add(new NotifyStuffViaRabbitMQ());
+
+HandleStuffViaComposite handleStuffViaComposite = new HandleStuffViaComposite();
+handleStuffViaComposite.add(new PersistStuffViaDB());
+handleStuffViaComposite.add(notifyStuffViaMessageServices);
+
+ManageStuffFromRest manageStuffFromRest =
+    new (ManageStuffFromRest(
+        new (ManageStuff(handleStuffViaComposite)
+    );
+```
 
 # Document Example
 ...
@@ -181,7 +272,7 @@ This repeating sequence pattern reminds me of a descending stair case. It's the 
 ...
 
 # Summary
-You may not need this level of flexibility. ...
+These techniques allow us to expand in breadth and depth at any time. It's not one or the other. We may not need this level of flexibility often, but when we do, it's good to have these tools in our toolbox.
 
 # References
 See previous blog [References](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html#references).
