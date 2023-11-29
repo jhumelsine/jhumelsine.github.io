@@ -5,6 +5,8 @@ unlisted: true
 ---
 
 # Introduction
+This continues the [Hexagonal Architecture series](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html) with how Hexagonal Architecture affords itself to flexibility, mainly in the Adapter Layer.
+
 In the [Why It Works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html) blog, I featured knowledge/dependency theory and why I feel that the practice of that theory is one of the main reasons that Hexagonal Architecture works so well.
 This blog entry will expand upon those ideas with some additional design options that may be useful in designs that feature Hexagonal Architecture principles.
 
@@ -385,9 +387,76 @@ Once all Documents have been migrated, then there's no need for `ManageDocuments
 <img src="/assets/HexArchDocument3.png" alt="Basic Hexagonal Architecture with Document with Dispatcher" width = "80%" align="center" style="padding-right: 35px;">
 
 # Nested Hexagons
-...
+We've gone deep and wide. Now we're going to dive inward. Can Hexagons be nested?
 
-# Organization of Work and Conway's Law
+Let's return to Alistair Cockburn, who posted [this](https://twitter.com/TotherAlistair/status/1726618384614535624) on X/Twitter in November 2023:
+> someone asked me today: "If you were to define what hexagonal architecture is not from the observations you've made of implementation variations over the years, what would you say?"
+>
+> Here are the pages from the draft book that say as well as I can in just a few pages:
+
+Ah! He's working on a book, and he posted images of a few pages. On [Page 4](https://twitter.com/TotherAlistair/status/1726618384614535624/photo/4) he writes:
+> **What about nested hexagons?**
+>
+> As described in paper _"Component + Strategy"_ in Chapter 1, you can nest the Component + Strategy pattern, assuming you really write the tests.
+> You can have components within componts, if you like, assuming you meet the criteria.
+>
+> The Ports & Adapters pattern is really aimed at protecting your team from external technology shifts.
+> The pattern suggests declaring the system boundary just in front of each external technology.
+> See "Where do I put the 'app' boundary?"
+>
+> Thus we say that the Hexagonal / Ports & Adapters pattern does not nest.
+
+I think Cockburn is being too restrictive. As I stated above, I think he views the Port as the edge of the system. I view the Port as the Edge of the Business Logic. While Cockburn doesn't think the pattern nests, I do.
+
+I thought about how to represent nested hexagons. The diagram was going to get way to cluttered and busy. What did I even consider nested hexagons?
+
+I often think about what I want to put into a blog while I drift to sleep in the evening. Then I had a thought. My relationship lines leaving my Purple Hexagons always point outward. Cockburn doesn't address this at all. Martin gets it backwards.
+
+Purple Hexagons are [Pure Unstable/Flexible](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#pure-unstableflexible-elements) elements. But they are not the only Pure Unstable/Flexible elements in Hexagonal Architecture. Others include:
+* The Business Logic
+* The Adapters
+* The Configurer
+
+Except for their creation, they are invisible to the rest of the design. All of these elements have an [Event Horizon](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#event-horizons) much like Black Holes. We can't peer into them. This was a bit of an **Aha!** moment for me. It was there all along, and I hadn't noticed it before.
+
+Maybe a picture is worth a thousand words.
+All Pure Unstable/Flexible elements can be Purple Hexagons too. Except for creation, all dependency/knowledge arrows point outward.
+
+<img src="/assets/HexArchNested1.png" alt="Basic Hexagonal Architecture with Nested Hexagons" width = "90%" align="center" style="padding-right: 35px;">
+
+This is a fractal design. At this level of abstraction, we know what each internal Purple Hexagon must do, but we don't know nor care how it's done. It could be one class, or it could be many classes. There could be another Red Hexagon eco-system or a completely different design. The fractals could descend even further with more Purple Hexagons nesting within these Purple Hexagons.
+
+Let's revist the Dispatching example, but with a nested hexagon:
+
+<img src="/assets/HexArchNested2.png" alt="Dispatching Hexagonal Architecture with Nested Hexagons" width = "90%" align="center" style="padding-right: 35px;">
+
+The only differnce is the addition of the `PersistingConfigurer` as well as adding the Purple Hexagon. Please remember that Hexagons, regardless of their color, are design boundaries. They do not exist in the implementation. They help organize the design and restrict the flow of dependency and knowledge.
+
+Nothing has really changed except for the Configurers, and I think they will be easier to manage.
+`PersistingConfigurer`:
+```java
+class PersistingConfigurer {
+    public static IPersistDocuments getDocumentPersister() {
+        return new PersistDocumentsViaDispatching(
+            new FeatureFlags(),
+            new ManageDocumentsViaDB(),
+            new ManageDocumentsViaCloudStorage()
+        );
+    }
+}
+```
+
+Then the main `Configurer` is basically this:
+```java
+ManageDocumentsFromREST = manageDocumentsFromREST =
+    new ManageDocumentsFromREST(
+        new ManageDocuments(
+            PersistingConfigurer.getDocumentPersister()
+        )
+    );
+```
+
+# Separation of Concerns and Conway's Law
 
 # Summary
 These techniques allow us to expand in breadth and depth at any time. It's not one or the other. We may not need this level of flexibility often, but when we do, it's good to have these tools in our toolbox.
@@ -397,15 +466,8 @@ See previous blog [References](https://jhumelsine.github.io/2023/10/24/hexagonal
 
 # RAW NOTES
 
-Cockburn's Tweet and references to his photo images too. He references just 2 layers inside and out. His design basically only has a single red hexagon. He's literal and a bit to restrictive. He views it as an architecure. I view it as a pattern. I feel that the architecture view is a subset of the patterns. Don't restrict yourself.
-https://twitter.com/TotherAlistair/status/1704531058023141490
-https://twitter.com/TotherAlistair/status/1726618384614535624
-https://twitter.com/TotherAlistair/status/1726618384614535624
-
 Nested Hexagons. Pruple Hexagons are Pure Unstable/Flexible. We end up with a recursive structure so all elements of the overall pattern can be applied a level deeper and as deep as necessary.
 
 Most HexArch presentstaions don't give a sense of scope. Is it the entire project? Is it a feature. Hex Arch seems to indicate an architecture. Cockburn views Ports as external ports. But I don't think he really cares all that much. Clean Arch tends to be at the User Story level as Bob Martin presents it. I think that Bounded Context is a good boundary. This uses a defintion from DDD for context, but still gives the designer the freedom to adjust as needed.
 
 List who works on which parts of the design and when. Seniors, Juniors, Architects, etc. Get Business Analysists and Project/Product managers involved too. They should be able to read the business logic code. Even if they can't read code, they should be able to follow the gist of it. If not, then the implementation needs work. It's either too complex, has too much jargon or the ubiquituous language has not been used. Should be able to practice CI/CD too. Nothing "activates" until the Configurer creates the elements and assembles them into the design. Classes only depend upon interfaces so the design is modular and more easily maintained. Unit testing should be relatively simple to set up. The only classes that know other class types are the Configurers.
-
-Dispatcher. Tell the Document story. Update the names in the diagram if possible.
