@@ -156,10 +156,10 @@ The red hexagons do not know about each other. The glue that connects them is `H
 ```java
 PlaceOrdersFromREST placeOrdersFromREST =
     new PlaceOrdersFromRest(
-        new (PlaceOrders(
-            new (HandlePlacedOrdersViaManageInventory(
-                new (ManageInventory(
-                    new (PersistInventoryViaDB())
+        new PlaceOrders(
+            new HandlePlacedOrdersViaManageInventory(
+                new ManageInventory(
+                    new PersistInventoryViaDB()
                 )
             )
         )
@@ -236,8 +236,8 @@ handleStuffViaComposite.add(new PersistStuffViaDB());
 handleStuffViaComposite.add(new NotifyStuffViaMessageService());
 
 ManageStuffFromRest manageStuffFromRest =
-    new (ManageStuffFromRest(
-        new (ManageStuff(handleStuffViaComposite)
+    new ManageStuffFromRest(
+        new ManageStuff(handleStuffViaComposite)
     );
 ```
 
@@ -273,8 +273,8 @@ handleStuffViaComposite.add(new PersistStuffViaDB());
 handleStuffViaComposite.add(notifyStuffViaMessageServices);
 
 ManageStuffFromRest manageStuffFromRest =
-    new (ManageStuffFromRest(
-        new (ManageStuff(handleStuffViaComposite)
+    new ManageStuffFromRest(
+        new ManageStuff(handleStuffViaComposite)
     );
 ```
 
@@ -282,8 +282,107 @@ And that's it. This Composite is a List, which contains a List. Technically Comp
 
 Everytime we add a terminal concrete node to a Composite, we're expanding breadth. Everytime we add a non-terminal Composite node, we're expanding depth. Composite is one of my favorite design patterns. So little code and yet so many options.
 
-# Inspired By A True Story
-...
+# Inspired By True Events
+I've mostly been doing a lot of verbal handwaving so far. Let's get into a real situation. This story is inspired by true events, but I'm going to reduce it to its core elements.
+
+I worked on a project where one of the features stored Documents for people. These Documents could be Word documents, PDFs, etc. For years, they were stored in a traditional database as a blog of bytes. The simplified diagram would look like this:
+
+<img src="/assets/HexArchDocument1.png" alt="Basic Hexagonal Architecture with Document with DB" width = "80%" align="center" style="padding-right: 35px;">
+
+This worked fine for a while, but we wanted to move from a monolith architecture to a more distributed architecture, and since Documents are just blobs of bytes, we wanted to store them in Cloud Storage.
+
+We couldn't do a flash cut, since the product already has hundreds of millions of Documents in the traditional DB, and it would take too long to migrate them to Cloud Storage during a maintenance window, which we want to keep as short as possible. We could migrate the Documents via batch processing. This would take days if not weeks, so how do we handle new Document updates during this migration period?
+
+We would embark on something called **Dual Reads and Writes**. Basically, the feature would delegate to two sets of datastores, DB and Cloud Storage, during the migration period. Documents would be managed in both. This is definitately as structural choice, not a behavior choice. So we don't to avoid updates to the red hexagon as much as possible.
+
+I'm going to simplify this and sanitize it quite a bit. The product contained 20 years of legacy code. It wasn't as clean as the diagram above suggets. I'll omit the trials and tribulations until we converged upon a design much like this.
+
+<img src="/assets/HexArchDocument2.png" alt="Basic Hexagonal Architecture with Document with Dispatcher" width = "90%" align="center" style="padding-right: 35px;">
+
+`PersistDocumentsViaDispatching` was the key to make it all work. This class is variation of **Composite**. It's self-referential, but not going to be quite as flexible as the previous **Composite** example. `PersistDocumentsViaDispatching` will have indirect knowledge of the DB and Cloud Storage Adapters. Dispatching rules are also FeatureFlag controlled.
+
+Let's look at some implementations.
+
+I'm going to omit **update** operation to keep things more simple:
+```java
+interface IPersistDocuments {
+
+    void add(PersonId personId, Document document);
+
+    Optional<Document> getByPersonId(PersonId personId);
+
+    void delete(PersonId personId);
+}
+```
+
+`PersistDocumentsViaDB` would implement these methods and delegate to the DB. `PersistDocumentsViaCloudStorage` would implement them and delegate to Cloud Storage.
+
+`PersistDocumentsViaDispatching` is more interesting, and keep in mind that more was needed for the real implementation, but this is the gist of it):
+```java
+class PersistDocumentsViaDispatching implements IPersistDocuments {
+    private final FeatureFlags featureFlags;
+    private final IPersistDocuments iPersistDocumentsViaDB;
+    private final IPersistDocuments iPersistDocumentsViaCloudStorage;
+
+    public PersistDocumentsViaDispatching(FeatureFlags featureFlagsIPersistDocuments iPersistDocumentsViaDB, IPersistDocuments iPersistDocumentsViaCloudStorage) {
+        this.featureFlags = featureFlags;
+        this.iPersistDocumentsViaDB = iPersistDocumentsViaDB;
+        this.iPersistDocumentsViaCloudStorage = iPersistDocumentsViaCloudStorage;
+    }
+
+    public void add(PersonId personId, Document document) {
+        if (featureFlags.isEnabled(CLOUD_SERVICE)) {
+            iPersistDocumentsViaCloudStorage.add(personId, document);
+        }
+
+        if (featureFlags.isEnabled(DB)) {
+            iPersistDocumentsViaDB.add(personId, document);
+        }
+    }
+
+    public Optional<Document> getByPersonId(PersonId personId) {
+        Optional<Document> documentViaCloudStorage = iPersistDocumentsViaCloudStorage.getByPersonId(personId);
+        if (documentViaCloudStorage.isPresent()) {
+            return documentViaCloudStorage;
+        }
+
+        Optional<Document> documentViaDB = iPersistDocumentsViaDB.getByPersonId(personId);
+        if (documentViaDB.isPresent()) {
+            return documentViaDB;
+        }
+
+        return Optional.empty();
+    }
+
+    public void delete(PersonId personId) {
+        iPersistDocumentsViaDB.delete(personId);
+        iPersistDocumentsViaCloudStorage.delete(personId);
+    }
+}
+```
+
+Finally, the `Configurer`:
+```java
+ManageDocumentsFromREST = manageDocumentsFromREST =
+    new ManageDocumentsFromREST(
+        new ManageDocuments(
+            new PersistDocumentsViaDispatching(
+                new FeatureFlags(),
+                new ManageDocumentsViaDB(),
+                new ManageDocumentsViaCloudStorage()
+            )
+        )
+    );
+```
+The feature is activated via FeatureFlags for DB and CLOUD_STORAGE possibly in this order:
+* Enable DB, which should be the same behavior as before.
+* Enable CLOUD_STORAGE, which will activate dual writing.
+* Disable DB, when all Documents have been migrated.
+
+Each stage would be active for a few days or weeks to ensure that it's working correctly.
+
+Once all Documents have been migrated, then there's no need for `ManageDocumentsViaDB` or even `PersistDocumentsViaDispatching`. We'd end up with a design that looks like this:
+<img src="/assets/HexArchDocument3.png" alt="Basic Hexagonal Architecture with Document with Dispatcher" width = "80%" align="center" style="padding-right: 35px;">
 
 # Nested Hexagons
 ...
