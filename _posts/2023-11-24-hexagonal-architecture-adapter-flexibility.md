@@ -369,7 +369,7 @@ ManageDocumentsFromREST = manageDocumentsFromREST =
     new ManageDocumentsFromREST(
         new ManageDocuments(
             new PersistDocumentsViaDispatching(
-                new FeatureFlags(),
+                FeatureFlagAPI,
                 new ManageDocumentsViaDB(),
                 new ManageDocumentsViaCloudStorage()
             )
@@ -417,7 +417,7 @@ Purple Hexagons are [Pure Unstable/Flexible](https://jhumelsine.github.io/2023/1
 * The Adapters
 * The Configurer
 
-Except for their creation, they are invisible to the rest of the design. All of these elements have an [Event Horizon](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#event-horizons) much like Black Holes. We can't peer into them. This was a bit of an **Aha!** moment for me. It was there all along, and I hadn't noticed it before.
+Except for their creation, they are invisible to the rest of the design. All of these elements have an [Event Horizon](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#event-horizons) much like Black Holes. We can't peer into them. This was a bit of an **Aha!** moment for me. It was there all along, and I hadn't noticed it before. Purple Hexagons can be elements of Purple Hexagons.
 
 Maybe a picture is worth a thousand words.
 All Pure Unstable/Flexible elements can be Purple Hexagons too. Except for creation, all dependency/knowledge arrows point outward.
@@ -438,7 +438,7 @@ Nothing has really changed except for the Configurers, and I think they will be 
 class PersistingConfigurer {
     public static IPersistDocuments getDocumentPersister() {
         return new PersistDocumentsViaDispatching(
-            new FeatureFlags(),
+            FeatureFlagAPI,
             new ManageDocumentsViaDB(),
             new ManageDocumentsViaCloudStorage()
         );
@@ -456,18 +456,19 @@ ManageDocumentsFromREST = manageDocumentsFromREST =
     );
 ```
 
-# Separation of Concerns and Conway's Law
+# Separation of Concerns
+These designs are highly modular. This was hopefully evident as I was swapping and adjusting Adapter configurations. Except for creation, the classes don't depend upon or know about one another. They only depend upon interfaces.
+
+The separation of concerns means that different developers and different teams can work on the implementation simultaneously without interferring with one another as long as their shared interfaces are reasonable stable. Unit testing should be relatively easy to set up, since there are not tight couplings. Test doubles can be provided for all dependencies.
+
+Who should be working on what and when? There are many ways to approach this. Here are some of my personal thoughts:
+* Architects and Senior Developers should declare the Port/Interface/Contracts. These are Pure Stable/Fixed elements. Other elements depend upon and have knowledge of them. We don't want them to change often. Architects and Senior Developers should have the most domain knowledge to do this.
+* Senior Developers should implement the Business Logic, and this would include Business Objects/Entities as well. Core domain implementations reside here. This is where customer observed behavior resides. It needs to be right. But that doesn't mean that it needs to be complex or complicated. Technical details should be delegated to the Port/Interface/Contracts, which are implemented by Adapters and delegated externally. The Business Logic should be reasonably straight forward. I think it should be obvious enough that if your Business Analyists and Project/Product Managers can follow the gist of the Business Logic implementation. If not, then the design needs more work or refactoring.
+* Junior Developers should implement the Adapters and probably with Senior Developer oversight. Adapters won't have business logic within them, but this can be a good place where Junior Developers learn the technology, dependencies and the project's ubiquitous language.
+* Architects should implement the Configurers. Nothing happens until the Configurers create and configure the objects. Configurers are responsible for organizing the differnt elements of the system, and the Architects should know this the best.
 
 # Summary
 These techniques allow us to expand in breadth and depth at any time. It's not one or the other. We may not need this level of flexibility often, but when we do, it's good to have these tools in our toolbox.
 
 # References
 See previous blog [References](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html#references).
-
-# RAW NOTES
-
-Nested Hexagons. Pruple Hexagons are Pure Unstable/Flexible. We end up with a recursive structure so all elements of the overall pattern can be applied a level deeper and as deep as necessary.
-
-Most HexArch presentstaions don't give a sense of scope. Is it the entire project? Is it a feature. Hex Arch seems to indicate an architecture. Cockburn views Ports as external ports. But I don't think he really cares all that much. Clean Arch tends to be at the User Story level as Bob Martin presents it. I think that Bounded Context is a good boundary. This uses a defintion from DDD for context, but still gives the designer the freedom to adjust as needed.
-
-List who works on which parts of the design and when. Seniors, Juniors, Architects, etc. Get Business Analysists and Project/Product managers involved too. They should be able to read the business logic code. Even if they can't read code, they should be able to follow the gist of it. If not, then the implementation needs work. It's either too complex, has too much jargon or the ubiquituous language has not been used. Should be able to practice CI/CD too. Nothing "activates" until the Configurer creates the elements and assembles them into the design. Classes only depend upon interfaces so the design is modular and more easily maintained. Unit testing should be relatively simple to set up. The only classes that know other class types are the Configurers.
