@@ -10,12 +10,12 @@ This continues the [Hexagonal Architecture series](https://jhumelsine.github.io/
 In the [Why It Works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html) blog, I featured knowledge/dependency theory, and why I feel that the practice of that theory is one of the main reasons that Hexagonal Architecture works so well.
 This blog entry will expand upon those ideas with some additional design options that may be useful in designs that feature Hexagonal Architecture principles.
 
-These additional design options are not my original techniques, but applying them within the context of Hexagonal Architecture is my idea.
+These additional design options are not my original techniques but applying them within the context of Hexagonal Architecture is my idea.
 I'm branching away from Alistair Cockburn and Bob Martin, who created and popularized this architecture/design.
 Their presentations tend to be more bounded and focused upon the _architecture_ whereas I am more interested in the _design_.
-Architecture is a subset of design, but I think that good design should be applied at any layer of abstraction.
+Architecture is a subset of design, but I think that good design should be applied to any layer of abstraction.
 
-Alistair Cockburn posted [this](https://twitter.com/TotherAlistair/status/1704531058023141490) on X/Twitter in September, 2023:
+Alistair Cockburn posted [this](https://twitter.com/TotherAlistair/status/1704531058023141490) on X/Twitter in September 2023:
 > For those who keep asking about #hexagonalarchitecture layers, here it is:
 > There are only 2 layers: inside. outside.
 > No relation to layers in Clean, Onion, DDD, Modular Monolith, nothing.
@@ -34,7 +34,7 @@ I plan to blog about the relationship of Hexagonal Architecture to these concept
 <img src="https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg" alt="The Clean Architecture" title="Image Source: https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html" width = "55%" align="right" style="padding-right: 35px;">
 
 Bob Martin adds a few more layers to Clean Architecture than Cockburn does in Hexagonal Architecture. Martin depicts dependency from the outer most **Frameworks and Drivers** ring pointing inward toward the **Interface Adapters** ring.
-I think this is the wrong direction as I mentioned in the [Frameworks and Drivers](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html#frameworks-and-drivers) section of the comparision blog.
+I think this is the wrong direction as I mentioned in the [Frameworks and Drivers](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html#frameworks-and-drivers) section of the comparison blog.
 I represent this boundary as a Purple Hexagon, and in my diagrams the knowledge and dependency arrows point outward. 
 My outward arrows will become important later.
 
@@ -44,7 +44,7 @@ I'll highlight a few points here from that blog starting with my basic Hexagonal
 
 <img src="/assets/HexArchHexagons.png" alt="Hexagonal Architecture" width = "90%" align="center" style="padding-right: 35px;">
 
-[Pure Stable/Fixed](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#pure-stablefixed-elements) elements have arrows pointing into them, meaning they depend nothing. These elements in Hexagonal Architecture include:
+[Pure Stable/Fixed](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#pure-stablefixed-elements) elements have arrows pointing into them, meaning they depend upon nothing. These elements in Hexagonal Architecture include:
 * The Port/Interface/Contract
 * The External Frameworks and External Dependencies
 * The Red Hexagon Boundary
@@ -57,7 +57,7 @@ I'll highlight a few points here from that blog starting with my basic Hexagonal
 
 Technically the Configurer and the Purple Hexagon Boundary are the only Pure Unstable/Flexible elements, but the Business Logic and Adapters only have a creation arrow pointing into them, which originate from the Configurer. I consider that pure enough for my needs.
 
-Almost all design options presented here will be with these Pure Unstable/Flexible elements. All the fun is in the Adapter zone. Red Hexagons are mosly unchanged of the diagrams. They don't change as we _flex_ the Adapters. Likewise, the Red External Frameworks and Depenencies don't change either.
+Almost all design options presented here will be with these Pure Unstable/Flexible elements. All the fun is in the Adapter zone. Red Hexagons are mostly unchanged in the diagrams. They don't change as we _flex_ the Adapters. Likewise, the Red External Frameworks and Dependencies don't change either.
 
 # I is for Interface, or is it?
 Interface names start with `I` in C# by convention. It's reminiscent of [Hungarian Notation](https://en.wikipedia.org/wiki/Hungarian_notation), which I've not much cared for myself. Hungarian Notation always reminded me of Klingon.
@@ -67,7 +67,7 @@ Here's what Bob Martin has to say about this practice in his book: **Clean Code*
 
 I tend to agree with him on this.
 I avoided the `I` prefix for interfaces in my career.
-Then a few months ago, I stumbed upon this blog: [I, Interface](https://talesfrom.dev/blog/i-interface).
+Then a few months ago, I stumbled upon this blog: [I, Interface](https://talesfrom.dev/blog/i-interface).
 The author suggested thinking of `I` as _First Person Singular: I_ rather than _Interface_.
 This leads to interface names that still have the `I` prefix, but in a more declarative way that provides more context.
 For example, we can define interfaces with names like:
@@ -90,8 +90,8 @@ We have design flexibility in behavior and structure and then within each we hav
 
 ## Behavior and Structure
 I borrowed these terms from Design Patterns, which organizes most patterns into two categories:
-* Structural, which tend to be about the organization and interaction of classes and objects
-* Behavioral, which tend to be about the behavior that emerges from these organizations and interactions.
+* Structural, which tends to be about the organization and interaction of classes and objects.
+* Behavioral, which tends to be about the behavior that emerges from these organizations and interactions.
 
 I'll be using them to distinguish between flexibility that's used because the behavior defined in the domain requires it versus flexibility that's not behavior driven, but it's useful to keep the design more modular and flexible.
 
@@ -106,7 +106,7 @@ The Hexagonal Architecture can support multiple frameworks and dependencies.
 It does so, because the behavior requires it, meaning that it's a requirement.
 
 Consider this diagram where the Business Logic needs to persist stuff, publish events and send email.
-The Business Logic implementation will have references to these interfaces, because the core domain behavior requires it.
+The Business Logic implementation will have references to these interfaces because the core domain behavior requires it.
 
 <img src="/assets/HexArchBehaviorBreadth.png" alt="Hexagonal Architecture with Multiple Adapters" width = "85%" align="center" style="padding-right: 35px;">
 
@@ -121,7 +121,7 @@ There are two frameworks:
 * `AndroidFramework` extended by `ManageStuffFromAndroid`, which translates Android based requests and delegates them to `IManageStuff`.
 * `RESTFramework` extended by `ManageStuffFromRest`, which translates RESTful based requeests and delegates them to `IManageStuff`.
 
-`ManageStuff` has no dependency or knowledge upon either of these Frameworks or the External Dependencies. `ManageStuff` is loosely couplied to the Frameworks and Dependencies through Adapters, which are created via the `Configurer`. None of the classes depend upon nor have knowledge of each other.
+`ManageStuff` has no dependency or knowledge upon either of these Frameworks or the External Dependencies. `ManageStuff` is loosely coupled to the Frameworks and Dependencies through Adapters, which are created via the `Configurer`. None of the classes depend upon nor have knowledge of each other.
 
 I didn't have room to include the `Configurer` in the diagram, but if I had drawn it, it would have only been a purple rectangle with creation lines to each of the blue rectangles. Here's what the `Configurer` class might look like in Java:
 ```java
@@ -179,24 +179,24 @@ Let's remove the Hexagons and the Configurer to see what's left.
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Structure_of_monomers_and_polymers.jpg?20180217054949" alt="Polymer chain" width = "25%" align="right" title="Image Source: https://commons.wikimedia.org/wiki/File:Structure_of_monomers_and_polymers.jpg" style="padding-right: 35px;">
 
 This chain can go on indefinitely.
-This repeating sequence pattern reminds me of a descending stair case.
+This repeating sequence pattern reminds me of a descending staircase.
 The repeating pattern alternates [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) and [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) patterns.
 It can continue indefinitely, much like polymer chains.
 
 ## Structure and Breadth
-Imagine you're working with this fairly straightforward design:
+Imagine you're working with this straightforward design:
 
 <img src="/assets/HexArchStructureBreadth1.png" alt="Basic Hexagonal Architecture" width = "85%" align="center" style="padding-right: 35px;">
 
-Your architect declares that the system is going to be more distributed and that **Domain Events** will be added. So when `Stuff` is persisted, then a Domain Event, such as `PersistedStuff`, needs to be created and disseminated on a Message Service.
+Your architect declares that the system is going to be more distributed, and that **Domain Events** will be added. So when `Stuff` is persisted, then a Domain Event, such as `PersistedStuff`, needs to be created and disseminated on a Message Service.
 
-The diagram in the **Breadth and Behavior** section above shows how this could be done with a new contract for Publishing Events, but is this really a Behavior update? Is the Customer or even the Product Manager asking Domain Events? Probably not. Consider Cockburn's quote above, this is not a requriement. It's a design decision. We'd like to be able to add **Domain Events** without touching anything inside the Red Hexagon.
+The diagram in the **Breadth and Behavior** section above shows how this could be done with a new contract for Publishing Events, but is this really a Behavior update? Is the Customer or even the Product Manager asking for Domain Events? Probably not. Consider Cockburn's quote above, this is not a requirement. It's a design decision. We'd like to be able to add **Domain Events** without touching anything inside the Red Hexagon.
 
 The first consideration may be to update, or really replace, `PersistStuffViaDB` with a new Adapter that persists and sends event notifications, possibly with the name: `PersistStuffViaDBAndNotifyStuffViaMessageService`. This is one of the reasons that we favor Adapters. They allow us to swap one out for another one smoothly.
 
 The name is rather long, but that's my main issue with it. It contains **And**. This method is doing more than one thing. We may break the DB functionality when adding the Message Service functionality. The Adapter has more than one reason to be changed. In the future it could be updated because of DB dependencies or Message Service dependencies. An update to one feature runs the risk of breaking the other feature. This **And** Adapter violates the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) (SRP).
 
-Consider this design enhancement, which addes a new Adapter for the Message Service.
+Consider this design enhancement, which adds a new Adapter for the Message Service.
 
 <img src="/assets/HexArchStructureBreadth2.png" alt="Basic Hexagonal Architecture with Message Service" width = "90%" align="center" style="padding-right: 35px;">
 
@@ -205,7 +205,7 @@ We no longer have an SRP violation. This is an application of the [Strategy](htt
 But there's still a problem. `ManageStuff` only has one reference to `IHandleStuff`, but now we have two classes that implement `IHandleStuff`.
 We could update `ManageStuff` to have two references to `IHandleStuff`, but now we're making changes in the Red Hexagon, and we want to avoid that, since this is an architecture update and not a behavior update.
 
-One solution is to problem is to employ the [Composite](https://en.wikipedia.org/wiki/Composite_pattern) design pattern. Here is the design diagram followed by some implementation snippets to help describe it. Notice that the only difference between this diagram and the one above is the new `HandleStuffViaComposite` class and an update the to `Configurer`. Not only is the Red Hexagon content unaffected, but the other Adapters are unaffected as well.
+One solution is to problem is to employ the [Composite](https://en.wikipedia.org/wiki/Composite_pattern) design pattern. Here is the design diagram followed by some implementation snippets to help describe it. Notice that the only difference between this diagram and the one above is the new `HandleStuffViaComposite` class and an update to the `Configurer`. Not only is the Red Hexagon content unaffected, but the other Adapters are unaffected as well.
 
 <img src="/assets/HexArchStructureBreadth3.png" alt="Basic Hexagonal Architecture with Composite" width = "90%" align="center" style="padding-right: 35px;">
 
@@ -217,11 +217,11 @@ interface IHandleStuff {
     void handle(Stuff stuff);
 }
 ```
-**NOTE**: The `IHandleStuff` interface really has no context. And the notion of possible Exceptions is ignored. I'm more focused upon how this will handle sunny day scenarios. A real interface and subsequent implementations would require more context and rainy day scenarios as well.
+**NOTE**: The `IHandleStuff` interface really has no context. And the notion of possible Exceptions is ignored. I'm more focused upon how this will handle sunny day scenarios. A real interface and subsequent implementations would require more context and rainy-day scenarios as well.
 
 Each of the three Adapters has to implement this interface. `PersistStuffViaDB` will _handle_ stuff in the DB. `NotifyStuffViaMessageService` will create a `StuffHandled` **Domain Event** and send notifications via the Message Service.
 
-But things get very interesting with `HandleStuffViaComposite`. It doesn't have any external dependencies. It's only dependency is upon `IHandleStuff` both as its parent interface as well as referenced interfaces. The diamond indicates it has a Container of `IHandleStuff` references. Here's the gist of what `HandleStuffViaComposite` would look like in Java:
+But things get very interesting with `HandleStuffViaComposite`. It doesn't have any external dependencies. Its only dependency is upon `IHandleStuff` both as its parent interface as well as referenced interfaces. The diamond indicates it has a Container of `IHandleStuff` references. Here's the gist of what `HandleStuffViaComposite` would look like in Java:
 ```java
 class HandleStuffViaComposite implements IHandleStuff {
     private List<IHandleStuff> stuffIHandle = new LinkedList<>();
@@ -254,9 +254,9 @@ Here the sequence of what happens when `ManageStuff` makes a call to: `iHandleSt
 1. `handleStuffViaComposite`, which is the reference for `iHandleStuff` in `ManageStuff`, will iterate through its List of `iHandleStuff` references with the first being `persistStuffViaDB` and the second one being `notifyStuffViaMessageService.`
 2. `handleStuffViaComposite` will invoke `persistStuffViaDB.handle(stuff)`, which will persist stuff in the DB.
 3. `handleStuffViaComposite` will invoke `notifyStuffViaMessageService.handle(stuff)`, which will create the Domain Event and send notifications via the Message Service.
-4. It returns back up to `ManageStuff`.
+4. It returns up to `ManageStuff`.
 
-`HandleStuffViaComposite` is a List of `IHandleStuff` references. It can be configured to manage as many as `IHandleStuff` Adapters as needed.
+`HandleStuffViaComposite` is a List of `IHandleStuff` references. It can be configured to manage as many `IHandleStuff` Adapters as needed.
 
 ## Structure and Depth
 **Composite** handles breadth, but what about depth? Guess what? **Composite** handles it as well.
@@ -293,11 +293,11 @@ ManageStuffFromRest manageStuffFromRest =
 And that's it. This Composite is a List, where one of the elements in the List also contains a List.
 We can think of Composite as a Tree where each non-terminal node that is a Composite object can branch to as many child nodes as possible, including more Composite object nodes.
 
-Everytime we add a terminal concrete node to a Composite, we're expanding in breadth. Everytime we add a non-terminal Composite node, we're expanding in depth.
+Every time we add a terminal concrete node to a Composite, we're expanding in breadth. Every time we add a non-terminal Composite node, we're expanding in depth.
 Composite is one of my favorite design patterns. So little code and yet so many options.
 
 # Inspired By True Events
-I've mostly been doing a lot of verbal handwaving so far. Let's get into a real situation. This story is inspired by true events, but I'm going to reduce it to its core elements.
+I've mostly been doing a lot of verbal handwaving so far. Let's get into a real scenario. This story is inspired by true events, but I'm going to reduce it to its core elements.
 
 I worked on a project where one of the features stored Documents for people. These Documents could be Word documents, PDFs, etc. For years, they were stored in a traditional database as a blob of bytes, because that was the only storage mechanism we had. The simplified diagram would look like this:
 
@@ -307,17 +307,17 @@ This worked fine for a while, but we wanted to move from a monolith architecture
 
 We couldn't do a flash cut, because the product already had hundreds of millions of Documents in the traditional DB, and it would take too long to migrate them to Cloud Storage during a maintenance window, which we want to keep as short as possible. We could migrate the Documents via batch processing. This would take days if not weeks, so how do we ensure that the correct Document is always managed properly during the migration period?
 
-We embarked on something called **Dual Reads and Writes**. Basically, the feature would delegate to two sets of datastores, DB and Cloud Storage, during the migration period. Documents would be managed in both. This is definitately as structural choice, not a behavior choice. So we don't to avoid updates to the Red Hexagon as much as possible.
+We embarked on something called **Dual Reads and Writes**. Basically, the feature would delegate to two sets of datastores, DB and Cloud Storage, during the migration period. Documents would be managed in both. This is definitely a structural choice, not a behavior choice. So, we don't to avoid updates to the Red Hexagon as much as possible.
 
-I'm going to simplify this and sanitize it quite a bit. The product contained 20 years of legacy code. It wasn't as clean as the diagram above suggets. I'll omit the trials and tribulations until we converged upon a design much like this.
+I'm going to simplify this and sanitize it quite a bit. The product contained 20 years of legacy code. It wasn't as clean as the diagram above suggests. I'll omit the trials and tribulations until we converged upon a design much like this.
 
 <img src="/assets/HexArchDocument2.png" alt="Basic Hexagonal Architecture with Document with Dispatcher" width = "90%" align="center" style="padding-right: 35px;">
 
-`PersistDocumentsViaDispatching` was the key to make it all work. This class is variation of **Composite**. It's self-referential, but it's not going to be quite as flexible as the previous **Composite** example. `PersistDocumentsViaDispatching` will have indirect knowledge of the DB and Cloud Storage Adapters. Dispatching rules are also FeatureFlag controlled.
+`PersistDocumentsViaDispatching` was the key to make it all work. This class is a variation of **Composite**. It's self-referential, but it's not going to be quite as flexible as the previous **Composite** example. `PersistDocumentsViaDispatching` will have indirect knowledge of the DB and Cloud Storage Adapters. Dispatching rules are also FeatureFlag controlled.
 
 Let's look at some implementations.
 
-I'm going to omit **update** operation to keep things more simple:
+I'm going to omit **update** operation to keep things simpler:
 ```java
 interface IPersistDocuments {
 
@@ -449,13 +449,13 @@ All Pure Unstable/Flexible elements can be Purple Hexagons too. Except for creat
 
 This is a fractal design. At this level of abstraction, we know what each internal Purple Hexagon must do, but we don't know nor care how it's done. It could be one class, or it could be many classes. There could be another Red Hexagon eco-system or a completely different design inside. The fractals could descend even further with more Purple Hexagons nesting within these Purple Hexagons.
 
-As long as the External Dependencies are honored, the developer has carte blanche with respect to the design and implementation within the Purple Hexagon.
+If the External Dependencies are honored, the developer has carte blanche with respect to the design and implementation within the Purple Hexagon.
 
-Let's revist the Dispatching example, but with a nested hexagon:
+Let's revisit the Dispatching example, but with a nested hexagon:
 
 <img src="/assets/HexArchNested2.png" alt="Dispatching Hexagonal Architecture with Nested Hexagons" width = "90%" align="center" style="padding-right: 35px;">
 
-The only differnce is the addition of the `PersistingConfigurer` as well as adding the Purple Hexagon. Please remember that Hexagons, regardless of their color, are design boundaries. They do not exist in the implementation. They help organize the design and restrict the flow of dependency and knowledge.
+The only difference is the addition of the `PersistingConfigurer` as well as adding the Purple Hexagon. Please remember that Hexagons, regardless of their color, are design boundaries. They do not exist in the implementation. They help organize the design and restrict the flow of dependency and knowledge.
 
 Nothing has really changed except for the Configurers, and I think they will be easier to manage.
 `PersistingConfigurer`:
@@ -484,14 +484,14 @@ ManageDocumentsFromREST = manageDocumentsFromREST =
 # Separation of Concerns
 These designs are highly modular. This was hopefully evident as I was swapping and adjusting Adapter configurations. Except for creation, the classes don't depend upon or know about one another. They only depend upon interfaces.
 
-The separation of concerns means that different developers and different teams can work on the implementation simultaneously without interferring with one another as long as their shared interfaces are reasonable stable. All implementations are encapsulated within their Event Horizons. As long as they honor their dependencies, any internal design and implementation is possible since it's invisible to the rest of the design.
+The separation of concerns means that different developers and different teams can work on the implementation simultaneously without interfering with one another if their shared interfaces are reasonable stable. All implementations are encapsulated within their Event Horizons. If they honor their dependencies, any internal design and implementation is possible since it's invisible to the rest of the design.
 
-Unit testing should be relatively easy to set up, since there are no tight couplings. Test doubles can be provided for all dependencies.
+Unit testing should be relatively easy to set up since there are no tight couplings. Test doubles can be provided for all dependencies.
 
 Who should be working on what and when? There are many ways to approach this. Here are some of my personal thoughts:
 * Architects and Senior Developers should declare the Port/Interface/Contracts. These are Pure Stable/Fixed elements. Other elements depend upon and have knowledge of them. We don't want them to change often. Architects and Senior Developers should have the most domain knowledge to do this.
-* Senior Developers should implement the Business Logic, and this would include Business Objects/Entities as well. Core domain implementations reside here. This is where customer observed behavior resides. It needs to be right. But that doesn't mean that it needs to be complex or complicated. Technical details should be delegated to the Port/Interface/Contracts, which are implemented by Adapters and delegated externally. The Business Logic should be reasonably straight forward. I think it should be obvious enough so that your Business Analyists and Project/Product Managers can follow the gist of the Business Logic implementation. If not, then the design needs more work or refactoring.
-* Junior Developers should implement the Adapters and probably with Senior Developer oversight. Adapters won't have business logic within them. This can be a good place where Junior Developers learn the technology, dependencies and the project's ubiquitous language.
+* Senior Developers should implement the Business Logic, and this would include Business Objects/Entities as well. Core domain implementations reside here. This is where customer observed behavior resides. It needs to be right. But that doesn't mean that it needs to be complex or complicated. Technical details should be delegated to the Port/Interface/Contracts, which are implemented by Adapters and delegated externally. The Business Logic should be reasonably straight forward. I think it should be obvious enough so that your Business Analysts and Project/Product Managers can follow the gist of the Business Logic implementation. If not, then the design needs more work or refactoring.
+* Junior Developers should implement the Adapters and probably with Senior Developer oversight. Adapters won't have business logic within them. This can be a good place where Junior Developers learn the technology, dependencies, and the project's ubiquitous language.
 * Architects should implement the Configurers. Nothing happens until the Configurers create and configure the objects. The challenge of the Configueres isn't in their implementations. It's in knowing what parts of the system need to be created and configured. Getting this correct requires broad knowledge of the system. Configurers are responsible for organizing the different elements of the system, and the Architects should know this the best.
 
 # Summary
