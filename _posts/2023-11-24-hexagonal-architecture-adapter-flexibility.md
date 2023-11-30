@@ -491,4 +491,14 @@ Who should be working on what and when? There are many ways to approach this. He
 These techniques allow us to expand in breadth and depth at any time. It's not one or the other. We may not need this level of flexibility often, but when we do, it's good to have these tools in our toolbox.
 
 # References
+Here are some free resources:
+* [Summary of Clean Code #1](https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29) on Github summarized by Wojtek Lukaszuk
+* [Summary of Clean Code #2](https://gist.github.com/cedrickchee/55ecfbaac643bf0c24da6874bf4feb08) on Github summarized by Cedric Chee
+* [Composite Design Pattern in Wikipedia](https://en.wikipedia.org/wiki/Composite_pattern)
+* [Composite Design Pattern in SourceMaking](https://sourcemaking.com/design_patterns/composite)
+* [Composite Design Pattern in Refactoring Guru](https://refactoring.guru/design-patterns/composite)
+
+Here are some resources that can be purchased or are included in a subscription service:
+* **Clean Code** by Bob Martin ([O'Reilly](https://learning.oreilly.com/library/view/clean-code-a/9780136083238/) and [Amazon](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882))
+
 See previous blog [References](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html#references).
