@@ -23,6 +23,7 @@ Inspired by Bentley, I'm going to take a little fun and provide my own set of Bu
 * https://henrikwarne.com/2017/09/16/more-good-programming-quotes-part-2/
 * https://henrikwarne.com/2021/04/16/more-good-programming-quotes-part-5/
 * https://twitter.com/CompSciFact
+* https://twitter.com/CodeWisdom
 
 # RAW NOTES
 
@@ -128,3 +129,75 @@ _I am worried that algorithms are getting too prominent in the world._ — Donal
 _Good Programming is not learned from generalities, but by seeing how significant programs can be made clean, easy to read, easy to maintain and modify, … . Careful study and imitation of good programs leads to better writing._ — Kernighan and Plauger
 
 _About 1,000 instructions is a reasonable upper limit for the complexity of problems now envisioned._ — John von Neumann, 1946
+
+_Programming isn't about what you know; it's about what you can figure out._ — Chris Pine
+
+_In programming the hard part isn’t solving problems, but deciding what problems to solve._ — Paul Graham
+
+_The art of debugging is figuring out what you really told your program to do rather than what you thought you told it to do._ – Andrew Singer
+
+_The mark of a mature programmer is willingness to throw out code you spent time on when you realize it's pointless._ – Bram Cohen
+
+_The manager's function is not to make people work, but to make it possible for people to work._ – Tom DeMarco
+
+_A common fallacy is to assume authors of incomprehensible code will be able to express themselves clearly in comments._ – Kevlin Henney
+
+_Clean code always looks like it was written by someone who cares._ – Michael Feathers
+
+_Weeks of coding can save you hours of planning._ – Unknown
+
+_The purpose of software engineering is to control complexity, not to create it._ – Pamela Zave
+
+_A computer will do what you tell it to do, but that may be much different from what you had in mind._ – Joseph Weizenbaum
+
+_The best thing about a boolean is even if you are wrong, you are only off by a bit._ – Anonymous
+
+_Code never lies, comments sometimes do._ — Ron Jeffries
+
+_Programming is not a zero-sum game. Teaching something to a fellow programmer doesn't take it away from you. I'm happy to share what I can, because I'm in it for the love of programming._ — John Carmack
+
+_There’s nothing more permanent than a temporary hack._ — Kyle Simpson
+
+_In programming, if someone tells you “you’re overcomplicating it,” they’re either 10 steps behind you or 10 steps ahead of you._ — Andrew Clark
+
+_Any fool can write code that a computer can understand. Good programmers write code that humans can understand._ — Martin Fowler
+
+_Computers are good at following instructions, but not at reading your mind._ — Donald Knuth
+
+_Beware of bugs in the above code; I have only proved it correct, not tried it._ — Donald Knuth
+
+_UNIX is basically a simple operating system, but you have to be a genius to understand the simplicity._ — Dennis Ritchie
+
+_Why are video games so much better designed than office software? Because people who design video games love to play video games. People who design office software look forward to doing something else on the weekend._ — Ted Nelson
+
+_Sometimes it pays to stay in bed on Monday, rather than spending the rest of the week debugging Monday’s code._ — Dan Salomon
+
+_Good, Fast, Cheap: Pick any two (you can't have all three)._ — Ross Callon
+
+_Computers are good at following instructions, but not at reading your mind._ — Donald Knuth
+
+_In protocol design, perfection has been reached not when there is nothing left to add, but when there is nothing left to take away._ — Ross Callon in the fantastic RFC 1925
+
+_Programming is not about typing, it's about thinking._ — Rich Hickey
+
+_The smartest thing you can do as a programmer is realize how stupid you are, and make accommodations._ — Jason Swett
+
+_Testing leads to failure, and failure leads to understanding._ — Burt Rutan
+
+_Every great developer you know got there by solving problems they were unqualified to solve until they actually did it._ — Patrick McKenzie
+
+_Telling a programmer there's already a library to do X is like telling a songwriter there's already a song about love._ — Pete Cordell
+
+_Writing software as if we are the only person that ever has to comprehend it is one of the biggest mistakes and false assumptions that can be made._ — Karolina Szczur
+
+_Becoming a good engineer is about collecting experience. Each project, even small ones, is a chance to add new techniques and tools to your toolbox._ — Addy Osmani
+
+_We build our computer (systems) the way we build our cities: over time, without a plan, on top of ruins._ — Ellen Ullman
+
+_The purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise._ — Edsger Dijkstra
+
+_The strength of JavaScript is that you can do anything. The weakness is that you will._ — Reg Braithwaite
+
+_Always implement things when you actually need them, never when you just foresee that you need them. _ — Ron Jeffries
+
+_I have always wished for my computer to be as easy to use as my telephone. My wish has come true because I can no longer figure out how to use my telephone. – Bjarne Stroustrup, creator of C++
