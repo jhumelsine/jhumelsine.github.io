@@ -1,7 +1,6 @@
 ---
 title: Hexagonal Architecture – Adapter Flexibility
 description: How a few design options in the Adapter Layer provides more flexibility
-unlisted: true
 ---
 
 # Introduction
@@ -188,7 +187,7 @@ Imagine you're working with this straightforward design:
 
 <img src="/assets/HexArchStructureBreadth1.png" alt="Basic Hexagonal Architecture" width = "85%" align="center" style="padding-right: 35px;">
 
-Your architect declares that the system is going to be more distributed, and that **Domain Events** will be added. So when `Stuff` is persisted, then a Domain Event, such as `PersistedStuff`, needs to be created and disseminated on a Message Service.
+Your architect declares that the system is going to be more distributed, and that **Domain Events** will be added. So, when `Stuff` is persisted, then a Domain Event, such as `PersistedStuff`, needs to be created and disseminated on a Message Service.
 
 The diagram in the **Breadth and Behavior** section above shows how this could be done with a new contract for Publishing Events, but is this really a Behavior update? Is the Customer or even the Product Manager asking for Domain Events? Probably not. Consider Cockburn's quote above, this is not a requirement. It's a design decision. We'd like to be able to add **Domain Events** without touching anything inside the Red Hexagon.
 
@@ -254,7 +253,7 @@ Here the sequence of what happens when `ManageStuff` makes a call to: `iHandleSt
 1. `handleStuffViaComposite`, which is the reference for `iHandleStuff` in `ManageStuff`, will iterate through its List of `iHandleStuff` references with the first being `persistStuffViaDB` and the second one being `notifyStuffViaMessageService.`
 2. `handleStuffViaComposite` will invoke `persistStuffViaDB.handle(stuff)`, which will persist stuff in the DB.
 3. `handleStuffViaComposite` will invoke `notifyStuffViaMessageService.handle(stuff)`, which will create the Domain Event and send notifications via the Message Service.
-4. It returns up to `ManageStuff`.
+4. It returns to `ManageStuff`.
 
 `HandleStuffViaComposite` is a List of `IHandleStuff` references. It can be configured to manage as many `IHandleStuff` Adapters as needed.
 
@@ -307,7 +306,7 @@ This worked fine for a while, but we wanted to move from a monolith architecture
 
 We couldn't do a flash cut, because the product already had hundreds of millions of Documents in the traditional DB, and it would take too long to migrate them to Cloud Storage during a maintenance window, which we want to keep as short as possible. We could migrate the Documents via batch processing. This would take days if not weeks, so how do we ensure that the correct Document is always managed properly during the migration period?
 
-We embarked on something called **Dual Reads and Writes**. Basically, the feature would delegate to two sets of datastores, DB and Cloud Storage, during the migration period. Documents would be managed in both. This is definitely a structural choice, not a behavior choice. So, we don't to avoid updates to the Red Hexagon as much as possible.
+We embarked on something called **Dual Reads and Writes**. Basically, the feature would delegate to two sets of datastores, DB and Cloud Storage, during the migration period. Documents would be managed in both. This is a structural choice, not a behavior choice. So, we don't to avoid updates to the Red Hexagon as much as possible.
 
 I'm going to simplify this and sanitize it quite a bit. The product contained 20 years of legacy code. It wasn't as clean as the diagram above suggests. I'll omit the trials and tribulations until we converged upon a design much like this.
 
