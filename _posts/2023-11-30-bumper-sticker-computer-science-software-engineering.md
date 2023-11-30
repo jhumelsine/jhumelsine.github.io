@@ -22,6 +22,7 @@ Inspired by Bentley, I'm going to take a little fun and provide my own set of Bu
 * https://henrikwarne.com/2016/04/17/more-good-programming-quotes/
 * https://henrikwarne.com/2017/09/16/more-good-programming-quotes-part-2/
 * https://henrikwarne.com/2021/04/16/more-good-programming-quotes-part-5/
+* https://twitter.com/CompSciFact
 
 # RAW NOTES
 
@@ -86,6 +87,44 @@ _Make it correct, make it clear, make it concise, make it fast. In that order._ 
 
 _Rarely is anyone thanked for the work they did to prevent the disaster that didn’t happen._ – Mikko Hypponen
 
-_A good lifeguard never gets wet. A bad lifeguard gets his name in the paper._ RedCross Lifeguard Trainer
+_A good lifeguard never gets wet. A bad lifeguard gets his name in the paper._ – RedCross Lifeguard Trainer
 
-_Some of those [software hero] firefighters were also the arsonists._ – Dave T.
+_Some of those firefighters were also the arsonists._ – Dave T. Comment whispered to me by coworker/friend after several developers were given The Firefighter Award by our Department Head in a Department meeting.
+
+_Inside every large program is a small program trying to get out._ – Tony Hoare
+
+_Much of the essence of building a program is in fact the debugging of the specification._ – Fred Brooks
+
+_Learning to program teaches you how to think. Computer science is a liberal art._ – Steve Jobs
+
+_Unix is user-friendly; it's just picky about who its friends are._
+
+_The best performance improvement is the transition from the nonworking state to the working state._ – John Ousterhout
+
+_Test-driven development is double-entry bookkeeping._ – Bob Martin
+
+_So much complexity in software comes from trying to make one thing do two things._ – Ryan Singer
+
+_OOP does model the real world! Things at the top of the hierarchy seemingly do nothing but tell those at the bottom what to do._ – @fogus
+
+_One particular talent stands out among the world-class programmers I’ve known—namely, an ability to move effortlessly between different levels of abstraction._ — Donald Knuth
+
+_... the best programs are the ones written when the programmer is supposed to be working on something else._ — Melinda Varian
+
+_All problems in CS can be solved by another level of indirection, except for the problem of too many layers of indirection._ — David Wheeler
+
+_Strive to add function by deleting code._ — Jon Bentley
+
+_No matter how slow you are writing clean code, you will always be slower if you make a mess._ — Bob Martin
+
+_Fancy algorithms are slow when n is small, and n is usually small._ — Rob Pike
+
+_Just because you've implemented something doesn't mean you understand it._ — Brian Cantwell Smit
+
+_Induction makes you feel guilty for getting something out of nothing ... but it is one of the greatest ideas of civilization._ — Herbert Wilf
+
+_I am worried that algorithms are getting too prominent in the world._ — Donald Knuth
+
+_Good Programming is not learned from generalities, but by seeing how significant programs can be made clean, easy to read, easy to maintain and modify, … . Careful study and imitation of good programs leads to better writing._ — Kernighan and Plauger
+
+_About 1,000 instructions is a reasonable upper limit for the complexity of problems now envisioned._ — John von Neumann, 1946
