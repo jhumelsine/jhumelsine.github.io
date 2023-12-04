@@ -1,19 +1,19 @@
 ---
 title: Bumper Sticker Computer Science and Software Engineering
-description: Wit and wisdom of CS/SE in itty bitty bites
+description: Wit and wisdom of Computer Science and Software Engineering in itty bitty bytes
 unlisted: true
 ---
 
 ![404 Bumper Sticker](http://farm4.static.flickr.com/3020/3001989571_df57e6cd19_o.jpg "Image Source: https://www.pingdom.com/blog/a-gallery-of-extremely-geeky-bumper-stickers/")
 
 # Introduction
-[Jon Bentley](https://en.wikipedia.org/wiki/Jon_Bentley_(computer_scientist) wrote a series of articles in the **Communications of ACM** in the 1980s called _Programming Pearls_. He bundled those articles into two books of the same title.
+[Jon Bentley](https://en.wikipedia.org/wiki/Jon_Bentley_(computer_scientist)) wrote a series of articles in the **Communications of ACM** in the 1980s called _Programming Pearls_. He bundled those articles into two books of the same title.
 
-One of my favorite articles was [Bumper-Sticker Computer Science](https://moss.cs.iit.edu/cs100/Bentley_BumperSticker.pdf) published in September 1985. It's filled with pithy quotes by those in the industry almost 40 years ago. It's still a great read, and many of the quotes are as valid (and some sadly ignored) today as they were back then. I highly recommend it, and I'll be dropping a few of my favorites here.
+One of my favorite articles was [Bumper-Sticker Computer Science](https://moss.cs.iit.edu/cs100/Bentley_BumperSticker.pdf) published in September 1985. It's filled with pithy quotes by those in the industry almost 40 years ago. It's still a great read, and many of the quotes are as valid (and some sadly ignored) today as they were back then. I highly recommend it..
 
 I've always liked quotes some Computer Scientists and Software Engineers do know how to craft a good phrase.
 
-Inspired by Bentley, I'm going to take a little fun and provide my own set of Bumper Sticker Computer Science and Software Engineering. I hope some of those make you laugh, maybe cry and definitely think.
+Inspired by Bentley, I'm going provide my own set of Bumper Sticker Computer Science and Software Engineering, which includes some of my favorites from Bentley's original article. I hope some of those make you laugh, maybe cry and definitely think.
 
 # Philosophy
 
@@ -23,7 +23,7 @@ _What programming continuously teaches me is that asking the right questions is 
 
 _Programmer’s motto: “We’ll cross that bridge when it’s burning underneath us.”_ – @garybernhardt
 
-_The Programmers' Credo: We do these things not because they are easy, but because we thought they were going to be easy_ 
+_The Programmers' Credo: We do these things not because they are easy, but because we thought they were going to be easy_ — Anonymous
 
 _Make it work, then make it beautiful, then if you really, really have to, make it fast. 90 percent of the time, if you make it beautiful, it will already be fast. So really, just make it beautiful!_ – Joe Armstrong
 
@@ -31,7 +31,7 @@ _I’m not a great programmer. I’m just a good programmer with great habits._ 
 
 _Rarely is anyone thanked for the work they did to prevent the disaster that didn’t happen._ – Mikko Hypponen
 
-_Some of those firefighters were also the arsonists._ – Dave T., corworker and friend, who whispered to me at a Departmenting after several developers were given The Firefighter Award by our Department Head for their heroric efforts in fixing issues in production.
+_Some of those firefighters were also the arsonists._ – Dave T., coworker and friend, who whispered this to me at a Departmenting after several developers were given The Firefighter Award by our Department Head for their heroric efforts in fixing issues in production.
 
 _A good lifeguard never gets wet. A bad lifeguard gets his name in the paper._ – My RedCross Lifeguard Instructor when I was as teenager
 
