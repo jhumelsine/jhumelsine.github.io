@@ -11,7 +11,7 @@ unlisted: true
 
 One of my favorite articles was [Bumper-Sticker Computer Science](https://moss.cs.iit.edu/cs100/Bentley_BumperSticker.pdf) published in September 1985. It's filled with pithy quotes by those in the industry almost 40 years ago. It's still a great read, and many of the quotes are as valid (and some sadly ignored) today as they were back then. I highly recommend it..
 
-I've always liked quotes some Computer Scientists and Software Engineers do know how to craft a good phrase.
+I've always liked quotes and some Computer Scientists and Software Engineers do know how to craft a good phrase.
 
 Inspired by Bentley, I'm going provide my own set of Bumper Sticker Computer Science and Software Engineering, which includes some of my favorites from Bentley's original article. I hope some of those make you laugh, maybe cry and definitely think.
 
@@ -31,7 +31,7 @@ _I’m not a great programmer. I’m just a good programmer with great habits._ 
 
 _Rarely is anyone thanked for the work they did to prevent the disaster that didn’t happen._ – Mikko Hypponen
 
-_Some of those firefighters were also the arsonists._ – Dave T., coworker and friend, who whispered this to me at a Departmenting after several developers were given The Firefighter Award by our Department Head for their heroric efforts in fixing issues in production.
+_Some of those firefighters were also the arsonists._ – Dave T., coworker and friend, who whispered this to me at a Department Meeting after several developers were given The Firefighter Award by our Department Head for their heroric efforts in fixing issues in production.
 
 _A good lifeguard never gets wet. A bad lifeguard gets his name in the paper._ – My RedCross Lifeguard Instructor when I was as teenager
 
