@@ -41,6 +41,8 @@ _One particular talent stands out among the world-class programmers I’ve known
 
 _The purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise._ — Edsger Dijkstra
 
+_At a certian level of abstraction, all complex systems are message passing systems. ... Genes are one mechanism that life uses to pass information across time; memes are one mechanism that societies use to pass information across time._ — Grady Booch
+
 _Just because you've implemented something doesn't mean you understand it._ — Brian Cantwell Smit
 
 _Induction makes you feel guilty for getting something out of nothing ... but it is one of the greatest ideas of civilization._ — Herbert Wilf
