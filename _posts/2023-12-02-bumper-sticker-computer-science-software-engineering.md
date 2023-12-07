@@ -201,11 +201,14 @@ _Always implement things when you actually need them, never when you just forese
 
 _Write code as if you had to support it for the rest of your life._ ― Kevlin Henney
 
-_Well designed and written code doesn't require much maintenance. Software developers are constantly thrust into the poorly designed and written code to fix bugs and add new features. Thus is our curse. We're constantly exposed to bad code but rarely good code._ Jim Humelsine
+_Well designed and written code doesn't require much maintenance. Software developers are constantly thrust into the poorly designed and written code to fix bugs and add new features. Thus is our curse. We're constantly exposed to bad code but rarely good code._ ― Jim Humelsine
 
 _Bad programmers worry about the code. Good programmers worry about data structures and their relationships._ ― Linus Torvalds
 
 _TDD applies a pressure to create code that is objectively “higher quality.” This is irrespective of the talent or experience of the software developer. It doesn’t make bad software developers great, but it does make “bad software developers” better and “great software developers” greater._ ― David Farley
+
+_Legacy code isn't the problem. It's all the technical debt in the legacy code that's the problem._ ― Jim Humelsine
+
 
 # Documentation
 
