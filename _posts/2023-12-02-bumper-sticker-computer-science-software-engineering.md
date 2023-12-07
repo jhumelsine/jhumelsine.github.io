@@ -253,16 +253,14 @@ _The best performance improvement is the transition from the nonworking state to
 
 _No matter how slow you are writing clean code, you will always be slower if you make a mess._ — Bob Martin
 
+_The fastest algorithm can frequently be replaced by one that is almost as fast and much easier to understand._ — Douglas W. Iones 
+
+_Fancy algorithms are slow when n is small, and n is usually small._ — Rob Pike
+
 # Scheduling
 
 _[Rule of Credibility] The first 90 percent of the code accounts for the first 90 percent of the development time. The remaining 10 percent of the code accounts
 for the other 90 percent of the development time._ — Tom Cargill 
-
-# Performance
-
-_The fastest algorithm can frequently be replaced by one that is almost as fast and much easier to understand._ — Douglas W. Iones 
-
-_Fancy algorithms are slow when n is small, and n is usually small._ — Rob Pike
 
 # References
 * https://moss.cs.iit.edu/cs100/Bentley_BumperSticker.pdf
