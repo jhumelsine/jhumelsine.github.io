@@ -19,13 +19,13 @@ Inspired by Bentley, I'm going provide my own set of Bumper Sticker Computer Sci
 
 _Give someone a program, you frustrate them for a day; teach them how to program, you frustrate them for a lifetime._ — David Leinweber
 
-_What programming continuously teaches me is that asking the right questions is infinitely more important than writing the code._ – @DanielMiessler
+_What programming continuously teaches me is that asking the right questions is infinitely more important than writing the code._ — @DanielMiessler
 
-_Programmer’s motto: “We’ll cross that bridge when it’s burning underneath us.”_ – @garybernhardt
+_Programmer’s motto: “We’ll cross that bridge when it’s burning underneath us.”_ — @garybernhardt
 
 _The Programmers' Credo: We do these things not because they are easy, but because we thought they were going to be easy_ — Anonymous
 
-_Make it work, then make it beautiful, then if you really, really have to, make it fast. 90 percent of the time, if you make it beautiful, it will already be fast. So really, just make it beautiful!_ – Joe Armstrong
+_Make it work, then make it beautiful, then if you really, really have to, make it fast. 90 percent of the time, if you make it beautiful, it will already be fast. So really, just make it beautiful!_ — Joe Armstrong
 
 _I’m not a great programmer. I’m just a good programmer with great habits._ – Kent Beck
 
@@ -117,7 +117,7 @@ _Weeks of coding can save you hours of planning._ – Unknown
 
 _Good, Fast, Cheap: Pick any two (you can't have all three)._ — Ross Callon
 
-_How does a project get to be a year late? . . . . One day at a time.” ― Frederick P. Brooks Jr.
+_How does a project get to be a year late? . . . . One day at a time._ ― Frederick P. Brooks Jr.
 
 # Requirements
 
@@ -217,7 +217,7 @@ _Code never lies, comments sometimes do._ — Ron Jeffries
 
 _If your code needs comments, consider refactoring it so it doesn’t._ ― Kevlin Henney
 
-# Testng and Debugging
+# Testing and Debugging
 
 _Testing can show the presence of bugs, but not their absence!_ — Edsger W. Dijkstra 
 
