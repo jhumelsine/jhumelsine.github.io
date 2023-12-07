@@ -83,6 +83,30 @@ _Telling a programmer there's already a library to do X is like telling a songwr
 
 _Becoming a good engineer is about collecting experience. Each project, even small ones, is a chance to add new techniques and tools to your toolbox._ — Addy Osmani
 
+_Software is like poetry. Most of it probably should not have been written_ — Anonymous
+
+_Programming is the art of telling another human being what one wants the computer to do._ ― Donald Knuth
+
+_Programs are meant to be read by humans and only incidentally for computers to execute._ ― Donald Knuth
+
+_The computing scientist’s main challenge is not to get confused by the complexities of his own making._ ― Edsger W. Dijkstra
+
+_In theory, theory and practice are the same. In practice, they are not._ ― Attributed to many
+
+_Good judgement comes from experience, and experience comes from bad judgement_ ― Attributed to many
+
+_In software development, “perfect” is a verb, not an adjective. There is no perfect process. There is no perfect design. There are no perfect stories. You can, however, perfect your process, your design, and your stories._ ― Kent Beck
+
+_All programmers are optimists." ― Frederick P. Brooks Jr.
+
+_The best theory is inspired by practice. The best practice is inspired by theory._ ― Donald Knuth
+
+_Sometimes the problem is to discover what the problem is._ ― Frederick P. Brooks Jr.
+
+_not “can we build it?” but “should we build it?_ ― Jez Humble
+
+_the most serious barrier is to be found in organizational culture, leadership, and strategy._ ― Jez Humble
+
 # Planning
 
 _The sooner you start to code, the longer the program will take._ — Roy Carlson
@@ -92,6 +116,8 @@ _Furious activity is no substitute for understanding._ — H. H. Williams
 _Weeks of coding can save you hours of planning._ – Unknown
 
 _Good, Fast, Cheap: Pick any two (you can't have all three)._ — Ross Callon
+
+_How does a project get to be a year late? . . . . One day at a time.” ― Frederick P. Brooks Jr.
 
 # Requirements
 
@@ -137,9 +163,15 @@ _In protocol design, perfection has been reached not when there is nothing left 
 
 _I have always wished for my computer to be as easy to use as my telephone. My wish has come true because I can no longer figure out how to use my telephone._ – Bjarne Stroustrup, creator of C++
 
+_There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies, and the other way is to make it so complicated that there are no obvious deficiencies. The first method is far more difficult._ ― C. A. R. Hoare
+
+_Folk wisdom in software development teaches that interfaces shouldn't be unduly influenced by implementations. Writing a test first is a concrete way to achieve this separation._ ― Kent Beck
+
+_To become experts at managing complexity, we need the following: Modularity Cohesion Separation of Concerns Abstraction Loose Coupling._ ― David Farley
+
 # Implementation
 
-_Allocate four digits for the year part of a date: a new millenium is coming._ — David Martin
+_Allocate four digits for the year part of a date: a new millenium is coming._ — David Martin (Published as early as 1985)
 
 _A procedure should fit on a page._ — David Tribble
 
@@ -167,6 +199,14 @@ _The strength of JavaScript is that you can do anything. The weakness is that yo
 
 _Always implement things when you actually need them, never when you just foresee that you need them._ — Ron Jeffries
 
+_Write code as if you had to support it for the rest of your life._ ― Kevlin Henney
+
+_Well designed and written code doesn't require much maintenance. Software developers are constantly thrust into the poorly designed and written code to fix bugs and add new features. Thus is our curse. We're constantly exposed to bad code but rarely good code._ Jim Humelsine
+
+_Bad programmers worry about the code. Good programmers worry about data structures and their relationships._ ― Linus Torvalds
+
+_TDD applies a pressure to create code that is objectively “higher quality.” This is irrespective of the talent or experience of the software developer. It doesn’t make bad software developers great, but it does make “bad software developers” better and “great software developers” greater._ ― David Farley
+
 # Documentation
 
 _If the code and the comments disagree, then both are probably wrong._ — Norm Schryer
@@ -175,9 +215,13 @@ _A common fallacy is to assume authors of incomprehensible code will be able to 
 
 _Code never lies, comments sometimes do._ — Ron Jeffries
 
-# Debugging
+_If your code needs comments, consider refactoring it so it doesn’t._ ― Kevlin Henney
 
-_Testing can show the presence of bugs, but not their absence._ — Edsger W. Dijkstra 
+# Testng and Debugging
+
+_Testing can show the presence of bugs, but not their absence!_ — Edsger W. Dijkstra 
+
+_If debugging is the process of removing software bugs, then programming must be the process of putting them in._ ― Edsger W. Dijkstra
 
 _The first step in fixing a broken program is getting it to fail repeatably._ — Tom Duff
 
@@ -195,7 +239,15 @@ _Beware of bugs in the above code; I have only proved it correct, not tried it._
 
 _Testing leads to failure, and failure leads to understanding._ — Burt Rutan
 
+_Write tests until fear is transformed into boredom_ ― Kent Beck
+
+_Rather than apply minutes of suspect reasoning, we can just ask the computer by making the change and running the tests._ ― Kent Beck
+
+_The earlier you catch defects, the cheaper they are to fix._ ― David Farley
+
 # Performance
+
+_Premature optimization is the root of all evil._ ― Donald Knuth
 
 _The best performance improvement is the transition from the nonworking state to the working state._ – John Ousterhout
 
@@ -221,5 +273,15 @@ _Fancy algorithms are slow when n is small, and n is usually small._ — Rob Pik
 * https://henrikwarne.com/2021/04/16/more-good-programming-quotes-part-5/
 * https://twitter.com/CompSciFact
 * https://twitter.com/CodeWisdom
+* https://www.goodreads.com/author/quotes/64941.Donald_Ervin_Knuth
+* https://www.goodreads.com/author/quotes/1013817.Edsger_W_Dijkstra
+* https://www.goodreads.com/author/quotes/45368.Kevlin_Henney
+* https://www.goodreads.com/author/quotes/92867.Linus_Torvalds
+* https://www.goodreads.com/author/quotes/266154.C_A_R_Hoare
+* https://www.goodreads.com/author/quotes/523508.Leslie_Lamport
+* https://www.goodreads.com/author/quotes/25211.Kent_Beck
+* https://www.goodreads.com/author/quotes/3174788.Frederick_P_Brooks_Jr_
+* https://www.goodreads.com/author/quotes/3367043.David_Farley
+* https://www.goodreads.com/author/quotes/4149510.Jez_Humble
 
 # RAW NOTES
