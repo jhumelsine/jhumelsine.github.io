@@ -107,6 +107,8 @@ _not “can we build it?” but “should we build it?_ ― Jez Humble
 
 _the most serious barrier is to be found in organizational culture, leadership, and strategy._ ― Jez Humble
 
+_The hardest problem in computer science is not being an opinionated jerk about everything._ ― Nick Takayama
+
 # Planning
 
 _The sooner you start to code, the longer the program will take._ — Roy Carlson
