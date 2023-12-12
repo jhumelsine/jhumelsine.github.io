@@ -268,23 +268,24 @@ _[Rule of Credibility] The first 90 percent of the code accounts for the first 9
 for the other 90 percent of the development time._ — Tom Cargill 
 
 # References
-* https://moss.cs.iit.edu/cs100/Bentley_BumperSticker.pdf
-* https://henrikwarne.com/2012/02/25/favorite-programming-quotes/
-* https://henrikwarne.com/2016/04/11/the-wisdom-of-programming-quotes/
-* https://henrikwarne.com/2016/04/17/more-good-programming-quotes/
-* https://henrikwarne.com/2017/09/16/more-good-programming-quotes-part-2/
-* https://henrikwarne.com/2021/04/16/more-good-programming-quotes-part-5/
-* https://twitter.com/CompSciFact
-* https://twitter.com/CodeWisdom
-* https://www.goodreads.com/author/quotes/64941.Donald_Ervin_Knuth
-* https://www.goodreads.com/author/quotes/1013817.Edsger_W_Dijkstra
-* https://www.goodreads.com/author/quotes/45368.Kevlin_Henney
-* https://www.goodreads.com/author/quotes/92867.Linus_Torvalds
-* https://www.goodreads.com/author/quotes/266154.C_A_R_Hoare
-* https://www.goodreads.com/author/quotes/523508.Leslie_Lamport
-* https://www.goodreads.com/author/quotes/25211.Kent_Beck
-* https://www.goodreads.com/author/quotes/3174788.Frederick_P_Brooks_Jr_
-* https://www.goodreads.com/author/quotes/3367043.David_Farley
-* https://www.goodreads.com/author/quotes/4149510.Jez_Humble
-
-# RAW NOTES
+* Original [Bumper Sticker Computer Science](https://moss.cs.iit.edu/cs100/Bentley_BumperSticker.pdf) by Jon Bentley
+* A collection of blog quotes by Henrik Warne:
+  * [Favorite Programming Quotes](https://henrikwarne.com/2012/02/25/favorite-programming-quotes/)
+  * [The Wisdom of Programming Quotes](https://henrikwarne.com/2016/04/11/the-wisdom-of-programming-quotes/)
+  * [More Good Programming Quotes](https://henrikwarne.com/2016/04/17/more-good-programming-quotes/)
+  * [More Good Programming Quotes Part 2](https://henrikwarne.com/2017/09/16/more-good-programming-quotes-part-2/)
+  * [More Good Programming Quotes Part 5](https://henrikwarne.com/2021/04/16/more-good-programming-quotes-part-5/)
+* Two X/Twitter feeds that often have quotes:
+  * [John D. Cook's feed](https://twitter.com/CompSciFact)
+  * [Programming Wisdom's feed](https://twitter.com/CodeWisdom)
+* Quotes by individuals:
+* [Donald Knuth](https://www.goodreads.com/author/quotes/64941.Donald_Ervin_Knuth)
+* [Edsger Dijkstra](https://www.goodreads.com/author/quotes/1013817.Edsger_W_Dijkstra)
+* [Kevlin Henney](https://www.goodreads.com/author/quotes/45368.Kevlin_Henney)
+* [Linus Torvalds](https://www.goodreads.com/author/quotes/92867.Linus_Torvalds)
+* [C.A.R. "Tony" Hoare](https://www.goodreads.com/author/quotes/266154.C_A_R_Hoare)
+* [Leslie Lamport](https://www.goodreads.com/author/quotes/523508.Leslie_Lamport)
+* [Kent Beck](https://www.goodreads.com/author/quotes/25211.Kent_Beck)
+* [Fred Brooks](https://www.goodreads.com/author/quotes/3174788.Frederick_P_Brooks_Jr_)
+* [Dave Farley](https://www.goodreads.com/author/quotes/3367043.David_Farley)
+* [Jez Humble](https://www.goodreads.com/author/quotes/4149510.Jez_Humble)
