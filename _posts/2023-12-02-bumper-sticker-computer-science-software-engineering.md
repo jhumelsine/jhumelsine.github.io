@@ -23,7 +23,7 @@ _What programming continuously teaches me is that asking the right questions is 
 
 _Programmer’s motto: “We’ll cross that bridge when it’s burning underneath us.”_ — @garybernhardt
 
-_The Programmers' Credo: We do these things not because they are easy, but because we thought they were going to be easy_ — Anonymous
+_The Programmers' Credo: We do these things not because they are easy, but because we thought they were going to be easy._ — Anonymous
 
 _Make it work, then make it beautiful, then if you really, really have to, make it fast. 90 percent of the time, if you make it beautiful, it will already be fast. So really, just make it beautiful!_ — Joe Armstrong
 
@@ -77,7 +77,7 @@ _Telling a programmer there's already a library to do X is like telling a songwr
 
 _Becoming a good engineer is about collecting experience. Each project, even small ones, is a chance to add new techniques and tools to your toolbox._ — Addy Osmani
 
-_Software is like poetry. Most of it probably should not have been written_ — Anonymous
+_Software is like poetry. Most of it probably should not have been written._ — Anonymous
 
 _Programming is the art of telling another human being what one wants the computer to do._ ― Donald Knuth
 
@@ -87,7 +87,7 @@ _The computing scientist’s main challenge is not to get confused by the comple
 
 _In theory, theory and practice are the same. In practice, they are not._ ― Attributed to many
 
-_Good judgement comes from experience, and experience comes from bad judgement_ ― Attributed to many
+_Good judgement comes from experience, and experience comes from bad judgement._ ― Attributed to many
 
 _In software development, “perfect” is a verb, not an adjective. There is no perfect process. There is no perfect design. There are no perfect stories. You can, however, perfect your process, your design, and your stories._ ― Kent Beck
 
@@ -149,7 +149,7 @@ _If it’s your decision, it’s design; if not, it’s a requirement._ – Alis
 
 _Inside every large program is a small program trying to get out._ – Tony Hoare
 
-_Unix is user-friendly; it's just picky about who its friends are._
+_Unix is user-friendly; it's just picky about who its friends are._ – Anonymous
 
 _So much complexity in software comes from trying to make one thing do two things._ – Ryan Singer
 
@@ -181,7 +181,7 @@ _Whenever possible, steal code._ — Tom Duff
 
 _Eschew clever rules._ — Joe Condon 
 
-_For each desired change, make the change easy (warning: this may be hard), then make the easy change_ – Kent Beck
+_For each desired change, make the change easy (warning: this may be hard), then make the easy change._ – Kent Beck
 
 _Make it correct, make it clear, make it concise, make it fast. In that order._ – Wes Dyer
 
@@ -244,7 +244,7 @@ _Beware of bugs in the above code; I have only proved it correct, not tried it._
 
 _Testing leads to failure, and failure leads to understanding._ — Burt Rutan
 
-_Write tests until fear is transformed into boredom_ ― Kent Beck
+_Write tests until fear is transformed into boredom._ ― Kent Beck
 
 _Rather than apply minutes of suspect reasoning, we can just ask the computer by making the change and running the tests._ ― Kent Beck
 
