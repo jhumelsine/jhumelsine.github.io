@@ -29,12 +29,6 @@ _Make it work, then make it beautiful, then if you really, really have to, make 
 
 _I’m not a great programmer. I’m just a good programmer with great habits._ – Kent Beck
 
-_Rarely is anyone thanked for the work they did to prevent the disaster that didn’t happen._ – Mikko Hypponen
-
-_Some of those firefighters were also the arsonists._ – Dave T., coworker and friend, who whispered this to me at a Department Meeting after several developers were given The Firefighter Award by our Department Head for their heroric efforts in fixing issues in production.
-
-_A good lifeguard never gets wet. A bad lifeguard gets his name in the paper._ – My RedCross Lifeguard Instructor when I was as teenager
-
 _Learning to program teaches you how to think. Computer science is a liberal art._ – Steve Jobs
 
 _Just because you've implemented something doesn't mean you understand it._ — Brian Cantwell Smit
@@ -211,6 +205,13 @@ _TDD applies a pressure to create code that is objectively “higher quality.”
 
 _Legacy code isn't the problem. It's all the technical debt in the legacy code that's the problem._ ― Jim Humelsine
 
+# Prevention
+
+_Rarely is anyone thanked for the work they did to prevent the disaster that didn’t happen._ – Mikko Hypponen
+
+_Some of those firefighters were also the arsonists._ – Dave T., coworker and friend, who whispered this to me at a Department Meeting after several developers were given The Firefighter Award by our Department Head for their heroric efforts in fixing issues in production.
+
+_A good lifeguard never gets wet. A bad lifeguard gets his name in the paper._ – My RedCross Lifeguard Instructor when I was as teenager
 
 # Documentation
 
