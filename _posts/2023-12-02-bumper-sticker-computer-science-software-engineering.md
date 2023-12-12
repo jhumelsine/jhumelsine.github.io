@@ -53,8 +53,6 @@ _The best thing about a boolean is even if you are wrong, you are only off by a 
 
 _Programming is not a zero-sum game. Teaching something to a fellow programmer doesn't take it away from you. I'm happy to share what I can, because I'm in it for the love of programming._ — John Carmack
 
-_In programming, if someone tells you “you’re overcomplicating it,” they’re either 10 steps behind you or 10 steps ahead of you._ — Andrew Clark
-
 _Computers are good at following instructions, but not at reading your mind._ — Donald Knuth
 
 _Why are video games so much better designed than office software? Because people who design video games love to play video games. People who design office software look forward to doing something else on the weekend._ — Ted Nelson
@@ -170,6 +168,8 @@ _Folk wisdom in software development teaches that interfaces shouldn't be unduly
 _Allocate four digits for the year part of a date: a new millenium is coming._ — David Martin (Published as early as 1985)
 
 _A procedure should fit on a page._ — David Tribble
+
+_In programming, if someone tells you “you’re overcomplicating it,” they’re either 10 steps behind you or 10 steps ahead of you._ — Andrew Clark
 
 _Whenever possible, steal code._ — Tom Duff
 
