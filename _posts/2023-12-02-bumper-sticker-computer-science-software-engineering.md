@@ -37,12 +37,6 @@ _A good lifeguard never gets wet. A bad lifeguard gets his name in the paper._ �
 
 _Learning to program teaches you how to think. Computer science is a liberal art._ – Steve Jobs
 
-_One particular talent stands out among the world-class programmers I’ve known—namely, an ability to move effortlessly between different levels of abstraction._ — Donald Knuth
-
-_The purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise._ — Edsger Dijkstra
-
-_At a certian level of abstraction, all complex systems are message passing systems. ... Genes are one mechanism that life uses to pass information across time; memes are one mechanism that societies use to pass information across time._ — Grady Booch
-
 _Just because you've implemented something doesn't mean you understand it._ — Brian Cantwell Smit
 
 _Induction makes you feel guilty for getting something out of nothing ... but it is one of the greatest ideas of civilization._ — Herbert Wilf
@@ -137,6 +131,14 @@ _We build our computer (systems) the way we build our cities: over time, without
 
 # Design
 
+_One particular talent stands out among the world-class programmers I’ve known—namely, an ability to move effortlessly between different levels of abstraction._ — Donald Knuth
+
+_The purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise._ — Edsger Dijkstra
+
+_At a certian level of abstraction, all complex systems are message passing systems. ... Genes are one mechanism that life uses to pass information across time; memes are one mechanism that societies use to pass information across time._ — Grady Booch
+
+_To become experts at managing complexity, we need the following: Modularity Cohesion Separation of Concerns Abstraction Loose Coupling._ ― David Farley
+
 _[One Page Principle] A (specification, design, procedure, test plan) that will not fit on one page of 8.5-by-1l.1 inch paper cannot be understood._ — Mark Ardis 
 
 _Bad programmers worry about the code. Good programmers worry about data structures and their relationships._ — Linus Torvalds
@@ -168,8 +170,6 @@ _I have always wished for my computer to be as easy to use as my telephone. My w
 _There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies, and the other way is to make it so complicated that there are no obvious deficiencies. The first method is far more difficult._ ― C. A. R. Hoare
 
 _Folk wisdom in software development teaches that interfaces shouldn't be unduly influenced by implementations. Writing a test first is a concrete way to achieve this separation._ ― Kent Beck
-
-_To become experts at managing complexity, we need the following: Modularity Cohesion Separation of Concerns Abstraction Loose Coupling._ ― David Farley
 
 # Implementation
 
