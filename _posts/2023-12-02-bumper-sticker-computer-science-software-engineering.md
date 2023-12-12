@@ -57,8 +57,6 @@ _Computers are good at following instructions, but not at reading your mind._ �
 
 _Why are video games so much better designed than office software? Because people who design video games love to play video games. People who design office software look forward to doing something else on the weekend._ — Ted Nelson
 
-_Sometimes it pays to stay in bed on Monday, rather than spending the rest of the week debugging Monday’s code._ — Dan Salomon
-
 _Programming is not about typing, it's about thinking._ — Rich Hickey
 
 _The smartest thing you can do as a programmer is realize how stupid you are, and make accommodations._ — Jason Swett
@@ -225,7 +223,9 @@ _If your code needs comments, consider refactoring it so it doesn’t._ ― Kevl
 
 # Testing and Debugging
 
-_Testing can show the presence of bugs, but not their absence!_ — Edsger W. Dijkstra 
+_Testing can show the presence of bugs, but not their absence!_ — Edsger W. Dijkstra
+
+_Sometimes it pays to stay in bed on Monday, rather than spending the rest of the week debugging Monday’s code._ — Dan Salomon
 
 _If debugging is the process of removing software bugs, then programming must be the process of putting them in._ ― Edsger W. Dijkstra
 
