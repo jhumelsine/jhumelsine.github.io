@@ -207,6 +207,8 @@ _Write code as if you had to support it for the rest of your life._ ― Kevlin H
 
 _Well designed and written code doesn't require much maintenance. Software developers are constantly thrust into the poorly designed and written code to fix bugs and add new features. Thus is our curse. We're constantly exposed to bad code but rarely good code._ ― Jim Humelsine
 
+_No matter how slow you are writing clean code, you will always be slower if you make a mess._ — Bob Martin
+
 # Prevention
 
 _Rarely is anyone thanked for the work they did to prevent the disaster that didn’t happen._ — Mikko Hypponen
@@ -260,8 +262,6 @@ _The earlier you catch defects, the cheaper they are to fix._ ― David Farley
 _Premature optimization is the root of all evil._ ― Donald Knuth
 
 _The best performance improvement is the transition from the nonworking state to the working state._ — John Ousterhout
-
-_No matter how slow you are writing clean code, you will always be slower if you make a mess._ — Bob Martin
 
 _The fastest algorithm can frequently be replaced by one that is almost as fast and much easier to understand._ — Douglas W. Iones 
 
