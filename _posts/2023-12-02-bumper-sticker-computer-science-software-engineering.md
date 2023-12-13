@@ -27,9 +27,9 @@ _The Programmers' Credo: We do these things not because they are easy, but becau
 
 _Make it work, then make it beautiful, then if you really, really have to, make it fast. 90 percent of the time, if you make it beautiful, it will already be fast. So really, just make it beautiful!_ — Joe Armstrong
 
-_I’m not a great programmer. I’m just a good programmer with great habits._ – Kent Beck
+_I’m not a great programmer. I’m just a good programmer with great habits._ — Kent Beck
 
-_Learning to program teaches you how to think. Computer science is a liberal art._ – Steve Jobs
+_Learning to program teaches you how to think. Computer science is a liberal art._ — Steve Jobs
 
 _Just because you've implemented something doesn't mean you understand it._ — Brian Cantwell Smit
 
@@ -43,13 +43,13 @@ _Programming isn't about what you know; it's about what you can figure out._ —
 
 _In programming the hard part isn’t solving problems, but deciding what problems to solve._ — Paul Graham
 
-_The manager's function is not to make people work, but to make it possible for people to work._ – Tom DeMarco
+_The manager's function is not to make people work, but to make it possible for people to work._ — Tom DeMarco
 
-_The purpose of software engineering is to control complexity, not to create it._ – Pamela Zave
+_The purpose of software engineering is to control complexity, not to create it._ — Pamela Zave
 
-_A computer will do what you tell it to do, but that may be much different from what you had in mind._ – Joseph Weizenbaum
+_A computer will do what you tell it to do, but that may be much different from what you had in mind._ — Joseph Weizenbaum
 
-_The best thing about a boolean is even if you are wrong, you are only off by a bit._ – Anonymous
+_The best thing about a boolean is even if you are wrong, you are only off by a bit._ — Anonymous
 
 _Programming is not a zero-sum game. Teaching something to a fellow programmer doesn't take it away from you. I'm happy to share what I can, because I'm in it for the love of programming._ — John Carmack
 
@@ -81,15 +81,15 @@ _Good judgement comes from experience, and experience comes from bad judgement._
 
 _In software development, “perfect” is a verb, not an adjective. There is no perfect process. There is no perfect design. There are no perfect stories. You can, however, perfect your process, your design, and your stories._ ― Kent Beck
 
-_All programmers are optimists." ― Frederick P. Brooks Jr.
+_All programmers are optimists._ ― Frederick P. Brooks Jr.
 
 _The best theory is inspired by practice. The best practice is inspired by theory._ ― Donald Knuth
 
 _Sometimes the problem is to discover what the problem is._ ― Frederick P. Brooks Jr.
 
-_not “can we build it?” but “should we build it?_ ― Jez Humble
+_Not “can we build it?” but “should we build it?_ ― Jez Humble
 
-_the most serious barrier is to be found in organizational culture, leadership, and strategy._ ― Jez Humble
+_The most serious barrier is to be found in organizational culture, leadership, and strategy._ ― Jez Humble
 
 _The hardest problem in computer science is not being an opinionated jerk about everything._ ― Nick Takayama
 
@@ -99,7 +99,7 @@ _The sooner you start to code, the longer the program will take._ — Roy Carlso
 
 _Furious activity is no substitute for understanding._ — H. H. Williams 
 
-_Weeks of coding can save you hours of planning._ – Unknown
+_Weeks of coding can save you hours of planning._ — Unknown
 
 _Good, Fast, Cheap: Pick any two (you can't have all three)._ — Ross Callon
 
@@ -109,7 +109,7 @@ _How does a project get to be a year late? . . . . One day at a time._ ― Frede
 
 _The act of describing a program in unambiguous detail and the act of programming are one and the same._ — Kevlin Henney
 
-_Much of the essence of building a program is in fact the debugging of the specification._ – Fred Brooks
+_Much of the essence of building a program is in fact the debugging of the specification._ — Fred Brooks
 
 _Walking on water and developing software from a specification are easy if both are frozen._ — Edward V Berard
 
@@ -135,27 +135,27 @@ _Bad programmers worry about the code. Good programmers worry about data structu
 
 _Should array indices start at 0 or 1? My compromise of 0.5 was rejected without, I thought, proper consideration._ — Stan Kelly-Bootle
 
-_If it’s your decision, it’s design; if not, it’s a requirement._ – Alistair Cockburn
+_If it’s your decision, it’s design; if not, it’s a requirement._ — Alistair Cockburn
 
-_Inside every large program is a small program trying to get out._ – Tony Hoare
+_Inside every large program is a small program trying to get out._ — Tony Hoare
 
-_Unix is user-friendly; it's just picky about who its friends are._ – Anonymous
+_Unix is user-friendly; it's just picky about who its friends are._ — Anonymous
 
-_So much complexity in software comes from trying to make one thing do two things._ – Ryan Singer
+_So much complexity in software comes from trying to make one thing do two things._ — Ryan Singer
 
-_OOP does model the real world! Things at the top of the hierarchy seemingly do nothing but tell those at the bottom what to do._ – @fogus
+_OOP does model the real world! Things at the top of the hierarchy seemingly do nothing but tell those at the bottom what to do._ — @fogus
 
 _All problems in CS can be solved by another level of indirection, except for the problem of too many layers of indirection._ — David Wheeler
 
 _Strive to add function by deleting code._ — Jon Bentley
 
-_The mark of a mature programmer is willingness to throw out code you spent time on when you realize it's pointless._ – Bram Cohen
+_The mark of a mature programmer is willingness to throw out code you spent time on when you realize it's pointless._ — Bram Cohen
 
 _UNIX is basically a simple operating system, but you have to be a genius to understand the simplicity._ — Dennis Ritchie
 
 _In protocol design, perfection has been reached not when there is nothing left to add, but when there is nothing left to take away._ — Ross Callon in the fantastic RFC 1925
 
-_I have always wished for my computer to be as easy to use as my telephone. My wish has come true because I can no longer figure out how to use my telephone._ – Bjarne Stroustrup, creator of C++
+_I have always wished for my computer to be as easy to use as my telephone. My wish has come true because I can no longer figure out how to use my telephone._ — Bjarne Stroustrup, creator of C++
 
 _There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies, and the other way is to make it so complicated that there are no obvious deficiencies. The first method is far more difficult._ ― C. A. R. Hoare
 
@@ -173,15 +173,15 @@ _Whenever possible, steal code._ — Tom Duff
 
 _Eschew clever rules._ — Joe Condon 
 
-_For each desired change, make the change easy (warning: this may be hard), then make the easy change._ – Kent Beck
+_For each desired change, make the change easy (warning: this may be hard), then make the easy change._ — Kent Beck
 
-_Make it correct, make it clear, make it concise, make it fast. In that order._ – Wes Dyer
+_Make it correct, make it clear, make it concise, make it fast. In that order._ — Wes Dyer
 
 _... the best programs are the ones written when the programmer is supposed to be working on something else._ — Melinda Varian
 
 _Good Programming is not learned from generalities, but by seeing how significant programs can be made clean, easy to read, easy to maintain and modify, … . Careful study and imitation of good programs leads to better writing._ — Kernighan and Plauger
 
-_Clean code always looks like it was written by someone who cares._ – Michael Feathers
+_Clean code always looks like it was written by someone who cares._ — Michael Feathers
 
 _There’s nothing more permanent than a temporary hack._ — Kyle Simpson
 
@@ -205,17 +205,17 @@ _Legacy code isn't the problem. It's all the technical debt in the legacy code t
 
 # Prevention
 
-_Rarely is anyone thanked for the work they did to prevent the disaster that didn’t happen._ – Mikko Hypponen
+_Rarely is anyone thanked for the work they did to prevent the disaster that didn’t happen._ — Mikko Hypponen
 
-_Some of those firefighters were also the arsonists._ – Dave T., coworker and friend, who whispered this to me at a Department Meeting after several developers were given The Firefighter Award by our Department Head for their heroric efforts in fixing issues in production.
+_Some of those firefighters were also the arsonists._ — Dave T., coworker and friend, who whispered this to me at a Department Meeting after several developers were given The Firefighter Award by our Department Head for their heroric efforts in fixing issues in production.
 
-_A good lifeguard never gets wet. A bad lifeguard gets his name in the paper._ – My RedCross Lifeguard Instructor when I was as teenager
+_A good lifeguard never gets wet. A bad lifeguard gets his name in the paper._ — My RedCross Lifeguard Instructor when I was as teenager
 
 # Documentation
 
 _If the code and the comments disagree, then both are probably wrong._ — Norm Schryer
 
-_A common fallacy is to assume authors of incomprehensible code will be able to express themselves clearly in comments._ – Kevlin Henney
+_A common fallacy is to assume authors of incomprehensible code will be able to express themselves clearly in comments._ — Kevlin Henney
 
 _Code never lies, comments sometimes do._ — Ron Jeffries
 
@@ -233,13 +233,13 @@ _The first step in fixing a broken program is getting it to fail repeatably._ �
 
 _Debugging is like being the detective in a crime movie where you are also the murderer._ — @fortes
 
-_Hardware eventually fails. Software eventually works._ – Michael Hartung
+_Hardware eventually fails. Software eventually works._ — Michael Hartung
 
-_Our end users are our best and most expensive testers._ – Jim Humelsine
+_Our end users are our best and most expensive testers._ — Jim Humelsine
 
-_Test-driven development is double-entry bookkeeping._ – Bob Martin
+_Test-driven development is double-entry bookkeeping._ — Bob Martin
 
-_The art of debugging is figuring out what you really told your program to do rather than what you thought you told it to do._ – Andrew Singer
+_The art of debugging is figuring out what you really told your program to do rather than what you thought you told it to do._ — Andrew Singer
 
 _Beware of bugs in the above code; I have only proved it correct, not tried it._ — Donald Knuth
 
@@ -255,7 +255,7 @@ _The earlier you catch defects, the cheaper they are to fix._ ― David Farley
 
 _Premature optimization is the root of all evil._ ― Donald Knuth
 
-_The best performance improvement is the transition from the nonworking state to the working state._ – John Ousterhout
+_The best performance improvement is the transition from the nonworking state to the working state._ — John Ousterhout
 
 _No matter how slow you are writing clean code, you will always be slower if you make a mess._ — Bob Martin
 
