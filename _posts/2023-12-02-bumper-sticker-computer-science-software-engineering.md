@@ -67,12 +67,6 @@ _Telling a programmer there's already a library to do X is like telling a songwr
 
 _Becoming a good engineer is about collecting experience. Each project, even small ones, is a chance to add new techniques and tools to your toolbox._ — Addy Osmani
 
-_Software is like poetry. Most of it probably should not have been written._ — Anonymous
-
-_Programming is the art of telling another human being what one wants the computer to do._ ― Donald Knuth
-
-_Programs are meant to be read by humans and only incidentally for computers to execute._ ― Donald Knuth
-
 _The computing scientist’s main challenge is not to get confused by the complexities of his own making._ ― Edsger W. Dijkstra
 
 _In theory, theory and practice are the same. In practice, they are not._ ― Attributed to many
@@ -127,7 +121,7 @@ _The purpose of abstraction is not to be vague, but to create a new semantic lev
 
 _At a certian level of abstraction, all complex systems are message passing systems. ... Genes are one mechanism that life uses to pass information across time; memes are one mechanism that societies use to pass information across time._ — Grady Booch
 
-_To become experts at managing complexity, we need the following: Modularity Cohesion Separation of Concerns Abstraction Loose Coupling._ ― David Farley
+_To become experts at managing complexity, we need the following: Modularity, Cohesion, Separation of Concerns, Abstraction, Loose Coupling._ ― David Farley
 
 _[One Page Principle] A (specification, design, procedure, test plan) that will not fit on one page of 8.5-by-1l.1 inch paper cannot be understood._ — Mark Ardis 
 
@@ -165,8 +159,6 @@ _Folk wisdom in software development teaches that interfaces shouldn't be unduly
 
 _Allocate four digits for the year part of a date: a new millenium is coming._ — David Martin (Published as early as 1985)
 
-_A procedure should fit on a page._ — David Tribble
-
 _In programming, if someone tells you “you’re overcomplicating it,” they’re either 10 steps behind you or 10 steps ahead of you._ — Andrew Clark
 
 _Whenever possible, steal code._ — Tom Duff
@@ -181,27 +173,39 @@ _... the best programs are the ones written when the programmer is supposed to b
 
 _Good Programming is not learned from generalities, but by seeing how significant programs can be made clean, easy to read, easy to maintain and modify, … . Careful study and imitation of good programs leads to better writing._ — Kernighan and Plauger
 
-_Clean code always looks like it was written by someone who cares._ — Michael Feathers
-
 _There’s nothing more permanent than a temporary hack._ — Kyle Simpson
-
-_Any fool can write code that a computer can understand. Good programmers write code that humans can understand._ — Martin Fowler
-
-_Writing software as if we are the only person that ever has to comprehend it is one of the biggest mistakes and false assumptions that can be made._ — Karolina Szczur
 
 _The strength of JavaScript is that you can do anything. The weakness is that you will._ — Reg Braithwaite
 
 _Always implement things when you actually need them, never when you just foresee that you need them._ — Ron Jeffries
-
-_Write code as if you had to support it for the rest of your life._ ― Kevlin Henney
-
-_Well designed and written code doesn't require much maintenance. Software developers are constantly thrust into the poorly designed and written code to fix bugs and add new features. Thus is our curse. We're constantly exposed to bad code but rarely good code._ ― Jim Humelsine
 
 _Bad programmers worry about the code. Good programmers worry about data structures and their relationships._ ― Linus Torvalds
 
 _TDD applies a pressure to create code that is objectively “higher quality.” This is irrespective of the talent or experience of the software developer. It doesn’t make bad software developers great, but it does make “bad software developers” better and “great software developers” greater._ ― David Farley
 
 _Legacy code isn't the problem. It's all the technical debt in the legacy code that's the problem._ ― Jim Humelsine
+
+# Readable/Comprehensible Code
+
+_Software is like poetry. Most of it probably should not have been written._ — Anonymous
+
+_Programming is the art of telling another human being what one wants the computer to do._ ― Donald Knuth
+
+_Programs are meant to be read by humans and only incidentally for computers to execute._ ― Donald Knuth
+
+_A procedure should fit on a page._ — David Tribble
+
+_Clean code always looks like it was written by someone who cares._ — Michael Feathers
+
+_Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live._ — Martin Golding
+
+_Any fool can write code that a computer can understand. Good programmers write code that humans can understand._ — Martin Fowler
+
+_Writing software as if we are the only person that ever has to comprehend it is one of the biggest mistakes and false assumptions that can be made._ — Karolina Szczur
+
+_Write code as if you had to support it for the rest of your life._ ― Kevlin Henney
+
+_Well designed and written code doesn't require much maintenance. Software developers are constantly thrust into the poorly designed and written code to fix bugs and add new features. Thus is our curse. We're constantly exposed to bad code but rarely good code._ ― Jim Humelsine
 
 # Prevention
 
