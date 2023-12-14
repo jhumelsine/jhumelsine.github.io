@@ -99,6 +99,9 @@ _Good, Fast, Cheap: Pick any two (you can't have all three)._ — Ross Callon
 
 _How does a project get to be a year late? . . . . One day at a time._ ― Frederick P. Brooks Jr.
 
+_[Rule of Credibility] The first 90 percent of the code accounts for the first 90 percent of the development time. The remaining 10 percent of the code accounts
+for the other 90 percent of the development time._ — Tom Cargill 
+
 # Requirements
 
 _The act of describing a program in unambiguous detail and the act of programming are one and the same._ — Kevlin Henney
@@ -257,6 +260,8 @@ _Rather than apply minutes of suspect reasoning, we can just ask the computer by
 
 _The earlier you catch defects, the cheaper they are to fix._ ― David Farley
 
+_Tests are a reflection of the code. If tests are ugly or difficult to write, then the issue resides in the implementation, not the test. Refactor the implementation._ — Jim Humelsine
+
 # Performance
 
 _Premature optimization is the root of all evil._ ― Donald Knuth
@@ -266,11 +271,6 @@ _The best performance improvement is the transition from the nonworking state to
 _The fastest algorithm can frequently be replaced by one that is almost as fast and much easier to understand._ — Douglas W. Iones 
 
 _Fancy algorithms are slow when n is small, and n is usually small._ — Rob Pike
-
-# Scheduling
-
-_[Rule of Credibility] The first 90 percent of the code accounts for the first 90 percent of the development time. The remaining 10 percent of the code accounts
-for the other 90 percent of the development time._ — Tom Cargill 
 
 # References
 * Original [Bumper Sticker Computer Science](https://moss.cs.iit.edu/cs100/Bentley_BumperSticker.pdf) by Jon Bentley
