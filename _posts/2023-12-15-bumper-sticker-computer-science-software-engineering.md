@@ -1,7 +1,6 @@
 ---
 title: Bumper Sticker Computer Science and Software Engineering
 description: Wit and wisdom of Computer Science and Software Engineering in itty bitty bytes
-unlisted: true
 ---
 
 ![404 Bumper Sticker](http://farm4.static.flickr.com/3020/3001989571_df57e6cd19_o.jpg "Image Source: https://www.pingdom.com/blog/a-gallery-of-extremely-geeky-bumper-stickers/")
