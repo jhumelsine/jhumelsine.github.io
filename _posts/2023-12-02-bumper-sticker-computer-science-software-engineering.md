@@ -33,6 +33,10 @@ _Learning to program teaches you how to think. Computer science is a liberal art
 
 _Just because you've implemented something doesn't mean you understand it._ — Brian Cantwell Smit
 
+_You see, programmers tend to be arrogant, self-absorbed introverts. We didn’t get into this business because we like people._ ― Robert C. Martin
+
+_Programming is a social activity._ ― Robert C. Martin
+
 _Induction makes you feel guilty for getting something out of nothing ... but it is one of the greatest ideas of civilization._ — Herbert Wilf
 
 _I am worried that algorithms are getting too prominent in the world._ — Donald Knuth
@@ -106,6 +110,8 @@ for the other 90 percent of the development time._ — Tom Cargill
 
 _... crucial discoveries always emerge during the design/implementation effort._ ― Eric Evans
 
+_Some folks think that Agile is about going fast. It’s not. It’s never been about going fast. Agile is about knowing, as early as possible, just how screwed we are._ ― Robert C. Martin
+
 # Requirements
 
 _The act of describing a program in unambiguous detail and the act of programming are one and the same._ — Kevlin Henney
@@ -122,13 +128,31 @@ _A distributed system is one in which the failure of a computer you didn’t eve
 
 _We build our computer (systems) the way we build our cities: over time, without a plan, on top of ruins._ — Ellen Ullman
 
-# Design
+_If a change to the requirements breaks your architecture, then your architecture sucks._ ― Robert C. Martin
+
+_If you think good architecture is expensive, try bad architecture._ — Brian Foote and Joseph Yoder
+
+_Good architecture makes the system easy to understand, easy to develop, easy to maintain, and easy to deploy. The ultimate goal is to minimize the lifetime cost of the system and to maximize programmer productivity._ ― Robert C. Martin
+
+_Architecture is the decisions that you wish you could get right early in a project, but that you are not necessarily more likely to get them right than any other._ — Ralph Johnson
+
+_The first concern of the architect is to make sure that the house is usable — not to ensure that the house is made of bricks._ ― Robert C. Martin
+
+_Architecture is a hypothesis, that needs to be proven by implementation and measurement_ — Tom Gilb
+
+_The tragedy is that the architects, by making a premature decision, multiplied the development effort enormously._ ― Robert C. Martin
+
+# Abstraction
 
 _One particular talent stands out among the world-class programmers I’ve known—namely, an ability to move effortlessly between different levels of abstraction._ — Donald Knuth
 
 _The purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise._ — Edsger Dijkstra
 
 _Success comes in an emerging set of abstract concepts that makes sense of all the detail. This distillation is a rigorous expression of the particular knowledge that has been found most relevant._ ― Eric Evans
+
+_Abstraction is the elimination of the irrelevant and the amplification of the essential._ ― Robert C. Martin
+
+# Design
 
 _At a certian level of abstraction, all complex systems are message passing systems. ... Genes are one mechanism that life uses to pass information across time; memes are one mechanism that societies use to pass information across time._ — Grady Booch
 
@@ -214,6 +238,8 @@ _Any fool can write code that a computer can understand. Good programmers write 
 
 _Writing software as if we are the only person that ever has to comprehend it is one of the biggest mistakes and false assumptions that can be made._ — Karolina Szczur
 
+_It is not the language that makes programs appear simple. It is the programmer that make the language appear simple!_ ― Robert C. Martin
+
 _Write code as if you had to support it for the rest of your life._ ― Kevlin Henney
 
 _Well designed and written code doesn't require much maintenance. Software developers are constantly thrust into the poorly designed and written code to fix bugs and add new features. Thus is our curse. We're constantly exposed to bad code but rarely good code._ ― Jim Humelsine
@@ -221,6 +247,8 @@ _Well designed and written code doesn't require much maintenance. Software devel
 _No matter how slow you are writing clean code, you will always be slower if you make a mess._ — Bob Martin
 
 _All public elements of a design together make up its interface, and the name of each of those elements presents an opportunity to reveal the intention of the design._ ― Eric Evans
+
+_To write clean code, you must first write dirty code and then clean it._ ― Robert C. Martin
 
 # Prevention
 
@@ -234,11 +262,21 @@ _A good lifeguard never gets wet. A bad lifeguard gets his name in the paper._ �
 
 _If the code and the comments disagree, then both are probably wrong._ — Norm Schryer
 
+_Don’t Use a Comment When You Can Use a Function or a Variable._ ― Robert C. Martin
+
 _A common fallacy is to assume authors of incomprehensible code will be able to express themselves clearly in comments._ — Kevlin Henney
+
+_When you see commented-out code, delete it!_ ― Robert C. Martin
 
 _Code never lies, comments sometimes do._ — Ron Jeffries
 
+_Redundant comments are just places to collect lies and misinformation._ ― Robert C. Martin
+
 _If your code needs comments, consider refactoring it so it doesn’t._ ― Kevlin Henney
+
+_Every time you write a comment, you should grimace and feel the failure of your ability of expression._ ― Robert C. Martin
+
+_The unit tests are documents. They describe the lowest-level design of the system._ ― Robert C. Martin
 
 # Testing and Debugging
 
@@ -268,9 +306,13 @@ _Write tests until fear is transformed into boredom._ ― Kent Beck
 
 _Rather than apply minutes of suspect reasoning, we can just ask the computer by making the change and running the tests._ ― Kent Beck
 
+_All race conditions, deadlock conditions, and concurrent update problems are due to mutable variables._ ― Robert C. Martin
+
 _The earlier you catch defects, the cheaper they are to fix._ ― David Farley
 
 _Tests are a reflection of the code. If tests are ugly or difficult to write, then the issue resides in the implementation, not the test. Refactor the implementation._ — Jim Humelsine
+
+_If you're good at the debugger it means you spent a lot of time debugging. I don't want you to be good at the debugger._ ― Robert C. Martin
 
 # Performance
 
@@ -305,3 +347,4 @@ _Fancy algorithms are slow when n is small, and n is usually small._ — Rob Pik
   * [Dave Farley](https://www.goodreads.com/author/quotes/3367043.David_Farley)
   * [Jez Humble](https://www.goodreads.com/author/quotes/4149510.Jez_Humble)
   * [Eric Evans](https://www.goodreads.com/author/quotes/104368.Eric_Evans)
+  * [Robert C. Martin](https://www.goodreads.com/author/quotes/45372.Robert_C_Martin)
