@@ -25,6 +25,8 @@ _Programmer’s motto: “We’ll cross that bridge when it’s burning undernea
 
 _The Programmers' Credo: We do these things not because they are easy, but because we thought they were going to be easy._ — Anonymous
 
+_On two occasions I have been asked, 'Pray, Mr. Babbage, if you put into the machine wrong figures, will the right answers come out?' I am not able rightly to apprehend the kind of confusion of ideas that could provoke such a question._ ― Charles Babbage
+
 _Make it work, then make it beautiful, then if you really, really have to, make it fast. 90 percent of the time, if you make it beautiful, it will already be fast. So really, just make it beautiful!_ — Joe Armstrong
 
 _I’m not a great programmer. I’m just a good programmer with great habits._ — Kent Beck
@@ -36,6 +38,8 @@ _Just because you've implemented something doesn't mean you understand it._ — 
 _You see, programmers tend to be arrogant, self-absorbed introverts. We didn’t get into this business because we like people._ ― Robert C. Martin
 
 _Programming is a social activity._ ― Robert C. Martin
+
+_We might even invent laws for series or formula in an arbitrary manner, and set the engine to work upon them, and thus deduce numerical results which we might not otherwise have thought of obtaining; but this would hardly perhaps in any instance be productive of any great practical utility, or calculated to rank higher than as a philosophical amusement._ — Ada Lovelace
 
 _Induction makes you feel guilty for getting something out of nothing ... but it is one of the greatest ideas of civilization._ — Herbert Wilf
 
@@ -52,6 +56,8 @@ _The manager's function is not to make people work, but to make it possible for 
 _The purpose of software engineering is to control complexity, not to create it._ — Pamela Zave
 
 _A computer will do what you tell it to do, but that may be much different from what you had in mind._ — Joseph Weizenbaum
+
+_To me programming is more than an important practical art. It is also a gigantic undertaking in the foundations of knowledge._ — Grace Hopper
 
 _The best thing about a boolean is even if you are wrong, you are only off by a bit._ — Anonymous
 
@@ -248,6 +254,8 @@ _No matter how slow you are writing clean code, you will always be slower if you
 
 _All public elements of a design together make up its interface, and the name of each of those elements presents an opportunity to reveal the intention of the design._ ― Eric Evans
 
+_One of my most productive days was throwing away 1,000 lines of code._ ― Ken Thompson
+
 _To write clean code, you must first write dirty code and then clean it._ ― Robert C. Martin
 
 # Prevention
@@ -348,3 +356,7 @@ _Fancy algorithms are slow when n is small, and n is usually small._ — Rob Pik
   * [Jez Humble](https://www.goodreads.com/author/quotes/4149510.Jez_Humble)
   * [Eric Evans](https://www.goodreads.com/author/quotes/104368.Eric_Evans)
   * [Robert C. Martin](https://www.goodreads.com/author/quotes/45372.Robert_C_Martin)
+  * [Bjarne Stroustrup](https://www.goodreads.com/author/quotes/64947.Bjarne_Stroustrup)
+  * [Grace Hopper](https://www.azquotes.com/author/6894-Grace_Hopper)
+  * [Ada Lovelace](https://www.azquotes.com/author/29338-Ada_Lovelace)
+  * [Charles Babbage](https://www.brainyquote.com/authors/charles-babbage-quotes)
