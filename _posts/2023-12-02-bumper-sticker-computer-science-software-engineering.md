@@ -9,7 +9,7 @@ unlisted: true
 # Introduction
 [Jon Bentley](https://en.wikipedia.org/wiki/Jon_Bentley_(computer_scientist)) wrote a series of articles in the **Communications of ACM** in the 1980s called _Programming Pearls_. He bundled those articles into two books of the same title.
 
-One of my favorite articles was [Bumper-Sticker Computer Science](https://moss.cs.iit.edu/cs100/Bentley_BumperSticker.pdf) published in September 1985. It's filled with pithy quotes by those in the industry almost 40 years ago. It's still a great read, and many of the quotes are as valid today as they were back then. And sadly some are just as ignored. I highly recommend it.
+One of my favorite articles was [Bumper-Sticker Computer Science](https://moss.cs.iit.edu/cs100/Bentley_BumperSticker.pdf) published in September 1985. It's filled with pithy quotes by those in the industry almost 40 years ago. It's still a great read, and many of the quotes are as valid today as they were back then. And sadly, some are just as ignored. I highly recommend it.
 
 I've always liked quotes, and some Computer Scientists and Software Engineers do know how to craft a good phrase.
 
@@ -211,7 +211,7 @@ _The vital detail about the design is captured in the code. A well-written imple
 
 # Implementation
 
-_Allocate four digits for the year part of a date: a new millenium is coming._ — David Martin (Published as early as 1985)
+_Allocate four digits for the year part of a date: a new millennium is coming._ — David Martin (Published as early as 1985)
 
 _In programming, if someone tells you “you’re overcomplicating it,” they’re either 10 steps behind you or 10 steps ahead of you._ — Andrew Clark
 
@@ -259,7 +259,7 @@ _Writing software as if we are the only person that ever has to comprehend it is
 
 _Whenever I have to think to understand what the code is doing, I ask myself if I can refactor the code to make that understanding more immediately apparent._ ― Martin Fowler
 
-_It is not the language that makes programs appear simple. It is the programmer that make the language appear simple!_ ― Robert C. Martin
+_It is not the language that makes programs appear simple. It is the programmer that makes the language appear simple!_ ― Robert C. Martin
 
 _Write code as if you had to support it for the rest of your life._ ― Kevlin Henney
 
@@ -275,7 +275,7 @@ _To write clean code, you must first write dirty code and then clean it._ ― Ro
 
 _Rarely is anyone thanked for the work they did to prevent the disaster that didn’t happen._ — Mikko Hypponen
 
-_Some of those firefighters were also the arsonists._ — Dave T., coworker and friend, who whispered this to me at a Department Meeting after several developers were given The Firefighter Award by our Department Head for their heroric efforts in fixing issues in production.
+_Some of those firefighters were also the arsonists._ — Dave T., coworker and friend, who whispered this to me at a Department Meeting after several developers were given The Firefighter Award by our Department Head for their heroic efforts in fixing issues in production.
 
 _A good lifeguard never gets wet. A bad lifeguard gets his name in the paper._ — My RedCross Lifeguard Instructor when I was as teenager
 
