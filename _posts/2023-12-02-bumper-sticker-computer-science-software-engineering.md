@@ -91,6 +91,8 @@ _The hardest problem in computer science is not being an opinionated jerk about 
 
 _The sooner you start to code, the longer the program will take._ — Roy Carlson
 
+_When we set out to write software, we never know enough._ ― Eric Evans
+
 _Furious activity is no substitute for understanding._ — H. H. Williams 
 
 _Weeks of coding can save you hours of planning._ — Unknown
@@ -100,7 +102,9 @@ _Good, Fast, Cheap: Pick any two (you can't have all three)._ — Ross Callon
 _How does a project get to be a year late? . . . . One day at a time._ ― Frederick P. Brooks Jr.
 
 _[Rule of Credibility] The first 90 percent of the code accounts for the first 90 percent of the development time. The remaining 10 percent of the code accounts
-for the other 90 percent of the development time._ — Tom Cargill 
+for the other 90 percent of the development time._ — Tom Cargill
+
+_... crucial discoveries always emerge during the design/implementation effort._ ― Eric Evans
 
 # Requirements
 
@@ -109,6 +113,8 @@ _The act of describing a program in unambiguous detail and the act of programmin
 _Much of the essence of building a program is in fact the debugging of the specification._ — Fred Brooks
 
 _Walking on water and developing software from a specification are easy if both are frozen._ — Edward V Berard
+
+_If it’s your decision, it’s design; if not, it’s a requirement._ — Alistair Cockburn
 
 # Architecture
 
@@ -122,6 +128,8 @@ _One particular talent stands out among the world-class programmers I’ve known
 
 _The purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise._ — Edsger Dijkstra
 
+_Success comes in an emerging set of abstract concepts that makes sense of all the detail. This distillation is a rigorous expression of the particular knowledge that has been found most relevant._ ― Eric Evans
+
 _At a certian level of abstraction, all complex systems are message passing systems. ... Genes are one mechanism that life uses to pass information across time; memes are one mechanism that societies use to pass information across time._ — Grady Booch
 
 _To become experts at managing complexity, we need the following: Modularity, Cohesion, Separation of Concerns, Abstraction, Loose Coupling._ ― David Farley
@@ -131,8 +139,6 @@ _[One Page Principle] A (specification, design, procedure, test plan) that will 
 _Bad programmers worry about the code. Good programmers worry about data structures and their relationships._ — Linus Torvalds
 
 _Should array indices start at 0 or 1? My compromise of 0.5 was rejected without, I thought, proper consideration._ — Stan Kelly-Bootle
-
-_If it’s your decision, it’s design; if not, it’s a requirement._ — Alistair Cockburn
 
 _Inside every large program is a small program trying to get out._ — Tony Hoare
 
@@ -157,6 +163,8 @@ _I have always wished for my computer to be as easy to use as my telephone. My w
 _There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies, and the other way is to make it so complicated that there are no obvious deficiencies. The first method is far more difficult._ ― C. A. R. Hoare
 
 _Folk wisdom in software development teaches that interfaces shouldn't be unduly influenced by implementations. Writing a test first is a concrete way to achieve this separation._ ― Kent Beck
+
+_The vital detail about the design is captured in the code. A well-written implementation should be transparent, revealing the model underlying it._ ― Eric Evans
 
 # Implementation
 
@@ -211,6 +219,8 @@ _Write code as if you had to support it for the rest of your life._ ― Kevlin H
 _Well designed and written code doesn't require much maintenance. Software developers are constantly thrust into the poorly designed and written code to fix bugs and add new features. Thus is our curse. We're constantly exposed to bad code but rarely good code._ ― Jim Humelsine
 
 _No matter how slow you are writing clean code, you will always be slower if you make a mess._ — Bob Martin
+
+_All public elements of a design together make up its interface, and the name of each of those elements presents an opportunity to reveal the intention of the design._ ― Eric Evans
 
 # Prevention
 
@@ -294,3 +304,4 @@ _Fancy algorithms are slow when n is small, and n is usually small._ — Rob Pik
   * [Fred Brooks](https://www.goodreads.com/author/quotes/3174788.Frederick_P_Brooks_Jr_)
   * [Dave Farley](https://www.goodreads.com/author/quotes/3367043.David_Farley)
   * [Jez Humble](https://www.goodreads.com/author/quotes/4149510.Jez_Humble)
+  * [Eric Evans](https://www.goodreads.com/author/quotes/104368.Eric_Evans)
