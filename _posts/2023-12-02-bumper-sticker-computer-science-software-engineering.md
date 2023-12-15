@@ -9,11 +9,11 @@ unlisted: true
 # Introduction
 [Jon Bentley](https://en.wikipedia.org/wiki/Jon_Bentley_(computer_scientist)) wrote a series of articles in the **Communications of ACM** in the 1980s called _Programming Pearls_. He bundled those articles into two books of the same title.
 
-One of my favorite articles was [Bumper-Sticker Computer Science](https://moss.cs.iit.edu/cs100/Bentley_BumperSticker.pdf) published in September 1985. It's filled with pithy quotes by those in the industry almost 40 years ago. It's still a great read, and many of the quotes are as valid (and some sadly ignored) today as they were back then. I highly recommend it..
+One of my favorite articles was [Bumper-Sticker Computer Science](https://moss.cs.iit.edu/cs100/Bentley_BumperSticker.pdf) published in September 1985. It's filled with pithy quotes by those in the industry almost 40 years ago. It's still a great read, and many of the quotes are as valid today as they were back then. And sadly some are just as ignored. I highly recommend it.
 
-I've always liked quotes and some Computer Scientists and Software Engineers do know how to craft a good phrase.
+I've always liked quotes, and some Computer Scientists and Software Engineers do know how to craft a good phrase.
 
-Inspired by Bentley, I'm going provide my own set of Bumper Sticker Computer Science and Software Engineering, which includes some of my favorites from Bentley's original article. I hope some of those make you laugh, maybe cry and definitely think.
+Inspired by Bentley, I'm going provide my own set of Bumper Sticker Computer Science and Software Engineering, which includes some of my favorites from Bentley's original article. I hope some of these make you laugh, maybe cry and definitely think.
 
 # Philosophy
 
@@ -30,6 +30,8 @@ _On two occasions I have been asked, 'Pray, Mr. Babbage, if you put into the mac
 _Make it work, then make it beautiful, then if you really, really have to, make it fast. 90 percent of the time, if you make it beautiful, it will already be fast. So really, just make it beautiful!_ — Joe Armstrong
 
 _Make it work, make it right, make it fast._ — Kent Beck
+
+_Make it correct, make it clear, make it concise, make it fast. In that order._ — Wes Dyer
 
 _I’m not a great programmer. I’m just a good programmer with great habits._ — Kent Beck
 
@@ -157,6 +159,8 @@ _Architecture is a hypothesis, that needs to be proven by implementation and mea
 
 _The tragedy is that the architects, by making a premature decision, multiplied the development effort enormously._ ― Robert C. Martin
 
+_At a certian level of abstraction, all complex systems are message passing systems. ... Genes are one mechanism that life uses to pass information across time; memes are one mechanism that societies use to pass information across time._ — Grady BoochThomp
+
 # Abstraction
 
 _One particular talent stands out among the world-class programmers I’ve known—namely, an ability to move effortlessly between different levels of abstraction._ — Donald Knuth
@@ -168,8 +172,6 @@ _Success comes in an emerging set of abstract concepts that makes sense of all t
 _Abstraction is the elimination of the irrelevant and the amplification of the essential._ ― Robert C. Martin
 
 # Design
-
-_At a certian level of abstraction, all complex systems are message passing systems. ... Genes are one mechanism that life uses to pass information across time; memes are one mechanism that societies use to pass information across time._ — Grady Booch
 
 _To become experts at managing complexity, we need the following: Modularity, Cohesion, Separation of Concerns, Abstraction, Loose Coupling._ ― David Farley
 
@@ -192,6 +194,8 @@ _All problems in CS can be solved by another level of indirection, except for th
 _Strive to add function by deleting code._ — Jon Bentley
 
 _The mark of a mature programmer is willingness to throw out code you spent time on when you realize it's pointless._ — Bram Cohen
+
+_One of my most productive days was throwing away 1,000 lines of code._ ― Ken Thompson
 
 _UNIX is basically a simple operating system, but you have to be a genius to understand the simplicity._ — Dennis Ritchie
 
@@ -217,8 +221,6 @@ _Eschew clever rules._ — Joe Condon
 
 _For each desired change, make the change easy (warning: this may be hard), then make the easy change._ — Kent Beck
 
-_Make it correct, make it clear, make it concise, make it fast. In that order._ — Wes Dyer
-
 _... the best programs are the ones written when the programmer is supposed to be working on something else._ — Melinda Varian
 
 _Good Programming is not learned from generalities, but by seeing how significant programs can be made clean, easy to read, easy to maintain and modify, … . Careful study and imitation of good programs leads to better writing._ — Kernighan and Plauger
@@ -228,8 +230,6 @@ _There’s nothing more permanent than a temporary hack._ — Kyle Simpson
 _The strength of JavaScript is that you can do anything. The weakness is that you will._ — Reg Braithwaite
 
 _Always implement things when you actually need them, never when you just foresee that you need them._ — Ron Jeffries
-
-_Bad programmers worry about the code. Good programmers worry about data structures and their relationships._ ― Linus Torvalds
 
 _TDD applies a pressure to create code that is objectively “higher quality.” This is irrespective of the talent or experience of the software developer. It doesn’t make bad software developers great, but it does make “bad software developers” better and “great software developers” greater._ ― David Farley
 
@@ -269,8 +269,6 @@ _No matter how slow you are writing clean code, you will always be slower if you
 
 _All public elements of a design together make up its interface, and the name of each of those elements presents an opportunity to reveal the intention of the design._ ― Eric Evans
 
-_One of my most productive days was throwing away 1,000 lines of code._ ― Ken Thompson
-
 _To write clean code, you must first write dirty code and then clean it._ ― Robert C. Martin
 
 # Prevention
@@ -301,8 +299,6 @@ _If your code needs comments, consider refactoring it so it doesn’t._ ― Kevl
 
 _Every time you write a comment, you should grimace and feel the failure of your ability of expression._ ― Robert C. Martin
 
-_The unit tests are documents. They describe the lowest-level design of the system._ ― Robert C. Martin
-
 # Testing and Debugging
 
 _Testing can show the presence of bugs, but not their absence!_ — Edsger W. Dijkstra
@@ -330,6 +326,8 @@ _Beware of bugs in the above code; I have only proved it correct, not tried it._
 _Testing leads to failure, and failure leads to understanding._ — Burt Rutan
 
 _Write tests until fear is transformed into boredom._ ― Kent Beck
+
+_The unit tests are documents. They describe the lowest-level design of the system._ ― Robert C. Martin
 
 _Rather than apply minutes of suspect reasoning, we can just ask the computer by making the change and running the tests._ ― Kent Beck
 
