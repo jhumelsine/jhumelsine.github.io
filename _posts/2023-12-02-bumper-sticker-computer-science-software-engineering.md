@@ -29,6 +29,8 @@ _On two occasions I have been asked, 'Pray, Mr. Babbage, if you put into the mac
 
 _Make it work, then make it beautiful, then if you really, really have to, make it fast. 90 percent of the time, if you make it beautiful, it will already be fast. So really, just make it beautiful!_ — Joe Armstrong
 
+_Make it work, make it right, make it fast._ — Kent Beck
+
 _I’m not a great programmer. I’m just a good programmer with great habits._ — Kent Beck
 
 _Learning to program teaches you how to think. Computer science is a liberal art._ — Steve Jobs
@@ -61,6 +63,8 @@ _To me programming is more than an important practical art. It is also a giganti
 
 _The best thing about a boolean is even if you are wrong, you are only off by a bit._ — Anonymous
 
+_There are 10 types of people in the world, those who can read binary, and those who can't._ — Anonymous
+
 _Programming is not a zero-sum game. Teaching something to a fellow programmer doesn't take it away from you. I'm happy to share what I can, because I'm in it for the love of programming._ — John Carmack
 
 _Computers are good at following instructions, but not at reading your mind._ — Donald Knuth
@@ -79,15 +83,17 @@ _Becoming a good engineer is about collecting experience. Each project, even sma
 
 _The computing scientist’s main challenge is not to get confused by the complexities of his own making._ ― Edsger W. Dijkstra
 
-_In theory, theory and practice are the same. In practice, they are not._ ― Attributed to many
-
 _Good judgement comes from experience, and experience comes from bad judgement._ ― Attributed to many
 
 _In software development, “perfect” is a verb, not an adjective. There is no perfect process. There is no perfect design. There are no perfect stories. You can, however, perfect your process, your design, and your stories._ ― Kent Beck
 
 _All programmers are optimists._ ― Frederick P. Brooks Jr.
 
+_In theory, theory and practice are the same. In practice, they are not._ ― Attributed to many
+
 _The best theory is inspired by practice. The best practice is inspired by theory._ ― Donald Knuth
+
+_Theory is when you know something, but it doesn't work. Practice is when something works, but you don't know why. Programmers combine theory and practice: Nothing works and they don't know why._ ― Anonymous
 
 _Sometimes the problem is to discover what the problem is._ ― Frederick P. Brooks Jr.
 
@@ -111,8 +117,9 @@ _Good, Fast, Cheap: Pick any two (you can't have all three)._ — Ross Callon
 
 _How does a project get to be a year late? . . . . One day at a time._ ― Frederick P. Brooks Jr.
 
-_[Rule of Credibility] The first 90 percent of the code accounts for the first 90 percent of the development time. The remaining 10 percent of the code accounts
-for the other 90 percent of the development time._ — Tom Cargill
+_[Rule of Credibility] The first 90 percent of the code accounts for the first 90 percent of the development time. The remaining 10 percent of the code accounts for the other 90 percent of the development time._ — Tom Cargill
+
+_It always takes longer than you expect, even when you take into account Hofstadter's Law._ — Hofstadter's Law
 
 _... crucial discoveries always emerge during the design/implementation effort._ ― Eric Evans
 
@@ -133,6 +140,8 @@ _If it’s your decision, it’s design; if not, it’s a requirement._ — Alis
 _A distributed system is one in which the failure of a computer you didn’t even know existed can render your own computer unusable._ — Leslie Lamport
 
 _We build our computer (systems) the way we build our cities: over time, without a plan, on top of ruins._ — Ellen Ullman
+
+_Software and cathedrals are much the same — first we build them, then we pray._ — Anonymous
 
 _If a change to the requirements breaks your architecture, then your architecture sucks._ ― Robert C. Martin
 
@@ -230,6 +239,10 @@ _Legacy code isn't the problem. It's all the technical debt in the legacy code t
 
 _Software is like poetry. Most of it probably should not have been written._ — Anonymous
 
+_Code is like humor. When you have to explain it, it’s bad._ — Cory House
+
+_Any fool can write code that a computer can understand. Good programmers write code that humans can understand._ ― Martin Fowler
+
 _Programming is the art of telling another human being what one wants the computer to do._ ― Donald Knuth
 
 _Programs are meant to be read by humans and only incidentally for computers to execute._ ― Donald Knuth
@@ -243,6 +256,8 @@ _Always code as if the guy who ends up maintaining your code will be a violent p
 _Any fool can write code that a computer can understand. Good programmers write code that humans can understand._ — Martin Fowler
 
 _Writing software as if we are the only person that ever has to comprehend it is one of the biggest mistakes and false assumptions that can be made._ — Karolina Szczur
+
+_Whenever I have to think to understand what the code is doing, I ask myself if I can refactor the code to make that understanding more immediately apparent._ ― Martin Fowler
 
 _It is not the language that makes programs appear simple. It is the programmer that make the language appear simple!_ ― Robert C. Martin
 
@@ -278,6 +293,8 @@ _When you see commented-out code, delete it!_ ― Robert C. Martin
 
 _Code never lies, comments sometimes do._ — Ron Jeffries
 
+_A heuristic we follow is that whenever we feel the need to comment something, we write a method instead._ ― Martin Fowler
+
 _Redundant comments are just places to collect lies and misinformation._ ― Robert C. Martin
 
 _If your code needs comments, consider refactoring it so it doesn’t._ ― Kevlin Henney
@@ -293,6 +310,8 @@ _Testing can show the presence of bugs, but not their absence!_ — Edsger W. Di
 _Sometimes it pays to stay in bed on Monday, rather than spending the rest of the week debugging Monday’s code._ — Dan Salomon
 
 _If debugging is the process of removing software bugs, then programming must be the process of putting them in._ ― Edsger W. Dijkstra
+
+_Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it._ — Brian Kernighan
 
 _The first step in fixing a broken program is getting it to fail repeatably._ — Tom Duff
 
@@ -343,6 +362,8 @@ _Fancy algorithms are slow when n is small, and n is usually small._ — Rob Pik
 * Two X/Twitter feeds that often have quotes:
   * [John D. Cook's feed](https://twitter.com/CompSciFact)
   * [Programming Wisdom's feed](https://twitter.com/CodeWisdom)
+* [35 Best Coding & Programming Quotes Will Inspire You](https://techvify-software.com/35-best-coding-programming-quotes/)
+* [Programming Quotes](https://gist.github.com/Potherca/b6a6676a84b51c8200d0673a5b4a87c5)
 * Quotes by individuals:
   * [Donald Knuth](https://www.goodreads.com/author/quotes/64941.Donald_Ervin_Knuth)
   * [Edsger Dijkstra](https://www.goodreads.com/author/quotes/1013817.Edsger_W_Dijkstra)
@@ -360,3 +381,7 @@ _Fancy algorithms are slow when n is small, and n is usually small._ — Rob Pik
   * [Grace Hopper](https://www.azquotes.com/author/6894-Grace_Hopper)
   * [Ada Lovelace](https://www.azquotes.com/author/29338-Ada_Lovelace)
   * [Charles Babbage](https://www.brainyquote.com/authors/charles-babbage-quotes)
+  * [Martin Fowler](https://www.goodreads.com/author/quotes/25215.Martin_Fowler)
+  * [Dennis Ritchie](https://www.goodreads.com/author/quotes/153349.Dennis_M_Ritchie)
+  * [Ken Thompson](https://www.goodreads.com/author/quotes/167720.Ken_Thompson)
+  * [Brian Kernighan](https://www.goodreads.com/author/quotes/153350.Brian_W_Kernighan)
