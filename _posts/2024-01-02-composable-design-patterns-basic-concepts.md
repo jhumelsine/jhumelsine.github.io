@@ -1,10 +1,10 @@
 ---
-title: Composable Design Patterns – An Introduction
+title: Composable Design Patterns – Basic Concepts
 description: Code reuse and dynamic flexibility via composition
 unlisted: true
 ---
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Four_bit_adder_with_carry_lookahead.svg" alt="Full Adder Logic Gates" title="Image Source: https://www.wikiwand.com/en/Logic_gate#Media/File:Four_bit_adder_with_carry_lookahead.svg" width = "30%" align="center" style="padding-right: 35px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Four_bit_adder_with_carry_lookahead.svg" alt="Full Adder Logic Gates" title="Image Source: https://www.wikiwand.com/en/Logic_gate#Media/File:Four_bit_adder_with_carry_lookahead.svg" width = "45%" align="center" style="padding-right: 35px;">
 
 # Introduction
 This blog entry begins a new series of Design Patterns. I refer to these design patterns as Composable Design Patterns, which feature object composition. That is, behavior emerges from the interaction of a set objects organized in a cohesive pattern.
@@ -76,12 +76,12 @@ Object composition is more than just making a single method call to another obje
 This means that the same implementation of classes can yield different behavior based upon different compositions of objects instantiated from those classes. This is not different behavior via `if` and `switch` statements or feature flags. It’s configurable behavior that emerges from object composition rather than different execution paths through traditional code.
 
 ## Composition Basics
-The Composable Design Patterns are an extension of several Essential Design Patterns such as Command, Strategy, Template Method and a little bit of Adapter. These patterns feature concrete classes, which implement an interface or extend an abstract class.
+The Composable Design Patterns are an extension of several Essential Design Patterns such as [Command](https://jhumelsine.github.io/2023/09/18/command-design-pattern.html), [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html), [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html) and a little bit of [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html). These patterns feature concrete classes, which implement an interface or extend an abstract class.
+
 The Composable Design Patterns feature similar concrete classes as well as delegation, except that the delegation is self-referential. They delegate to other elements in the design often their root interface or class.
 
 Here’s a UML class diagram that highlights this self-referential delegation. Each of the specific Composable Design Patterns will be slightly different based upon their own contexts than this example, but they will contain similar structures:
 
-ADD IMAGE HERE
 ![Composable Design Patterns Template](/assets/ComposableDesignPatternsIntroduction.png)
  
 * `Composable` is self-referential because it both implements `Feature` and delegates to `Feature`. That is, it’s a `Feature` class that delegates to the `Feature` interface. This is not a circular dependency, even if it feels like it at first. Follow the dependency arrowheads connecting `Feature` and `Composable`. They both flow from `Composable` to `Feature`. This delegate reference is the only new feature. If it were removed, we’d have a UML class diagram for Strategy.
@@ -104,13 +104,13 @@ Kevlin Henney pointed out the following in his GOTO 2018 presentation, [Old is t
 > "[Coordination Languages and their Significance](https://dl.acm.org/doi/pdf/10.1145/129630.129635)",  David Gelernter and Nicholas Carriero, published in the Communications of the ACM in 1992.
 
 This __computation/coordination model__ concept appears in many layers of abstraction in computing:
-•	Programming language designers provide a computational model of expressions and statements. Behaviors emerge from the coordination of concrete expressions and statements assembled by software developers. In other words, Java provides a finite set of computational components, such as classes, methods, variables, etc., and developers coordinate those components, via writing a program, from which behavior emerges as it executes on the JVM.
-•	Unix/Linux designers provide a computation model of small independent elementary operating system behaviors. Developers coordinate these features to create higher-level behaviors assembled via pipes or shell constructs.
-•	Microservices provide a computational model of doing one thing. Systems are built upon the coordination of interacting microservices.
+* Programming language designers provide a computational model of expressions and statements. Behaviors emerge from the coordination of concrete expressions and statements assembled by software developers. In other words, Java provides a finite set of computational components, such as classes, methods, variables, etc., and developers coordinate those components, via writing a program, from which behavior emerges as it executes on the JVM.
+* Unix/Linux designers provide a computation model of small independent elementary operating system behaviors. Developers coordinate these features to create higher-level behaviors assembled via pipes or shell constructs.
+* Microservices provide a computational model of doing one thing. Systems are built upon the coordination of interacting microservices.
 
 The __computation/coordination model__ concept will continue throughout the Design Patterns. It's almost identical to the Design Pattern principles above:
-•	Computation Model - This is programming to an interface. This is keeping objects independent of their dependencies. This is raw and reusable potential.
-•	Coordination Model - This is object composition. This is instantiating concrete objects from the computational model and coordinating their assembly to produce the desired behaviors, which have the potential for customer customization.
+* Computation Model - This is programming to an interface. This is keeping objects independent of their dependencies. This is raw and reusable potential.
+* Coordination Model - This is object composition. This is instantiating concrete objects from the computational model and coordinating their assembly to produce the desired behaviors, which have the potential for customer customization.
 
 # Use Cases for Composability Design Patterns
 These patterns are marvelous. A relatively small finite implementation provides so much functional potential. These patterns not only provide the potential means of code reuse for new features, but they also provide the possibility of customized features for customers and users as well.
@@ -132,9 +132,10 @@ User data rights are highly rule/policy based. User data rights are subject to e
 A rule/policy-based implementation for user data rights would consist of individual specific low-level user data rights behaviors that are configured into composable behaviors that manage each user's specific rights. As policies change, the specification for the composition would change, which may not require implementation updates. If regulations require new low-level user data rights classes, then they can be added without touching or affecting the existing low-level classes or their object composites until new composite specifications are defined that include those new low-level classes.
 
 ## Self-Service Apps and Kiosks
-<img src="https://live.staticflickr.com/215/457310711_01c0977e79_b.jpg" alt="Fast-Food Kiosk" title="Image Source: https://www.flickr.com/photos/slworking/457310711" width = "20%" align="left" style="padding-right: 35px;">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Dagwood_Sandwich.svg/489px-Dagwood_Sandwich.svg.png?20200322074015" alt="Dagwood Sandwich" title="Image Source: https://commons.wikimedia.org/wiki/File:Dagwood_Sandwich.svg" width = "10%" align="right" style="padding-right: 35px;">
-Many fast-food establishments allow you to customize your order via an app or kiosk. These often provide options well beyond A, B or C static menu options. For example, options for sandwich establishments often allow the customer to design their own sandwich at the app/kiosk. The app/kiosk might start with the concept of a sandwich, but then the customer can choose bread, meat, cheese, condiments, etc. Or for simplicity, a sandwich configuration might be predefined, and the customer only needs to choose optional condiments.
+<img src="https://live.staticflickr.com/215/457310711_01c0977e79_b.jpg" alt="Fast-Food Kiosk" title="Image Source: https://www.flickr.com/photos/slworking/457310711" width = "30%" align="left" style="padding-right: 35px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Dagwood_Sandwich.svg/489px-Dagwood_Sandwich.svg.png?20200322074015" alt="Dagwood Sandwich" title="Image Source: https://commons.wikimedia.org/wiki/File:Dagwood_Sandwich.svg" width = "20%" align="right" style="padding-right: 35px;">
+
+Many fast-food establishments allow you to customize your order via an app or kiosk. These often provide options well beyond __A, B or C__ static menu options. For example, options for sandwich establishments often allow the customer to design their own sandwich at the app/kiosk. The app/kiosk might start with the concept of a sandwich, but then the customer can choose bread, meat, cheese, condiments, etc. Or for simplicity, a sandwich configuration might be predefined, and the customer only needs to choose optional condiments.
 
 # Summary
 This has laid the foundation for the Composable Design Patterns. Subsequent blogs will provide more concrete details with context as we explore them.
