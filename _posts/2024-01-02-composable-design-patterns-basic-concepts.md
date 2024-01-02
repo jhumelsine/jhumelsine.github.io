@@ -9,7 +9,7 @@ unlisted: true
 # Introduction
 This blog entry begins a new series of Design Patterns. I refer to these design patterns as Composable Design Patterns, which feature object composition. That is, behavior emerges from the interaction of a set objects organized in a cohesive pattern.
 
-Consider logic gates as shown above. Binary addition emerges from the interaction among these logic gates. Logic gates can be organized in different combinations from which emerges all behaviors electronic computers depend upon.
+Consider logic gates as shown above. Binary addition emerges from the interaction among these logic gates. Repeating patterns can be grouped into their own logical components, such as Full and Half Adders. Logic gates can be organized in different combinations from which emerges all behaviors electronic computers depend upon.
 
 # Code Reuse
 Code reuse has been the Holy Grail of software since I started my career in the mid-1980s. I recall a kick-off meeting from that time for the second release of a project. One of the project managers was giving us a pep talk. We were considering an almost entire rewrite of the first release. The project manager challenged us. Why did we have to start from scratch? The project manager didn’t just want evolutionary code. He wanted revolutionary code! For context, our project was written in C, and we just didn’t know how to design for reuse at the time.
@@ -39,15 +39,15 @@ Emergent behavior distributed across multiple cohesive objects is probably the m
 
 ## Inheritance versus Composition
 Inheritance and Composition both feature reuse, but they achieve it in different ways:
-* Inheritance is vertical single-path static class reuse via language constructs configured at compile time.
-* Composition is horizontal multiple-path vertical single-path object reuse via object delegation configured at runtime.
+* Inheritance is vertical single static class reuse via language constructs configured at compile time.
+* Composition is horizontal multiple dynamic object reuse via object delegation configured at runtime.
 
 The use of vertical and horizontal visual comes from UML class diagrams. We tend to draw inheritance vertically can composition horizontally.
 
 # Atoms and Molecules and Minecraft
 <img src="https://cdn.stocksnap.io/img-thumbs/960w/dna-helix_CHEZDDXUJY.jpg" alt="DNA Molecules" title="Image Source: https://cdn.stocksnap.io/img-thumbs/960w/dna-helix_CHEZDDXUJY.jpg" width = "30%" align="right" style="padding-right: 35px;">
 
-A real-world example of composability is chemistry. Atoms are the low-level elements from which molecules can be assembled to produce all kinds of chemical behaviors, including life. Our low-level objects are like elements on the Periodic Table. Each has a unique limited-scoped behavior. Then low-level objects can be assembled to create more complex behaviors. Just as many different complex molecules spring forth from the finite set of elements in the Periodic Table, many different complex behaviors can spring forth from the finite set of low-level objects.
+A real-world example of composability is chemistry. Atoms are the low-level elements from which molecules can be assembled to produce all kinds of chemical behaviors, including life. Our low-level objects are like elements on the Periodic Table. Each has a unique simple behavior. Then low-level objects can be assembled to create more complex behaviors from the simple behaviors. Just as many different complex molecules spring forth from the finite set of elements in the Periodic Table, many different complex behaviors can spring forth from the finite set of low-level objects.
 
 Object composition is front-and-center in Minecraft with its redstone material as described on the [Minecraft Wikipedia](https://en.wikipedia.org/wiki/Minecraft) page:
 > The game also contains a material known as redstone, which can be used to make primitive mechanical devices, electrical circuits, and logic gates, allowing for the construction of many complex systems.
@@ -66,6 +66,7 @@ Regardless of the name, here are the patterns, which I feel most highlight the c
 * [Composite](https://sourcemaking.com/design_patterns/composite) - Compose objects into tree structures to represent whole-part hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.
 * [Specification](https://en.wikipedia.org/wiki/Specification_pattern) – A specification pattern outlines a business rule that is combinable with other business rules. This is not a GoF design pattern, but I feel it’s a good introduction to Interpreter.
 * [Interpreter](https://sourcemaking.com/design_patterns/interpreter) – Given a language, define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language. This pattern will require several blog entries.
+
 Additionally, there are some two additional creational patterns, which I may include in this series as well, since they are useful for these patterns:
 * [Builder](https://sourcemaking.com/design_patterns/builder) - Parse a complex representation, create one of several targets.
 * [Prototype](https://sourcemaking.com/design_patterns/prototype) - Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.
@@ -78,7 +79,7 @@ This means that the same implementation of classes can yield different behavior 
 ## Composition Basics
 The Composable Design Patterns are an extension of several Essential Design Patterns such as [Command](https://jhumelsine.github.io/2023/09/18/command-design-pattern.html), [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html), [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html) and a little bit of [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html). These patterns feature concrete classes, which implement an interface or extend an abstract class.
 
-The Composable Design Patterns feature similar concrete classes as well as delegation, except that the delegation is self-referential. They delegate to other elements in the design often their root interface or class.
+The Composable Design Patterns feature similar concrete classes as well as delegation, except that the delegation is self-referential. They delegate to elements in the design often their root interface or class.
 
 Here’s a UML class diagram that highlights this self-referential delegation. Each of the specific Composable Design Patterns will be slightly different based upon their own contexts than this example, but they will contain similar structures:
 
@@ -88,7 +89,9 @@ Here’s a UML class diagram that highlights this self-referential delegation. E
 * The self-referential nature of `Composable` means that one instance of `Composable` can delegate to other instances of `Composable`. This allows the set of composed objects to be as small or as large as needed. This configuration flexibility is the power behind these patterns.
 * The [`Configurer`](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) is critical to the Composable Design Patterns, and it’s never featured by the GoF in their design patterns. It’s the component that instantiates the objects, assembles their configuration, and injects the “root” instance into the `Client`. The `Configurer` manages the entire design. Without it, the classes in these patterns only have potential. The `Configurer` knows the context of each application, and it instantiates and assembles the low-level objects to satisfy that context.
 * From the `Client`’s point of view, it has knowledge of a single reference to `Feature` upon which it calls `execute()`. It has no knowledge whatsoever of the design or configuration on the other side of `Feature`. The composition may consist of a single object or thousands of objects. This encapsulation supports the flexibility of these patterns, since the `Client` has no dependencies beyond the `Feature` contract.
+  
 Non-`Configurer` concrete classes only know about interfaces. New concrete classes can be added without affecting existing classes or existing configurations. All the classes can be easily unit tested.
+
 The classes in these patterns tend to be stateless. Each can be viewed as a pure function. Therefore, their composition can be viewed as a composition of pure functions. This makes them ideal for concurrent implementations. Multiple threads can execute simultaneously within the set of objects. The composition might only need to be composed once and then used repeatedly by many threads without additional concern.
 
 # Computation and Coordination
@@ -113,7 +116,7 @@ The __computation/coordination model__ concept will continue throughout the Desi
 * Coordination Model - This is object composition. This is instantiating concrete objects from the computational model and coordinating their assembly to produce the desired behaviors, which have the potential for customer customization.
 
 # Use Cases for Composability Design Patterns
-These patterns are marvelous. A relatively small finite implementation provides so much functional potential. These patterns not only provide the potential means of code reuse for new features, but they also provide the possibility of customized features for customers and users as well.
+These patterns are marvelous. A relatively small implementation provides so much functional potential. These patterns not only provide the potential means of code reuse for new features, but they also provide the possibility of customized features for customers and users as well.
 
 Customized rule or policy-based behaviors are possible. With care, a single code base can support different policy requirements for different customers or even users. Policy behavior can be supported independently for different users and be changed without having to change the implementation. This is not the same as config values, feature flags or branching logic in the implementation. Policy based behaviors tend to reside in specifications, which are rendered as different configuration assemblies from a finite set of implementation objects.
 
@@ -132,10 +135,10 @@ User data rights are highly rule/policy based. User data rights are subject to e
 A rule/policy-based implementation for user data rights would consist of individual specific low-level user data rights behaviors that are configured into composable behaviors that manage each user's specific rights. As policies change, the specification for the composition would change, which may not require implementation updates. If regulations require new low-level user data rights classes, then they can be added without touching or affecting the existing low-level classes or their object composites until new composite specifications are defined that include those new low-level classes.
 
 ## Self-Service Apps and Kiosks
-<img src="https://live.staticflickr.com/215/457310711_01c0977e79_b.jpg" alt="Fast-Food Kiosk" title="Image Source: https://www.flickr.com/photos/slworking/457310711" width = "30%" align="left" style="padding-right: 35px;">
+<img src="https://live.staticflickr.com/215/457310711_01c0977e79_b.jpg" alt="Fast-Food Kiosk" title="Image Source: https://www.flickr.com/photos/slworking/457310711" width = "35%" align="left" style="padding-right: 35px;">
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Dagwood_Sandwich.svg/489px-Dagwood_Sandwich.svg.png?20200322074015" alt="Dagwood Sandwich" title="Image Source: https://commons.wikimedia.org/wiki/File:Dagwood_Sandwich.svg" width = "20%" align="right" style="padding-right: 35px;">
 
-Many fast-food establishments allow you to customize your order via an app or kiosk. These often provide options well beyond __A, B or C__ static menu options. For example, options for sandwich establishments often allow the customer to design their own sandwich at the app/kiosk. The app/kiosk might start with the concept of a sandwich, but then the customer can choose bread, meat, cheese, condiments, etc. Or for simplicity, a sandwich configuration might be predefined, and the customer only needs to choose optional condiments.
+Many fast-food establishments allow you to customize your order via an app or kiosk. These often provide options well beyond __A__, __B__ or __C__ static menu options. For example, options for sandwich establishments often allow the customer to design their own sandwich at the app/kiosk. The app/kiosk might start with the concept of a sandwich, but then the customer can choose bread, meat, cheese, condiments, etc. Or for simplicity, a sandwich configuration might be predefined, and the customer only needs to choose optional condiments.
 
 # Summary
 This has laid the foundation for the Composable Design Patterns. Subsequent blogs will provide more concrete details with context as we explore them.
