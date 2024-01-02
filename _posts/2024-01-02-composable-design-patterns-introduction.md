@@ -82,7 +82,7 @@ The Composable Design Patterns feature similar concrete classes as well as deleg
 Here’s a UML class diagram that highlights this self-referential delegation. Each of the specific Composable Design Patterns will be slightly different based upon their own contexts than this example, but they will contain similar structures:
 
 ADD IMAGE HERE
-![Hexagonal Architecture](/asserts/ComposableDesignPatternsIntroduction.png)
+![Composable Design Patterns Template](/assets/ComposableDesignPatternsIntroduction.png)
  
 * `Composable` is self-referential because it both implements `Feature` and delegates to `Feature`. That is, it’s a `Feature` class that delegates to the `Feature` interface. This is not a circular dependency, even if it feels like it at first. Follow the dependency arrowheads connecting `Feature` and `Composable`. They both flow from `Composable` to `Feature`. This delegate reference is the only new feature. If it were removed, we’d have a UML class diagram for Strategy.
 * The self-referential nature of `Composable` means that one instance of `Composable` can delegate to other instances of `Composable`. This allows the set of composed objects to be as small or as large as needed. This configuration flexibility is the power behind these patterns.
