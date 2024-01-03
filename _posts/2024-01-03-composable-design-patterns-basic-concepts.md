@@ -1,7 +1,6 @@
 ---
 title: Composable Design Patterns – Basic Concepts
 description: Code reuse and dynamic flexibility via composition
-unlisted: true
 ---
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Four_bit_adder_with_carry_lookahead.svg" alt="Full Adder Logic Gates" title="Image Source: https://www.wikiwand.com/en/Logic_gate#Media/File:Four_bit_adder_with_carry_lookahead.svg" width = "45%" align="center" style="padding-right: 35px;">
