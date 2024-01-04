@@ -1,6 +1,7 @@
 title: Design Pattern Evangelist Blog
 description: Smart pointers about software design.
 remote_theme: pages-themes/cayman@v0.2.0
+future: true
 plugins:
 - jekyll-remote-theme
 defaults:
