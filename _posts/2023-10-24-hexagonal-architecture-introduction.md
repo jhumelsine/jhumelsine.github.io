@@ -118,7 +118,7 @@ Here are some free online video resources:
 * [The Principles of Clean Architecture by Uncle Bob Martin](https://www.youtube.com/watch?v=o_TH-Y78tt4)
 * [ITkonekt 2019 Robert C. Martin (Uncle Bob), Clean Architecture and Design](https://www.youtube.com/watch?v=2dKZ-dWaCiU)
 * [Robert C Martin - Clean Architecture and Design](https://www.youtube.com/watch?v=Nsjsiz2A9mg)
-* [More Testable Code with the Hexagonal Architecture](https://www.youtube.com/watch?v=ujb_O6myknY))
+* [More Testable Code with the Hexagonal Architecture](https://www.youtube.com/watch?v=ujb_O6myknY)
 
 Here are some resources that can be purchased or are included in a subscription service:
 * **Clean Architecture** by Bob Martin ([Amazon](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164) and [O'Reilly](https://learning.oreilly.com/library/view/clean-architecture-a/9780134494272/))
