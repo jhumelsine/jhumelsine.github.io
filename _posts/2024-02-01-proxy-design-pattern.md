@@ -21,12 +21,12 @@ If the developer knows enough to describe administrative care in the documentati
 The Proxy Design Pattern is a way to add an administrative wrapper layer around basic functionality, so that the client developer won’t have to deal with it. It’s akin to a diplomatic ambassador who’s the proxy for the government he or she represents.
 
 # Structure
-I lauded the flexibility one gets with [Composable Design Pattern(https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html). We’re not going to quite see that flexibility with Proxy.
+I lauded the flexibility one gets with [Composable Design Pattern](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html). We’re not going to quite see that flexibility with Proxy.
 
 I mostly include Proxy with the Composability patterns since it’s a steppingstone toward the composability and flexibility that we’ll eventually see.
 Here is my UML Class Diagram rendition of the Gang of Four (GoF) provided in their Design Pattern book:
 * The Proxy Design Pattern is an extension of the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html). The only addition is the delegation from `Proxy` to `ConcreteFeature`.
-`ConcreteFeature` represents the resource intensive class.
+* `ConcreteFeature` represents the resource intensive class.
 * `Proxy` is the administrative wrapper. It delegates most functionality to `ConcreteFeature`, but it performs additional functions, often administrative, before and/or after the delegation.
 * `Client` doesn’t know about either concrete class. It only knows about the `Feature` interface.
 * Both `ConcreteFeature` and `Proxy` implement `Feature`, meaning that any references to `Feature` will work with a reference to the `Proxy`->`ConcreteFeature` pair or with a reference to just `ConcreteFeature` in cases where the `Proxy` wrapper isn’t required.
