@@ -86,7 +86,7 @@ How can client code correctly manage memory when it doesn’t even know how the 
 I returned to API principles once more. Consider this from the client’s point of view. What does the client code know and what can it easily do? The client code knows when it’s done with an object. It may not know how to manage the memory, but it can let another entity with memory management knowledge know that it is releasing its claim to that object.
 
 Much in the same way that there’s a creational method that acquires an instance, I introduced a matching method that allows the client code to release it. The API might look something like this:
-``` (java)
+```java
 class Factory {
     public static Feature acquire() {
         // Acquire a Feature instance using any creational mechanism desired.
