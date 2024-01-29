@@ -1,15 +1,16 @@
 ---
 title: Proxy Design Patterns
-description: Provide a substitute or placeholder for a resource intensive object.
+description: Provide a substitute or placeholder for an object, possibly a resource intensive object.
 unlisted: true
 ---
 
 <img src="/assets/ProxyAmbassador.png" alt="Ambassador as a Proxy" width = "50%" align="center" style="padding-right: 20px;">
 
 # Introduction
-The Proxy Design Pattern is the first one of the [Composable Design Pattern](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html) series.
+The Proxy Design Pattern is the first composable design pattern of the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html) series.
 
-Sometimes objects need some additional administration care beyond their basic functionality. The uncaring designer will shift that burden onto the client developer possibly clearing his/her conscious by describing what needs to be done for proper administration in documentation.
+Sometimes objects need additional administration care beyond their basic functionality. The uncaring designer will shift that burden onto the client developer possibly clearing his/her own conscious by describing what needs to be done for proper administration in documentation.
+
 There are a few potential problems with relying upon documentation alone:
 * The client developer may not read that documentation.
 * The client developer may read it, but not fully understand it or correctly implement it.
@@ -21,9 +22,10 @@ If the developer knows enough to describe administrative care in the documentati
 The Proxy Design Pattern is a way to add an administrative wrapper layer around basic functionality, so that the client developer won’t have to deal with it. It’s akin to a diplomatic ambassador who’s the proxy for the government he or she represents.
 
 # Structure
-I lauded the flexibility one gets with [Composable Design Pattern](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html). We’re not going to quite see that flexibility with Proxy.
+I lauded the flexibility one gets with [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html). We’re not going to quite see that flexibility with Proxy.
 
-I mostly include Proxy with the Composability patterns since it’s a steppingstone toward the composability and flexibility that we’ll eventually see.
+I mostly include Proxy with the Composable patterns since it’s a steppingstone toward the concept of composability and flexibility that we’ll eventually see.
+
 Here is my UML Class Diagram rendition of the Gang of Four (GoF) provided in their Design Pattern book:
 * The Proxy Design Pattern is an extension of the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html). The only addition is the delegation from `Proxy` to `ConcreteFeature`.
 * `ConcreteFeature` represents the resource intensive class.
@@ -39,8 +41,8 @@ I have a few issues with the GoF’s diagram as shown above:
 * There is no indication how the `Client` resolves its reference to `Feature`.
 
 Here’s my updated UML Class Diagram to address some of my issues with their version:
-* I’ve added more details, especially with the `Configurer` and construction. This is not the only way to construct these objects. It’s just one example.
-* The constructors for `Client` and `Proxy` throw an exception when their `Feature` argument is null. This removes the need for a null check in `execute()` or any other place where `feature` is referenced in the classes. I won't repeat this technique in other diagrams due to space concerns.
+* I’ve added a `Configurer` with some sample code. This is not the only way to construct these objects. It’s just one example.
+* The constructors for `Client` and `Proxy` throw an exception when their `Feature` argument is null. This removes the need for a null check in `execute()` or any other place where `feature` is referenced in the classes. I won't repeat this technique in other diagrams due to space constraints.
 * `Proxy` delegates to `Feature` rather than `ConcreteFeature`. This creates more possibilities, which will be featured in future design patterns.
 * The diamond has been removed.
 
@@ -48,14 +50,14 @@ Here’s my updated UML Class Diagram to address some of my issues with their ve
  
 The instantiated `client` will have a `feature` reference to a `Proxy` instance, which will have a `feature` to a `ConcreteFeature` instance. When `client` makes a call to `feature.execute()`, `Proxy`’s `execute()` will run any code before calling its `feature.execute()`. When the `Proxy` instance calls `feature.execute()`, `ConcreteFeature`’s `execute()` will run its code. It will return to `Proxy` which will run any additional optional code, and then it will return back to `client`.
 
-This diagram is a more detailed example of what I provide previously in [Composable Design Pattern](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html):
+This diagram is a more detailed example of what I provide previously in [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html):
 
 <img src="/assets/ComposableDesignPatternsIntroduction.png" alt="Composable Pattern Template" width = "40%" align="center" style="padding-right: 20px;">
  
 # Lazy Initialization
 Administrative care is probably the most common context for the Proxy Design Pattern, but it’s not necessarily the only one.
 
-Imagine you have a class that requires significant resources when instantiated. You may not wish instantiate an object until you’re ready to invoke it. This is [Lazy Initialization](https://en.wikipedia.org/wiki/Lazy_initialization) and a type of administrative care.
+Imagine you have a class that requires significant resources when instantiated. You may not wish instantiate an object until you’re ready to invoke it. This is [Lazy Initialization](https://en.wikipedia.org/wiki/Lazy_initialization) — a type of administrative care.
 
 Lazy Initialization allows a developer to manage resource allocation with more nuance, but it requires additional coding overhead. The Proxy Design Pattern allows us to move the Lazy Initialization implementation into a separate proxy class so that the client developer won’t have to add that additional overhead.
 
@@ -79,12 +81,12 @@ They defined several creational design patterns to encapsulate `new()` from the 
 
 This isn’t a major issue until the designer decides that a different creational design pattern might be a better choice. Then what? Change the existing method name to match the new creational pattern and break the API for any existing client code? Maintain the existing method name and imply a creation mechanism that’s no longer applicable? Neither choice is ideal.
 
-Let’s return to API principles. An API should be designed from the client’s point of view, not the designers. Therefore, design the Creational API as one should for all APIs. The client code doesn’t care about the creational design pattern. That’s the concern of the designer. The client code only desire is to acquire an object instance. 
+Let’s return to API principles. An API should be designed from the client’s point of view, not the designers. Therefore, design the Creational API as one should for all APIs. The client code doesn’t care about the creational design pattern or its implementation details. That’s the concern of the designer. The client code only desire is to acquire an object instance. 
 
-I started to use `acquire()` for all of my creational method names, regardless of the actual creational mechanism being used. The name can still be modified for client context, for example: `acquireByName(Name name)`.
+I started to use `acquire()` for all of my creational method names, regardless of the actual creational mechanism being used. The name can still be modified for additional client context, for example: `acquireByName(Name name)`.
 
 ## The Sin of Omission
-I was a C++ developer when I learned the design patterns around 2004. Memory management was always a major concern with C++. The GoF don’t address memory management in their design pattern book, and C++ is one of their two demonstration languages. Some of their C++ examples leak memory.
+I was a C++ developer when I learned the design patterns in 2004. Memory management was always a major concern with C++. The GoF don’t address memory management in their design pattern book, and C++ is one of their two demonstration languages. Some of their C++ examples leak memory.
 
 Some creation mechanisms required memory clean up, whereas others did not. How would the client code know when to delete memory or not, especially with my creational agnostic `acquire()` method name, which provided no clues as to whether the returned object should be deleted or not.
 
@@ -93,7 +95,7 @@ Is memory management really the responsibility for the client code, especially w
 
 How can client code correctly manage memory when it doesn’t even know how the mechanism that acquired that acquired that memory in the first place?
 
-I returned to API principles once more. Consider this from the client’s point of view. What does the client code know and what can it easily do? The client code knows when it’s done with an object. It may not know how to manage the memory, but it can let another entity with memory management knowledge know that it is releasing its claim to that object.
+I returned to API principles once more. Consider this from the client’s point of view. What does the client code know, and what can it easily do? The client code knows when it’s done with an object. It may not know how to manage the memory or any other resources being used by the object, but it can let another entity with resource management knowledge know that it is releasing its claim to that object.
 
 Much in the same way that there’s a creational method that acquires an instance, I introduced a matching method that allows the client code to release it. The API might look something like this:
 ```java
@@ -117,11 +119,11 @@ Here’s a UML class diagram of how this could be designed:
 <img src="/assets/ProxyAcquireRelease.png" alt="Factory with acquire() and release()" width = "80%" align="center" style="padding-right: 20px;">
 
 ## I don’t trust other developers. Heck, I don’t trust myself.
-This works, except for one minor problem - the technique only resides in the design. It is not a common practice. Developers have to remember to call `release(Feature feature)` consistently. That’s not going to happen. I doubt that I’d even remember to call it consistently.
+This works, except for one minor problem - the technique cannot be enforced, and it is not a common practice. Developers have to remember to call `release(Feature feature)` consistently. That’s not going to happen. I doubt that I’d even remember to call it consistently.
 
 Even if developers take every effort to call `release(…)` consistently, there’s still the issue of another developer adding a return before the `release(…)` or a premature Exception that bails out of the method before `release(…)` has been called.
 
-This is an insidious memory leak. The code will work even when `release(…)` is not called, so any issues are unlikely to be caught with testing. The code will still work in production for a while, but memory will be leaking. Memory resource exhaustion won’t manifest like a tire blowout while driving on the highway. It will manifest like a flat tire in the parking lot when leaving the office.
+This is an insidious resource/memory leak. The code will work even when `release(…)` is not called, so any issues are unlikely to be caught with testing. The code will still work in production, for a while, but resources and memory will be leaking. Resource exhaustion won’t manifest like a tire blowout while driving on the highway. It will manifest like a slowly leaking flat tire in the parking lot.
 
 ## What Other Tools Are in our Toolbox?
 __CAVEAT: I have not been a C++ developer for over 10 years, and I was using an old release of C++ even then. Mechanisms for C++ resource management may have changed quite a bit since then. What I’m about to describe may not be current state of the art.__
@@ -144,20 +146,20 @@ I wanted to continue using it even when I moved to a Java environment. I remembe
 
 For the most part, we don’t need to worry about memory in Java, but what about open()/close() concepts in Java that aren’t memory?
 
-The try/finally block helped with this, but it was a bit awkward. Java’s Try with resources is better. With TWR, a Closeable or AutoCloseable object is created in a try block. When it exists, the object’s `close()` method will be executed, and any additional resource management can be done there. TWR is basically RAII when you can’t explicitly create an object on the call stack.
+The try/finally block can do this, but it was a bit awkward. Java’s try-with-resources is a better option. With try-with-resources, an AutoCloseable object is created in a try block. When exiting the try block, the object’s `close()` method will be executed, and any additional resource management can be done there. Try-with-resources is basically RAII when you can’t explicitly create an object on the call stack.
 
-But what if you have a class that requires resource cleanup management, but it’s not Closeable or AutoCloseable? You can’t use TWR directly, and the class may be outside of your scope to update? This sounds like the perfect place for a Proxy.
+But what if you have a class that requires resource cleanup management, but it’s not AutoCloseable? You can’t use try-with-resources directly with that class without modification. And the class may be external so that you cannot modify it. This sounds like the perfect place for a Proxy.
 
 Here’s what the UML class diagram might look like:
-* `ConcreteExternalFeature` is colored red, to indicate that it’s external, and you cannot modify it to make closeable.
-* `ExternalFeature` is an interface, and it’s also red, since it’s external. `releaseResources()` has a comment that it should always be called to release resources, but there’s no enforcement mechanism other than strongly encouraging developers to perform call it.
-* `ExternalFeatureProxy` implements `ExternalFeature` and delegates to its `ConcreteExternalFeature` attribute. `ExternalFeatureProxy` also implements `Closeable`, which means that it must implement `close()` as well. Its `close()` implementation calls `releaseResources()`.
-* There’s no guarantee that `ExternalFeatureProxy` will have this amount of access to external APIs. Other techniques may be required based upon scoped accessibility.
-* `Client` can now leverage try-with-resources even if the external feature doesn’t support it. When leaving the try scope, `ExternalFeatureProxy`’s `close()` method will be called, which will then release the external resources via its call to `releaseResources()`.
+* `ConcreteExternalFeature` is colored red, to indicate that it’s external, and you cannot modify it to make `AutoCloseable`.
+* `ExternalFeature` is an interface, and it’s also red, since it’s external. `releaseResources()` has a comment that it should always be called to release resources, but there’s no enforcement mechanism other than strongly encouraging developers to call it.
+* `ExternalFeatureProxy` implements `ExternalFeature` and delegates to its `ConcreteExternalFeature` attribute. `ExternalFeatureProxy` also implements `AutoCloseable`, which means that it must implement `close()` as well. Its `close()` implementation calls `releaseResources()`.
+* There’s no guarantee that `ExternalFeatureProxy` will have this amount of access to external APIs as shown. For example, there may not be an `ExternalFeature` interface, and `ConcreteExternalFeature` may be `final`, which can constraint what you can do. Other techniques may be required.
+* `Client` can now leverage try-with-resources even if `ExternalFeature` doesn’t support it. When leaving the try scope, `ExternalFeatureProxy`’s `close()` method will be called, which will then release the external resources via its call to `releaseResources()`.
 
 <img src="/assets/ProxyCloseable.png" alt="" width = "80%" align="center" style="padding-right: 20px;">
 
-# Other Admins
+# Other Administrative Concerns for Proxy
 Lazy Initialization and “Stack” Memory Management aren’t the only administrative concerns for Proxy. Proxy could also be used for a Cache, Remote Method Invocation helpers, etc.
 
 But we have a minor issue. In its traditional presentation, there’s only one Proxy class. What if the Concrete Class has multiple administrative concerns? The next pattern, Decorator, will address this. My UML Class Diagram for Proxy hints at a solution when Proxy delegates to Feature rather than ConcreteFeature. Sit tight for Decorator.
