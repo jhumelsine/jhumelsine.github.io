@@ -166,7 +166,7 @@ There are many online resources with diagrams and implementations in different p
   * [Abstract Factory](https://www.pmi.org/disciplined-agile/the-design-patterns-repository/the-abstract-factory-pattern)
   * [Builder](https://www.pmi.org/disciplined-agile/the-design-patterns-repository/the-builder-pattern)
   * [Singleton](https://www.pmi.org/disciplined-agile/the-design-patterns-repository/the-singleton-pattern)
-* and for more Google [Creational Design Pattern](https://www.google.com/search?q=creational+design+patterns)
+* and for more, Google: [Creational Design Pattern](https://www.google.com/search?q=creational+design+patterns)
 
 Here are some resources that can be purchased or are included in a subscription service:
 * [Gang of Four Creational Design Patterns](https://learning.oreilly.com/library/view/design-patterns-elements/0201633612/ch03.html)
