@@ -1,6 +1,6 @@
 ---
 title: Proxy Design Patterns
-description: Provide a substitute or placeholder for an object, possibly a resource intensive object.
+description: Provide a wrapper administrative object to for complex objects often to help manage their resources.
 unlisted: true
 ---
 
@@ -90,7 +90,7 @@ I was a C++ developer when I learned the design patterns in 2004. Memory managem
 
 Some creation mechanisms required memory clean up, whereas others did not. How would the client code know when to delete memory or not, especially with my creational agnostic `acquire()` method name, which provided no clues as to whether the returned object should be deleted or not.
 
-Is memory management really the responsibility for the client code, especially when the client code doesn’t know how the memory was allocated in the first place? I don’t think it is. I had done some CORBA development in C++ a few years before learning the design patterns. CORBA thrusts a lot of mysterious memory management upon developers. I was never quite sure if I was releasing memory correctly or not. I always resented it. From: The Rise and Fall of CORBA:
+Is memory management really the responsibility for the client code, especially when the client code doesn’t know how the memory was allocated in the first place? I don’t think it is. I had done some [CORBA](https://en.wikipedia.org/wiki/Common_Object_Request_Broker_Architecture) development in C++ a few years before learning the design patterns. CORBA thrusts a lot of mysterious memory management upon developers. I was never quite sure if I was releasing memory correctly or not. I always resented it. From: [The Rise and Fall of CORBA](https://queue.acm.org/detail.cfm?id=1142044):
 > Another problem area is the C++ language mapping. The mapping is difficult to use and contains many pitfalls that lead to bugs, particularly with respect to thread safety, exception safety, and memory management. A number of other examples of overly complex and poorly designed APIs can be found in the CORBA specification, such as the naming, trading, and notification services, all of which provide APIs that are error-prone and difficult to use.
 
 How can client code correctly manage memory when it doesn’t even know how the mechanism that acquired that acquired that memory in the first place?
@@ -128,14 +128,14 @@ This is an insidious resource/memory leak. The code will work even when `release
 ## What Other Tools Are in our Toolbox?
 __CAVEAT: I have not been a C++ developer for over 10 years, and I was using an old release of C++ even then. Mechanisms for C++ resource management may have changed quite a bit since then. What I’m about to describe may not be current state of the art.__
 
-C++ has an idiom called Resource Allocation Is Instantiation (RAII). It’s a horrible name, but it’s a great technique. Unlike Java, C++ allocates local objects on the call stack. When the call stack pops, the deconstructor for any local objects is called, and their resources are restored. This happens on any return or a thrown Exception.
+C++ has an idiom called [Resource Allocation Is Instantiation (RAII)](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization). It’s a horrible name, but it’s a great technique. Unlike Java, C++ allocates local objects on the call stack. When the call stack pops, the deconstructor for any local objects is called, and their resources are restored. This happens on any return or a thrown Exception.
 
 I leveraged RAII along with Proxy to eliminate the burden of the client code having to call `release(…)`. Here’s the basic design:
 * `Client` no longer needs to be concerned about `Factory.acquire()` and more importantly, it’s no longer concerned about `Factory.release(…)`. `Client` does not even know that `Factory` exists.
 * The `Client` manages its `FeatureAPI` instance as it would any other instance. In the C++ example, this would probably be as a local object on the call stack. But even if the `Client` code developer decided to `new()` the `FeatureAPI`, then the developer would also be taking on the responsibility to `delete` it as well. Regardless, these are techniques that are in the first chapters of every C++ introduction book written. Memory management is no longer a specialized case. It’s the language standard.
 * `FeatureAPI` is a proxy. It delegates to `Factory` to acquire and release its Feature attribute.
 * When `FeatureAPI` is popped off the stack, it will release its Feature attribute.
-* __NOTE: I designed this long before I understood Dependency Injection and Dependency Inversion Principle. Therefore, it violates some of those principles. For example, the `Client` still has indirect dependency upon every element in the entire design. It’s more difficult to unit test it in isolation. Other design modifications may address this, but I’m not going to concern myself with them now.__
+* __NOTE: I designed this long before I understood [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection) and [Dependency Inversion Principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle). Therefore, it violates some of those principles. For example, the `Client` still has indirect dependency upon every element in the entire design. It’s more difficult to unit test it in isolation. Other design modifications may address this, but I’m not going to concern myself with them now.__
 
 <img src="/assets/ProxyRAII.png" alt="Factory with acquire() and release()" width = "80%" align="center" style="padding-right: 20px;">
  
@@ -146,7 +146,7 @@ I wanted to continue using it even when I moved to a Java environment. I remembe
 
 For the most part, we don’t need to worry about memory in Java, but what about open()/close() concepts in Java that aren’t memory?
 
-The try/finally block can do this, but it was a bit awkward. Java’s try-with-resources is a better option. With try-with-resources, an AutoCloseable object is created in a try block. When exiting the try block, the object’s `close()` method will be executed, and any additional resource management can be done there. Try-with-resources is basically RAII when you can’t explicitly create an object on the call stack.
+The try/finally block can do this, but it was a bit awkward. Java’s [try-with-resources](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html) is a better option. With try-with-resources, an [AutoCloseable](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html) object is created in a try block. When exiting the try block, the object’s `close()` method will be executed, and any additional resource management can be done there. Try-with-resources is basically RAII when you can’t explicitly create an object on the call stack.
 
 But what if you have a class that requires resource cleanup management, but it’s not AutoCloseable? You can’t use try-with-resources directly with that class without modification. And the class may be external so that you cannot modify it. This sounds like the perfect place for a Proxy.
 
