@@ -1,6 +1,6 @@
 ---
 title: Proxy Design Patterns
-description: Provide administrative wrapper objects around complex objects often to help manage their resources.
+description: Provide administrative wrapper objects around complex objects often to help manage their complexity or resources.
 unlisted: true
 ---
 
