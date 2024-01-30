@@ -169,6 +169,16 @@ Proxy provides a mechanism to manage some administrative concerns in the design 
 
 # References
 There are many online resources with diagrams and implementations in different programming languages. Here are some free resources:
-* TBD
+* [Wikipedia Proxy Design Pattern](https://en.wikipedia.org/wiki/Proxy_pattern)
+* [Source Making Proxy Design Pattern](https://sourcemaking.com/design_patterns/proxy)
+* [Refactoring Guru Proxy Design Pattern](https://refactoring.guru/design-patterns/proxy)
+* [Project Management Institute Proxy Design Pattern](https://www.pmi.org/disciplined-agile/the-design-patterns-repository/the-proxy-pattern)
+* [Learn CS Design Proxy Design Patter](https://www.learncsdesign.com/learn-the-proxy-design-pattern/)
+* [Baeldung Proxy Design Pattern](https://www.baeldung.com/java-proxy-pattern)
+* [Dofactory C# Proxy Design Pattern](https://www.dofactory.com/net/proxy-design-pattern)
+* [Patterns.dev Proxy Design Pattern](https://www.patterns.dev/vanilla/proxy-pattern/)
+* [JavaScript Patterns Proxy Design Pattern](https://javascriptpatterns.vercel.app/patterns/design-patterns/proxy-pattern)
+* and for more Google [Proxy Design Pattern](https://www.google.com/search?q=proxy+design+pattern)
+
 Here are some resources that can be purchased or are included in a subscription service:
 * TBD
