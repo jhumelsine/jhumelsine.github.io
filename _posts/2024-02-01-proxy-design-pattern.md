@@ -7,9 +7,9 @@ unlisted: true
 <img src="/assets/ProxyAmbassador.png" alt="Ambassador as a Proxy" width = "50%" align="center" style="padding-right: 20px;">
 
 # Introduction
-The Proxy Design Pattern is the first composable design pattern of the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html) series.
+The Proxy Design Pattern is the first design pattern of the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html) series.
 
-Sometimes objects need additional administration care beyond their basic functionality. The uncaring designer will shift that burden onto the client developer possibly clearing his/her own conscious by describing what needs to be done for proper administration in documentation.
+Sometimes objects need additional administration care beyond their core functionality. The uncaring designer will shift that burden onto the client developer possibly clearing his/her own conscious by describing what needs to be done for proper administration in documentation.
 
 There are a few potential problems with relying upon documentation alone:
 * The client developer may not read that documentation.
@@ -26,7 +26,7 @@ I lauded the flexibility one gets with [Composable Design Patterns](https://jhum
 
 I mostly include Proxy with the Composable patterns since it’s a steppingstone toward the concept of composability and flexibility that we’ll eventually see.
 
-Here is my UML Class Diagram rendition of the Gang of Four (GoF) provided in their Design Pattern book:
+Here is my UML Class Diagram rendition of the Gang of Four (GoF) diagram provided in their Design Pattern book:
 * The Proxy Design Pattern is an extension of the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html). The only addition is the delegation from `Proxy` to `ConcreteFeature`.
 * `ConcreteFeature` represents the resource intensive class.
 * `Proxy` is the administrative wrapper. It delegates most functionality to `ConcreteFeature`, but it performs additional functions, often administrative, before and/or after the delegation.
@@ -43,7 +43,7 @@ I have a few issues with the GoF’s diagram as shown above:
 Here’s my updated UML Class Diagram to address some of my issues with their version:
 * I’ve added a `Configurer` with some sample code. This is not the only way to construct these objects. It’s just one example.
 * The constructors for `Client` and `Proxy` throw an exception when their `Feature` argument is null. This removes the need for a null check in `execute()` or any other place where `feature` is referenced in the classes. I won't repeat this technique in other diagrams due to space constraints.
-* `Proxy` delegates to `Feature` rather than `ConcreteFeature`. This creates more possibilities, which will be featured in future design patterns.
+* `Proxy` delegates to `Feature` rather than `ConcreteFeature`. This creates more composition possibilities, which will be featured in future design patterns.
 * The diamond has been removed.
 
 <img src="/assets/ProxyMine.png" alt="Proxy via with my UML diagram" width = "80%" align="center" style="padding-right: 20px;">
@@ -59,7 +59,7 @@ Administrative care is probably the most common context for the Proxy Design Pat
 
 Imagine you have a class that requires significant resources when instantiated. You may not wish instantiate an object until you’re ready to invoke it. This is [Lazy Initialization](https://en.wikipedia.org/wiki/Lazy_initialization) — a type of administrative care.
 
-Lazy Initialization allows a developer to manage resource allocation with more nuance, but it requires additional coding overhead. The Proxy Design Pattern allows us to move the Lazy Initialization implementation into a separate proxy class so that the client developer won’t have to add that additional overhead.
+Lazy Initialization allows a developer to manage resource allocation with more nuance, but it requires additional coding overhead. The Proxy Design Pattern allows us to move the Lazy Initialization implementation into a separate proxy class so that the client developer won’t have to implement that additional overhead.
 
 Here’s a UML class diagram updated specifically for a Lazy Initialization Proxy:
 * `Proxy` is a bit different. Its `Feature feature` attribute is only initialized when the `execute()` method is executed.
@@ -75,20 +75,20 @@ The `Client` no longer needs to be concerned about the administration of `Concre
 I have a beef with several things in the GoF Design Patterns book.
 
 ## Lack of Encapsulation with Creational Design Pattern Method Names
-The GoF were obsessed with encapsulation. They emphasized that client code should only know about interfaces. It should not call `new()` directly, because that would require their direct knowledge of the concrete class.
+The GoF were obsessed with encapsulation. They emphasized that client code should only know about interfaces. The client code should not call `new()` directly, because that would require their direct knowledge of the concrete class.
 
 They defined several creational design patterns to encapsulate `new()` from the client code. However, most of their creational design pattern method names imply the creation design pattern being used. The public method names reflect the creation mechanism design rather than the client developer’s needs. While the concrete classes are encapsulated, the underlying creational mechanism may not be.
 
 This isn’t a major issue until the designer decides that a different creational design pattern might be a better choice. Then what? Change the existing method name to match the new creational pattern and break the API for any existing client code? Maintain the existing method name and imply a creation mechanism that’s no longer applicable? Neither choice is ideal.
 
-Let’s return to API principles. An API should be designed from the client’s point of view, not the designers. Therefore, design the Creational API as one should for all APIs. The client code doesn’t care about the creational design pattern or its implementation details. That’s the concern of the designer. The client code only desire is to acquire an object instance. 
+Let’s return to API principles. An API should be designed from the client’s point of view, not the designers. Therefore, design the Creational API as one should for any APIs. The client code doesn’t care about the creational design pattern or its implementation details. That’s the concern of the designer. The client code only desire is to acquire an object instance. 
 
 I started to use `acquire()` for all of my creational method names, regardless of the actual creational mechanism being used. The name can still be modified for additional client context, for example: `acquireByName(Name name)`.
 
 ## The Sin of Omission
 I was a C++ developer when I learned the design patterns in 2004. Memory management was always a major concern with C++. The GoF don’t address memory management in their design pattern book, and C++ is one of their two demonstration languages. Some of their C++ examples leak memory.
 
-Some creation mechanisms required memory clean up, whereas others did not. How would the client code know when to delete memory or not, especially with my creational agnostic `acquire()` method name, which provided no clues as to whether the returned object should be deleted or not.
+Some creation mechanisms required memory clean up, whereas others did not. How would the client code know when to delete memory or not, especially with my creational agnostic `acquire()` method name, which provided no clues as to whether the returned object should be deleted or not?
 
 Is memory management really the responsibility for the client code, especially when the client code doesn’t know how the memory was allocated in the first place? I don’t think it is. I had done some [CORBA](https://en.wikipedia.org/wiki/Common_Object_Request_Broker_Architecture) development in C++ a few years before learning the design patterns. CORBA thrusts a lot of mysterious memory management upon developers. I was never quite sure if I was releasing memory correctly or not. I always resented it. From: [The Rise and Fall of CORBA](https://queue.acm.org/detail.cfm?id=1142044):
 > Another problem area is the C++ language mapping. The mapping is difficult to use and contains many pitfalls that lead to bugs, particularly with respect to thread safety, exception safety, and memory management. A number of other examples of overly complex and poorly designed APIs can be found in the CORBA specification, such as the naming, trading, and notification services, all of which provide APIs that are error-prone and difficult to use.
@@ -135,7 +135,7 @@ I leveraged RAII along with Proxy to eliminate the burden of the client code hav
 * The `Client` manages its `FeatureAPI` instance as it would any other instance. In the C++ example, this would probably be as a local object on the call stack. But even if the `Client` code developer decided to `new()` the `FeatureAPI`, then the developer would also be taking on the responsibility to `delete` it as well. Regardless, these are techniques that are in the first chapters of every C++ introduction book written. Memory management is no longer a specialized case. It’s the language standard.
 * `FeatureAPI` is a proxy. It delegates to `Factory` to acquire and release its Feature attribute.
 * When `FeatureAPI` is popped off the stack, it will release its Feature attribute.
-* __NOTE: I designed this long before I understood [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection) and [Dependency Inversion Principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle). Therefore, it violates some of those principles. For example, the `Client` still has indirect dependency upon every element in the entire design. It’s more difficult to unit test it in isolation. Other design modifications may address this, but I’m not going to concern myself with them now.__
+* __NOTE: I designed this long before I understood [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection) and [Dependency Inversion Principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle). Therefore, it violates some of those principles. For example, the `Client` still has an indirect dependency upon every element in the entire design. It’s more difficult to unit test it in isolation. Other design modifications may address this, but I’m not going to concern myself with them now.__
 
 <img src="/assets/ProxyRAII.png" alt="Factory with acquire() and release()" width = "80%" align="center" style="padding-right: 20px;">
  
@@ -152,7 +152,7 @@ But what if you have a class that requires resource cleanup management, but it�
 
 Here’s what the UML class diagram might look like:
 * `ConcreteExternalFeature` is colored red, to indicate that it’s external, and you cannot modify it to make `AutoCloseable`.
-* `ExternalFeature` is an interface, and it’s also red, since it’s external. `releaseResources()` has a comment that it should always be called to release resources, but there’s no enforcement mechanism other than strongly encouraging developers to call it.
+* `ExternalFeature` is an interface, and it’s also red, since it’s external. `releaseResources()` has a comment that it should always be called to release resources, but there’s no enforcement mechanism other than strongly encouraging developers to call it. And that documentation isn't clear. Is this a statement that the designer needs to release all resources from this method? Is it a statement that the client code must call it to release those resources? Is it both? This is one small example where documentation may not be understood as intended.
 * `ExternalFeatureProxy` implements `ExternalFeature` and delegates to its `ConcreteExternalFeature` attribute. `ExternalFeatureProxy` also implements `AutoCloseable`, which means that it must implement `close()` as well. Its `close()` implementation calls `releaseResources()`.
 * There’s no guarantee that `ExternalFeatureProxy` will have this amount of access to external APIs as shown. For example, there may not be an `ExternalFeature` interface, and `ConcreteExternalFeature` may be `final`, which can constraint what you can do. Other techniques may be required.
 * `Client` can now leverage try-with-resources even if `ExternalFeature` doesn’t support it. When leaving the try scope, `ExternalFeatureProxy`’s `close()` method will be called, which will then release the external resources via its call to `releaseResources()`.
