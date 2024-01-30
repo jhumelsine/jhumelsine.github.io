@@ -146,7 +146,7 @@ I wanted to continue using it even when I moved to a Java environment. I remembe
 
 For the most part, we don’t need to worry about memory in Java, but what about open()/close() concepts in Java that aren’t memory?
 
-The try/finally block can do this, but it was a bit awkward. Java’s [try-with-resources](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html) is a better option. With try-with-resources, an [AutoCloseable](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html) object is created in a try block. When exiting the try block, the object’s `close()` method will be executed, and any additional resource management can be done there. Try-with-resources is basically RAII when you can’t explicitly create an object on the call stack.
+The try/finally block can do this, but it was a bit awkward. Java’s [try-with-resources](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html) is a better option. With try-with-resources, an [AutoCloseable](https://docs.oracle.com/javase/8/docs/api/java/lang/AutoCloseable.html) object is created in a try block. When exiting the try block, the object’s `close()` method will be executed, and any additional resource management can be done there. Try-with-resources is basically RAII when you can’t explicitly create an object on the call stack.
 
 But what if you have a class that requires resource cleanup management, but it’s not AutoCloseable? You can’t use try-with-resources directly with that class without modification. And the class may be external so that you cannot modify it. This sounds like the perfect place for a Proxy.
 
