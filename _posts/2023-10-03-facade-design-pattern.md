@@ -91,7 +91,7 @@ There are many online resources with diagrams and implementations in different p
 * [Refactoring Guru Façade Design Pattern](https://refactoring.guru/design-patterns/facade)
 * [DoFactory Façade Design Pattern](https://www.dofactory.com/net/facade-design-pattern)
 * [Project Management Institute Façade Design Pattern](https://www.pmi.org/disciplined-agile/the-design-patterns-repository/the-facade-pattern)
-* and for more Google [Adapter Design Pattern](https://www.google.com/search?q=adapter+design+pattern)
+* and for more, Google: [Adapter Design Pattern](https://www.google.com/search?q=adapter+design+pattern)
 
 Here are some resources that can be purchased or are included in a subscription service:
 * [Gang of Four Adapter Design Pattern](https://learning.oreilly.com/library/view/design-patterns-elements/0201633612/ch04.html#page_192)
