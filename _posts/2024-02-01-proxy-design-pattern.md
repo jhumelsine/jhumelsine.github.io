@@ -178,7 +178,10 @@ There are many online resources with diagrams and implementations in different p
 * [Dofactory C# Proxy Design Pattern](https://www.dofactory.com/net/proxy-design-pattern)
 * [Patterns.dev Proxy Design Pattern](https://www.patterns.dev/vanilla/proxy-pattern/)
 * [JavaScript Patterns Proxy Design Pattern](https://javascriptpatterns.vercel.app/patterns/design-patterns/proxy-pattern)
-* and for more Google [Proxy Design Pattern](https://www.google.com/search?q=proxy+design+pattern)
+* and for more, Google: [Proxy Design Pattern](https://www.google.com/search?q=proxy+design+pattern)
 
 Here are some resources that can be purchased or are included in a subscription service:
-* TBD
+* [Gang of Four Proxy Design Pattern](https://learning.oreilly.com/library/view/design-patterns-elements/0201633612/ch04.html#page_207)
+* Agile Principles, Patterns, and Practices in C#, Chapter 34 ([O'Reilly](https://learning.oreilly.com/library/view/agile-principles-patterns/0131857258/ch34.xhtml) and [Amazon](https://www.amazon.com/Agile-Principles-Patterns-Practices-C/dp/0131857258))
+* Clean Code: Design Patterns, Episode 32 video ([Clean Coders](https://cleancoders.com/episode/clean-code-episode-32) and [O'Reilly](https://learning.oreilly.com/videos/clean-code-fundamentals/9780134661742/9780134661742-code_03_32_00/))
+* Head First Design Patterns, Chapter 11 ([O'Reilly](https://learning.oreilly.com/library/view/head-first-design/9781492077992/ch11.html) and [Amazon](https://www.amazon.com/Head-First-Design-Patterns-Object-Oriented-ebook/dp/B08P3X99QP))
