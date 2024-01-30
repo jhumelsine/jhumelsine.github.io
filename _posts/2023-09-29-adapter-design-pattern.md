@@ -95,7 +95,7 @@ There are many online resources with diagrams and implementations in different p
 * [Refactoring Guru Adapter Design Pattern](https://refactoring.guru/design-patterns/adapter)
 * [DoFactory Adapter Design Pattern](https://www.dofactory.com/net/adapter-design-pattern)
 * [Project Management Institute Adapter Design Pattern](https://www.pmi.org/disciplined-agile/the-design-patterns-repository/the-adapter-pattern)
-* and for more Google [Adapter Design Pattern](https://www.google.com/search?q=adapter+design+pattern)
+* and for more, Google: [Adapter Design Pattern](https://www.google.com/search?q=adapter+design+pattern)
 
 Here are some resources that can be purchased or are included in a subscription service:
 * [Gang of Four Adapter Design Pattern](https://learning.oreilly.com/library/view/design-patterns-elements/0201633612/ch04.html#page_141)
