@@ -15,7 +15,7 @@ There are a few potential problems with relying upon documentation alone:
 * The client developer may not read that documentation.
 * The client developer may read it, but not fully understand it or correctly implement it.
 * Even if the client developer implements it correctly, it probably adds infrastructure details to the client code that obfuscates its true intent.
-* Should those administrative needs may change in future release, who’s going to update the existing client code that’s becomes out of date when these needs change?
+* Should those administrative needs change in a future release, who’s going to update the existing client code that’s becomes out of date when these needs change?
 
 If the developer knows enough to describe administrative care in the documentation, then the developer may know enough to provide an implementation solution as well.
 
@@ -69,7 +69,7 @@ Here’s a UML class diagram updated specifically for a Lazy Initialization Prox
 <img src="/assets/ProxyLazyInit.png" alt="Proxy with Lazy Initialization" width = "80%" align="center" style="padding-right: 20px;">
 
 `Proxy` will be a lightweight object until it’s executed. If the `Client` flow never executes it, then a `ConcreteFeature` is never instantiated.
-The `Client` no longer needs to be concerned about the administration of `ConcreteFeature`. `Proxy` will manage it, even if `Client` does not know that `Proxy` exists. Its lazy initialization need only be implemented once, and it will be consistently applied.
+The `Client` no longer needs to be concerned about the administration of `ConcreteFeature`. `Proxy` will manage it, even if `Client` does not know that `Proxy` exists. Its lazy initialization needs only be implemented once, and it will be consistently applied.
 
 # Use Case: Proxy for Memory Management
 I have a beef with several things in the GoF Design Patterns book.
