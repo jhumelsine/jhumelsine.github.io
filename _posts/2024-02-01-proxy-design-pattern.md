@@ -1,6 +1,6 @@
 ---
 title: Proxy Design Patterns
-description: Provide administrative wrapper objects around complex objects often to help manage their complexity or resources.
+description: Place administrative wrapper objects around objects often to help manage their complexity or resources.
 unlisted: true
 ---
 
@@ -28,8 +28,8 @@ I mostly include Proxy with the Composable patterns since it’s a steppingstone
 
 Here is my UML Class Diagram rendition of the Gang of Four (GoF) diagram provided in their Design Pattern book:
 * The Proxy Design Pattern is an extension of the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html). The only addition is the delegation from `Proxy` to `ConcreteFeature`.
-* `ConcreteFeature` represents the resource intensive class.
-* `Proxy` is the administrative wrapper. It delegates most functionality to `ConcreteFeature`, but it performs additional functions, often administrative, before and/or after the delegation.
+* `ConcreteFeature` represents the complex and/or resource intensive class.
+* `Proxy` is the administrative wrapper. It delegates core functionality to `ConcreteFeature`, but it performs additional functions, often administrative, before and/or after the delegation.
 * `Client` doesn’t know about either concrete class. It only knows about the `Feature` interface.
 * Both `ConcreteFeature` and `Proxy` implement `Feature`, meaning that any references to `Feature` will work with a reference to the `Proxy`->`ConcreteFeature` pair or with a reference to just `ConcreteFeature` in cases where the `Proxy` wrapper isn’t required.
 
@@ -48,16 +48,16 @@ Here’s my updated UML Class Diagram to address some of my issues with their ve
 
 <img src="/assets/ProxyMine.png" alt="Proxy via with my UML diagram" width = "80%" align="center" style="padding-right: 20px;">
  
-The instantiated `client` will have a `feature` reference to a `Proxy` instance, which will have a `feature` to a `ConcreteFeature` instance. When `client` makes a call to `feature.execute()`, `Proxy`’s `execute()` will run any code before calling its `feature.execute()`. When the `Proxy` instance calls `feature.execute()`, `ConcreteFeature`’s `execute()` will run its code. It will return to `Proxy` which will run any additional optional code, and then it will return back to `client`.
+The instantiated `client` will have a `feature` reference to a `Proxy` instance, which will have a `feature` to a `ConcreteFeature` instance. When `client` makes a call to `feature.execute()`, `Proxy`’s `execute()` will run any code before calling its `feature.execute()`. When the `Proxy` instance calls `feature.execute()`, `ConcreteFeature`’s `execute()` will run its core code. It will return to `Proxy` which will run any additional optional code, and then it will return back to `client`.
 
-This diagram is a more detailed example of what I provide previously in [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html):
+This diagram is a more detailed example of what I provide previously in [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html) as template for the Composable patterns:
 
 <img src="/assets/ComposableDesignPatternsIntroduction.png" alt="Composable Pattern Template" width = "40%" align="center" style="padding-right: 20px;">
  
 # Lazy Initialization
 Administrative care is probably the most common context for the Proxy Design Pattern, but it’s not necessarily the only one.
 
-Imagine you have a class that requires significant resources when instantiated. You may not wish instantiate an object until you’re ready to invoke it. This is [Lazy Initialization](https://en.wikipedia.org/wiki/Lazy_initialization) — a type of administrative care.
+Imagine you have a class that requires significant resources when instantiated. You may not wish to instantiate an object until you’re ready to invoke it. This is [Lazy Initialization](https://en.wikipedia.org/wiki/Lazy_initialization) — a type of administrative care.
 
 Lazy Initialization allows a developer to manage resource allocation with more nuance, but it requires additional coding overhead. The Proxy Design Pattern allows us to move the Lazy Initialization implementation into a separate proxy class so that the client developer won’t have to implement that additional overhead.
 
@@ -83,19 +83,21 @@ This isn’t a major issue until the designer decides that a different creationa
 
 Let’s return to API principles. An API should be designed from the client’s point of view, not the designers. Therefore, design the Creational API as one should for any APIs. The client code doesn’t care about the creational design pattern or its implementation details. That’s the concern of the designer. The client code only desire is to acquire an object instance. 
 
-I started to use `acquire()` for all of my creational method names, regardless of the actual creational mechanism being used. The name can still be modified for additional client context, for example: `acquireByName(Name name)`.
+I started to use one consistent method name, `acquire()`, for all of my creational method names, regardless of the actual creational mechanism being used. Additional creational methods can still be added for different creational cases, but they should still be named from the client's context, for example: `acquireByName(Name name)`.
 
 ## The Sin of Omission
 I was a C++ developer when I learned the design patterns in 2004. Memory management was always a major concern with C++. The GoF don’t address memory management in their design pattern book, and C++ is one of their two demonstration languages. Some of their C++ examples leak memory.
 
 Some creation mechanisms required memory clean up, whereas others did not. How would the client code know when to delete memory or not, especially with my creational agnostic `acquire()` method name, which provided no clues as to whether the returned object should be deleted or not?
 
-Is memory management really the responsibility for the client code, especially when the client code doesn’t know how the memory was allocated in the first place? I don’t think it is. I had done some [CORBA](https://en.wikipedia.org/wiki/Common_Object_Request_Broker_Architecture) development in C++ a few years before learning the design patterns. CORBA thrusts a lot of mysterious memory management upon developers. I was never quite sure if I was releasing memory correctly or not. I always resented it. From: [The Rise and Fall of CORBA](https://queue.acm.org/detail.cfm?id=1142044):
+Is memory management really the responsibility for the client code, especially when the client code doesn’t know how the memory was allocated in the first place? I don’t think it is. I had done some [CORBA](https://en.wikipedia.org/wiki/Common_Object_Request_Broker_Architecture) development in C++ a few years before learning the design patterns. CORBA thrusts a lot of mysterious memory management upon developers. I was never quite sure if I was releasing memory correctly or not. I always resented it, especially when I learned at the department holiday party that my recent CORBA memory management update was causing the application to crash in production every 2 hours or so.
+
+From: [The Rise and Fall of CORBA](https://queue.acm.org/detail.cfm?id=1142044):
 > Another problem area is the C++ language mapping. The mapping is difficult to use and contains many pitfalls that lead to bugs, particularly with respect to thread safety, exception safety, and memory management. A number of other examples of overly complex and poorly designed APIs can be found in the CORBA specification, such as the naming, trading, and notification services, all of which provide APIs that are error-prone and difficult to use.
 
-How can client code correctly manage memory when it doesn’t even know how the mechanism that acquired that acquired that memory in the first place?
+How can client code correctly manage memory when it doesn’t even know the mechanism that acquired that acquired that memory in the first place?
 
-I returned to API principles once more. Consider this from the client’s point of view. What does the client code know, and what can it easily do? The client code knows when it’s done with an object. It may not know how to manage the memory or any other resources being used by the object, but it can let another entity with resource management knowledge know that it is releasing its claim to that object.
+I returned to API principles once more. Consider this from the client’s point of view. What does the client code know, and what can it do? The client code knows when it’s done with an object. It may not know how to manage the memory or any other resources being used by the object, but it can let another entity with resource management knowledge know that it is releasing its claim to that object.
 
 Much in the same way that there’s a creational method that acquires an instance, I introduced a matching method that allows the client code to release it. The API might look something like this:
 ```java
@@ -123,26 +125,26 @@ This works, except for one minor problem - the technique cannot be enforced, and
 
 Even if developers take every effort to call `release(…)` consistently, there’s still the issue of another developer adding a return before the `release(…)` or a premature Exception that bails out of the method before `release(…)` has been called.
 
-This is an insidious resource/memory leak. The code will work even when `release(…)` is not called, so any issues are unlikely to be caught with testing. The code will still work in production, for a while, but resources and memory will be leaking. Resource exhaustion won’t manifest like a tire blowout while driving on the highway. It will manifest like a slowly leaking flat tire in the parking lot.
+This is an insidious resource/memory leak. The code will work even when `release(…)` is not called, so any issues are unlikely to be caught with testing. The code will still work in production, for a while, but resources and memory will be leaking. Resource exhaustion won’t manifest like a tire blowout while driving on the highway. It will manifest like a slowly leaking tire in the parking lot.
 
 ## What Other Tools Are in our Toolbox?
 __CAVEAT: I have not been a C++ developer for over 10 years, and I was using an old release of C++ even then. Mechanisms for C++ resource management may have changed quite a bit since then. What I’m about to describe may not be current state of the art.__
 
-C++ has an idiom called [Resource Allocation Is Instantiation (RAII)](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization). It’s a horrible name, but it’s a great technique. Unlike Java, C++ allocates local objects on the call stack. When the call stack pops, the deconstructor for any local objects is called, and their resources are restored. This happens on any return or a thrown Exception.
+C++ has an idiom called [Resource Allocation Is Instantiation (RAII)](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization). It’s a horrible name, but it’s a great technique. Unlike Java, C++ allocates local objects on the call stack. When the call stack pops, the deconstructor for any local object is called, and their resources are restored. This happens on any return or a thrown Exception.
 
 I leveraged RAII along with Proxy to eliminate the burden of the client code having to call `release(…)`. Here’s the basic design:
 * `Client` no longer needs to be concerned about `Factory.acquire()` and more importantly, it’s no longer concerned about `Factory.release(…)`. `Client` does not even know that `Factory` exists.
 * The `Client` manages its `FeatureAPI` instance as it would any other instance. In the C++ example, this would probably be as a local object on the call stack. But even if the `Client` code developer decided to `new()` the `FeatureAPI`, then the developer would also be taking on the responsibility to `delete` it as well. Regardless, these are techniques that are in the first chapters of every C++ introduction book written. Memory management is no longer a specialized case. It’s the language standard.
 * `FeatureAPI` is a proxy. It delegates to `Factory` to acquire and release its Feature attribute.
 * When `FeatureAPI` is popped off the stack, it will release its Feature attribute.
-* __NOTE: I designed this long before I understood [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection) and [Dependency Inversion Principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle). Therefore, it violates some of those principles. For example, the `Client` still has an indirect dependency upon every element in the entire design. It’s more difficult to unit test it in isolation. Other design modifications may address this, but I’m not going to concern myself with them now.__
+* __NOTE: I designed this long before I understood [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection) and [Dependency Inversion Principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle). Therefore, it violates some of those principles. For example, the `Client` has an indirect dependency of every element in the entire design. It’s more difficult to unit test it in isolation. Other design modifications may address this, but I’m not going to concern myself with them in this blog.__
 
 <img src="/assets/ProxyRAII.png" alt="Factory with acquire() and release()" width = "80%" align="center" style="padding-right: 20px;">
  
 ## Java RAII?
 I leveraged RAII often when I was a C++ developer. It was useful for more than just memory management. It was useful for any operations that came in open()/close() pairs, such as mutexes, database locks, etc.
 
-I wanted to continue using it even when I moved to a Java environment. I remember putting resource recovery code in `finalize()`, without quite understanding what I was doing. C++ developers who move to Java often think of `finalize()` as the Java destructor, but that’s not quite the case. It’s called when an object is cleaned in garbage collection, not when it goes out of scope. There’s no guarantee that garbage collection will ever happen. `finalize()` has been deprecated, since it’s misused so often, including knuckleheads like me.
+I wanted to continue using it even when I moved to a Java environment. I remember putting resource recovery code in `finalize()`, without quite understanding what I was doing. C++ developers who move to Java often think of `finalize()` as the Java destructor, but that’s not quite the case. It’s called when an object is cleaned in garbage collection, not when it goes out of scope. There’s no guarantee that garbage collection will ever happen. `finalize()` has been deprecated, since it’s misused so often, including by knuckleheads like me.
 
 For the most part, we don’t need to worry about memory in Java, but what about open()/close() concepts in Java that aren’t memory?
 
@@ -152,7 +154,7 @@ But what if you have a class that requires resource cleanup management, but it�
 
 Here’s what the UML class diagram might look like:
 * `ConcreteExternalFeature` is colored red, to indicate that it’s external, and you cannot modify it to make `AutoCloseable`.
-* `ExternalFeature` is an interface, and it’s also red, since it’s external. `releaseResources()` has a comment that it should always be called to release resources, but there’s no enforcement mechanism other than strongly encouraging developers to call it. And that documentation isn't clear. Is this a statement that the designer needs to release all resources from this method? Is it a statement that the client code must call it to release those resources? Is it both? This is one small example where documentation may not be understood as intended.
+* `ExternalFeature` is an interface, and it’s also red, since it’s external. `releaseResources()` has a comment that it should always be called to release resources, but there’s no enforcement mechanism other than strongly encouraging developers to call it. And the documentation isn't clear. Is this a statement that the designer needs to release all resources from this method? Is it a statement that the client code must call it to release those resources? Is it both? This is one small example where documentation may not be understood as intended or implemented properly.
 * `ExternalFeatureProxy` implements `ExternalFeature` and delegates to its `ConcreteExternalFeature` attribute. `ExternalFeatureProxy` also implements `AutoCloseable`, which means that it must implement `close()` as well. Its `close()` implementation calls `releaseResources()`.
 * There’s no guarantee that `ExternalFeatureProxy` will have this amount of access to external APIs as shown. For example, there may not be an `ExternalFeature` interface, and `ConcreteExternalFeature` may be `final`, which can constraint what you can do. Other techniques may be required.
 * `Client` can now leverage try-with-resources even if `ExternalFeature` doesn’t support it. When leaving the try scope, `ExternalFeatureProxy`’s `close()` method will be called, which will then release the external resources via its call to `releaseResources()`.
@@ -160,7 +162,7 @@ Here’s what the UML class diagram might look like:
 <img src="/assets/ProxyCloseable.png" alt="" width = "80%" align="center" style="padding-right: 20px;">
 
 # Other Administrative Concerns for Proxy
-Lazy Initialization and “Stack” Memory Management aren’t the only administrative concerns for Proxy. Proxy could also be used for a Cache, Remote Method Invocation helpers, etc.
+Lazy Initialization and “Stack” Memory Management aren’t the only administrative concerns for Proxy. Proxy could also be used for a Cache, Database wrappers, Remote Method Invocation wrappers, etc.
 
 But we have a minor issue. In its traditional presentation, there’s only one Proxy class. What if the Concrete Class has multiple administrative concerns? The next pattern, Decorator, will address this. My UML Class Diagram for Proxy hints at a solution when Proxy delegates to Feature rather than ConcreteFeature. Sit tight for Decorator.
 
