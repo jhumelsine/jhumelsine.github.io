@@ -160,6 +160,9 @@ Here’s what the UML class diagram might look like:
 
 <img src="/assets/ProxyCloseable.png" alt="" width = "80%" align="center" style="padding-right: 20px;">
 
+## C# RAII?
+C# has the same concept as Java, but with different nomenclature via it's [`IDisposable`](https://learn.microsoft.com/en-us/dotnet/api/system.idisposable?view=net-8.0) interface. See also: [Implement a Dispose method](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose) and [Using objects that implement IDisposable](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/using-objects).
+
 # Other Administrative Concerns for Proxy
 Lazy Initialization and “Stack” Memory Management aren’t the only administrative concerns for Proxy. Proxy could also be used for a Cache, Database wrappers, Remote Method Invocation wrappers, etc.
 
