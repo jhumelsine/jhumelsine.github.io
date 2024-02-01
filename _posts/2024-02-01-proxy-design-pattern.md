@@ -42,7 +42,6 @@ I have a few issues with the GoF’s diagram as shown above:
 
 Here’s my updated UML Class Diagram to address some of my issues with their version:
 * I’ve added a `Configurer` with some sample code. This is not the only way to construct these objects. It’s just one example.
-* The constructors for `Client` and `Proxy` throw an exception when their `Feature` argument is null. This removes the need for a null check in `execute()` or any other place where `feature` is referenced in the classes. I won't repeat this technique in other diagrams due to space constraints.
 * `Proxy` delegates to `Feature` rather than `ConcreteFeature`. This creates more composition possibilities, which will be featured in future design patterns.
 * The diamond has been removed.
 
