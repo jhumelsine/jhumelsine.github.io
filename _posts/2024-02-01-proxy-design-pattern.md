@@ -1,7 +1,6 @@
 ---
 title: Proxy Design Patterns
 description: Place administrative wrapper objects around objects often to help manage their complexity or resources.
-unlisted: true
 ---
 
 <img src="/assets/ProxyAmbassador.png" alt="Ambassador as a Proxy" width = "50%" align="center" style="padding-right: 20px;">
