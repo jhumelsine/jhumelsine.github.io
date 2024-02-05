@@ -11,7 +11,7 @@ The Decorator Design Pattern is the next of the [Composable Design Patterns](htt
 Inheritance enhances existing functionality often by adding new or modifying existing behaviors to existing classes, but this comes with some constraints:
 * The extending classes have knowledge of and depend upon their parent classes.
 * Behavior is static, and it cannot be adjusted once declared.
-* For some languages, such as Java, there’s only one inheritance lineage. There is no multiple inheritance. This makes mixing and matching of updated behaviors more challenging. Multiple inheritance supporting languages, such as C++, have their own issues with the [diamond problem](https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem)
+* For some languages, such as Java, there’s only one inheritance lineage. There is no multiple inheritance. This makes mixing and matching of behaviors more challenging. Multiple inheritance supporting languages, such as C++, have their own issues with the [diamond problem](https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem)
 
 I indicated in the Composable Design Patterns blog that Composable Design Patterns could be an alternative for inheritance via delegation.
 
@@ -21,12 +21,12 @@ Delegation is one object calling the method of another object via an object refe
 
 Decorator expands delegation further than Proxy. Rather than one object delegating to another object, it’s structured as a linked list of delegating objects delegating down the chain. A `coreFeature` object anchors the chain as the final object in the chain. The decorator objects adorn the `coreFeature` functionality.
 
-Inheritance delegates up through a chain of ancestor classes. Decorator delegates through a chain of objects.
+Inheritance delegates up through ancestor classes. Decorator delegates through a list of objects.
 
 We’ll see that Decorator addresses some of the issues with inheritance:
 * The concrete classes in the Decorator Design Pattern have no knowledge of or dependency upon one another.
-* Behavior is dynamic. It can be changed at runtime.
-* The Decorator list can include as many or as few behaviors enhancing Decorator objects as needed.
+* Behavior is dynamic and can be changed at runtime.
+* The Decorator list can include as many or as few behaviors Decorator objects as needed.
   
 # Real World Analogies to Decorator
 Decorator is not difficult to implement. Its main challenge is comprehension. Here are a few real-world examples to ease one into the Decorator concept.
@@ -36,29 +36,29 @@ Decorator is not difficult to implement. Its main challenge is comprehension. He
 
 [Mr. Potato Head](https://en.wikipedia.org/wiki/Mr._Potato_Head) is a favorite childhood toy and Disney Toy Story character. But he’s also a good metaphor for the Decorator Design Pattern.
 
-Mr. Potato Head was a favorite to for many children including me in my youth. A plain potato core feature isn’t much of a toy. The fun came in decorating the potato with caricature appendages, such as eyes, mouth, nose, ears, feet, hands, and hats. Kids could create different Mr. Potato Head with different expressions depending upon the features added. And inevitably, noses would be placed in the ear holes, hands in the hat holes, etc.
+Mr. Potato Head has been a favorite to for many children including me in my youth. The plain potato core feature isn’t much of a toy. The fun came in decorating the potato with caricature appendages, such as eyes, mouth, nose, ears, feet, hands, and hats. Kids could create different Mr. Potato Head with different expressions depending upon the features added. And inevitably, noses would be placed in the ear holes, hands in the hat holes, etc.
 
-The original version of the toy only included the Decorator appendages. The child needed a real potato, probably provided by mom. After too many Mr. Potato Heads started to transform into <span style="font-family:Chiller;">__Mr. Potato Zombie__</span> as they rotted, Hasbro started providing a plastic potato as well, which also doubled as convenient storage for the appendages.
+The original version of the toy only included the Decorator appendages. The child needed a real potato, probably provided by mom. After too many Mr. Potato Heads transformed into <span style="font-family:Chiller;">__Mr. Potato Zombie__</span> as they rotted, Hasbro provided a plastic potato as well, which also doubled as convenient storage for the appendages.
 
 Mr. Potato Head is a Decorator. The Core Feature is the potato. The Decorators are the caricature appendages added to it.
 
 ## Certain Foods
-<img src="/assets/DecoratorIceCream.JPG" alt="Squealing with Delight at Ice Cream" width = "20%" align="right" style="padding-right: 20px;">
+<img src="/assets/DecoratorIceCream.JPG" alt="Squealing with Delight at Ice Cream" width = "30%" align="right" style="padding-right: 20px;">
 
 Most pizzas begin with a crust, sauce, and cheese. Then customers can add toppings as desired, such as pepperoni, mushrooms, olives, and … pineapple.
 
 The basic pizza is the Core Feature, and the toppings are the Decorators.
 
-My family ate at one of the Disney World restaurants on a vacation years ago. My 4-year-old son ordered an ice cream sundae for dessert. He practically squealed with delight when the server placed it in front of him. It was a bowl of vanilla ice cream with small plastic cups of toppings ringed around it. Of course, he dumped all the toppings on the ice cream. 
+My family ate at a Disney World restaurants on a vacation years ago. My 4-year-old son ordered an ice cream sundae for dessert. He practically squealed with delight when the server placed it in front of him. It was a bowl of vanilla ice cream with small plastic cups of toppings ringed around it. Of course, he dumped all the toppings on the ice cream. 
 
 The ice cream is the Core Feature, and the toppings are the Decorators.
 
 ## Multiplane Camera
 <img src="https://upload.wikimedia.org/wikipedia/en/e/ef/Sketch_of_a_Multiplane_camera_with_motorized_movements.gif?20200218220911" alt="Multiplane Camera" title="Image Source: https://en.wikipedia.org/wiki/File:Sketch_of_a_Multiplane_camera_with_motorized_movements.gif" width = "35%" align="right" style="padding-right: 20px;">
 
-Most cartoon animations consist of a complete background image with the cartoon characters drawn on clear [celluloid sheets](https://en.wikipedia.org/wiki/Cel), i.e., cels. The cels would be placed on top of the background image and photographed for one frame of the animation. The next frame only requires a new cell without having to redraw the background as well.
+Most cartoon animations consist of a complete background image with the cartoon characters drawn on clear [celluloid sheets](https://en.wikipedia.org/wiki/Cel), i.e., cels. The cels are placed on top of the background image and photographed for one frame of the animation. The next frame only requires a new cel with the updated minute character movements without having to redraw the background as well.
 
-This animation technique alone is a version of Decorator, well  maybe closer to Proxy since there’s usually only one characters cel, but the [Multiplane Camera](https://en.wikipedia.org/wiki/Multiplane_camera) really expands this technique into Decorator territory. 
+This animation technique is a version of Decorator, well  maybe closer to Proxy since there’s usually only one character cel, but the [Multiplane Camera](https://en.wikipedia.org/wiki/Multiplane_camera) really expands this technique into Decorator territory. 
 
 In the Multiplane Camera, there’s a background image. Layers of cels are suspended above with space between each layer. A camera, suspended above them all, captures a frame that’s a composition of the layered cels. The space space between layers provides a 3-D effect.
 
@@ -99,7 +99,7 @@ The diagram only presents potential. The composability resides in the `Configure
  
 The design supports each of these and more. The list could be a `client` followed by seven `proxyA` objects with the `coreFeature` at the end. The only constraint is that the list must end with `coreFeature`.
 
-Because Proxy is so like Decorator with this minor change, I view Proxy as a special case of Decorator. Proxy is Decorator with one Proxy instance.
+Because Proxy is so much like Decorator with this minor change, I view Proxy as a special case of Decorator. Proxy is Decorator with one Proxy instance.
 
 However, I have an issue with this design. There’s code duplication with the delegate in the Proxy classes. Plus, two lines are crossing each other. While crossed lines cannot always be avoided in a design, it does start the slide down the slippery slope of a messy design. I’ve found that a messy design tends to have a messy implementation as well. While the above is not very messy, I like to avoid messy design elements, such as crossing lines, if I can avoid them.
 
@@ -125,7 +125,7 @@ I want to remove the need for developers to read documentation and pray that the
 This final design incorporates the [Template Method Design Pattern](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html) into the design:
 * The only modifications are in the abstract `Decorator` and the concrete `Decorator` classes that extend it.
 * The GoF Decorator design is based upon running specialized pre-code, then delegating to `feature.execute()` and then running specialized post-code in the concrete `Decorator` classes.
-* This Template Method infused version moves those three steps into the abstract `Decorator`, which ensures that those three steps are always executed in that order. `Decorator` cannot contain specialized pre- or post-code, but it can call it abstractly via its protected abstract methods, which must be implemented in the concrete `Decorator` classes.
+* This Template Method infused version moves those three steps into the abstract `Decorator`, which ensures that those three steps are always executed in that order. The abstract `Decorator` does not contain specialized pre- or post-code, but it can call it abstractly via its protected abstract methods, which must be implemented in the concrete `Decorator` classes.
 * I declare `Decorator`’s `execute()` method as `final`, so that the concrete `Decorator` classes cannot override it and break the delegation chain, even if unintentionally.
 * The concrete `Decorator` classes only need to define what needs to be executed before and after the delegation. If they do not have any pre- or post-code, then these methods, which must be defined, can be empty.
 
@@ -134,36 +134,36 @@ This final design incorporates the [Template Method Design Pattern](https://jhum
 # Use Case – Coffee Labels
 So far this has been very abstract. Let’s get into a use case that’s more concrete.
 
-The Heads First Design Patterns authors demonstrate Decorator via a fictious coffee shop called: Starbuzz Coffee. Here’s the gist of their example:
+The __Heads First Design Patterns__ authors demonstrate Decorator via a fictious coffee shop called: Starbuzz Coffee. Here’s the gist of their example:
 * Starbuzz offers several types of coffee: Dark Roast, House Blend, Espresso, Decaf, etc.
 * Each coffee can be enhanced with Milk, Cream, Sugar, Whipped Cream, Mocha, Soy, etc. 
 * The number of potential coffee order combinations explodes exponentially. They want to ensure that each combination is properly and consistently priced.
 * They can’t design a class for each possible combination.
 In short, they decide to use the Decorator Design Pattern:
-* In this use case, `Feature` will be `Beverage` and its function returns the `cost()` of the Beverage.
-* The four types of coffee will be Core Features. While the previous diagrams only showed one Core Feature, the design handles any number of them. Each coffee type has its own cost.
-* Each of the coffee enhancers will be a Decorator, and each will have their own cost.
-* A coffee order will be a coffee type with as many Decorator enhancements added as desired by the customer. The final cost will be calculated by traversing the list of decorators and adding their costs.
+    * In this use case, `Feature` will be `Beverage` and its function returns the `cost()` of the Beverage.
+    * The four types of coffee will be Core Features. While the previous diagrams only showed one Core Feature, the design handles any number of them. Each coffee type has its own cost.
+    * Each of the coffee enhancers will be a Decorator, and each will have their own cost.
+    * A coffee order will be a coffee type with as many Decorator enhancements added as desired by the customer. The final cost will be calculated by traversing the list of decorators and adding their costs.
   
-The Head First Design Pattern authors provide much more detail, but one has to purchase the book or subscribe to a service. Or one can visit the [Decorator Pattern With Real World Example In Java](https://www.codiwan.com/decorator-design-pattern-real-world-example-java/), which for the most part replicates the book’s Java code.
+The Head First Design Pattern authors provide much more detail, but one has to purchase the book or subscribe to a service to view their example. Or one can visit the [Decorator Pattern With Real World Example In Java](https://www.codiwan.com/decorator-design-pattern-real-world-example-java/), which for the most part replicates the book’s Java code.
 
-Here’s my design, but I’m going to focus upon a different feature, the Drink Order Label.
+I’m going to focus upon a different feature, the Drink Order Label, in my design example.
 
-At my version of Starbuzz Coffee, the baristas don’t hand write the drink orders on the cups. The drink orders are printed on labels and attached on the cups. Drink orders can be created in at least three ways:
+In my version of Starbuzz Coffee, the baristas don’t hand write the drink orders on the cups. The drink orders are printed on labels and attached on the cups. Drink orders can be created in at least three ways:
 * The barista can type it in on an order pad as the customer places a drink order.
 * The customer can place a drink order via an in-store kiosk.
 * The customer can place a drink order via the Starbuzz mobile app.
 
 Once the drink order label is on the cup, a member of the staff can fill it.
 
-There’s my Decorator/Template-Method design:
+Here’s my Decorator/Template-Method design:
 * I have two basic Core Features with `Coffee` and `Tea`. 
 * _`Flavor`_ is the abstract Decorator. It’s using the Template Method design for `getLabel()`. It retrieves the delegate `drinkOrder`’s label, adds a comma separator and then adds its own abstracted detailed label.
 * Each concrete _`Flavor`_ only needs to implement its `getFlavorLabel()` method.
 * The `LablePrinter` prints a label for a `DrinkOrder` that’s been injected into it via the `DrinkOrderBuilder`.
 * `DrinkOrderBuilder` is a Configurer, but I haven’t used that term here on purpose. Nor am I calling it a `Factory`. It’s more than that since each `DrinkOrder` will be individually constructed based upon the customer’s customized order. Its implementation is a bit too much to show in the diagram. The barista’s order pad, the in-store kiosk, and the Starbuzz mobile app each would delegate to `DrinkOrderBuilder`, which has not been shown due to space constraints as well.
 
-<img src="/assets/DecoratorDrinks.png" alt="Starbuzz Labels via Decorator" width = "75%" align="center" style="padding-right: 20px;">
+<img src="/assets/DecoratorDrinks.png" alt="Starbuzz Labels via Decorator" width = "85%" align="center" style="padding-right: 20px;">
  
 `DrinkOrderBuilder` can construct any order that’s desired by the customer. Here are some possible examples of a labelPrinter object and the list of drink order objects that have been constructed:
 
@@ -197,9 +197,9 @@ DrinkOrder acquire(String ingredient, DrinkOrder drinkOrder) throws Exception {
 
 Consider how flexible this design is. `Coffee` could easily be replaced with `DarkRoast`, `HouseBlend`, `Espresso`, and `Decaf`. `Tea` could be replaced with `EarlGrey`, `BlackTea`, `Chai`, and `Herbal`. New _`Flavor`_’s can easily be added, such as `Honey`, `SoyMilk`, and `Cream`. Some _`Flavor`_’s may be seasonal, so they can be easily added or removed as desired, such as `PumpkinSpice` and `Peppermint`.
 
-__This is an extremely contrived example.”__ It’s definitely over engineered design for this problem. It converts a String of ingredients into a label that’s almost identical to the ingredients. I could have just as easily split the ingredients and inserted a comma between them.
+__This is an extremely contrived example.__ It’s definitely over engineered design for this problem. It converts a String of ingredients into a label that’s almost identical to the ingredients. I could have just as easily split the ingredients and inserted a comma between them.
 
-But this design can be the foundation for more. My `DrinkOrder` only printed a label. But the interface could have more features such as: `getCost()`, which is what the Head First author showed, and `getCalories()`. Decorator could be the foundation for an entire suite of Drink Order functionality.
+But this design can be the foundation for more. My `DrinkOrder` only printed a label. But the interface could have more features such as: `getCost()`, which is what the Head First authors showed, and `getCalories()`. Decorator could be the foundation for an entire suite of Drink Order functionality.
 
 A Decorator based design might be a good mechanism for automation. For example, Starbuzz R&D might design an automated barista that makes drinks based upon instructions programmed in each concrete class.
 
@@ -212,16 +212,16 @@ Composable behavior may be more difficult to diagnose with Decorator. This is th
 Integration or acceptance tests may be needed to confirm that desired behavior emerges when the objects are composed. However, since the number of possible configurations is infinite, it’s impossible to create tests for all possible scenarios.
 
 ## Pros
-Decorator’s composable behavior is also a pro. Behavior is not statically locked into place as is the case with inheritance. When new behavior is desired, it may be a relatively simple matter of a new composition of objects instantiated from the existing classes in the design.
+Decorator’s composable behavior is also a pro. Behavior is not statically locked into place as is the case with inheritance. When new behavior is desired, it may be a relatively simple matter of a new composition of objects instantiated from the existing classes in the design. Behavior can be updated at runtime as well.
 
-Sometimes new behavior is beyond the scope of a new composition. New behavior may need new core feature or decorator classes. It should be obvious where a new concrete class resides in the design. And as soon as the class is defined, the IDE or the compiler will scream which methods need to be implemented. Existing concrete classes can be implementation references to provide examples for new concrete class implementation.
+Sometimes new behavior is beyond the scope of a new composition. New behavior may require new core feature or decorator classes. It should be obvious where a new concrete class resides in the design. And as soon as the class is defined, the IDE or the compiler will scream which methods need to be implemented. Existing concrete classes can be implementation references to provide examples for new concrete class implementations.
 
 The classes can be unit tested with ease. The classes in my Starbuzz design generally only need one test to confirm the label content that they produce. Even the abstract `Flavor` class can be unit tested with a dependency upon a [test double](https://martinfowler.com/bliki/TestDouble.html) without depending upon another concrete class in the design.
 
-There may be many concrete classes in a Decorator design, but they tend to be independent. They don’t depend upon or know about each other. Therefore, new concrete classes can be added with fear of breaking existing classes. It’s also easier to identify and remove deprecated classes when they are no longer needed.
+There may be many concrete classes in a Decorator design, but the concrete classes tend to be independent. They don’t depend upon or know about each other. Therefore, new concrete classes can be added without fear of breaking existing classes. It’s also easier to identify and remove deprecated classes when they are no longer needed without impacting the rest of the design.
 
 # Summary
-Decorator is an alternative to inheritance, but it is not a complete replacement of it. But when desired behavior includes various customer chosen combinations, then it might be the right tool for the job.
+Decorator is an alternative to inheritance, but it is not a complete replacement. But when desired behavior includes multiple combinations, possibly chosen by the customer or even the user, then it might just be the right tool for the job.
 
 # References
 There are many online resources with diagrams and implementations in different programming languages. Here are some free resources:
