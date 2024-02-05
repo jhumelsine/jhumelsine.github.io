@@ -38,7 +38,7 @@ Decorator is not difficult to implement. Its main challenge is comprehension. He
 
 Mr. Potato Head was a favorite to for many children including me in my youth. A plain potato core feature isn’t much of a toy. The fun came in decorating the potato with caricature appendages, such as eyes, mouth, nose, ears, feet, hands, and hats. Kids could create different Mr. Potato Head with different expressions depending upon the features added. And inevitably, noses would be placed in the ear holes, hands in the hat holes, etc.
 
-The original version of the toy only included the Decorator appendages. The child needed a real potato, probably provided by mom. After too many Mr. Potato Heads started to transform into <span style="font-family:Chiller;">Mr. Potato Zombie</span> as they rotted, Hasbro started providing a plastic potato as well, which also doubled as convenient storage for the appendages.
+The original version of the toy only included the Decorator appendages. The child needed a real potato, probably provided by mom. After too many Mr. Potato Heads started to transform into <span style="font-family:Chiller;">__Mr. Potato Zombie__</span> as they rotted, Hasbro started providing a plastic potato as well, which also doubled as convenient storage for the appendages.
 
 Mr. Potato Head is a Decorator. The Core Feature is the potato. The Decorators are the caricature appendages added to it.
 
@@ -88,9 +88,14 @@ Decorator’s design structure is mostly an extension of the design structures w
 > But we have a minor issue. In its traditional presentation, there’s only one Proxy class. What if the Concrete Class has multiple administrative concerns? The next pattern, Decorator, will address this.
 
 Proxy delegates directly to the CoreFeature in the Gang of Four’s (GoF) Proxy design. I modified this slightly, by having the Proxy delegate to the Feature interface. It may not be obvious at first, but this design defines a linked list of Proxy objects with a CoreFeature object as the anchor at the end.
+
 Let’s see how this can be useful if we want two Proxies. The only difference in this diagram and the one in the [Proxy Design Pattern](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html) blog is that there are two Proxies rather than one. `ProxyB`’s structure mirrors `ProxyA`’s structure.
- 
+
+<img src="/assets/DecoratorProxies.png" alt="Decorator via Proxy" width = "75%" align="center" style="padding-right: 20px;">
+
 The diagram only presents potential. The composability resides in the `Configurer`. Here’s an example of the linked list of objects that `Configure` could create from this design:
+
+<img src="/assets/DecoratorProxyObjects.png" alt="Decorator Objects via Proxy" width = "50%" align="center" style="padding-right: 20px;">
  
 The design supports each of these and more. The list could be a `client` followed by seven `proxyA` objects with the `coreFeature` at the end. The only constraint is that the list must end with `coreFeature`.
 
@@ -103,8 +108,12 @@ The GoF’s Decorator design removes the delegate duplicate code as well as the 
 * The reference to `Feature` has been pulled up into a common abstract `Decorator` class. `Decorator` cannot be instantiated as an object on its own.
 * `Decorator` implements `execute()` by delegating to `feature.execute()`. The `feature` reference is `private` which encapsulates the implementation details.
 * Each concrete `Decorator` class extends abstract `Decorator` and overrides `execute()` by running its own implementation as well as calling `Decorator`’s `execute()`.
- 
+
+<img src="/assets/DecoratorGoF.png" alt="Decorator via GoF" width = "75%" align="center" style="padding-right: 20px;">
+
 Here’s an example of the linked list of objects that can be created for this design:
+
+<img src="/assets/DecoratorGoFObjects.png" alt="Decorator Objects via GoF" width = "50%" align="center" style="padding-right: 20px;">
  
 This design supports any number of `Decorator` objects.
 
@@ -119,6 +128,8 @@ This final design incorporates the [Template Method Design Pattern](https://jhum
 * This Template Method infused version moves those three steps into the abstract `Decorator`, which ensures that those three steps are always executed in that order. `Decorator` cannot contain specialized pre- or post-code, but it can call it abstractly via its protected abstract methods, which must be implemented in the concrete `Decorator` classes.
 * I declare `Decorator`’s `execute()` method as `final`, so that the concrete `Decorator` classes cannot override it and break the delegation chain, even if unintentionally.
 * The concrete `Decorator` classes only need to define what needs to be executed before and after the delegation. If they do not have any pre- or post-code, then these methods, which must be defined, can be empty.
+
+<img src="/assets/DecoratorTemplateMethod.png" alt="Decorator using Template Method" width = "75%" align="center" style="padding-right: 20px;">
  
 # Use Case – Coffee Labels
 So far this has been very abstract. Let’s get into a use case that’s more concrete.
@@ -151,8 +162,12 @@ There’s my Decorator/Template-Method design:
 * Each concrete _`Flavor`_ only needs to implement its `getFlavorLabel()` method.
 * The `LablePrinter` prints a label for a `DrinkOrder` that’s been injected into it via the `DrinkOrderBuilder`.
 * `DrinkOrderBuilder` is a Configurer, but I haven’t used that term here on purpose. Nor am I calling it a `Factory`. It’s more than that since each `DrinkOrder` will be individually constructed based upon the customer’s customized order. Its implementation is a bit too much to show in the diagram. The barista’s order pad, the in-store kiosk, and the Starbuzz mobile app each would delegate to `DrinkOrderBuilder`, which has not been shown due to space constraints as well.
+
+<img src="/assets/DecoratorDrinks.png" alt="Starbuzz Labels via Decorator" width = "75%" align="center" style="padding-right: 20px;">
  
 `DrinkOrderBuilder` can construct any order that’s desired by the customer. Here are some possible examples of a labelPrinter object and the list of drink order objects that have been constructed:
+
+<img src="/assets/DecoratorDrinksObjects.png" alt="Starbuzz Labels via Decorator Objects" width = "50%" align="center" style="padding-right: 20px;">
  
 The design will print labels for all of these from the simple “Coffee” to the longest one with “Coffee, Sugar, Sugar, Milk.” Notice that the label is constructed on the return calls, so that the last object in the list is printed on the label first and the first one is printed last.
 
