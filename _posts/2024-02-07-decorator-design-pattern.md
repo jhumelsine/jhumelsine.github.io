@@ -232,7 +232,16 @@ Decorator is an alternative to inheritance, but it is not a complete replacement
 
 # References
 There are many online resources with diagrams and implementations in different programming languages. Here are some free resources:
-* TBD
+* [Wikipedia Decorator Design Pattern](https://en.wikipedia.org/wiki/Decorator_pattern)
+* [Source Making Decorator Design Pattern](https://sourcemaking.com/design_patterns/decorator)
+* [Refactoring Guru Decorator Design Pattern](https://refactoring.guru/design-patterns/decorator)
+* [Project Management Institute Decorator Design Pattern](https://www.pmi.org/disciplined-agile/the-design-patterns-repository/the-decorator-pattern)
+* [Dofactory C# Decorator Design Pattern](https://www.dofactory.com/net/decorator-design-pattern)
+* [Dofactory JavaScript Decorator Design Pattern](https://www.dofactory.com/javascript/design-patterns/decorator)
+* [Baeldung Decorator Design Pattern](https://www.baeldung.com/java-decorator-pattern)
+* [The Art of Decorating: Applying the Decorator Design Pattern in Real Life](https://www.pentalog.com/blog/design-patterns/decorator-design-pattern/)
+* [OODesign Decorator Design Pattern](https://www.oodesign.com/decorator-pattern)
+* and for more, Google: [Decorator Design Pattern](https://www.google.com/search?q=Decorator+Design+Pattern)
 
 Here are some resources that can be purchased or are included in a subscription service:
 * TBD
