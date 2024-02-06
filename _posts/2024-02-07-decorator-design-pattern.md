@@ -244,5 +244,7 @@ There are many online resources with diagrams and implementations in different p
 * and for more, Google: [Decorator Design Pattern](https://www.google.com/search?q=Decorator+Design+Pattern)
 
 Here are some resources that can be purchased or are included in a subscription service:
-* TBD
-
+* Gang of Four Proxy Design Pattern, page 175 ([O'Reilly](https://learning.oreilly.com/library/view/design-patterns-elements/0201633612/ch04.html#page_175) and [Amazon](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612))
+* Agile Principles, Patterns, and Practices in C#, Chapter 35 ([O'Reilly](https://learning.oreilly.com/library/view/agile-principles-patterns/0131857258/ch35.xhtml) and [Amazon](https://www.amazon.com/Agile-Principles-Patterns-Practices-C/dp/0131857258))
+* Clean Code: Design Patterns, Episode 32 video ([Clean Coders](https://cleancoders.com/episode/clean-code-episode-32) and [O'Reilly](https://learning.oreilly.com/videos/clean-code-fundamentals/9780134661742/9780134661742-code_03_32_00/))
+* Head First Design Patterns, Chapter 3 ([O'Reilly](https://learning.oreilly.com/library/view/head-first-design/9781492077992/ch03.html) and [Amazon](https://www.amazon.com/Head-First-Design-Patterns-Object-Oriented-ebook/dp/B08P3X99QP))
