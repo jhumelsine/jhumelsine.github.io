@@ -77,7 +77,7 @@ An SLR Camera consists of a camera body with a lens attached to it. Most SLR Cam
 An SLR Camera package is a Decorator. The Core Feature is the camera body. The Decorators are the lenses and filters. Unlike other Decorator examples, the camera body requires at least one Decorator lens to work.
 
 ## Photoshop Layers
-Photoshop is the digital version of layering concept from the Multiplane Camera. A final image is composed of stacked virtual layers of image content. However, unlike the Multiplane Camera, all the layers are directly on top of one another. Here’s an [11-minute](https://www.youtube.com/watch?v=3gxcIn8L__w) video demonstrating the feature.
+Photoshop is the digital version of layering concept from the Multiplane Camera. A final image is composed of stacked virtual layers of image content. However, unlike the Multiplane Camera, all the layers are directly on top of one another. Here’s an [11-minute video](https://www.youtube.com/watch?v=3gxcIn8L__w) demonstrating the feature.
 
 Photoshop Layers is a Decorator. The background image is the Core Feature. Additional layers are the Decorators on top of it.
 
