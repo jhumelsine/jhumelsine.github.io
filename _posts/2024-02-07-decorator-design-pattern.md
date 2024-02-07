@@ -127,7 +127,7 @@ Here’s an example of the linked list of objects that can be created for this d
 
 <img src="/assets/DecoratorGoFObjects.png" alt="Decorator Objects via GoF" width = "50%" align="center" style="padding-right: 20px;">
  
-This design supports any number of _`Decorator`_ objects instandiated from concrete classes.
+This design supports any number of _`Decorator`_ objects instantiated from concrete classes.
 
 The GoF design is better than my multiple Proxies design, but one thing still bugs me about this design. It depends upon the concrete class developer calling `super.execute()`. I’m not convinced that developers will always call the parent’s `super.execute()` method, and there are no warnings or errors if they do not.
 
@@ -213,7 +213,7 @@ DrinkOrder acquire(String ingredient, DrinkOrder drinkOrder) throws Exception {
 
 Consider how flexible this design is. `Coffee` could easily be replaced with `DarkRoast`, `HouseBlend`, `Espresso`, and `Decaf`. `Tea` could be replaced with `EarlGrey`, `BlackTea`, `Chai`, and `Herbal`. New _`Flavor`_’s can easily be added, such as `Honey`, `SoyMilk`, and `Cream`. Some _`Flavor`_’s may be seasonal, so they can be easily added or removed as desired, such as `PumpkinSpice` and `Peppermint`.
 
-__This is an extremely contrived example.__ It’s an over engineered design for this specific problem. It converts a String of ingredients into a label that’s almost identical to the ingredients. I could have just as easily split the ingredients and inserted a comma between them.
+__This is an extremely contrived example.__ It’s an over-engineered design for this specific problem. It converts a String of ingredients into a label that’s almost identical to the ingredients. I could have just as easily split the ingredients and inserted a comma between them.
 
 But this design can be the foundation for more. My `DrinkOrder` only printed a label. But the interface could have more features such as: `getCost()`, which is what the Head First authors showed, and `getCalories()`. Decorator could be the foundation for an entire suite of Drink Order functionality.
 
