@@ -56,6 +56,8 @@ My family ate at a Disney World restaurants on a vacation years ago. My 4-year-o
 The ice cream is the Core Feature, and the toppings are the Decorators.
 
 ### Pizza
+<img src="https://github.com/jhumelsine/jhumelsine.github.io/assets/86133331/8e2c2a27-f4d2-417d-bc39-060e6796809f" alt="Pizza" title="Image Source: https://pixexid.com/image/neapolitan-pizza-melted-cheese-stringing-from-the-hot-slice-held-aloft-5fpzxat0" width = "30%" align="right" style="padding-right: 20px;">
+
 Most pizzas begin with a crust, sauce, and cheese. Then customers can add toppings as desired, such as pepperoni, mushrooms, olives, and … pineapple.
 
 The basic pizza is the Core Feature, and the toppings are the Decorators.
@@ -144,6 +146,8 @@ This final design incorporates the [Template Method Design Pattern](https://jhum
 # Use Case – Coffee Labels
 So far this has been very abstract. Let’s get into a use case that’s more concrete.
 
+<img src="https://isorepublic.com/wp-content/uploads/2018/11/cup-coffee-1100x733.jpg" alt="Cup of Coffee" title="Image Source: https://isorepublic.com/photo/cafe-coffee-time/" width = "30%" align="right" style="padding-right: 20px;">
+
 The __Heads First Design Patterns__ authors demonstrate Decorator via a fictious coffee shop called: Starbuzz Coffee. Here’s the gist of their example:
 * Starbuzz offers several types of coffee: Dark Roast, House Blend, Espresso, Decaf, etc.
 * Each coffee can be enhanced with Milk, Cream, Sugar, Whipped Cream, Mocha, Soy, etc. 
@@ -155,7 +159,7 @@ In short, they decide to use the Decorator Design Pattern:
     * Each of the coffee enhancers will be a Decorator, and each will have their own cost.
     * A coffee order will be a coffee type with as many Decorator enhancements added as desired by the customer. The final cost will be calculated by traversing the list of decorators and adding their costs.
   
-The Head First Design Pattern authors provide much more detail, but one has to purchase the book or subscribe to a service to view their example.
+The Head First Design Patterns authors provide much more detail, but one has to purchase the book or subscribe to a service to view their example.
 Another alternative is to visit the [Decorator Pattern With Real World Example In Java](https://www.codiwan.com/decorator-design-pattern-real-world-example-java/), which for the most part replicates the book’s Java code.
 
 In my example, I’m going to focus upon a different feature, the Drink Order Label.
