@@ -11,7 +11,7 @@ The Decorator Design Pattern is the next of the [Composable Design Patterns](htt
 Inheritance enhances existing functionality often by adding new or modifying existing behaviors to existing classes, but this comes with some constraints:
 * The extending classes have knowledge of and depend upon their parent classes.
 * Behavior is static, and it cannot be adjusted once declared.
-* For some languages, such as Java, there’s only one inheritance lineage. There is no multiple inheritance. This makes mixing and matching of behaviors more challenging. Multiple inheritance supporting languages, such as C++, have their own issues with the [diamond problem](https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem).
+* For some languages, such as Java, there’s only one inheritance lineage. There is no multiple inheritance. This makes mixing and matching behaviors more challenging. Multiple inheritance supporting languages, such as C++, have their own issues with the [diamond problem](https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem).
 
 I indicated in the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html) blog that Composable Design Patterns could be an alternative for inheritance via delegation.
 
@@ -20,7 +20,7 @@ We can view an inheritance tree as a type of delegation, where behaviors are exe
 Delegation is one object calling the method of another object via an object reference. We saw this with the [Proxy Design Pattern](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html) where the `Proxy` objects delegated to the `CoreFeature` object.
 
 Decorator expands delegation further than Proxy. Rather than one object delegating to another object, it’s structured as a linked list of objects delegating down the chain. A `coreFeature` object anchors the chain as the final object in the chain. The decorator objects adorn the `coreFeature` functionality.
-This type of delegation is slightly differnt than object `a` calling a method of object `b`, and then `b` calls a different method of object `c`, etc.
+This type of delegation is slightly different than object `a` calling a method of object `b`, and then `b` calls a different method of object `c`, etc.
 In Decorator, the objects delegate down the chain calling the same method from start to finish.
 
 Inheritance delegates up through ancestor classes statically. Decorator delegates through a list of objects dynamically.
@@ -69,7 +69,7 @@ Most cartoon animations consist of a background image with the cartoon character
 
 This animation technique is a version of Decorator, well  maybe closer to Proxy since there’s usually only one character cel, but the [Multiplane Camera](https://en.wikipedia.org/wiki/Multiplane_camera) expands this technique into Decorator territory. 
 
-In the Multiplane Camera, there’s a background image. Layers of cels are suspended above with space between each layer. A camera, suspended above them all, captures a frame that’s a composition of the layered cels. The space space between layers provides a 3-D effect.
+In the Multiplane Camera, there’s a background image. Layers of cels are suspended above with space between each layer. A camera, suspended above them all, captures a frame that’s a composition of the layered cels. The space between layers provides a 3-D effect.
 
 Walt Disney explains the Multiplane Camera in this [2-minute video](https://www.youtube.com/watch?v=kN-eCBAOw60) from 1957.
 
@@ -152,7 +152,7 @@ The __Heads First Design Patterns__ authors demonstrate Decorator via a fictious
 * Starbuzz offers several types of coffee: Dark Roast, House Blend, Espresso, Decaf, etc.
 * Each coffee can be enhanced with Milk, Cream, Sugar, Whipped Cream, Mocha, Soy, etc. 
 * They want to ensure that each combination is properly and consistently priced.
-* They can’t design a class for each possible combination, because the number of combinations explodes exponentially.
+* They can’t design a class for each possible combination because the number of combinations explodes exponentially.
 In short, they decide to use the Decorator Design Pattern:
     * In their example, _`Feature`_ will be _`Beverage`_ and its function returns the _`cost()`_ of the Beverage.
     * The four types of coffee will be Core Features. While the previous diagrams only showed one Core Feature with Decorator, the design handles any number of them. Each coffee type has its own cost.
@@ -213,7 +213,7 @@ DrinkOrder acquire(String ingredient, DrinkOrder drinkOrder) throws Exception {
 
 Consider how flexible this design is. `Coffee` could easily be replaced with `DarkRoast`, `HouseBlend`, `Espresso`, and `Decaf`. `Tea` could be replaced with `EarlGrey`, `BlackTea`, `Chai`, and `Herbal`. New _`Flavor`_’s can easily be added, such as `Honey`, `SoyMilk`, and `Cream`. Some _`Flavor`_’s may be seasonal, so they can be easily added or removed as desired, such as `PumpkinSpice` and `Peppermint`.
 
-__This is an extremely contrived example.__ It’s definitely over an engineered design for this specific problem. It converts a String of ingredients into a label that’s almost identical to the ingredients. I could have just as easily split the ingredients and inserted a comma between them.
+__This is an extremely contrived example.__ It’s an over engineered design for this specific problem. It converts a String of ingredients into a label that’s almost identical to the ingredients. I could have just as easily split the ingredients and inserted a comma between them.
 
 But this design can be the foundation for more. My `DrinkOrder` only printed a label. But the interface could have more features such as: `getCost()`, which is what the Head First authors showed, and `getCalories()`. Decorator could be the foundation for an entire suite of Drink Order functionality.
 
@@ -232,7 +232,7 @@ Unit tests may be sufficient to confirm behavior for individual concrete classes
 ## Pros
 Decorator’s composable behavior is a double-edged sword. It's also a pro in addition to being a con. Behavior is not statically locked into place as is the case with inheritance. When new behavior is desired, it may be a relatively simple matter of a new composition of objects instantiated from the existing classes in the design. New behavior can be configured at runtime as well.
 
-Sometimes new behavior is beyond the scope of a new composition. New behavior may require new core feature or decorator classes. It should be obvious where a new concrete class resides in the design. And as soon as the class is defined, the IDE or the compiler will scream which methods need to be implemented. Existing concrete classes can be references as implementation examples for new concrete class implementations.
+Sometimes new behavior is beyond the scope of a new composition. New behavior may require new core feature or decorator classes. It should be obvious where a new concrete class resides in the design. And as soon as the class is defined, the IDE or the compiler will scream which methods need to be implemented. Existing concrete classes can be referenced as implementation examples for new concrete class implementations.
 
 The classes can be unit tested with ease. The classes in my Starbuzz design generally only need one test to confirm the label content that they produce. Even the abstract _`Flavor`_ class can be unit tested with a dependency upon a [test double](https://martinfowler.com/bliki/TestDouble.html) without depending upon another concrete class in the design.
 
