@@ -11,7 +11,7 @@ The Decorator Design Pattern is the next of the [Composable Design Patterns](htt
 Inheritance enhances existing functionality often by adding new or modifying existing behaviors to existing classes, but this comes with some constraints:
 * The extending classes have knowledge of and depend upon their parent classes.
 * Behavior is static, and it cannot be adjusted once declared.
-* For some languages, such as Java, there’s only one inheritance lineage. There is no multiple inheritance. This makes mixing and matching of behaviors more challenging. Multiple inheritance supporting languages, such as C++, have their own issues with the [diamond problem (https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem).
+* For some languages, such as Java, there’s only one inheritance lineage. There is no multiple inheritance. This makes mixing and matching of behaviors more challenging. Multiple inheritance supporting languages, such as C++, have their own issues with the [diamond problem](https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem).
 
 I indicated in the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html) blog that Composable Design Patterns could be an alternative for inheritance via delegation.
 
@@ -38,7 +38,7 @@ Decorator is not difficult to implement. Its main challenge is comprehension. He
 
 [Mr. Potato Head](https://en.wikipedia.org/wiki/Mr._Potato_Head) is a favorite childhood toy and Disney Toy Story character. But he’s also a good metaphor for the Decorator Design Pattern.
 
-Mr. Potato Head has been a favorite for many children including me in my youth. The plain potato core feature isn’t much of a toy. The fun came in decorating the potato with caricature appendages, such as eyes, mouth, nose, ears, feet, hands, and hats. Kids could create different Mr. Potato Head with different expressions depending upon the appendages added. And inevitably, noses would be placed in the ear holes, hands in the hat holes, etc.
+Mr. Potato Head has been a favorite for many children including me in my youth. The plain potato core feature isn’t much of a toy. The fun came in decorating the potato with caricature appendages, such as eyes, mouth, nose, ears, feet, hands, and hats. Kids could create Mr. Potato Head with different expressions depending upon the appendages added. And inevitably, noses would be placed in the ear holes, hands in the hat holes, etc.
 
 The original version of the toy only included the Decorator appendages. The child needed a real potato, probably provided by mom.
 After too many rotting Mr. Potato Heads transformed into <span style="font-family:Chiller;">__Mr. Potato Zombie__</span>, Hasbro provided a plastic potato, which also doubled as convenient storage for the appendages.
@@ -46,12 +46,16 @@ After too many rotting Mr. Potato Heads transformed into <span style="font-famil
 Mr. Potato Head is a Decorator. The Core Feature is the potato. The Decorators are the caricature appendages added to it.
 
 ## Food Orders with Options
+Lots of foods demonstrate Decorator.
+
+### I Scream For Ice Cream
 <img src="/assets/DecoratorIceCream.JPG" alt="Squealing with Delight at Ice Cream" width = "30%" align="right" style="padding-right: 20px;">
 
 My family ate at a Disney World restaurants on a vacation years ago. My 4-year-old son ordered an ice cream sundae for dessert. He practically squealed with delight when our server placed it in front of him. It was a bowl of vanilla ice cream with half a dozen plastic cups of toppings ringed around it. Of course, he dumped all the toppings on the ice cream before devouring it.
 
 The ice cream is the Core Feature, and the toppings are the Decorators.
 
+### Pizza
 Most pizzas begin with a crust, sauce, and cheese. Then customers can add toppings as desired, such as pepperoni, mushrooms, olives, and … pineapple.
 
 The basic pizza is the Core Feature, and the toppings are the Decorators.
@@ -131,7 +135,7 @@ I want to remove the need for developers to read documentation and pray that the
 This final design incorporates the [Template Method Design Pattern](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html) into the design:
 * The only modifications are in the abstract `Decorator` and the concrete `Decorator` classes that extend it.
 * The GoF Decorator design is based upon running specialized pre-code, then delegating to `feature.execute()` and then running specialized post-code in the concrete `Decorator` classes.
-* This Template Method infused version moves those three steps into the abstract _`Decorator`_, which ensures that those three steps are always executed in that order. The abstract _`Decorator`_ does not contain specialized pre- or post-code, but it can call them abstractly via its protected abstract methods, which must be implemented in the concrete _`Decorator`_ classes.
+* This Template Method infused version moves those three steps into the abstract _`Decorator`_, which ensures that those three steps are always executed in that order. The abstract _`Decorator`_ does not contain specialized pre- or post- code, but it can call them abstractly via its protected abstract methods, which must be implemented in the concrete _`Decorator`_ classes.
 * I declare _`Decorator`_’s `execute()` method as `final`, so that the concrete `Decorator` classes cannot override it and break the delegation chain, even if unintentionally.
 * The concrete `Decorator` classes only need to define what needs to be executed before and after the delegation. If they do not have any pre- or post- behavior, then these methods, which must be defined, can be empty.
 
@@ -205,7 +209,7 @@ DrinkOrder acquire(String ingredient, DrinkOrder drinkOrder) throws Exception {
 
 Consider how flexible this design is. `Coffee` could easily be replaced with `DarkRoast`, `HouseBlend`, `Espresso`, and `Decaf`. `Tea` could be replaced with `EarlGrey`, `BlackTea`, `Chai`, and `Herbal`. New _`Flavor`_’s can easily be added, such as `Honey`, `SoyMilk`, and `Cream`. Some _`Flavor`_’s may be seasonal, so they can be easily added or removed as desired, such as `PumpkinSpice` and `Peppermint`.
 
-__This is an extremely contrived example.__ It’s definitely over engineered design for this specific problem. It converts a String of ingredients into a label that’s almost identical to the ingredients. I could have just as easily split the ingredients and inserted a comma between them.
+__This is an extremely contrived example.__ It’s definitely over an engineered design for this specific problem. It converts a String of ingredients into a label that’s almost identical to the ingredients. I could have just as easily split the ingredients and inserted a comma between them.
 
 But this design can be the foundation for more. My `DrinkOrder` only printed a label. But the interface could have more features such as: `getCost()`, which is what the Head First authors showed, and `getCalories()`. Decorator could be the foundation for an entire suite of Drink Order functionality.
 
