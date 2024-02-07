@@ -146,7 +146,7 @@ This final design incorporates the [Template Method Design Pattern](https://jhum
 # Use Case – Coffee Labels
 So far this has been very abstract. Let’s get into a use case that’s more concrete.
 
-<img src="https://isorepublic.com/wp-content/uploads/2018/11/cup-coffee-1100x733.jpg" alt="Cup of Coffee" title="Image Source: https://isorepublic.com/photo/cafe-coffee-time/" width = "30%" align="right" style="padding-right: 20px;">
+<img src="https://images.pexels.com/photos/1170659/pexels-photo-1170659.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cup of Coffee" title="Image Source: https://www.pexels.com/photo/cup-of-delicious-coffee-with-froth-on-breakfast-in-cafeteria-1170659/" width = "30%" align="right" style="padding-right: 20px;">
 
 The __Heads First Design Patterns__ authors demonstrate Decorator via a fictious coffee shop called: Starbuzz Coffee. Here’s the gist of their example:
 * Starbuzz offers several types of coffee: Dark Roast, House Blend, Espresso, Decaf, etc.
