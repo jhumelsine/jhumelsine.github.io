@@ -1,7 +1,6 @@
 ---
 title: Decorator Design Patterns
 description: Layer additional behaviors upon core features.
-unlisted: true
 ---
 <img src="https://i5.walmartimages.com/seo/Potato-Head-Mr-Potato-Head-Classic-Toy-For-Kids-Ages-2-and-Up-Includes-13-Parts-and-Pieces-to-Create-Funny-Faces_0707e86c-0291-454b-a656-0cbfc7ca86b1.fedf9869656cdea9c0a454df4fccf3f4.jpeg" alt="Mr. Potato Head" title="Image Source: https://www.amazon.com/Mr-Potato-Head-Classic-Pieces/dp/B08X1RYZ1R" width = "50%" align="center" style="padding-right: 35px;">
  
