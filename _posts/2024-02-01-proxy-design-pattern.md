@@ -165,7 +165,7 @@ C# has the same concept as Java, but with different nomenclature via it's [`IDis
 # Other Administrative Concerns for Proxy
 Lazy Initialization and “Stack” Memory Management aren’t the only administrative concerns for Proxy. Proxy could also be used for a Cache, Database wrappers, Remote Method Invocation wrappers, etc.
 
-But we have a minor issue. In its traditional presentation, there’s only one Proxy class. What if the Concrete Class has multiple administrative concerns? The next pattern, Decorator, will address this. My UML Class Diagram for Proxy hints at a solution when Proxy delegates to Feature rather than ConcreteFeature. Sit tight for Decorator.
+But we have a minor issue. In its traditional presentation, there’s only one Proxy class. What if the Concrete Class has multiple administrative concerns? The next pattern, [Decorator](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html), will address this. My UML Class Diagram for Proxy hints at a solution when Proxy delegates to Feature rather than ConcreteFeature.
 
 # Summary
 Proxy provides a mechanism to manage some administrative concerns in the design rather than thrusting them upon Client developers, who may not get the right anyhow.
