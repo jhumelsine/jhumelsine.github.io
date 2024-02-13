@@ -1,5 +1,5 @@
 ---
-title: Proxy Design Patterns
+title: Proxy Design Pattern
 description: Place administrative wrapper objects around objects often to help manage their complexity or resources.
 ---
 
