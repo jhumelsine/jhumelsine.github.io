@@ -4,11 +4,11 @@ description: Delegate a request to a linked list of request handlers traversing 
 unlisted: true
 ---
 
-<img src="https://live.staticflickr.com/7143/6463738329_55faa2b606_b.jpg" alt="Customer Service Decision Tree" title="Image Source: https://www.flickr.com/photos/davegray/6463738329" width = "50%" align="center" style="padding-right: 20px;">
+<img src="https://live.staticflickr.com/7143/6463738329_55faa2b606_b.jpg" alt="Customer Service Decision Tree" title="Image Source: https://www.flickr.com/photos/davegray/6463738329" width = "60%" align="center" style="padding-right: 20px;">
 
  
 # Introduction
-The Chain of Responsibility Design Pattern is the next of the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html)  series.
+The Chain of Responsibility Design Pattern is the next of the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html) series.
 
 Chain of Responsibility (CoR) delegates a request to be completed by one request handler from a given set of request handlers. Since some handlers may not be able to complete the specific request, the request may be delegated to more than one handler. The request handlers are organized in a linked list, i.e., the _chain_, such that the least resource intensive handlers tend to reside earlier in the list and the more resource intensive handlers reside later in the list.
 
@@ -132,10 +132,9 @@ One day our PM/CTO called me into his office. He described a data management sit
 * There was also the possibility that another organization’s hierarchy could be added in the future, and could the design accommodate that too? This never happened while I was on the project, but it was something to keep in mind.
 
 ## Chaining Data Sources
+<img src="https://live.staticflickr.com/3470/3254883191_f555a28366_b.jpg" alt="Little Black Book" title="Image Source: https://www.flickr.com/photos/84609865@N00/3254883191/" width = "30%" align="right" style="padding-right: 20px;">
+
 While I had never used Chain of Responsibility, it was the first idea that came to my mind. I went through several design iterations before settling upon something like this design:
-__RETURN HERE FOR MORE FORMATTING__
-https://www.flickr.com/photos/84609865@N00/3254883191/
-https://live.staticflickr.com/3470/3254883191_f555a28366_b.jpg
  
 * I called it an `AddressBook`. I always envisioned a swinging bachelor from the 1960s who might look a phone number for a weekend date by first consulting his __little black book__ and then the phone book and finally call directory assistance as his options thinned out.
 * I’m calling the organizational entity a __Group__. It’s a generic placeholder for this example. It can represent any Group represented by its name at any place in the organizational hierarchy.
@@ -152,6 +151,8 @@ https://live.staticflickr.com/3470/3254883191_f555a28366_b.jpg
       * `addressBookHandler.getGroupByName(name)` does not find and returns an empty `Optional`.
 * `GroupNotFound` returns an empty `Optional` in all cases as the default behavior when none of the `AddressBookHandlers` are able to find a `Group` by name.
 
+<img src="/assets/ChainOfResponsibilityAddressBookA.png" alt="Address Book via Chain of Responsibility" width = "90%" align="center" style="padding-right: 20px;">
+
 ## Concrete AddressBookHandlers
 I can’t quite fit the entire design on one diagram, since the `AddressBookHandler` details required considerable space. Here’s the second part of the design, which provides some additional design details for the concrete AddressBooks:
 * This diagram replicates the AddressBook classes from the previous diagram, but it focuses more upon the concrete AddressBooks.
@@ -159,6 +160,8 @@ I can’t quite fit the entire design on one diagram, since the `AddressBookHand
 * `CacheAddressBook` implements the methods via a `Map`.
 * `DataBaseAddressBook` is grossly simplified. There’s insufficient room to represent more. What’s important is that `DataBaseAddressBook` delegates to the external `Database`, possibly via SQL. This delegation is an example of the [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) design pattern.
 * `WebServiceAddressBook` is likewise the same as `DataBaseAddressBook`. It’s also grossly simplified due to space constraints. It delegates to the `WebService` possibly via REST. This delegation is also an example of the [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) design pattern.
+
+<img src="/assets/ChainOfResponsibilityAddressBookB.png" alt="Address Book Concrete Classes via Chain of Responsibility" width = "90%" align="center" style="padding-right: 20px;">
  
 ## Cache Invalidation
 The design as shown has an issue with stale cached `Group`s. I mentioned that the organizational hierarchy was dynamic. It could change at any time. As designed, once a `Group` is in the cache, it’s never updated or removed.
@@ -172,6 +175,8 @@ And to be technically accurate, our `DataBaseAddressBook` did not add the `Group
 ## Configurer
 Composable designs provide the structural potential but not behavior. The behavior must be composed by a `Configurer` type of class.
 My PM/CTO had described the possible configurations. They would be:
+
+<img src="/assets/ChainOfResponsibilityAddressBookObjects.png" alt="Address Book via Chain of Responsibility Objects" width = "90%" align="center" style="padding-right: 20px;">
  
 My first `Configurer` implementation was based upon building the linked list chain from a configuration String value, such as:
 * ADDRESSBOOK_PATH=Cache:DataBase:WebService:GroupNotFound
@@ -196,11 +201,11 @@ However, if it were to materialize, then we would have had to consider the follo
 The AddressBook use case features more than just Chain of Responsibility. Design patterns are rarely used in isolation. They often work together when the edge of one blurs into the beginning of another one.
 
 Here’s a quick summary of the design patterns featured or mentioned in this use case:
-* Chain of Responsibility
-* [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html)
-* [Decorator](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html)
-* [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html)
-* [Observer](https://sourcemaking.com/design_patterns/observer)
+* Chain of Responsibility the pattern of this blog
+* [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html) to move most of the CoR behavior into the abstract class
+* [Decorator](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html) to populate the Cache and other Address Book Handlers
+* [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) to allow the design to interact with external entities
+* [Observer](https://sourcemaking.com/design_patterns/observer) to keep the Cache up to date, but only mentioned this blog, not featured
 
 # Chain of Responsibility Pros and Cons
 The relative pros and cons of Chain of Responsibility are like those with most of the Composable design patterns.
@@ -224,5 +229,6 @@ Chain of Responsibility is …
 # References
 There are many online resources with diagrams and implementations in different programming languages. Here are some free resources:
 * TBD
+
 Here are some resources that can be purchased or are included in a subscription service:
 * TBD
