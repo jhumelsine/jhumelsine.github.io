@@ -269,6 +269,8 @@ There are many online resources with diagrams and implementations in different p
 * [Baeldung Chain of Responsibility Design Pattern](https://www.baeldung.com/chain-of-responsibility-pattern)
 * [OODesign Chain of Responsibility Design Pattern](https://www.oodesign.com/chain-of-responsibility-pattern)
 * [Learn CS Design Chain of Responsibility Design Pattern](https://www.learncsdesign.com/learn-the-chain-of-responsibility-design-pattern/)
+* [DoFactory Chain of Responsibility Design Pattern](https://www.dofactory.com/net/chain-of-responsibility-design-pattern)
+* [hackernoon Chain of Responsibility Design Pattern](https://hackernoon.com/how-the-chain-of-responsibility-design-pattern-works-in-c)
 * and for more, Google: [Chain of Responsibility Design Pattern](https://www.google.com/search?q=Chain+of+Responsibility+Design+Pattern)
 
 Here are some resources that can be purchased or are included in a subscription service:
