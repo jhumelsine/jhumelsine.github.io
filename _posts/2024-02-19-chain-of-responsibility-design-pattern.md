@@ -24,7 +24,7 @@ Customer support begins with a bank of front-line representatives doing their be
 
 The customer may escalate by asking to speak to a manager, who has additional authority to resolve the issue. If the manager cannot resolve the issue, then the customer may escalate to the manager’s manager.
 
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2Jjc3Y0Y3prNTRrZDF4bW1iaWZhdzJxNGxwNmhwbWJvN3V5ZWJ2eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cLwoEpaLVa1iM3WRDO/giphy.gif" alt="Can I speak to a manager?" title="Image Source: https://media.giphy.com" width = "30%" align="right" style="padding-right: 20px;">
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2Jjc3Y0Y3prNTRrZDF4bW1iaWZhdzJxNGxwNmhwbWJvN3V5ZWJ2eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cLwoEpaLVa1iM3WRDO/giphy.gif" alt="Can I speak to a manager?" title="Image Source: https://media.giphy.com" width = "25%" align="right" style="padding-right: 20px;">
 
 The customer may continue to escalate until either their issue is resolved, or they run out of managers.
 
@@ -63,7 +63,7 @@ It’s a space-efficient probabilistic algorithm that will efficiently determine
 * No guarantee when the information is in the data store. A 100% guarantee is only possible by moving past the Bloom filter and accessing the data store directly.
 
 ## Switch and Cascading If/Else-If/Else Statements
-<img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/IF-THEN-ELSE-END_flowchart.png?20050817140753" alt="If/Then/Else/End Flowchart" title="Image Source: https://commons.wikimedia.org/wiki/File:IF-THEN-ELSE-END_flowchart.png" width = "20%" align="right" style="padding-right: 20px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/IF-THEN-ELSE-END_flowchart.png?20050817140753" alt="If/Then/Else/End Flowchart" title="Image Source: https://commons.wikimedia.org/wiki/File:IF-THEN-ELSE-END_flowchart.png" width = "30%" align="right" style="padding-right: 20px;">
 
 `switch` statements and cascading `if/else-if/else` statements are a form of Chain of Responsility. The flow of control proceeds through the conditions until the first one is satisfied, and then its corresponding statement body is executed.
 
@@ -130,7 +130,7 @@ This design incorporates the [Template Method Design Pattern](https://jhumelsine
 * `DelegatingRequestHandler`’s `requestHandler` field attribute is described as __Non-Null__. This ensures that when referenced, it won’t throw an `NullPointerException`. I do not show how this __Non-Nullness__ can be achieved since there was insufficient space to present it. If I had the space, the `DelegatingRequestHandler` would define a constructor with a `RequestHandler` parameter. The constructor would throw an exception if it were null.
 * `DelegatingRequestHandler`’s non-null `requestHandler` constraint means that each linked list chain must end with a non-delegating handler, which in this design is `AnchoringRequestHandler`. There’s no guarantee that any request handler will be able to handle the request. When the flow reaches `AnchoringRequestHandler` then the request has gone unhandled. `AnchoringRequestHandler` serves the same function as the `default` in a `switch` statement or the `else` of a cascading set of `if/else-if` statements. Default behavior will vary based upon context. I’ve provided a few options as comments within the design.
 
-<img src="/assets/ChainOfResponsibilityTemplateMethod.png" alt="Chain of Responsibility using Template Method" width = "90%" align="center" style="padding-right: 20px;">
+<img src="/assets/ChainOfResponsibilityTemplateMethod.png" alt="Chain of Responsibility using Template Method" width = "100%" align="center" style="padding-right: 20px;">
 
 Here’s an example of the linked list of objects that can be created for this design, which is the same as the objects in the GoF’s CoR example, but with the addition of `anchoringRequestHandler` at the end of the chain:
 
@@ -171,7 +171,7 @@ While I had never used Chain of Responsibility, it was the first idea that came 
       * `addressBookHandler.getGroupByName(name)` does not find a `Group` and returns an empty `Optional<Group>`.
 * `GroupNotFound` returns an empty `Optional` in all cases as the default behavior since none of the `AddressBookHandlers` were able to find a `Group` by name.
 
-<img src="/assets/ChainOfResponsibilityAddressBookA.png" alt="Address Book via Chain of Responsibility" width = "90%" align="center" style="padding-right: 20px;">
+<img src="/assets/ChainOfResponsibilityAddressBookA.png" alt="Address Book via Chain of Responsibility" width = "100%" align="center" style="padding-right: 20px;">
 
 ## Concrete AddressBookHandlers
 I can’t quite fit the entire design on one diagram, since the `AddressBookHandler` details required considerable space.
@@ -186,7 +186,7 @@ Here’s the second part of the design, which provides some additional design de
 * `DataBaseAddressBook` is grossly simplified. There’s insufficient room to represent more. What’s important is that `DataBaseAddressBook` delegates to the external `Database`, possibly via SQL. This delegation is an example of the [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) design pattern.
 * `WebServiceAddressBook` is likewise the same as `DataBaseAddressBook`. It’s also grossly simplified due to space constraints. It delegates to the `WebService` possibly via REST. This delegation is also an example of the [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) design pattern.
 
-<img src="/assets/ChainOfResponsibilityAddressBookB.png" alt="Address Book Concrete Classes via Chain of Responsibility" width = "90%" align="center" style="padding-right: 20px;">
+<img src="/assets/ChainOfResponsibilityAddressBookB.png" alt="Address Book Concrete Classes via Chain of Responsibility" width = "100%" align="center" style="padding-right: 20px;">
 
 If this were a design just for me, it would have started with the abstract `AddressBookHandler` as before, but without the `AddressBook` interface it implements. And if more space were needed for each concrete Address Book class, then the above could have been split into three separate diagrams to provide additional details for each concrete class as needed.
  
@@ -258,11 +258,18 @@ The classes can be unit tested with ease. Even the abstract `DelegatingRequestHa
 There may be many concrete classes in a CoR design, but they tend to be independent. They don’t depend upon or know about each other. Therefore, new concrete classes can be added with fear of breaking existing classes. It’s also easier to identify and remove deprecated classes when they are no longer needed.
 
 # Summary
-Chain of Responsibility is …
+Chain of Responsibility provides flexibility within a design. While I haven't mentioned it before, CoR is an extension of the [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) design pattern. Each concrete handler is a strategy option, but within the context of CoR, the design is not limited to one strategy at a time. Strategies, as handlers, can be chained together dynamically so that if one strategy is not applicable, then there may be another one down the chain that will be.
 
 # References
 There are many online resources with diagrams and implementations in different programming languages. Here are some free resources:
-* TBD
+* [Wikipedia Chain of Responsibility Design Pattern](https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern)
+* [Source Making Chain of Responsibility Design Pattern](https://sourcemaking.com/design_patterns/chain_of_responsibility)
+* [Refactoring Guru Chain of Responsibility Design Pattern](https://refactoring.guru/design-patterns/chain-of-responsibility)
+* [Project Management Institute Chain of Responsibility Design Pattern](https://www.pmi.org/disciplined-agile/the-design-patterns-repository/the-chain-of-responsibility-pattern)
+* [Baeldung Chain of Responsibility Design Pattern](https://www.baeldung.com/chain-of-responsibility-pattern)
+* [OODesign Chain of Responsibility Design Pattern](https://www.oodesign.com/chain-of-responsibility-pattern)
+* [Learn CS Design Chain of Responsibility Design Pattern](https://www.learncsdesign.com/learn-the-chain-of-responsibility-design-pattern/)
+* and for more, Google: [Chain of Responsibility Design Pattern](https://www.google.com/search?q=Chain+of+Responsibility+Design+Pattern)
 
 Here are some resources that can be purchased or are included in a subscription service:
 * TBD
