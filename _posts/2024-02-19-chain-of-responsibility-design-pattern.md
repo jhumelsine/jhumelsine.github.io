@@ -278,5 +278,5 @@ There are many online resources with diagrams and implementations in different p
 * and for more, Google: [Chain of Responsibility Design Pattern](https://www.google.com/search?q=Chain+of+Responsibility+Design+Pattern)
 
 Here are some resources that can be purchased or are included in a subscription service:
-* Gang of Four Chain of Responsiblity Design Pattern, page 223 ([O'Reilly](https://learning.oreilly.com/library/view/design-patterns-elements/0201633612/ch05.html#page_223) and [Amazon](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612))
+* Gang of Four Chain of Responsibility Design Pattern, page 223 ([O'Reilly](https://learning.oreilly.com/library/view/design-patterns-elements/0201633612/ch05.html#page_223) and [Amazon](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612))
 * Clean Code: Design Patterns, Episode 34 video ([Clean Coders](https://cleancoders.com/episode/clean-code-episode-34) and [O'Reilly](https://learning.oreilly.com/videos/clean-code-fundamentals/9780134661742/9780134661742-code_03_34_00/))
