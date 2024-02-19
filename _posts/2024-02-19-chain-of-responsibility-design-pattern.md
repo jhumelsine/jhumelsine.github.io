@@ -14,7 +14,7 @@ Chain of Responsibility (CoR) delegates a request through a set of handlers unti
 The handlers are organized in a linked list, i.e., the _chain_, such that the least resource intensive handlers tend to reside earlier in the list and the more resource intensive handlers reside later in the list.
 
 Chain of Responsibility can trace its roots back to the [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) design pattern, as can almost every pattern I've presented since Strategy. 
-With CoR, each handler is a strategy option, but the CoR design is not limited to choosing one strategy.. Strategies, as handlers, can be chained together dynamically so that if one strategy is not applicable, then there may be another one down the chain that will be.
+With CoR, each handler is a strategy option, but the CoR design is not limited to choosing one strategy. Strategies, as handlers, can be chained together dynamically so that if one strategy is not applicable, then there may be another one down the chain that will be.
 
 # Real World Analogies to Chain of Responsibility
 Like [Decorator](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html), CoR is not difficult to implement. Its main challenge is comprehension. Here are a few real-world examples to ease one into the CoR concept.
@@ -22,7 +22,7 @@ Like [Decorator](https://jhumelsine.github.io/2024/02/08/decorator-design-patter
 ## Customer Support
 <img src="https://live.staticflickr.com/5706/31270428786_f8a74a905c_b.jpg" alt="Customer Support Bank" title="Image Source: https://live.staticflickr.com/5706/31270428786_f8a74a905c_b.jpg" width = "30%" align="right" style="padding-right: 20px;">
  
-Everyone has called customer support with an issue.
+Almost everyone has called customer support with an issue at some point.
 Customer support begins with a bank of front-line representatives doing their best to resolve the issue. But sometimes, they cannot, because they may not have the authority to resolve a challenging issue.
 
 The customer may escalate by asking to speak to a manager, who has additional authority to resolve the issue. If the manager cannot resolve the issue, then the customer may escalate to the manager’s manager.
@@ -32,8 +32,8 @@ The customer may escalate by asking to speak to a manager, who has additional au
 The customer may continue to escalate until either their issue is resolved, or they run out of managers.
 
 Customer support is a Chain of Responsibility starting front-line representatives and proceeding through managers.
-The front-line representatives have enough authority for most issues, but they may not have enough for more the challenging ones.
-Front-line representatives can handle most requests leaving the more challenging requests to the diminishing number of managers who have more authority for the more challenging issues.
+The front-line representatives have enough authority for most issues, but they may not have enough authority for more the challenging ones.
+Front-line representatives can handle most requests leaving the more challenging requests to the diminishing number of managers through the management chain who have more authority for the more challenging issues.
 
 ## The Judicial System
 <img src="https://c.pxhere.com/photos/25/a4/justice_statue_lady_justice_greek_mythology_roman_goddess_god's_law_goddess_of_the_law_oh_titi_youth-1186582.jpg!d" alt="Justice statue" title="Image Source: https://pxhere.com/en/photo/118658" width = "30%" align="right" style="padding-right: 20px;">
@@ -47,7 +47,7 @@ In Unix/Linux, you can type the name of an executable from the command line.
 The desired executable can be in almost any directory in the system.
 
 `$PATH` is a shell variable that’s comprised of a colon separated list of directories where executables reside.
-Unix/Linux will look for the executable one directory at a time.
+Unix/Linux will look for the executable one directory at a time in the `$PATH` list.
 It will execute the first one it finds that matches the name.
 This behavior is Chain of Responsibility.
 
@@ -70,7 +70,7 @@ It’s a space-efficient probabilistic algorithm that will efficiently determine
 
 `switch` statements and cascading `if/else-if/else` statements are a form of Chain of Responsility. The flow of control proceeds through the conditions until the first one is satisfied, and then its corresponding statement body is executed.
 
-The main difference between `switch`/`if/else-if/else` and CoR is that the former is statically locked in the code and the former is dynamic. This is not unlike the comparison of inheritance and the [Decorator](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html) design pattern.
+The main difference between `switch`/`if/else-if/else` and CoR is that the former is statically locked in the code and the latter is dynamic. This is not unlike the comparison of inheritance and the [Decorator](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html) design pattern.
 
 I’m not a huge fan of `switch`/`if/else-if/else` in the code base. I’ve encountered them being replicated repeatedly for different behaviors throughout the code base, rather organizing and encapsulating behaviors within their respective classes. `switch`/`if/else-if/else` code is difficult to understand and maintain. This is a [code smell](https://refactoring.guru/smells/switch-statements) and really a topic for another blog.
 
@@ -114,7 +114,7 @@ In this example, __B__ is the more reliable and more resource intense handler. _
 While we could configure an __A__ handler after the __B__ handler, there’s no logical reason to do so.
 
 Much like the GoF’s Decorator design, I have a few issues with their Chain of Responsibility design:
-* If they observed their own [design principles](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html), then I would have expected an interface at the top of their design as I did.
+* If the GoF observed their own [design principles](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html), then I would have expected an interface at the top of their design.
 * Their design demands too much responsibility of the concrete classes. Their design requires a lot of faith that the concrete class developer will get the `if/else` logic right.
 * I don’t like that the `else` case requires a call to the base class via `super.handleRequest()`. This violates encapsulation.
 * There’s no guarantee that any of the handlers will be able to handle the request. If that’s the case, then the call to `super.handleRequest()` will encounter a null reference. The GoF put a null check in their example C++ code, but the concept is not represented in the design.
@@ -130,7 +130,7 @@ This design incorporates the [Template Method Design Pattern](https://jhumelsine
     * Confirm that `processRequest()` is executed, when `iCanProcessRequest()` returns true.
     * Confirm that `requestHandler.requestHandler()` is executed, when `iCanProcessRequest()` returns false.
 * `DelegatingRequestHandler.handleRequest()` is declared as `final` so that a concrete handler cannot override it, even if unintentionally.
-* `DelegatingRequestHandler`’s `requestHandler` field attribute is described as __Non-Null__. This ensures that when referenced, it won’t throw an `NullPointerException`. I do not show how this __Non-Nullness__ can be achieved since there was insufficient space to present it. If I had the space, the `DelegatingRequestHandler` would define a constructor with a `RequestHandler` parameter. The constructor would throw an exception if it were null.
+* `DelegatingRequestHandler`’s `requestHandler` field attribute is described as __Non-Null__. This ensures that when it's referenced, it won’t throw an `NullPointerException`. I do not show how this __Non-Nullness__ can be achieved since there was insufficient space to present it. If I had the space, the `DelegatingRequestHandler` would define a constructor with a `RequestHandler` parameter. The constructor would throw an exception if it were null.
 * `DelegatingRequestHandler`’s non-null `requestHandler` constraint means that each linked list chain must end with a non-delegating handler, which in this design is `AnchoringRequestHandler`. There’s no guarantee that any request handler will be able to handle the request. When the flow reaches `AnchoringRequestHandler` then the request has gone unhandled. `AnchoringRequestHandler` serves the same function as the `default` in a `switch` statement or the `else` of a cascading set of `if/else-if` statements. Default behavior will vary based upon context. I’ve provided a few options as comments within the design.
 
 <img src="/assets/ChainOfResponsibilityTemplateMethod.png" alt="Chain of Responsibility using Template Method" width = "100%" align="center" style="padding-right: 20px;">
@@ -152,16 +152,16 @@ One day our PM/CTO called me into his office. He described a data management sit
 * He wanted a cache if possible.
 * There was also the possibility that another organization’s hierarchy could be added in the future, and could the design accommodate that too? This never happened while I was on the project, but it was something to keep in mind.
 
-Then he asked if I knew if a design pattern might help with this.
+He asked if I knew of any design pattern that might help with this.
 
 ## Chaining Data Sources
 <img src="https://live.staticflickr.com/3470/3254883191_f555a28366_b.jpg" alt="Little Black Book" title="Image Source: https://www.flickr.com/photos/84609865@N00/3254883191/" width = "40%" align="right" style="padding-right: 20px;">
 
 While I had never used Chain of Responsibility, it was the first idea that came to my mind. I went through several design iterations before settling upon something like this design:
  
-* I called it an `AddressBook`. I envisioned a swinging bachelor from the 1960s who might look for a phone number for a weekend date by first consulting his __little black book__ and then the regular __phone book__ and finally call __directory assistance__ as his options thinned out.
+* I called it an `AddressBook`. I envisioned a swinging bachelor from the 1960s who might look for a phone number for a weekend date by first consulting his __little black book__ and then the regular __phone book__ and finally call __directory assistance__ as his options dwindled.
 * I’m calling the organizational entity a __Group__ in this example. It’s a generic term. It can represent any named Group at any position in the organizational hierarchy.
-* The `AddressBook` returns an `Optional<Group>` upon a look up rather than `Group`, since it’s possible that there may not be a `Group` by that name in the organization. I don't want the caller to have to deal with a null `group` object being returned.
+* The `AddressBook` returns an `Optional<Group>` upon a look up rather than `Group`, since it’s possible that there may not be a `Group` by that name in the organization. I don't want the caller to have to deal with a null `Group` object being returned.
 * `AddressBookHandler` is where most of the design details resides. It’s using [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html), but it’s slightly different than what was shown with the generic CoR Template Method example above:
     * There is no separate `iCanProcessRequest()` and `processRequest()` methods. Both behaviors are represented in `Optional<Group> getGroup(String name)`.
     * When `Optional<Group>` is not empty, then the request has been completed, and the `Optional<Group>` can be returned.
@@ -172,19 +172,19 @@ While I had never used Chain of Responsibility, it was the first idea that came 
    * When `getGroup(name)` does not find a `Group` and returns an empty `Optional<Group>`, and then:
       * `addressBookHandler.getGroupByName(name)` finds a `Group` and returns a non-empty `Optional<Group>`.
       * `addressBookHandler.getGroupByName(name)` does not find a `Group` and returns an empty `Optional<Group>`.
-* `GroupNotFound` returns an empty `Optional` in all cases as the default behavior since none of the `AddressBookHandlers` were able to find a `Group` by name.
+* `GroupNotFound` returns an empty `Optional<Group>` in all cases as the default behavior since none of the `AddressBookHandlers` were able to find a `Group` by name.
 
 <img src="/assets/ChainOfResponsibilityAddressBookA.png" alt="Address Book via Chain of Responsibility" width = "100%" align="center" style="padding-right: 20px;">
 
 ## Concrete AddressBookHandlers
 I can’t quite fit the entire design on one diagram, since the `AddressBookHandler` details required considerable space.
-If this were a design only for me, I wouldn't have added the concrete classes above.
+If this were a design only for me, I would not have added the concrete classes above.
 The abstract `AddressBookHandler` would have been sufficient for the design on that page.
 But since this design is trying to convey the overall design, I included them above.
 
-Here’s the second part of the design, which provides some additional design details for the concrete AddressBooks:
+Here is the second part of the design, which provides some additional design details for the concrete AddressBooks:
 * This diagram replicates the AddressBook classes from the previous diagram, but it focuses more upon the concrete AddressBooks.
-* Each concrete AddressBook implements the protected methods declared in `DelegatingAddressBook`.
+* Each concrete AddressBook implements the protected methods declared in `AddressBookHandler`.
 * `CacheAddressBook` implements the methods via a `Map`.
 * `DataBaseAddressBook` is grossly simplified. There’s insufficient room to represent more. What’s important is that `DataBaseAddressBook` delegates to the external `Database`, possibly via SQL. This delegation is an example of the [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) design pattern.
 * `WebServiceAddressBook` is likewise the same as `DataBaseAddressBook`. It’s also grossly simplified due to space constraints. It delegates to the `WebService` possibly via REST. This delegation is also an example of the [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) design pattern.
@@ -216,11 +216,11 @@ My first `Configurer` implementation was based upon building the linked list cha
 
 The `Configurer` would split `$ADDRESSBOOK_PATH` with a colon delimiter, acquire the corresponding object from an `AddressBookFactory`, not shown in the diagram, and chain them together into a linked list.
 
-This worked fine in my testing, but it was not a good production quality solution. Our product was part of a fleet embedded systems for which there could be hundreds if not thousands of entities. Configuring each embedded system correctly was not realistic.
+This worked fine in my testing, but it was not a good production quality solution. Our product was part of a fleet embedded systems for which there could be hundreds if not thousands of individual systems. Configuring each embedded system correctly was not realistic.
 
 The first obvious observation was that `ADDRESSBOOK_PATH` always started with `Cache` and ended with `GroupNotFound`. The only parts that varied were `DataBase` and `WebService`.
 
-Other environment variables implied whether the `DataBase` or a `WebService` was accessible in that environment. Therefore, I updated the `Configurer` so that it constructed `ADDRESSBOOK_PATH` based upon known values and environment variables. The configuration issue evaporated.
+Other environment variables implied whether the `DataBase` or a `WebService` was accessible in each environment. Therefore, I updated the `Configurer` so that it constructed `ADDRESSBOOK_PATH` based upon known values and environment variables. The configuration issue evaporated.
 
 ## Introducing a new Organization
 My PM/CTO had hinted that the `AddressBook` might need to accommodate a sibling organization in addition to the original customer. As I mentioned above, that never materialized.
@@ -262,7 +262,7 @@ The classes can be unit tested with ease. Even the abstract `DelegatingRequestHa
 There may be many concrete classes in a CoR design, but they tend to be independent. They don’t depend upon or know about each other. Therefore, new concrete classes can be added with fear of breaking existing classes. It’s also easier to identify and remove deprecated classes when they are no longer needed.
 
 # Summary
-Chain of Responsibility provides flexibility within a design. While I haven't mentioned it before, CoR is an extension of the [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) design pattern. Each concrete handler is a strategy option, but within the context of CoR, the design is not limited to one strategy at a time. Strategies, as handlers, can be chained together dynamically so that if one strategy is not applicable, then there may be another one down the chain that will be.
+Chain of Responsibility provides flexibility within a design. CoR is an extension of the [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) design pattern. Each concrete handler is a strategy option, but within the context of CoR, the design is not limited to one strategy at a time. Strategies, as handlers, can be chained together dynamically so that if one strategy is not applicable, then there may be another one down the chain that will be.
 
 # References
 There are many online resources with diagrams and implementations in different programming languages. Here are some free resources:
@@ -278,4 +278,5 @@ There are many online resources with diagrams and implementations in different p
 * and for more, Google: [Chain of Responsibility Design Pattern](https://www.google.com/search?q=Chain+of+Responsibility+Design+Pattern)
 
 Here are some resources that can be purchased or are included in a subscription service:
-* TBD
+* Gang of Four Chain of Responsiblity Design Pattern, page 223 ([O'Reilly](https://learning.oreilly.com/library/view/design-patterns-elements/0201633612/ch05.html#page_223) and [Amazon](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612))
+* Clean Code: Design Patterns, Episode 34 video ([Clean Coders](https://cleancoders.com/episode/clean-code-episode-34) and [O'Reilly](https://learning.oreilly.com/videos/clean-code-fundamentals/9780134661742/9780134661742-code_03_34_00/))
