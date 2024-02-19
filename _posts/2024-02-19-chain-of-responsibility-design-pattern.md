@@ -10,7 +10,7 @@ unlisted: true
 # Introduction
 The Chain of Responsibility Design Pattern is the next of the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html) series.
 
-Chain of Responsibility (CoR) delegates a request through a set of handlers until one is able to complete the request.
+Chain of Responsibility (CoR) delegates a request through a set of handlers until one can complete the request.
 The handlers are organized in a linked list, i.e., the _chain_, such that the least resource intensive handlers tend to reside earlier in the list and the more resource intensive handlers reside later in the list.
 
 Chain of Responsibility can trace its roots back to the [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) design pattern, as can almost every pattern I've presented since Strategy. 
@@ -33,7 +33,7 @@ The customer may continue to escalate until either their issue is resolved, or t
 
 Customer support is a Chain of Responsibility starting front-line representatives and proceeding through managers.
 The front-line representatives have enough authority for most issues, but they may not have enough authority for more the challenging ones.
-Front-line representatives can handle most requests leaving the more challenging requests to the diminishing number of managers through the management chain who have more authority for the more challenging issues.
+Front-line representatives can handle most requests, leaving the more challenging requests to the diminishing number of managers through the management chain who have more authority for the more challenging issues.
 
 ## The Judicial System
 <img src="https://c.pxhere.com/photos/25/a4/justice_statue_lady_justice_greek_mythology_roman_goddess_god's_law_goddess_of_the_law_oh_titi_youth-1186582.jpg!d" alt="Justice statue" title="Image Source: https://pxhere.com/en/photo/118658" width = "30%" align="right" style="padding-right: 20px;">
@@ -68,7 +68,7 @@ It’s a space-efficient probabilistic algorithm that will efficiently determine
 ## Switch and Cascading If/Else-If/Else Statements
 <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/IF-THEN-ELSE-END_flowchart.png?20050817140753" alt="If/Then/Else/End Flowchart" title="Image Source: https://commons.wikimedia.org/wiki/File:IF-THEN-ELSE-END_flowchart.png" width = "30%" align="right" style="padding-right: 20px;">
 
-`switch` statements and cascading `if/else-if/else` statements are a form of Chain of Responsility. The flow of control proceeds through the conditions until the first one is satisfied, and then its corresponding statement body is executed.
+`switch` statements and cascading `if/else-if/else` statements are a form of Chain of Responsibility. The flow of control proceeds through the conditions until the first one is satisfied, and then its corresponding statement body is executed.
 
 The main difference between `switch`/`if/else-if/else` and CoR is that the former is statically locked in the code and the latter is dynamic. This is not unlike the comparison of inheritance and the [Decorator](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html) design pattern.
 
@@ -204,7 +204,7 @@ The subscription and notification mechanism is the [Observer](https://sourcemaki
 And to be technically accurate, our `DataBaseAddressBook` did not add the `Group` to the Database in its `addGroup(String name, Group group)` method. Another organization was responsible for the Database’s content. We only had read-only permission. Therefore the `addGroup(String name, Group group)` method, for which an implementation was required, was an empty method. The same was true for `WebServiceAddressBook.addGroup(String name, Group group)` method for similar reasons.
 
 ## Configurer
-Composable designs provide the structural potential but not behavior. The behavior must be composed by a `Configurer` type of class.
+Composable designs provide structural potential but not behavior. The behavior must be composed by a `Configurer` type of class.
 My PM/CTO had described the possible configurations. They would be:
 
 <img src="/assets/ChainOfResponsibilityAddressBookObjects.png" alt="Address Book via Chain of Responsibility Objects" width = "90%" align="center" style="padding-right: 20px;">
