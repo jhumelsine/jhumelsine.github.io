@@ -13,6 +13,9 @@ The Chain of Responsibility Design Pattern is the next of the [Composable Design
 Chain of Responsibility (CoR) delegates a request through a set of handlers until one is able to complete the request.
 The handlers are organized in a linked list, i.e., the _chain_, such that the least resource intensive handlers tend to reside earlier in the list and the more resource intensive handlers reside later in the list.
 
+Chain of Responsibility can trace its roots back to the [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) design pattern, as can almost every pattern I've presented since Strategy. 
+With CoR, each handler is a strategy option, but the CoR design is not limited to choosing one strategy.. Strategies, as handlers, can be chained together dynamically so that if one strategy is not applicable, then there may be another one down the chain that will be.
+
 # Real World Analogies to Chain of Responsibility
 Like [Decorator](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html), CoR is not difficult to implement. Its main challenge is comprehension. Here are a few real-world examples to ease one into the CoR concept.
 
@@ -235,6 +238,7 @@ The AddressBook use case features more than just Chain of Responsibility. Design
 
 Here’s a quick summary of the design patterns featured or mentioned in this use case:
 * Chain of Responsibility the pattern of this blog.
+* [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) as the foundation pattern which CoR extends.
 * [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html) to move most of the CoR behavior into the abstract class and away from the concrete Address Book handlers and their developers.
 * [Decorator](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html) to populate the Cache and other Address Book Handlers when an unfound `Group` is found by a subsequent handler.
 * [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) to allow the design to interact with external entities, such as a Database and WebService.
