@@ -1,7 +1,6 @@
 ---
 title: Chain of Responsibility Design Pattern
 description: Delegate a request through a linked chain of handlers until one of the handlers can complete the request.
-unlisted: true
 ---
 
 <img src="https://live.staticflickr.com/7143/6463738329_55faa2b606_b.jpg" alt="Customer Service Decision Tree" title="Image Source: https://www.flickr.com/photos/davegray/6463738329" width = "60%" align="center" style="padding-right: 20px;">
