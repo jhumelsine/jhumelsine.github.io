@@ -126,6 +126,8 @@ One could argue that since all the previous composite examples are based upon ma
 
 While Carl Sagan may be technically correct, the first step of an Apple Pie recipe doesn’t necessarily need to be: __Trigger the Big Bang__.
 
+We stop when we've reached behavior that makes sense as a single behavior within our domain.
+
 # Design Structure
 <img src="/assets/ComposableDesignPatternsIntroduction.png" alt="Composable Design Patterns Template"  width = "30%" align="right" style="padding-right: 35px;">
 
@@ -158,9 +160,11 @@ I feel that safety is more important than transparency, which is why my diagram 
 * Declaring `add(Composite composite)` in `Component` is stating that all classes that implement `Component` must provide an implementation for `add` and that includes the `Leaf` classes for which `add` is not a valid function. This is a violation of the [Liskov Substitution Principle](https://en.wikipedia.org/wiki/Liskov_substitution_principle). What should `Leaf` do in its `add` implementation? Nothing? Throw an exception? There is no behavior that won’t cause confusion when attempting to add a `Component` to a `Leaf`. Therefore, don’t allow it in the first place.
 
 Here are some examples of what the Composite object tree might look like. This first version is the simplest. The tree consists of one `leaf` node:
+
 <img src="/assets/CompositeGoFObjectsA.png" alt="GoF Composite Design Pattern Objects One Node"  width = "30%" align="center" style="padding-right: 35px;">
 
 Here’s a more complex tree with several `composite` and `leaf` nodes:
+
 <img src="/assets/CompositeGoFObjectsB.png" alt="GoF Composite Design Pattern Objects Tree"  width = "80%" align="center" style="padding-right: 35px;">
 
 In both examples, the `client` has a reference to the root of the tree.
@@ -226,6 +230,8 @@ Let’s start with the _Leaf_ food items, and I don’t just mean lettuce. These
  
 ### Food Composites
 This diagram adds `FoodComposite` to the design. It’s a list of `FoodItems` and it obtains the total calorie count by summing the calories in each `FoodItem`. `Burger` and `Pickle` remain on this diagram for context to highlight how the _Leaf_ `FoodItems` and `FoodComposite` reside in the same design, but they have no dependency upon one another:
+
+<img src="/assets/CompositeBurgerComposite.png" alt="In-N-Out Burger Composite"  width = "80%" align="center" style="padding-right: 35px;">
  
 ### Cheeseburger
 The Cheeseburger gets interesting. I could have made it a more traditional design where the `Cheeseburger` class had field attributes for `Burger`, `Bun`, etc. I decided to leverage `FoodComposite` instead.
@@ -242,6 +248,8 @@ I could have also had `Cheeseburger` extend `FoodComposite`, but I decided not t
 * It is not technically a `FoodComposite` but it contains and delegates to a `FoodComposite`.
 * It’s a `Configurer`.
 * `Cheeseburger` has no behavior specific implementation. It works by creating and assembling `FoodItem`s, add them to a `FoodComposite`, and finally implement its behavior by delegating to the `FoodComposite`.
+
+<img src="/assets/CompositeCheeseburger.png" alt="In-N-Out Burger Cheeseburger"  width = "80%" align="center" style="padding-right: 35px;">
  
 Its composite tree would be:
  
