@@ -1,6 +1,6 @@
 ---
 title: Composite Design Pattern
-description: Declare emergent behavior from a confederation of behavior implementation snippets organized in a tree structure.
+description: Configure behavior emerging from a group of snippet behavior objects organized in a tree structure.
 unlisted: true
 ---
 <img src="https://live.staticflickr.com/7154/6838743675_d5c4b4e6cd_b.jpg" alt="Jet Engine Cutaway" title="Image Source: [https://www.flickr.com/photos/davegray/6463738329](https://www.flickr.com/photos/multiplyleadership/6838743675
@@ -16,9 +16,9 @@ Let’s review the composable patterns we’ve seen so far:
 * [Decorator](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html), which featured a list of decorator objects that adorned a core feature with additional behavior. It’s a dynamically composable alternative to inheritance.
 * [Chain of Responsibility](https://jhumelsine.github.io/2024/02/20/chain-of-responsibility-design-pattern.html), which featured a list of handlers, each of which has the potential to complete a task, such that the first handler in the list which can complete task is the one that does complete the task. It’s a dynamically composable alternative to `switch`/`if/else-if/else` statements.
 
-The previous composable design patterns are based upon a linear structure. They use single delegation or a list as their data structure mechanism. Each tends to focus upon one core feature class, which is enhanced by other supporting classes composed around it. One could argue that Chain of Responsibility is a list of core feature classes, since only one is chosen to do work.  But for CoR, the composition is about the choosing of the core feature class.
+The previous composable design patterns are based upon a linear structure. They use single delegation or a list as their data structure mechanism. Each tends to focus upon one core feature class, which is enhanced by other supporting classes composed around it. One could argue that Chain of Responsibility is a list of core feature classes, since only one is chosen to do work. But for CoR, the composition is about the choosing of the core feature class.
 
-Composite is all about composition. There is no single core feature class. Composite features several classes each providing a snippet of behavior. Objects implementing those snippets of behavior are composed into a _core_ behavior that’s comprised of an aggregation of those object snippets organized via Composite.
+Composite is all about composition. There is no single core feature class. Composite features several classes each providing a snippet of behavior. Objects implementing those snippets of behavior are composed into _a core_ behavior that’s comprised of an aggregation of those object snippets organized via Composite. There could be many behaviors depending upon the organization of the object snippets.
 
 Composite breaks the shackles of a linear structure. Composite’s underlying data structure is a self-referential tree. A single code base can accommodate a Composite tree of objects that’s as wide or as deep as needed for the given situation. The Composite tree could be one object or thousands of objects.
 
@@ -32,9 +32,9 @@ The other primary OO relationship is IS-A, which is traditionally rendered with 
 
 Just as Decorator is a dynamically composable alternative to inheritance, Composite is a dynamically composable alternative to traditional rendering of HAS-A relationships in OO design.
 
-Traditional HAS-A rendering tends to be statically locked into place at compile time. The HAS-A relationships are hardcoded as field attributes. There is nothing wrong with this technique, especially with a domain for which these relationships do not change. Cars will always have engines. Chordates will always have spines. I often used this technique.
+Traditional HAS-A implementation tends to be statically locked into place at compile time. The HAS-A relationships are hardcoded as field attributes. There is nothing wrong with this technique, especially with a domain for which these relationships do not change. Cars will always have engines. Chordates will always have spines. I often used this technique.
 
-But sometimes HAS-A relationships aren’t always set in stone. They may vary. They may not be known until runtime. These are the situations where Composite may be more valuable for HAS-A relationships than traditional OO practices.
+But sometimes HAS-A relationships aren’t always set in stone. They may vary. They may not be known until runtime. These are the situations where Composite may be more valuable for HAS-A relationship designs than traditional OO practices.
 
 # Real World Analogies to Composite
 Like the previous composable design patterns, Composite is not difficult to implement. In fact, its implementation is almost trivial. Its main challenge is comprehension. Here are a few real-world examples to ease one into the Composite concept.
@@ -42,7 +42,7 @@ Like the previous composable design patterns, Composite is not difficult to impl
 ## Jet Engine
 I featured this jet engine cutaway at the top. It’s a sophisticated piece of machinery. I’m not a mechanical engineer, so I asked ChatGPT to list some parts of a jet engine:
 <img src="https://live.staticflickr.com/7154/6838743675_d5c4b4e6cd_b.jpg" alt="Jet Engine Cutaway" title="Image Source: [https://www.flickr.com/photos/davegray/6463738329](https://www.flickr.com/photos/multiplyleadership/6838743675
-)" width = "30%" align="right" style="padding-right: 20px;">
+)" width = "40%" align="right" style="padding-right: 20px;">
 * Inlet
 * Compressor
 * Combustion Chamber
@@ -52,35 +52,35 @@ I featured this jet engine cutaway at the top. It’s a sophisticated piece of m
 * Fan (In turbofan engines)
 * Afterburner (in some military engines)
 
-Imagine deconstructing a jet engine completely. It will be a collection of parts such as blades, metal plates, nuts, bolts, gaskets, etc. It will cease to be an engine. Most of the parts listed above will cease to exist as well. There will no longer be a Compressor or Turbine. It will just be the composite parts that used to be configured in such a way that they had the properties of a Compressor or Turbine. This is akin to the old joke that an airplane is 10,000 loose parts flying in close formation.
+Imagine deconstructing a jet engine completely. It will be a collection of parts such as blades, metal plates, nuts, bolts, gaskets, etc. It will cease to be an engine. Most of the parts listed above will cease to exist as well. There will no longer be a Compressor or Turbine. It will just be the parts that used to be configured in such a way that they had the properties of a Compressor or Turbine.
+
+This is akin to the old joke that an airplane is 10,000 loose parts flying in close formation.
 
 I would probably model a jet engine more traditionally with the concept that: JetEngine HAS-A Compressor, JetEngine HAS-A Turbine and even more decomposition with Turbine HAS-A set of Blades, etc. rather than Composite, since the composition of a Jet Engine is not likely to change frequently.
 
-My example is about the compositional HAS-A nature of a Jet Engine regardless of how one might model it using a traditional OO approach or Composite. The Compressor and Turbine really do not exist as a single entity. Heck, even the Jet Engine does not really exist. They are the compositional sum of their components in a specific configuration. While we often refer to this relationship as HAS-A, it’s closer to IS-COMPRISED-OF.
+The purpose of my example is to highlight the compositional HAS-A nature of a Jet Engine regardless of how one might model it using a traditional OO approach or Composite. The Compressor and Turbine really do not exist as a single entity. Heck, even the Jet Engine does not really exist. They are the compositional sum of their components in a specific configuration. While we often refer to this relationship as HAS-A, it’s closer to IS-COMPRISED-OF.
 
 ## Logic Gates
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Four_bit_adder_with_carry_lookahead.svg" alt="Full Adder Logic Gates" title="Image Source: https://www.wikiwand.com/en/Logic_gate#Media/File:Four_bit_adder_with_carry_lookahead.svg" width = "20%" align="right" style="padding-right: 35px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Four_bit_adder_with_carry_lookahead.svg" alt="Full Adder Logic Gates" title="Image Source: https://www.wikiwand.com/en/Logic_gate#Media/File:Four_bit_adder_with_carry_lookahead.svg" width = "30%" align="right" style="padding-right: 35px;">
 
 The [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html) blog featured an image of logic gates for a four-bit adder.
 
-A Multi-bit Adder is a composite of Full Adder components, which are each a composite of AND, OR and NOT logic gates. The Multi-bit Adder and the Full Adders are composite configurations of the same fundamental logic gates. They only have meaning as a concept because we choose to assign them meaning based upon the behaviors that emerge from their configurations.
+A Multi-bit Adder is a composite of Full Adder components, which are each a composite of AND, OR and NOT logic gates. The Multi-bit Adder and the Full Adders are composite configurations of these three simple logic gates. This applies to almost all logical components of a computer. They only have meaning as a concept because we choose to assign them meaning based upon the behaviors that emerge from their configurations.
 
 ## Lego Brick Sets
-Lego has been a popular toy for decades. The bricks were mostly generic when I was a child, but I did have a house and gear themed set.
+Lego has been a popular toy for decades. The bricks were mostly generic when I was a child. Since then, Lego has expanded to specific themed sets often tied in with marketing and merchandizing of other brands, such as Star Wars themed Lego sets.
 
-Lego expanded to specific themed sets often tied in with marketing and merchandizing of other brands, such as Star Wars themed Lego sets.
-
-There are hybrid sets too. My son had a Police Boat set which featured a specific configuration on the front cover of the box, with step-by-step instructions on how to build the featured Police Boat. But the back cover provided photos of alternative boats that could be configured from the same bricks. Other than the photos, these alternative boats were left up to the child’s imagination.
+There are hybrid sets too. My son had a Police Boat set which featured a specific configuration on the front cover of the box, with step-by-step instructions on how to build the featured Police Boat. But the back cover provided photos of alternative boats that could be assembled from the same bricks. Other than the photos, these alternative boats were left up to the child’s imagination.
 
 No individual Lego Brick has much agency. Form doesn’t emerge until the bricks are snapped together to create a cohesive structure. 
 
-<img src="https://live.staticflickr.com/7057/7053151615_0e25fcf31d_o.jpg" alt="Lego Millennium Falcon" title="Image Source: https://www.flickr.com/photos/stickkim/7053151615" width = "30%" align="left" style="padding-right: 35px;">
+<img src="https://live.staticflickr.com/7057/7053151615_0e25fcf31d_o.jpg" alt="Lego Millennium Falcon" title="Image Source: https://www.flickr.com/photos/stickkim/7053151615" width = "40%" align="left" style="padding-right: 35px;">
 
-You embark upon a new Lego project. You start with thousands of individual bricks which will eventually become the Millennium Falcon. They are assembled in stages. Individual bricks are components assembled into composite ship parts. These composite parts are assembled into even larger composites. Eventually the composites become more identifiable parts of the ship, such as the cockpit, landing gear, engines, etc. After hours of assembly, the final parts are snapped together, and you have the Millennium Falcon.
+You embark upon a new Lego project. You start with thousands of individual bricks which will eventually become the Millennium Falcon. They are assembled in stages. Individual bricks are components assembled into composite ship parts. These composite parts are assembled into even larger composites. Eventually the composites become identifiable parts of the ship, such as the cockpit, landing gear, engines, etc. After hours of assembly, the final parts are snapped together, and you have the Millennium Falcon.
 
-<img src="https://live.staticflickr.com/4764/39195349224_39bf74764a_o.png" alt="Lego Patent" title="Image Source: https://www.flickr.com/photos/brickset/39195349224" width = "20%" align="right" style="padding-right: 35px;">
+<img src="https://live.staticflickr.com/4764/39195349224_39bf74764a_o.png" alt="Lego Patent" title="Image Source: https://www.flickr.com/photos/brickset/39195349224" width = "30%" align="right" style="padding-right: 35px;">
 
-Even though the individual bricks have different shapes and sizes, they follow the consistent Lego snapping mechanism, which has been their common interface since the beginning. All bricks regardless of their sets can snap together with other bricks. There are even apps that will use AI to create new projects with instructions from a photo of random bricks.
+Even though the individual bricks have different shapes and sizes, they follow the consistent Lego snapping mechanism, which has been their common interface since the beginning. All bricks, regardless of their sets, can snap together with other bricks. There are even [apps](https://petapixel.com/2021/07/01/brickits-ai-camera-scans-your-lego-to-suggest-things-you-can-build/) that will use AI to create new projects with instructions from a photo of random bricks.
 
 These properties aren’t unique to Lego Bricks. They apply to many construction toys including:
 * [Tinkertoys](https://en.wikipedia.org/wiki/Tinkertoy)
@@ -92,14 +92,14 @@ One of first blogs featured cooking – [Knock Knock … Who’s There?]( https:
 
 Meals are a composite of dishes, which are a composite of ingredients, which are a composite of molecules, which are ….
 
-How far do we take composition? Where do we stop?
+How far do we take breakdown components into composites? Where do we stop?
 
 “If you wish to make an apple pie from scratch, you must first invent the universe.” – [Carl Sagan]( https://www.youtube.com/watch?v=5_vVGPy4-rc).
 
 With all deference to Carl Sagan, we don’t have to go that far, which I’ll address later.
 
 ## Life to Chemistry
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/201_Elements_of_the_Human_Body-01-body.jpg/558px-201_Elements_of_the_Human_Body-01-body.jpg" alt="Elements of the Human Body" title="Image Source: https://commons.wikimedia.org/wiki/File:201_Elements_of_the_Human_Body-01-body.jpg" width = "30%" align="right" style="padding-right: 35px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/201_Elements_of_the_Human_Body-01-body.jpg/558px-201_Elements_of_the_Human_Body-01-body.jpg" alt="Elements of the Human Body" title="Image Source: https://commons.wikimedia.org/wiki/File:201_Elements_of_the_Human_Body-01-body.jpg" width = "40%" align="right" style="padding-right: 35px;">
 
 Complex living organisms are composites of systems, such as: nervous system, circulatory system, pulmonary system, etc.
 
@@ -113,10 +113,10 @@ Organelles are composites of molecules.
 
 Molecules are composites of atoms.
 
-Much like an airplane being thousands of loose parts flying in tight formation, the human body is an unfathomable number of loose atoms composed in tight formation. 75% of the human body is oxygen and hydrogen, which are the components of water.
+Much like an airplane being thousands of loose parts flying in tight formation, the human body is an unfathomable number of loose atoms composed in tight formation.
 
 ## Turtles All the Way Down
-But why stop with atoms above? Atoms are composites of protons, neutrons and electrons. Protons are composites of quarks. Who knows. Maybe quarks and other subatomic particles are composites of other components not yet identified.
+But why stop with atoms above? Atoms are composites of protons, neutrons and electrons. Protons are composites of quarks. Who knows? Maybe quarks and other subatomic particles are composites of other components not yet identified.
 
 Composite’s self-referential tree structure means that we can easily ride these composite turtles a long way down _ad absurdum_.
 
@@ -124,9 +124,11 @@ Composite’s self-referential tree structure means that we can easily ride thes
 
 One could argue that since all the previous composite examples are based upon materials in the real world, they all could be reduced to subatomic particles. But unless we’re writing software for the particle collider, we’re probably not concerned with subatomic particles in our models.
 
-While Carl Sagan may be technically correct, the first step of an Apple Pie recipe doesn’t need to be: __Trigger the Big Bang__.
+While Carl Sagan may be technically correct, the first step of an Apple Pie recipe doesn’t necessarily need to be: __Trigger the Big Bang__.
 
 # Design Structure
+<img src="/assets/ComposableDesignPatternsIntroduction.png" alt="Composable Design Patterns Template"  width = "30%" align="right" style="padding-right: 35px;">
+
 Composite’s structure is the foundation for the other Composable Design Patterns.
 
 When I presented an image for Composable patterns in [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html), I had to be careful not to present Composite itself.
@@ -141,6 +143,8 @@ Most of the properties in the general composable example will be seen here once 
 * The overall design looks like a version of [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) except for the propagating reference from `Composite` back up to `Component`.
 * The `Client` does not know nor care whether its `Component` reference is a single `Leaf` object or a `Composite` object at the root of a tree with thousands of objects within it.
 * There is no `Configurer` in the GoF’s design. This is probably my sole issue, since I feel this is a near perfect design pattern. Most `Leaf` classes have limited agency. They will provide a snippet functionality, but probably not too much. An individual Lego Brick has limited agency. A logic gate limited agency. But when configured appropriately form and function emerge, such as the Millennium Falcon or a fully functioning computer. The `Composite` may be the heart of the design, but the `Configurer` is the brain.
+
+<img src="/assets/CompositeGoF.png" alt="GoF Composite Design Pattern"  width = "80%" align="center" style="padding-right: 35px;">
  
 One more item. Where should “add” reside in the design. From the GoF:
 > Declaring the child management operations. Although the Composite class implements the Add and Remove operations for managing children, an important issue in the Composite pattern is which classes declare these operations in the Composite class hierarchy. Should we declare these operations in the Component and make them meaningful for Leaf classes, or should we declare and define them only in Composite and its subclasses?
