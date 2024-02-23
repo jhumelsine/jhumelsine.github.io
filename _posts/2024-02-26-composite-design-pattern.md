@@ -146,7 +146,7 @@ Most of the properties in the general composable example will be seen here once 
 
 <img src="/assets/CompositeGoF.png" alt="GoF Composite Design Pattern"  width = "80%" align="center" style="padding-right: 35px;">
  
-One more item. Where should “add” reside in the design. From the GoF:
+One more item. Where should “add” reside in the design? From the GoF:
 > Declaring the child management operations. Although the Composite class implements the Add and Remove operations for managing children, an important issue in the Composite pattern is which classes declare these operations in the Composite class hierarchy. Should we declare these operations in the Component and make them meaningful for Leaf classes, or should we declare and define them only in Composite and its subclasses?
 
 They argue that structural management placement is a tradeoff of transparency versus safety. Placing it in `Component` provides uniformity, but at the safety expense that someone may try to add component to a `Leaf` object.
@@ -158,9 +158,11 @@ I feel that safety is more important than transparency, which is why my diagram 
 * Declaring `add(Composite composite)` in `Component` is stating that all classes that implement `Component` must provide an implementation for `add` and that includes the `Leaf` classes for which `add` is not a valid function. This is a violation of the [Liskov Substitution Principle](https://en.wikipedia.org/wiki/Liskov_substitution_principle). What should `Leaf` do in its `add` implementation? Nothing? Throw an exception? There is no behavior that won’t cause confusion when attempting to add a `Component` to a `Leaf`. Therefore, don’t allow it in the first place.
 
 Here are some examples of what the Composite object tree might look like. This first version is the simplest. The tree consists of one `leaf` node:
- 
+<img src="/assets/CompositeGoFObjectsA.png" alt="GoF Composite Design Pattern Objects One Node"  width = "30%" align="center" style="padding-right: 35px;">
+
 Here’s a more complex tree with several `composite` and `leaf` nodes:
- 
+<img src="/assets/CompositeGoFObjectsB.png" alt="GoF Composite Design Pattern Objects Tree"  width = "80%" align="center" style="padding-right: 35px;">
+
 In both examples, the `client` has a reference to the root of the tree.
 
 # Use Case – Can I get fries with that?
@@ -169,7 +171,6 @@ This Chain of Responsibility Use Case example is inspired by fast-food burger ch
 ## Two all-beef patties …
 McDonald's featured a popular Big Mac [jingle](https://www.youtube.com/watch?v=jSmAibfvCeU) in its commercials in my youth:
 > Two all-beef patties, special sauce, lettuce, cheese, pickles, onions on a sesame seed bun.
-> 
 
 It’s such a simple campaign listing the ingredients of a Big Mac. My generation could sing then and now too.
 
@@ -180,7 +181,9 @@ But this didn’t work so well for my family. My father and I were both picky ea
 ## Hold the pickle, hold the lettuce …
 Then Burger King came to town. They had a different [jingle](https://www.youtube.com/watch?v=KJXzkUH72cY):
 > Hold the pickle, hold the lettuce,
+>
 > Special orders don’t upset us.
+> 
 > All we ask is that you let us serve it your way.
 
 Our special orders were always provided quickly. There was no waiting. Needless to say, my family always chose Burger King over McDonald’s when we had the choice. 
@@ -218,6 +221,8 @@ This won’t be complex design, but it will take some space. I’m going split t
 
 ### Leaf Food Items
 Let’s start with the _Leaf_ food items, and I don’t just mean lettuce. These will be the component parts available at In-N-Out Burger from which all possible combinations of foods can be assembled. Each will return how many calories are in each individually. This is not a complete list of ingredients, but it should be sufficient to convey what’s needed:
+
+<img src="/assets/CompositeBurgerIngredients.png" alt="In-N-Out Burger Basic Ingredients"  width = "80%" align="center" style="padding-right: 35px;">
  
 ### Food Composites
 This diagram adds `FoodComposite` to the design. It’s a list of `FoodItems` and it obtains the total calorie count by summing the calories in each `FoodItem`. `Burger` and `Pickle` remain on this diagram for context to highlight how the _Leaf_ `FoodItems` and `FoodComposite` reside in the same design, but they have no dependency upon one another:
