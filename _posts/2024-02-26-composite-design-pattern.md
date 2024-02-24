@@ -390,7 +390,19 @@ Composite allows us to compose snippets of behavior into a tree structure, such 
 
 # References
 There are many online resources with diagrams and implementations in different programming languages. Here are some free resources:
-* TBD
+* [Wikipedia Composite Design Pattern](https://en.wikipedia.org/wiki/Composite_pattern)
+* [Source Making Composite Design Pattern](https://sourcemaking.com/design_patterns/composite)
+* [Refactoring Guru Composite Design Pattern](https://refactoring.guru/design-patterns/composite)
+* [Project Management Institute Composite Design Pattern](https://www.pmi.org/disciplined-agile/the-design-patterns-repository/the-composite-pattern)
+* [Baeldung Composite Design Pattern](https://www.baeldung.com/java-composite-pattern)
+* [OODesign Composite Design Pattern](https://www.oodesign.com/composite-pattern)
+* [Learn CS Design Composite Design Pattern](https://www.learncsdesign.com/learn-the-composite-design-pattern/)
+* [DoFactory Composite Design Pattern](https://www.dofactory.com/net/composite-design-pattern)
+* [Reactive Programming Composite Design Pattern](https://reactiveprogramming.io/blog/en/design-patterns/composite)
+* and for more, Google: [Composite Design Pattern](https://www.google.com/search?q=Composite+Design+Pattern)
 
 Here are some resources that can be purchased or are included in a subscription service:
-* TBD
+* Gang of Four Chain of Responsibility Design Pattern, page 163 ([O'Reilly](https://learning.oreilly.com/library/view/design-patterns-elements/0201633612/ch04.html#page_163) and [Amazon](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612))
+* Clean Code: Design Patterns, Episode 34 video ([Clean Coders](https://cleancoders.com/episode/clean-code-episode-34) and [O'Reilly](https://learning.oreilly.com/videos/clean-code-fundamentals/9780134661742/9780134661742-code_03_34_00/))
+* Agile Principles, Patterns, and Practices in C#, Chapter 31 ([O'Reilly](https://learning.oreilly.com/library/view/agile-principles-patterns/0131857258/ch31.xhtml) and [Amazon](https://www.amazon.com/Agile-Principles-Patterns-Practices-C/dp/0131857258))
+* Head First Design Patterns, Chapter 9 ([O'Reilly](https://learning.oreilly.com/library/view/head-first-design/9781492077992/ch09.html#idm46060277796400) and [Amazon](https://www.amazon.com/Head-First-Design-Patterns-Object-Oriented-ebook/dp/B08P3X99QP))
