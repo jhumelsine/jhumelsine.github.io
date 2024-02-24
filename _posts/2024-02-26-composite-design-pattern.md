@@ -124,9 +124,9 @@ Composite’s self-referential tree structure means that we can easily ride thes
 
 One could argue that since all the previous composite examples are based upon materials in the real world, they all could be reduced to subatomic particles. But unless we’re writing software for the particle collider, we’re probably not concerned with subatomic particles in our models.
 
-While Carl Sagan may be technically correct, the first step of an Apple Pie recipe doesn’t necessarily need to be: __Trigger the Big Bang__.
-
 We stop when we've reached behavior that makes sense as a single behavior within our domain.
+
+While Carl Sagan may be technically correct, the first step of an Apple Pie recipe doesn’t necessarily need to be: __Trigger the Big Bang__.
 
 # Design Structure
 <img src="/assets/ComposableDesignPatternsIntroduction.png" alt="Composable Design Patterns Template"  width = "30%" align="right" style="padding-right: 35px;">
@@ -185,7 +185,7 @@ But this didn’t work so well for my family. My father and I were both picky ea
 ## Hold the pickle, hold the lettuce …
 Then Burger King came to town. They had a different [jingle](https://www.youtube.com/watch?v=KJXzkUH72cY):
 > Hold the pickle, hold the lettuce,
->
+> 
 > Special orders don’t upset us.
 > 
 > All we ask is that you let us serve it your way.
@@ -193,10 +193,9 @@ Then Burger King came to town. They had a different [jingle](https://www.youtube
 Our special orders were always provided quickly. There was no waiting. Needless to say, my family always chose Burger King over McDonald’s when we had the choice. 
 
 ## Can you keep a secret?
-<img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/In-N-Out_Burger_20-patty_cheeseburger.jpg" alt="20x20 at In-N-Out Burger" title="Image Source: https://commons.wikimedia.org/wiki/File:In-N-Out_Burger_20-patty_cheeseburger.jpg
-" width = "40%" align="right" style="padding-right: 35px;">
-
 In-N-Out Burger offers typical fast-food burger fare, but they also have a _not so_ [secret menu](https://www.allrecipes.com/in-n-out-secret-menu-items-7558019). These are combinations you can request, which won’t be displayed on the menu including:
+<img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/In-N-Out_Burger_20-patty_cheeseburger.jpg" alt="20x20 at In-N-Out Burger" title="Image Source: https://commons.wikimedia.org/wiki/File:In-N-Out_Burger_20-patty_cheeseburger.jpg
+" width = "50%" align="right" style="padding-right: 35px;">
 * 3x3: a triple cheeseburger
 * 4x4: a quadruple cheeseburger
 * Flying Dutchman: bun-less double cheeseburger
@@ -252,6 +251,8 @@ I could have also had `Cheeseburger` extend `FoodComposite`, but I decided not t
 <img src="/assets/CompositeCheeseburger.png" alt="In-N-Out Burger Cheeseburger"  width = "80%" align="center" style="padding-right: 35px;">
  
 Its composite tree would be:
+
+<img src="/assets/CompositeCheeseburgerObjects.png" alt="In-N-Out Burger Cheeseburger Objects"  width = "80%" align="center" style="padding-right: 35px;">
  
 Each line represents the a call to `getCalories()`:
 * `Cheeseburger` delegates to the `cheeseburger:FoodComposite` to get its calorie count.
@@ -263,20 +264,32 @@ This same propagation strategy replicates in the subsequent object trees, so I w
 
 ### Animal Fries
 Animal Fries follows the same Cheeseburger design:
+
+<img src="/assets/CompositeAnimalFries.png" alt="In-N-Out Burger Animal Fries"  width = "80%" align="center" style="padding-right: 35px;">
  
 Its composite tree would be:
+
+<img src="/assets/CompositeAnimalFriesObjects.png" alt="In-N-Out Burger Animal Fries Objects"  width = "80%" align="center" style="padding-right: 35px;">
  
 ### Flying Dutchman
 Flying Dutchman will do likewise:
+
+<img src="/assets/CompositeFlyingDutchman.png" alt="In-N-Out Burger Flying Dutchman"  width = "80%" align="center" style="padding-right: 35px;">
  
 Its composite tree would be:
+
+<img src="/assets/CompositeFlyingDutchmanObjects.png" alt="In-N-Out Burger Flying Dutchman Objects"  width = "80%" align="center" style="padding-right: 35px;">
  
 ### Roadkill Fries
 There is a method to my madness. Roadkill Fries are Animal Fries with a Flying Dutchman on top. We can build Roadkill Fries from the composites we already have:
 * `AnimalFries` and `FlyingDutchman` are `FoodItem`s, and that’s all we need to know to design `RoadkillFries`.
 * Each concrete class implements `FoodItem` and delegates to `FoodComposite`.
+
+<img src="/assets/CompositeRoadkillFries.png" alt="In-N-Out Burger Roadkill Fries"  width = "80%" align="center" style="padding-right: 35px;">
  
 Its composite tree would be:
+
+<img src="/assets/CompositeRoadkillFriesObjects.png" alt="In-N-Out Burger Roadkill Fries Objects"  width = "80%" align="center" style="padding-right: 35px;">
  
 The calorie count for `RoadkillFries` will be the sum of the calories for each of the non-terminal leaf nodes shown above.
 
@@ -301,6 +314,8 @@ The software at the In-N-Out Burger locations should support these and only thes
 The hardcoded designs previously shown won’t be flexible enough to accommodate this.
 
 There’s a flexible design with explanation following:
+
+<img src="/assets/CompositeBurgerFactory.png" alt="In-N-Out Burger Roadkill Fries"  width = "80%" align="center" style="padding-right: 35px;">
  
 This design is still Composite at its core. The individual `FoodItem` classes for `Burger` et al. remain in the design. The specific hardcoded secret menu items are no longer present.
 
