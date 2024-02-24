@@ -255,7 +255,7 @@ I could have also had `Cheeseburger` extend `FoodComposite`, but I decided not t
  
 Its composite tree would be:
 
-<img src="/assets/CompositeCheeseburgerObjects.png" alt="In-N-Out Burger Cheeseburger Objects"  width = "50%" align="center" style="padding-right: 35px;">
+<img src="/assets/CompositeCheeseburgerObjects.png" alt="In-N-Out Burger Cheeseburger Objects"  width = "75%" align="center" style="padding-right: 35px;">
  
 Each line represents the a call to `getCalories()`:
 * `Cheeseburger` delegates to the `cheeseburger:FoodComposite` to get its calorie count.
@@ -272,7 +272,7 @@ Animal Fries follows the same Cheeseburger design:
  
 Its composite tree would be:
 
-<img src="/assets/CompositeAnimalFriesObjects.png" alt="In-N-Out Burger Animal Fries Objects"  width = "50%" align="center" style="padding-right: 35px;">
+<img src="/assets/CompositeAnimalFriesObjects.png" alt="In-N-Out Burger Animal Fries Objects"  width = "75%" align="center" style="padding-right: 35px;">
  
 ### Flying Dutchman
 Flying Dutchman will do likewise:
@@ -281,7 +281,7 @@ Flying Dutchman will do likewise:
  
 Its composite tree would be:
 
-<img src="/assets/CompositeFlyingDutchmanObjects.png" alt="In-N-Out Burger Flying Dutchman Objects"  width = "50%" align="center" style="padding-right: 35px;">
+<img src="/assets/CompositeFlyingDutchmanObjects.png" alt="In-N-Out Burger Flying Dutchman Objects"  width = "75%" align="center" style="padding-right: 35px;">
  
 ### Roadkill Fries
 There is a method to my madness. Roadkill Fries are Animal Fries topped with a Flying Dutchman. We can build Roadkill Fries from the composites we already have:
@@ -292,7 +292,7 @@ There is a method to my madness. Roadkill Fries are Animal Fries topped with a F
  
 Its composite tree would be:
 
-<img src="/assets/CompositeRoadkillFriesObjects.png" alt="In-N-Out Burger Roadkill Fries Objects"  width = "70%" align="center" style="padding-right: 35px;">
+<img src="/assets/CompositeRoadkillFriesObjects.png" alt="In-N-Out Burger Roadkill Fries Objects"  width = "90%" align="center" style="padding-right: 35px;">
  
 The calorie count for `RoadkillFries` will be the sum of the calories for each of the non-terminal leaf nodes shown above.
 
