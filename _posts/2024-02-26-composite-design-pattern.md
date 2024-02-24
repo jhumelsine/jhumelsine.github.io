@@ -18,7 +18,7 @@ Let’s review the composable patterns we’ve seen so far:
 
 The previous composable design patterns are based upon a linear structure. They use single delegation or a list as their data structure mechanism. Each tends to focus upon one core feature class, which is enhanced by other supporting classes composed around it.
 
-Composite is almost exclusively about composition. There is no single core feature class. Composite features multiple feature classes with each providing a snippet of behavior. Objects implementing those snippets of behavior are composed into _a core_ behavior that’s emerges from an aggregation of those object snippets organized via Composite. There could be many behaviors depending upon the organization of the object snippets.
+Composite is almost exclusively about composition. There is no single core feature class. Composite features multiple classes with each providing a snippet of behavior. Objects implementing those snippets of behavior are composed into _a core_ behavior that’s emerges from an aggregation of those object snippets organized via Composite. There could be many behaviors depending upon the organization of the object snippets.
 
 Composite breaks the shackles of a linear structure. Composite’s underlying data structure is a self-referential tree. One codebase can accommodate any number of Composite object trees that are as wide or as deep as needed for each given situation. A Composite tree could be one object or thousands of objects.
 
@@ -167,7 +167,7 @@ Here are some examples of what the Composite object tree might look like. This f
 
 Here’s a more complex tree with several `composite` and `leaf` nodes:
 
-<img src="/assets/CompositeGoFObjectsB.png" alt="GoF Composite Design Pattern Objects Tree"  width = "80%" align="center" style="padding-right: 35px;">
+<img src="/assets/CompositeGoFObjectsB.png" alt="GoF Composite Design Pattern Objects Tree"  width = "60%" align="center" style="padding-right: 35px;">
 
 In both examples, the `client` only has a reference to the root of the tree.
 
@@ -292,7 +292,7 @@ There is a method to my madness. Roadkill Fries are Animal Fries topped with a F
  
 Its composite tree would be:
 
-<img src="/assets/CompositeRoadkillFriesObjects.png" alt="In-N-Out Burger Roadkill Fries Objects"  width = "90%" align="center" style="padding-right: 35px;">
+<img src="/assets/CompositeRoadkillFriesObjects.png" alt="In-N-Out Burger Roadkill Fries Objects"  width = "100%" align="center" style="padding-right: 35px;">
  
 The calorie count for `RoadkillFries` will be the sum of the calories for each of the non-terminal leaf nodes shown above.
 
