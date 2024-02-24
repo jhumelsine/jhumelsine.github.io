@@ -16,11 +16,11 @@ Let’s review the composable patterns we’ve seen so far:
 * [Decorator](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html), which featured a list of decorator objects that adorned a core feature with additional behavior. It’s a dynamically composable alternative to inheritance.
 * [Chain of Responsibility](https://jhumelsine.github.io/2024/02/20/chain-of-responsibility-design-pattern.html), which featured a list of handlers, each of which has the potential to complete a task, such that the first handler in the list which can complete task is the one that does complete the task. It’s a dynamically composable alternative to `switch`/`if/else-if/else` statements.
 
-The previous composable design patterns are based upon a linear structure. They use single delegation or a list as their data structure mechanism. Each tends to focus upon one core feature class, which is enhanced by other supporting classes composed around it. One could argue that Chain of Responsibility is a list of core feature classes, since only one is chosen to do work. But for CoR, the composition is about the choosing of the core feature class.
+The previous composable design patterns are based upon a linear structure. They use single delegation or a list as their data structure mechanism. Each tends to focus upon one core feature class, which is enhanced by other supporting classes composed around it.
 
-Composite is all about composition. There is no single core feature class. Composite features several classes each providing a snippet of behavior. Objects implementing those snippets of behavior are composed into _a core_ behavior that’s comprised of an aggregation of those object snippets organized via Composite. There could be many behaviors depending upon the organization of the object snippets.
+Composite is almost exclusively about composition. There is no single core feature class. Composite features multiple feature classes with each providing a snippet of behavior. Objects implementing those snippets of behavior are composed into _a core_ behavior that’s emerges from an aggregation of those object snippets organized via Composite. There could be many behaviors depending upon the organization of the object snippets.
 
-Composite breaks the shackles of a linear structure. Composite’s underlying data structure is a self-referential tree. A single code base can accommodate a Composite tree of objects that’s as wide or as deep as needed for the given situation. The Composite tree could be one object or thousands of objects.
+Composite breaks the shackles of a linear structure. Composite’s underlying data structure is a self-referential tree. One codebase can accommodate any number of Composite object trees that are as wide or as deep as needed for each given situation. A Composite tree could be one object or thousands of objects.
 
 Composition is not a foreign concept in OO. It’s the HAS-A relationship, as in:
 * A Car HAS-A(n) Engine.
@@ -30,9 +30,9 @@ Composition is not a foreign concept in OO. It’s the HAS-A relationship, as in
 HAS-A relationships are often rendered in OO programming language as a private field attribute class or a collection of classes.
 The other primary OO relationship is IS-A, which is traditionally rendered with inheritance.
 
-Just as Decorator is a dynamically composable alternative to inheritance, Composite is a dynamically composable alternative to traditional rendering of HAS-A relationships in OO design.
+Just as Decorator is a dynamically composable alternative to rendering IS-A using inheritance, Composite is a dynamically composable alternative to traditional rendering of HAS-A relationships in OO design.
 
-Traditional HAS-A implementation tends to be statically locked into place at compile time. The HAS-A relationships are hardcoded as field attributes. There is nothing wrong with this technique, especially with a domain for which these relationships do not change. Cars will always have engines. Chordates will always have spines. I often used this technique.
+Traditional HAS-A implementation tends to be statically locked into place at compile time as hardcoded field attributes. There is nothing wrong with this technique, especially with a domain for which these relationships do not change. Cars will always have engines. Chordates will always have spines. I often used this technique.
 
 But sometimes HAS-A relationships aren’t always set in stone. They may vary. They may not be known until runtime. These are the situations where Composite may be more valuable for HAS-A relationship designs than traditional OO practices.
 
@@ -56,9 +56,9 @@ Imagine deconstructing a jet engine completely. It will be a collection of parts
 
 This is akin to the old joke that an airplane is 10,000 loose parts flying in close formation.
 
-I would probably model a jet engine more traditionally with the concept that: JetEngine HAS-A Compressor, JetEngine HAS-A Turbine and even more decomposition with Turbine HAS-A set of Blades, etc. rather than Composite, since the composition of a Jet Engine is not likely to change frequently.
+I would probably model a jet engine more traditionally with: JetEngine HAS-A Compressor, JetEngine HAS-A Turbine and even more decomposition with Turbine HAS-A set of Blades, etc. rather than Composite, since the composition of a Jet Engine is not likely to change frequently.
 
-The purpose of my example is to highlight the compositional HAS-A nature of a Jet Engine regardless of how one might model it using a traditional OO approach or Composite. The Compressor and Turbine really do not exist as a single entity. Heck, even the Jet Engine does not really exist. They are the compositional sum of their components in a specific configuration. While we often refer to this relationship as HAS-A, it’s closer to IS-COMPRISED-OF.
+The purpose of my example is to highlight the compositional HAS-A nature of a Jet Engine regardless of how one might model it using a traditional OO approach or Composite. The Compressor and Turbine really do not exist as an entity. Heck, even the Jet Engine does not really exist. They are the compositional sum of their components in a specific configuration. While we often refer to this relationship as HAS-A, it’s closer to IS-COMPRISED-OF.
 
 ## Logic Gates
 <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Four_bit_adder_with_carry_lookahead.svg" alt="Full Adder Logic Gates" title="Image Source: https://www.wikiwand.com/en/Logic_gate#Media/File:Four_bit_adder_with_carry_lookahead.svg" width = "30%" align="right" style="padding-right: 35px;">
@@ -68,7 +68,7 @@ The [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composa
 A Multi-bit Adder is a composite of Full Adder components, which are each a composite of AND, OR and NOT logic gates. The Multi-bit Adder and the Full Adders are composite configurations of these three simple logic gates. This applies to almost all logical components of a computer. They only have meaning as a concept because we choose to assign them meaning based upon the behaviors that emerge from their configurations.
 
 ## Lego Brick Sets
-Lego has been a popular toy for decades. The bricks were mostly generic when I was a child. Since then, Lego has expanded to specific themed sets often tied in with marketing and merchandizing of other brands, such as Star Wars themed Lego sets.
+Lego has been a popular toy for decades. The bricks were mostly basic when I was a child. Since then, Lego has expanded to specific themed sets often tied in with marketing and merchandizing of other brands, such as Star Wars themed Lego sets.
 
 There are hybrid sets too. My son had a Police Boat set which featured a specific configuration on the front cover of the box, with step-by-step instructions on how to build the featured Police Boat. But the back cover provided photos of alternative boats that could be assembled from the same bricks. Other than the photos, these alternative boats were left up to the child’s imagination.
 
@@ -88,15 +88,15 @@ These properties aren’t unique to Lego Bricks. They apply to many construction
 * [Erector Sets](https://en.wikipedia.org/wiki/Erector_Set)
 
 ## Cooking
-One of first blogs featured cooking – [Knock Knock … Who’s There?]( https://jhumelsine.github.io/2023/08/21/knock-knock-whos-there.html).
+One of my first blogs featured cooking – [Knock Knock … Who’s There?]( https://jhumelsine.github.io/2023/08/21/knock-knock-whos-there.html).
 
 Meals are a composite of dishes, which are a composite of ingredients, which are a composite of molecules, which are ….
 
-How far do we take breakdown components into composites? Where do we stop?
+How far do we take the decomposition of components into composites? Where do we stop?
 
 “If you wish to make an apple pie from scratch, you must first invent the universe.” – [Carl Sagan]( https://www.youtube.com/watch?v=5_vVGPy4-rc).
 
-With all deference to Carl Sagan, we don’t have to go that far, which I’ll address later.
+With all deference to Carl Sagan, we don’t have to go that far as we'll soon see.
 
 ## Life to Chemistry
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/201_Elements_of_the_Human_Body-01-body.jpg/558px-201_Elements_of_the_Human_Body-01-body.jpg" alt="Elements of the Human Body" title="Image Source: https://commons.wikimedia.org/wiki/File:201_Elements_of_the_Human_Body-01-body.jpg" width = "40%" align="right" style="padding-right: 35px;">
@@ -116,7 +116,9 @@ Molecules are composites of atoms.
 Much like an airplane being thousands of loose parts flying in tight formation, the human body is an unfathomable number of loose atoms composed in tight formation.
 
 ## Turtles All the Way Down
-But why stop with atoms above? Atoms are composites of protons, neutrons and electrons. Protons are composites of quarks. Who knows? Maybe quarks and other subatomic particles are composites of other components not yet identified.
+But why stop with atoms in the Chemistry/Biology example? Atoms are composites of protons, neutrons and electrons. Protons are composites of quarks.
+
+Who knows? Maybe quarks and other subatomic particles are composites of other components not yet identified.
 
 Composite’s self-referential tree structure means that we can easily ride these composite turtles a long way down _ad absurdum_.
 
@@ -124,7 +126,7 @@ Composite’s self-referential tree structure means that we can easily ride thes
 
 One could argue that since all the previous composite examples are based upon materials in the real world, they all could be reduced to subatomic particles. But unless we’re writing software for the particle collider, we’re probably not concerned with subatomic particles in our models.
 
-We stop when we've reached behavior that makes sense as a single behavior within our domain.
+We stop when we've reached behavior that makes sense as a single behavior snippet within our domain.
 
 While Carl Sagan may be technically correct, the first step of an Apple Pie recipe doesn’t necessarily need to be: __Trigger the Big Bang__.
 
@@ -135,29 +137,29 @@ Composite’s structure is the foundation for the other Composable Design Patter
 
 When I presented an image for Composable patterns in [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html), I had to be careful not to present Composite itself.
  
-Most of the properties in the general composable example will be seen here once more with Composite. Here is the Gang of Four’s (GoF) Composite design:
+Here is the Gang of Four’s (GoF) Composite design:
 * An interface, `Component`, resides at the top of the design which is consistent with the other composable design patterns.
 * `Leaf` is a `Component`. I suspect that the GoF called it a _Leaf_, since all trees in this pattern terminate with a leaf node. _Terminal_ could have been another term, which the GoF will use for the same concept in a future pattern. If I weren’t using the GoF’s nomenclature, I might have considered calling it _Atomic_ in that these leaf/non-terminal nodes contain a single nugget of behavior that cannot be reduced to smaller parts. They are our Lego Bricks. They are our logic gates. They are the atoms of our periodic table.
-* `Leaf` is a placeholder. In most designs, there will be many _Leaf_ classes. Each Lego Brick could be its own class. Each AND, OR and NOT gate could be its own class. Each atom in the periodic table could be its own class.
+* `Leaf` is a placeholder. In most designs, there will be many _Leaf_ classes. Each Lego Brick type could be its own leave class. Each AND, OR and NOT gate could be its own leave class. Each atom in the periodic table could be its own leaf class.
 * `Composite` is the heart of the design. `Composite` is a `Component` that propagates to a list of `Component`s. It’s self-referential definition ensures that propagation traverses throughout the entire Composite object tree.
 * The number of `components` within the `Composite` is not fixed, so the tree structure can expand as deep or as wide as needed. I only showed one mechanism for adding `components` to the `Composite`. There could be others. I also didn’t show additional mechanisms to read, update or delete `components`. A production quality design may want them as well.
 * If more composite context is desired, then additional domain specific `Composite` classes could extend `Composite` or delegate to it, as we’ll see in the Use Case example.
 * The overall design looks like a version of [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) except for the propagating reference from `Composite` back up to `Component`.
 * The `Client` does not know nor care whether its `Component` reference is a single `Leaf` object or a `Composite` object at the root of a tree with thousands of objects within it.
-* There is no `Configurer` in the GoF’s design. This is probably my sole issue, since I feel this is a near perfect design pattern. Most `Leaf` classes have limited agency. They will provide a snippet functionality, but probably not too much. An individual Lego Brick has limited agency. A logic gate limited agency. But when configured appropriately form and function emerge, such as the Millennium Falcon or a fully functioning computer. The `Composite` may be the heart of the design, but the `Configurer` is the brain.
+* There is no `Configurer` in the GoF’s design. This is probably my sole issue, since I feel this is a near perfect design pattern. Most `Leaf` classes have limited agency. They will provide a snippet functionality, but probably not too much. An individual Lego Brick has limited agency. A logic gate limited agency. But when configured appropriately, form and function emerge, such as the Lego Millennium Falcon or a fully functioning computer. The `Composite` may be the heart of the design, but the `Configurer` is the brain.
 
 <img src="/assets/CompositeGoF.png" alt="GoF Composite Design Pattern"  width = "80%" align="center" style="padding-right: 35px;">
  
 One more item. Where should “add” reside in the design? From the GoF:
-> Declaring the child management operations. Although the Composite class implements the Add and Remove operations for managing children, an important issue in the Composite pattern is which classes declare these operations in the Composite class hierarchy. Should we declare these operations in the Component and make them meaningful for Leaf classes, or should we declare and define them only in Composite and its subclasses?
+> _Declaring the child management operations._ Although the Composite class implements the Add and Remove operations for managing children, an important issue in the Composite pattern is which classes declare these operations in the Composite class hierarchy. Should we declare these operations in the Component and make them meaningful for Leaf classes, or should we declare and define them only in Composite and its subclasses?
 
 They argue that structural management placement is a tradeoff of transparency versus safety. Placing it in `Component` provides uniformity, but at the safety expense that someone may try to add component to a `Leaf` object.
 
-Placing structural management in the `Composite` is safer, but now this feature is missing from the main `Component` interface.
+Placing structural management in the `Composite` is safer, but now the structure management feature is missing from the main `Component` interface.
 
 I feel that safety is more important than transparency, which is why my diagram places `add(Component component)` in the `Composite`. Here are my reasons:
-* This is separation of concerns, with respect to [Computation and Coordination](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html#computation-and-coordination). They are two different responsibilities. The `Client` is interested in computation, which it achieves via its reference to `component.execute()`. The `Configurer` is interested in coordination, which it achieves via its references to `composite.add(component)`.
-* Declaring `add(Composite composite)` in `Component` is stating that all classes that implement `Component` must provide an implementation for `add` and that includes the `Leaf` classes for which `add` is not a valid function. This is a violation of the [Liskov Substitution Principle](https://en.wikipedia.org/wiki/Liskov_substitution_principle). What should `Leaf` do in its `add` implementation? Nothing? Throw an exception? There is no behavior that won’t cause confusion when attempting to add a `Component` to a `Leaf`. Therefore, don’t allow it in the first place.
+* This is separation of concerns as described in [Computation and Coordination](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html#computation-and-coordination). They are two different responsibilities. The `Client` is interested in computation, which it achieves via its reference to `component.execute()`. The `Configurer` is interested in coordination, which it achieves via its references to `composite.add(component)`.
+* Declaring `add(Composite composite)` in `Component` is stating that all classes that implement `Component` must provide an implementation for `add` and that includes the `Leaf` classes for which `add` is not a valid behavior. This is a violation of the [Liskov Substitution Principle](https://en.wikipedia.org/wiki/Liskov_substitution_principle). What should `Leaf` do in its `add` implementation? Nothing? Throw an exception? There is no behavior that won’t cause confusion when attempting to add a `Component` to a `Leaf`. Therefore, don’t allow it in the first place.
 
 Here are some examples of what the Composite object tree might look like. This first version is the simplest. The tree consists of one `leaf` node:
 
