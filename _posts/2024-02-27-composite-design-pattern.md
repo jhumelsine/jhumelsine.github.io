@@ -61,13 +61,13 @@ I would probably model a jet engine more traditionally with: JetEngine HAS-A Com
 The purpose of my example is to highlight the compositional HAS-A nature of a Jet Engine regardless of how one might model it using a traditional OO approach or Composite. The Compressor and Turbine really do not exist as an entity. Heck, even the Jet Engine does not really exist. They are the compositional sum of their components in a specific configuration. While we often refer to this relationship as HAS-A, it’s closer to IS-COMPRISED-OF.
 
 ## Unix Filesystem
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Unix-fs.png?20100226103342" alt="Unix Filesystem Layout Example" title="Image Source: https://www.wikiwand.com/en/Logic_gate#Media/File:Four_bit_adder_with_carry_lookahead.svg" width = "30%" align="right" style="padding-right: 35px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Unix-fs.png?20100226103342" alt="Unix Filesystem Layout Example" title="Image Source: https://www.wikiwand.com/en/Logic_gate#Media/File:Four_bit_adder_with_carry_lookahead.svg" width = "40%" align="right" style="padding-right: 35px;">
 
 The [Unix Filesystem](https://en.wikipedia.org/wiki/Unix_filesystem) is organized as a tree structure. Files are terminal nodes. Directories are non-terminal nodes, which can contain files, directories or nothing. But it's more than that. Directories are files too. In Unix, [everything is a file](https://web.archive.org/web/20120310211947/http://www.bga.org/~lessem/psyc5112/usail/concepts/filesystems/everything-is-a-file.html).
 
-The self-referential filesystem structure, where directories can contain other directories, means that a command issued in a directory can propagate through all directories and files composed within the directory from which the command was executed.
+The self-referential filesystem structure, where directories can contain other directories, means that a command issued in a directory can propagate through all directories and files composed within the directory from which the command was executed especially of the recursive `-r` option was provided.
 
-The [directory](https://en.wikipedia.org/wiki/Directory_(computing)) concept is not limited to Unix, but it may have different names, such as _Folder_ in on a Mac or on Microsoft Windows
+The [directory](https://en.wikipedia.org/wiki/Directory_(computing)) concept is not limited to Unix, but it may have different names, such as _Folder_ on a Mac or on Microsoft Windows
 
 ## Logic Gates
 <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Four_bit_adder_with_carry_lookahead.svg" alt="Full Adder Logic Gates" title="Image Source: https://www.wikiwand.com/en/Logic_gate#Media/File:Four_bit_adder_with_carry_lookahead.svg" width = "30%" align="right" style="padding-right: 35px;">
@@ -131,11 +131,11 @@ Who knows? Maybe quarks and other subatomic particles are composites of other co
 
 Composite’s self-referential tree structure means that we can easily ride these composite turtles a long way down _ad absurdum_.
 
-<img src="https://live.staticflickr.com/4031/4288661567_dceef21cfb_o.jpg" alt="Sagan Apple Pie Recipe" title="Image Source: https://www.flickr.com/photos/neven/4288661567" width = "40%" align="right" style="padding-right: 35px;">
+<img src="https://live.staticflickr.com/4031/4288661567_dceef21cfb_o.jpg" alt="Sagan Apple Pie Recipe" title="Image Source: https://www.flickr.com/photos/neven/4288661567" width = "50%" align="right" style="padding-right: 35px;">
 
-One could argue that since all the previous composite examples are based upon materials in the real world, they all could be reduced to subatomic particles. But unless we’re writing software for the particle collider, we’re probably not concerned with subatomic particles in our models.
+One could argue that since most of the previous composite examples are based upon materials in the real world, they all could be reduced to subatomic particles. But unless we’re writing software for the particle collider, we’re probably not concerned with subatomic particles in our models.
 
-We stop when we've reached behavior that makes sense as a single behavior snippet within our domain.
+We stop when we've reached behavior that's a single behavior snippet within our domain.
 
 While Carl Sagan may be technically correct, the first step of an Apple Pie recipe doesn’t necessarily need to be: __Trigger the Big Bang__.
 
@@ -147,13 +147,13 @@ Composite’s structure is the foundation for the other Composable Design Patter
 When I presented an image for Composable patterns in [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html), I had to be careful not to present Composite itself.
  
 Here is the Gang of Four’s (GoF) Composite design:
-* An interface, `Component`, resides at the top of the design which is consistent with the other composable design patterns.
+* The overall design looks like a version of [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) except for the propagating reference from `Composite` back up to `Component`.
+* An interface, `Component`, resides at the top of the design which is consistent with the design patterns we've seen thus far.
 * `Leaf` is a `Component`. I suspect that the GoF called it a _Leaf_, since all trees in this pattern terminate with a leaf node. _Terminal_ could have been another term, which the GoF will use for the same concept in a future pattern. If I weren’t using the GoF’s nomenclature, I might have considered calling it _Atomic_ in that these leaf/non-terminal nodes contain a single nugget of behavior that cannot be reduced to smaller parts. They are our Lego Bricks. They are our logic gates. They are the atoms of our periodic table.
-* `Leaf` is a placeholder. In most designs, there will be many _Leaf_ classes. Each Lego Brick type could be its own leave class. Each AND, OR and NOT gate could be its own leave class. Each atom in the periodic table could be its own leaf class.
+* `Leaf` is a placeholder. In most designs, there will be many _Leaf_ classes. Each Lego Brick type could be its own leaf class. Each AND, OR and NOT gate could be its own leaf class. Each atom in the periodic table could be its own leaf class.
 * `Composite` is the heart of the design. `Composite` is a `Component` that propagates to a list of `Component`s. It’s self-referential definition ensures that propagation traverses throughout the entire Composite object tree.
 * The number of `components` within the `Composite` is not fixed, so the tree structure can expand as deep or as wide as needed. I only showed one mechanism for adding `components` to the `Composite`. There could be others. I also didn’t show additional mechanisms to read, update or delete `components`. A production quality design may want them as well.
 * If more composite context is desired, then additional domain specific `Composite` classes could extend `Composite` or delegate to it, as we’ll see in the Use Case example.
-* The overall design looks like a version of [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) except for the propagating reference from `Composite` back up to `Component`.
 * The `Client` does not know nor care whether its `Component` reference is a single `Leaf` object or a `Composite` object at the root of a tree with thousands of objects within it.
 * There is no `Configurer` in the GoF’s design. This is probably my sole issue, since I feel this is a near perfect design pattern. Most `Leaf` classes have limited agency. They will provide a snippet functionality, but probably not too much. An individual Lego Brick has limited agency. A logic gate limited agency. But when configured appropriately, form and function emerge, such as the Lego Millennium Falcon or a fully functioning computer. The `Composite` may be the heart of the design, but the `Configurer` is the brain.
 
@@ -167,7 +167,7 @@ They argue that structural management placement is a tradeoff of transparency ve
 Placing structural management in the `Composite` is safer, but now the structure management feature is missing from the main `Component` interface.
 
 I feel that safety is more important than transparency, which is why my diagram places `add(Component component)` in the `Composite`. Here are my reasons:
-* This is separation of concerns as described in [Computation and Coordination](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html#computation-and-coordination). They are two different responsibilities. The `Client` is interested in computation, which it achieves via its reference to `component.execute()`. The `Configurer` is interested in coordination, which it achieves via its references to `composite.add(component)`.
+* This is separation of concerns as described in [Computation and Coordination](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html#computation-and-coordination). They are two different responsibilities. The `Client` is interested in computation, which it achieves via its reference to `component.execute()`. The `Configurer` is interested in coordination, which it achieves via its references to `composite.add(component)`. The `Client` should not know nor care about how the tree is constructed. The `Configurer` already knows all configuration specifics, such as were to find `add`.
 * Declaring `add(Composite composite)` in `Component` is stating that all classes that implement `Component` must provide an implementation for `add` and that includes the `Leaf` classes for which `add` is not a valid behavior. This is a violation of the [Liskov Substitution Principle](https://en.wikipedia.org/wiki/Liskov_substitution_principle). What should `Leaf` do in its `add` implementation? Nothing? Throw an exception? There is no behavior that won’t cause confusion when attempting to add a `Component` to a `Leaf`. Therefore, don’t allow it in the first place.
 
 Here are some examples of what the Composite object tree might look like. This first version is the simplest. The tree consists of one `leaf` node:
@@ -187,22 +187,21 @@ The Use Case is too large to include in this blog. It will be posted in the next
 The relative pros and cons of Composite are like those with most of the Composable design patterns.
 
 ## Pros
-A small implementation can support many composable configurations. The objects in the composition can be as few or many as needed for the desired behavior. Each composable configuration features its own specific behaviors.
+A small implementation can support many composable configurations. The objects in the composition can be as few or many as needed for the desired behavior. Each composable configuration features its own specific behavior.
 
 Constructing the object composition is relatively easy. While the Configurer is mostly independent from the design pattern in its traditional form, the Configurer is still the brains that's responsible for the correct composition when using this design pattern. There are at least three types of Configurers and possibly more:
-* Developer Configurer. This would be a developer with domain expertise as well as knowledge of the system and its architecture, design and implementation. The Developer Configurer may have also written the Composite implementation as well. Logic gate composites will probably be composed by a Developer Configurer.
-* Customer Consultant. This would be a trained member of the company who has knowledge of the product and works with customers to fine tune it for them. This person will most likely not be a developer; therefore, a UI/UX wrapper in front of the Composite may be necessary.
-* Customer/User. This would be the customer or user who will need a UI/UX wrapper in front of the Composite. This level of customer/user interaction provides self-service for the customer or user.
+* __Developer Configurer__. This would be a developer with domain expertise as well as knowledge of the system and its architecture, design and implementation. The Developer Configurer may have also written the Composite implementation as well. Logic gate composites will probably be composed by a Developer Configurer.
+* __Customer Consultant__. This would be a trained customer support consultant in the company who has knowledge of the product and works with customers. The customer consultant will configure customer desired behaviors on behalf of the customer. The customer consultant may work with the developement team to better understand how to compose the Composite so that it meets the customer's needs. This person will most likely not be a developer; therefore, a UI/UX wrapper in front of the Composite may be necessary.
+* __Customer/User__. This would be the customer or user who will need a UI/UX wrapper in front of the Composite. This provides self-service for the customer or user, which allows the customer/user to configurer the system to achieve their goals without having to depend upon a customer consultant or development team.
 
 ## Cons
 I almost want to write that there’s no cons for Composite. I don’t think there are any cons in the implementation, but there’s a potential con with its intent.
 
-Composite is all structure. Behavior derives from its composition, which technically resides in the `Configurer` outside of the design. Composite will support any structurally consistent composition, even those that don’t make any sense. 
+Composite is all structure. Behavior derives from its composition, which technically resides in the Configurer, which resides outside of the design. Composite will support any structurally consistent composition, even those that don’t make logical sense. 
 
 Anyone can grab random Lego blocks and snap them together. Logic gates can be wired together in any number of ways without providing any useful behaviors.
 
-Behavior is in the eye of the Configurer, and the Configurer may need glasses. The Configurer could be an external person who configures something that’s not exactly what was desired. We have all written code with software bugs. Configurers can just as easily configure composites with logical bugs in their structure.
-These Configurers will first accuse your implementation of containing a bug before admitting that the error resides in their configuration. _The fault, dear Brutus, lies not in our stars, but in ourselves._
+Behavior is in the eye of the Configurer, and the Configurer may need glasses. The Configurer could be a self-servicing customer/user who configures something that they think is correct, but it is not correct. We have all written code with software bugs. Configurers can just as easily configure composites with logical bugs in their structure. These Configurers will first accuse your implementation of containing a bug before admitting that the error resides in their configuration. _The fault, dear Brutus, lies not in our stars, but in ourselves._
 
 Integration and acceptance testing won’t address these configuration issues either since they're a creation of the user.
 
