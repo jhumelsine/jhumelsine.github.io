@@ -189,10 +189,10 @@ The relative pros and cons of Composite are like those with most of the Composab
 ## Pros
 A small implementation can support many composable configurations. The objects in the composition can be as few or many as needed for the desired behavior. Each composable configuration features its own specific behaviors.
 
-Constructing the object composition is relatively easy. While the Configurer is mostly independent from the design pattern in its traditional form, the Configurer still the brains that's responsible for the correct composition when using this design pattern. There are at least three types of Configurers and possibly more:
-* Developer Configurer. This would be a developer with domain expertise as well as knowledge the system and its architecture, design and implementation. The Developer Configurer may also written the Composite implementation as well. Logic gate composites will probably be composed by a Developer Configurer.
+Constructing the object composition is relatively easy. While the Configurer is mostly independent from the design pattern in its traditional form, the Configurer is still the brains that's responsible for the correct composition when using this design pattern. There are at least three types of Configurers and possibly more:
+* Developer Configurer. This would be a developer with domain expertise as well as knowledge of the system and its architecture, design and implementation. The Developer Configurer may have also written the Composite implementation as well. Logic gate composites will probably be composed by a Developer Configurer.
 * Customer Consultant. This would be a trained member of the company who has knowledge of the product and works with customers to fine tune it for them. This person will most likely not be a developer; therefore, a UI/UX wrapper in front of the Composite may be necessary.
-* Customer/User. This would be the customer or user who will definitely need a UI/UX wrapper in front of the Composite. This level of customer/user interaction provides self-service for the customer or user.
+* Customer/User. This would be the customer or user who will need a UI/UX wrapper in front of the Composite. This level of customer/user interaction provides self-service for the customer or user.
 
 ## Cons
 I almost want to write that there’s no cons for Composite. I don’t think there are any cons in the implementation, but there’s a potential con with its intent.
@@ -204,7 +204,7 @@ Anyone can grab random Lego blocks and snap them together. Logic gates can be wi
 Behavior is in the eye of the Configurer, and the Configurer may need glasses. The Configurer could be an external person who configures something that’s not exactly what was desired. We have all written code with software bugs. Configurers can just as easily configure composites with logical bugs in their structure.
 These Configurers will first accuse your implementation of containing a bug before admitting that the error resides in their configuration. _The fault, dear Brutus, lies not in our stars, but in ourselves._
 
-Integration and acceptance testing won’t address these configuration issues either, since they're a creation of the user.
+Integration and acceptance testing won’t address these configuration issues either since they're a creation of the user.
 
 # Summary
 Composite allows us to compose snippets of behavior into a tree structure, such that behavior emerges from the shape and organization of the tree more than from any individual node.
