@@ -65,7 +65,7 @@ The purpose of my example is to highlight the compositional HAS-A nature of a Je
 
 The [Unix Filesystem](https://en.wikipedia.org/wiki/Unix_filesystem) is organized as a tree structure. Files are terminal nodes. Directories are non-terminal nodes, which can contain files, directories or nothing. But it's more than that. Directories are files too. In Unix, [everything is a file](https://web.archive.org/web/20120310211947/http://www.bga.org/~lessem/psyc5112/usail/concepts/filesystems/everything-is-a-file.html).
 
-The self-referential filesystem structure, where directories can contain other directories, means that a command issued in a directory can propagate through all directories and files composed within the directory from which the command was executed especially of the recursive `-r` option was provided.
+The self-referential filesystem structure, where directories can contain other directories, means that a command issued in a directory can propagate through all directories and files composed within the directory from which the command was executed especially if the recursive `-r` option was provided.
 
 The [directory](https://en.wikipedia.org/wiki/Directory_(computing)) concept is not limited to Unix, but it may have different names, such as _Folder_ on a Mac or on Microsoft Windows
 
@@ -97,7 +97,7 @@ These properties aren’t unique to Lego Bricks. They apply to many construction
 * [Erector Sets](https://en.wikipedia.org/wiki/Erector_Set)
 
 ## Cooking
-One of my first blogs featured cooking – [Knock Knock … Who’s There?]( https://jhumelsine.github.io/2023/08/21/knock-knock-whos-there.html).
+One of my first blogs featured cooking – [Knock Knock … Who’s There?]( https://jhumelsine.github.io/2023/08/21/knock-knock-whos-there.html)
 
 Meals are a composite of dishes, which are a composite of ingredients, which are a composite of molecules, which are ….
 
@@ -191,7 +191,7 @@ A small implementation can support many composable configurations. The objects i
 
 Constructing the object composition is relatively easy. While the Configurer is mostly independent from the design pattern in its traditional form, the Configurer is still the brains that's responsible for the correct composition when using this design pattern. There are at least three types of Configurers and possibly more:
 * __Developer Configurer__. This would be a developer with domain expertise as well as knowledge of the system and its architecture, design and implementation. The Developer Configurer may have also written the Composite implementation as well. Logic gate composites will probably be composed by a Developer Configurer.
-* __Customer Consultant__. This would be a trained customer support consultant in the company who has knowledge of the product and works with customers. The customer consultant will configure customer desired behaviors on behalf of the customer. The customer consultant may work with the developement team to better understand how to compose the Composite so that it meets the customer's needs. This person will most likely not be a developer; therefore, a UI/UX wrapper in front of the Composite may be necessary.
+* __Customer Consultant__. This would be a trained customer support consultant in the company who has knowledge of the product and works with customers. The customer consultant will configure customer desired behaviors on behalf of the customer. The customer consultant may work with the development team to better understand how to compose the Composite so that it meets the customer's needs. This person will most likely not be a developer; therefore, a UI/UX wrapper in front of the Composite may be necessary.
 * __Customer/User__. This would be the customer or user who will need a UI/UX wrapper in front of the Composite. This provides self-service for the customer or user, which allows the customer/user to configurer the system to achieve their goals without having to depend upon a customer consultant or development team.
 
 ## Cons
