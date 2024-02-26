@@ -60,6 +60,15 @@ I would probably model a jet engine more traditionally with: JetEngine HAS-A Com
 
 The purpose of my example is to highlight the compositional HAS-A nature of a Jet Engine regardless of how one might model it using a traditional OO approach or Composite. The Compressor and Turbine really do not exist as an entity. Heck, even the Jet Engine does not really exist. They are the compositional sum of their components in a specific configuration. While we often refer to this relationship as HAS-A, it’s closer to IS-COMPRISED-OF.
 
+## Unix Filesystem
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Unix-fs.png?20100226103342" alt="Unix Filesystem Layout Example" title="Image Source: https://www.wikiwand.com/en/Logic_gate#Media/File:Four_bit_adder_with_carry_lookahead.svg" width = "30%" align="right" style="padding-right: 35px;">
+
+The [Unix Filesystem](https://en.wikipedia.org/wiki/Unix_filesystem) is organized as a tree structure. Files are terminal nodes. Directories are non-terminal nodes, which can contain files, directories or nothing. But it's more than that. Directories are files too. In Unix, [everything is a file](https://web.archive.org/web/20120310211947/http://www.bga.org/~lessem/psyc5112/usail/concepts/filesystems/everything-is-a-file.html).
+
+The self-referential filesystem structure, where directories can contain other directories, means that a command issued in a directory can propagate through all directories and files composed within the directory from which the command was executed.
+
+The [directory](https://en.wikipedia.org/wiki/Directory_(computing)) concept is not limited to Unix, but it may have different names, such as _Folder_ in on a Mac or on Microsoft Windows
+
 ## Logic Gates
 <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Four_bit_adder_with_carry_lookahead.svg" alt="Full Adder Logic Gates" title="Image Source: https://www.wikiwand.com/en/Logic_gate#Media/File:Four_bit_adder_with_carry_lookahead.svg" width = "30%" align="right" style="padding-right: 35px;">
 
@@ -74,7 +83,7 @@ There are hybrid sets too. My son had a Police Boat set which featured a specifi
 
 No individual Lego Brick has much agency. Form doesn’t emerge until the bricks are snapped together to create a cohesive structure. 
 
-<img src="https://live.staticflickr.com/7057/7053151615_0e25fcf31d_o.jpg" alt="Lego Millennium Falcon" title="Image Source: https://www.flickr.com/photos/stickkim/7053151615" width = "40%" align="left" style="padding-right: 35px;">
+<img src="https://live.staticflickr.com/7057/7053151615_0e25fcf31d_o.jpg" alt="Lego Millennium Falcon" title="Image Source: https://commons.wikimedia.org/wiki/File:Unix-fs.png" width = "40%" align="left" style="padding-right: 35px;">
 
 You embark upon a new Lego project. You start with thousands of individual bricks which will eventually become the Millennium Falcon. They are assembled in stages. Individual bricks are components assembled into composite ship parts. These composite parts are assembled into even larger composites. Eventually the composites become identifiable parts of the ship, such as the cockpit, landing gear, engines, etc. After hours of assembly, the final parts are snapped together, and you have the Millennium Falcon.
 
@@ -171,20 +180,31 @@ Here’s a more complex tree with several `composite` and `leaf` nodes:
 
 In both examples, the `client` only has a reference to the root of the tree.
 
+# Use Case
+The Use Case is too large to include in this blog. It will be posted in the next blog.
+
 # Composite Pros and Cons
 The relative pros and cons of Composite are like those with most of the Composable design patterns.
 
 ## Pros
-A small implementation can support many composable options. The In-N-Out Burger example kept growing with menu options but take another look. There’s only one `for` loop implemented in the entire design residing in `FoodComposite`. Even the most complex design with `FoodItemFactory` and `FoodItemBuilder` is terse. Most of the implementation resides in a few lines of code.
+A small implementation can support many composable configurations. The objects in the composition can be as few or many as needed for the desired behavior. Each composable configuration features its own specific behaviors.
 
-The design is not limited to individual menu items. A `FoodComposite` can be created for each `FoodItem` in the order, such as: `Burger`, `Fries`, `Shake`, etc. And the design will return the calorie count of the entire order.
+Constructing the object composition is relatively easy. While the Configurer is mostly independent from the design pattern in its traditional form, the Configurer still the brains that's responsible for the correct composition when using this design pattern. There are at least three types of Configurers and possibly more:
+* Developer Configurer. This would be a developer with domain expertise as well as knowledge the system and its architecture, design and implementation. The Developer Configurer may also written the Composite implementation as well. Logic gate composites will probably be composed by a Developer Configurer.
+* Customer Consultant. This would be a trained member of the company who has knowledge of the product and works with customers to fine tune it for them. This person will most likely not be a developer; therefore, a UI/UX wrapper in front of the Composite may be necessary.
+* Customer/User. This would be the customer or user who will definitely need a UI/UX wrapper in front of the Composite. This level of customer/user interaction provides self-service for the customer or user.
 
 ## Cons
 I almost want to write that there’s no cons for Composite. I don’t think there are any cons in the implementation, but there’s a potential con with its intent.
 
-Composite is all structure. Behavior derives from its composition, which technically resides in the `Configurer`, which is usually outside of the design. Composite will support any structurally consnstent composition, even those that don’t make any sense. There’s nothing to prevent someone from ordering 100 `Bun`s. Anyone can grab random Lego blocks and snap them together. Logic gates can be wired together in any number of ways without providing any useful behaviors
+Composite is all structure. Behavior derives from its composition, which technically resides in the `Configurer` outside of the design. Composite will support any structurally consistent composition, even those that don’t make any sense. 
 
-Behavior is in the eye of the configurer, and the configurer may need glasses. The configurer could be an external user who configures something that’s not exactly what they wanted. They will pass judgement upon your implementation insisting that there's a bug in it before admitting that it resides in their configuration. Integration and acceptance testing won’t address these issues either, since it’s a creation of the user.
+Anyone can grab random Lego blocks and snap them together. Logic gates can be wired together in any number of ways without providing any useful behaviors.
+
+Behavior is in the eye of the Configurer, and the Configurer may need glasses. The Configurer could be an external person who configures something that’s not exactly what was desired. We have all written code with software bugs. Configurers can just as easily configure composites with logical bugs in their structure.
+These Configurers will first accuse your implementation of containing a bug before admitting that the error resides in their configuration. _The fault, dear Brutus, lies not in our stars, but in ourselves._
+
+Integration and acceptance testing won’t address these configuration issues either, since they're a creation of the user.
 
 # Summary
 Composite allows us to compose snippets of behavior into a tree structure, such that behavior emerges from the shape and organization of the tree more than from any individual node.
