@@ -108,6 +108,7 @@ Each line represents the a call to `getCalories()`:
 * `cheeseburger:FoodComposite`’s calorie count is the sum of its `FoodItem`s.
 * Each leaf `FoodItem` returns its calorie value.
 * The final `Cheeseburger` calorie value will be the sum of the leaf node calories.
+* The number in each object node shows the value returned from `getCalories()` for that object.
 
 This same propagation strategy replicates in the subsequent object trees, so I won’t repeat the verbiage.
 
