@@ -62,7 +62,7 @@ Regardless of the name, here are the patterns, which I feel most highlight the c
 * [Proxy](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html) - Place administrative wrapper objects around objects often to help manage their complexity or resources.
 * [Decorator](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html) -Layer additional behaviors upon core features.
 * [Chain of Responsibility](https://jhumelsine.github.io/2024/02/20/chain-of-responsibility-design-pattern.html) - Delegate a request through a linked chain of handlers until one of the handlers can complete the request.
-* [Composite](https://sourcemaking.com/design_patterns/composite) - Compose objects into tree structures to represent whole-part hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.
+* [Composite](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html) - Configure behavior emerging from a group of snippet behavior objects organized in a tree structure.
 * [Specification](https://en.wikipedia.org/wiki/Specification_pattern) – A specification pattern outlines a business rule that is combinable with other business rules. This is not a GoF design pattern, but I feel it’s a good introduction to Interpreter.
 * [Interpreter](https://sourcemaking.com/design_patterns/interpreter) – Given a language, define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language. This pattern will require several blog entries.
 
