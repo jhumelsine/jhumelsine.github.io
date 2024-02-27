@@ -14,7 +14,6 @@ The series continues with:
 * [Hexagonal Architecture - Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html) - This describes why I feel that the Hexagonal Architecture design works so well. It's based upon dependency and knowledge management.
 * [Hexagonal Architecture - How it compares and contrasts with Clean Architecture](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html) - The two designs are mostly the same, but there are some differences worth pointing out.
 * [Hexagonal Architecture - Adapter Flexibility](https://jhumelsine.github.io/2023/11/30/hexagonal-architecture-adapter-flexibility.html) - We have quite a bit of flexibility with this design in the Adapter layer.
-* _NOTE: The Hexagonal Architecture series will be on hiatus. As of the time of this update, Advent of Code 2023 is about to start, and I want to move onto several other topics. I'll return back to Hexagonal Architecture, but it will probably be a few months._
 
 # What is a Name?
 I first heard of _Hexagonal Architecture_ about 6 or 7 years ago. The name sounded funny. Later I heard that it’s also called _Ports and Adapters_. The same design has two names. _Sigh_. But that’s not all. The design basics are extremely similar to other designs, such as _Clean Architecture_ (CleanArch) and _Onion Architecture_ (OnionArch).
