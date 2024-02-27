@@ -9,7 +9,7 @@ unlisted: true
 # Introduction
 The Composite Design Pattern is the next of the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html)  series.
 
-The Composite Design Pattern embodies the concept of composable design patterns more completely than the previous patterns we’ve seen. Several concepts first introduced [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html)   will be revisited here as well.
+The Composite Design Pattern embodies the concept of composable design patterns more completely than the previous patterns we’ve seen. Several concepts first introduced in [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html) will be revisited here as well.
 
 Let’s review the composable patterns we’ve seen so far:
 * [Proxy](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html), which featured a wrapper class in front of a core feature class.
