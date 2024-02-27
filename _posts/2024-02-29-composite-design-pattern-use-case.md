@@ -1,6 +1,6 @@
 ---
-title: Composite Design Pattern
-description: Configure behavior emerging from a group of snippet behavior objects organized in a tree structure.
+title: Composite Design Pattern - Use Case
+description: Using Composite Design Pattern for Secret Menu Items
 unlisted: true
 ---
 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/In-N-Out_Burger_20-patty_cheeseburger.jpg" alt="20x20 at In-N-Out Burger" title="Image Source: https://commons.wikimedia.org/wiki/File:In-N-Out_Burger_20-patty_cheeseburger.jpg" width = "60%" align="center" style="padding-right: 35px;">
@@ -54,7 +54,16 @@ These three burger joints are metaphors for several software design approaches:
 * In-N-Out Burger is something completely different. There is no core feature of a burger on a bun. Decorator isn’t quite the right fit. Some secret menu items omit the burger, and some omit the bun. And customers can customize something that’s not on any menu. In-N-Out Burger is like the Composite design pattern.
 
 ## Composite ala In-N-Out Burger
-We could use Composite to address several features for In-N-Out Burger, but I’d like to focus upon a calorie count feature. How many calories are in each food item? The interface at the top of the design only needs to declare this:
+Composite is a structural design pattern. It's more about the organization of objects than it is about the behavior. Behavior context needs to be added when considering Composite. Since Composite is mostly behavior independent, we can choose almost any behavior we desire for which the Composite structure is a good approach.
+
+The behavior will tend to be reflected in the `Component`'s definition as well as the `Composite`'s implementation. While `Composite` will almost always feature iterating through a list of `Component`s what it does while iterating will vary based upon the behavior.
+
+There are at least three behaviors that come to mind for In-N-Out Burger:
+* A label of the ingrediates of the composite. This is not unlike what was showin in the [Decorator/UseCase](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html#use-case--coffee-labels).
+* A price, which would be the sum of all the ingredients.
+* A calorie count, which would be the sum of all the ingredient calories.
+
+The Composite design could handle all three, but I’d like to focus upon a calorie count feature. How many calories are in each food item? The interface at the top of the design only needs to declare this:
 ```java
 interface FoodItem {
     int getCalories();
@@ -121,15 +130,28 @@ Its composite tree would be:
 <img src="/assets/CompositeFlyingDutchmanObjects.png" alt="In-N-Out Burger Flying Dutchman Objects"  width = "75%" align="center" style="padding-right: 35px;">
  
 ### Roadkill Fries
-There is a method to my madness. Roadkill Fries are Animal Fries topped with a Flying Dutchman. We can build Roadkill Fries from the composites we already have:
+Roadkill Fries are Animal Fries topped with a Flying Dutchman. There are several ways to handle Roadkill Fries.
+
+#### Roadkill Fries Part 1
+Roadkill Fries can follow the same design as the previous examples. In this design, each Roadkill Fries ingredient is listed:
+
+<img src="/assets/CompositeRoadkillFries1.png" alt="In-N-Out Burger Roadkill Fries First Version"  width = "90%" align="center" style="padding-right: 35px;">
+
+It's composite tree would be:
+
+<img src="/assets/CompositeRoadkillFries2Objects1.png" alt="In-N-Out Burger Roadkill Fries Objects First Version"  width = "100%" align="center" style="padding-right: 35px;">
+
+
+#### Roadkill Fries Part 2
+However, we don't have to duplicate menu item definitions. We can build Roadkill Fries from the composites we already have:
 * `AnimalFries` and `FlyingDutchman` are `FoodItem`s, and that’s all we need to know to design `RoadkillFries`.
 * Each concrete class implements `FoodItem` and delegates to `FoodComposite`.
 
-<img src="/assets/CompositeRoadkillFries.png" alt="In-N-Out Burger Roadkill Fries"  width = "90%" align="center" style="padding-right: 35px;">
+<img src="/assets/CompositeRoadkillFries2.png" alt="In-N-Out Burger Roadkill Fries Second Version"  width = "90%" align="center" style="padding-right: 35px;">
  
 Its composite tree would be:
 
-<img src="/assets/CompositeRoadkillFriesObjects.png" alt="In-N-Out Burger Roadkill Fries Objects"  width = "100%" align="center" style="padding-right: 35px;">
+<img src="/assets/CompositeRoadkillFriesObjects2.png" alt="In-N-Out Burger Roadkill Fries Objects Second Version"  width = "100%" align="center" style="padding-right: 35px;">
  
 The calorie count for `RoadkillFries` will be the sum of the calories for each of the non-terminal leaf nodes shown above.
 
@@ -207,23 +229,10 @@ Beware of bugs in the above design; I have only proved it correct, not tried or 
 This design is quite flexible. In-N-Out Burger Corporate could easily add this to their secret menu:
 * `BigMac => Burger|Burger|SpecialSauce|Lettuce|Cheese|Pickles|Onions|SesameBun`
 
-# Composite Pros and Cons
-The relative pros and cons of Composite are like those with most of the Composable design patterns.
-
-## Pros
-A small implementation can support many composable options. The In-N-Out Burger example kept growing with menu options but take another look. There’s only one `for` loop implemented in the entire design residing in `FoodComposite`. Even the most complex design with `FoodItemFactory` and `FoodItemBuilder` is terse. Most of the implementation resides in a few lines of code.
-
-The design is not limited to individual menu items. A `FoodComposite` can be created for each `FoodItem` in the order, such as: `Burger`, `Fries`, `Shake`, etc. And the design will return the calorie count of the entire order.
-
-## Cons
-I almost want to write that there’s no cons for Composite. I don’t think there are any cons in the implementation, but there’s a potential con with its intent.
-
-Composite is all structure. Behavior derives from its composition, which technically resides in the `Configurer`, which is usually outside of the design. Composite will support any structurally consnstent composition, even those that don’t make any sense. There’s nothing to prevent someone from ordering 100 `Bun`s. Anyone can grab random Lego blocks and snap them together. Logic gates can be wired together in any number of ways without providing any useful behaviors
-
-Behavior is in the eye of the configurer, and the configurer may need glasses. The configurer could be an external user who configures something that’s not exactly what they wanted. They will pass judgement upon your implementation insisting that there's a bug in it before admitting that it resides in their configuration. Integration and acceptance testing won’t address these issues either, since it’s a creation of the user.
-
 # Summary
-Composite allows us to compose snippets of behavior into a tree structure, such that behavior emerges from the shape and organization of the tree more than from any individual node.
+This Use Case shows how Composite can accommodate In-N-Out Burger's Secret Menu, but it could accomodate the regular menu as well, plus customer customization.
+
+Predefined regular and secret menu items could be in the employee display. Or they could be on a store kiosk or mobile app, but I guess showing secret menu items means that they'd no longer be a secret. They displays could also allow customers to customize additional items as well.
 
 # References
 See: [Composite Design Pattern/References](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html#References).
