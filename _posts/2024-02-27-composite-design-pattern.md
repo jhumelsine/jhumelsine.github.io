@@ -1,7 +1,6 @@
 ---
 title: Composite Design Pattern
 description: Configure behavior emerging from a group of snippet behavior objects organized in a tree structure.
-unlisted: true
 ---
 <img src="https://live.staticflickr.com/7154/6838743675_d5c4b4e6cd_b.jpg" alt="Jet Engine Cutaway" title="Image Source: [https://www.flickr.com/photos/davegray/6463738329](https://www.flickr.com/photos/multiplyleadership/6838743675
 )" width = "60%" align="center" style="padding-right: 20px;">
