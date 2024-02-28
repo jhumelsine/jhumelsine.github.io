@@ -31,7 +31,7 @@ Then Burger King came to town. They had a different [jingle](https://www.youtube
 > 
 > All we ask is that you let us serve it your way.
 
-Our special orders were always provided quickly. There was no waiting. Needless to say, my family always chose Burger King over McDonald’s when we had the choice. 
+Our special orders were always provided quickly. There was no waiting. My family always chose Burger King over McDonald’s when we had the choice. 
 
 ## Can you keep a secret?
 In-N-Out Burger offers typical fast-food burger fare, but they also have a [secret menu](https://www.allrecipes.com/in-n-out-secret-menu-items-7558019). These are combinations you can request, which won’t be displayed on the menu including:
@@ -45,7 +45,7 @@ In-N-Out Burger offers typical fast-food burger fare, but they also have a [secr
 * Roadkill Fries: Animal Fries topped with a Flying Dutchman
 * And more …
  
-And you can even customize to some degree, such as a 20x20 shown above.
+And you can even customize it to some degree, such as a 20x20 shown above.
 
 ## Fast-food and Software Design
 These three burger joints are metaphors for several software design approaches:
@@ -54,7 +54,7 @@ These three burger joints are metaphors for several software design approaches:
 * In-N-Out Burger is something completely different. There is no core feature of a burger on a bun. Decorator isn’t quite the right fit. Some secret menu items omit the burger, and some omit the bun. And customers can customize something that’s not on any menu. In-N-Out Burger is like the Composite design pattern.
 
 ## Composite à la In-N-Out Burger
-Composite is a structural design pattern. It's more about the organization of objects than it is about behavior. Behavior is addition context that needs to be added when considering Composite. Since Composite is mostly behavior independent, we can choose almost any behavior we desire for which the Composite structure is a good approach.
+Composite is a structural design pattern. It's more about the organization of objects than it is about behavior. Behavior is additional context that needs to be added when considering Composite. Since Composite is mostly behavior independent, we can choose almost any behavior we desire for which the Composite structure is a good approach.
 
 The behavior will tend to be reflected in the `Component`'s definition as well as the `Composite`'s implementation. While `Composite` will almost always feature iterating through a list of `Component`s, what it does while iterating will vary based upon the behavior.
 
@@ -71,7 +71,7 @@ interface FoodItem {
     int getCalories();
 }
 ```
-This won’t be a complex design, but it will take some space. I’m going split the design into multiple diagrams.
+This won’t be a complex design, but it will take up some space. I’m going split the design into multiple diagrams.
 
 ### Leaf Food Items
 Let’s start with the _Leaf_ food items, and I don’t just mean lettuce. These will be the component parts available at In-N-Out Burger from which all possible combinations of foods can be assembled. Each will return how many calories are in them individually. This is not a complete list of ingredients, but it should be sufficient to convey what’s needed:
@@ -219,7 +219,7 @@ Each new `FoodItemBuilder` will acquire the specification and iterate each of th
 #### Caveats
 I didn’t have enough room for edge cases. Production quality design would require exceptions when Strings are not found.
 
-Beware of bugs in the above design; I have only proved it correct, not tried or tested it.
+Beware of bugs in the above design; I have only proved it correct, not tried, or tested it.
 
 #### Flexibility
 This design is quite flexible. In-N-Out Burger Corporate could easily add this to their secret menu:
