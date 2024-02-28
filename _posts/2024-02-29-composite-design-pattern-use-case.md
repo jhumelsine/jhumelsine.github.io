@@ -17,11 +17,11 @@ McDonald's featured a popular Big Mac [jingle](https://www.youtube.com/watch?v=j
 
 It’s such a simple campaign that lists the ingredients of a Big Mac and yet it was so memorable. My generation can still sing it.
 
-McDonald's was known for its consistency. A Big Mac is a Big Mac everywhere. Consistency was even in their advertising by singing its ingredients. It may not be the best burger in the world, but you know what you are getting when you order one.
+McDonald's was known for its consistency. A Big Mac was, ans still is, a Big Mac everywhere. Consistency was even in their advertising by singing its ingredients. It may not be the best burger in the world, but you know what you are getting when you order one.
 
 This didn’t work so well for my family. My father and I were both picky eaters. Onions? Yuck! Pickles? Oof! Don’t get me started with the special sauce that McDonald’s won’t even identify.
 
-When we ate at McDonald's my father would order a plain cheeseburger. I’d order a cheeseburger and ketchup. My mother would order something off the standard menu. Her order would be ready quickly, and then we waited as customer after customer would order and be served. Fast food was not necessarily fast for us.
+When we ate at McDonald's my father would order a plain cheeseburger. I’d order a cheeseburger with ketchup. My mother would order something off the standard menu. Her order would be ready quickly, and then we waited as customer after customer would order and be served. Fast food was not necessarily fast for us.
 
 ## Hold the pickle, hold the lettuce …
 Then Burger King came to town. They had a different [jingle](https://www.youtube.com/watch?v=KJXzkUH72cY):
@@ -49,19 +49,19 @@ And you can even customize to some degree, such as a 20x20 shown above.
 
 ## Fast-food and Software Design
 These three burger joints are metaphors for several software design approaches:
-* McDonald’s is like a traditional OO design. A Big Mac is well defined. It’s well implemented. But if you want something different, prepare to wait. It’s like the Project Manager asking a simple feature and being told that it will take 6 months.
+* McDonald’s is like a traditional OO design. A Big Mac is well defined. It’s well implemented. But if you want something different, prepare to wait. It’s like the Project Manager asking for a simple feature and being told that it will take 6 months.
 * Burger King is like the [Decorator](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html) design pattern. The core feature is a burger on a bun. The condiments are the decorators. Any configuration of burger and condiments is as easy to produce as any other.
 * In-N-Out Burger is something completely different. There is no core feature of a burger on a bun. Decorator isn’t quite the right fit. Some secret menu items omit the burger, and some omit the bun. And customers can customize something that’s not on any menu. In-N-Out Burger is like the Composite design pattern.
 
 ## Composite ala In-N-Out Burger
-Composite is a structural design pattern. It's more about the organization of objects than it is about the behavior. Behavior is additional context that needs to be added when considering Composite. Since Composite is mostly behavior independent, we can choose almost any behavior we desire for which the Composite structure is a good approach.
+Composite is a structural design pattern. It's more about the organization of objects than it is about behavior. Behavior is additional context that needs to be added when considering Composite. Since Composite is mostly behavior independent, we can choose almost any behavior we desire for which the Composite structure is a good approach.
 
 The behavior will tend to be reflected in the `Component`'s definition as well as the `Composite`'s implementation. While `Composite` will almost always feature iterating through a list of `Component`s what it does while iterating will vary based upon the behavior.
 
-There are at least three behaviors that come to mind for In-N-Out Burger:
-* A label of the ingrediates of the composite. This is similar to what was show in the [Decorator/UseCase](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html#use-case--coffee-labels).
-* The total price, which would be the sum of all prices of the individual ingredients.
-* The total calorie count, which would be the sum of calories of the individual ingredients.
+There are at least three possible behaviors that come to mind for In-N-Out Burger:
+* A label of the ingrediates of a food item. This is similar to what was show in the [Decorator/UseCase](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html#use-case--coffee-labels).
+* The total price for a food item, which would be the sum of all prices of the individual ingredients.
+* The total calorie count for a food item, which would be the sum of calories of the individual ingredients.
 
 The Composite design can handle any of these and even all all three. This use case will focus upon a calorie count feature.
 
@@ -79,7 +79,7 @@ Let’s start with the _Leaf_ food items, and I don’t just mean lettuce. These
 <img src="/assets/CompositeBurgerIngredients.png" alt="In-N-Out Burger Basic Ingredients"  width = "90%" align="center" style="padding-right: 35px;">
  
 ### Food Composites
-This diagram adds `FoodComposite` to the design. It’s a list of `FoodItems`, and it obtains the total calorie count by summing the calories in each `FoodItem`. `Burger` and `Pickle` remain on this diagram to highlight how the _Leaf_ `FoodItems` and `FoodComposite` reside in the same design, but non of these concrete classes have any dependency upon one another:
+This diagram adds `FoodComposite` to the design. It’s a list of `FoodItem`s, and it obtains the total calorie count by summing the calories in each `FoodItem`. `Burger` and `Pickle` remain on this diagram to highlight how the _Leaf_ `FoodItems` and `FoodComposite` reside in the same design, but none of these concrete classes have any dependency upon any another:
 
 <img src="/assets/CompositeBurgerComposite.png" alt="In-N-Out Burger Composite"  width = "100%" align="center" style="padding-right: 35px;">
  
@@ -88,16 +88,13 @@ The Cheeseburger gets interesting. I could have made it a more traditional desig
 
 I could have also had `Cheeseburger` extend `FoodComposite`, but I decided not to for two reasons:
 * The delegating approach is more in line with favoring object composition over inheritance.
-* If `Cheeseburger` were a `FoodComposite` then more `FoodItem`s could be added to it. For now, I want `Cheeseburger` to remain a well-defined `Cheeseburger` that cannot be further modified by adding more `FoodItem`s to it. If we wanted to be able to enhance a `Cheeseburger`, we have several design options, including:
-    * Define it to extend `FoodComposite`.
-    * Instantiate a new `FoodComposite`, add a `Cheeseburger` to it, and then add any other `FoodItem` objects desired.
-    * Declare a new `ModifiableCheeseburger` class, which basically does what I described in the second bullet, but now it’s encapsulated in a class.
+* If `Cheeseburger` were a `FoodComposite` then more `FoodItem`s could be added to it. For now, I want `Cheeseburger` to remain a well-defined `Cheeseburger` that cannot be further modified by adding more `FoodItem`s to it. If we wanted to be able to modify a `Cheeseburger`, then there are several design options we could choose.
 
 `Cheeseburger` wears several hats:
 * It is a leaf `FoodItem`.
 * It is not technically a `FoodComposite` but it contains a `FoodComposite` and delegates to it.
 * It’s a `Configurer`.
-* `Cheeseburger` has no behavior aligned implementation. It works by creating and assembling `FoodItem`s, adding them to a `FoodComposite`, and finally delegating to the `FoodComposite` for its calorie count.
+* `Cheeseburger` has no functional behavior in its implementation. It creates and assembles `FoodItem`s, adds them to a `FoodComposite`, and finally delegates to the `FoodComposite` for its calorie count. The `+` indicates that there are more calories for the `FoodItem`s now shown, such as `Tomato` and `Lettuce`.
 
 <img src="/assets/CompositeCheeseburger.png" alt="In-N-Out Burger Cheeseburger"  width = "90%" align="center" style="padding-right: 35px;">
  
@@ -133,21 +130,21 @@ Its composite tree would be:
 <img src="/assets/CompositeFlyingDutchmanObjects.png" alt="In-N-Out Burger Flying Dutchman Objects"  width = "75%" align="center" style="padding-right: 35px;">
  
 ### Roadkill Fries
-Roadkill Fries are Animal Fries topped with a Flying Dutchman. There are several ways to handle Roadkill Fries.
+Roadkill Fries are Animal Fries topped with a Flying Dutchman. There are a couple ways to handle Roadkill Fries.
 
 #### Roadkill Fries Part 1
-Roadkill Fries can follow the same design as the previous examples. In this design, each Roadkill Fries ingredient is listed:
+Roadkill Fries can follow the same design as the previous examples:
 
 <img src="/assets/CompositeRoadkillFries1.png" alt="In-N-Out Burger Roadkill Fries First Version"  width = "90%" align="center" style="padding-right: 35px;">
 
 It's composite tree would be:
 
-<img src="/assets/CompositeRoadkillFriesObjects2.png" alt="In-N-Out Burger Roadkill Fries Objects First Version"  width = "100%" align="center" style="padding-right: 35px;">
+<img src="/assets/CompositeRoadkillFriesObjects1.png" alt="In-N-Out Burger Roadkill Fries Objects First Version"  width = "100%" align="center" style="padding-right: 35px;">
 
 
 #### Roadkill Fries Part 2
 However, we don't have to duplicate menu item definitions. We can build Roadkill Fries from the composites we already have:
-* `AnimalFries` and `FlyingDutchman` are `FoodItem`s, and that’s all we need to know to design `RoadkillFries`.
+* `AnimalFries` and `FlyingDutchman` are `FoodItem`s, and that’s all we need to design `RoadkillFries`.
 * Each concrete class implements `FoodItem` and delegates to `FoodComposite`.
 
 <img src="/assets/CompositeRoadkillFries2.png" alt="In-N-Out Burger Roadkill Fries Second Version"  width = "90%" align="center" style="padding-right: 35px;">
@@ -156,8 +153,6 @@ Its composite tree would be:
 
 <img src="/assets/CompositeRoadkillFriesObjects2.png" alt="In-N-Out Burger Roadkill Fries Objects Second Version"  width = "100%" align="center" style="padding-right: 35px;">
  
-The calorie count for `RoadkillFries` will be the sum of the calories for each of the non-terminal leaf nodes shown above.
-
 ### Learn the rules, and then break the rules
 I’m not really breaking the rules here, but I’m really pushing the Composite boundary a bit.
 
@@ -176,15 +171,13 @@ Corporate manages a Secret Menu Specification. It will be of the form:
 
 The software at the In-N-Out Burger locations should support these and only these menu items, both regular and secret.
 
-The hardcoded designs previously shown won’t be flexible enough to accommodate this.
-
-There’s a flexible design with explanation following:
+Here’s a flexible design with explanation following:
 
 <img src="/assets/CompositeBurgerFactory.png" alt="In-N-Out Burger Roadkill Fries"  width = "100%" align="center" style="padding-right: 35px;">
  
-This is still a Composite design at its core. The individual `FoodItem` classes for `Burger` et al. unchanged in this design from the previous ones. They are so simple that they apply as-is even when making a change such as this one. The specific hardcoded secret menu items are no longer present in this design.
+This is still a Composite design at its core. The individual `FoodItem` classes for `Burger` et al. are unchanged in this design from the previous ones. They are so simple that they apply as-is even when making a significant change such as this one. The specific hardcoded menu items are no longer present in this design as individual classes.
 
-Two new classes have been added to replace the previous hardcoded screte menu items: `FoodItemFactory` and `FoodItemBuilder`.
+Two new classes have been added to replace the previous hardcoded menu item classes: `FoodItemFactory` and `FoodItemBuilder`.
 
 #### A Simple Request
 Let’s start with the most basic request with a request for a Burger. It would look like this in code:
@@ -200,7 +193,7 @@ Let’s consider this:
 FoodItem foodItem = FoodItemFactory.acquire(“ProteinStyle”);
 ```
 
-Unlike the previous example, `FoodItemFactory` won’t find a match for “ProteinStyle”. Its default behavior will return a `FoodItem` from the `FoodItemBuilder` for “ProteinStyle”. The `FoodItemBuilder` is a generic version of the hardcoded designs above such as `AnimalFries` and `FlyingDutchman`. They have the following in common:
+Unlike the previous example, `FoodItemFactory` won’t find a match for “ProteinStyle”. Its default behavior will return a `FoodItem` from the `FoodItemBuilder` for “ProteinStyle”. The `FoodItemBuilder` is a generic version of the hardcoded designs above such as `AnimalFries` and `FlyingDutchman`. The previous classes and this new `FoodItemBuilder` class have the following in common:
 * They all declare a `FoodComposite` field attribute.
 * They all implement `getCalories()` by returning the `FoodComposite` field attribute’s `getCalories()`.
 * They all populate `FoodComposite` with other `FoodItem` instances. The difference is that the previous design hardcoded the component construction, whereas this design retrieves the specification in the form of the list of `FoodItem`s, which it resolves via the `FoodItemFactory`.
@@ -235,7 +228,7 @@ This design is quite flexible. In-N-Out Burger Corporate could easily add this t
 # Summary
 This Use Case shows how Composite can accommodate In-N-Out Burger's Secret Menu, but it could accomodate the regular menu as well, plus customer customization.
 
-Predefined regular and secret menu items could be in the employee display. Or they could be on a store kiosk or mobile app, but I guess showing secret menu items means that they'd no longer be a secret. They displays could also allow customers to customize additional items as well.
+Predefined regular and secret menu items could be in the employee display. Or they could be on a store kiosk or mobile app. The displays could also allow customers to customize their order as well.
 
 # References
 See: [Composite Design Pattern/References](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html#References).
