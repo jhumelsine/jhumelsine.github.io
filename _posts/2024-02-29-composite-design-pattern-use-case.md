@@ -21,7 +21,7 @@ McDonald's was known for its consistency. A Big Mac was, and still is, a Big Mac
 
 This didn’t work so well for my family. My father and I were both picky eaters. Onions? Yuck! Pickles? Oof! Don’t get me started with the special sauce that McDonald’s won’t even identify.
 
-When we ate at McDonald's my father would order a plain cheeseburger. I’d order a cheeseburger with ketchup. My mother would order something off the standard menu. Her order would be ready quickly, and then we waited as customer after customer would order and be served. Fast food was not necessarily fast for us.
+When we ate at McDonald's my father would order a plain burger. I’d order a plain burger with ketchup. My mother would order something off the standard menu. Her order would be ready quickly, and then we waited as customer after customer would order and be served. Fast food was not necessarily fast for us.
 
 ## Hold the pickle, hold the lettuce …
 Then Burger King came to town. They had a different [jingle](https://www.youtube.com/watch?v=KJXzkUH72cY):
@@ -54,12 +54,12 @@ These three burger joints are metaphors for several software design approaches:
 * In-N-Out Burger is something completely different. There is no core feature of a burger on a bun. Decorator isn’t quite the right fit. Some secret menu items omit the burger, and some omit the bun. And customers can customize something that’s not on any menu. In-N-Out Burger is like the Composite design pattern.
 
 ## Composite à la In-N-Out Burger
-Composite is a structural design pattern. It's more about the organization of objects than it is about behavior. Behavior is additional context that needs to be added when considering Composite. Since Composite is mostly behavior independent, we can choose almost any behavior we desire for which the Composite structure is a good approach.
+Composite is a structural design pattern. It's more about the organization of objects than it is about behavior. Behavior is addition context that needs to be added when considering Composite. Since Composite is mostly behavior independent, we can choose almost any behavior we desire for which the Composite structure is a good approach.
 
 The behavior will tend to be reflected in the `Component`'s definition as well as the `Composite`'s implementation. While `Composite` will almost always feature iterating through a list of `Component`s, what it does while iterating will vary based upon the behavior.
 
 There are at least three possible behaviors that come to mind for In-N-Out Burger:
-* A label of the ingrediates of a food item. This is similar to what was show in the [Decorator/UseCase](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html#use-case--coffee-labels).
+* A label of the ingredients of a food item. This is similar to what was show in the [Decorator/UseCase](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html#use-case--coffee-labels).
 * The total price for a food item, which would be the sum of all prices of the individual ingredients.
 * The total calorie count for a food item, which would be the sum of calories of the individual ingredients.
 
@@ -71,7 +71,7 @@ interface FoodItem {
     int getCalories();
 }
 ```
-This won’t be complex design, but it will take some space. I’m going split the design into multiple diagrams.
+This won’t be a complex design, but it will take some space. I’m going split the design into multiple diagrams.
 
 ### Leaf Food Items
 Let’s start with the _Leaf_ food items, and I don’t just mean lettuce. These will be the component parts available at In-N-Out Burger from which all possible combinations of foods can be assembled. Each will return how many calories are in them individually. This is not a complete list of ingredients, but it should be sufficient to convey what’s needed:
@@ -158,7 +158,7 @@ I’m not really breaking the rules here, but I’m really pushing the Composite
 
 The previous In-N-Out Burger design examples are hardcoded. Each secret menu item requires its own class. It’s not a difficult class to implement, but it’s not necessarily a flexible design either.
 
-Let’s assume that In-N-Out Burger Corporate wants a more dynamic secret menu. They want the ability add, update or delete secret menu items at any time.
+Let’s assume that In-N-Out Burger Corporate wants a more dynamic secret menu. They want the ability to add, update or delete secret menu items at any time.
 
 Corporate manages a Secret Menu Specification. It will be of the form:
 * `3x3 => Burger|Burger|Burger|Cheese|Cheese|Cheese|Bun|Lettuce|Tomato|Onions|Pickle`
@@ -226,7 +226,7 @@ This design is quite flexible. In-N-Out Burger Corporate could easily add this t
 * `BigMac => Burger|Burger|SpecialSauce|Lettuce|Cheese|Pickles|Onions|SesameBun`
 
 # Summary
-This Use Case shows how Composite can accommodate In-N-Out Burger's Secret Menu, but it could accomodate the regular menu as well, plus customer customization.
+This Use Case shows how Composite can accommodate In-N-Out Burger's Secret Menu, but it could accommodate the regular menu as well, plus customer customization.
 
 Predefined regular and secret menu items could be in the employee display. Or they could be on a store kiosk or mobile app. The displays could also allow customers to customize their order as well.
 
