@@ -17,7 +17,7 @@ McDonald's featured a popular Big Mac [jingle](https://www.youtube.com/watch?v=j
 
 It’s such a simple campaign that lists the ingredients of a Big Mac and yet it was so memorable. My generation can still sing it.
 
-McDonald's was known for its consistency. A Big Mac was, ans still is, a Big Mac everywhere. Consistency was even in their advertising by singing its ingredients. It may not be the best burger in the world, but you know what you are getting when you order one.
+McDonald's was known for its consistency. A Big Mac was, and still is, a Big Mac everywhere. Consistency was even in their advertising by singing its ingredients. It may not be the best burger in the world, but you know what you are getting when you order one.
 
 This didn’t work so well for my family. My father and I were both picky eaters. Onions? Yuck! Pickles? Oof! Don’t get me started with the special sauce that McDonald’s won’t even identify.
 
@@ -53,10 +53,10 @@ These three burger joints are metaphors for several software design approaches:
 * Burger King is like the [Decorator](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html) design pattern. The core feature is a burger on a bun. The condiments are the decorators. Any configuration of burger and condiments is as easy to produce as any other.
 * In-N-Out Burger is something completely different. There is no core feature of a burger on a bun. Decorator isn’t quite the right fit. Some secret menu items omit the burger, and some omit the bun. And customers can customize something that’s not on any menu. In-N-Out Burger is like the Composite design pattern.
 
-## Composite ala In-N-Out Burger
+## Composite à la In-N-Out Burger
 Composite is a structural design pattern. It's more about the organization of objects than it is about behavior. Behavior is additional context that needs to be added when considering Composite. Since Composite is mostly behavior independent, we can choose almost any behavior we desire for which the Composite structure is a good approach.
 
-The behavior will tend to be reflected in the `Component`'s definition as well as the `Composite`'s implementation. While `Composite` will almost always feature iterating through a list of `Component`s what it does while iterating will vary based upon the behavior.
+The behavior will tend to be reflected in the `Component`'s definition as well as the `Composite`'s implementation. While `Composite` will almost always feature iterating through a list of `Component`s, what it does while iterating will vary based upon the behavior.
 
 There are at least three possible behaviors that come to mind for In-N-Out Burger:
 * A label of the ingrediates of a food item. This is similar to what was show in the [Decorator/UseCase](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html#use-case--coffee-labels).
@@ -76,7 +76,7 @@ This won’t be complex design, but it will take some space. I’m going split t
 ### Leaf Food Items
 Let’s start with the _Leaf_ food items, and I don’t just mean lettuce. These will be the component parts available at In-N-Out Burger from which all possible combinations of foods can be assembled. Each will return how many calories are in them individually. This is not a complete list of ingredients, but it should be sufficient to convey what’s needed:
 
-<img src="/assets/CompositeBurgerIngredients.png" alt="In-N-Out Burger Basic Ingredients"  width = "90%" align="center" style="padding-right: 35px;">
+<img src="/assets/CompositeBurgerIngredients.png" alt="In-N-Out Burger Basic Ingredients"  width = "100%" align="center" style="padding-right: 35px;">
  
 ### Food Composites
 This diagram adds `FoodComposite` to the design. It’s a list of `FoodItem`s, and it obtains the total calorie count by summing the calories in each `FoodItem`. `Burger` and `Pickle` remain on this diagram to highlight how the _Leaf_ `FoodItems` and `FoodComposite` reside in the same design, but none of these concrete classes have any dependency upon any another:
@@ -94,7 +94,7 @@ I could have also had `Cheeseburger` extend `FoodComposite`, but I decided not t
 * It is a leaf `FoodItem`.
 * It is not technically a `FoodComposite` but it contains a `FoodComposite` and delegates to it.
 * It’s a `Configurer`.
-* `Cheeseburger` has no functional behavior in its implementation. It creates and assembles `FoodItem`s, adds them to a `FoodComposite`, and finally delegates to the `FoodComposite` for its calorie count. The `+` indicates that there are more calories for the `FoodItem`s now shown, such as `Tomato` and `Lettuce`.
+* `Cheeseburger` has no functional behavior in its implementation. It creates and assembles `FoodItem`s, adds them to a `FoodComposite`, and finally delegates to the `FoodComposite` for its calorie count.
 
 <img src="/assets/CompositeCheeseburger.png" alt="In-N-Out Burger Cheeseburger"  width = "90%" align="center" style="padding-right: 35px;">
  
@@ -107,7 +107,7 @@ Each line represents the a call to `getCalories()`:
 * `cheeseburger:FoodComposite`’s calorie count is the sum of its `FoodItem`s.
 * Each leaf `FoodItem` returns its calorie value.
 * The final `Cheeseburger` calorie value will be the sum of the leaf node calories.
-* The number in each object node shows the value returned from `getCalories()` for that object.
+* The number in each object node shows the value returned from `getCalories()` for that object. The `+` indicates that there are more calories for the `FoodItem`s now shown, such as `Tomato` and `Lettuce`.
 
 This same propagation strategy replicates in the subsequent object trees, so I won’t repeat the verbiage.
 
