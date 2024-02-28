@@ -15,13 +15,13 @@ This Composite Use Case example is inspired by fast-food burger chains.
 McDonald's featured a popular Big Mac [jingle](https://www.youtube.com/watch?v=jSmAibfvCeU) in its commercials in my youth:
 > Two all-beef patties, special sauce, lettuce, cheese, pickles, onions on a sesame seed bun.
 
-It’s such a simple campaign that lists the ingredients of a Big Mac yet so memorable. My generation can still sing it.
+It’s such a simple campaign that lists the ingredients of a Big Mac and yet it was so memorable. My generation can still sing it.
 
 McDonald's was known for its consistency. A Big Mac is a Big Mac everywhere. Consistency was even in their advertising by singing its ingredients. It may not be the best burger in the world, but you know what you are getting when you order one.
 
-But this didn’t work so well for my family. My father and I were both picky eaters. Onions? Yuck! Pickles? Yuck! Don’t get me started with the special sauce that McDonald’s won’t even identify.
+This didn’t work so well for my family. My father and I were both picky eaters. Onions? Yuck! Pickles? Oof! Don’t get me started with the special sauce that McDonald’s won’t even identify.
 
-When we ate at McDonald's my father would order a plain burger with cheese. I’d order one with cheese and ketchup. My mother would order what they offered. Her order would be ready quickly, and then we waited as customer after customer would order and be served. Fast food was no necessarily fast for us.
+When we ate at McDonald's my father would order a plain cheeseburger. I’d order a cheeseburger and ketchup. My mother would order something off the standard menu. Her order would be ready quickly, and then we waited as customer after customer would order and be served. Fast food was not necessarily fast for us.
 
 ## Hold the pickle, hold the lettuce …
 Then Burger King came to town. They had a different [jingle](https://www.youtube.com/watch?v=KJXzkUH72cY):
@@ -54,16 +54,18 @@ These three burger joints are metaphors for several software design approaches:
 * In-N-Out Burger is something completely different. There is no core feature of a burger on a bun. Decorator isn’t quite the right fit. Some secret menu items omit the burger, and some omit the bun. And customers can customize something that’s not on any menu. In-N-Out Burger is like the Composite design pattern.
 
 ## Composite ala In-N-Out Burger
-Composite is a structural design pattern. It's more about the organization of objects than it is about the behavior. Behavior context needs to be added when considering Composite. Since Composite is mostly behavior independent, we can choose almost any behavior we desire for which the Composite structure is a good approach.
+Composite is a structural design pattern. It's more about the organization of objects than it is about the behavior. Behavior is additional context that needs to be added when considering Composite. Since Composite is mostly behavior independent, we can choose almost any behavior we desire for which the Composite structure is a good approach.
 
 The behavior will tend to be reflected in the `Component`'s definition as well as the `Composite`'s implementation. While `Composite` will almost always feature iterating through a list of `Component`s what it does while iterating will vary based upon the behavior.
 
 There are at least three behaviors that come to mind for In-N-Out Burger:
-* A label of the ingrediates of the composite. This is not unlike what was showin in the [Decorator/UseCase](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html#use-case--coffee-labels).
-* A price, which would be the sum of all the ingredients.
-* A calorie count, which would be the sum of all the ingredient calories.
+* A label of the ingrediates of the composite. This is similar to what was show in the [Decorator/UseCase](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html#use-case--coffee-labels).
+* The total price, which would be the sum of all prices of the individual ingredients.
+* The total calorie count, which would be the sum of calories of the individual ingredients.
 
-The Composite design could handle all three, but I’d like to focus upon a calorie count feature. How many calories are in each food item? The interface at the top of the design only needs to declare this:
+The Composite design can handle any of these and even all all three. This use case will focus upon a calorie count feature.
+
+How many calories are in each food item? The interface at the top of the design only needs to declare this:
 ```java
 interface FoodItem {
     int getCalories();
@@ -74,10 +76,10 @@ This won’t be complex design, but it will take some space. I’m going split t
 ### Leaf Food Items
 Let’s start with the _Leaf_ food items, and I don’t just mean lettuce. These will be the component parts available at In-N-Out Burger from which all possible combinations of foods can be assembled. Each will return how many calories are in them individually. This is not a complete list of ingredients, but it should be sufficient to convey what’s needed:
 
-<img src="/assets/CompositeBurgerIngredients.png" alt="In-N-Out Burger Basic Ingredients"  width = "80%" align="center" style="padding-right: 35px;">
+<img src="/assets/CompositeBurgerIngredients.png" alt="In-N-Out Burger Basic Ingredients"  width = "90%" align="center" style="padding-right: 35px;">
  
 ### Food Composites
-This diagram adds `FoodComposite` to the design. It’s a list of `FoodItems`, and it obtains the total calorie count by summing the calories in each `FoodItem`. `Burger` and `Pickle` remain on this diagram as context to highlight how the _Leaf_ `FoodItems` and `FoodComposite` reside in the same design, but they have no dependency upon one another:
+This diagram adds `FoodComposite` to the design. It’s a list of `FoodItems`, and it obtains the total calorie count by summing the calories in each `FoodItem`. `Burger` and `Pickle` remain on this diagram to highlight how the _Leaf_ `FoodItems` and `FoodComposite` reside in the same design, but non of these concrete classes have any dependency upon one another:
 
 <img src="/assets/CompositeBurgerComposite.png" alt="In-N-Out Burger Composite"  width = "100%" align="center" style="padding-right: 35px;">
  
@@ -86,16 +88,16 @@ The Cheeseburger gets interesting. I could have made it a more traditional desig
 
 I could have also had `Cheeseburger` extend `FoodComposite`, but I decided not to for two reasons:
 * The delegating approach is more in line with favoring object composition over inheritance.
-* If `Cheeseburger` where a `FoodComposite` then more `FoodItem`s could be added to it. For now, I want `Cheeseburger` to remain a well-defined `Cheeseburger` that cannot be further modified by adding more `FoodItem`s to it. If we wanted to be able to enhance a `Cheeseburger`, we have several design options, including:
+* If `Cheeseburger` were a `FoodComposite` then more `FoodItem`s could be added to it. For now, I want `Cheeseburger` to remain a well-defined `Cheeseburger` that cannot be further modified by adding more `FoodItem`s to it. If we wanted to be able to enhance a `Cheeseburger`, we have several design options, including:
     * Define it to extend `FoodComposite`.
     * Instantiate a new `FoodComposite`, add a `Cheeseburger` to it, and then add any other `FoodItem` objects desired.
     * Declare a new `ModifiableCheeseburger` class, which basically does what I described in the second bullet, but now it’s encapsulated in a class.
 
-`Cheeseburger` is an interesting class:
+`Cheeseburger` wears several hats:
 * It is a leaf `FoodItem`.
-* It is not technically a `FoodComposite` but it contains and delegates to a `FoodComposite`.
+* It is not technically a `FoodComposite` but it contains a `FoodComposite` and delegates to it.
 * It’s a `Configurer`.
-* `Cheeseburger` has no behavior specific implementation. It works by creating and assembling `FoodItem`s, adding them to a `FoodComposite`, and finally providing its behavior by delegating to the `FoodComposite`.
+* `Cheeseburger` has no behavior aligned implementation. It works by creating and assembling `FoodItem`s, adding them to a `FoodComposite`, and finally delegating to the `FoodComposite` for its calorie count.
 
 <img src="/assets/CompositeCheeseburger.png" alt="In-N-Out Burger Cheeseburger"  width = "90%" align="center" style="padding-right: 35px;">
  
