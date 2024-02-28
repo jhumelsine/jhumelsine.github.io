@@ -140,7 +140,7 @@ Roadkill Fries can follow the same design as the previous examples. In this desi
 
 It's composite tree would be:
 
-<img src="/assets/CompositeRoadkillFries2Objects1.png" alt="In-N-Out Burger Roadkill Fries Objects First Version"  width = "100%" align="center" style="padding-right: 35px;">
+<img src="/assets/CompositeRoadkillFriesObjects2.png" alt="In-N-Out Burger Roadkill Fries Objects First Version"  width = "100%" align="center" style="padding-right: 35px;">
 
 
 #### Roadkill Fries Part 2
