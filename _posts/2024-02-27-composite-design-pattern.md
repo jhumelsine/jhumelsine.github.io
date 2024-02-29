@@ -180,7 +180,7 @@ Here’s a more complex tree with several `composite` and `leaf` nodes:
 In both examples, the `client` only has a reference to the root of the tree.
 
 # Use Case
-The Use Case is too large to include in this blog. It will be posted in the next blog.
+The Use Case is too large to include in this blog. It will be posted in the [next blog](https://jhumelsine.github.io/2024/02/29/composite-design-pattern-use-case.html).
 
 # Composite Pros and Cons
 The relative pros and cons of Composite are like those with most of the Composable design patterns.
