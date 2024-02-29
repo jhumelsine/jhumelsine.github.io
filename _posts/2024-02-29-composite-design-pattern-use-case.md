@@ -1,7 +1,6 @@
 ---
 title: Composite Design Pattern - Use Case
 description: Using Composite Design Pattern for Secret Menu Items
-unlisted: true
 ---
 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/In-N-Out_Burger_20-patty_cheeseburger.jpg" alt="20x20 at In-N-Out Burger" title="Image Source: https://commons.wikimedia.org/wiki/File:In-N-Out_Burger_20-patty_cheeseburger.jpg" width = "60%" align="center" style="padding-right: 35px;">
 
