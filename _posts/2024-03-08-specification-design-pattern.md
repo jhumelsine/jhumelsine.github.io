@@ -3,8 +3,7 @@ title: Specification Design Pattern
 description: Allow a Client to select or filter objects with specific attribute property values as specified by the Client.
 unlisted: true
 ---
-https://www.picpedia.org/chalkboard/s/specification.html
-https://www.picpedia.org/chalkboard/images/specification.jpg 
+<img src="https://www.picpedia.org/chalkboard/images/specification.jpg" alt="Specification Sign" title="Image Source: https://www.picpedia.org/chalkboard/s/specification.html" width = "60%" align="center" style="padding-right: 20px;">
  
 # Introduction
 The Specification Design Pattern is the next of the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html)  series. It does not reside within the Gang of Four’s Design Pattern catalog.
@@ -26,9 +25,8 @@ The Specification Design Pattern will feature several previous design patterns:
 Like the previous composable design patterns, Specification is not difficult to implement. In fact, it’s an extension of Composite. Its main challenge is comprehension. Here are a few real-world examples to ease one into the Specification concept.
 
 ## Matchmaker, Matchmaker, Make Me a Match
-https://www.flickr.com/photos/portlandcenterstage/9550526732
-https://live.staticflickr.com/3714/9550526732_3c078bd805_o.jpg
- 
+<img src="https://live.staticflickr.com/3714/9550526732_3c078bd805_o.jpg" alt="Jet Engine Cutaway" title="Image Source: https://www.flickr.com/photos/portlandcenterstage/9550526732" width = "40%" align="right" style="padding-right: 20px;">
+
 The musical Fiddler on the Roof features the song “[Matchmaker](https://www.youtube.com/watch?v=59Hj7bp38f8)” sung by Tevye’s three oldest daughters speculating upon whom the local matchmaker might find for their husbands.
 
 Here are several lyrics:
@@ -82,6 +80,7 @@ Specification is an extension of Composite, but with a few enhancements. We have
 We have a `Client` who is interested in a selection of `Context` objects based upon a `Specification` defined by the `Client`. The `Specification` is passed to a `ContextManager` which will return those `Context` objects that satisfy the `Specification`.
 
 That description was awful. Let me match the general terms above with the three examples above in this table:
+
 | Problem Description | Matchmaker | Antiques | Google Jobs |
 | :-------------------------- | :--------------- | :------------ | :---------------- |
 | Client | Young Woman | Customers back at the shop | A person looking for a job |
@@ -95,6 +94,8 @@ Here’s a UML class diagram for this behavior:
 * The `Client` acquires a `Specification` reference. More details to come soon.
 * The `Client` calls `ContextManager`’s `getContextsBy(Specification specification)`, which will return the list of `Context` objects that satisfy the `Specification`. We can view `specification` as an argument being passed in, but I like to think of it as a form of [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html). `ContextManager` depends upon a `Specification` for each method call.
 * `ContextManager` contains a List of `Context` objects. Its method iterates that List and adds a `Context` to the list of `satisfiedContexts` when a `Context` object satisfies the injected `Specification`. The `ContextManager` has no knowledge of or dependency upon the `Specification` implementation. Its only concern is interacting with the contract interface.
+
+<img src="/assets/SpecificationOverview.png" alt="Specification Overview"  width = "80%" align="center" style="padding-right: 35px;">
  
 This is the last time I will show details for `Client` and `ContextManager`. It’s too much to repeat in subsequent diagrams.
 
@@ -105,7 +106,9 @@ We can do quite a bit with Strategy:
 * The top row of elements is the same as the previous diagram except that the implementation details have not been shown.
 * This diagram has added a little more context to `Context`. While only as examples, `Context` has a Color and Shape attribute. I thought this would be a bit more meaningful than AttributeA and AttributeB.
 * We have three `Specifications` based upon these two attributes: Color, Shape and ColorAndShape. Their attributes are `final` so that the `Specification` cannot be modified after being created.
- 
+
+<img src="/assets/SpecificationStrategy.png" alt="Specification via Strategy" width = "80%" align="center" style="padding-right: 35px;">
+
 Let’s see how the `Client` creates `Specification`s. Here are some examples:
 ```java
 ContextManager contextManager; // injected possibly via a Configurer, not shown
@@ -127,7 +130,9 @@ This is where [Composite](https://jhumelsine.github.io/2024/02/27/composite-desi
 Here is the design:
 * It looks a little busy, but it’s not horrible. Consider each rectangle in isolation and its dependencies based upon its outward pointing arrows as was described in [Hexagonal Architecture – Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html). This is not a Hexagonal Architecture design, but the same dependency management benefits still apply.
 * Each class has limited knowledge of the overall design. Except for the `Client`, most only have knowledge of and depend upon one or two other classes or the interface.
- 
+
+<img src="/assets/SpecificationComposite1.png" alt="Specification via Composite" width = "80%" align="center" style="padding-right: 35px;">
+
 ### Specification Example via Composite
 The previous `Client` `Specification` examples become:
 ```java
@@ -167,6 +172,9 @@ List<Husband> husbandCandidates matchMaker.getContextsBy(husbandSpecification);
 ```
 
 The composite tree for the Matchmaker `Specification` would look like this:
+
+<img src="/assets/SpecificationMatchmakerObjects.png" alt="Matchmaker Composite Tree" width = "80%" align="center" style="padding-right: 35px;">
+
 * The class types are on the right of the colon.
 * The object name is on the left of the colon.
 * Anonymous objects don’t have names, so there’s nothing to the left of the colon.
@@ -176,7 +184,9 @@ The composite tree for the Matchmaker `Specification` would look like this:
 While this violates the specification order in the lyrics, one might wish to reconfigure the specification to be more efficient:
 * If the Husband Candidate is Handsome, then we don’t need to check the rest of the specification. Being Slender, Pale, Rich or a Scholar is just a bonus.
 * If the Husband Candidate is not Handsome, then he must be Slender, Pale, Rich, and a Scholar. It’s less likely that he’s Rich or a Scholar than Slender and Pale. Therefore, as soon as a non-Handsome and non-Rich Husband Candidate is encountered, then we can eliminate him quickly without checking the other attributes.
- 
+
+<img src="/assets/SpecificationMatchmakerObjectsOptimal.png" alt="Matchmaker Composite Tree with Optimal Order" width = "80%" align="center" style="padding-right: 35px;">
+
 ## Composite Consolidation
 This is more my personal style than standard practice, but there are two things that I don’t quite like about the design above:
 * The `specifications` List in `SpecificationComposite` is protected. The derived classes have knowledge and depend upon it. It breaks encapsulation.
@@ -185,6 +195,8 @@ This is more my personal style than standard practice, but there are two things 
 I have addressed both concerns via the `Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html) design pattern. The common code has been pulled up into the abstract `SpecificationComposite` class, but now it depends upon the new abstract `getSatisfactionBoolean()` method.
 
 I have mixed emotions about doing this refactoring. On the one hand it consolidates some near-duplicate code. On the other hand, is it being too clever? Is it too obscure? I’m still on the fence. For what it’s worth, I have used this design technique in production code.
+
+<img src="/assets/SpecificationComposite2.png" alt="Specification with Template Method added to Composite" width = "80%" align="center" style="padding-right: 35px;">
  
 ### My Final Comment, Or My Comment About Final
 The leaf `Specification` classes contain attributes such as `Color` or `Shape`. I declared them as `final` so that they could not be changed. Once a `Specification` is defined, I don’t want to worry about it being updated in such a way that it exhibits different behaviors. If a new `Specification` behavior is needed, then a new `Specification` instance should be created.
@@ -203,6 +215,8 @@ There is a way to achieve finalness with a slightly different technique. I’m g
 Normally, I prefer a separate state machine class, but since this state machine is so simple and localized, I’m going to represent it via the `isInitializing` boolean attribute to keep track of the state and which actions are permitted based upon that boolean attribute state.
 
 When an `AddSpecification` or `OrSpecification` is created, as many `Specification`s can be added to them as needed. But once they are queried with an `isSatisfied(Context context)` call, then they are no longer being initialized. No new `Specification`s can be added.
+
+<img src="/assets/SpecificationFinal.png" alt="Specification with Finals" width = "50%" align="center" style="padding-right: 35px;">
  
 The leaf `Specification`s are [Value Objects](https://en.wikipedia.org/wiki/Value_object). Once initialized, they cannot be modified. The `SpecificationComposite` objects are pseudo Value Objects. Once queried, they cannot be modified.
 
@@ -226,6 +240,6 @@ Specification is … thread safe usually.
 # References
 There are many online resources with diagrams and implementations in different programming languages. Here are some free resources:
 * TBD
+
 Here are some resources that can be purchased or are included in a subscription service:
 * TBD
-
