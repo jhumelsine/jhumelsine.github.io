@@ -25,9 +25,9 @@ The Specification Design Pattern will feature several previous design patterns:
 Like the previous composable design patterns, Specification is not difficult to implement. In fact, it’s an extension of Composite. Its main challenge is comprehension. Here are a few real-world examples to ease one into the Specification concept.
 
 ## Matchmaker, Matchmaker, Make Me a Match
-<img src="https://live.staticflickr.com/3714/9550526732_3c078bd805_o.jpg" alt="Jet Engine Cutaway" title="Image Source: https://www.flickr.com/photos/portlandcenterstage/9550526732" width = "40%" align="right" style="padding-right: 20px;">
-
 The musical Fiddler on the Roof features the song “[Matchmaker](https://www.youtube.com/watch?v=59Hj7bp38f8)” sung by Tevye’s three oldest daughters speculating upon whom the local matchmaker might find for their husbands.
+
+<img src="https://live.staticflickr.com/3714/9550526732_3c078bd805_o.jpg" alt="Jet Engine Cutaway" title="Image Source: https://www.flickr.com/photos/portlandcenterstage/9550526732" width = "40%" align="right" style="padding-right: 20px;">
 
 Here are several lyrics:
 <BR> _Matchmaker, Matchmaker,
