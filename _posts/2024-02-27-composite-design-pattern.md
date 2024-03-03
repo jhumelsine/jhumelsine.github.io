@@ -2,8 +2,7 @@
 title: Composite Design Pattern
 description: Configure behavior emerging from a group of snippet behavior objects organized in a tree structure.
 ---
-<img src="https://live.staticflickr.com/7154/6838743675_d5c4b4e6cd_b.jpg" alt="Jet Engine Cutaway" title="Image Source: [https://www.flickr.com/photos/davegray/6463738329](https://www.flickr.com/photos/multiplyleadership/6838743675
-)" width = "60%" align="center" style="padding-right: 20px;">
+<img src="https://live.staticflickr.com/7154/6838743675_d5c4b4e6cd_b.jpg" alt="Jet Engine Cutaway" title="Image Source: https://www.flickr.com/photos/multiplyleadership/6838743675" width = "60%" align="center" style="padding-right: 20px;">
 
 # Introduction
 The Composite Design Pattern is the next of the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html)  series.
