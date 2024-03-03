@@ -192,7 +192,7 @@ This is more my personal style than standard practice, but there are two things 
 * The `specifications` List in `SpecificationComposite` is protected. The derived classes have knowledge and depend upon it. It breaks encapsulation.
 * The implementations in `AndSpecification` and `OrSpecification` are similar. They almost feel like common code, but not quite common code.
 
-I have addressed both concerns via the `Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html) design pattern. The common code has been pulled up into the abstract `SpecificationComposite` class, but now it depends upon the new abstract `getSatisfactionBoolean()` method.
+I have addressed both concerns via the [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html) design pattern. The common code has been pulled up into the abstract `SpecificationComposite` class, but now it depends upon the new abstract `getSatisfactionBoolean()` method.
 
 I have mixed emotions about doing this refactoring. On the one hand it consolidates some near-duplicate code. On the other hand, is it being too clever? Is it too obscure? I’m still on the fence. For what it’s worth, I have used this design technique in production code.
 
