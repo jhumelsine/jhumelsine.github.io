@@ -8,18 +8,18 @@ unlisted: true
 # Introduction
 The Specification Design Pattern is the next of the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html)  series. It does not reside within the Gang of Four’s Design Pattern catalog.
 
-Specification allows a Client to select objects based upon the attribute values that it’s interested in. The attribute specification can be simple or complex. It can be used in several scenarios, such as:
-* Select the objects that satisfy a specification based upon their attribute values.
-* Filter objects, possibly in a stream, that satisfy a specification based upon their attribute values.
-* Request notification of objects changing attribute values that satisfy a specification based upon their attribute values.
+Specification allows a Client to select objects based upon the attribute values that the Client is interested in. The attribute specification can be simple or complex. It can be used in several scenarios, such as:
+* Selecting the objects that satisfy a specification based upon their attribute values.
+* Filtering objects, possibly in a stream, that satisfy a specification based upon their attribute values.
+* Requesting notification of objects changing attribute values that satisfy a specification based upon their attribute values.
 
-Specification is very similar to the select or query feature in databases. The main distinction is that the objects being considered within Specification are objects and not records in a database.
+Specification is similar to the select or query feature in databases. The main distinction is that the objects being considered within Specification are objects and not records in a database.
 
 The Specification Design Pattern will feature several previous design patterns:
 * [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) resides at its core, but then again, Strategy resides at the core of many design patterns we’ve reviewed so far. 
-* [Composite](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html) will extend the ability of the Client to construct Specifications, since Strategy won’t be quite powerful enough. 
+* [Composite](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html) will extend the ability of the Client to construct complex Specifications, since Strategy on its own will only be able to construct simple Specifications. 
 * [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html) will be used to consolidate pseudo-duplicate code.
-* And we’ll see [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) as well, but it will be a little different than before. Previous design patterns featured a Configurer who created objects and injected them into the Client. In Specification, many Clients could be creating their own Specifications and injecting them into the pattern at any time.
+* And we’ll see [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) as well, but it will be a little different than before. Previous design patterns featured a Configurer who created objects organized in a design pattern structure and injected them into the Client. In Specification, Clients create their own Specifications and inject them into the pattern at any time.
 
 # Real World Analogies to Specification
 Like the previous composable design patterns, Specification is not difficult to implement. In fact, it’s an extension of Composite. Its main challenge is comprehension. Here are a few real-world examples to ease one into the Specification concept.
@@ -27,7 +27,7 @@ Like the previous composable design patterns, Specification is not difficult to 
 ## Matchmaker, Matchmaker, Make Me a Match
 The musical Fiddler on the Roof features the song “[Matchmaker](https://www.youtube.com/watch?v=59Hj7bp38f8)” sung by Tevye’s three oldest daughters speculating upon whom the local matchmaker might find for their husbands.
 
-<img src="https://live.staticflickr.com/3714/9550526732_3c078bd805_o.jpg" alt="Jet Engine Cutaway" title="Image Source: https://www.flickr.com/photos/portlandcenterstage/9550526732" width = "40%" align="right" style="padding-right: 20px;">
+<img src="https://live.staticflickr.com/3714/9550526732_3c078bd805_o.jpg" alt="Jet Engine Cutaway" title="Image Source: https://www.flickr.com/photos/portlandcenterstage/9550526732" width = "60%" align="right" style="padding-right: 20px;">
 
 Here are several lyrics:
 <BR> _Matchmaker, Matchmaker,
@@ -51,21 +51,21 @@ Here are several lyrics:
 <BR>I wouldn't holler
 <BR>If he were as __handsome__ as anything._
 
-The lyrics define a specification: `(build==slender AND complexion==pale AND education==scholar AND wealth==rich) OR looks==handsome`. They want the Matchmaker to look through her list for a groom for those who match this specification. While not in the lyrics, should a new potential groom match the specification, then they would like to be notified as well.
+The lyrics define the specification: `(build==slender AND complexion==pale AND education==scholar AND wealth==rich) OR (looks==handsome)`. They want the Matchmaker to look through her list for a groom for those who match this specification. While not in the lyrics, should a new potential groom match the specification, then they would like to be notified as well.
 
 ## Collectors
 The TV show American Pickers featured antique collectors Mike and Frank driving around rural American looking for trash that they could convert into treasures. 
 
 The show focused upon the interesting characters they encountered, the items these people had collected and Mike and Frank negotiating a price.
 
-These collections often look like a hoarder’s stash stored in a leaning barn about the fall over. Several times the guys would launch themselves onto unstable filth looking for that diamond in the rough. I’m sure they had to keep their tetanus shots up to date.
+These collections often look like a hoarder’s stash stored in a leaning barn about to topple over. Several times the guys would launch themselves onto unstable filth looking for that diamond in the rough. I’m sure they had to keep their tetanus shots up to date.
 
 The treasures they’d find tended to be antique toys, car parts, motorcycle parts, old gas station signs, etc. The collectors often had detailed knowledge of anything pulled from the piles. They could often remember when and where they got something and how much they paid for it.
 
 Quite frankly most of the items Mike and Frank gushed over just looked like junk to me. But they knew the specifications of their customers wanted and what they’d be willing to pay for them.
 
 ## Google Searches and Alerts, especially Jobs
-Most online search engines are a form of Specification. Your query is a specification, and the search engine will find and return pages that best match that specification. Google will allow you to create an alert for that specification query so that it will send you an email when it finds additional pages that match that specification.
+Most online search engines are a form of Specification. Your search query is a specification, and the search engine will find and return pages that best match that specification. Google will allow you to create an alert for that specification query so that it will send you an email when it finds additional pages that match that specification.
 
 Google’s Job UI/UX is even closer to Specification. Go to: [https://www.google.com/search?q=jobs](https://www.google.com/search?q=jobs) and click on the Jobs banner at the top.
 
@@ -79,14 +79,14 @@ Specification is an extension of Composite, but with a few enhancements. We have
 ## Problem Description
 We have a `Client` who is interested in a selection of `Context` objects based upon a `Specification` defined by the `Client`. The `Specification` is passed to a `ContextManager` which will return those `Context` objects that satisfy the `Specification`.
 
-That description was awful. Let me match the general terms above with the three examples above in this table:
+That description was awful. Let me match the Problem Description terms above with the language in the three examples above:
 
 | Problem Description | Matchmaker | Antiques | Google Jobs |
 | :-------------------------- | :--------------- | :------------ | :---------------- |
 | Client | Young Woman | Customers back at the shop | A person looking for a job |
-| Context  | Husband Candidate  | Antique/Collector Item, which resides in leaning barns until found | An online Job opening |
 | ContextManager | Matchmaker  | Mike and Frank | Google |
-| Specification | (build==slender AND complexion==pale AND education==scholar AND wealth==rich) OR looks==handsome | The type of items their customers are interested in | Job location, title, salary, etc. |
+| Context  | Husband Candidate  | Antique/Collector Item, which resides in leaning barns until found | An online Job opening |
+| Specification | (build==slender AND complexion==pale AND education==scholar AND wealth==rich) OR (looks==handsome) | The type of items their customers are interested in | Job location, title, salary, etc. |
 
 Here’s a UML class diagram for this behavior:
 * At this level of abstraction, the diagram only shows the `Specification` interface. More `Specification` details will be provided shortly. `Specification` declares one method that will return a boolean indicating whether the `Context` satisfies the `Specification`.
