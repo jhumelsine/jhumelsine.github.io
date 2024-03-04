@@ -3,7 +3,7 @@ title: Specification Design Pattern
 description: Allow a Client to select or filter objects with specific attribute property values as specified by the Client.
 unlisted: true
 ---
-<img src="https://www.picpedia.org/chalkboard/images/specification.jpg" alt="Specification Sign" title="Image Source: https://www.picpedia.org/chalkboard/s/specification.html" width = "60%" align="center" style="padding-right: 20px;">
+<img src="https://www.picpedia.org/chalkboard/images/specification.jpg" alt="Specification Sign" title="Image Source: https://www.picpedia.org/chalkboard/s/specification.html" width = "70%" align="center" style="padding-right: 20px;">
  
 # Introduction
 The Specification Design Pattern is the next of the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html)  series. It does not reside within the Gang of Four’s Design Pattern catalog.
@@ -27,7 +27,7 @@ The Specification Design Pattern will feature several previous design patterns:
 Like the previous composable design patterns, Specification is not difficult to implement. In fact, it’s an extension of Composite. Its main challenge is comprehension. Here are a few real-world examples to ease one into the Specification concept.
 
 ## Matchmaker, Matchmaker, Make Me a Match
-The musical Fiddler on the Roof features the song “[Matchmaker](https://www.youtube.com/watch?v=59Hj7bp38f8)” sung by Tevye’s three oldest daughters speculating upon whom the local matchmaker might find for their husbands.
+The musical __Fiddler on the Roof__ features the song “[Matchmaker](https://www.youtube.com/watch?v=59Hj7bp38f8)” sung by Tevye’s three oldest daughters speculating upon whom the local matchmaker might find for their husbands.
 
 <img src="https://live.staticflickr.com/3714/9550526732_3c078bd805_o.jpg" alt="Fiddler on the Roof Poster" title="Image Source: https://www.flickr.com/photos/portlandcenterstage/9550526732" width = "45%" align="right" style="padding-right: 20px;">
 
@@ -50,6 +50,7 @@ Here are several lyrics:
 <BR>For mama,
 <BR>Make him __rich__ as a king.
 <BR>
+<BR>For me, well,
 <BR>I wouldn't holler
 <BR>If he were as __handsome__ as anything._
 
@@ -58,7 +59,7 @@ The lyrics define the specification: `(build==slender AND complexion==pale AND e
 ## Collectors
 The TV show American Pickers featured antique collectors Mike and Frank driving around rural American looking for trash that they could convert into treasures.
 
-<img src="https://cdn18.picryl.com/photo/2019/11/06/lonnie-flanagans-junk-barn-a-collection-of-mechanical-sculpture-art-in-beaumont-eb1af4-1024.jpg" alt="Junk Barn" title="Image Source: https://loc.getarchive.net/media/lonnie-flanagans-junk-barn-a-collection-of-mechanical-sculpture-art-in-beaumont-1" width = "40%" align="right" style="padding-right: 20px;">
+<img src="https://cdn18.picryl.com/photo/2019/11/06/lonnie-flanagans-junk-barn-a-collection-of-mechanical-sculpture-art-in-beaumont-eb1af4-1024.jpg" alt="Junk Barn" title="Image Source: https://loc.getarchive.net/media/lonnie-flanagans-junk-barn-a-collection-of-mechanical-sculpture-art-in-beaumont-1" width = "50%" align="right" style="padding-right: 20px;">
 
 The show focused upon the interesting characters they encountered, the items these people had collected and Mike and Frank negotiating a price.
 
@@ -182,7 +183,7 @@ List<Husband> husbandCandidates matchMaker.getContextsBy(husbandSpecification);
 
 The composite tree for the Matchmaker `Specification` would look like this:
 
-<img src="/assets/SpecificationMatchmakerObjects.png" alt="Matchmaker Composite Tree" width = "80%" align="center" style="padding-right: 35px;">
+<img src="/assets/SpecificationMatchmakerObjects.png" alt="Matchmaker Composite Tree" width = "90%" align="center" style="padding-right: 35px;">
 
 * The class types are on the right of the colon.
 * The object name is on the left of the colon.
@@ -194,7 +195,7 @@ While this violates the specification order in the lyrics, one might wish to rec
 * If the Husband Candidate is Handsome, then we don’t need to check the rest of the specification. Being Slender, Pale, Rich or a Scholar is just a bonus.
 * If the Husband Candidate is not Handsome, then he must be Slender, Pale, Rich, and a Scholar. It’s less likely that he’s Rich or a Scholar than Slender and Pale. Therefore, as soon as a non-Handsome and non-Rich Husband Candidate is encountered, then we can eliminate him quickly without checking the other attributes.
 
-<img src="/assets/SpecificationMatchmakerObjectsOptimal.png" alt="Matchmaker Composite Tree with Optimal Order" width = "80%" align="center" style="padding-right: 35px;">
+<img src="/assets/SpecificationMatchmakerObjectsOptimal.png" alt="Matchmaker Composite Tree with Optimal Order" width = "90%" align="center" style="padding-right: 35px;">
 
 ## Composite Consolidation
 This is more my personal style than standard practice, but there are two things that I don’t quite like about the design above:
@@ -248,4 +249,7 @@ Specification is not in the GoF as it's own cncept, but it's an extension of the
 
 # References
 There are many online resources with diagrams and implementations in different programming languages. Here are some free resources:
-* TBD
+* [Specifications. Original article by Eric Evans and Martin Fowler](https://martinfowler.com/apsupp/spec.pdf)
+* [Wikipedia Specification Design Pattern](https://en.wikipedia.org/wiki/Specification_pattern)
+* [DevIQ Specification Pattern](https://deviq.com/design-patterns/specification-pattern)
+* and for more, Google: [Specification Design Pattern](https://www.google.com/search?q=specification+design+pattern)
