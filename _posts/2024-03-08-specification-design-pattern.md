@@ -29,7 +29,7 @@ Like the previous composable design patterns, Specification is not difficult to 
 ## Matchmaker, Matchmaker, Make Me a Match
 The musical Fiddler on the Roof features the song “[Matchmaker](https://www.youtube.com/watch?v=59Hj7bp38f8)” sung by Tevye’s three oldest daughters speculating upon whom the local matchmaker might find for their husbands.
 
-<img src="https://live.staticflickr.com/3714/9550526732_3c078bd805_o.jpg" alt="Fiddler on the Roof Poster" title="Image Source: https://www.flickr.com/photos/portlandcenterstage/9550526732" width = "50%" align="right" style="padding-right: 20px;">
+<img src="https://live.staticflickr.com/3714/9550526732_3c078bd805_o.jpg" alt="Fiddler on the Roof Poster" title="Image Source: https://www.flickr.com/photos/portlandcenterstage/9550526732" width = "45%" align="right" style="padding-right: 20px;">
 
 Here are several lyrics:
 <BR> _Matchmaker, Matchmaker,
@@ -56,11 +56,11 @@ Here are several lyrics:
 The lyrics define the specification: `(build==slender AND complexion==pale AND education==scholar AND wealth==rich) OR (looks==handsome)`. They want the Matchmaker to look through her list for a groom for those who match this specification. While not in the lyrics, should a new potential groom match the specification, then they would like to be notified as well.
 
 ## Collectors
-The TV show American Pickers featured antique collectors Mike and Frank driving around rural American looking for trash that they could convert into treasures. 
+The TV show American Pickers featured antique collectors Mike and Frank driving around rural American looking for trash that they could convert into treasures.
+
+<img src="https://cdn18.picryl.com/photo/2019/11/06/lonnie-flanagans-junk-barn-a-collection-of-mechanical-sculpture-art-in-beaumont-eb1af4-1024.jpg" alt="Junk Barn" title="Image Source: https://loc.getarchive.net/media/lonnie-flanagans-junk-barn-a-collection-of-mechanical-sculpture-art-in-beaumont-1" width = "40%" align="right" style="padding-right: 20px;">
 
 The show focused upon the interesting characters they encountered, the items these people had collected and Mike and Frank negotiating a price.
-
-<img src="https://cdn18.picryl.com/photo/2019/11/06/lonnie-flanagans-junk-barn-a-collection-of-mechanical-sculpture-art-in-beaumont-eb1af4-1024.jpg" alt="Junk Barn" title="Image Source: https://loc.getarchive.net/media/lonnie-flanagans-junk-barn-a-collection-of-mechanical-sculpture-art-in-beaumont-1" width = "30%" align="right" style="padding-right: 20px;">
 
 These collections often look like a hoarder’s stash stored in a leaning barn about to topple over. Several times the guys would launch themselves onto unstable filth looking for that diamond in the rough. I’m sure they had to keep their tetanus shots up to date.
 
@@ -69,11 +69,11 @@ The treasures they’d find tended to be antique toys, car parts, motorcycle par
 Quite frankly most of the items Mike and Frank gushed over just looked like junk to me. But they knew the specifications of their customers wanted and what they’d be willing to pay for them.
 
 ## Google Searches and Alerts, especially Jobs
-<img src="/assets/SpecificationJobs2.png" alt="Google Jobs Portal"  width = "70%" align="right" style="padding-right: 35px;">
-
 Most online search engines are a form of Specification. Your search query is a specification, and the search engine will find and return pages that best match that specification. Google will allow you to create an alert for that specification query so that it will send you an email when it finds additional pages that match that specification.
 
 Google’s Job UI/UX is even closer to Specification. Go to: [https://www.google.com/search?q=jobs](https://www.google.com/search?q=jobs) and click on the Jobs banner at the top.
+
+<img src="/assets/SpecificationJobs2.png" alt="Google Jobs Portal"  width = "70%" align="right" style="padding-right: 35px;">
 
 This is a Google Jobs portal that will let anyone define a Job Specification based upon job title, location, full/part time, keywords, etc. as shown in the provided image. The Specification can be fine tuned as much as needed, and Google will refresh the job list upon each update. Once you have a Job Specification you like, you can save it as an Alert so that Google will send you an email when it finds new jobs that match your Specification.
 
@@ -113,12 +113,12 @@ We can do quite a bit with Strategy:
 * This diagram has added a little more context to `Context`. While only as examples, `Context` has a Color and Shape attribute. I thought this would be a bit more meaningful than AttributeA and AttributeB.
 * We have three `Specification`s based upon these two attributes: Color and Shape. Their attributes are `final` so that the `Specification` cannot be modified after being created.
 
-<img src="/assets/SpecificationStrategy.png" alt="Specification via Strategy" width = "90%" align="center" style="padding-right: 35px;">
+<img src="/assets/SpecificationStrategy.png" alt="Specification via Strategy" width = "100%" align="center" style="padding-right: 35px;">
 
 Let’s see how the `Client` creates `Specification`s. Here are some examples:
 ```java
 ContextManager contextManager; // injected possibly via a Configurer, not shown
-…
+...
 List<Context> redContexts contextManager.getContextsBy(new ColorSpecification(Color.RED));
 List<Context> circleContexts contextManager.getContextsBy(new ShapeSpecification(Shape.CIRCLE));
 List<Context> blueSquareContexts contextmanager.getContextsBy(new ColorAndShapeSpecification(Color.BLUE), Shape.SQUARE));
@@ -138,13 +138,13 @@ Here is the design:
 * It looks a little busy, but it’s not horrible. Consider each rectangle in isolation and its dependencies based upon its outward pointing arrows as was described in [Hexagonal Architecture – Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html). This is not a Hexagonal Architecture design, but the same dependency management benefits still apply.
 * Each class has limited knowledge of the overall design. Except for the `Client`, the others only have knowledge of and depend upon one or two other classes or the interface.
 
-<img src="/assets/SpecificationComposite1.png" alt="Specification via Composite" width = "90%" align="center" style="padding-right: 35px;">
+<img src="/assets/SpecificationComposite1.png" alt="Specification via Composite" width = "100%" align="center" style="padding-right: 35px;">
 
 ### Specification Example via Composite
 The previous `Client` `Specification` examples become:
 ```java
 ContextManager contextManager; // injected possibly via a Configurer, not shown
-…
+...
 List<Context> redContexts contextManager.getContextsBy(new ColorSpecification(Color.RED)); // Unchanged
 List<Context> circleContexts contextManager.getContextsBy(new ShapeSpecification(Shape.CIRCLE)); // Unchanged
 
@@ -165,7 +165,7 @@ These three Boolean composite `Specification`s give us almost infinite possibili
 Here’s the composite `Specification` for the Matchmaker as mentioned in the example above:
 ```java
 Matchmaker matchMaker; // injected possibly via a Configurer, not shown
-…
+...
 Specification idealHusbandSpecification = new AndSpecification();
 idealHusbandSpecification.add(new BuildSpecification(Slender));
 idealHusbandSpecification.add(new ComplexionSpecification(Pale));
@@ -205,7 +205,7 @@ I have addressed both concerns via the [Template Method](https://jhumelsine.gith
 
 I have mixed emotions about doing this refactoring. On the one hand it consolidates some near-duplicate code. On the other hand, is it being too clever? Is it too obscure? I’m still on the fence. For what it’s worth, I have used this design technique in production code.
 
-<img src="/assets/SpecificationComposite2.png" alt="Specification with Template Method added to Composite" width = "90%" align="center" style="padding-right: 35px;">
+<img src="/assets/SpecificationComposite2.png" alt="Specification with Template Method added to Composite" width = "100%" align="center" style="padding-right: 35px;">
  
 ### My Final Comment, Or My Comment About Final
 The leaf `Specification` classes contain attributes such as `Color` or `Shape`. I declared them as `final` so that they could not be changed. Once a `Specification` is defined, I don’t want to worry about it being updated in such a way that it exhibits different behaviors. If a new `Specification` behavior is needed, then a new `Specification` instance should be created.
