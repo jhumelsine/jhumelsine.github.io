@@ -10,8 +10,10 @@ The Specification Design Pattern is the next of the [Composable Design Patterns]
 
 Specification allows a Client to select objects based upon the attribute values that the Client is interested in. The attribute specification can be simple or complex. It can be used in several scenarios, such as:
 * Selecting the objects that satisfy a specification based upon their attribute values.
+* Adding a Specification to an iterator so that the iterator only returns objects that satisfy they specificaiton based upon their attribute values. 
 * Filtering objects, possibly in a stream, that satisfy a specification based upon their attribute values.
 * Requesting notification of objects changing attribute values that satisfy a specification based upon their attribute values.
+* Defining an Alert with a Specification so that the Alerts only trigger when the specification is satisfied.
 
 Specification is similar to the select or query feature in databases. The main distinction is that the objects being considered within Specification are objects and not records in a database.
 
@@ -27,7 +29,7 @@ Like the previous composable design patterns, Specification is not difficult to 
 ## Matchmaker, Matchmaker, Make Me a Match
 The musical Fiddler on the Roof features the song “[Matchmaker](https://www.youtube.com/watch?v=59Hj7bp38f8)” sung by Tevye’s three oldest daughters speculating upon whom the local matchmaker might find for their husbands.
 
-<img src="https://live.staticflickr.com/3714/9550526732_3c078bd805_o.jpg" alt="Jet Engine Cutaway" title="Image Source: https://www.flickr.com/photos/portlandcenterstage/9550526732" width = "60%" align="right" style="padding-right: 20px;">
+<img src="https://live.staticflickr.com/3714/9550526732_3c078bd805_o.jpg" alt="Fiddler on the Roof Poster" title="Image Source: https://www.flickr.com/photos/portlandcenterstage/9550526732" width = "50%" align="right" style="padding-right: 20px;">
 
 Here are several lyrics:
 <BR> _Matchmaker, Matchmaker,
@@ -58,6 +60,8 @@ The TV show American Pickers featured antique collectors Mike and Frank driving 
 
 The show focused upon the interesting characters they encountered, the items these people had collected and Mike and Frank negotiating a price.
 
+<img src="https://cdn18.picryl.com/photo/2019/11/06/lonnie-flanagans-junk-barn-a-collection-of-mechanical-sculpture-art-in-beaumont-eb1af4-1024.jpg" alt="Junk Barn" title="Image Source: https://loc.getarchive.net/media/lonnie-flanagans-junk-barn-a-collection-of-mechanical-sculpture-art-in-beaumont-1" width = "30%" align="right" style="padding-right: 20px;">
+
 These collections often look like a hoarder’s stash stored in a leaning barn about to topple over. Several times the guys would launch themselves onto unstable filth looking for that diamond in the rough. I’m sure they had to keep their tetanus shots up to date.
 
 The treasures they’d find tended to be antique toys, car parts, motorcycle parts, old gas station signs, etc. The collectors often had detailed knowledge of anything pulled from the piles. They could often remember when and where they got something and how much they paid for it.
@@ -65,11 +69,13 @@ The treasures they’d find tended to be antique toys, car parts, motorcycle par
 Quite frankly most of the items Mike and Frank gushed over just looked like junk to me. But they knew the specifications of their customers wanted and what they’d be willing to pay for them.
 
 ## Google Searches and Alerts, especially Jobs
+<img src="/assets/SpecificationJobs2.png" alt="Google Jobs Portal"  width = "70%" align="right" style="padding-right: 35px;">
+
 Most online search engines are a form of Specification. Your search query is a specification, and the search engine will find and return pages that best match that specification. Google will allow you to create an alert for that specification query so that it will send you an email when it finds additional pages that match that specification.
 
 Google’s Job UI/UX is even closer to Specification. Go to: [https://www.google.com/search?q=jobs](https://www.google.com/search?q=jobs) and click on the Jobs banner at the top.
 
-This is a Google Jobs portal that will let anyone define a Job Specification based upon job title, location, full/part time, keywords, etc. The Specification can be fine tuned as much as needed, and Google will refresh the job list upon each update. Once you have a Job Specification you like, you can save it as an Alert so that Google will send you an email when it finds new jobs that match your Specification.
+This is a Google Jobs portal that will let anyone define a Job Specification based upon job title, location, full/part time, keywords, etc. as shown in the provided image. The Specification can be fine tuned as much as needed, and Google will refresh the job list upon each update. Once you have a Job Specification you like, you can save it as an Alert so that Google will send you an email when it finds new jobs that match your Specification.
 
 Each job searcher can customize his or her own Job Specification. And job searchers are not limited to just one Specification. They can create different Specifications with different criteria.
 
@@ -95,7 +101,7 @@ Here’s a UML class diagram for this behavior:
 * The `Client` calls `ContextManager`’s `getContextsBy(Specification specification)`, which will return the list of `Context` objects that satisfy the `Specification`. We can view `specification` as an argument being passed in, but I like to think of it as a form of [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html). `ContextManager` depends upon a `Specification` for each method call.
 * `ContextManager` contains a List of `Context` objects. Its method iterates that List and adds a `Context` to the list of `satisfiedContexts` when a `Context` object satisfies the injected `Specification`. The `ContextManager` has no knowledge of or dependency upon the `Specification` implementation. Its only concern is interacting with the contract interface.
 
-<img src="/assets/SpecificationOverview.png" alt="Specification Overview"  width = "80%" align="center" style="padding-right: 35px;">
+<img src="/assets/SpecificationOverview.png" alt="Specification Overview"  width = "90%" align="center" style="padding-right: 35px;">
  
 This is the last time I will show details for `Client` and `ContextManager`. It’s too much to repeat in subsequent diagrams.
 
@@ -105,9 +111,9 @@ Let’s get some ideas for how we could implement `Specification`. Let’s start
 We can do quite a bit with Strategy:
 * The top row of elements is the same as the previous diagram except that the implementation details have not been shown.
 * This diagram has added a little more context to `Context`. While only as examples, `Context` has a Color and Shape attribute. I thought this would be a bit more meaningful than AttributeA and AttributeB.
-* We have three `Specifications` based upon these two attributes: Color, Shape and ColorAndShape. Their attributes are `final` so that the `Specification` cannot be modified after being created.
+* We have three `Specification`s based upon these two attributes: Color and Shape. Their attributes are `final` so that the `Specification` cannot be modified after being created.
 
-<img src="/assets/SpecificationStrategy.png" alt="Specification via Strategy" width = "80%" align="center" style="padding-right: 35px;">
+<img src="/assets/SpecificationStrategy.png" alt="Specification via Strategy" width = "90%" align="center" style="padding-right: 35px;">
 
 Let’s see how the `Client` creates `Specification`s. Here are some examples:
 ```java
@@ -116,22 +122,23 @@ ContextManager contextManager; // injected possibly via a Configurer, not shown
 List<Context> redContexts contextManager.getContextsBy(new ColorSpecification(Color.RED));
 List<Context> circleContexts contextManager.getContextsBy(new ShapeSpecification(Shape.CIRCLE));
 List<Context> blueSquareContexts contextmanager.getContextsBy(new ColorAndShapeSpecification(Color.BLUE), Shape.SQUARE));
+...
 ```
 
 ## Composite
 Strategy will work for simple specifications with one attribute, but the `ColorAndShapeSpecification` is a bit of a concern. It works fine, but it’s not scalable.
-What if there are other attributes for `Context`? What about Color OR Shape? What about NOT? We don’t want to create a new Specification from scratch when we want a new combination of attributes. The combinations explode exponentially.
+What if there are other attributes for `Context`? What about Color OR Shape? What about NOT? We don’t want to create a new `Specification` from scratch when we want a new combination of attributes. The combinations explode exponentially.
 
-This is where [Composite](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html) can be useful. This design maintains the previous design, except that it removes the `ColorAndShapeSpecification` and replaces it with three new composable Specifications. Each of these new `Specification`s is a composite. These `Specification` composites have their own specific behavior within the context of the Composite structure. Each of these Boolean operation based composites contain other `Specification`s where the composite return value is based upon the return values of the `Specification`s they contain such that:
-* `AndSpecification` - Returns true when all its contained `Specifications` return true and false otherwise.
+This is where [Composite](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html) can be useful. This design maintains the previous design, except that it removes the `ColorAndShapeSpecification` and replaces it with three new composable Specifications. Each of these new `Specification`s is a composite. These `Specification` composites have their own specific behavior within the context of the composite structure. Each of these Boolean operation based composites contain other `Specification`s where the composite return value is based upon the return values of the `Specification`s they contain such that:
+* `AndSpecification` - Returns true when all its contained `Specification`s return true and false otherwise.
 * `OrSpecification` - Returns true when any of its contained `Specification`s returns true and false otherwise.
 * `NotSpecification` - Returns true when its single contained `Specification` returns false and false when it returns true.
 
 Here is the design:
 * It looks a little busy, but it’s not horrible. Consider each rectangle in isolation and its dependencies based upon its outward pointing arrows as was described in [Hexagonal Architecture – Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html). This is not a Hexagonal Architecture design, but the same dependency management benefits still apply.
-* Each class has limited knowledge of the overall design. Except for the `Client`, most only have knowledge of and depend upon one or two other classes or the interface.
+* Each class has limited knowledge of the overall design. Except for the `Client`, the others only have knowledge of and depend upon one or two other classes or the interface.
 
-<img src="/assets/SpecificationComposite1.png" alt="Specification via Composite" width = "80%" align="center" style="padding-right: 35px;">
+<img src="/assets/SpecificationComposite1.png" alt="Specification via Composite" width = "90%" align="center" style="padding-right: 35px;">
 
 ### Specification Example via Composite
 The previous `Client` `Specification` examples become:
@@ -145,13 +152,14 @@ Specification blueSquareSpecification = new AndSpecification();
 blueSquareSpecification.add(Color.BLUE);
 blueSquareSpecification.add(Shape.SQUARE);
 List<Context> blueSquareContexts contextmanager.getContextsBy(blueSquareSpecification); // Composed
+...
 ```
 
 Let’s examine `blueSquareSpecification`. It’s a _BLUE_ `ColorSpecification` and a _SQUARE_ `ShapeSpecification` which are then composed within an `AndSpecification`, such that a `Context` will be satisfied when it is both _BLUE_ and _SQUARE_.
 
 The `AndSpecification` will iterate both. If either of them returns `false`, then it will return `false`. If both return `true`, then it will return `true`.
 
-These three Boolean composite `Specification`s give us almost infinite possibilities in constructing a `Specification` without having to add new code, with the exception of new leaf `Specification`s.
+These three Boolean composite `Specification`s give us almost infinite possibilities in constructing a `Specification` without having to add new code, with the exception of new leaf `Specification`s should they be needed for other attributes.
 
 ### Specification Example via Showtunes
 Here’s the composite `Specification` for the Matchmaker as mentioned in the example above:
@@ -169,6 +177,7 @@ husbandSpecification.add(idealHusbandSpecification);
 husbandSpecification.add(new LooksSpecification(Handsome));
 
 List<Husband> husbandCandidates matchMaker.getContextsBy(husbandSpecification);
+...
 ```
 
 The composite tree for the Matchmaker `Specification` would look like this:
@@ -192,11 +201,11 @@ This is more my personal style than standard practice, but there are two things 
 * The `specifications` List in `SpecificationComposite` is protected. The derived classes have knowledge and depend upon it. It breaks encapsulation.
 * The implementations in `AndSpecification` and `OrSpecification` are similar. They almost feel like common code, but not quite common code.
 
-I have addressed both concerns via the [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html) design pattern. The common code has been pulled up into the abstract `SpecificationComposite` class, but now it depends upon the new abstract `getSatisfactionBoolean()` method.
+I have addressed both concerns via the [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html) design pattern. The common code has been pulled up into the abstract `SpecificationComposite` class, and it now depends upon the new abstract `getSatisfactionBoolean()` method.
 
 I have mixed emotions about doing this refactoring. On the one hand it consolidates some near-duplicate code. On the other hand, is it being too clever? Is it too obscure? I’m still on the fence. For what it’s worth, I have used this design technique in production code.
 
-<img src="/assets/SpecificationComposite2.png" alt="Specification with Template Method added to Composite" width = "80%" align="center" style="padding-right: 35px;">
+<img src="/assets/SpecificationComposite2.png" alt="Specification with Template Method added to Composite" width = "90%" align="center" style="padding-right: 35px;">
  
 ### My Final Comment, Or My Comment About Final
 The leaf `Specification` classes contain attributes such as `Color` or `Shape`. I declared them as `final` so that they could not be changed. Once a `Specification` is defined, I don’t want to worry about it being updated in such a way that it exhibits different behaviors. If a new `Specification` behavior is needed, then a new `Specification` instance should be created.
@@ -209,37 +218,34 @@ However, we can’t easily use the same constructor technique with `AndSpecifica
 
 There is a way to achieve finalness with a slightly different technique. I’m going to add a very simple 2-state state machine to `SpecificationComposite`:
 * __Initializing__ – This is the start state representing when the `SpecificationComposite` is being initialized. When in this state, `add(Specification specification)` can add the `specification` to the `specifications` list.
-* __Not Initializing__ – This is the state representing when the `SpecificationComposite` is no longer being initialized. When in this state, `add(Specification specification) will throw an InvalidStateException. There is no event transition from this state back to the Initializing state.
+* __Not Initializing__ – This is the state representing when the `SpecificationComposite` is no longer being initialized. When in this state, `add(Specification specification)` will throw an InvalidStateException. There is no event transition from this state back to the Initializing state.
 * `isSatisfied(Context context)` - This is the event that transitions from the Initializing state to the Not Initializing state.
 
 Normally, I prefer a separate state machine class, but since this state machine is so simple and localized, I’m going to represent it via the `isInitializing` boolean attribute to keep track of the state and which actions are permitted based upon that boolean attribute state.
 
 When an `AddSpecification` or `OrSpecification` is created, as many `Specification`s can be added to them as needed. But once they are queried with an `isSatisfied(Context context)` call, then they are no longer being initialized. No new `Specification`s can be added.
 
-<img src="/assets/SpecificationFinal.png" alt="Specification with Finals" width = "50%" align="center" style="padding-right: 35px;">
+<img src="/assets/SpecificationFinal.png" alt="Specification with Finals" width = "60%" align="center" style="padding-right: 35px;">
  
 The leaf `Specification`s are [Value Objects](https://en.wikipedia.org/wiki/Value_object). Once initialized, they cannot be modified. The `SpecificationComposite` objects are pseudo Value Objects. Once queried, they cannot be modified.
 
 While I don’t have a formal proof, I’m near positive that this level of rigor gives you something else. I think it’s impossible to build a composite tree with circular references. I.e., I don’t think it’s possible for the same object to be in the tree more than once where it is a member of its own composite tree regardless of the levels of composition.
 
-Having a circular reference will result in an infinite loop, and I’d rather make it impossible to configure a circular reference than depend upon those constructing the composite tree to ensure that they don’t even unintentionally. As I mentioned in several previous design patterns, I don’t trust the developers to do it correctly. I don’t trust myself either.
+Having a circular reference will result in an infinite loop, and I’d rather make it impossible to configure a circular reference than depend upon those constructing the composite tree to ensure that they don’t even if unintentionally. As I mentioned in several previous design patterns, I don’t trust the developers to do it correctly. I don’t trust myself either.
 
 # Use Case
 The Use Case is too large to include in this blog. It will be posted in the next blog.
 
 # Specification Pros and Cons
-The relative pros and cons of Specification are like those with most of the Composable design patterns.
+The relative pros and cons of Specification are like those with most of the Composable design patterns. The flexibity is both a pro and a con.
 
-## Pros
+The implementation for Specification is shockingly small. Almost everything needes has been shown in the code snippets above. Unit testing will be trivial.
 
-## Cons
+The power of Specification resides giving the Client to design their own Specifications. Clients can construct a Specification with almost any Boolean satisfiability expression needed. It could be simple. It could be complex. When they configure a logical mistake, they'll probably blame you first.
 
 # Summary
-Specification is … thread safe usually.
+Specification is not in the GoF as it's own cncept, but it's an extension of the Composite structure. It will tend to have more narrow uses, but when you fall into that narrow gap, it's good to have.
 
 # References
 There are many online resources with diagrams and implementations in different programming languages. Here are some free resources:
-* TBD
-
-Here are some resources that can be purchased or are included in a subscription service:
 * TBD
