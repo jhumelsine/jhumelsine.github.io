@@ -57,7 +57,7 @@ Here are several lyrics:
 The lyrics define the specification: `(build==slender AND complexion==pale AND education==scholar AND wealth==rich) OR (looks==handsome)`. They want the Matchmaker to look through her list for a groom for those who match this specification. While not in the lyrics, should a new potential groom match the specification, then they would like to be notified as well.
 
 ## Collectors
-The TV show __American Pickers__ featured antique collectors Mike and Frank driving around rural American looking for trash that they could convert into treasures and sell at their antique store in the midwest.
+The TV show __American Pickers__ featured antique collectors Mike and Frank driving around rural American looking for trash that they could convert into treasures and sell at their antique store in the Midwest.
 
 <img src="https://cdn18.picryl.com/photo/2019/11/06/lonnie-flanagans-junk-barn-a-collection-of-mechanical-sculpture-art-in-beaumont-eb1af4-1024.jpg" alt="Junk Barn" title="Image Source: https://loc.getarchive.net/media/lonnie-flanagans-junk-barn-a-collection-of-mechanical-sculpture-art-in-beaumont-1" width = "50%" align="right" style="padding-right: 20px;">
 
@@ -76,7 +76,7 @@ Google’s Job UI/UX is even closer to Specification. Go to: [https://www.google
 
 <img src="/assets/SpecificationJobs2.png" alt="Google Jobs Portal"  width = "70%" align="right" style="padding-right: 35px;">
 
-This is a Google Jobs portal that will let anyone define a Job Specification based upon job title, location, full/part time, keywords, etc. as shown in the provided image. The Specification can be fine tuned as much as needed, and Google will refresh the job list upon each update. Once you have a Job Specification you like, you can save it as an Alert so that Google will send you an email when it finds new jobs that match your Specification.
+This is a Google Jobs portal that will let anyone define a Job Specification based upon job title, location, full/part time, keywords, etc. as shown in the provided image. The Specification can be fine-tuned as much as needed, and Google will refresh the job list upon each update. Once you have a Job Specification you like, you can save it as an Alert so that Google will send you an email when it finds new jobs that match your Specification.
 
 Each job searcher can customize his or her own Job Specification. And job searchers are not limited to just one Specification. They can create different Specifications with different criteria.
 
@@ -130,7 +130,7 @@ List<Context> blueSquareContexts contextmanager.getContextsBy(new ColorAndShapeS
 Strategy will work for simple specifications with one attribute, but the `ColorAndShapeSpecification` is a bit of a concern. It works fine, but it’s not scalable.
 What if there are multiple specifications with other attributes for `Context`? What about Color __OR__ Shape? What about __NOT__? We don’t want to create a new `Specification` from scratch when we want a new combination of attributes. The number of potential combinations explodes exponentially.
 
-This is where [Composite](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html) can be useful. This design maintains the previous design, except that it removes the `ColorAndShapeSpecification` and replaces it with three new composable Specifications. Each of these new `Specification`s is a composite. These `Specification` composites have their own specific behavior within the context of the composite structure. Each of these Boolean operation based composites contains other `Specification`s where the composite return value is based upon the return values of the `Specification`s they contain such that:
+This is where [Composite](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html) can be useful. This design maintains the previous design, except that it removes the `ColorAndShapeSpecification` and replaces it with three new composable Specifications. Each of these new `Specification`s is a composite. These `Specification` composites have their own specific behavior within the context of the composite structure. Each of these Boolean operation-based composites contains other `Specification`s where the composite return value is based upon the return values of the `Specification`s they contain such that:
 * `AndSpecification` - Returns true when all its contained `Specification`s return true; otherwise, false.
 * `OrSpecification` - Returns true when any of its contained `Specification`s returns true; otherwise, false.
 * `NotSpecification` - Returns true when its single contained `Specification` returns false, and false when it returns true.
@@ -228,7 +228,7 @@ When an `AddSpecification` or `OrSpecification` is created, as many `Specificati
 
 <img src="/assets/SpecificationFinal.png" alt="Specification with Finals" width = "60%" align="center" style="padding-right: 35px;">
  
-The leaf `Specification`s are [Value Objects](https://en.wikipedia.org/wiki/Value_object). Once initialized, they cannot be modified. The `SpecificationComposite` objects are pseudo Value Objects. Once activiated, they cannot be modified.
+The leaf `Specification`s are [Value Objects](https://en.wikipedia.org/wiki/Value_object). Once initialized, they cannot be modified. The `SpecificationComposite` objects are pseudo-Value Objects. Once activated, they cannot be modified.
 
 Leaf objects in the composite tree are immutable. The non-terminal objects will be immutable once activated. The entire composite tree is a pure function. That means that Specification, and Composite in general, are thread-safe structures. Any number of threads can be calculating satisfiability simultaneously without concern of affecting each other. State resides within the Context argument.
 
@@ -236,14 +236,14 @@ Leaf objects in the composite tree are immutable. The non-terminal objects will 
 This blog entry is too large to include the Use Case. It will be posted in the next blog.
 
 # Specification Pros and Cons
-The relative pros and cons of Specification are like those with most of the Composable design patterns. The flexibity is both a pro and a con.
+The relative pros and cons of Specification are like those with most of the Composable design patterns. Its flexibility is both a pro and a con.
 
 The implementation for Specification is shockingly small. Almost the entire implementation has been shown in the code snippets above. Unit testing will also be trivial.
 
 The power of Specification resides in giving the Client ability to design their own Specifications. Clients can construct a Specification with almost any Boolean satisfiability expression needed. It could be simple. It could be complex. When they configure a logical mistake, they'll probably blame you first.
 
 # Summary
-Specification is not in the GoF as its own concept, but it's an extension of the Composite structure. It will tend to have more narrow uses that some of the other design patterns, but when you fall into that narrow use case, it's good to have.
+Specification is not in the GoF as its own concept, but it's an extension of the Composite structure. It will tend to have more narrow uses than some of the other design patterns, but when you fall into that narrow use case, it's good to have.
 
 # References
 Since Specification is not in the GoF design pattern catalog and a bit on the margins of design patterns, there aren't as many online resources as with other design patterns.
