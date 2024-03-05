@@ -8,12 +8,12 @@ unlisted: true
 # Introduction
 The Specification Design Pattern is the next of the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html)  series. It does not reside within the Gang of Four’s (GoF) Design Pattern catalog.
 
-The Specification Design Pattern allows a Client to identify objects via an attribute value specification defined by the Client. The attribute specification can be simple or complex. It can be used in several scenarios, such as a specification that:
-* Selects satisfying objects from a repository.
-* Filters satisfying objects within an iterator. This is similar to the above.
-* Filters satisfying objects in a stream. Also similar to the above.
-* Requests notifications for satisfying object subscriptions. For example, subscribe to an object and request notifications only when one of its attributes crosses a threshold value.
-* Defines alert criteria, which is similar to the above as well.
+The Specification Design Pattern allows a Client to identify objects via an attribute value based specification defined by the Client. The attribute specification can be simple or complex. There are several use case scenarios featuring specifications, such as:
+* Selects specification satisfying objects from a repository.
+* Filters specification satisfying objects within an iterator. This is similar to the above.
+* Filters specification satisfying objects in a stream. Also similar to the above.
+* Requests notifications for specification satisfying object subscriptions. For example, subscribe to an object and request notifications only when one of its attributes crosses a threshold value.
+* Defines specification satisfying alert criteria, which is similar to the above as well.
 
 Specification is similar to the select or query feature in databases. The main distinction is that the objects being considered within Specification are objects and not records in a database.
 
@@ -57,17 +57,17 @@ Here are several lyrics:
 The lyrics define the specification: `(build==slender AND complexion==pale AND education==scholar AND wealth==rich) OR (looks==handsome)`. They want the Matchmaker to look through her list for a groom for those who match this specification. While not in the lyrics, should a new potential groom match the specification, then they would like to be notified as well.
 
 ## Collectors
-The TV show American Pickers featured antique collectors Mike and Frank driving around rural American looking for trash that they could convert into treasures.
+The TV show __American Pickers__ featured antique collectors Mike and Frank driving around rural American looking for trash that they could convert into treasures and sell at their antique store in the midwest.
 
 <img src="https://cdn18.picryl.com/photo/2019/11/06/lonnie-flanagans-junk-barn-a-collection-of-mechanical-sculpture-art-in-beaumont-eb1af4-1024.jpg" alt="Junk Barn" title="Image Source: https://loc.getarchive.net/media/lonnie-flanagans-junk-barn-a-collection-of-mechanical-sculpture-art-in-beaumont-1" width = "50%" align="right" style="padding-right: 20px;">
 
-The show focused upon the interesting characters they encountered, the items these people had collected and Mike and Frank negotiating a price.
+The show focused upon the interesting characters they encountered on the road, the items these characters had collected, and Mike and Frank negotiating a price.
 
 These collections often look like a hoarder’s stash stored in a leaning barn about to topple over. Several times the guys would launch themselves onto unstable filth looking for that diamond in the rough. I’m sure they had to keep their tetanus shots up to date.
 
-The treasures they’d find tended to be antique toys, car parts, motorcycle parts, old gas station signs, etc. The collectors often had detailed knowledge of anything pulled from the piles. They could often remember when and where they got something and how much they paid for it.
+The treasures they’d find tended to be antique toys, car parts, motorcycle parts, old gas station signs, etc. The collectors often had detailed knowledge of anything pulled from the piles. They could often remember when and where they acquired something and how much they paid for it.
 
-Quite frankly most of the items Mike and Frank gushed over just looked like junk to me. But they knew the specifications of their customers wanted and what they’d be willing to pay for them.
+Quite frankly most of the items Mike and Frank gushed over just looked like junk to me. But they knew the specifications for what their customers wanted and what they’d be willing to pay for them.
 
 ## Google Searches and Alerts, especially Jobs
 Most online search engines are a form of Specification. Your search query is a specification, and the search engine will find and return pages that best match that specification. Google will allow you to create an alert for that specification query so that it will send you an email when it finds additional pages that match that specification.
@@ -86,19 +86,19 @@ Specification is an extension of Composite, but with a few enhancements. We have
 ## Problem Description
 We have a `Client` who is interested in a selection of `Context` objects based upon a `Specification` defined by the `Client`. The `Specification` is passed to a `ContextManager` which will return those `Context` objects that satisfy the `Specification`.
 
-That description was awful. Let me match the Problem Description terms above with the language in the three examples above:
+That description was awful. Let me match the Problem Description terms using the examples above:
 
 | Problem Description | Matchmaker | Antiques | Google Jobs |
 | :-------------------------- | :--------------- | :------------ | :---------------- |
 | Client | Young Woman | Customers back at the shop | A person looking for a job |
 | ContextManager | Matchmaker  | Mike and Frank | Google |
 | Context  | Husband Candidate  | Antique/Collector Item residing in a leaning barn | An online Job opening |
-| Specification | `(build==slender AND complexion==pale AND education==scholar AND wealth==rich) OR (looks==handsome)` | The type of items their customers are interested in | Job location, title, salary, etc. |
+| Specification | `(build==slender AND complexion==pale AND education==scholar AND wealth==rich) OR (looks==handsome)` | Items their customers are interested in | Job location, title, salary, etc. |
 
 Here’s a UML class diagram for this behavior:
 * At this level of abstraction, the diagram only shows the `Specification` interface. `Specification` details will be provided shortly. `Specification` declares one method that will return a boolean indicating whether the `Context` satisfies the `Specification`.
 * The `Client` has a reference to `ContextManager`, which was probably injected into it. If I had more space, I’d have shown an interface for the `ContextManager` and `Client` would have had a reference to the interface probably resolved by a `Configurer`.
-* The `Client` acquires a `Specification` reference. More details to come soon.
+* The `Client` acquires a `Specification` reference. Details coming soon.
 * The `Client` calls `ContextManager`’s `getContextsBy(Specification specification)`, which will return the list of `Context` objects that satisfy the `Specification`. We can view `specification` as an argument being passed in, but I like to think of it as a form of [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html). `ContextManager` depends upon a `Specification` for each method call.
 * `ContextManager` contains a List of `Context` objects. Its method iterates that List and adds a `Context` to the list of `satisfiedContexts` when a `Context` object satisfies the injected `Specification`. The `ContextManager` has no knowledge of or dependency upon the `Specification` implementation. Its only concern is interacting with the contract interface.
 
@@ -131,8 +131,8 @@ Strategy will work for simple specifications with one attribute, but the `ColorA
 What if there are multiple specifications with other attributes for `Context`? What about Color __OR__ Shape? What about __NOT__? We don’t want to create a new `Specification` from scratch when we want a new combination of attributes. The number of potential combinations explodes exponentially.
 
 This is where [Composite](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html) can be useful. This design maintains the previous design, except that it removes the `ColorAndShapeSpecification` and replaces it with three new composable Specifications. Each of these new `Specification`s is a composite. These `Specification` composites have their own specific behavior within the context of the composite structure. Each of these Boolean operation based composites contains other `Specification`s where the composite return value is based upon the return values of the `Specification`s they contain such that:
-* `AndSpecification` - Returns true when all its contained `Specification`s return true; othwewise, false.
-* `OrSpecification` - Returns true when any of its contained `Specification`s returns true; othwewise, false.
+* `AndSpecification` - Returns true when all its contained `Specification`s return true; otherwise, false.
+* `OrSpecification` - Returns true when any of its contained `Specification`s returns true; otherwise, false.
 * `NotSpecification` - Returns true when its single contained `Specification` returns false, and false when it returns true.
 
 Here is the design:
@@ -189,7 +189,7 @@ The composite tree for the Matchmaker `Specification` would look like this:
 * The object name is on the left of the colon.
 * Anonymous objects don’t have names, so there’s nothing to the left of the colon.
 * Attribute values reside under the object:class names.
-* A candidate husband will be a match if he satisfies all the Slender/Pale/Scholar/Rich specifications or the single Husband specification.
+* A candidate husband will be a match if he satisfies all the Slender/Pale/Scholar/Rich specifications or the single Handsome specification.
  
 While this violates the specification order in the lyrics, one might wish to reconfigure the specification to be more efficient:
 * If the Husband Candidate is Handsome, then we don’t need to check the rest of the specification. Being Slender, Pale, Rich or a Scholar is just a bonus.
@@ -217,30 +217,30 @@ The leaf `Specification` classes and `NotSpecification` attributes can be declar
 
 However, we can’t easily use the same constructor technique with `AndSpecification` and `OrSpecification`. If we want the ability to add `Specification`s individually as I showed in the previous examples, then we have to allow objects of these classes to be updated via `add(Specification specification)` after they’ve been constructed.
 
-There is a way to achieve finalness with a slightly different technique. I’m going to add a very simple 2-state state machine to `SpecificationComposite`:
-* __Initializing__ – This is the start state representing when the `SpecificationComposite` is being initialized. When in this state, `add(Specification specification)` can add the `specification` to the `specifications` list.
-* __Not Initializing__ – This is the state representing when the `SpecificationComposite` is no longer being initialized. When in this state, `add(Specification specification)` will throw an InvalidStateException. There is no event transition from this state back to the Initializing state.
+There is a way to achieve _finalness_ with a slightly different technique. I’m going to add a simple 2-state state machine to `SpecificationComposite`:
+* __Initializing__ – This is the start state representing when the `SpecificationComposite` is being initialized. When in this state, `add(Specification specification)` can add a `specification` to the `specifications` list.
+* __Not Initializing__ – This is the state representing when the `SpecificationComposite` is no longer being initialized. When in this state, `add(Specification specification)` will throw an `InvalidStateException`. There is no event transition from this state back to the Initializing state.
 * `isSatisfied(Context context)` - This is the event that transitions from the Initializing state to the Not Initializing state.
 
 Normally, I prefer a separate state machine class, but since this state machine is so simple and localized, I’m going to represent it via the `isInitializing` boolean attribute to keep track of the state and which actions are permitted based upon that boolean attribute state.
 
-When an `AddSpecification` or `OrSpecification` is created, as many `Specification`s can be added to them as needed. But once they are queried with an `isSatisfied(Context context)` call, then they are no longer being initialized. No new `Specification`s can be added.
+When an `AddSpecification` or `OrSpecification` is created, as many `Specification`s can be added to them as needed. But once they are activated with an `isSatisfied(Context context)` call, then they are no longer being initialized. No new `Specification`s can be added.
 
 <img src="/assets/SpecificationFinal.png" alt="Specification with Finals" width = "60%" align="center" style="padding-right: 35px;">
  
-The leaf `Specification`s are [Value Objects](https://en.wikipedia.org/wiki/Value_object). Once initialized, they cannot be modified. The `SpecificationComposite` objects are pseudo Value Objects. Once queried, they cannot be modified.
+The leaf `Specification`s are [Value Objects](https://en.wikipedia.org/wiki/Value_object). Once initialized, they cannot be modified. The `SpecificationComposite` objects are pseudo Value Objects. Once activiated, they cannot be modified.
 
-Leaf objects in the composite tree are immutable. The non-terminal objects will be immutable once activated. The entire composite tree is a pure function. That means that Specification, and Composite in general, are thread-safe structures. Any number of threads can be calculating satisfiability simultaneously without concern of affecting each other. The only state within the pattern is in the Context parameter, and its state resides in thread that's calling Specification.
+Leaf objects in the composite tree are immutable. The non-terminal objects will be immutable once activated. The entire composite tree is a pure function. That means that Specification, and Composite in general, are thread-safe structures. Any number of threads can be calculating satisfiability simultaneously without concern of affecting each other. State resides within the Context argument.
 
 # Use Case
-The Use Case is too large to include in this blog. It will be posted in the next blog.
+This blog entry is too large to include the Use Case. It will be posted in the next blog.
 
 # Specification Pros and Cons
 The relative pros and cons of Specification are like those with most of the Composable design patterns. The flexibity is both a pro and a con.
 
-The implementation for Specification is shockingly small. Almost everything needes has been shown in the code snippets above. Unit testing will be trivial.
+The implementation for Specification is shockingly small. Almost the entire implementation has been shown in the code snippets above. Unit testing will also be trivial.
 
-The power of Specification resides giving the Client to design their own Specifications. Clients can construct a Specification with almost any Boolean satisfiability expression needed. It could be simple. It could be complex. When they configure a logical mistake, they'll probably blame you first.
+The power of Specification resides in giving the Client ability to design their own Specifications. Clients can construct a Specification with almost any Boolean satisfiability expression needed. It could be simple. It could be complex. When they configure a logical mistake, they'll probably blame you first.
 
 # Summary
 Specification is not in the GoF as its own concept, but it's an extension of the Composite structure. It will tend to have more narrow uses that some of the other design patterns, but when you fall into that narrow use case, it's good to have.
