@@ -248,8 +248,11 @@ The power of Specification resides giving the Client to design their own Specifi
 Specification is not in the GoF as it's own cncept, but it's an extension of the Composite structure. It will tend to have more narrow uses, but when you fall into that narrow gap, it's good to have.
 
 # References
-There are many online resources with diagrams and implementations in different programming languages. Here are some free resources:
+Since Specification is not in the GoF design pattern catalog and a bit on the margins of design patterns, there aren't as many online resources as with other design patterns.
+Here are a few free resources:
 * [Specifications. Original article by Eric Evans and Martin Fowler](https://martinfowler.com/apsupp/spec.pdf)
 * [Wikipedia Specification Design Pattern](https://en.wikipedia.org/wiki/Specification_pattern)
 * [DevIQ Specification Pattern](https://deviq.com/design-patterns/specification-pattern)
+* [Design Pattern Specification Blog](https://marcaube.ca/2015/05/specifications)
+* [InfoWorld: How to use the specification design pattern in C#](https://www.infoworld.com/article/3710289/how-to-use-the-specification-design-pattern-in-c-sharp.html)
 * and for more, Google: [Specification Design Pattern](https://www.google.com/search?q=specification+design+pattern)
