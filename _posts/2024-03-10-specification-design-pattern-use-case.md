@@ -4,7 +4,7 @@ description: Using the Specification Design Pattern for Smart Playlists
 unlisted: true
 ---
 
-<img src="https://core0.staticworld.net/images/article/2013/05/smart-playlist3-new-100036189-orig.png" alt="Smart Playlist" title="Image Source: https://core0.staticworld.net/images/article/2013/05/smart-playlist3-new-100036189-orig.png" width = "50%" align="center" style="padding-right: 35px;">
+<img src="https://core0.staticworld.net/images/article/2013/05/smart-playlist3-new-100036189-orig.png" alt="Smart Playlist" title="Image Source: https://core0.staticworld.net/images/article/2013/05/smart-playlist3-new-100036189-orig.png" width = "70%" align="center" style="padding-right: 35px;">
  
 # Introduction
 [Specification Design Pattern](TBD) introduced the Specification Design Pattern, but it was getting a bit too long. This blog continues the story with a Use Case.
