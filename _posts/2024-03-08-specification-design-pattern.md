@@ -20,7 +20,7 @@ Specification is similar to the select or query feature in databases. The main d
 The Specification Design Pattern will feature several previous design patterns:
 * [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) resides at its core, but then again, Strategy resides at the core of many design patterns we’ve reviewed so far. 
 * [Composite](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html) will extend the ability of the Client to construct complex Specifications, since Strategy on its own will only be able to construct simple Specifications. 
-* [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html) will be used to consolidate pseudo-duplicate code.
+* [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html) will be used for common Specification management.
 * And we’ll see [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) as well, but it will be a little different than before. Previous design patterns featured a Configurer who created objects organized in a design pattern structure and injected them into the Client. In Specification, Clients create their own Specifications and inject them into the pattern at any time.
 
 # Real World Analogies to Specification
@@ -211,9 +211,9 @@ There is a way to achieve _finalness_ with a slightly different technique. I’m
 * __Not Initializing__ – This is the state representing when the `SpecificationComposite` is no longer being initialized. When in this state, `add(Specification specification)` will throw an `InvalidStateException`. There is no event transition from this state back to the Initializing state.
 * `isSatisfied(Context context)` - This is the event that transitions from the Initializing state to the Not Initializing state.
 
-Normally, I prefer a separate state machine class, but since this state machine is so simple and localized, I’m going to represent it via the `isInitializing` boolean attribute to keep track of the state and which actions are permitted based upon that boolean attribute state.
+Normally, I prefer a separate state machine class, but since this state machine is so simple and localized, I’m going to represent it via the `isInitializing` boolean attribute to keep track of the state and which actions are permitted based upon that boolean attribute state. I'm using the [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html) to keep the state machine in the common base class. `AndSpecification` and `OrSpecification` are only concerned with the satisfiability of the `context` with `specifications`. They are not concerned with the management of the `specifications`.
 
-When an `AddSpecification` or `OrSpecification` is created, as many `Specification`s can be added to them as needed. But once they are activated with an `isSatisfied(Context context)` call, then they are no longer being initialized. No new `Specification`s can be added.
+When an `AndSpecification` or `OrSpecification` is created, as many `Specification`s can be added to them as needed. But once they are activated with an `isSatisfied(Context context)` call, then they are no longer being initialized. No new `Specification`s can be added.
 
 <img src="/assets/SpecificationFinal.png" alt="Specification with Finals" width = "100%" align="center" style="padding-right: 35px;">
  
