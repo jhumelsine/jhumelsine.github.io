@@ -63,7 +63,7 @@ Regardless of the name, here are the patterns, which I feel most highlight the c
 * [Decorator](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html) -Layer additional behaviors upon core features.
 * [Chain of Responsibility](https://jhumelsine.github.io/2024/02/20/chain-of-responsibility-design-pattern.html) - Delegate a request through a linked chain of handlers until one of the handlers can complete the request.
 * [Composite](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html) - Configure behavior emerging from a group of snippet behavior objects organized in a tree structure.
-* [Specification](https://en.wikipedia.org/wiki/Specification_pattern) – A specification pattern outlines a business rule that is combinable with other business rules. This is not a GoF design pattern, but I feel it’s a good introduction to Interpreter.
+* [Specification](https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html) – Allow a Client to select or filter objects with specific attribute property values as specified by the Client.
 * [Interpreter](https://sourcemaking.com/design_patterns/interpreter) – Given a language, define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language. This pattern will require several blog entries.
 
 Additionally, there are some two additional creational patterns, which I may include in this series as well, since they are useful for these patterns:
