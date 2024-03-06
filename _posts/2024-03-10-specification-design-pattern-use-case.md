@@ -81,7 +81,7 @@ The Specification/Composite tree would be:
 <img src="/assets/SpecificationPlaylistObjects.png" alt="Leaf Playlist Classes" width = "90%" align="center" style="padding-right: 35px;">
 
 ### All Redundancy?
-I found this Smart Playlist example on the internet. I think there's a redundant `All` grouping in it. While the redundant `All` isn't incorrect, here's a static implementation that I think satisfies the same tracks:
+I found the above Smart Playlist example on the internet. I think there's a redundant `All` grouping in it. While the redundant `All` isn't incorrect, here's a static implementation that I think satisfies the same tracks:
 ```java
 Specification genres = new AnySpecification();
 genres.add(new GenreSpecification(Alternative));
