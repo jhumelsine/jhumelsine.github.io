@@ -215,7 +215,7 @@ Normally, I prefer a separate state machine class, but since this state machine 
 
 When an `AddSpecification` or `OrSpecification` is created, as many `Specification`s can be added to them as needed. But once they are activated with an `isSatisfied(Context context)` call, then they are no longer being initialized. No new `Specification`s can be added.
 
-<img src="/assets/SpecificationFinal.png" alt="Specification with Finals" width = "60%" align="center" style="padding-right: 35px;">
+<img src="/assets/SpecificationFinal.png" alt="Specification with Finals" width = "100%" align="center" style="padding-right: 35px;">
  
 The leaf `Specification`s are [Value Objects](https://en.wikipedia.org/wiki/Value_object). Once initialized, they cannot be modified. The `SpecificationComposite` objects are pseudo-Value Objects. Once activated, they cannot be modified.
 
