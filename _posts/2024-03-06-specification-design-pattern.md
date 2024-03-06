@@ -1,7 +1,6 @@
 ---
 title: Specification Design Pattern
 description: Allow a Client to select or filter objects with specific attribute property values as specified by the Client.
-unlisted: true
 ---
 <img src="https://www.picpedia.org/chalkboard/images/specification.jpg" alt="Specification Sign" title="Image Source: https://www.picpedia.org/chalkboard/s/specification.html" width = "80%" align="center" style="padding-right: 20px;">
  
@@ -20,7 +19,7 @@ Specification is similar to the select or query feature in databases. The main d
 The Specification Design Pattern will feature several previous design patterns:
 * [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) resides at its core, but then again, Strategy resides at the core of many design patterns we’ve reviewed so far. 
 * [Composite](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html) will extend the ability of the Client to construct complex Specifications, since Strategy on its own will only be able to construct simple Specifications. 
-* [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html) will be used for common Specification management.
+* [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html) will be used for Specification management.
 * And we’ll see [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) as well, but it will be a little different than before. Previous design patterns featured a Configurer who created objects organized in a design pattern structure and injected them into the Client. In Specification, Clients create their own Specifications and inject them into the pattern at any time.
 
 # Real World Analogies to Specification
