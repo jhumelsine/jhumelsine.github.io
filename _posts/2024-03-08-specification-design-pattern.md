@@ -196,17 +196,6 @@ While this violates the specification order in the lyrics, one might wish to rec
 * If the Husband Candidate is not Handsome, then he must be Slender, Pale, Rich, and a Scholar. It’s less likely that he’s Rich or a Scholar than Slender and Pale. Therefore, as soon as a non-Handsome and non-Rich Husband Candidate is encountered, then we can eliminate him quickly without checking the other attributes.
 
 <img src="/assets/SpecificationMatchmakerObjectsOptimal.png" alt="Matchmaker Composite Tree with Optimal Order" width = "90%" align="center" style="padding-right: 35px;">
-
-## Composite Consolidation
-This is more my personal style than standard practice, but there are two things that I don’t quite like about the design above:
-* The `specifications` List in `SpecificationComposite` is protected. The derived classes have knowledge and depend upon it. It breaks encapsulation.
-* The implementations in `AndSpecification` and `OrSpecification` are similar. They almost feel like common code, but not quite common code.
-
-I have addressed both concerns via the [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html) design pattern. The common code has been pulled up into the abstract `SpecificationComposite` class, and it now depends upon the new abstract `getSatisfactionBoolean()` method.
-
-<img src="/assets/SpecificationComposite2.png" alt="Specification with Template Method added to Composite" width = "100%" align="center" style="padding-right: 35px;">
-
-I have mixed emotions about doing this refactoring. On the one hand it consolidates some near-duplicate code. On the other hand, is it being too clever? Is it too obscure? I’m still on the fence. For what it’s worth, I have used this design technique in production code.
  
 ### My Final Comment, Or My Comment About Final
 The leaf `Specification` classes contain attributes such as `Color` or `Shape`. I declared them as `final` so that they could not be changed. Once a `Specification` is defined, I don’t want to worry about it being updated in such a way that it exhibits different behaviors. If a new `Specification` behavior is needed, then a new `Specification` instance should be created.
