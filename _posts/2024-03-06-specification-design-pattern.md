@@ -221,7 +221,7 @@ The leaf `Specification`s are [Value Objects](https://en.wikipedia.org/wiki/Valu
 Leaf objects in the composite tree are immutable. The non-terminal objects will be immutable once activated. The entire composite tree is a pure function. That means that Specification, and Composite in general, are thread-safe structures. Any number of threads can be calculating satisfiability simultaneously without concern of affecting each other. State resides within the Context argument.
 
 # Use Case
-This blog entry is too large to include the Use Case. It will be posted in the next blog.
+This blog entry is too large to include the Use Case. It will be posted in the next [blog](https://jhumelsine.github.io/2024/03/07/specification-design-pattern-use-case.html).
 
 # Specification Pros and Cons
 The relative pros and cons of Specification are like those with most of the Composable design patterns. Its flexibility is both a pro and a con.
