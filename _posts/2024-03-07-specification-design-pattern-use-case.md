@@ -22,9 +22,9 @@ Users can create a named smart playlist and define a set of criteria for the tra
 * __All__, __Any__, and __Not__ groupings
 * A named playlist
 
-Unlike manual playlists, which are static, smart playlists are dynamic. Anytime a new track is added to iTunes it will automatically be part of a smart playlist for which its attributes matches the smart playlist criteria. Likewise, if the user modifies the smart playlist definition, then all tracks in iTunes will automatically adjust to be added, removed, or remain based upon the updated smart playlist criteria.
+Unlike manual playlists, which are static, smart playlists are dynamic. Anytime a new track is added to iTunes it will automatically be part of a smart playlist for which its attributes match the smart playlist criteria. Likewise, if the user modifies the smart playlist definition, then all tracks in iTunes will automatically adjust to be added, removed, or remain based upon the updated smart playlist criteria.
 
-A Beats Per Minute workout smart playlists could be a common smart playlist. If the user uploads a new pop song with a fast beat, then it will automatically be added to the workout playlist.
+A Beats Per Minute workout smart playlist could be a common smart playlist. If the user uploads a new pop song with a fast beat, then it will automatically be added to the workout playlist.
 
 I created several smart playlists for my own use in these three basic categories:
 * Organizing my music such that my higher rated tracks would play more frequently via shuffle than my lower rated tracks.
@@ -47,7 +47,7 @@ Other than name changes, this is identical to the [Specification Strategy Design
 <img src="/assets/SpecificationPlaylistStrategy.png" alt="Leaf Playlist Classes" width = "90%" align="center" style="padding-right: 35px;">
 
 ### Smart Playlist Design via Composites
-Other than name changes, this is identical to the [Specification Composite Design](https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html#composite), even the implementation details; however the `final` details are not shown due to space constraints. See [Specificaiton Use Case - My Final Comment Or My Comment About Final](https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html#my-final-comment-or-my-comment-about-final) for those details.
+Other than name changes, this is identical to the [Specification Composite Design](https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html#composite), even the implementation details; however the `final` details are not shown due to space constraints. See [Specification Use Case - My Final Comment Or My Comment About Final](https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html#my-final-comment-or-my-comment-about-final) for those details.
 
 <img src="/assets/SpecificationPlaylistComposite.png" alt="Leaf Playlist Classes" width = "90%" align="center" style="padding-right: 35px;">
 
@@ -78,7 +78,7 @@ fiveStarAltRock.add(genres);
 fiveStarAltRock.add(constraints);
 ```
 
-The above is a sample of how to build the Specification/Composite tree statically. However, this would not support the flexible GUI. The software behind the GUI would still call the same methods shown above, but it would do so in a more piecemeal approach were each element would be considered individually, created and assembled into the whole structure.
+The above is a sample of how to build the Specification/Composite tree statically. However, this would not support the flexible GUI. The software behind the GUI would still call the same methods shown above, but it would do so in a more piecemeal approach were each element would be considered individually, created, and assembled into the whole structure.
 
 The Specification/Composite tree would be:
 <img src="/assets/SpecificationPlaylistObjects.png" alt="Leaf Playlist Classes" width = "90%" align="center" style="padding-right: 35px;">
