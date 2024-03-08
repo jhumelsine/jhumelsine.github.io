@@ -1,6 +1,6 @@
 ---
 title: Interpreter Design Pattern - Introduction
-description: 
+description: A Gentle Introduction to Interpreter
 unlisted: true
 ---
 <img src="/assets/InterpreterGreekPhilosophers.jpeg" alt="Greek Philosophers explaining Interpreter" width = "50%" align="center" style="padding-right: 35px;">
