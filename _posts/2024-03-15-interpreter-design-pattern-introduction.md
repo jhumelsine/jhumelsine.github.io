@@ -64,9 +64,9 @@ The GoF don’t show all the steps from grammar to implementation. I’m going t
 ## Domain-Specific Language Primer
 Specification is a [Domain-Specific Language](https://en.wikipedia.org/wiki/Domain-specific_language) (DSL). A DSL is a small language that’s designed for a specific domain. In this case, it’s the domain to specify tracks so that the user can easily build Smart Playlists.
 
-<img src="https://live.staticflickr.com/4078/4909081845_3aeb704a66_o.png" alt="Fox and Hedgehog" title="Image Source: https://www.flickr.com/photos/38299630@N05/4909081845" width = "20%" align="right" style="padding-right: 20px;">
-
 A DSL is a specialist. It performs tasks in its domain very well, but beyond its domain, it loses its power. A general-purpose language, such as C++, Java and Python, can accommodate any domain, but not without additional domain support or infrastructure. One could argue that well design implementation will eventually become domain specific through consistent use of class, method and attribute names.
+
+<img src="https://live.staticflickr.com/4078/4909081845_3aeb704a66_o.png" alt="Fox and Hedgehog" title="Image Source: https://www.flickr.com/photos/38299630@N05/4909081845" width = "20%" align="right" style="padding-right: 20px;">
 
 > ___The fox knows many things, but the hedgehog knows one big thing. - Archilochus___
 
