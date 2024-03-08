@@ -48,7 +48,7 @@ Other than name changes, this is identical to the [Specification Strategy Design
 ### Smart Playlist Design via Composites
 Other than name changes, this is identical to the [Specification Composite Design](https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html#composite), even the implementation details; however the `final` details are not shown due to space constraints. See [Specification Use Case - My Final Comment Or My Comment About Final](https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html#my-final-comment-or-my-comment-about-final) for those details.
 
-<img src="/assets/SpecificationPlaylistComposite.png" alt="Leaf Playlist Classes" width = "90%" align="center" style="padding-right: 35px;">
+<img src="/assets/SpecificationPlaylistComposite.png" alt="Composite Playlist Classes" width = "90%" align="center" style="padding-right: 35px;">
 
 ## Smart Playlist Specification
 Let's say you wanted the following Smart Playlist Specification:
