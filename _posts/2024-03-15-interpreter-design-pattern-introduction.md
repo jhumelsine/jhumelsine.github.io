@@ -25,14 +25,14 @@ It’s one of the nine GoF design patterns relegated to __Appendix A. Leftover P
 # Background
 Ironically, I think the GoF authors are mostly responsible for this lack of attention.
 While their 14-page description of Interpreter is not technically wrong, it just feels incomplete.
-I suspect that many don't understand what the GoF was trying to convey.
+I suspect that many readers don't understand what the GoF were trying to convey.
 Their class diagram is correct, but it only hints at the potential of the pattern. 
 It’s like a biology text book presenting stem cells without explaining how stem cells can become nerve cells, muscle cells, blood cells, etc.
 
 The GoF assume their readers have knowledge of programming language design, grammars, scanners, parsers, etc.
 These may have been reasonable assumptions in 1995 at the time of publication, but today’s software developers might not have the same foundations.
 The authors were academics, and these are topics that most computer science students learned to some degree.
-Self-taught developers, bootcamp developers and developers who have degrees in other fields, may not background to follow the GoF's presentation.
+Self-taught developers, bootcamp developers and developers who have degrees in other fields, may not have the background to follow the GoF's description.
 
 The implementation examples feel a bit dated, especially the Smalltalk implementation example.
 
@@ -61,20 +61,20 @@ I may modify this list below, but here’s what I’m currently considering as s
 * Domain-Specific Languages
 * An Domain-Specific Language example along the way with an arithmetic expression evaluator for rational numbers. This is, it will support fractions.
 * Programming Language Grammars
-* Grammars and Object-Oriented design mappings. I think this is where most of the elegance of the pattern resides. I will expand beyond their stem cell diagrams.
+* Grammars and Object-Oriented design mappings. I think this is where most of the elegance of the pattern resides. I will expand beyond the GoF stem cell diagram.
 * Scanners and Parsers
 * A Use Case based upon a project based Interpreter/DSL that I designed and the project deployed.
 
 # Specification is Interpreter
-While I think I will need additional blogs to describe Interpreter sufficiently, I can provide an overview here.
+While I think I will need additional blogs to describe Interpreter sufficiently, I can provide a quick overview here.
 
 Interpreter can sound intimidating with grammars, parsers, etc. But we’ve already encountered an Interpreter in this blog series. [Specification](https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html) is a specialized and limited scoped Interpreter.
 If someone can understand the nuts-and-bolts of Specification, then Interpreter isn't much of a leap beyond that.
 I featured Specification in the two previous blogs ([Specification](https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html) and [Smart Playlist Use Case](https://jhumelsine.github.io/2024/03/07/specification-design-pattern-use-case.html)) because it’s a steppingstone toward understanding Interpreter as a whole.
 
-Coincidentally, the GoF used a similar problem for their C++ Interpreter example, which was a Boolean expression evaluator. Specification is a Boolean evaluator as well. The main difference between the GoF example and Specification is the leaf nodes. Leaf nodes in the GoF example are either Boolean variables or true/false Boolean constants. With Specification, the leaf nodes are Boolean values based upon the satisfiability of the field attributes within a Context object. In the case of the Smart Playlist Specification, the leaf node Boolean results from a Track's Genre, Rating, Artist, and other attributes.
+Coincidentally, the GoF used a similar problem, Boolean expression evaluator, for their C++ Interpreter example. Specification is a Boolean evaluator as well. The main difference between the GoF example and Specification is the leaf nodes. Leaf nodes in the GoF example are either Boolean variables or true/false Boolean constants. With Specification, the leaf nodes are Boolean values based upon the satisfiability of the field attributes within a Context object. In the case of the Smart Playlist Specification, the leaf node Boolean values derive from a Track's Genre, Rating, Artist, and other attributes.
 
-The GoF don’t show all the steps from grammar to implementation. I’m going to fill in a few of the gaps with Specification here as a short primer. I’ll present more details in the subsequent blog entries.
+The GoF don’t show all the steps from grammar to implementation in their C++ example. I’m going to fill in a few of the gaps with Specification here as a short primer. I’ll present more details in the subsequent blog entries.
 
 ## Domain-Specific Language Primer
 Specification is a [Domain-Specific Language](https://en.wikipedia.org/wiki/Domain-specific_language) (DSL). A DSL is a small language that’s designed for a specific domain. In the [Smart Playlist Use Case](https://jhumelsine.github.io/2024/03/07/specification-design-pattern-use-case.html), it’s a domain that allows the user organize Smart Playlists based upon a set of user defined rules that dynamically organize tracks in those playlists based upon their attribute values.
@@ -106,7 +106,7 @@ The same grammar rules that support “Hello World!” are the same ones that su
 
 DSLs tend to have smaller grammars than general-purpose programming languages. They may consist of only a handful of rules. A surprisingly small Interpreter implementation can accommodate the elements of a DSL. This makes Interpreter an ideal implementation for a DSL as we'll eventuall see.
 
-Most DSL programs tend to be small, but there’s no restriction on the size of the program. Staying with Specification example, it could be a program with one statement, and therefore one object in the tree. Or it could be a program of hundreds of statements and therefore hundreds of objects in the tree.
+Most DSL programs tend to be small, but there’s no restriction on the size of the program. Staying with the Specification example, it could be a program with one statement, and therefore one object in the tree. Or it could be a program of hundreds of statements and therefore hundreds of objects in the tree.
 
 Grammars generally only have three basic rule types:
 * __OR__ rule, which lists the grammar rules that are more specific versions of the general rule.
@@ -129,7 +129,7 @@ We’re going to start with the [Specification Smart Playlist Use Case](https://
 
 <img src="https://core0.staticworld.net/images/article/2013/05/smart-playlist3-new-100036189-orig.png" alt="Smart Playlist" title="Image Source: https://core0.staticworld.net/images/article/2013/05/smart-playlist3-new-100036189-orig.png" width = "70%" align="center" style="padding-right: 35px;">
 
-iTunes provides a GUI for the user. Interpreters tend to be text based. If iTunes had instead provided a text-based version to specify smart playlists, then the above GUI representation might look more like this text specification, which is the GUI image above, but with text rather than graphics:
+iTunes provides a GUI for the user. Interpreters tend to be text based. If iTunes had instead provided a text-based version to specify smart playlists, then the above GUI representation might look more like this text specification, which mirrors the GUI image above, but with text rather than graphics:
 ```
 fiveStarAltRock = all(
                      any(
@@ -159,10 +159,10 @@ Before jumping into the grammar, let’s see if we jot down a few observations:
 * Not is a Specification.
 * Not has a single Specification.
 
-Notice that all of these observations are described in terms of __IS-A__ or __HAS-A__. __IS-A__ will have a relationship with __OR__ and __HAS-A__ will have a relationship with __AND__.
+Notice that all of these observations are described in terms of __IS-A__ or __HAS-A__. __IS-A__ will have a relationship with __OR__. __HAS-A__ will have a relationship with __AND__.
 
 ## Smart Playlist Grammar
-Given this brief example and the grammar notation above, we can defined a Specification grammar as:
+Given this brief example and the grammar notation above, we can define a Specification grammar as:
 ```
 Specification ::= Genre | Rating | Artist | All | Any | Not
 Genre ::= “genre” “(“ genreType “)”
@@ -174,7 +174,7 @@ Not ::= “not” “(“ Specification “)”
 SpecificationList ::= Specification (“,” Specification)* // NOTE: Star indicates any number of repetitions, including zero.
 ```
 
-The `Not` and `SpecificationList` means that the grammar is indirectly recursive. This is what allows `all`, `any` and `not` constructs to be nested. The grammar supports a tree structure that's a deep and wide as needed.
+The `Not` and `SpecificationList` rules include `Specification` in their definition. This means that the grammar as a whole is indirectly recursive. This is what allows `all`, `any` and `not` constructs to be nested. The grammar supports a tree structure that's a deep and wide as needed.
 
 ## Grammar to Design
 The class design emerges from the grammar, especially since __IS-A__ is associated with inheritance and __HAS-A__ is associated with composition. Interfaces and concrete classes tend to map directly from the grammar. Abstract classes tend to emerge during design refactoring. Compare the grammar above with the class design. Hopefully the major relationships in the grammar and the design are fairly obvious:
@@ -194,15 +194,17 @@ There are whole books and college courses about scanners and parsers. I can only
 
 The scanner and parser together are a type of Configurer. Previous Configurer examples have mostly been hardcoded.
 Scanners and parsers are different.
-The result is still be a set objects configured in a data structure - in this case a parse tree.
-The difference is that the object tree will do it based upon a program consistent with the grammar.
+The result is still a set objects configured in a data structure - in this case a parse tree.
+The difference is that the object tree will be based upon a program consistent with the grammar.
 A program can be thought of as a blueprint for the object tree.
 The scanner and parser will construct the object tree based upon that blueprint.
 
 Their behavior is close to the [Builder Design Pattern](https://refactoring.guru/design-patterns/builder), for which I’ll probably provide a blog as I get into more scanner and parser details.
 
+Once the object tree, as shown above, has been constructed, then Tracks can be passed to it to determine their satisfiability based upon a Track's attributes and the configuration of the Specifications in the tree.
+
 # Summary
-Interpreter is a great approach for implementing a Domain-Specific Language. There’s an algorithmic process from Domain-Specific Language to Grammar to Design to Implementation.
+Interpreter is a great approach for implementing a Domain-Specific Language. Interpreter is part of the algorithmic process from Domain-Specific Language to Grammar to Design to Implementation.
 
 # References
 There are additional online resources with diagrams and implementations in different programming languages. Here are some free resources:
@@ -217,4 +219,4 @@ There are additional online resources with diagrams and implementations in diffe
 
 Here are some resources that can be purchased or are included in a subscription service:
 * Gang of Four Composite Design Pattern, page 243 ([O'Reilly](https://learning.oreilly.com/library/view/design-patterns-elements/0201633612/ch05.html#page_243) and [Amazon](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612))
-* Head First Design Patterns, Appendix A: The Leftovers, Interpreter ([O'Reilly](https://learning.oreilly.com/library/view/head-first-design/9781492077992/app01.html#idm46060275907152) and [Amazon](https://www.amazon.com/Head-First-Design-Patterns-Object-Oriented-ebook/dp/B08P3X99QP))
+* Head First Design Patterns, Appendix A: Leftover Patterns, Interpreter ([O'Reilly](https://learning.oreilly.com/library/view/head-first-design/9781492077992/app01.html#idm46060275907152) and [Amazon](https://www.amazon.com/Head-First-Design-Patterns-Object-Oriented-ebook/dp/B08P3X99QP))
