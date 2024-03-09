@@ -59,11 +59,11 @@ Even with this elegant description, a few more specifics would be useful.
 
 I may modify this list below, but here’s what I’m currently considering as subsequent blog entries. I'll adjust and add links here when posted:
 * Domain-Specific Languages
-* An Domain-Specific Language example along the way with an arithmetic expression evaluator for rational numbers. This is, it will support fractions.
+* A Domain-Specific Language example along the way with an arithmetic expression evaluator for rational numbers. This is, it will support fractions.
 * Programming Language Grammars
 * Grammars and Object-Oriented design mappings. I think this is where most of the elegance of the pattern resides. I will expand beyond the GoF stem cell diagram.
 * Scanners and Parsers
-* A Use Case based upon a project based Interpreter/DSL that I designed and the project deployed.
+* A Use Case based upon a project-based Interpreter/DSL that I designed and the project deployed.
 
 # Specification is Interpreter
 While I think I will need additional blogs to describe Interpreter sufficiently, I can provide a quick overview here.
@@ -96,7 +96,7 @@ A General-Purpose Language is a Fox.
 <img src="https://live.staticflickr.com/2905/14783088973_3f7d1f2e2a_o.jpg" alt="Sentence Diagrams" title="Image Source: https://www.flickr.com/photos/internetarchivebookimages/14783088973" width = "30%" align="right" style="padding-right: 20px;">
 
 To the best of my knowledge all programming languages are defined via [grammars](https://en.wikibooks.org/wiki/Introduction_to_Programming_Languages/Grammars), including DSLs. A grammar is a set of rules that documents the syntax and structure of a programming language:
-* All programs in a programming language can trace their stucture back to grammar rules.
+* All programs in a programming language can trace their structure back to grammar rules.
 * Each program projects a unique parse tree consistent with its grammar rules. This is similar to sentence diagramming.
 * The tree leaf nodes correspond to the language elements in the program itself.
 * The tree non-terminal nodes indicate the relationship among the leaf nodes and other non-terminal nodes. That is, they support the organization structure.
@@ -104,7 +104,7 @@ To the best of my knowledge all programming languages are defined via [grammars]
 
 The same grammar rules that support “Hello World!” are the same ones that support the most sophisticated software systems ever created. The only difference is in the size and complexity of the program itself and the unique parse tree that's projected from the program.
 
-DSLs tend to have smaller grammars than general-purpose programming languages. They may consist of only a handful of rules. A surprisingly small Interpreter implementation can accommodate the elements of a DSL. This makes Interpreter an ideal implementation for a DSL as we'll eventuall see.
+DSLs tend to have smaller grammars than general-purpose programming languages. They may consist of only a handful of rules. A surprisingly small Interpreter implementation can accommodate the elements of a DSL. This makes Interpreter an ideal implementation for a DSL as we'll eventually see.
 
 Most DSL programs tend to be small, but there’s no restriction on the size of the program. Staying with the Specification example, it could be a program with one statement, and therefore one object in the tree. Or it could be a program of hundreds of statements and therefore hundreds of objects in the tree.
 
@@ -120,7 +120,7 @@ RuleA ::= “A” “(“ RuleX “)” // i.e, RuleA is comprised of "A" AND "(
 RuleB ::= “B” // i.e., DEFINITION
 ```
 
-The __OR__ operation is denoted by `|`. The __AND__ operation is assumed, much like multiplication is assumed in algebra when not specified. We assume that mass and acceleration are being multipled in `F = ma`. The same applies to grammar rules. Assume __AND__ when not provided.
+The __OR__ operation is denoted by `|`. The __AND__ operation is assumed, much like multiplication is assumed in algebra when not specified. We assume that mass and acceleration are being multiplied in `F = ma`. The same applies to grammar rules. Assume __AND__ when not provided.
 
 NOTE: Grammar rules originate from automata theory. Their application to define programming languages is a practical application.
 
@@ -174,7 +174,7 @@ Not ::= “not” “(“ Specification “)”
 SpecificationList ::= Specification (“,” Specification)* // NOTE: Star indicates any number of repetitions, including zero.
 ```
 
-The `Not` and `SpecificationList` rules include `Specification` in their definition. This means that the grammar as a whole is indirectly recursive. This is what allows `all`, `any` and `not` constructs to be nested. The grammar supports a tree structure that's a deep and wide as needed.
+The `Not` and `SpecificationList` rules include `Specification` in their definition. This means that the grammar is indirectly recursive. This is what allows `all`, `any` and `not` constructs to be nested. The grammar supports a tree structure that's a deep and wide as needed.
 
 ## Grammar to Design
 The class design emerges from the grammar, especially since __IS-A__ is associated with inheritance and __HAS-A__ is associated with composition. Interfaces and concrete classes tend to map directly from the grammar. Abstract classes tend to emerge during design refactoring. Compare the grammar above with the class design. Hopefully the major relationships in the grammar and the design are fairly obvious:
