@@ -27,7 +27,7 @@ Ironically, I think the GoF authors are mostly responsible for this lack of atte
 While their 14-page description of Interpreter is not technically wrong, it just feels incomplete.
 I suspect that many readers don't understand what the GoF were trying to convey.
 Their class diagram is correct, but it only hints at the potential of the pattern. 
-It’s like a biology text book presenting stem cells without explaining how stem cells can become nerve cells, muscle cells, blood cells, etc.
+It’s like a biology textbook presenting stem cells without explaining how stem cells can become nerve cells, muscle cells, blood cells, etc.
 
 The GoF assume their readers have knowledge of programming language design, grammars, scanners, parsers, etc.
 These may have been reasonable assumptions in 1995 at the time of publication, but today’s software developers might not have the same foundations.
@@ -63,7 +63,7 @@ I may modify this list below, but here’s what I’m currently considering as s
 * Programming Language Grammars
 * Grammars and Object-Oriented design mappings. I think this is where most of the elegance of the pattern resides. I will expand beyond the GoF stem cell diagram.
 * Scanners and Parsers
-* A Use Case based upon a project-based Interpreter/DSL that I designed and the project deployed.
+* A Use Case based upon a project-based Interpreter/DSL that I designed, and the project deployed.
 
 # Specification is Interpreter
 While I think I will need additional blogs to describe Interpreter sufficiently, I can provide a quick overview here.
@@ -79,9 +79,9 @@ The GoF don’t show all the steps from grammar to implementation in their C++ e
 ## Domain-Specific Language Primer
 Specification is a [Domain-Specific Language](https://en.wikipedia.org/wiki/Domain-specific_language) (DSL). A DSL is a small language that’s designed for a specific domain. In the [Smart Playlist Use Case](https://jhumelsine.github.io/2024/03/07/specification-design-pattern-use-case.html), it’s a domain that allows the user organize Smart Playlists based upon a set of user defined rules that dynamically organize tracks in those playlists based upon their attribute values.
 
-A DSL is a specialist. It solves problems in its domain very well. But venture beyond its domain, and it loses its power. A general-purpose language, such as C++, Java and Python, can accommodate any domain, but not without additional domain support or infrastructure. One could argue that well design general-purpose language implementation should eventually become domain specific through consistent nomenclatures with its class, method, parameter and field attribute names.
+A DSL is a specialist. It solves problems in its domain very well. But venture beyond its domain, and it loses its power. A general-purpose language, such as C++, Java and Python, can accommodate any domain, but not without additional domain support or infrastructure. One could argue that well designed general-purpose language implementation should eventually become domain specific through consistent nomenclatures with its class, method, parameter and field attribute names.
 
-A DSL allows you to solve a problem succinctly as long as the problem is within the domain. A general-purpose language allows you to solve any problem, but it may take more time to establish domain foundations before achieving a solution.
+A DSL allows you to solve a problem succinctly if the problem is within the domain. A general-purpose language allows you to solve any problem, but it may take more time to establish domain foundations before achieving a solution.
 
 <img src="https://live.staticflickr.com/4078/4909081845_3aeb704a66_o.png" alt="Fox and Hedgehog" title="Image Source: https://www.flickr.com/photos/38299630@N05/4909081845" width = "20%" align="right" style="padding-right: 20px;">
 
@@ -97,7 +97,7 @@ A General-Purpose Language is a Fox.
 
 To the best of my knowledge all programming languages are defined via [grammars](https://en.wikibooks.org/wiki/Introduction_to_Programming_Languages/Grammars), including DSLs. A grammar is a set of rules that documents the syntax and structure of a programming language:
 * All programs in a programming language can trace their structure back to grammar rules.
-* Each program projects a unique parse tree consistent with its grammar rules. This is similar to sentence diagramming.
+* Each program projects a unique parse tree consistent with its grammar rules. This is like sentence diagramming.
 * The tree leaf nodes correspond to the language elements in the program itself.
 * The tree non-terminal nodes indicate the relationship among the leaf nodes and other non-terminal nodes. That is, they support the organization structure.
 * Behaviors are added to the organization structures. This is technically beyond grammar definition, but it's the last step achieving behavior from programming languages defined via a grammar.
@@ -174,10 +174,10 @@ Not ::= “not” “(“ Specification “)”
 SpecificationList ::= Specification (“,” Specification)* // NOTE: Star indicates any number of repetitions, including zero.
 ```
 
-The `Not` and `SpecificationList` rules include `Specification` in their definition. This means that the grammar is indirectly recursive. This is what allows `all`, `any` and `not` constructs to be nested. The grammar supports a tree structure that's a deep and wide as needed.
+The `Not` and `SpecificationList` rules include `Specification` in their definition. This means that the grammar is indirectly recursive. This is what allows `all`, `any` and `not` constructs to be nested. The grammar supports a tree structure that's as deep and wide as needed.
 
 ## Grammar to Design
-The class design emerges from the grammar, especially since __IS-A__ is associated with inheritance and __HAS-A__ is associated with composition. Interfaces and concrete classes tend to map directly from the grammar. Abstract classes tend to emerge during design refactoring. Compare the grammar above with the class design. Hopefully the major relationships in the grammar and the design are fairly obvious:
+The class design emerges from the grammar, especially since __IS-A__ is associated with inheritance and __HAS-A__ is associated with composition. Interfaces and concrete classes tend to map directly from the grammar. Abstract classes tend to emerge during design refactoring. Compare the grammar above with the class design. Hopefully the major relationships in the grammar and the design are obvious:
 
 <img src="/assets/SpecificationPlaylistComposite.png" alt="Composite Playlist Classes" width = "90%" align="center" style="padding-right: 35px;">
 
