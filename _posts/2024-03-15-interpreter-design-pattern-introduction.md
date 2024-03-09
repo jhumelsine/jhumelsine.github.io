@@ -1,6 +1,6 @@
 ---
 title: Interpreter Design Pattern - Introduction
-description: A _Mostly_ Gentle Introduction to Interpreter
+description: A <Mostly> Gentle Introduction to Interpreter
 unlisted: true
 ---
 <img src="/assets/InterpreterGreekPhilosophers.jpeg" alt="Greek Philosophers explaining Interpreter" width = "50%" align="center" style="padding-right: 35px;">
@@ -11,31 +11,33 @@ The Interpreter Design Pattern is the next of the [Composable Design Patterns](h
 Interpreter is not only the pinnacle of the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html). 
 I think it’s the pinnacle of the Gang of Four (GoF) design patterns sharing the top position with the [Visitor Design Pattern](https://refactoring.guru/design-patterns/visitor).
 
-Interpreter is the fulfillment of customized rule or policy-based behaviors, which I mentioned in [Composable Design Patterns – Basic Concepts/Use Cases for Composability Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html#use-cases-for-composability-design-patterns). Interpreter has the potential to support customer and user self-service features and behaviors. Customer/User self-serviceis a double-edged sword, which I'll discuss in a bit more detail in a subsequent blog.
+Interpreter is the fulfillment of customized rule or policy-based behaviors, which I mentioned in [Composable Design Patterns – Basic Concepts/Use Cases for Composability Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html#use-cases-for-composability-design-patterns). Interpreter has the potential to support customer and user self-service features and behaviors. Customer/User self-service is a double-edged sword, which I'll discuss in a bit more detail in a subsequent blog.
 
-Interpreter is one of the most powerful and elegant of the design patterns. Interpreter is an extension of Composite with context. Composite is syntax. Interpreter adds semantics to that syntax.
+Interpreter is one of the most powerful and elegant of the design patterns. Interpreter is an extension of Composite with the addition of context. Composite is syntax. Interpreter adds semantics to that syntax.
 
-But Interpreter doesn’t get the attention it deserves. It’s one of the nine GoF design patterns relegated to the __Appendix A. Leftover Patterns__ in __Head First Design Patterns__. This Appendix is the round up of patterns that the book didn’t describe in detail. Each of these nine patterns gets about 2 pages of attention.
+But Interpreter doesn’t receive the attention it deserves. It’s one of the nine GoF design patterns relegated to the __Appendix A. Leftover Patterns__ in __Head First Design Patterns__. This Appendix is a round up of patterns that the book didn’t describe in detail. Each of these nine patterns gets about 2 pages of attention with is woefully insufficient for anything beyond an overview.
 
-[Refactoring Guru](https://refactoring.guru/) excluded it from its pattern [catalog](https://refactoring.guru/design-patterns/catalog). Interpreter was the only pattern excluded.
+[Refactoring Guru](https://refactoring.guru/) excluded it from its pattern [catalog](https://refactoring.guru/design-patterns/catalog). Interpreter was the only GoF pattern excluded.
 
-[Sourcemaking](https://sourcemaking.com/) includes [Interpreter](https://sourcemaking.com/design_patterns/interpreter), but there’s an error of omission in one of their diagrams. Their structure is missing the relationship line that’s the equivalent of the Composite class reference back up to the Component interface.
+[Sourcemaking](https://sourcemaking.com/) includes [Interpreter](https://sourcemaking.com/design_patterns/interpreter), but there’s an error of omission in one of their diagrams. Their structure diagram is missing the relationship line that’s the equivalent of the Composite class reference back up to the Component interface.
 
 # Background
 Ironically, I think the GoF authors are mostly responsible for this lack of attention. While their 14-page description of Interpreter is not technically wrong, it just feels incomplete.
 Their class diagram is correct, but it only hints at the potential of the pattern. 
-It’s more like a biology text book presenting stem cells without continuing how stem cells can become a nerve cell, muscle cell, blood cell, etc.
+It’s more like a biology text book presenting stem cells without continuing with how stem cells can become nerve cells, muscle cells, blood cells, etc.
 
-The GoF assume their reader has knowledge of programming language design, grammars, scanners, parsers, etc. This may have been a reasonable assumption in 1995 at the time of publication. The authors were academics, and these are topics that most computer science students learned to some degree. Today’s software developers might not have the same foundations.
+The GoF assume their reader has knowledge of programming language design, grammars, scanners, parsers, etc. These may have been reasonable assumptions in 1995 at the time of publication, but today’s software developers might not have the same foundations.The authors were academics, and these are topics that most computer science students learned to some degree. 
 
-The examples feel a bit dated, especially the example in Smalltalk.
+The implementation examples feel a bit dated, especially the example in Smalltalk.
 
-I stumbled upon a blog years ago written by a manager at Amazon, that included content along these lines:
-> I thought the Gang of Four’s Design Pattern book was fantastic. I understood everything, except for pages 243-257.
+I stumbled upon a blog years ago written by a manager at Amazon, that included statements along these lines:
+> I thought the Gang of Four’s Design Pattern book was fantastic. I understood everything, except for pages 243-257. ...
 
-I had to grab my copy of the GoF book off the shelf and turn to 243. It was Interpreter. The blog continued:
+I grabbed my copy of the GoF book off the shelf and turn to 243. It was Interpreter.
 
-> I eventually figured it out. From then on, I’d ask all interviewees if they could explain to me. If they could do so sufficiently, then I’d offer them the job on the spot.
+The blog continued:
+
+> ... I eventually figured it out. From then on, I’d ask all interviewees if they could explain Interpreter to me. If they could do so sufficiently, then I’d offer them the job on the spot.
 
 Interpreter was the final design pattern I understood. That was 7 years after I had started to learn the design patterns. I had tried, really tried, to understand it earlier. I didn’t understand the GoF’s description. I couldn’t find any alternative online descriptions that clicked with me. I sort of stumbled into my understanding of it by accident. Then once I understood it, it was an epiphany. I understood what the GoF were trying to say, well mostly. Interpreter was so elegant. Why had I not seen its elegance before?
 
