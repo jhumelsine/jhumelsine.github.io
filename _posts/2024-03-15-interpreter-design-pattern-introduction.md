@@ -205,8 +205,16 @@ Their behavior is close to the [Builder Design Pattern](https://refactoring.guru
 Interpreter is a great approach for implementing a Domain-Specific Language. There’s an algorithmic process from Domain-Specific Language to Grammar to Design to Implementation.
 
 # References
-There are many online resources with diagrams and implementations in different programming languages. Here are some free resources:
-* TBD
+There are additional online resources with diagrams and implementations in different programming languages. Here are some free resources:
+* [Wikipedia Interpreter Design Pattern](https://en.wikipedia.org/wiki/Interpreter_pattern)
+* [Source Making Interpreter Design Pattern](https://sourcemaking.com/design_patterns/interpreter)
+* [Baeldung Interpreter Design Pattern in Java](https://www.baeldung.com/java-interpreter-pattern)
+* [OODesign Interpreter Design Pattern](https://www.oodesign.com/interpreter-pattern)
+* [Learn CS Design Interpreter Design Pattern](https://www.learncsdesign.com/learn-the-interpreter-design-pattern/)
+* [DoFactory Interpreter Design Pattern](https://www.dofactory.com/net/interpreter-design-pattern)
+* [Reactive Programming Interpreter Design Pattern](https://reactiveprogramming.io/blog/en/design-patterns/interpreter)
+* and for more, Google: [Interpreter Design Pattern](https://www.google.com/search?q=Interpreter+Design+Pattern)
 
 Here are some resources that can be purchased or are included in a subscription service:
-* TBD
+* Gang of Four Composite Design Pattern, page 243 ([O'Reilly](https://learning.oreilly.com/library/view/design-patterns-elements/0201633612/ch05.html#page_243) and [Amazon](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612))
+* Head First Design Patterns, Appendix A: The Leftovers, Interpreter ([O'Reilly](https://learning.oreilly.com/library/view/head-first-design/9781492077992/app01.html#idm46060275907152) and [Amazon](https://www.amazon.com/Head-First-Design-Patterns-Object-Oriented-ebook/dp/B08P3X99QP))
