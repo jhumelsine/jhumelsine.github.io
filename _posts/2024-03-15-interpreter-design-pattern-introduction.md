@@ -1,5 +1,5 @@
 ---
-title: Interpreter Design Pattern - Introduction
+title: Interpreter Design Pattern - An Introduction
 description: A "Mostly" Gentle Introduction to Interpreter
 unlisted: true
 ---
@@ -79,7 +79,7 @@ The GoF don’t show all the steps from grammar to implementation in their C++ e
 ## Domain-Specific Language Primer
 Specification is a [Domain-Specific Language](https://en.wikipedia.org/wiki/Domain-specific_language) (DSL). A DSL is a small language that’s designed for a specific domain. In the [Smart Playlist Use Case](https://jhumelsine.github.io/2024/03/07/specification-design-pattern-use-case.html), it’s a domain that allows the user organize Smart Playlists based upon a set of user defined rules that dynamically organize tracks in those playlists based upon their attribute values.
 
-A DSL is a specialist. It solves problems in its domain very well. But venture beyond its domain, it loses its power. A general-purpose language, such as C++, Java and Python, can accommodate any domain, but not without additional domain support or infrastructure. One could argue that well design general-purpose language implementation will eventually become domain specific through consistent nomenclatures with its class, method, parameter and field attribute names.
+A DSL is a specialist. It solves problems in its domain very well. But venture beyond its domain, and it loses its power. A general-purpose language, such as C++, Java and Python, can accommodate any domain, but not without additional domain support or infrastructure. One could argue that well design general-purpose language implementation should eventually become domain specific through consistent nomenclatures with its class, method, parameter and field attribute names.
 
 A DSL allows you to solve a problem succinctly as long as the problem is within the domain. A general-purpose language allows you to solve any problem, but it may take more time to establish domain foundations before achieving a solution.
 
@@ -182,7 +182,7 @@ The class design emerges from the grammar, especially since __IS-A__ is associat
 <img src="/assets/SpecificationPlaylistComposite.png" alt="Composite Playlist Classes" width = "90%" align="center" style="padding-right: 35px;">
 
 ## Scanner and Parser
-We still need to convert the `fiveStarAltRock` text definition above into the following object tree:
+We still need to convert the `fiveStarAltRock` text definition above into the following object tree (NOTE: The names, such as genres, constraints, etc. won't be in tree. This is a copy of the tree from the previous blog):
 
 <img src="/assets/SpecificationPlaylistObjects.png" alt="Leaf Playlist Classes" width = "90%" align="center" style="padding-right: 35px;">
 
