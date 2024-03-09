@@ -1,6 +1,6 @@
 ---
 title: Interpreter Design Pattern - Introduction
-description: A <Mostly> Gentle Introduction to Interpreter
+description: A "Mostly" Gentle Introduction to Interpreter
 unlisted: true
 ---
 <img src="/assets/InterpreterGreekPhilosophers.jpeg" alt="Greek Philosophers explaining Interpreter" width = "50%" align="center" style="padding-right: 35px;">
@@ -8,14 +8,15 @@ unlisted: true
 # Introduction
 The Interpreter Design Pattern is the next of the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html) series.
 
-Interpreter is not only the pinnacle of the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html). 
-I think it’s the pinnacle of the Gang of Four (GoF) design patterns sharing the top position with the [Visitor Design Pattern](https://refactoring.guru/design-patterns/visitor).
+Interpreter sits not only at the pinnacle of the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html), but I think it resides the top of the Gang of Four (GoF) design patterns sharing the position with the [Visitor Design Pattern](https://refactoring.guru/design-patterns/visitor).
 
-Interpreter is the fulfillment of customized rule or policy-based behaviors, which I mentioned in [Composable Design Patterns – Basic Concepts/Use Cases for Composability Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html#use-cases-for-composability-design-patterns). Interpreter has the potential to support customer and user self-service features and behaviors. Customer/User self-service is a double-edged sword, which I'll discuss in a bit more detail in a subsequent blog.
+Interpreter is the fulfillment of customized-rule/policy-based behaviors, which I mentioned in [Composable Design Patterns – Basic Concepts/Use Cases for Composability Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html#use-cases-for-composability-design-patterns). Interpreter has the potential to support customer and user self-service features and behaviors. Customer/User self-service is a double-edged sword, which I'll discuss in a bit more detail in a subsequent blog.
 
-Interpreter is one of the most powerful and elegant of the design patterns. Interpreter is an extension of Composite with the addition of context. Composite is syntax. Interpreter adds semantics to that syntax.
+Interpreter is one of the most powerful and elegant of the design patterns. Interpreter is the extension of [Composite](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html) with the addition of context. Composite is syntax. Interpreter adds semantics to that syntax.
 
-But Interpreter doesn’t receive the attention it deserves. It’s one of the nine GoF design patterns relegated to the __Appendix A. Leftover Patterns__ in __Head First Design Patterns__. This Appendix is a round up of patterns that the book didn’t describe in detail. Each of these nine patterns gets about 2 pages of attention with is woefully insufficient for anything beyond an overview.
+But Interpreter doesn’t receive the attention it deserves.
+
+It’s one of the nine GoF design patterns relegated to __Appendix A. Leftover Patterns__ in __Head First Design Patterns__. This Appendix is a round up of patterns that the book didn’t describe in detail. Each of these nine patterns gets about 2 pages of attention with is woefully insufficient for anything beyond an overview.
 
 [Refactoring Guru](https://refactoring.guru/) excluded it from its pattern [catalog](https://refactoring.guru/design-patterns/catalog). Interpreter was the only GoF pattern excluded.
 
@@ -24,11 +25,11 @@ But Interpreter doesn’t receive the attention it deserves. It’s one of the n
 # Background
 Ironically, I think the GoF authors are mostly responsible for this lack of attention. While their 14-page description of Interpreter is not technically wrong, it just feels incomplete.
 Their class diagram is correct, but it only hints at the potential of the pattern. 
-It’s more like a biology text book presenting stem cells without continuing with how stem cells can become nerve cells, muscle cells, blood cells, etc.
+It’s like a biology text book presenting stem cells without explaining how stem cells can become nerve cells, muscle cells, blood cells, etc.
 
 The GoF assume their reader has knowledge of programming language design, grammars, scanners, parsers, etc. These may have been reasonable assumptions in 1995 at the time of publication, but today’s software developers might not have the same foundations.The authors were academics, and these are topics that most computer science students learned to some degree. 
 
-The implementation examples feel a bit dated, especially the example in Smalltalk.
+The implementation examples feel a bit dated, especially the Smalltalk implementation example.
 
 I stumbled upon a blog years ago written by a manager at Amazon, that included statements along these lines:
 > I thought the Gang of Four’s Design Pattern book was fantastic. I understood everything, except for pages 243-257. ...
@@ -66,54 +67,55 @@ Interpreter can sound intimidating with grammars, parsers, etc. But we’ve alre
 If someone can understand the basic nuts-and-bolts of Specification, then Interpreter isn't much more of a leap beyond that.
 I featured Specification in the two previous blogs because it’s a steppingstone toward understanding Interpreter as a whole.
 
-Coincidentally, the GoF used a similar problem for their C++ example. Theirs was a Boolean expression evaluator. Specification is a Boolean evaluator as well. The main difference between the GoF example and Specification is the leaf nodes. Leaf nodes in the GoF example are either Boolean variables or true/false Boolean constants. With Specification, the leaf nodes are Boolean values based upon the satisfiability of the field attributes within a Context object. In the case of the Smart Playlist Specification, the leaf node Boolean results of a Track's Genre, Rating, Artist, and other attributes.
+Coincidentally, the GoF used a similar problem for their C++ example. Theirs was a Boolean expression evaluator. Specification is a Boolean evaluator as well. The main difference between the GoF example and Specification is the leaf nodes. Leaf nodes in the GoF example are either Boolean variables or true/false Boolean constants. With Specification, the leaf nodes are Boolean values based upon the satisfiability of the field attributes within a Context object. In the case of the Smart Playlist Specification, the leaf node Boolean results from a Track's Genre, Rating, Artist, and other attributes.
 
 The GoF don’t show all the steps from grammar to implementation. I’m going to fill in a few of the gaps with Specification here as a short primer. I’ll present more details in the subsequent blog entries.
 
 ## Domain-Specific Language Primer
-Specification is a [Domain-Specific Language](https://en.wikipedia.org/wiki/Domain-specific_language) (DSL). A DSL is a small language that’s designed for a specific domain. In the Smart Playlist use case, it’s a domain that allows the user to organize Smart Playlists based upon a set of user defined rules that dynamically group tracks in those playlists based upon their attribute values.
+Specification is a [Domain-Specific Language](https://en.wikipedia.org/wiki/Domain-specific_language) (DSL). A DSL is a small language that’s designed for a specific domain. In the [Smart Playlist Use Case](https://jhumelsine.github.io/2024/03/07/specification-design-pattern-use-case.html), it’s a domain that allows the user organize Smart Playlists based upon a set of user defined rules that dynamically organize tracks in those playlists based upon their attribute values.
 
-A DSL is a specialist. It solves problems in its domain very well, but beyond its domain, it loses its power. A general-purpose language, such as C++, Java and Python, can accommodate any domain, but not without additional domain support or infrastructure. One could argue that well design implementation will eventually become domain specific through consistent use of class, method and attribute names.
+A DSL is a specialist. It solves problems in its domain very well. But venture beyond its domain, it loses its power. A general-purpose language, such as C++, Java and Python, can accommodate any domain, but not without additional domain support or infrastructure. One could argue that well design implementation will eventually become domain specific through consistent use of class, method and attribute names.
 
-A DSL allows you to solve a problem quickly right at the start as long as the problem is within the domain. A general-purpose language allows you to solve any problem, but it may take more time to achieve that solution.
+A DSL allows you to solve a problem quickly as long as the problem is within the domain. A general-purpose language allows you to solve any problem, but it may take more time to establish domain foundations before achieving a solution.
 
 <img src="https://live.staticflickr.com/4078/4909081845_3aeb704a66_o.png" alt="Fox and Hedgehog" title="Image Source: https://www.flickr.com/photos/38299630@N05/4909081845" width = "20%" align="right" style="padding-right: 20px;">
 
 > ___The fox knows many things, but the hedgehog knows one big thing. — Archilochus, Greek Lyric Poet___
 
-A Domain-Specific Language is a hedgehog.
+A Domain-Specific Language is a Hedgehog.
 
-A General-Purpose Language is a fox.
+A General-Purpose Language is a Fox.
 
 ## Programming Language Grammar Primer
 
 <img src="https://live.staticflickr.com/2905/14783088973_3f7d1f2e2a_o.jpg" alt="Sentence Diagrams" title="Image Source: https://www.flickr.com/photos/internetarchivebookimages/14783088973" width = "30%" align="right" style="padding-right: 20px;">
 
-To the best of my knowledge all programming languages are defined via [grammars](https://en.wikibooks.org/wiki/Introduction_to_Programming_Languages/Grammars), including DSLs. A grammar is a set of rules that documents the syntax and structure of language concepts:
+To the best of my knowledge all programming languages are defined via [grammars](https://en.wikibooks.org/wiki/Introduction_to_Programming_Languages/Grammars), including DSLs. A grammar is a set of rules that documents the syntax and structure of a programming language:
 * All programs in a programming language can trace their stucture back to grammar rules.
-* Each program projects a unique parse tree based consistent with the grammar rules. This is similar to sentence diagramming.
-* The leaf nodes tend to correspond to the language elements in the program itself.
-* The non-terminal nodes indicate the relationship among the leaf nodes and other non-terminal nodes. That is, they provide organization structure to individual langage elements.
+* Each program projects a unique parse tree consistent with the grammar rules. This is similar to sentence diagramming.
+* The tree leaf nodes correspond to the language elements in the program itself.
+* The tree non-terminal nodes indicate the relationship among the leaf nodes and other non-terminal nodes. That is, they provide the organization structure.
 * Behaviors are added to the organization structures. This is technically beyond grammar definition, but it's the last step achieving behavior from programming languages defined via a grammar.
 
 The same grammar rules that support “Hello World!” are the same ones that support some of the most sophisticated software systems ever created. The only difference is in the size and complexity of the program itself and the unique parse tree that's projected from it.
 
-DSLs tend to have smaller grammars than general-purpose programming languages. They may consist of only a handful of rules. A surprisingly small Interpreter implementation can accommodate a DSL program of any size. This makes Interpreter an ideal implementation for a DSL as we'll eventuall see.
+DSLs tend to have smaller grammars than general-purpose programming languages. They may consist of only a handful of rules. A surprisingly small Interpreter implementation can accommodate the elements of a DSL. This makes Interpreter an ideal implementation for a DSL as we'll eventuall see.
 
 Most DSL programs tend to be small, but there’s no restriction on the size of the program. Staying with Specification example, it could be a program with one statement, and therefore one object in the tree. Or it could be a program of hundreds of statements and therefore hundreds of objects in the tree.
 
 Grammars generally only have three basic rule types:
-* __IS-A__ rule, which lists the grammar rules that are special cases of a more general rule.
-* __HAS-A__ rule, which defines the language elements and grammar rules that comprise this rule.
+* __OR__ rule, which lists the grammar rules that are more specific versions of the general rule.
+* __AND__ rule, which defines the language elements and grammar rules that comprise this rule.
 * __DEFINITION__, __ which is a rule that’s not defined in terms of other rules.
 
 Here’s a quick example of some grammar rule syntax:
 ```
-RuleX ::= RuleA | RuleB  // i.e., IS-A
-RuleA ::= “A” “(“ RuleX “)” // i.e, HAS-A, which contains indirect recursion
+RuleX ::= RuleA | RuleB  // i.e., RuleX can become RuleA OR RuleB
+RuleA ::= “A” “(“ RuleX “)” // i.e, RuleA is comprised of "A" AND "(" AND RuleX AND ")".
 RuleB ::= “B” // i.e., DEFINITION
 ```
-The __IS-A__ and __HAS-A__ relationships are implied by the __OR__ (`|`) and __AND__ (which is usually defaulted) operations in the rule definitions.
+
+The __OR__ operation is denoted by \|\. The __AND__ operation is assumed, much like multiplication is assumed in algebra when not specified. We assume that mass and acceleration are being multipled in `F = ma`. The same applies to grammar rules. Assume __AND__ when not provided.
 
 NOTE: Grammar rules originate from automata theory. Their application to define programming languages is a practical application.
 
