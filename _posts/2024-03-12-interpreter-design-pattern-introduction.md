@@ -1,7 +1,6 @@
 ---
 title: Interpreter Design Pattern - An Introduction
 description: A "Mostly" Gentle Introduction to Interpreter
-unlisted: true
 ---
 <img src="/assets/InterpreterGreekPhilosophers.jpeg" alt="Greek Philosophers explaining Interpreter" width = "50%" align="center" style="padding-right: 35px;">
 
@@ -59,7 +58,7 @@ Even with this elegant description, a few more specifics would be useful.
 
 I may modify this list below, but here’s what I’m currently considering as subsequent blog entries for Interpreter. I'll adjust and add links here when posted:
 * Domain-Specific Languages
-* A Domain-Specific Language example along the way with an arithmetic expression evaluator for rational numbers. This is, it will support fractions.
+* A Domain-Specific Language example along the way with an arithmetic expression evaluator for rational numbers. That is, it will support fractions.
 * Programming Language Grammars
 * Grammars and Object-Oriented design mappings. I think this is where most of the elegance of the pattern resides.
 * Scanners and Parsers
@@ -79,7 +78,7 @@ The GoF don’t show all the steps from grammar to implementation in their C++ e
 ## Domain-Specific Language Primer
 Specification is a [Domain-Specific Language](https://en.wikipedia.org/wiki/Domain-specific_language) (DSL). A DSL is a small language that’s designed for a specific domain. In the [Smart Playlist Use Case](https://jhumelsine.github.io/2024/03/07/specification-design-pattern-use-case.html), it’s a domain that allows the user to organize Smart Playlists based upon a set of user defined rules that dynamically organize tracks in those playlists based upon their attribute values.
 
-A DSL is a specialist. It solves problems in its domain very well. But venture beyond its domain, and it loses its power. A general-purpose language, such as C++, Java and Python, can accommodate any domain, but not without additional domain support or infrastructure. One could argue that well designed general-purpose language implementation should eventually become domain specific through consistent nomenclatures with its class, method, parameter and field attribute names. But unless a ubiquitous language is enforced, we often don't achieve this.
+A DSL is a specialist. It solves problems in its domain very well. But venture beyond its domain, and it loses its power. A general-purpose language, such as C++, Java and Python, can accommodate any domain, but not without additional domain support or infrastructure. One could argue that a well designed general-purpose language implementation should eventually become domain specific through consistent nomenclatures with its class, method, parameter and field attribute names. But unless a ubiquitous language is enforced, we often don't achieve this.
 
 A DSL allows you to solve a problem succinctly if the problem is within the domain. A general-purpose language allows you to solve any problem, but it may take more time to establish domain foundations before achieving a solution.
 
@@ -177,12 +176,12 @@ SpecificationList ::= Specification (“,” Specification)* // NOTE: Star indic
 The `Not` and `SpecificationList` rules include `Specification` in their definition. This means that the grammar is indirectly recursive. This is what allows `all`, `any` and `not` constructs to be nested. The grammar supports a tree structure that's as deep and wide as needed.
 
 ## Grammar to Design
-The class design emerges from the grammar, especially since __IS-A__ is associated with __inheritance__ and __HAS-A__ is associated with __composition__. Interfaces tend to map to __OR__ grammar rules, and concrete classes tend to map to __AND__ grammar rules. Abstract classes are not part of the grammars and tend to emerge during design refactoring. Compare the grammar above with the class design. Hopefully the major relationships in the grammar and the design are obvious:
+The class design emerges from the grammar, especially since __IS-A__ is associated with __inheritance__ and __HAS-A__ is associated with __composition__. __Interfaces__ tend to map to __OR__ grammar rules, and __concrete classes__ tend to map to __AND__ grammar rules. Abstract classes are not part of the grammars and tend to emerge during design refactoring. Compare the grammar above with the class design. Hopefully the major relationships in the grammar and the design are obvious:
 
 <img src="/assets/SpecificationPlaylistComposite.png" alt="Composite Playlist Classes" width = "90%" align="center" style="padding-right: 35px;">
 
 ## Scanner and Parser
-We still need to convert the `fiveStarAltRock` text definition above into the following object tree (NOTE: The names, such as _genres_, _constraints_, etc. won't be in tree. This is a copy of the tree from the previous blog):
+We still need to convert the `fiveStarAltRock` text definition above into the following object tree (NOTE: The names, such as _genres_, _constraints_, etc. won't be in tree. This is a copy of the tree from the previous blog, which composed the tree with hardcoding and intermediate Composite variables.):
 
 <img src="/assets/SpecificationPlaylistObjects.png" alt="Leaf Playlist Classes" width = "90%" align="center" style="padding-right: 35px;">
 
