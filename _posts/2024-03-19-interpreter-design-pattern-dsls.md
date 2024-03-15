@@ -206,8 +206,16 @@ Make sure you have a domain with most of the following:
 * Problem scenarios within the domain are fluid. For example, political pressures can update regulations without much lead time. Government agency regulations may also be vague, incomplete, contradictory, etc. A flexible specification can adjust more quickly to subsequent clarifications.
 
 # References
-There are many online resources with diagrams and implementations in different programming languages. Here are some free resources:
-* TBD
+There are many online Domain-Specific Language resources. Here are some free resources:
+* [Wikipedia Domain-Specific Languages](https://en.wikipedia.org/wiki/Domain-specific_language)
+* [The complete guide to (external) Domain Specific Languages](https://tomassetti.me/domain-specific-languages/)
+* [Developing a Complex External DSL](https://www.infoq.com/articles/External-DSL-Vaughn-Vernon/) by Vaughn Vernon
+* [Why DSLs? A Collection of Anecdotes](https://www.infoq.com/articles/why-dsl-collection-anecdotes/)
+* [Domain Specific Languages](https://martinfowler.com/books/dsl.html) overview of the book by Martin Fowler and Rebecca Parsons
+* [Domain-Specific Languages Guide](https://martinfowler.com/dsl.html) by Martin Fowler
+* [About Domain-Specific Languages](https://learn.microsoft.com/en-us/visualstudio/modeling/about-domain-specific-languages?view=vs-2022) First in a series of nine Domain-Specific Language articles by Microsoft that may be associated with a Visual Studio extension
+* [Domain-Specific Languages](https://www.jetbrains.com/mps/concepts/domain-specific-languages/) JetBrains article
+* and for more, Google: [Domain Specific Languages](https://www.google.com/search?q=Domain+Specific+Languages)
 
 Here are some resources that can be purchased or are included in a subscription service:
 * TBD
