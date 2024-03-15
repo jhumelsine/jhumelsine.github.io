@@ -13,6 +13,7 @@ Their motivation section starts with:
 > If a particular kind of problem occurs often enough, then it might be worthwhile to express instances of the problem as sentences in a simple language. Then you can build an interpreter that solves the problem by interpreting these sentences.
 >
 > The Interpreter pattern describes how to define a grammar for simple languages, represent sentences in the language, and interpret these sentences.
+
 Adding _sentences_  to the motivation really didn’t help me understand the __motivation__ or the __intent__. And I would argue that they really don’t describe how to define a _grammar_ either.
 
 We’re going to have to do more digging.
@@ -187,7 +188,7 @@ I previously stated that Mathematical Systems are Domains, and I’m going to st
 Most programming languages support integers and floats. I don’t know of any popular programming languages that support rational numbers. Recall that a rational number is a number that can be represented as the ratio of two integers, i.e., a fraction.
 
 I want the Domain to feature:
-* The ability to create a rational number, but not necessarily in its simplest form. For example, __2/4__ would be accepted, but internally it would be __1/2__. Likewise, __4/2__ would also be accepted, but internally it would be __2__.
+* The ability to create a rational number, but not necessarily in its simplest form. For example, __2/4__ would be accepted, but it would be simplified to __1/2__. Likewise, __4/2__ would also be accepted, but simplified to __2__.
 * The ability to display a rational number in its simplest form.
 * Adding a set of rational numbers returning a sum of rational numbers.
 * Multiplying a set of rational numbers returning a product of those rational numbers.
