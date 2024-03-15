@@ -19,7 +19,7 @@ Adding _sentences_  to the motivation really didn’t help me understand the __m
 We’re going to have to do more digging.
 
 ## Domain and Domain-Specific Languages
-[SourceMaking](https://sourcemaking.com/design_patterns/interpreter)’s Interpreter description is a bit better:
+[SourceMaking's Interpreter](https://sourcemaking.com/design_patterns/interpreter) description is a bit better:
 > Map a domain to a language, the language to a grammar, and the grammar to a hierarchical object-oriented design.
 
 The above is a nice summary of the process but it only makes sense once you understand the process. Then they add this:
