@@ -97,9 +97,13 @@ After the above DSL experience, I moved to another company, and I was eager to w
 
 A new software engineering executive joined the company a few months after I started. He met with each of the teams individually to get to know the members of his department.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Hammer-1629587.jpg/1200px-Hammer-1629587.jpg" alt="Hammer and Nails" title="Image Source: https://commons.wikimedia.org/wiki/File:Hammer-1629587.jpg" width = "20%" align="right" style="padding-right: 35px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Hammer-1629587.jpg/1200px-Hammer-1629587.jpg" alt="Hammer and Nails" title="Image Source: https://commons.wikimedia.org/wiki/File:Hammer-1629587.jpg" width = "30%" align="right" style="padding-right: 35px;">
 
-I pitched the DSL idea to him, and he shot my suggestion down faster than the Red Barron in an aerial dogfight with a pilot fresh out of flight school. I never mentioned DSLs to him again. _The nail that sticks out will get hammered down. – Japanese Proverb_. I advocated DSLs to a few other managers, but I never got traction with them either.
+I pitched the DSL idea to him, and he shot my suggestion down faster than the Red Barron in an aerial dogfight with a pilot fresh out of flight school. I never mentioned DSLs to him again. 
+
+_The nail that sticks out will get hammered down. – Japanese Proverb_.
+
+I advocated DSLs to a few other managers, but I never got traction with them either.
 
 Years later, I’d sit in company meetings as he and the other C-suite executives bemoaned how much customer support was required to onboard new customers and maintain existing ones. “Our product needs to be more self-service for our customers,” they decried. I'd sit there, resist the urge to roll my eyes, and think to myself, "Had you given DSLs even modest consideration, you might have had some customer self-service features by now."
 
