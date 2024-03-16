@@ -13,15 +13,15 @@ The Interpreter Design Pattern feels like it was tailor made for DSLs. Before I 
 
 If you already feel confident about Domain-Specific Languages, then skim this blog or skip it completely. 
 
-__Here's a summary of DSLs:__
-* __The Gang of Four (GoF) don't mention Domain or DSLs in their Interpreter documentation.__
+__Here's a summary of DSLs presented here:__
+* __The Gang of Four (GoF) don't mention Domain or DSLs in their Interpreter Design Pattern documentation.__
 * __I supsect they omitted it because Domain and DSLs weren't in the common venacular when they published their book.__
 * __DSLs are common. Most developers use them frequently and may not even realize it. Common DSLs are: HTML, CCS, SQL, etc.__
 * __Your project might involve a Domain for which a DSL could be useful.__
-* __DSLs can be more efficient at addressing Domain specific provlems than General-Purpose Languages.__
-* __DSLs allows one the same code base to accommodate different customer scenarios within the Domain.__
+* __DSLs can be more efficient at addressing Domain specific problems than General-Purpose Languages.__
+* __DSLs allows the same code base to accommodate different customer configuration scenarios within the Domain.__
 * __DSLs might allow for customer/user self-service.__
-* __When creating a DSL, you take on all responsibility. There will be no external support such as Google search results, Stack Overflow posts, etc. for your DSL.__
+* __When creating a DSL, you take on all responsibility. There will be no external DSL support such as Google search results, Stack Overflow posts, etc.__
 
 ## What the Gang of Four said about Domain Specific Languages
 
@@ -52,15 +52,15 @@ The above is a nice summary of the process but it only makes sense once you unde
 
 They added ___domain___, which I think is a critical concept for understanding Interpreter. Domain is the business environment of an industry. eBay’s domain is auctions. Amazon’s domain is bookstores, or at least it started that way. Facebook, Linkedin and Twitter/X’s domains are social networks.
 
-Domain is an ecosystem. Domain is an economy. Domain is a mathematical system. Domain is a usually closed system. A domain is a set of rules that define a bounded conceptual space specifying what can and cannot happen to domain elements within that bounded space. A Domain-Specific Language (DSL) is a representation of those rules.
+Domain is an ecosystem. Domain is an economy. Domain is a mathematical system. Domain is a often closed system. A domain is a set of rules that define a bounded conceptual space specifying what can and cannot happen to the domain elements within that bounded space. A Domain-Specific Language is a representation of those rules.
 
 DSLs are domain specific where the domain is embedded in the constructs of the language itself. A domain-based language is narrowly scoped since it’s designed to support a specific domain. A problem scenario within a domain can be expressed or modeled in a DSL based specification. Then a DSL Interpreter can compute/execute/interpret the specification to produce a result.
 
-The language itself should scream its domain. Problem expression in a DSL should be more natural and straightforward than in a General-Purpose Language (GPL). It’s difficult to stray beyond domain boundaries since the DSL won’t allow it. A DSL will tend to be smaller and more straightforward than a GPL.
+The language itself should scream its domain. Problem expression in a DSL should be more natural and straightforward than in a General-Purpose Language (GPL), such as Java, C++, Python or Ruby. It’s difficult to stray beyond domain boundaries since the DSL won’t allow it. A DSL will tend to be smaller and more straightforward than a GPL.
 
-Since a DSL reflects the domain, it may not look like a traditional programming language. It might look like a specification language. It might have syntax constructs not seen in GPLs. Or it could look very similar to a GPL too. It all depends upon the nature of the domain.
+Since a DSL reflects the domain, it may not look like a traditional programming language. It might look like a specification language. It might have syntax constructs not seen in GPLs. Or it could look very similar to a traditional programming language too. It all depends upon the nature of the domain.
 
-A GPL can support domains too, but that is not its primary intent. A GSL can support any domain. A project can use coding standards that mirror domain constructus, but unless there’s effort to maintain a consistent ubiquitous language by the members of a project, a GSL based implementation will tend to project language constructs first and domain second. With a DSL, the domain is embedded within the language. The DSL __is__ the ubiquitous language.
+A GPL can support domains too, but that is not its primary intent. A GSL can support any domain. A project can set coding standards that mirror domain constructus, but unless there’s effort to maintain a consistent ubiquitous language by the members of a project, a GSL based implementation will tend to project language constructs first and domain second. With a DSL, the domain is embedded within the language. The DSL __is__ the ubiquitous language.
 
 ## Do You Need a DSL?
 Though I shout the praises of DSLs from the mountain tops, do you really need one?
@@ -73,12 +73,14 @@ This type of domain specification flexibility is not the same as config values, 
 
 <img src="https://c.pxhere.com/images/32/a9/e1864c52b80e38516c9858588672-1599519.jpg!d" alt="Tax Forms" title="Image Source: https://pxhere.com/en/photo/1599519" width = "40%" align="right" style="padding-right: 35px;">
 
-Consider tax preparation software that implements tax regulations. Regulations vary from juristiction to juristiction. Regulation specifics cannot be negotiated. Regulations change regularly. Regulation implementation must be complete. Delivery dates cannot slip since tax deadlines do not slip. A tax regulation DSL would help maneuver the regulation minefields better than a GPL. See: [Designing a DSL for accounting: use a DSL to describe taxes, pension contributions, and general financial calculations](https://tomassetti.me/financial-accounting-dsl/).
+Consider tax preparation software that implements tax regulations. Regulations vary from juristiction to juristiction. Regulation specifics cannot be negotiated. Regulations change regularly. Regulation implementation must be complete. Delivery dates cannot slip since tax deadlines do not slip.
+
+A tax regulation DSL would help maneuver the regulation minefields better than a GPL. See: [Designing a DSL for accounting: use a DSL to describe taxes, pension contributions, and general financial calculations](https://tomassetti.me/financial-accounting-dsl/).
 
 # Domain-Specification Languages
-Here are some examples of common DSLs found in the wild as more concrete examples.
-
 Most if not all industries have domains, and some may even have DSLs for those domains. Some industries with DSLs include systems engineering, healthcare, finance, insurance, and payroll ([source](https://tomassetti.me/domain-specific-languages/)).
+
+Here are some examples of common DSLs found in the wild as more concrete examples.
 
 The following are DSLs primarily in software engineering domains.
 
@@ -94,12 +96,13 @@ SQL is a DSL where its domain is relational database tables. SQL allows users to
 ## Shell Languages
 While most shell languages are programming languages, they’re on the border between DSLs and GPLs. I’m going to lean a bit toward the DSLs here, because their domain is mostly with an operating system, such as Unix/Linux, and its directories and files.
 
-The [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy) provides a cohort single-purpose commands, usually/originally written in C. These commands usually focus upon a single aspect of Unix, such as:
+The [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy) provides a cohort of single-purpose commands, usually/originally written in C. These commands usually focus upon a single aspect of Unix, such as:
 * Listing the files in a directory
 * Returning disk usage
 * Providing a regular expression filter
 * Counting lines, words and characters
 * And many more
+
 The standard output of these commands can be piped as standard input to other commands making it easy to construct more sophisticated behaviors with a little piping glue. It’s simple for users to build their own commands from these basics.
 
 ## AWK
@@ -165,9 +168,9 @@ The DSL may be for internal use only. The developers who defined DSL may be the 
 My DSL fell into this category.
 
 ### Customer Onboarding/Support Team
-This expands the DSL user base beyond developers, but it still keep DSL users within the company. The DSL may be straightforward enough for onboarding and customer support to create and maintain. The DSL may truly embrace the domain without having too many traditional coding elements to it. Onboarding and customer support domain experts, with enough training and support, may be able to create and maintain DSL specificaitons for their customers.
+This expands the DSL user base beyond developers, but it still keep DSL users within the company. The DSL may be straightforward enough for onboarding and customer support to create and maintain. The DSL may embrace the domain without having too many traditional coding elements to it. Onboarding and customer support domain experts, with enough training and support, may be able to create and maintain DSL specificaitons for their customers.
 
-This might be the sweet spot for many situations. While Customer/User self-service might be desirable, this may not be practical. Some DSLs may be too sophisticated for customer self-service. Or there may be security or safety concerns. Exposing the DSL to customers might allow the customer to do some real damage to themselves. DSLs allow you to do anything within the domain even if that’s something that’s not in your best interests. Remember that SQL allows you to [drop tables](https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-table-transact-sql), even those with customer data.
+This might be the sweet spot for many situations. While Customer/User self-service might be desirable, this may not be practical. Some DSLs may be too sophisticated for customer self-service. Or there may be security or safety concerns. Exposing the DSL to customers might allow the customer to do some real damage to themselves. DSLs allow you to do anything within the domain even if that’s something that’s not in your best interests. Remember that SQL allows you to [drop tables](https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-table-transact-sql), even those with critical data.
 
 The _workflow_ example above fell into this category, even if workflows weren’t technically a DSL.
 
@@ -200,7 +203,7 @@ If you define and implement a DSL, then you’re taking on full responsibility f
 When someone makes a mistake defining a DSL specification, and it will happen, they will blame your implementation first. You may end up devoting a lot of time debugging your own code before realizing that the problem resides in the DSL specification. And then you’ll have the challenge of convincing that person that their DSL specification is incorrect probably without the benefit of knowing the specification’s actual intent.
 
 # Rational Number Evaluator Use Case
-I will feature a Use Case Domain and DSL as I progress through these Interpreter blog entries.
+I will feature a Domain and DSL Use Case as I progress through these Interpreter blog entries.
 
 I previously stated that Mathematical Systems are Domains. My Domain will be Rational Numbers and the DSL will be a Rational Number Evaluator. I’m committing to this before doing any design or implementation, so the road could get a bit rocky in subsequent blogs.
 
