@@ -21,10 +21,16 @@ __Here's a summary of DSLs:__
 * __DSLs might allow for customer/user self-service.__
 * __When creating a DSL, you take on all responsibility. There will be no external support such as Google search results, Stack Overflow posts, etc. for your DSL.__
 
-## What the Gang of Four said about Domain Specific Languages ... nothing
+## What the Gang of Four said about Domain Specific Languages
+
+They said nothing. I suspect that the GoF didn’t mention __Domain__ or __Domain-Specific Languages__, since I don’t think either was a common term at the time of their publication. I can’t find many DSL references before 1995. Eric Evans’ book, __Domain-Driven Design__, which popularized __Domain__, wasn’t published until 2003.
+
+But here's what they did say about Interpreter, even if they didn't mention __Domain__ or __Domain-Specific Languages__.
 
 The GoF define the intent of Interpreter as:
 > Given a language, define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language.
+
+<img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHgxNDAzMjA2LWltYWdlLWt3dncwNnhqLmpwZw.jpg" alt="Head Scratching" title="Image Source: [https://commons.wikimedia.org/wiki/File:Hammer-1629587.jpg](https://www.rawpixel.com/image/5911853/image-public-domain-red-free)" width = "30%" align="right" style="padding-right: 35px;">
 
 Well, that’s a mostly a circular definition that really doesn’t help me understand what they mean by  _language_, _grammar_, or _interpreter_ or the pattern’s actual __intent__.
 
@@ -35,10 +41,8 @@ Their motivation section continues with:
 
 Adding _sentences_ to the motivation really didn’t help me understand the __motivation__ or the __intent__. And I would argue that they really don’t describe how to define a _grammar_ either.
 
-I suspect that the GoF didn’t mention __Domain__ or __Domain-Specific Languages__, since I don’t think either was a common term at the time of their publication. I can’t find many DSL references before 1995. Eric Evans’ book, __Domain-Driven Design__, which popularized __Domain__, wasn’t published until 2003.
-
 ## Domain and Domain-Specific Languages
-[SourceMaking's Interpreter](https://sourcemaking.com/design_patterns/interpreter) description is a bit better:
+[SourceMaking's Interpreter](https://sourcemaking.com/design_patterns/interpreter) description is a bit better and they do mention __Domain__:
 > Map a domain to a language, the language to a grammar, and the grammar to a hierarchical object-oriented design.
 
 The above is a nice summary of the process but it only makes sense once you understand the process. Then they add this:
