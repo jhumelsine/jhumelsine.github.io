@@ -1,12 +1,31 @@
 ---
-title: Interpreter Design Pattern – Domain Specific Languages
-description: TBD
+title: Interpreter Design Pattern – Domain-Specific Languages
+description: Domain-Specific Languages solve domain-specific problems efficiently. Interpreter provides a means to design your own.
 unlisted: true
 ---
 
 # Introduction
+This blog expands upon Domain-Specific Languages (DSLs), which I introduced in [Interpreter Design Pattern – Domain-Specific Language Primer](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html#domain-specific-language-primer).
+
+The Interpreter Design Pattern feels like it was tailor made for DSLs. Before I can connect those pieces, I need to do a deeper dive into DSLs, which will be the topic for the remainder of this blog.
+
+If you already feel confident about Domain-Specific Languages, then skim this blog or skip it completely. 
+
+__Here's my summary of DSLs:__
+* __The Gang of Four (GoF) don't mention Domain or DSLs in their Interpreter documentation.__
+* __I supsect the omitted it because Domain and DSLs weren't in the common venacular when they published their book.__
+* __DSLs are common. Most developers use them frequently and may not even realize it. Common DSLs are: HTML, CCS, SQL, etc.__
+* __Your project might involve a Domain for which a DSL could be useful.__
+* __DSLs may be more efficient at addressing Domain based scenarios than General-Purpose Languages.__
+* __DSLs allows one the same code base to customize different scenarios within the Domain.__
+* __DSLs might allow for customer/user self-service.__
+* __When creating a DSL, you take on all responsibility. There will be no external support such as Google search results, Stack Overflow posts, etc. for your DSL.__
+
+## What the Gang of Four said about Domain Specific Languages ... nothing
+
 The Gang of Four (GoF) define the intent of Interpreter as:
 > Given a language, define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language.
+
 Well, that’s a mostly a circular definition that really doesn’t help me understand what they mean by  _language_, _grammar_, or _interpreter_ or the pattern’s actual __intent__.
 
 Their motivation section starts with:
@@ -14,9 +33,9 @@ Their motivation section starts with:
 >
 > The Interpreter pattern describes how to define a grammar for simple languages, represent sentences in the language, and interpret these sentences.
 
-Adding _sentences_  to the motivation really didn’t help me understand the __motivation__ or the __intent__. And I would argue that they really don’t describe how to define a _grammar_ either.
+Adding _sentences_ to the motivation really didn’t help me understand the __motivation__ or the __intent__. And I would argue that they really don’t describe how to define a _grammar_ either.
 
-We’re going to have to do more digging.
+I suspect that the GoF didn’t mention __Domain__ or __Domain-Specific Languages__, since I don’t think either was a common term at the time of their publication. I can’t find many DSL references before 1995. Eric Evans’ book, __Domain-Driven Design__, which popularized __Domain__ wasn’t published until 2003.
 
 ## Domain and Domain-Specific Languages
 [SourceMaking's Interpreter](https://sourcemaking.com/design_patterns/interpreter) description is a bit better:
@@ -28,10 +47,6 @@ The above is a nice summary of the process but it only makes sense once you unde
 This is better. They added ___domain___, which I think is a critical concept for understanding Interpreter. Domain is the business environment of an industry. eBay’s domain is auctions. Amazon’s domain is bookstores, or at least it started that way. Facebook, Linkedin and Twitter/X’s domains are social networks.
 
 Domain is an ecosystem. Domain is an economy. Domain is a mathematical system. Domain is a _mostly_ closed system. A domain is a set of rules that define a bounded conceptual space and what can and cannot happen to domain elements within that bounded space A Domain-Specific Language (DSL) is a representation of those rules.
-
-Interpreter feels like it was tailor made for DSLs. I introduced DSLs briefly in [Interpreter Design Pattern – Domain-Specific Language Primer](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html#domain-specific-language-primer).
-
-I suspect that the GoF didn’t mention __Domain__ or __Domain-Specific Languages__, since I don’t think either was a common term at the time of their publication. I can’t find many DSL references before 1995. Eric Evans’ book, __Domain-Driven Design__, which popularized __Domain__ wasn’t published until 2003.
 
 DSLs are domain specific where the domain is embedded in the constructs of the language itself. A domain-based language is narrowly scoped since it’s designed to support a specific domain. A problem scenario within a domain can be expressed or modeled in a DSL based specification. Then a DSL Interpreter can compute/execute/interpret the specification to produce a result.
 
@@ -49,6 +64,8 @@ When you design your own programming language, even a DSL, you are going out on 
 A DSL can be useful in the right situation, but make sure you are in the right situation. Is the domain flexible? By that, do you need to support many scenarios with a domain, such as customer-specific configurations or rapidly changing behavior requests, such as regulatory policies, etc.? See: [Use Cases for Composability Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html#use-cases-for-composability-design-patterns).
 
 This type of domain specification flexibility is not the same as config values, feature flags, or branching logic, which tends to add complexity to the implementation. This flexibility resides in DSL specifications, each of which are transformed into unique and individual composite object trees from which the bespoke behaviors emerge. This is the separation of [Computation and Coordination](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html#computation-and-coordination).
+
+Consider tax preparation software that implements tax regulations. Regulations vary from juristiction to juristiction. Regulations cannot be negotiated. Regulations change regularly. Regulation implementation must be complete. Due dates cannot slip. A tax regulation DSL would help maneuver the regulation minefields better than a GPL. See: [Designing a DSL for accounting: use a DSL to describe taxes, pension contributions, and general financial calculations](https://tomassetti.me/financial-accounting-dsl/).
 
 # Domain-Specification Languages
 Here are some examples of common DSLs found in the wild as more concrete examples.
@@ -148,17 +165,6 @@ Do this with care. You don’t want to create a DSL-injection vulnerability, muc
 
 We added runtime DSL specification generation in our GPL based implementation for my DSL, but we kept the specification templates very small. Runtime values were injected into the templates like function arguments and then parsed into an object tree so it could be executed later.
 
-It looked sort of like this:
-```java
-int a = 42;
-int b = 56;
-...
-String expressionString = String.format(“%s + %s”, a, b);
-Expression expression = Interpreter.parse(expressionString);
-Context context = new Context(); // I’ll explain Context in a subsequent blog entry.
-expression.interpret(context);
-```
-
 ### Customer Onboarding/Support Team
 This expands the DSL user base beyond developers, but it still keep DSL users within the company.
 
@@ -184,7 +190,13 @@ It’s one of the best ways I know of for a single codebase to provide bespoke f
 ### Cons
 It will probably take time to get the domain right.
 
-If you define and implement a DSL, then you’re taking on full responsibility for it. You will be responsible when there are new domain-based requests. You will have to provide the maintenance. You will have to write the documentation. You will have to provide the initial or all the training. You will have to provide support when anyone using the DSL who needs assistance. There is no DSL IDE, DSL test framework, Google results, Stack Overflow posts, Wikipedia entries, O’Reilly publications, Generative-AI or any other resources for your DSL users. You will be their sole support.
+If you define and implement a DSL, then you’re taking on full responsibility for it:
+* You will be responsible when there are new domain-based requests.
+* You will have to provide the maintenance.
+* You will have to write the documentation.
+* You will have to provide the initial or all the training.
+* You will have to provide support when anyone using the DSL who needs assistance.
+* There will be no DSL IDE, DSL test framework, Google results, Stack Overflow posts, Wikipedia entries, O’Reilly publications, Generative-AI or any other external resources for your DSL users. It's all on you.
 
 When someone makes a mistake defining a DSL specification, and it will happen, they will blame your implementation first. You may end up devoting a lot of time debugging your own code before realizing that the problem resides in the DSL specification. And then you’ll have the challenge of convincing that person that their DSL specification is incorrect probably without the benefit of knowing the specification’s actual intent.
 
