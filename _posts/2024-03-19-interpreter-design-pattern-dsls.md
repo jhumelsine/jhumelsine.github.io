@@ -240,4 +240,6 @@ There are many online Domain-Specific Language resources. Here are some free res
 * and for more, Google: [Domain Specific Languages](https://www.google.com/search?q=Domain+Specific+Languages)
 
 Here are some resources that can be purchased or are included in a subscription service:
-* TBD
+* Domain-Specific Languages ([O'Reilly](https://learning.oreilly.com/library/view/domain-specific-languages/9780132107549/) and [Amazon](https://www.amazon.com/Domain-Specific-Languages-Addison-Wesley-Signature-Fowler/dp/0321712943))
+
+See: [Interpreter Design Pattern Introduction/References](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html#references).
