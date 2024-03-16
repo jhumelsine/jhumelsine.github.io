@@ -97,6 +97,8 @@ After the above DSL experience, I moved to another company, and I was eager to w
 
 A new software engineering executive joined the company a few months after I started. He met with each of the teams individually to get to know the members of his department.
 
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Hammer-1629587.jpg/1200px-Hammer-1629587.jpg" alt="Hammer and Nails" title="Image Source: https://commons.wikimedia.org/wiki/File:Hammer-1629587.jpg" width = "20%" align="right" style="padding-right: 35px;">
+
 I pitched the DSL idea to him, and he shot my suggestion down faster than the Red Barron in an aerial dogfight with a pilot fresh out of flight school. I never mentioned DSLs to him again. _The nail that sticks out will get hammered down. – Japanese Proverb_. I advocated DSLs to a few other managers, but I never got traction with them either.
 
 Years later, I’d sit in company meetings as he and the other C-suite executives bemoaned how much customer support was required to onboard new customers and maintain existing ones. “Our product needs to be more self-service for our customers,” they decried. I'd sit there, resist the urge to roll my eyes, and think to myself, "Had you given DSLs even modest consideration, you might have had some customer self-service features by now."
@@ -107,6 +109,8 @@ I understand my executive’s reluctance with DSLs, which I’ll address near th
 I moved to a different group at the same company. The team had been part of an acquisition a few years previously. One of their core features supported customer bespoke _workflows_. DSL concepts were hinted in the implementation. They had the germ of the right idea, but the design and implementation were a bit off.
 
 I suspect that they needed the workflow behavior quickly since it was a core feature to their business model in their early days. Being a startup, they got something working, even if it wasn’t the cleanest design or implementation. They probably didn’t have the bandwidth to refactor it later. Even if they had, I suspect they didn’t know about the Interpreter design pattern. It is one of the [last design patterns](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) developers learn and understand. I was most of the way through my career before I understood Interpreter.
+
+<img src="https://c.pxhere.com/photos/cc/97/mark_marker_hand_leave_production_planning_control_organizational_structure_work_process-774947.jpg!d" alt="Workflow" title="Image Source: https://pxhere.com/en/photo/774947" width = "30%" align="right" style="padding-right: 35px;">
 
 Workflows were constructed and maintained via a GUI. The GUI user experience looked like a flowchart displaying labeled rectangles connected via unlabeled lines. Some rectangles were dead ends floating in space even if they weren’t actual dead ends. The graphical rendering code had issues drawing some of the connecting lines.
 
