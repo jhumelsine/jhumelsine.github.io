@@ -69,9 +69,9 @@ When you design your own programming language, even a DSL, you are going out on 
 
 A DSL can be useful in the right situation, but make sure you are in the right situation. Is the domain flexible? By that, do you need to support many scenarios with a domain, such as customer-specific configurations or rapidly changing behavior requests, such as regulatory policies, etc.? See: [Use Cases for Composability Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html#use-cases-for-composability-design-patterns).
 
-<img src="https://c.pxhere.com/images/32/a9/e1864c52b80e38516c9858588672-1599519.jpg!d" alt="Tax Forms" title="Image Source: https://pxhere.com/en/photo/1599519" width = "40%" align="right" style="padding-right: 35px;">
-
 This type of domain specification flexibility is not the same as config values, feature flags, or branching logic, which tends to add complexity to the implementation. This flexibility resides in DSL specifications, each of which are transformed into unique and individual [composite object trees](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html) from which the bespoke behaviors emerge. This is the separation of [Computation and Coordination](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html#computation-and-coordination).
+
+<img src="https://c.pxhere.com/images/32/a9/e1864c52b80e38516c9858588672-1599519.jpg!d" alt="Tax Forms" title="Image Source: https://pxhere.com/en/photo/1599519" width = "40%" align="right" style="padding-right: 35px;">
 
 Consider tax preparation software that implements tax regulations. Regulations vary from juristiction to juristiction. Regulation specifics cannot be negotiated. Regulations change regularly. Regulation implementation must be complete. Delivery dates cannot slip since tax deadlines do not slip. A tax regulation DSL would help maneuver the regulation minefields better than a GPL. See: [Designing a DSL for accounting: use a DSL to describe taxes, pension contributions, and general financial calculations](https://tomassetti.me/financial-accounting-dsl/).
 
@@ -122,7 +122,7 @@ After the above DSL experience, I moved to another company, and I was eager to w
 
 A new software engineering executive joined the company a few months after I started. He met with each of the teams individually to get to know the members of his department.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Hammer-1629587.jpg/1200px-Hammer-1629587.jpg" alt="Hammer and Nails" title="Image Source: https://commons.wikimedia.org/wiki/File:Hammer-1629587.jpg" width = "30%" align="right" style="padding-right: 35px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Hammer-1629587.jpg/1200px-Hammer-1629587.jpg" alt="Hammer and Nails" title="Image Source: https://commons.wikimedia.org/wiki/File:Hammer-1629587.jpg" width = "40%" align="right" style="padding-right: 35px;">
 
 I pitched the DSL idea to him, and he shot my suggestion down faster than the Red Barron in an aerial dogfight with a pilot fresh out of flight school. I never mentioned DSLs to him again. 
 
@@ -139,7 +139,7 @@ I moved to a different group at the same company. The team had been part of an a
 
 I suspect that they needed the workflow behavior quickly since it was a core feature to their business model in their early days. Being a startup, they got something working, even if it wasn’t the cleanest design or implementation. They probably didn’t have the bandwidth to refactor it later. Even if they had, I suspect they didn’t know about the Interpreter design pattern. It is one of the [last design patterns](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) developers learn and understand. I was most of the way through my career before I understood Interpreter.
 
-<img src="https://c.pxhere.com/photos/cc/97/mark_marker_hand_leave_production_planning_control_organizational_structure_work_process-774947.jpg!d" alt="Workflow" title="Image Source: https://pxhere.com/en/photo/774947" width = "30%" align="right" style="padding-right: 35px;">
+<img src="https://c.pxhere.com/photos/cc/97/mark_marker_hand_leave_production_planning_control_organizational_structure_work_process-774947.jpg!d" alt="Workflow" title="Image Source: https://pxhere.com/en/photo/774947" width = "40%" align="right" style="padding-right: 35px;">
 
 Workflows were constructed and maintained via a GUI. The GUI user experience looked like a flowchart displaying labeled rectangles connected via unlabeled lines. Some rectangles were dead ends floating in space even if they weren’t actual dead ends. The graphical rendering code had issues drawing some of the connecting lines.
 
