@@ -4,6 +4,8 @@ description: Domain-Specific Languages solve domain-specific problems efficientl
 unlisted: true
 ---
 
+<img src="https://www.worldhistory.org/img/r/p/1500x1500/1280.jpg" alt="Fragment of Euclid's Elements" title="Image Source: https://www.worldhistory.org/image/1280/fragment-of-euclids-elements/" width = "70%" align="center" style="padding-right: 35px;">
+
 # Introduction
 This blog expands upon Domain-Specific Languages (DSLs), which I introduced in [Interpreter Design Pattern – Domain-Specific Language Primer](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html#domain-specific-language-primer).
 
@@ -30,7 +32,7 @@ But here's what they did say about Interpreter, even if they didn't mention __Do
 The GoF define the intent of Interpreter as:
 > Given a language, define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language.
 
-<img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHgxNDAzMjA2LWltYWdlLWt3dncwNnhqLmpwZw.jpg" alt="Head Scratching" title="Image Source: [https://commons.wikimedia.org/wiki/File:Hammer-1629587.jpg](https://www.rawpixel.com/image/5911853/image-public-domain-red-free)" width = "30%" align="right" style="padding-right: 35px;">
+<img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHgxNDAzMjA2LWltYWdlLWt3dncwNnhqLmpwZw.jpg" alt="Head Scratching" title="Image Source: https://www.rawpixel.com/image/5911853/image-public-domain-red-free" width = "30%" align="right" style="padding-right: 35px;">
 
 Well, that’s a mostly a circular definition that really doesn’t help me understand what they mean by  _language_, _grammar_, or _interpreter_ or the pattern’s actual __intent__.
 
@@ -50,7 +52,7 @@ The above is a nice summary of the process but it only makes sense once you unde
 
 They added ___domain___, which I think is a critical concept for understanding Interpreter. Domain is the business environment of an industry. eBay’s domain is auctions. Amazon’s domain is bookstores, or at least it started that way. Facebook, Linkedin and Twitter/X’s domains are social networks.
 
-Domain is an ecosystem. Domain is an economy. Domain is a mathematical system. Domain is a usually closed system. A domain is a set of rules that define a bounded conceptual space specifying what can and cannot happen to domain elements within that bounded space A Domain-Specific Language (DSL) is a representation of those rules.
+Domain is an ecosystem. Domain is an economy. Domain is a mathematical system. Domain is a usually closed system. A domain is a set of rules that define a bounded conceptual space specifying what can and cannot happen to domain elements within that bounded space. A Domain-Specific Language (DSL) is a representation of those rules.
 
 DSLs are domain specific where the domain is embedded in the constructs of the language itself. A domain-based language is narrowly scoped since it’s designed to support a specific domain. A problem scenario within a domain can be expressed or modeled in a DSL based specification. Then a DSL Interpreter can compute/execute/interpret the specification to produce a result.
 
@@ -67,6 +69,8 @@ When you design your own programming language, even a DSL, you are going out on 
 
 A DSL can be useful in the right situation, but make sure you are in the right situation. Is the domain flexible? By that, do you need to support many scenarios with a domain, such as customer-specific configurations or rapidly changing behavior requests, such as regulatory policies, etc.? See: [Use Cases for Composability Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html#use-cases-for-composability-design-patterns).
 
+<img src="https://c.pxhere.com/images/32/a9/e1864c52b80e38516c9858588672-1599519.jpg!d" alt="Tax Forms" title="Image Source: https://pxhere.com/en/photo/1599519" width = "40%" align="right" style="padding-right: 35px;">
+
 This type of domain specification flexibility is not the same as config values, feature flags, or branching logic, which tends to add complexity to the implementation. This flexibility resides in DSL specifications, each of which are transformed into unique and individual [composite object trees](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html) from which the bespoke behaviors emerge. This is the separation of [Computation and Coordination](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html#computation-and-coordination).
 
 Consider tax preparation software that implements tax regulations. Regulations vary from juristiction to juristiction. Regulation specifics cannot be negotiated. Regulations change regularly. Regulation implementation must be complete. Delivery dates cannot slip since tax deadlines do not slip. A tax regulation DSL would help maneuver the regulation minefields better than a GPL. See: [Designing a DSL for accounting: use a DSL to describe taxes, pension contributions, and general financial calculations](https://tomassetti.me/financial-accounting-dsl/).
@@ -74,7 +78,7 @@ Consider tax preparation software that implements tax regulations. Regulations v
 # Domain-Specification Languages
 Here are some examples of common DSLs found in the wild as more concrete examples.
 
-Most if not all industries have domains, and some may even have DSLs for those domains. Some industries with DSLs include systems engineering, healthcare, finance, insurance, and payroll. [Source](https://tomassetti.me/domain-specific-languages/).
+Most if not all industries have domains, and some may even have DSLs for those domains. Some industries with DSLs include systems engineering, healthcare, finance, insurance, and payroll ([source](https://tomassetti.me/domain-specific-languages/)).
 
 The following are DSLs primarily in software engineering domains.
 
