@@ -1,7 +1,6 @@
 ---
 title: Interpreter Design Pattern – Domain-Specific Languages
 description: Domain-Specific Languages solve domain-specific problems.
-unlisted: true
 ---
 
 <img src="https://www.worldhistory.org/img/r/p/1500x1500/1280.jpg" alt="Fragment of Euclid's Elements" title="Image Source: https://www.worldhistory.org/image/1280/fragment-of-euclids-elements/" width = "70%" align="center" style="padding-right: 35px;">
