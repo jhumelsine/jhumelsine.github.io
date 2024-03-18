@@ -57,8 +57,7 @@ I think [Source Making Interpreter](https://sourcemaking.com/design_patterns/int
 Even with this elegant description, a few more specifics would be useful.
 
 I may modify this list below, but here’s what I’m currently considering as subsequent blog entries for Interpreter. I'll adjust and add links here when posted:
-* Domain-Specific Languages
-* A Domain-Specific Language example along the way with an arithmetic expression evaluator for rational numbers. That is, it will support fractions.
+* [Domain-Specific Languages](https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html)
 * Programming Language Grammars
 * Grammars and Object-Oriented design mappings. I think this is where most of the elegance of the pattern resides.
 * Scanners and Parsers
