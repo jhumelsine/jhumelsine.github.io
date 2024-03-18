@@ -37,7 +37,7 @@ Their motivation section continues with:
 >
 > The Interpreter pattern describes how to define a grammar for simple languages, represent sentences in the language, and interpret these sentences.
 
-Well, those are mostly a circular definitiosn that really don’t help me understand what they mean by  _language_, _grammar_, _sentences_ or _interpreter_ or the pattern’s actual __intent__ or __motification__.
+Well, those are mostly a circular definitions that really don’t help me understand what they mean by  _language_, _grammar_, _sentences_ or _interpreter_ or the pattern’s actual __intent__ or __motification__.
 
 ## Domain and Domain-Specific Languages
 Here is [SourceMaking's Interpreter](https://sourcemaking.com/design_patterns/interpreter) description:
@@ -48,7 +48,7 @@ The above is a nice summary of the process but it only makes sense once you unde
 
 They added ___domain___, which I think is a critical concept for understanding Interpreter. Domain is the business environment of an industry. eBay’s domain is auctions. Amazon’s domain is selling books, or at least it started that way. Facebook, LinkedIn and Twitter/X’s domains are social networks.
 
-Domain is an ecosystem. Domain is an economy. Domain is a mathematical system. Domain is a often closed system. A domain is a set of rules that define a bounded conceptual space specifying what can and cannot happen to the domain elements within that bounded space. A Domain-Specific Language is a representation of those rules.
+Domain is an ecosystem. Domain is an economy. Domain is a mathematical system. Domain is often closed system. A domain is a set of rules that define a bounded conceptual space specifying what can and cannot happen to the domain elements within that bounded space. A Domain-Specific Language is a representation of those rules.
 
 DSLs are domain specific where the domain is embedded in the constructs of the language itself. A domain-based language is narrowly scoped since it’s designed to support a specific domain. A problem scenario within a domain can be expressed or modeled in a DSL based specification. Then a DSL Interpreter can compute/execute/interpret the specification to produce a result.
 
