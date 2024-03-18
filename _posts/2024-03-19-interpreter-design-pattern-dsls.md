@@ -7,7 +7,7 @@ unlisted: true
 <img src="https://www.worldhistory.org/img/r/p/1500x1500/1280.jpg" alt="Fragment of Euclid's Elements" title="Image Source: https://www.worldhistory.org/image/1280/fragment-of-euclids-elements/" width = "70%" align="center" style="padding-right: 35px;">
 
 # Introduction
-This blog expands upon Domain-Specific Languages (DSLs), which I introduced in [Interpreter Design Pattern – Domain-Specific Language Primer](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html#domain-specific-language-primer).
+This blog continues the [Interpreter Design Pattern](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) series by expanding upon Domain-Specific Languages (DSLs), which I introduced in [Interpreter Design Pattern – Domain-Specific Language Primer](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html#domain-specific-language-primer).
 
 The Interpreter Design Pattern feels like it was tailor made for DSLs. Before I can show this, I need to do a deeper dive into DSLs, which will be the topic for the remainder of this blog.
 
@@ -25,29 +25,25 @@ __Here's a summary of the DSL concepts presented here:__
 
 ## What the Gang of Four said about Domain Specific Languages
 
-The GoF said nothing about __Domans__ or __Domain-Specific Languages__, but they did use other similar terms. I suspect that the GoF didn’t mention __Domain__ or __Domain-Specific Languages__, since I don’t think either was a common term at the time of their publication. I can’t find many DSL references before 1995. Eric Evans’ book, __Domain-Driven Design__, which popularized __Domain__, wasn’t published until 2003.
+The GoF never mentioned __Domans__ or __Domain-Specific Languages__ by name, but they did use other similar terms. I suspect that the GoF didn’t mention __Domain__ or __Domain-Specific Languages__, since I don’t think either was a common term at the time of their publication. I can’t find many DSL references before 1995. Eric Evans’ book, __Domain-Driven Design__, which popularized __Domain__, wasn’t published until 2003.
 
-But here's what they did say about Interpreter, even if they didn't mention __Domain__ or __Domain-Specific Languages__.
-
-The GoF define the intent of Interpreter as:
+But here's what they did say about Interpreter. The GoF define the intent of Interpreter as:
 > Given a language, define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language.
 
 <img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHgxNDAzMjA2LWltYWdlLWt3dncwNnhqLmpwZw.jpg" alt="Head Scratching" title="Image Source: https://www.rawpixel.com/image/5911853/image-public-domain-red-free" width = "30%" align="right" style="padding-right: 35px;">
-
-Well, that’s a mostly a circular definition that really doesn’t help me understand what they mean by  _language_, _grammar_, or _interpreter_ or the pattern’s actual __intent__.
 
 Their motivation section continues with:
 > If a particular kind of problem occurs often enough, then it might be worthwhile to express instances of the problem as sentences in a simple language. Then you can build an interpreter that solves the problem by interpreting these sentences.
 >
 > The Interpreter pattern describes how to define a grammar for simple languages, represent sentences in the language, and interpret these sentences.
 
-Adding _sentences_ to the motivation really didn’t help me understand the __motivation__ or the __intent__. And I would argue that they really don’t describe how to define a _grammar_ either.
+Well, those are mostly a circular definitiosn that really don’t help me understand what they mean by  _language_, _grammar_, _sentences_ or _interpreter_ or the pattern’s actual __intent__ or __motification__.
 
 ## Domain and Domain-Specific Languages
-[SourceMaking's Interpreter](https://sourcemaking.com/design_patterns/interpreter) description is a bit better, and they do mention __Domain__:
+Here is [SourceMaking's Interpreter](https://sourcemaking.com/design_patterns/interpreter) description:
 > Map a domain to a language, the language to a grammar, and the grammar to a hierarchical object-oriented design.
 
-The above is a nice summary of the process but it only makes sense once you understand the process. Then they add this:
+The above is a nice summary of the process but it only makes sense once you understand the process. They continued with:
 > The Interpreter pattern discusses defining a domain language (i.e. problem characterization) as a simple language grammar, representing domain rules as language sentences, and interpreting these sentences to solve the problem. The pattern uses a class to represent each grammar rule. And since grammars are usually hierarchical in structure, an inheritance hierarchy of rule classes maps nicely.
 
 They added ___domain___, which I think is a critical concept for understanding Interpreter. Domain is the business environment of an industry. eBay’s domain is auctions. Amazon’s domain is selling books, or at least it started that way. Facebook, LinkedIn and Twitter/X’s domains are social networks.
@@ -67,13 +63,13 @@ Though I shout the praises of DSLs from the mountain tops, do you really need on
 
 When you design your own programming language, even a DSL, you are going out on a limb. You take on all responsibility for features, maintenance, documentation, training, and support for anyone who uses your DSL. I have more on this near the end of the blog.
 
-A DSL can be useful in the right situation, but make sure you are in the right situation. Is the domain flexible? By that, do you need to support many scenarios with a domain, such as customer-specific configurations or rapidly changing behavior requests, such as regulatory policies, etc.? See: [Use Cases for Composability Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html#use-cases-for-composability-design-patterns).
+A DSL can be useful in the right situation, but make sure you are in the right situation. Do you need to support many scenarios with a domain, such as customer-specific configurations or rapidly changing behavior requests, such as regulatory policies, etc.? See: [Use Cases for Composability Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html#use-cases-for-composability-design-patterns).
 
-This type of domain flexibility is not the same as config values, feature flags, or branching logic, which tends to add complexity to the implementation. This flexibility resides in DSL specifications, each of which are transformed into unique and individual [composite object trees](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html) from which the bespoke behaviors emerge. This is the separation of [Computation and Coordination](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html#computation-and-coordination).
+This type of domain flexibility is not the same as config values, feature flags, or branching logic, which tends to add complexity to an implementation. This flexibility resides in the DSL specifications, each of which are transformed into unique and individual [composite object trees](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html) from which the bespoke behaviors emerge. This is the separation of [Computation and Coordination](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html#computation-and-coordination).
 
 <img src="https://c.pxhere.com/images/32/a9/e1864c52b80e38516c9858588672-1599519.jpg!d" alt="Tax Forms" title="Image Source: https://pxhere.com/en/photo/1599519" width = "40%" align="right" style="padding-right: 35px;">
 
-Consider tax preparation software that implements tax regulations. Regulations vary from jurisdiction to jurisdiction. Regulation specifics cannot be negotiated. Regulations change regularly. Regulation implementation must be complete. Delivery dates cannot slip since tax deadlines do not slip.
+Consider tax preparation software that implements tax regulations. Regulations vary from jurisdiction to jurisdiction. Regulation behavior specifications cannot be negotiated. Regulations change regularly. Regulation implementation must be complete. Delivery dates cannot slip since tax deadlines do not slip.
 
 A tax regulation DSL would help maneuver the regulation minefields better than a GPL. See: [Designing a DSL for accounting: use a DSL to describe taxes, pension contributions, and general financial calculations](https://tomassetti.me/financial-accounting-dsl/).
 
@@ -116,6 +112,8 @@ JSON is a DSL where its domain is the ability to represent data in hierarchical 
 
 # My Domain-Specific Language Experiences
 Even with this substantial list of DSL examples, opportunities for DSLs and Interpreter implementations are usually few and far between. Interpreter is not an [Essential Design Pattern](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html). It’s a more narrowly focused pattern that addresses more narrowly focused situations.
+
+Here are some of my personal experencies with DSLs: implemented, denied and not quite there.
 
 ## I Implemented It Once
 I have designed and implemented the Interpreter design pattern only once in my career. We couldn’t believe how well it worked. Our DSL was simple, but it was highly effective for our needs. And even then, I sort of stumbled into the DSL backwards. I will provide more details in a subsequent blog.
@@ -198,7 +196,6 @@ If you define and implement a DSL, then you’re taking on full responsibility f
 * You will have to write the documentation.
 * You will have to provide the training.
 * You will have to provide support when anyone using the DSL needs assistance.
-* Assign a rational number to a variable and retrieve it.
 * There will be no DSL IDE, DSL test framework, Google results, Stack Overflow posts, Wikipedia entries, O’Reilly publications, Generative-AI or any other external resources for your DSL users. It's all on you.
 
 When someone makes a mistake defining a DSL specification, and it will happen, they will blame your implementation first. You may end up devoting a lot of time debugging your own code before realizing that the problem resides in the DSL specification. And then you’ll have the challenge of convincing that person that their DSL specification is incorrect probably without the benefit of knowing the specification’s actual intent.
@@ -217,6 +214,7 @@ I want the Domain to feature:
 * Multiplying a set of rational numbers returning a product of those rational numbers.
 * Subtracting one rational number from another returning a rational number, which could be negative.
 * Dividing one rational number with another returning a rational.
+* Assign a rational number to a variable and retrieve it.
 * A CLI for real-time interactions.
 
 # Summary
