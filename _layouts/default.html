@@ -29,37 +29,23 @@
 
 <body>
     <a id="skip-to-content" href="#content">Skip to the content.</a>
-
-    <header class="page-header" role="banner" style="padding: 0px;">
-        {% if page.url != '/' %}
-        <div style="position: inherit; background-color: rgba(0, 0, 0, .1);">
-            <div style="max-width: 55rem; padding: 1rem 2rem; text-align: left; margin: auto;">
-                <a href="https://jhumelsine.github.io/" style="color: white; font-size: 1.5em;">
-                    Design Pattern Evangelist Blog
-                </a>
-            </div>
-        </div>
-        {% endif %}
-        <div style="padding: 2rem">
-            <h1 class="project-name">
-                {{ page.title | default: site.title | default: site.github.repository_name }}
-            </h1>
-            <h2 class="project-tagline">
-                {{ page.description | default: site.description | default: site.github.project_tagline }}
-            </h2>
-        </div>
+    
+    <header role="banner" style="margin: 0; text-align: center; padding: 2rem; background-color: #03426d; color: white;">
+        <img src="/assets/logo-wide.png" style="max-width: 100%;" />        
+        <h1 style="font-size: 225%; margin-bottom: 0;">Design Pattern Evangelist Blog</h1>
+        <div style="margin-bottom: 1rem; font-size: 175%; opacity: .5;">Smart pointers about software design</div>
     </header>
 
-    <!--
-        Header with logo on top
-        <header role="banner" style="margin: 0; text-align: center; padding: 2rem; background-color: #03426d; color: white;">
-            <img src="/assets/logo-wide.png" style="max-width: 100%;" />
-            <h1 style="font-size: 225%; margin-bottom: 0;">Design Pattern Evangelist Blog</h1>
-            <div style="margin-bottom: 1rem; font-size: 175%; opacity: .5;">Smart pointers about software design</div>
-        </header>
-    -->
-
     <main id="content" class="main-content" role="main">
+        
+        <!-- Page title -->
+        {% if page.url != '/' %}
+        <div style="padding: 2rem">
+            <h1><a href="{{ page.url }}">{{ page.title | default: site.title | default: site.github.repository_name }}</a></h1>
+            <h2>{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
+        </div>
+        {% endif %}
+        
         {{ content }}
 
         <!-- comments -->
