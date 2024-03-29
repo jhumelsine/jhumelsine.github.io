@@ -1,6 +1,6 @@
 ---
 title: Interpreter Design Pattern – Grammars
-description: Grammars define the structure rules for natural and programming languages
+description: Grammars define the structure rules for natural and programming languages.
 unlisted: true
 ---
 
@@ -35,7 +35,7 @@ All natural languages have grammar, but most of us don’t think about them too 
 
 Children learn grammar in school. When I was in elementary school, we learned common English sentence grammars such as __Noun-Verb-Noun__ as in _John likes pizza_. As we progressed, we learned more grammar rules and parts of speech, such as prepositions, prepositional phrases, subordinate clauses, infinitives, gerunds, active/passive voice, etc.
 
-We implicitly understood these grammar rules and parts of speech, mostly by ear, but in the classroom, we were learning the formal grammar.
+We implicitly understood these grammar rules and parts of speech, mostly by ear, but in the classroom, we were learning formal grammar.
 
 Sometimes we never learned formal grammar rules. For example, all native English speakers would choose _big blue marble_ rather than _blue big marble_ in a phrase. If asked why, they would probably say that the first one sounds better.
 
@@ -92,7 +92,7 @@ I mentioned the basic parts of programming language grammars in [Interpreter Des
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Delete_statement.gif?20170424062623" alt="Delete Railroad tracks" title="Image Source: https://commons.wikimedia.org/wiki/File:Delete_statement.gif" width = "40%" align="right" style="padding-right: 35px;">
 
-* [Syntax Diagram](https://en.wikipedia.org/wiki/Syntax_diagram) – Wikipedia entry. Most grammars are defined via rules, but syntax diagrams provide a more visual presentation. They’re also called _railroad diagrams_, since they tend to resemble an ariel view of railroad tracks in a railroad depot.
+* [Syntax Diagram](https://en.wikipedia.org/wiki/Syntax_diagram) – Wikipedia entry. Most grammars are defined via rules, but syntax diagrams provide a more visual presentation. They’re also called _railroad diagrams_ since they tend to resemble an ariel view of railroad tracks in a railroad depot.
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Rail_Tracks_map_JR-E_Ikebukuro_Station.svg/1200px-Rail_Tracks_map_JR-E_Ikebukuro_Station.svg.png" alt="Railroad Tracks in Japan" title="Image Source: https://commons.wikimedia.org/wiki/File:Rail_Tracks_map_JR-E_Ikebukuro_Station.svg" width = "40%" align="center" style="padding-right: 35px;">
 
@@ -158,7 +158,7 @@ I’d like to get a feel for what the Rational Number Evaluator might look like 
 *(-2, -3)         // Should evaluate to 6
 a = 3             // Should evaluate to 3
 +(a, 5)           // Should evaluate to 8
-+(3, *(2, 6), 5)  // Should evaluate 20
++(3, *(2, 6), 5)  // Should evaluate to 20
 ```
 
 I’m using prefix notation for arithmetic operations for at least two reasons:
@@ -187,7 +187,7 @@ Notice that the arithmetic operations take Expressions as operands. That will al
 These rules will be the basis of my upcoming design and implementation. As that continues, I may have to return and tweak it a bit.
 
 # Summary
-Grammars define the semantics and structure of a programming language. This applies to both General-Purpose Languages and Domain-Specific Languages. The grammars must define deterministic structure so that programs exhibit deterministic behavior
+Grammars define the semantics and structure of a programming language. This applies to both General-Purpose Languages and Domain-Specific Languages. The grammars must define deterministic structure so that programs exhibit deterministic behavior.
 
 # References
 Here are some free resources:
