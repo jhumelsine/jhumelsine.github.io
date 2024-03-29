@@ -169,7 +169,7 @@ I’m using prefix notation for arithmetic operations for at least two reasons:
 Here are what I think are the Rational Expression Evaluation DSL Grammar Rules:
 ```
 Statement ::= Assignment | Expression
-AssignmentStatement ::= Identifier = Expression
+Assignment ::= Identifier = Expression
 Expression ::= Identifier | Rational | AddOperation | SubtractOperation | MultipleOperation | DivideOperation
 Identifier ::= AlphaNumbericValue // Must start with a letter.
 Rational ::= Integer | Fraction | MixedFraction
