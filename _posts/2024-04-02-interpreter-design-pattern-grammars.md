@@ -4,6 +4,8 @@ description: Grammars define the structure rules for natural and programming lan
 unlisted: true
 ---
 
+<img src="/assets/InterpreterGrammarsSchoolHouse.jpeg" alt="School Room Grammar"  width = "70%" align="center" style="padding-right: 35px;">
+
 # Introduction
 This blog continues the [Interpreter Design Pattern](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) series by expanding upon Grammars, which I introduced in [Interpreter Design Pattern – Programming Language Grammar Primer Primer](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html#programming-language-grammar-primer).
 
