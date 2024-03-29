@@ -191,9 +191,12 @@ Grammars define the semantics and structure of a programming language. This appl
 
 # References
 Here are some free resources:
-* [Introduction to Programming Languages/Grammars](https://en.wikibooks.org/wiki/Introduction_to_Programming_Languages/Grammars) – Wikibook entry
-* [Context-Free Grammar](https://en.wikipedia.org/wiki/Context-free_grammar) – Wikipedia entry
+* [Introduction to Programming Languages/Grammars](https://en.wikibooks.org/wiki/Introduction_to_Programming_Languages/Grammars) – Wikibooks
+* [Context-Free Grammar](https://en.wikipedia.org/wiki/Context-free_grammar) – Wikipedia
 * [Context-Free Grammars](https://pages.cs.wisc.edu/~fischer/cs536.s08/course.hold/html/NOTES/3.CFG.html) – University of Wisconsin Computer Science Notes. It includes several practical examples including how to remove ambiguity arithmetic expression grammar and ensure the proper order of evaluation.
+* [Syntax Diagrams](https://en.wikipedia.org/wiki/Syntax_diagram) - Wikipedia
+* [Automata Theory](https://en.wikipedia.org/wiki/Automata_theory) - Wikipedia
+* [Pushdown Automaton](https://en.wikipedia.org/wiki/Pushdown_automaton) - Wikipedia
 * [Java Syntax Specification](https://cs.au.dk/~amoeller/RegAut/JavaBNF.html) – Aarhus University Department of Computer Science
 * [Java Syntax](https://docs.oracle.com/javase/specs/jls/se7/html/jls-18.html) – Oracle
 * [Python 3.0 Syntax](https://docs.python.org/3/reference/grammar.html) – Python.org documentation
