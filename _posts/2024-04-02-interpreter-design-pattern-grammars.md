@@ -202,3 +202,5 @@ Here are some free resources:
 * [Python 3.0 Syntax](https://docs.python.org/3/reference/grammar.html) – Python.org documentation
 * [Python 2.5 Syntax](https://inst.eecs.berkeley.edu/~cs164/sp11/python-grammar.html) – University of California – Berkley Electrical Engineering and Computer Science Department
 * [Ruby Syntax]( https://ruby-doc.org/docs/ruby-doc-bundle/Manual/man-1.4/syntax.html) – ruby-doc.org
+
+See: [Interpreter Design Pattern Introduction/References](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html#references).
