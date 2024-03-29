@@ -134,10 +134,16 @@ I’d like to get a feel for what the Rational Number Evaluator might look like 
 2 6/8           // Should evaluate to 2 3/4
 4 10/4          // Should evaluate to 6 1/2
 -1              // Should evaluate to -1
+5/7             // Should evaluate to 5/7
+7/5             // Should evaluate to 1 2/5
 +(2, 3)         // Should evaluate to 5. Note: Using prefix notation. More on this shortly.
 -(2, 3)         // Should evaluate to -1
 *(3 1/3, 5 5/7) // Should evaluate to 19 1/21
 /(3 1/3, 5 5/7) // Should evaluate to 7/12
+*(2, 3)         // Should evaluate to 6
+*(-2, 3)        // Should evaluate to -6
+*(2, -3)        // Should evaluate to -6
+*(-2, -3)       // Should evaluate to 6
 a = 3           // Should evaluate to 3
 +(a, 5)         // Should evaluate to 8
 ```
@@ -151,14 +157,16 @@ Here are what I think are the Rational Expression Evaluation DSL Grammar Rules:
 ```
 Statement ::= Assignment | Expression
 AssignmentStatement ::= Identifier = Expression
-Expression ::= Identifier | Constant | AddOperation | SubtractOperation | MultipleOperation | DivideOperation
+Expression ::= Identifier | Rational | AddOperation | SubtractOperation | MultipleOperation | DivideOperation
 Identifier ::= AlphaNumbericValue // Must start with a letter.
-Constant ::= Integer [Integer / Integer] // Whitespace between two first Integers is mandatory. Whitespace on either side of slash is optional.
+Rational ::= Integer | Fraction | MixedFraction
+Fraction ::=  Integer / Integer // Whitespace on either side of slash is optional.
+MixedFraction ::= Integer Integer / Integer // Whitespace between two first Integers is mandatory. Whitespace on either side of slash is optional.
 AddOperation ::= + ( ExpressionList ) // Whitespace is optional.
 SubtractOperation ::= - ( Expression, Expression) // Whitespace is optional.
 MultiplyOperation ::= * ( ExpressionList ) // Whitespace is optional.
 DivideOperation ::= / ( Expression, Expression ) // Whitespace is optional.
-ExpressionList ::= Expression [, Expression] // Whitespace is optional.
+ExpressionList ::= Expression [, Expression]* // Whitespace is optional. Star is any number of repeating Comma/Expression extensions.
 ```
 
 Notice that the arithmetic operations take Expressions as operands. That will allow us to nest expressions as such:
