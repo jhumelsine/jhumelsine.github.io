@@ -187,9 +187,15 @@ Notice that the arithmetic operations take Expressions as operands. That will al
 These rules will be the basis of my upcoming design and implementation. As that continues, I may have to return and tweak it a bit.
 
 # Summary
+Grammars define the semantics and structure of a programming language. This applies to both General-Purpose Languages and Domain-Specific Languages. The grammars must define deterministic structure so that programs exhibit deterministic behavior
 
 # References
-There are many online resources with diagrams and implementations in different programming languages. Here are some free resources:
-* TBD
-Here are some resources that can be purchased or are included in a subscription service:
-* TBD
+Here are some free resources:
+* [Introduction to Programming Languages/Grammars](https://en.wikibooks.org/wiki/Introduction_to_Programming_Languages/Grammars) – Wikibook entry
+* [Context-Free Grammar](https://en.wikipedia.org/wiki/Context-free_grammar) – Wikipedia entry
+* [Context-Free Grammars](https://pages.cs.wisc.edu/~fischer/cs536.s08/course.hold/html/NOTES/3.CFG.html) – University of Wisconsin Computer Science Notes. It includes several practical examples including how to remove ambiguity arithmetic expression grammar and ensure the proper order of evaluation.
+* [Java Syntax Specification](https://cs.au.dk/~amoeller/RegAut/JavaBNF.html) – Aarhus University Department of Computer Science
+* [Java Syntax](https://docs.oracle.com/javase/specs/jls/se7/html/jls-18.html) – Oracle
+* [Python 3.0 Syntax](https://docs.python.org/3/reference/grammar.html) – Python.org documentation
+* [Python 2.5 Syntax](https://inst.eecs.berkeley.edu/~cs164/sp11/python-grammar.html) – University of California – Berkley Electrical Engineering and Computer Science Department
+* [Ruby Syntax]( https://ruby-doc.org/docs/ruby-doc-bundle/Manual/man-1.4/syntax.html) – ruby-doc.org
