@@ -70,7 +70,7 @@ The following sections will show how the Rational Expression Evaluation Grammar 
 ## Grammar 
 I introduced the [Rational Expression Evaluation Grammar Rules](https://jhumelsine.github.io/2024/04/02/interpreter-design-pattern-grammars.html#rational-expression-evaluation-dsl-grammar-rules) in the previous blog.
 
-Here’s a copy with OR/AND and IS-A/HAS-A Relationship comments:
+Here’s a copy with __OR/AND__ and __IS-A/HAS-A__ Relationship comments:
 ```
 Statement ::= Assignment | Expression // OR Rule/IS-A Relationship
 Assignment ::= Identifier = Expression // AND Rule/HAS-A Relationship
@@ -96,7 +96,7 @@ The following is a literal application of the mapping based upon the grammar rul
  
 I started with the first rule, __Statement__, and I mapped the remaining grammar definitions into interfaces and classes one by one. It took only a few minutes, and most of that time involved organizing the graphic elements for presentation.
 
-Recall that the implements triangle represents the IS-A relationship. The contains diamond represent the HAS-A relationship.
+Recall that the implements triangle represents the __IS-A__ relationship. The contains diamond represent the __HAS-A__ relationship.
 
 ### Second Design
 While this is the start of the design, it might not be the end of the design. There can be multiple grammars for the same DSL, and some may lead to a better design than others.
@@ -151,7 +151,7 @@ I’ve been presenting Interpreter as a process of __Domain => Domain-Specific L
 
 And the process is not necessarily be a one-way street. You might have a design first, and then you may want to see if it maps back to a grammar, even if you never intend to create a DSL. If a design doesn’t map to a grammar cleanly, then maybe the design might need some additional refinement.
 
-The design-to-grammar exercise could be an additional means to confirm or clarify a design. Even if you don’t want to use grammar notation, transforming the design into sentences with IS-A and HAS-A phrasing will help indicate if it still makes sense.
+The design-to-grammar exercise could be an additional means to confirm or clarify a design. Even if you don’t want to use grammar notation, transforming the design into sentences with __IS-A__ and __HAS-A__ phrasing will help indicate if it still makes sense.
 
 # Summary
 Grammar elements map to design elements resulting in a modular and well-structured design. I feel this is the most elegant aspect of the Interpreter Design Pattern, and the GoF didn’t give it enough attention.
