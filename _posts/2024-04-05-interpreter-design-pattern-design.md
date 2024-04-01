@@ -167,10 +167,7 @@ I feel the Interpreter Design Pattern is the apex of the [Design Pattern Princip
 The next blog will feature the design’s implementation.
 
 # References
-There are many online resources with diagrams and implementations in different programming languages. Here are some free resources:
-* TBD
-
 Here are some resources that can be purchased or are included in a subscription service:
-* TBD
+* Gang of Four Composite Design Pattern, page 243 ([O'Reilly](https://learning.oreilly.com/library/view/design-patterns-elements/0201633612/ch05.html#page_243) and [Amazon](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612))
 
 See: [Interpreter Design Pattern Introduction/References](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html#references).
