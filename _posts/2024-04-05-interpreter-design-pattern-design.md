@@ -3,7 +3,9 @@ title: Interpreter Design Pattern – Grammar to Design
 description: The Interpreter Design emerges from the Grammar.
 unlisted: true
 ---
- 
+
+<img src="/assets/InterpreterGrammarToDesign.jpeg" alt="Steampunk Interpreter Grammar to Design"  width = "40%" align="center" style="padding-right: 35px;">
+
 # Introduction
 This blog continues the [Interpreter Design Pattern](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) series by expanding upon how the Interpreter Design emerges from the Grammar, which I introduced in [Interpreter Design Pattern – Grammar to Design]( https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html#grammar-to-design).
 
@@ -18,6 +20,8 @@ I’ve written about the _kind of problem_ and _simple language_ as [Domain-Spec
 The GoF’s Interpreter Class Design is the following:
 https://commons.wikimedia.org/wiki/File:Diagram_UML_klasy_Interpreter.svg
 https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Diagram_UML_klasy_Interpreter.svg/1280px-Diagram_UML_klasy_Interpreter.svg.png
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Diagram_UML_klasy_Interpreter.svg/1280px-Diagram_UML_klasy_Interpreter.svg.png" alt="Gang of Four Interpreter Class Diagram Template" title="Image Source: https://commons.wikimedia.org/wiki/File:Diagram_UML_klasy_Interpreter.svg" width = "50%" align="right" style="padding-right: 35px;">
  
 Their design is more of a template for Interpreter rather than a complete design. Compare this design to the [Composite Design Pattern](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html), and you’ll notice that it is structurally identical, but with the addition of __Context__. __Context__ allows us to inject additional information. In the [Specification Smart Playlist Use Case](https://jhumelsine.github.io/2024/03/07/specification-design-pattern-use-case.html), the _Track_ was the injected __Context__. Different tracks with different attribute values would result in different specification matching results.
 
@@ -38,7 +42,10 @@ They provide some description with the following:
 >  The symbol __expression__ is the start symbol, and __literal__ is a terminal symbol defining simple words.
 
 > The Interpreter pattern uses a class to represent each grammar rule. Symbols on the right-hand side of the rule are instance variables of these classes. The grammar above is represented by five classes: an abstract class RegularExpression and its four subclasses LiteralExpression, AlternationExpression, SequenceExpression, and RepetitionExpression. The last three classes define variables that hold subexpressions.
-Then they added this diagram (provide my own):
+
+Then they added this diagram:
+
+<img src="/assets/InterpreterDesignPatternGoF.png" alt="Gang of Four Regular Expression Design"  width = "70%" align="center" style="padding-right: 35px;">
  
 Their class names don’t match the grammar terminology. They dropped the _’(‘ expression ‘)’_ grammar rule as well.
 
@@ -87,6 +94,8 @@ The grammar rules will generate the first design. I have provided several design
 
 ### First Design
 The following is a literal application of the mapping based upon the grammar rules above:
+
+<img src="/assets/InterpreterDesignPatternDesign1.png" alt="Rational Expression Evaluation Design 1"  width = "80%" align="center" style="padding-right: 35px;">
  
 I started with the first rule, __Statement__, and I mapped the remaining grammar definitions into interfaces and classes one by one. It took only a few minutes, and most of that time involved organizing the graphic elements for presentation.
 
@@ -105,6 +114,8 @@ I haven’t started any implementation yet, but I’ve been thinking about how I
 I don’t know if I necessarily need a class for each. I think I can implement Rational as its own class that supports these concepts without requiring these additional classes.
 
 This refactoring transforms __Rational__ from an interface to a class, and the derived classes disappear. The design is a bit smaller. I know that this refactoring update won’t affect the rest of the design, since nothing else in the design depends upon __Rational__ or its previous __Integer__/__Fraction__/__MixedFraction__ classes.
+
+<img src="/assets/InterpreterDesignPatternDesign2.png" alt="Rational Expression Evaluation Design 2"  width = "80%" align="center" style="padding-right: 35px;">
  
 I’m planning for the parser to identify the tokens for all three forms of a __Rational__ and pass a String of those forms as a constructor argument to the __Rational__ class. The constructor will do additional specialized parsing on the three forms and construct the __Rational__ instance accordingly.
 
@@ -112,6 +123,8 @@ I’m planning for the parser to identify the tokens for all three forms of a __
 I’m not 100% pleased with the Add, Subtract, Multiple and Divide Op classes that popped out of the grammar based design. I’ve implemented designs like this before, and I know there are going to be redundancies in the implementations as designed above.
 
 This refactoring adds two new classes __MultiOperandOp__ and __BinaryOp__. They are abstract classes for operations with multiple operands and two operands respectively. The specific Operation (Op) classes will implement them:
+
+<img src="/assets/InterpreterDesignPatternDesign3.png" alt="Rational Expression Evaluation Design 3"  width = "80%" align="center" style="padding-right: 35px;">
  
 I may be jumping the gun on this refactoring. We generally want at least three repetitions before refactoring like this. But [The Rule of Three](https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)) is more of a guideline than a rule that must be obeyed. I anticipate that most of the implementation will reside in the abstract base classes with minimum implementation in the concrete classes. I also anticipate the concrete class implementations for each of these abstract classes will be based upon the [Template Method Design Pattern](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html).
 
