@@ -18,9 +18,6 @@ Let’s return the Gang of Four’s (GoF) words about Interpreter. Hopefully thi
 I’ve written about the _kind of problem_ and _simple language_ as [Domain-Specific Languages]( https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html) (DSL). My previous blog, [Interpreter Design Pattern – Grammars](https://jhumelsine.github.io/2024/04/02/interpreter-design-pattern-grammars.html), focused upon defining a grammar for a DSL. This blog will focus upon creating a class design that supports the grammar.
 
 The GoF’s Interpreter Class Design is the following:
-https://commons.wikimedia.org/wiki/File:Diagram_UML_klasy_Interpreter.svg
-https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Diagram_UML_klasy_Interpreter.svg/1280px-Diagram_UML_klasy_Interpreter.svg.png
-
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Diagram_UML_klasy_Interpreter.svg/1280px-Diagram_UML_klasy_Interpreter.svg.png" alt="Gang of Four Interpreter Class Diagram Template" title="Image Source: https://commons.wikimedia.org/wiki/File:Diagram_UML_klasy_Interpreter.svg" width = "50%" align="right" style="padding-right: 35px;">
  
 Their design is more of a template for Interpreter rather than a complete design. Compare this design to the [Composite Design Pattern](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html), and you’ll notice that it is structurally identical, but with the addition of __Context__. __Context__ allows us to inject additional information. In the [Specification Smart Playlist Use Case](https://jhumelsine.github.io/2024/03/07/specification-design-pattern-use-case.html), the _Track_ was the injected __Context__. Different tracks with different attribute values would result in different specification matching results.
