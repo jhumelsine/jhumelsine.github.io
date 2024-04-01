@@ -49,7 +49,7 @@ Their class names don’t match the grammar terminology. They dropped the _’(�
 # What the Gang of Four Skimmed Over
 The GoF’s description of grammar mapping to design in their example is correct, but it is sparse. Here is my interpretation of the mapping from grammar to design:
 * Each grammar rule will tend to be an interface or a class.
-* Grammar rules based upon an __OR__ (__|__) definition will be interfaces and the __OR__ed elements listed in that rule will implement it. This is an IS-A relationship.
+* Grammar rules based upon an __OR__ (|) definition will be interfaces and the __OR__ed elements listed in that rule will implement it. This is an IS-A relationship.
 * Grammar rules based upon an __AND__ definition will be classes. They will contain the elements listed in that rule. This is a HAS-A relationship.
 * Explicit token elements, such as ‘(‘ or ‘)’ or keywords are used for parsing, but they won’t be in the design. The token elements are road signs that help the parser identify where rules start and end and verify that parsing is on track.
 
