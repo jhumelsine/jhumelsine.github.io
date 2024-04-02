@@ -1,7 +1,6 @@
 ---
 title: Interpreter Design Pattern – Grammars
 description: Grammars define the structure rules for natural and programming languages.
-unlisted: true
 ---
 
 <img src="/assets/InterpreterGrammarsSchoolHouse.jpeg" alt="School Room Grammar"  width = "40%" align="center" style="padding-right: 35px;">
@@ -26,16 +25,16 @@ __Here's a summary of the DSL concepts presented here:__
 * __All programs can trace their structure to the grammars that define the language.__
 
 # Natural Language Grammars
-People have been communicating with each other via natural language long before we did so with programming languages. Natural languages and programming languages have a lot in common, but they have a lot of differences as well. Except for constructed languages, such as [Esperanto](https://en.wikipedia.org/wiki/Esperanto), natural languages emerge from cultural and social interaction adding warts and all. Natural languages require context, contain ambiguity, and are littered with irregular forms, such as the conjugation of the verb: _to be_.
+People have been communicating with each other via natural language long before we did so with programming languages. Natural languages and programming languages have a lot in common, but they have a lot of differences as well. Except for constructed languages, such as [Esperanto](https://en.wikipedia.org/wiki/Esperanto), spoken languages emerge from cultural and social interaction adding warts and all. Natural languages require context, contain ambiguity, and are littered with irregular forms, such as the conjugation of the verb: _to be_.
 
 Here are some aspects of natural languages, for comparison, which for the most part don’t exist in programming languages.
 
 ## Implicit/Internalized Grammars
-All natural languages have grammar, but most of us don’t think about them too much. Most children are near experts of the first languages they learn by around age three or four, but none of these toddlers would be able to describe its grammar rules. They choose their words based upon whether they sound right or wrong, which is based upon countless hours of hearing the language from their parents, other family members, friends, etc. They have been in training mode for a very long time.
+All natural languages have grammar, but most of us don’t think about them too much. Most children are near experts of the first language they learn by around age three or four, but none of these toddlers would be able to describe its grammar rules. They choose their words based upon whether they sound right or wrong, which is based upon countless hours of hearing the language from their parents, other family members, friends, etc. They have been in training mode for a very long time.
 
 Children learn grammar in school. When I was in elementary school, we learned common English sentence grammars such as __Noun-Verb-Noun__ as in _John likes pizza_. As we progressed, we learned more grammar rules and parts of speech, such as prepositions, prepositional phrases, subordinate clauses, infinitives, gerunds, active/passive voice, etc.
 
-We implicitly understood these grammar rules and parts of speech, mostly by ear, but in the classroom, we were learning formal grammar.
+We implicitly understood these grammar rules and parts of speech, mostly by ear, but in the classroom we were learning formal grammar.
 
 Sometimes we never learned formal grammar rules. For example, all native English speakers would choose _big blue marble_ rather than _blue big marble_ in a phrase. If asked why, they would probably say that the first one sounds better.
 
@@ -77,11 +76,11 @@ These two sentences have identical structure, but they require different parsing
 The first sentence frames our mind for the verb/simile parsing, and when we get to the second sentence, we don’t realize that’s it’s really the noun/verb parsing until we hit the last word. The verb/simile parsing no longer makes sense, and we need to reparse it mentally.
 
 # Programming Language Grammars
-Natural languages came first, and then their grammar rules came later. It’s like physicists observing natural phenomena and then creating models that formalize their observations. The constant evolution of natural language is what leads to ambiguity, irregular forms, backtracking, etc.
+Spoken languages came first, and then their grammar rules came later. It’s like physicists observing natural phenomena and then creating models that formalize their observations. The constant evolution of natural language is what leads to ambiguity, irregular forms, backtracking, etc.
 
 Programming languages must be deterministic. They can’t contain ambiguity, irregular forms, backtracking, etc. The behavior of every program must be clear and obvious. It would be disastrous if the same program exhibited different behaviors each time it’s executed. I know there are exceptions, such as random algorithms, concurrency issues and such. I’m more interested in language features that are intended to be deterministic.
 
-Programming language grammars are defined using [context-free grammars](https://en.wikipedia.org/wiki/Context-free_grammar). Context-free grammars originate from [automata theory](https://en.wikipedia.org/wiki/Automata_theory) with the mathematical rigor that comes with the theory. [Pushdown automata](https://en.wikipedia.org/wiki/Pushdown_automaton) are the types of theoretical machines that accept context-free grammars.
+Programming language grammars are defined using [context-free grammars](https://en.wikipedia.org/wiki/Context-free_grammar). Context-free grammars originate from [automata theory](https://en.wikipedia.org/wiki/Automata_theory) with the mathematical rigor that comes with the theory. [Pushdown automata](https://en.wikipedia.org/wiki/Pushdown_automaton) are the types of theoretical machines that accept (operate upon) context-free grammars.
 
 Automata theory is indifferent to programming languages. But it turns out that program language designers can leverage that theory in practice. The theory provides a rigorous foundation upon which program languages can be constructed. For example, programming languages are defined using context-free grammars and parsers are implemented as pushdown automata. They are two sides of the same coin. This is why parsers can be autogenerated from grammars.
 
@@ -122,14 +121,14 @@ I suspect that most developers know just enough grammar of a programming languag
 
 Most if not all programming languages have the concept of an __if__ statement with an optional __else__ clause. Most developers learned this concept in their earliest programming experience. If like me, they saw a few examples, internalized it, and then could apply it almost universally. And if we made a syntax or structural mistake, then the compiler or IDE would correct us almost immediately.
 
-I doubt that anyone thinks of the __if__ and __else__ Java grammar rules from [Aarhus University Department of Computer Science](https://cs.au.dk/~amoeller/RegAut/JavaBNF.html), as:
+I doubt that anyone thinks of the __if__ and __else__ Java grammar rules listed in [Aarhus University Department of Computer Science](https://cs.au.dk/~amoeller/RegAut/JavaBNF.html), as:
 ```
 <if then statement>::= if ( <expression> ) <statement>
 <if then else statement>::= if ( <expression> ) <statement no short if> else <statement>
 <if then else statement no short if> ::= if ( <expression> ) <statement no short if> else <statement no short if>
 ```
 
-If anything, we tend to think of the __if__ and __else__ Java grammar rules more like this version from [Oracle](https://docs.oracle.com/javase/specs/jls/se7/html/jls-18.html):
+If anything, we tend to think of the __if__ and __else__ Java grammar rules more like this version listed in [Oracle](https://docs.oracle.com/javase/specs/jls/se7/html/jls-18.html), as:
 ```
 Statement ::= if ParExpression Statement [else Statement] // Snippet of one Statement of the set.
 ParExpression: ( Expression )
@@ -162,11 +161,11 @@ a = 3             // Should evaluate to 3
 ```
 
 I’m using prefix notation for arithmetic operations for at least two reasons:
-* It’s easier to parse, which I’ll get to in a future blog. Arithmetic operations are infix only because that’s been the tradition for arithmetic symbols for centuries. For an example of how to define a grammar for infix operations see: [University of Wisconsin CS 536 Notes](https://pages.cs.wisc.edu/~fischer/cs536.s08/course.hold/html/NOTES/3.CFG.html).
+* It’s easier to parse, which I’ll get to in a future blog. Arithmetic operations are infix only because that’s been the tradition for arithmetic notation for centuries. For an example of how to define a grammar for infix operations see: [University of Wisconsin CS 536 Notes](https://pages.cs.wisc.edu/~fischer/cs536.s08/course.hold/html/NOTES/3.CFG.html).
 * It’s different than most languages, so it shows a different way to do something.
 
 ## Rational Expression Evaluation DSL Grammar Rules
-Here are what I think are the Rational Expression Evaluation DSL Grammar Rules:
+Here are the Rational Expression Evaluation DSL Grammar Rules:
 ```
 Statement ::= Assignment | Expression
 Assignment ::= Identifier = Expression
@@ -182,7 +181,7 @@ DivideOperation ::= / ( Expression, Expression ) // Whitespace is optional.
 ExpressionList ::= Expression [, Expression]* // Whitespace is optional. Star is any number of repeating Comma/Expression extensions.
 ```
 
-Notice that the arithmetic operations take Expressions as operands. That will allow us to nest expressions.
+Notice that the arithmetic operations define Expressions as operands. That will allow us to nest expressions.
 
 These rules will be the basis of my upcoming design and implementation. As that continues, I may have to return and tweak it a bit.
 
