@@ -41,7 +41,7 @@ They provide some description with the following:
 
 > The Interpreter pattern uses a class to represent each grammar rule. Symbols on the right-hand side of the rule are instance variables of these classes. The grammar above is represented by five classes: an abstract class RegularExpression and its four subclasses LiteralExpression, AlternationExpression, SequenceExpression, and RepetitionExpression. The last three classes define variables that hold subexpressions.
 
-Then they added this diagram, which is actually my updated version:
+Then they added this diagram, which is UML version of their OMT version. If interested, their version can be seen [here](https://tizianomanni.altervista.org/sites/default/files/Project/Ing_sw/Metasito/Pattern/Interpreter.html):
 
 <img src="/assets/InterpreterDesignPatternGoF.png" alt="Gang of Four Regular Expression Design"  width = "70%" align="center" style="padding-right: 35px;">
  
@@ -50,7 +50,7 @@ Their class names don’t match the grammar terminology. They dropped the _’(�
 # What the Gang of Four Skimmed Over
 The GoF’s description of grammar mapping to design in their example is correct, but it is sparse. Here is my interpretation of the mapping from grammar to design:
 * Each grammar rule will tend to be an interface or a class.
-* Grammar rules based upon an __OR__, i.e., __|__, definition will be interfaces and the __OR__ed elements listed in that rule will implement it. This is an __IS-A__ relationship.
+* Grammar rules based upon an __OR__, i.e., `|`, definition will be interfaces and the __OR__ed elements listed in that rule will implement it. This is an __IS-A__ relationship.
 * Grammar rules based upon an __AND__ definition will be classes. They will contain the elements listed in that rule. This is a __HAS-A__ relationship.
 * Explicit token elements, such as ‘(‘ or ‘)’ or _keywords_, are used for parsing, but they won’t be in the design. The token elements are road signs that help the parser identify where rules start and end and verify that parsing is on track.
 
@@ -101,7 +101,7 @@ Recall that the implements triangle represents the __IS-A__ relationship. The co
 
 Technically there is a circular reference in the diagram. It's quite subtle, and it didn't occur to me until I was thinking about the design in the car while running a few errands several days after having drawn it up. There's a relationship without a relationship line or arrow. `Statement` returns a `Rational`. `Statement` has knowledge of and sort of depends upon `Rational` only in the sense that it returns it. It does not process it. However, each concrete class will have knowledge of it, but that's okay, since each concrete class derives from `Statement`. If I were to remove `Rational` from `Statement`, then the concrete class knowledge would disappear as well.
 
-I'm going to keep this in the design. It's declaration dependency, not functional dependency. __Rational__ is a core domain concept. One would expect it to be a bit more prominant. Is __Rational__ a public concept that requires a private implementation, or is it a private concept that's been leaked in the abstraction? I'm not sure. It may not matter. The entire design is in support of the evaluator DSL, so none of these classes will be accessible outside of the DSL framework. I'm also not sure if these are legitmate reasons or whether I'm just `Rational`izing my design decision.
+I'm going to keep this in the design. It's declaration dependency, not functional dependency. __Rational__ is a core domain concept. One would expect it to be a bit more prominant. Is __Rational__ a public concept that requires a private implementation, or is it a private concept that's been leaked in the abstraction? I'm not sure. It may not matter. The entire design is in support of the evaluator DSL, so none of these classes will be accessible outside of the DSL framework. I'm also not sure if these are legitmate reasons or whether I'm just __Rational__izing my design decision.
 
 ### Second Design
 While this is the start of the design, it might not be the end of the design. There can be multiple grammars for the same DSL, and some may lead to a better design than others.
@@ -128,7 +128,7 @@ This refactoring adds two new classes `MultiOperandOp` and `BinaryOp`. They are 
 
 <img src="/assets/InterpreterDesignPatternDesign3.png" alt="Rational Expression Evaluation Design 3"  width = "80%" align="center" style="padding-right: 35px;">
  
-I may be jumping the gun on this refactoring. We generally want at least three repetitions before refactoring like this. But [The Rule of Three](https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)) is more of a guideline than a rule that must be obeyed. I anticipate that most of the implementation will reside in the abstract base classes with minimum implementation in the concrete classes. I also anticipate the concrete class implementations for each of these abstract classes will be based upon the [Template Method Design Pattern](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html).
+I may be jumping the gun on this refactoring. We generally want at least three repetitions before refactoring like this, but [The Rule of Three](https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)) is more of a guideline than a rule that must be obeyed. I anticipate that most of the implementation will reside in the abstract base classes with minimum implementation in the concrete classes. I also anticipate the concrete class implementations for each of these abstract classes will be based upon the [Template Method Design Pattern](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html).
 
 I’m also adding this refactoring to show refactoring can add design elements that are not in the grammar. `MultiOperandsOp` and `BinaryOp` are not in the grammar, but they are design elements derived from the grammar.
 
@@ -142,9 +142,9 @@ This fourth design idea won’t need a new diagram. It focuses upon the `Identif
 
 The `Identifier` class will have a String identifier value that will return the `Rational` stored in the `Context` that contains that value.
 
-The `Assignment` class gets more interesting. While the grammar shows that it __HAS-A__n `Identifier`, I don’t think `Assignment` will contain an `Identifier` attribute in the implementation. I think the `Assignment` class will have a String identifier value that it will use as a key to store the `Rational` that’s evaluated from its `Expression`.
+The `Assignment` class gets more interesting. While the grammar shows that it __HAS-An__ `Identifier`, I don’t think `Assignment` will contain an `Identifier` attribute in the implementation. I think the `Assignment` class will have a String identifier value that it will use as a key to store the `Rational` that’s evaluated from its `Expression`.
 
-These implementation considerations are only in my head. I haven’t spelled them all out here; therefore, my design refactoring intent may not be too clear. This should make more sense when I present the implementation of the classes in the design in the next blog.
+These implementation considerations are only in my head. I haven’t spelled them out in detail here; therefore, my design refactoring intent may not be too clear. My intent should make more sense when I present the implementation of the classes in the design in the next blog.
 
 ### Redesign Conclusion
 Design refactoring is perfect time to do a lot of thinking and coming up with alternative ideas. Any change is simply a modification to a drawing tool. There’s almost zero sunk cost at this point.
@@ -152,7 +152,7 @@ Design refactoring is perfect time to do a lot of thinking and coming up with al
 If I find that my implementation ideas don’t work out, I can easily revert to a previous design or modify the existing one. I may find that some of these design ideas are wrong and require modification. That still should not be a major issue since the design is modular and modifications in one area won’t tend to have much of a ripple effect upon the others.
 
 # Design to Grammar
-<img src="https://cdn2.picryl.com/photo/1939/06/24/runners-in-a-relay-race-brisbane-1939-4d7dce-640.jpg" alt="Runners Passing the Baton" title="Image Source: https://garystockbridge617.getarchive.net/amp/media/runners-in-a-relay-race-brisbane-1939-4d7dce" width = "50%" align="right" style="padding-right: 35px;">
+<img src="https://cdn2.picryl.com/photo/1939/06/24/runners-in-a-relay-race-brisbane-1939-4d7dce-640.jpg" alt="Runners Passing the Baton" title="Image Source: https://garystockbridge617.getarchive.net/amp/media/runners-in-a-relay-race-brisbane-1939-4d7dce" width = "30%" align="right" style="padding-right: 35px;">
 
 I’ve been presenting Interpreter as a process of __Domain => Domain-Specific Language => Grammar => Design => Implementation__. In practice, the process may not be discrete steps with handoffs like runners passing the baton. The journey from Domain to Implementation may progress in bits, possibly with all stages having active work at the same time.
 
@@ -168,6 +168,7 @@ Additional refactoring may be applied to the grammar-generated design, which it 
 I feel the Interpreter Design Pattern is the apex of the [Design Pattern Principles](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html):
 * Program to an interface, not an implementation
 * Favor object composition over class inheritance
+
 The next blog will feature the design’s implementation.
 
 # References
