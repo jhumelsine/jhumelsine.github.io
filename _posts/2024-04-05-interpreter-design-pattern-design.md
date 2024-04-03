@@ -20,9 +20,9 @@ I’ve written about the _kind of problem_ and _simple language_ as [Domain-Spec
 The GoF’s Interpreter Class Design is the following:
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Diagram_UML_klasy_Interpreter.svg/1280px-Diagram_UML_klasy_Interpreter.svg.png" alt="Gang of Four Interpreter Class Diagram Template" title="Image Source: https://commons.wikimedia.org/wiki/File:Diagram_UML_klasy_Interpreter.svg" width = "50%" align="right" style="padding-right: 35px;">
  
-Their design is more of a template for Interpreter rather than a complete design. Compare this design to the [Composite Design Pattern](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html), and you’ll notice that it is structurally identical, but with the addition of __Context__. __Context__ allows us to inject additional information. In the [Specification Smart Playlist Use Case](https://jhumelsine.github.io/2024/03/07/specification-design-pattern-use-case.html), the _Track_ was the injected __Context__. Different tracks with different attribute values would result in different specification matching results.
+Their design is more of a template for Interpreter rather than a complete design. Compare this design to the [Composite Design Pattern](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html), and you’ll notice that it is structurally identical, but with the addition of `Context`. `Context` allows us to inject additional information. In the [Specification Smart Playlist Use Case](https://jhumelsine.github.io/2024/03/07/specification-design-pattern-use-case.html), the _Track_ was the injected `Context`. Different tracks with different attribute values would result in different specification matching results.
 
-The GoF’s AbstractExpression, __TerminalExpression__ and __NonterminalExpression__ elements in the diagram suggests only one type of each. In practice, there will be many interfaces and classes of each type. There will be more domain specific relationships among these elements.
+The GoF’s `AbstractExpression`, `TerminalExpression` and `NonterminalExpression` elements in the diagram suggests only one type of each. In practice, there will be many interfaces and classes of each type. There will be more domain specific relationships among these elements.
 
 The GoF’s diagram is missing much of the richness and elegance of the pattern. They hinted at the richness and elegance in their Regular Expression Interpreter example, but they didn’t follow through.
 
@@ -98,46 +98,50 @@ I started with the first rule, __Statement__, and I mapped the remaining grammar
 
 Recall that the implements triangle represents the __IS-A__ relationship. The contains diamond represent the __HAS-A__ relationship.
 
+Technically there is a circular reference in the diagram. It's quite subtle, and it didn't occur to me until I was thinking about in the car running a few errands several days after having drawn it up. There's a relationship without an arrow that's not indicated. `Statement` returns a `Rational`. `Statement` has knowledge of and sort of depends upon `Rational` only in the sense that it returns it. It does not process it. However, each concrete class will have knowledge of it, but that's okay, since each concrete class derives from `Statement`. If I were to remove `Rational` from `Statement`, then the concrete class knowledge would disappear as well.
+
+I'm going to keep this in the design. It's declaration dependency, not functional dependency. __Rational__ is a core domain concept. One would expect it to be a bit more prominant. Is __Rational__ a public concept that requires a private implementation, or is it a private concept that's been leaked in the abstraction? I'm not sure. It may not matter. The entire design is in support of the evaluator DSL, so none of these classes will be accessible outside of the DSL framework. I'm also not sure if these are legitmate reasons or whether I'm just `Rational`izing my design decision.
+
 ### Second Design
 While this is the start of the design, it might not be the end of the design. There can be multiple grammars for the same DSL, and some may lead to a better design than others.
 
 This is your DSL. Modify the grammar or the design as needed. You may be able to make enhancements to the grammar or design that you might have the freedom to do with a General-Purpose Language.
 
-I haven’t started any implementation yet, but I’ve been thinking about how I might implement some of these classes. While the __Rational__ grammar rule made it easy to document the three forms of a rational number:
+I haven’t started any implementation yet, but I’ve been thinking about how I might implement some of these classes. While the `Rational` grammar rule made it easy to document the three forms of a rational number:
 * Integer as: _Integer_
 * Fraction as: _Integer / Integer_
 * Mixed Fraction as: _Integer Integer / Integer_
 
 I don’t know if I necessarily need a class for each. I think I can implement Rational as its own class that supports these concepts without requiring these additional classes.
 
-This refactoring transforms __Rational__ from an interface to a class, and the derived classes disappear. The design is a bit smaller. I know that this refactoring update won’t affect the rest of the design, since nothing else in the design depends upon __Rational__ or its previous __Integer__/__Fraction__/__MixedFraction__ classes.
+This refactoring transforms `Rational` from an interface to a class, and the derived classes disappear. The design is a bit smaller. I know that this refactoring update won’t affect the rest of the design, since nothing else in the design depends upon `Rational` or its previous `Integer`/`Fraction`/`MixedFraction` classes.
 
 <img src="/assets/InterpreterDesignPatternDesign2.png" alt="Rational Expression Evaluation Design 2"  width = "80%" align="center" style="padding-right: 35px;">
  
-I’m planning for the parser to identify the tokens for all three forms of a __Rational__ and pass a String of those forms as a constructor argument to the __Rational__ class. The constructor will do additional specialized parsing on the three forms and construct the __Rational__ instance accordingly.
+I’m planning for the parser to identify the tokens for all three forms of a `Rational` and pass a String of those forms as a constructor argument to the `Rational` class. The constructor will do additional specialized parsing on the three forms and construct the `Rational` instance accordingly.
 
 ### Third Design
 I’m not 100% pleased with the Add, Subtract, Multiple and Divide Op classes that popped out of the grammar based design. I’ve implemented designs like this before, and I know there are going to be redundancies in the implementations as designed above.
 
-This refactoring adds two new classes __MultiOperandOp__ and __BinaryOp__. They are abstract classes for operations with multiple operands and two operands respectively. The specific Operation (Op) classes will implement them:
+This refactoring adds two new classes `MultiOperandOp` and `BinaryOp`. They are abstract classes for operations with multiple operands and two operands respectively. The specific Operation (Op) classes will implement them:
 
 <img src="/assets/InterpreterDesignPatternDesign3.png" alt="Rational Expression Evaluation Design 3"  width = "80%" align="center" style="padding-right: 35px;">
  
 I may be jumping the gun on this refactoring. We generally want at least three repetitions before refactoring like this. But [The Rule of Three](https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)) is more of a guideline than a rule that must be obeyed. I anticipate that most of the implementation will reside in the abstract base classes with minimum implementation in the concrete classes. I also anticipate the concrete class implementations for each of these abstract classes will be based upon the [Template Method Design Pattern](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html).
 
-I’m also adding this refactoring to show refactoring can add design elements that are not in the grammar. __MultiOperandsOp__ and __BinaryOp__ are not in the grammar, but they are design elements derived from the grammar.
+I’m also adding this refactoring to show refactoring can add design elements that are not in the grammar. `MultiOperandsOp` and `BinaryOp` are not in the grammar, but they are design elements derived from the grammar.
 
-Likewise, several grammar elements, such as __Integer__, __Fraction__, __MixedFraction__, and __ExpressionList__ have been removed from the design since I think they can be more easily implemented within other classes rather than as their own standalone class. For example, __ExpressionList__ is a List of some form. There’s no compelling reason for it to be its own class, when it can be a List of Expressions attribute declared within __MultiOperandOp__.
+Likewise, several grammar elements, such as `Integer`, `Fraction`, `MixedFraction`, and `ExpressionList` have been removed from the design since I think they can be more easily implemented within other classes rather than as their own standalone class. For example, `ExpressionList` is a List of some form. There’s no compelling reason for it to be its own class, when it can be a List of Expressions attribute declared within `MultiOperandOp`.
 
 ### Fourth Design
-This fourth design idea won’t need a new diagram. It focuses upon the __Identifier__ concept in the design. Even the grammar is a bit vague for __Identifier__:
+This fourth design idea won’t need a new diagram. It focuses upon the `Identifier` concept in the design. Even the grammar is a bit vague for __Identifier__:
 > Identifier ::= AlphaNumbericValue // Neither AND or OR relationship. More on this later.
 
-__Identifier__ will be used for state. The DSL has the concept of a variable, and the __Identifier__ will be the handle for that variable. I anticipate that state will be stored in the __Context__ as a map of String to __Rational__. The __Identifier__ will be the key value for storing and retrieving state values from the __Context__.
+`Identifier` will be used for state. The DSL has the concept of a variable, and the `Identifier` will be the handle for that variable. I anticipate that state will be stored in the `Context` as a map of String to `Rational`. The `Identifier` will be the key value for storing and retrieving state values from the `Context`.
 
-The __Identifier__ class will have a String identifier value that will return the __Rational__ stored in the __Context__that contains that value.
+The `Identifier` class will have a String identifier value that will return the `Rational` stored in the `Context` that contains that value.
 
-The __Assignment__ class gets more interesting. While the grammar shows that it HAS-An __Identifier__, I don’t think __Assignment__ will contain an __Identifier__ attribute in the implementation. I think the __Assignment__ class will have a String identifier value that it will use as a key to store the __Rational__ that’s evaluated from its __Expression__.
+The `Assignment` class gets more interesting. While the grammar shows that it HAS-An `Identifier`, I don’t think `Assignment` will contain an `Identifier` attribute in the implementation. I think the `Assignment` class will have a String identifier value that it will use as a key to store the `Rational` that’s evaluated from its `Expression`.
 
 These implementation considerations are only in my head. I haven’t spelled them all out here; therefore, my design refactoring intent may not be too clear. This should make more sense when I present the implementation of the classes in the design.
 
