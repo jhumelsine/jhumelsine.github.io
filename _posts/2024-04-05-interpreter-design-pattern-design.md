@@ -101,12 +101,12 @@ Recall that the implements triangle represents the __IS-A__ relationship. The co
 
 Technically there is a circular reference in the diagram. It's quite subtle, and it didn't occur to me until I was thinking about the design in the car while running a few errands several days after having drawn it up. There's a relationship without a relationship line or arrow. `Statement` returns a `Rational`. `Statement` has knowledge of and sort of depends upon `Rational` only in the sense that it returns it. It does not process it. However, each concrete class will have knowledge of it, but that's okay, since each concrete class derives from `Statement`. If I were to remove `Rational` from `Statement`, then the concrete class knowledge would disappear as well.
 
-I'm going to keep this in the design. It's declaration dependency, not functional dependency. __Rational__ is a core domain concept. One would expect it to be a bit more prominant. Is __Rational__ a public concept that requires a private implementation, or is it a private concept that's been leaked in the abstraction? I'm not sure. It may not matter. The entire design is in support of the evaluator DSL, so none of these classes will be accessible outside of the DSL framework. I'm also not sure if these are legitmate reasons or whether I'm just `Rational`izing my design decision.
+I'm going to keep this in the design. It's declaration dependency, not functional dependency. __Rational__ is a core domain concept. One would expect it to be a bit more prominent. Is __Rational__ a public concept that requires a private implementation, or is it a private concept that's been leaked in the abstraction? I'm not sure. It may not matter. The entire design is in support of the evaluator DSL, so none of these classes will be accessible outside of the DSL framework. I'm also not sure if these are legitimate  reasons or whether I'm just `Rational`izing my design decision.
 
 ### Second Design
 While this is the start of the design, it might not be the end of the design. There can be multiple grammars for the same DSL, and some may lead to a better design than others.
 
-This is your DSL. Modify the grammar or the design as needed. You have the freedom to enhancement to the grammar or design that you may not have with a General-Purpose Language grammar or design.
+This is your DSL. Modify the grammar or the design as needed. You have the freedom to enhance grammar or design that you may not have with a General-Purpose Language grammar or design.
 
 I haven’t started any implementation yet, but I’ve been thinking about how I might implement some of these classes. While the `Rational` grammar rule made it easy to document the three forms of a rational number:
 * Integer as: _Integer_
@@ -122,7 +122,7 @@ This refactoring transforms `Rational` from an interface to a class, and the der
 I’m planning for the parser to identify the tokens for all three forms of a `Rational` and pass a String of those forms as a constructor argument to the `Rational` class. The constructor will do additional specialized parsing on the three forms and construct the `Rational` instance accordingly.
 
 ### Third Design
-I’m not 100% pleased with the Add, Subtract, Multiple and Divide Op classes that popped out of the grammar based design. I’ve implemented designs like this before, and I know there are going to be redundancies in the implementations as designed above.
+I’m not 100% pleased with the Add, Subtract, Multiple and Divide Op classes that popped out of the grammar-based design. I’ve implemented designs like this before, and I know there are going to be redundancies in the implementations as designed above.
 
 This refactoring adds two new classes `MultiOperandOp` and `BinaryOp`. They are abstract classes for operations with multiple operands and two operands respectively. The specific Operation (Op) classes will implement them:
 
@@ -147,7 +147,7 @@ The `Assignment` class gets more interesting. While the grammar shows that it __
 These implementation considerations are only in my head. I haven’t spelled them out in detail here; therefore, my design refactoring intent may not be too clear. My intent should make more sense when I present the implementation of the classes in the design in the next blog.
 
 ### Redesign Conclusion
-Design refactoring is perfect time to do a lot of thinking and coming up with alternative ideas. Any change is simply a modification to a drawing tool. There’s almost zero sunk cost at this point.
+Design refactoring is the perfect time to do a lot of thinking and coming up with alternative ideas. Any change is simply a modification to a drawing tool. There’s almost zero sunk cost at this point.
 
 If I find that my implementation ideas don’t work out, I can easily revert to a previous design or modify the existing one. I may find that some of these design ideas are wrong and require modification. That still should not be a major issue since the design is modular and modifications in one area won’t tend to have much of a ripple effect upon the others.
 
@@ -156,7 +156,7 @@ If I find that my implementation ideas don’t work out, I can easily revert to 
 
 I’ve been presenting Interpreter as a process of __Domain => Domain-Specific Language => Grammar => Design => Implementation__. In practice, the process may not be discrete steps with handoffs like runners passing the baton. The journey from Domain to Implementation may progress in bits, possibly with all stages having active work at the same time.
 
-And the process is not necessarily be a one-way street. You might have a design first, and then you may want to see if it maps back to a grammar, even if you never intend to create a DSL. If a design doesn’t map to a grammar cleanly, then maybe the design might need some additional refinement.
+And the process is not necessarily a one-way street. You might have a design first, and then you may want to see if it maps back to a grammar, even if you never intend to create a DSL. If a design doesn’t map to a grammar cleanly, then maybe the design might need some additional refinement.
 
 The design-to-grammar exercise could be an additional means to confirm or clarify a design. Even if you don’t want to use grammar notation, transforming the design into sentences with __IS-A__ and __HAS-A__ phrasing will help indicate if it still makes sense.
 
