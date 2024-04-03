@@ -21,7 +21,7 @@ The GoF’s Interpreter Class Design is the following:
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Diagram_UML_klasy_Interpreter.svg/1280px-Diagram_UML_klasy_Interpreter.svg.png" alt="Gang of Four Interpreter Class Diagram Template" title="Image Source: https://commons.wikimedia.org/wiki/File:Diagram_UML_klasy_Interpreter.svg" width = "50%" align="center" style="padding-right: 35px;">
  
-Their design is more of a template for Interpreter rather than a complete design. Compare this design to the [Composite Design Pattern](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html), and you’ll notice that it is structurally identical, but with the addition of `Context`. `Context` allows us to inject additional information. In the [Specification Smart Playlist Use Case](https://jhumelsine.github.io/2024/03/07/specification-design-pattern-use-case.html), the _Track_ was the injected `Context`. Different tracks with different attribute values would result in different specification matching results. `Context` will be designed for each DSL, since each DSL may have different information concerns.
+Their design is more of a template for Interpreter rather than a complete design. Compare this design to the [Composite Design Pattern](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html), and you’ll notice that it is structurally identical to Composite, but with the addition of `Context`. `Context` allows us to inject additional information. In the [Specification Smart Playlist Use Case](https://jhumelsine.github.io/2024/03/07/specification-design-pattern-use-case.html), the _Track_ was the injected `Context`. Different tracks with different attribute values would result in different specification matching results. `Context` will be designed for each DSL, since each DSL may have different information concerns.
 
 The GoF’s `AbstractExpression`, `TerminalExpression` and `NonterminalExpression` elements in the diagram suggest only one type of each. In practice, there will be many interfaces and classes of each type. There will be more domain specific relationships among these elements.
 
@@ -45,12 +45,12 @@ Then they added this diagram, which is UML version of their OMT version. If inte
 
 <img src="/assets/InterpreterDesignPatternGoF.png" alt="Gang of Four Regular Expression Design"  width = "70%" align="center" style="padding-right: 35px;">
  
-Their class names don’t match the grammar terminology. They dropped the _’(‘ expression ‘)’_  grammar rule as well in their design.
+Their class names don’t match the grammar terminology. They dropped the `’(‘ expression ‘)’` grammar rule as well in their design.
 
 # What the Gang of Four Skimmed Over
 The GoF’s description of grammar mapping to design in their example is correct, but it is sparse. Here is my interpretation of the mapping from grammar to design:
 * Each grammar rule will tend to be an interface or a class.
-* Grammar rules based upon an __OR__, i.e., `|`, definition will be interfaces and the __OR__ed elements listed in that rule will implement it. This is an __IS-A__ relationship.
+* Grammar rules based upon an __OR__, i.e., `|`, definition will be interfaces and the __OR__ separated elements listed in that rule will implement it. This is an __IS-A__ relationship.
 * Grammar rules based upon an __AND__ definition will be classes. They will contain the elements listed in that rule. This is a __HAS-A__ relationship.
 * Explicit token elements, such as ‘(‘ or ‘)’ or _keywords_, are used for parsing, but they won’t be in the design. The token elements are road signs that help the parser identify where rules start and end and verify that parsing is on track.
 
@@ -101,12 +101,12 @@ Recall that the implements triangle represents the __IS-A__ relationship. The co
 
 Technically there is a circular reference in the diagram. It's quite subtle, and it didn't occur to me until I was thinking about the design in the car while running a few errands several days after having drawn it up. There's a relationship without a relationship line or arrow. `Statement` returns a `Rational`. `Statement` has knowledge of and sort of depends upon `Rational` only in the sense that it returns it. It does not process it. However, each concrete class will have knowledge of it, but that's okay, since each concrete class derives from `Statement`. If I were to remove `Rational` from `Statement`, then the concrete class knowledge would disappear as well.
 
-I'm going to keep this in the design. It's declaration dependency, not functional dependency. __Rational__ is a core domain concept. One would expect it to be a bit more prominant. Is __Rational__ a public concept that requires a private implementation, or is it a private concept that's been leaked in the abstraction? I'm not sure. It may not matter. The entire design is in support of the evaluator DSL, so none of these classes will be accessible outside of the DSL framework. I'm also not sure if these are legitmate reasons or whether I'm just __Rational__izing my design decision.
+I'm going to keep this in the design. It's declaration dependency, not functional dependency. __Rational__ is a core domain concept. One would expect it to be a bit more prominant. Is __Rational__ a public concept that requires a private implementation, or is it a private concept that's been leaked in the abstraction? I'm not sure. It may not matter. The entire design is in support of the evaluator DSL, so none of these classes will be accessible outside of the DSL framework. I'm also not sure if these are legitmate reasons or whether I'm just `Rational`izing my design decision.
 
 ### Second Design
 While this is the start of the design, it might not be the end of the design. There can be multiple grammars for the same DSL, and some may lead to a better design than others.
 
-This is your DSL. Modify the grammar or the design as needed. You may be able to make enhancements to the grammar or design with the freedom that you may not have with a General-Purpose Language grammar or design.
+This is your DSL. Modify the grammar or the design as needed. You have the freedom to enhancement to the grammar or design that you may not have with a General-Purpose Language grammar or design.
 
 I haven’t started any implementation yet, but I’ve been thinking about how I might implement some of these classes. While the `Rational` grammar rule made it easy to document the three forms of a rational number:
 * Integer as: _Integer_
@@ -130,7 +130,7 @@ This refactoring adds two new classes `MultiOperandOp` and `BinaryOp`. They are 
  
 I may be jumping the gun on this refactoring. We generally want at least three repetitions before refactoring like this, but [The Rule of Three](https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)) is more of a guideline than a rule that must be obeyed. I anticipate that most of the implementation will reside in the abstract base classes with minimum implementation in the concrete classes. I also anticipate the concrete class implementations for each of these abstract classes will be based upon the [Template Method Design Pattern](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html).
 
-I’m also adding this refactoring to show refactoring can add design elements that are not in the grammar. `MultiOperandsOp` and `BinaryOp` are not in the grammar, but they are design elements derived from the grammar.
+I’m also adding this refactoring to show that refactoring can add design elements that are not in the grammar. `MultiOperandsOp` and `BinaryOp` are not in the grammar, but they are design elements derived from the grammar.
 
 Likewise, several grammar elements, such as `Integer`, `Fraction`, `MixedFraction`, and `ExpressionList` have been removed from the design since I think they can be more easily implemented within other classes rather than as their own standalone class. For example, `ExpressionList` is a List of some form. There’s no compelling reason for it to be its own class, when it can be a List of Expressions attribute declared within `MultiOperandOp`.
 
