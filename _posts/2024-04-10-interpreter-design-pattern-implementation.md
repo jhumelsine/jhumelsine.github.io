@@ -9,7 +9,7 @@ unlisted: true
 # Introduction
 This blog continues the [Interpreter Design Pattern](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) series by expanding upon the Interpreter Implementation progresses from the Design that was constructed for [Rational Expression Evaluator Use Case Interpreter](TBD) in the use case example.
 
-This gets a bit long, but it’s all implementation and no theory. There was much rejoicing.
+This gets a bit long, but it’s all implementation. There is no theory, and there was much rejoicing.
 
 # The Rational Expression Evaluator Use Case Class Diagram
 Here’s a copy of the UML class diagram from [Grammar to Design Blog](TBD). It follows the same dependency management principles presented in [Hexagonal Architecture – Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html). These principles apply to design in general, and not just to Hexagonal Architectures.
@@ -19,7 +19,7 @@ Here’s a copy of the UML class diagram from [Grammar to Design Blog](TBD). It 
 This design has no external dependencies. Therefore, it will not require [Test Doubles](https://en.wikipedia.org/wiki/Test_double) to test it. When there are dependencies, we’ll be using actual elements, such as `Rational`.
 
 # Where to start?
-While we can technically start implementation anywhere, I tend to like to use dependency management principles listed above as a guideline. I start with the elements with the least number of dependencies in the design, which is the `Statement` above. It’s an interface with only a declaration.
+While we can technically start implementation anywhere, I tend to like to use dependency management principles, listed above, as a guideline. I start with the elements with the least number of dependencies in the design, which is the `Statement` above. It’s an interface with only a declaration.
 
 The next least dependent element is `Expression`, which is also an interface, but without any methods.
 
@@ -91,13 +91,15 @@ class Test {
 ## Rational Test and Implementation
 I will layer in `Rational` behaviors using [Test-Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) techniques. I will introduce failing tests first and then update the implementation so that they all pass.
 
-NOTE: I will not be testing too edge cases for two reasons:
+NOTE: I will not be testing all edge cases for two reasons:
 * The parser should only return valid Strings.
 * I want to keep the implementation as tight as possible.
 If this were for production, then I’d probably do more validation checking.
 
 ### Implement Rationals as Integers
 We want `Rational`s as Integers.
+
+I can inject `null` for the `Context`, since `Rational` doesn't reference it. If it did, then the test would throw a `NullPointerException` and I'd know that I would need to provide an object.
 
 Test:
 ```java
@@ -138,12 +140,6 @@ assertEquals("1/2", new Rational(" 1/2 ").evaluate(null).toString());
 assertEquals("-1/2", new Rational(" -1/2 ").evaluate(null).toString());
 assertEquals("2/3", new Rational("2 / 3").evaluate(null).toString());
 assertEquals("2/3", new Rational("  2   /   3   ").evaluate(null).toString());
-try {
-    new Rational("1/0").evaluate(null).toString();
-    throw new Exception(); // Should throw ArithmeticException and not reach here.
-} catch (ArithmeticException e) {
-    // Expected. Division by zero.
-}
 ```
 
 Implementation:
@@ -389,12 +385,6 @@ assertEquals("2", new DivideOp(new Rational("4"), new Rational("2")).evaluate(nu
 assertEquals("3/4", new DivideOp(new Rational("3"), new Rational("4")).evaluate(null).toString());
 assertEquals("1", new DivideOp(new Rational("3"), new Rational("3")).evaluate(null).toString());
 assertEquals("57/110", new DivideOp(new Rational("3 4/5"), new Rational("7 1/3")).evaluate(null).toString());
-try {
-    new DivideOp(new Rational("1"), new Rational("0")).evaluate(null).toString();
-    throw new Exception(); // Should throw ArithmeticException and not reach here.
-} catch (ArithmeticException e) {
-    // Expected. Division by zero.
-}
 ```
 
 Implementation:
@@ -750,6 +740,7 @@ A few highlights:
 * The classes required about 215 lines of code.* The tests required about 170 lines of code.
 * `Rational` is the largest class, still under 40 lines, but most of that is formatting and basic arithmetic processing.
 * The other classes are mostly straightforward.
+* I had completely forgotten about division by zero until I had completed the implementation. I added unit tests for it, and only some worked. The code didn't catch zero divided by zero. I didn't retrofit the previous code with division by zero tests and updates, but I have done so in the complete listing here.
 
 ```java
 import java.util.*;
@@ -819,6 +810,8 @@ class Rational implements Expression {
 
         this.numerator = numerator;
         this.denominator = denominator;
+
+        if (denominator == 0) throw new ArithmeticException();
     }
 
     public Rational evaluate(Context context) {
@@ -984,9 +977,14 @@ class Test {
         assertEquals("1/2", new Rational(" 1/2 ").evaluate(null).toString());
         assertEquals("-1/2", new Rational(" -1/2 ").evaluate(null).toString());
         assertEquals("2/3", new Rational("2 / 3").evaluate(null).toString());
-        assertEquals("2/3", new Rational("  2   /   3   ").evaluate(null).toString());
         try {
-            new Rational("1/0").evaluate(null).toString();
+            new Rational("1/0").evaluate(null);
+            throw new Exception(); // Should throw ArithmeticException and not reach here.
+        } catch (ArithmeticException e) {
+            // Expected. Division by zero.
+        }
+        try {
+            new Rational("0/0").evaluate(null);
             throw new Exception(); // Should throw ArithmeticException and not reach here.
         } catch (ArithmeticException e) {
             // Expected. Division by zero.
@@ -1016,7 +1014,13 @@ class Test {
         assertEquals("1", new DivideOp(new Rational("3"), new Rational("3")).evaluate(null).toString());
         assertEquals("57/110", new DivideOp(new Rational("3 4/5"), new Rational("7 1/3")).evaluate(null).toString());
         try {
-            new DivideOp(new Rational("1"), new Rational("0")).evaluate(null).toString();
+            new DivideOp(new Rational("1"), new Rational("0")).evaluate(null);
+            throw new Exception(); // Should throw ArithmeticException and not reach here.
+        } catch (ArithmeticException e) {
+            // Expected. Division by zero.
+        }
+        try {
+            new DivideOp(new Rational("0"), new Rational("0")).evaluate(null);
             throw new Exception(); // Should throw ArithmeticException and not reach here.
         } catch (ArithmeticException e) {
             // Expected. Division by zero.
