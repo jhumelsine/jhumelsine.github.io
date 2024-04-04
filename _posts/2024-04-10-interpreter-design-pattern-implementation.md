@@ -133,7 +133,7 @@ assertEquals("2/3", new Rational("2 / 3").evaluate(null).toString());
 assertEquals("2/3", new Rational("  2   /   3   ").evaluate(null).toString());
 try {
     new Rational("1/0").evaluate(null).toString();
-    throw new Exception(); // Should throw exception
+    throw new Exception(); // Should throw ArithmeticException and not reach here.
 } catch (ArithmeticException e) {
     // Expected. Division by zero.
 }
@@ -382,7 +382,7 @@ assertEquals("1", new DivideOp(new Rational("3"), new Rational("3")).evaluate(nu
 assertEquals("57/110", new DivideOp(new Rational("3 4/5"), new Rational("7 1/3")).evaluate(null).toString());
 try {
     new DivideOp(new Rational("1"), new Rational("0")).evaluate(null).toString();
-    throw new Exception(); // Should throw exception
+    throw new Exception(); // Should throw ArithmeticException and not reach here.
 } catch (ArithmeticException e) {
     // Expected. Division by zero.
 }
@@ -969,7 +969,7 @@ class Test {
         assertEquals("2/3", new Rational("  2   /   3   ").evaluate(null).toString());
         try {
             new Rational("1/0").evaluate(null).toString();
-            throw new Exception(); // Should throw exception
+            throw new Exception(); // Should throw ArithmeticException and not reach here.
         } catch (ArithmeticException e) {
             // Expected. Division by zero.
         }
@@ -999,7 +999,7 @@ class Test {
         assertEquals("57/110", new DivideOp(new Rational("3 4/5"), new Rational("7 1/3")).evaluate(null).toString());
         try {
             new DivideOp(new Rational("1"), new Rational("0")).evaluate(null).toString();
-            throw new Exception(); // Should throw exception
+            throw new Exception(); // Should throw ArithmeticException and not reach here.
         } catch (ArithmeticException e) {
             // Expected. Division by zero.
         }
