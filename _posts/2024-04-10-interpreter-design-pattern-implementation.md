@@ -131,6 +131,12 @@ assertEquals("1/2", new Rational(" 1/2 ").evaluate(null).toString());
 assertEquals("-1/2", new Rational(" -1/2 ").evaluate(null).toString());
 assertEquals("2/3", new Rational("2 / 3").evaluate(null).toString());
 assertEquals("2/3", new Rational("  2   /   3   ").evaluate(null).toString());
+try {
+    new Rational("1/0").evaluate(null).toString();
+    throw new Exception(); // Should throw exception
+} catch (ArithmeticException e) {
+    // Expected. Division by zero.
+}
 ```
 
 Implementation:
@@ -374,6 +380,12 @@ assertEquals("2", new DivideOp(new Rational("4"), new Rational("2")).evaluate(nu
 assertEquals("3/4", new DivideOp(new Rational("3"), new Rational("4")).evaluate(null).toString());
 assertEquals("1", new DivideOp(new Rational("3"), new Rational("3")).evaluate(null).toString());
 assertEquals("57/110", new DivideOp(new Rational("3 4/5"), new Rational("7 1/3")).evaluate(null).toString());
+try {
+    new DivideOp(new Rational("1"), new Rational("0")).evaluate(null).toString();
+    throw new Exception(); // Should throw exception
+} catch (ArithmeticException e) {
+    // Expected. Division by zero.
+}
 ```
 
 Implementation:
@@ -955,6 +967,12 @@ class Test {
         assertEquals("-1/2", new Rational(" -1/2 ").evaluate(null).toString());
         assertEquals("2/3", new Rational("2 / 3").evaluate(null).toString());
         assertEquals("2/3", new Rational("  2   /   3   ").evaluate(null).toString());
+        try {
+            new Rational("1/0").evaluate(null).toString();
+            throw new Exception(); // Should throw exception
+        } catch (ArithmeticException e) {
+            // Expected. Division by zero.
+        }
 
         assertEquals("1/2", new Rational("2/4").evaluate(null).toString());
         assertEquals("1/2", new Rational("32/64").evaluate(null).toString());
@@ -979,6 +997,12 @@ class Test {
         assertEquals("3/4", new DivideOp(new Rational("3"), new Rational("4")).evaluate(null).toString());
         assertEquals("1", new DivideOp(new Rational("3"), new Rational("3")).evaluate(null).toString());
         assertEquals("57/110", new DivideOp(new Rational("3 4/5"), new Rational("7 1/3")).evaluate(null).toString());
+        try {
+            new DivideOp(new Rational("1"), new Rational("0")).evaluate(null).toString();
+            throw new Exception(); // Should throw exception
+        } catch (ArithmeticException e) {
+            // Expected. Division by zero.
+        }
 
         {
             MultiOperandsOp addOp = new AddOp();
