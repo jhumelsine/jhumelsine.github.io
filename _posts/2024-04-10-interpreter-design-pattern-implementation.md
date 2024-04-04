@@ -737,8 +737,9 @@ See: [Design blog.](TBD) for how the design was created.
 Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment]( https://www.tutorialspoint.com/java/online-java-compiler.php).
 
 A few highlights:
-* The classes required about 215 lines of code.* The tests required about 170 lines of code.
-* `Rational` is the largest class, still under 40 lines, but most of that is formatting and basic arithmetic processing.
+* The classes required about 215 lines of code.
+* The tests required about 170 lines of code.
+* `Rational` is the largest class, still under 40 lines, but most of that is formatting and arithmetic processing for fractions.
 * The other classes are mostly straightforward.
 * I had completely forgotten about division by zero until I had completed the implementation. I added unit tests for it, and only some worked. The code didn't catch zero divided by zero. I didn't retrofit the previous code with division by zero tests and updates, but I have done so in the complete listing here.
 
