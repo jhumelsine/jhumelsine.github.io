@@ -252,14 +252,14 @@ assertEquals("-3", new Rational("-15 / 5").evaluate(null).toString());
 
 Implementation:
 ```java
-    public String toString() {
-        if (denominator == 1) {
-            return String.valueOf(numerator);
-        } else if (Math.abs(numerator) > denominator) {
-            return String.format("%d %d/%d", numerator/denominator, Math.abs(numerator%denominator), denominator);
-        }
-        return String.valueOf(numerator) + "/" + String.valueOf(denominator);
+public String toString() {
+    if (denominator == 1) {
+        return String.valueOf(numerator);
+    } else if (Math.abs(numerator) > denominator) {
+        return String.format("%d %d/%d", numerator/denominator, Math.abs(numerator%denominator), denominator);
     }
+    return String.valueOf(numerator) + "/" + String.valueOf(denominator);
+}
 ```
 
 ### Represent Improper Rationals as Mixed Fractions
@@ -398,7 +398,8 @@ try {
 ```
 
 Implementation:
-```java class DivideOp extends BinaryOp {
+```java
+class DivideOp extends BinaryOp {
     public DivideOp(Expression op1, Expression op2) {
         super(op1, op2);
     }
@@ -746,7 +747,8 @@ See: [Design blog.](TBD) for how the design was created.
 Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment]( https://www.tutorialspoint.com/java/online-java-compiler.php).
 
 A few highlights:
-* The classes required about 215 lines of code.* The tests required about 166 lines of code.* `Rational` is the largest class, still under 40 lines, but most of that is formatting and basic arithmetic processing.
+* The classes required about 215 lines of code.* The tests required about 170 lines of code.
+* `Rational` is the largest class, still under 40 lines, but most of that is formatting and basic arithmetic processing.
 * The other classes are mostly straightforward.
 
 ```java
