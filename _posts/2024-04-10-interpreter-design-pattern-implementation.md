@@ -1,8 +1,10 @@
 ---
 title: Interpreter Design Pattern – Design to Implementation
-description: Implementing the Interpreter Design Pattern based upon a Design
+description: Implementing the Interpreter Design Pattern based upon a Design.
 unlisted: true
 ---
+
+<img src="https://miro.medium.com/v2/resize:fit:828/format:webp/0*Z-EsrBvHP6n403Kq.jpg" alt="Code Listing on Screen with Magnifying Glass" title="Image Source: https://seniorbrogrammer.medium.com/3-good-software-engineering-practices-489674e8586e" width = "50%" align="center" style="padding-right: 35px;">
 
 # Introduction
 This blog continues the [Interpreter Design Pattern](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) series by expanding upon the Interpreter Implementation progresses from the Design that was constructed for [Rational Expression Evaluator Use Case Interpreter](TBD) in the use case example.
@@ -11,6 +13,8 @@ This gets a bit long, but it’s all implementation and no theory. There was muc
 
 # The Rational Expression Evaluator Use Case Class Diagram
 Here’s a copy of the UML class diagram from [Grammar to Design Blog](TBD). It follows the same dependency management principles presented in [Hexagonal Architecture – Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html). These principles apply to design in general, and not just to Hexagonal Architectures.
+
+<img src="/assets/InterpreterDesignPatternDesign3.png" alt="Rational Expression Evaluation Design 3"  width = "80%" align="center" style="padding-right: 35px;">
  
 This design has no external dependencies. Therefore, it will not require [Test Doubles](https://en.wikipedia.org/wiki/Test_double) to test it. When there are dependencies, we’ll be using actual elements, such as `Rational`.
 
@@ -23,6 +27,9 @@ Looking at the classes that implement `Expression`, I’m going to choose to imp
 * It’s in the `Statement` method definition, so I’m going to need it anyway.
 * I suspect that `Rational` will require the most implementation effort, so let’s get it done first.
 Since `Rational` depends upon `Expression`, which depends upon `Statement`, let’s focus upon this subset of the design:
+
+<img src="/assets/InterpreterDesignPatternImplementationDesign1.png" alt="Rational Expression Evaluation Implementation Design 1"  width = "40%" align="center" style="padding-right: 35px;">
+
  
 ## Bare Bones Implementation and Test Environment
 My implementation will be in Java. I’m going to include everything from soup to nuts in one file, so anyone can copy-and-paste it. I’m going to use my own test harness, so that there are no environmental dependencies.
@@ -306,6 +313,8 @@ Implementation:
 
 ## BinaryOp, SubtractOp and DivideOp Test and Implementation
 With `Rational` done, I can go just about anywhere. I’m going to start with `BinaryOp`. This expands the scope of the implementation to:
+
+<img src="/assets/InterpreterDesignPatternImplementationDesign2.png" alt="Rational Expression Evaluation Implementation Design 2"  width = "40%" align="center" style="padding-right: 35px;">
  
 These classes involve fractional arithmetic, so you might need to brush up a bit on that.
 
@@ -463,7 +472,9 @@ class DivideOp extends BinaryOp {
 
 ## MultiOperandsOps, AddOp and MultiplyOp Test and Implementation
 Next, I’ll add in the `MultiOperandsOp`, `AddOp` and `MultiplyOp` classes. These classes involve fractional arithmetic, so you might need to brush up a bit on that.
- 
+
+<img src="/assets/InterpreterDesignPatternImplementationDesign3.png" alt="Rational Expression Evaluation Implementation Design 3"  width = "50%" align="center" style="padding-right: 35px;">
+
 Notice that except for adding the two new accessors to `Rational`, nothing else has changed when implementing these classes.
 Since `MultiOperandsOp`, et al., will look very similar to `BinaryOp`, et al., I’ll only provide the final version of the code. The only major distinction between these two sets of classes is that `BinaryOp` has two operands and `MultiOperandsOp` has any number of operands.
 
@@ -569,7 +580,9 @@ class MultiplyOp extends MultiOperandsOp {
 
 ## Identifier Test and Implementation
 We’re done with arithmetic. Hurray! Now we can move to state, and `Context` is finally going to become a contributor. Up to this point, I’ve injected `null` for the `Context` without an issue since none of the previous classes use it.
- 
+
+<img src="/assets/InterpreterDesignPatternImplementationDesign4.png" alt="Rational Expression Evaluation Implementation Design 4"  width = "80%" align="center" style="padding-right: 35px;">
+
 The `Identifier` implementation will extract a `Rational` from the `Context` based upon an identifier name. This will involve implementations for `Context` and `Identifier`.
 
 Test:
@@ -620,6 +633,9 @@ class Identifier implements Expression {
 
 ## Assignment Test and Implementation
 We’re in the homestretch. The `Assignment` class is the last one to be implemented.
+
+<img src="/assets/InterpreterDesignPatternImplementationDesign5.png" alt="Rational Expression Evaluation Implementation Design 5"  width = "80%" align="center" style="padding-right: 35px;">
+
  
 This should be about as straightforward as `Identifier`. While the design indicates a dependency up `Identifier`, I suspect it will only depend upon the concept of an identifier String.
 
