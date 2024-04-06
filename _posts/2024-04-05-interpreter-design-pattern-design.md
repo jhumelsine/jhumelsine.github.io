@@ -134,6 +134,13 @@ I’m also adding this refactoring to show that refactoring can add design eleme
 
 Likewise, several grammar elements, such as `Integer`, `Fraction`, `MixedFraction`, and `ExpressionList` have been removed from the design since I think they can be more easily implemented within other classes rather than as their own standalone class. For example, `ExpressionList` is a List of some form. There’s no compelling reason for it to be its own class, when it can be a List of Expressions attribute declared within `MultiOperandOp`.
 
+There is an alternative design for the arithmetic operations, which was mentioned to me during the review of this blog. All arithmetic operations could be `BinaryOp` classes, which would unify them even further and simplify the design, while still allowing for lists of additional and multiplications such as:
+```
++(3, *(3, 4), 5)
+```
+
+However, it would take a bit more work in the parser to build the `AddOp` and `MultiplyOp` binary based objects to support lists of additions or multiplications. Everything is a tradeoff. I have decided to continue with the `MultiOperandsOp` design, but choosing the `BinaryOp` only design option would be equally valid. It's more a matter of style and where one wants to manage lists of additions or multiplications.
+
 ### Fourth Design
 This fourth design idea won’t need a new diagram. It focuses upon the `Identifier` concept in the design. Even the grammar is a bit vague for __Identifier__:
 > Identifier ::= AlphaNumbericValue // Neither AND or OR relationship. More on this later.
