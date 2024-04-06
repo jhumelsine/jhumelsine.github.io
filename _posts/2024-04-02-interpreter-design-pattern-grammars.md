@@ -105,7 +105,7 @@ The constructed parse tree could be:
 
 <img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/fc/Parse_Tree_Example.svg/768px-Parse_Tree_Example.svg.png" alt="Delete Railroad tracks" title="Image Source: https://en.wikipedia.org/wiki/File:Parse_Tree_Example.svg" width = "40%" align="center" style="padding-right: 35px;">
  
-Technically in the theory, we don’t generate the tree from the program, even if that’s what happens in practice with the parser. In theory, we start with an initial rule, such as __statements__ and expand it one rule at a time growing the tree from its root until each non-terminal node has been expanded to a leaf node.
+We don’t generate the tree from the program. We start with an initial rule, such as __statements__ and expand it one rule at a time growing the tree from its root until each non-terminal node has been expanded to a leaf node. Parsers use the tokens in the program as road signs to know which rules to expand to build the object tree.
 
 __statements__ would expand to __stmt ; stmt__. Then each __stmt__ expands to __assign__, and so on. All programs that can be expressed with the grammar rules can be created by expanding from the root.
 
