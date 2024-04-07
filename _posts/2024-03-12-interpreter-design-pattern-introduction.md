@@ -59,7 +59,8 @@ Even with this elegant description, a few more specifics would be useful.
 I may modify this list below, but here’s what I’m currently considering as subsequent blog entries for Interpreter. I'll adjust and add links here when posted:
 * [Domain-Specific Languages](https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html)
 * [Programming Language Grammars](https://jhumelsine.github.io/2024/04/02/interpreter-design-pattern-grammars.html)
-* Grammars and Object-Oriented design mappings. I think this is where most of the elegance of the pattern resides.
+* [Grammars to Design](https://jhumelsine.github.io/2024/04/07/interpreter-design-pattern-design.html)
+* Design to Implementation
 * Scanners and Parsers
 * A Use Case based upon a project-based Interpreter/DSL that I designed, and the project deployed.
 
