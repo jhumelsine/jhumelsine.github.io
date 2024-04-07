@@ -1,7 +1,6 @@
 ---
 title: Interpreter Design Pattern – Grammar to Design
 description: The Interpreter Design emerges from the Grammar.
-unlisted: true
 ---
 
 <img src="/assets/InterpreterGrammarToDesign.jpeg" alt="Steampunk Interpreter Grammar to Design"  width = "40%" align="center" style="padding-right: 35px;">
@@ -21,7 +20,7 @@ The GoF’s Interpreter Class Design is the following:
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Diagram_UML_klasy_Interpreter.svg/1280px-Diagram_UML_klasy_Interpreter.svg.png" alt="Gang of Four Interpreter Class Diagram Template" title="Image Source: https://commons.wikimedia.org/wiki/File:Diagram_UML_klasy_Interpreter.svg" width = "50%" align="center" style="padding-right: 35px;">
  
-Their design is more of a template for Interpreter rather than a complete design. Compare this design to the [Composite Design Pattern](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html), and you’ll notice that it is structurally identical to Composite, but with the addition of `Context`. `Context` allows us to inject additional information. In the [Specification Smart Playlist Use Case](https://jhumelsine.github.io/2024/03/07/specification-design-pattern-use-case.html), the _Track_ was the injected `Context`. Different tracks with different attribute values would result in different specification matching results. `Context` will be designed for each DSL, since each DSL may have different information concerns.
+Their design is more of a template for Interpreter rather than a complete design. Compare this design to the [Composite Design Pattern](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html), and you’ll notice that it is structurally identical to Composite, but with the addition of `Context`. `Context` allows us to inject additional information. In the [Specification Smart Playlist Use Case](https://jhumelsine.github.io/2024/03/07/specification-design-pattern-use-case.html), the _Track_ was the injected `Context`. Different tracks with different attribute values would result in different specification matching results. `Context` will be uniquely designed for each DSL, since each DSL may have unique information concerns.
 
 The GoF’s `AbstractExpression`, `TerminalExpression` and `NonterminalExpression` elements in the diagram suggest only one type of each. In practice, there will be many interfaces and classes of each type. There will be more domain specific relationships among these elements.
 
@@ -41,11 +40,11 @@ They provide some description with the following:
 
 > The Interpreter pattern uses a class to represent each grammar rule. Symbols on the right-hand side of the rule are instance variables of these classes. The grammar above is represented by five classes: an abstract class RegularExpression and its four subclasses LiteralExpression, AlternationExpression, SequenceExpression, and RepetitionExpression. The last three classes define variables that hold subexpressions.
 
-Then they added this diagram, which is UML version of their OMT version. If interested, their version can be seen [here](https://tizianomanni.altervista.org/sites/default/files/Project/Ing_sw/Metasito/Pattern/Interpreter.html):
+Then they added this diagram. This is my is UML rendering of their OMT version. If interested, their version can be seen [here](https://tizianomanni.altervista.org/sites/default/files/Project/Ing_sw/Metasito/Pattern/Interpreter.html):
 
 <img src="/assets/InterpreterDesignPatternGoF.png" alt="Gang of Four Regular Expression Design"  width = "70%" align="center" style="padding-right: 35px;">
  
-Their class names don’t match the grammar terminology. They dropped the `’(‘ expression ‘)’` grammar rule as well in their design.
+Their class names don’t match the grammar terminology. They dropped the `’(‘ expression ‘)’` grammar rule from their design as well.
 
 # What the Gang of Four Skimmed Over
 The GoF’s description of grammar mapping to design in their example is correct, but it is sparse. Here is my interpretation of the mapping from grammar to design:
@@ -55,7 +54,7 @@ The GoF’s description of grammar mapping to design in their example is correct
 * Explicit token elements, such as ‘(‘ or ‘)’ or _keywords_, are used for parsing, but they won’t be in the design. The token elements are road signs that help the parser identify where rules start and end and verify that parsing is on track.
 
 Here is where the elegance emerges:
-* Once you have a few stable grammar rules, even if the grammar is not complete, the initial design emerges based upon the rules above.
+* Once you have a few stable grammar rules, even if the grammar is not complete, the initial design emerges based upon the bullets listed above.
 * This is an initial design, and additional refactoring may be desired.
 * The grammar inspired design will adhere to good OO design principles by default, such as:
     * The design will be modular.
