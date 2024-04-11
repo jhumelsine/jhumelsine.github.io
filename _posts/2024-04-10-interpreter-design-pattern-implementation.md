@@ -732,7 +732,7 @@ The final implementation will be the parser, which will process the DSL and buil
 # Summary
 This blog presented an implementation for the operational components that will make up the Rational Expression Evalutor DSL. 
 
-The implementation proceeded smoothly, because of previous time devoted in thinking about and considering the DSL as presented in the previous Interpreter blogs. The implementation flowed naturally from the design, which flowed naturally from the grammar. The code practically writes itself. THe implementation was almost anticlimactic.
+The implementation proceeded smoothly, because of previous time devoted in thinking about and considering the DSL as presented in the previous Interpreter blogs. The implementation flowed naturally from the design, which flowed naturally from the grammar. The code practically writes itself. The implementation was almost anticlimactic.
 
 # References
 See: [Interpreter Design Pattern Introduction/References](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html#references) for overall references.
