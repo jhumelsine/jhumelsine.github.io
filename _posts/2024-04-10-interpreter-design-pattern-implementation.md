@@ -7,12 +7,12 @@ unlisted: true
 <img src="https://miro.medium.com/v2/resize:fit:828/format:webp/0*Z-EsrBvHP6n403Kq.jpg" alt="Code Listing on Screen with Magnifying Glass" title="Image Source: https://seniorbrogrammer.medium.com/3-good-software-engineering-practices-489674e8586e" width = "50%" align="center" style="padding-right: 35px;">
 
 # Introduction
-This blog continues the [Interpreter Design Pattern](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) series by expanding upon the Interpreter Implementation progresses from the Design that was constructed for [Rational Expression Evaluator Use Case Interpreter](TBD) in the use case example.
+This blog continues the [Interpreter Design Pattern](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) series by expanding upon the Interpreter Implementation progresses from the [Design](https://jhumelsine.github.io/2024/04/07/interpreter-design-pattern-design.html) that was constructed for [Rational Expression Evaluator Use Case Interpreter](https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html#rational-number-evaluator-use-case) in the use case example.
 
 This gets a bit long, but it’s all implementation. There is no theory, and there was much rejoicing.
 
 # The Rational Expression Evaluator Use Case Class Diagram
-Here’s a copy of the UML class diagram from [Grammar to Design Blog](TBD). It follows the same dependency management principles presented in [Hexagonal Architecture – Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html). These principles apply to design in general, and not just to Hexagonal Architectures.
+Here’s a copy of the UML class diagram from [Grammar to Design Blog](https://jhumelsine.github.io/2024/04/07/interpreter-design-pattern-design.html). It follows the same dependency management principles presented in [Hexagonal Architecture – Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html). These principles apply to design in general, and not just to Hexagonal Architectures.
 
 <img src="/assets/InterpreterDesignPatternDesign3.png" alt="Rational Expression Evaluation Design 3"  width = "80%" align="center" style="padding-right: 35px;">
  
@@ -736,7 +736,7 @@ The implementation proceeded smoothly, because of previous time devoted in think
 # References
 See: [Interpreter Design Pattern Introduction/References](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html#references) for overall references.
 
-See: [Design blog.](TBD) for how the design was created.
+See: [Design blog.](https://jhumelsine.github.io/2024/04/07/interpreter-design-pattern-design.html) for how the design was created.
 
 ## The Complete Implementation
 Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment]( https://www.tutorialspoint.com/java/online-java-compiler.php). Add more tests. Play with the implementation. Refactor some of the code.
