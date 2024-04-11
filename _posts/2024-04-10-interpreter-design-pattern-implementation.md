@@ -19,13 +19,14 @@ Here’s a copy of the UML class diagram from [Grammar to Design Blog](https://j
 This design has no external dependencies. Therefore, it will not require [Test Doubles](https://en.wikipedia.org/wiki/Test_double) to test it. When there are dependencies, we’ll be using actual elements, such as `Rational`.
 
 # Where to start?
-While we can technically start implementation anywhere, I tend to like to use dependency management principles, listed above, as a guideline. I start with the elements with the least number of dependencies in the design, which is the `Statement` above. It’s an interface with only a declaration.
+While we can technically start implementation anywhere, I tend to like to use dependency management principles, listed above, as a guideline. I start with the elements with the least number of dependencies in the design, which is the `Statement` above. It’s an interface with only a declaration, so there's nothing needed other than to declare it.
 
-The next least dependent element is `Expression`, which is also an interface, but without any methods.
+The next least dependent element is `Expression`, which is also an interface, but without any methods. Its implementation is even simpiler.
 
 Looking at the classes that implement `Expression`, I’m going to choose to implement `Rational` first, because:
 * It’s in the `Statement` method definition, so I’m going to need it anyway.
 * I suspect that `Rational` will require the most implementation effort, so let’s get it done first.
+
 Since `Rational` depends upon `Expression`, which depends upon `Statement`, let’s focus upon this subset of the design:
 
 <img src="/assets/InterpreterDesignPatternImplementationDesign1.png" alt="Rational Expression Evaluation Implementation Design 1"  width = "40%" align="center" style="padding-right: 35px;">
@@ -96,8 +97,8 @@ NOTE: I will not be testing all edge cases for two reasons:
 * I want to keep the implementation as tight as possible.
 If this were for production, then I’d probably do more validation checking.
 
-### Implement Rationals as Integers
-We want `Rational`s as Integers.
+### Implement Rationals Supporting Integers
+We want `Rational`s to support Integers.
 
 I can inject `null` for the `Context`, since `Rational` doesn't reference it. If it did, then the test would throw a `NullPointerException` and I'd know that I would need to provide an object.
 
@@ -131,7 +132,7 @@ class Rational implements Expression {
 }
 ```
 
-### Implement Rationals as Fractions
+### Implement Rationals Supporting Fractions
 We want `Rational`s to support fractions.
 
 Test:
@@ -174,7 +175,7 @@ class Rational implements Expression {
 }
 ```
 
-### Rationals in their Most Reduced Form
+### Implement Rationals in their Most Reduced Form
 We want `Rational`s in their reduced form.
 
 Test:
@@ -233,8 +234,8 @@ class Rational implements Expression {
 
 ```
 
-### Represent Improper Rationals as Mixed Fractions
-We want improper `Rational`s to support mixed fractions.
+### Implement Rationals Supporting Improper Fractions
+We want improper `Rational`s to support improper fractions.
 
 Test:
 ```java
@@ -258,8 +259,8 @@ public String toString() {
 }
 ```
 
-### Represent Improper Rationals as Mixed Fractions
-Represent `Rational`s to support improper rationals as mixed fractions.
+### Implement Rationals Supporting Improper Fractions
+Represent `Rational`s to support mixed & improper fractions.
 
 Test:
 ```java
@@ -307,7 +308,7 @@ Implementation:
     }
 ```
 
-### Rationals as Value Objects
+### Implement Rationals as Value Objects
 The `Rational` implementation is a [value object](https://en.wikipedia.org/wiki/Value_object). Its field attributes are final and cannot be modified once set in its constructor. This includes reducing its numerator and demoninator into its most reduced form during its construction. It also handles improper and mixed fractions.
 
 This means that in all other arithmetic operations, we don't need to worry about all of these forms. We can create a `Rational` string with any integer numerator and denominator values that are created in fractional arithmetic, and `Rational` will do all of the normalization for us automatically.
