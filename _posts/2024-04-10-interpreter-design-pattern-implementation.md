@@ -35,7 +35,7 @@ Since `Rational` depends upon `Expression`, which depends upon `Statement`, let�
 ## Bare Bones Implementation and Test Environment
 My implementation will be in Java. I’m going to include everything from soup to nuts in one file, so anyone can copy-and-paste it. I’m going to use my own test harness, so that there are no environmental dependencies.
 
-Here is my first complete program that confirms the first test the first `Rational` behavior. I’ll provide code snippets as I progress and the entire Java code at the end.
+Here is my first complete program that confirms the first test of the first `Rational` behavior. I’ll provide code snippets as I progress and the entire Java code at the end of this blog.
 
 ```java
 import java.util.*;
@@ -235,7 +235,7 @@ class Rational implements Expression {
 ```
 
 ### Implement Rationals Supporting Improper Fractions
-We want improper `Rational`s to support improper fractions.
+We want `Rational`s to support improper fractions.
 
 Test:
 ```java
@@ -260,7 +260,7 @@ public String toString() {
 ```
 
 ### Implement Rationals Supporting Improper Fractions
-Represent `Rational`s to support mixed & improper fractions.
+We want `Rational`s to support mixed & improper fractions.
 
 Test:
 ```java
@@ -309,9 +309,9 @@ Implementation:
 ```
 
 ### Implement Rationals as Value Objects
-The `Rational` implementation is a [value object](https://en.wikipedia.org/wiki/Value_object). Its field attributes are final and cannot be modified once set in its constructor. This includes reducing its numerator and demoninator into its most reduced form during its construction. It also handles improper and mixed fractions.
+`Rational` is a [value object](https://en.wikipedia.org/wiki/Value_object). It is immutable. Its field attributes are `final` and cannot be modified once set in its constructor. All fraction normalization, i.e., reduced form, improper fractions and mixed fractions, resides in the constructor. `Rational`s will always be constructed in normalized form and can never be modified subsequently.
 
-This means that in all other arithmetic operations, we don't need to worry about all of these forms. We can create a `Rational` string with any integer numerator and denominator values that are created in fractional arithmetic, and `Rational` will do all of the normalization for us automatically.
+This means that in all other arithmetic operations, we don't need to worry about all of these normalization forms. We can create a `Rational` string with any integer numerator and denominator values that are created in fractional arithmetic, and `Rational` will do all of the normalization for us automatically.
 
 ## BinaryOp, SubtractOp and DivideOp Test and Implementation
 With `Rational` done, I can go just about anywhere. I’m going to start with `BinaryOp`. This expands the scope of the implementation to:
@@ -321,7 +321,7 @@ With `Rational` done, I can go just about anywhere. I’m going to start with `B
 These classes involve fractional arithmetic, so you might need to brush up a bit on that.
 
 ### SubtractOp is a BinaryOp
-I anticipate `BinaryOp` using the [Template Design Pattern](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html). I would usually test and implement in isolation using test double as the concrete class. But since the concrete classes are so well defined, I’m going to test and implement the `SubstractOp` and `BinaryOp` together.
+I anticipate `BinaryOp` using the [Template Design Pattern](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html). I would usually test and implement a Template Method design in isolation using test double as the concrete class. But since the concrete classes are so well defined, I’m going to test and implement the `SubstractOp` and `BinaryOp` together.
 
 The tests confirm that `SubtractOp` will subtract one `Rational` from another `Rational` returning its `Rational` difference. I don’t need to worry about `Rational` argument formatting with spaces, since the previous tests confirm that.
 
@@ -634,7 +634,7 @@ We’re in the homestretch. The `Assignment` class is the last one to be impleme
 <img src="/assets/InterpreterDesignPatternImplementationDesign5.png" alt="Rational Expression Evaluation Implementation Design 5"  width = "80%" align="center" style="padding-right: 35px;">
 
  
-This should be about as straightforward as `Identifier`. While the design indicates a dependency up `Identifier`, I suspect it will only depend upon the concept of an identifier String.
+This should be about as straightforward as `Identifier`. While the design indicates a dependency upon `Identifier`, I suspect it will only depend upon the concept of an identifier String.
 
 Test:
 ```java
@@ -732,7 +732,7 @@ The final implementation will be the parser, which will process the DSL and buil
 # Summary
 This blog presented an implementation for the operational components that will make up the Rational Expression Evalutor DSL. 
 
-The implementation proceeded smoothly, because of previous time devoted in thinking about and considering the DSL. The implementation flowed naturally from the design, which flowed naturally from the grammar. The code practically writes itself. It was almost anticlimactic.
+The implementation proceeded smoothly, because of previous time devoted in thinking about and considering the DSL as presented in the previous Interpreter blogs. The implementation flowed naturally from the design, which flowed naturally from the grammar. The code practically writes itself. THe implementation was almost anticlimactic.
 
 # References
 See: [Interpreter Design Pattern Introduction/References](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html#references) for overall references.
@@ -743,15 +743,13 @@ See: [Design blog.](https://jhumelsine.github.io/2024/04/07/interpreter-design-p
 Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment]( https://www.tutorialspoint.com/java/online-java-compiler.php). Add more tests. Play with the implementation. Refactor some of the code.
 
 A few highlights:
-* `Rational` is a [value object](https://en.wikipedia.org/wiki/Value_object). Most of its complexity involves reducing a fraction in any form to its reduced numerator and denominator.
+* `Rational` is a [value object](https://en.wikipedia.org/wiki/Value_object). Most of its complexity involves normalizing any valid rational representation to its reduced numerator and denominator.
 * The arithmetic operator classes are mostly fraction based arithmetic.
 * `Identifier` and `Assignment` manage state so that `Rational` values can be stored via a variable name an retrieved.
 * `Context` is the storage mechanism. 
 * The classes required about 215 lines of code.
 * The tests required about 170 lines of code.
-* `Rational` is the largest class, still under 40 lines, but most of that is formatting and arithmetic processing for fractions.
-* The other classes are mostly straightforward.
-* I had completely forgotten about division by zero until I had completed the implementation. I added unit tests for it, and only some worked. The code didn't catch zero divided by zero. I didn't retrofit the previous code with division by zero tests and updates, but I have done so in the complete listing here.
+* I had completely forgotten about division by zero until I had completed the implementation. I added unit tests for it, and only some worked. The code didn't catch zero divided by zero in all cases. I didn't retrofit the previous code with division by zero tests and updates, but I have done so in the complete listing here.
 
 ```java
 import java.util.*;
