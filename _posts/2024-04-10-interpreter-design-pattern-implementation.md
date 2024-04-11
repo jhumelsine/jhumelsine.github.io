@@ -307,6 +307,11 @@ Implementation:
     }
 ```
 
+### Rationals as Value Objects
+The `Rational` implementation is a [value object](https://en.wikipedia.org/wiki/Value_object). Its field attributes are final and cannot be modified once set in its constructor. This includes reducing its numerator and demoninator into its most reduced form during its construction. It also handles improper and mixed fractions.
+
+This means that in all other arithmetic operations, we don't need to worry about all of these forms. We can create a `Rational` string with any integer numerator and denominator values that are created in fractional arithmetic, and `Rational` will do all of the normalization for us automatically.
+
 ## BinaryOp, SubtractOp and DivideOp Test and Implementation
 With `Rational` done, I can go just about anywhere. I’m going to start with `BinaryOp`. This expands the scope of the implementation to:
 
@@ -734,7 +739,7 @@ See: [Interpreter Design Pattern Introduction/References](https://jhumelsine.git
 See: [Design blog.](TBD) for how the design was created.
 
 ## The Complete Implementation
-Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment]( https://www.tutorialspoint.com/java/online-java-compiler.php).
+Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment]( https://www.tutorialspoint.com/java/online-java-compiler.php). Add more tests. Play with the implementation. Have some fun with it.
 
 A few highlights:
 * The classes required about 215 lines of code.
