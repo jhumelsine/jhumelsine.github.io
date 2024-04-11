@@ -739,9 +739,13 @@ See: [Interpreter Design Pattern Introduction/References](https://jhumelsine.git
 See: [Design blog.](TBD) for how the design was created.
 
 ## The Complete Implementation
-Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment]( https://www.tutorialspoint.com/java/online-java-compiler.php). Add more tests. Play with the implementation. Have some fun with it.
+Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment]( https://www.tutorialspoint.com/java/online-java-compiler.php). Add more tests. Play with the implementation. Refactor some of the code.
 
 A few highlights:
+* `Rational` is a [value object](https://en.wikipedia.org/wiki/Value_object). Most of its complexity involves reducing a fraction in any form to its reduced numerator and denominator.
+* The arithmetic operator classes are mostly fraction based arithmetic.
+* `Identifier` and `Assignment` manage state so that `Rational` values can be stored via a variable name an retrieved.
+* `Context` is the storage mechanism. 
 * The classes required about 215 lines of code.
 * The tests required about 170 lines of code.
 * `Rational` is the largest class, still under 40 lines, but most of that is formatting and arithmetic processing for fractions.
