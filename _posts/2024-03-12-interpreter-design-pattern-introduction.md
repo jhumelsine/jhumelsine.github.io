@@ -60,8 +60,8 @@ I may modify this list below, but here’s what I’m currently considering as s
 * [Domain-Specific Languages](https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html)
 * [Programming Language Grammars](https://jhumelsine.github.io/2024/04/02/interpreter-design-pattern-grammars.html)
 * [Grammars to Design](https://jhumelsine.github.io/2024/04/07/interpreter-design-pattern-design.html)
-* Design to Implementation
-* Scanners and Parsers
+* [Design to Implementation](https://jhumelsine.github.io/2024/04/17/interpreter-design-pattern-implementation.html)
+* Parsers and Scanners
 * A Use Case based upon a project-based Interpreter/DSL that I designed, and the project deployed.
 
 # Specification is Interpreter
