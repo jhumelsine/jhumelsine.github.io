@@ -2,7 +2,7 @@
 title: Interpreter Design Pattern – Scanner and Parser
 description: The basics of Scanner and Parser theory and practice.
 unlisted: true
----.
+---
 
 # Introduction
 This blog continues the [Interpreter Design Pattern](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) series by venturing into territory that’s often not covered in Interpreter write ups – scanners and parsers.
