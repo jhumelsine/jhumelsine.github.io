@@ -59,9 +59,8 @@ Given that [Jeffery Ullman](https://en.wikipedia.org/wiki/Jeffrey_Ullman) was th
 Automata Theory defines these machines and proves what they can and cannot compute.
 
 ### Finite Automata
-https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Deterministic_Finite-state_Automaton.svg/1029px-Deterministic_Finite-state_Automaton.svg.png?20150524185635
-https://commons.wikimedia.org/wiki/File:Deterministic_Finite-state_Automaton.svg
- 
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Deterministic_Finite-state_Automaton.svg/1029px-Deterministic_Finite-state_Automaton.svg.png?20150524185635" alt="Finite Automata" title="Image Source: https://commons.wikimedia.org/wiki/File:Deterministic_Finite-state_Automaton.svg" width = "40%" align="right" style="padding-right: 35px;">
+
 A [Finite Automata](https://en.wikipedia.org/wiki/Finite-state_machine) is a state machine. It consists of a set of states with transitions that move from state to state. From a start state, it reads a list of symbols (or characters), which are event triggers that move the machine from one state to another. Each read symbol triggers one state transition.
 
 After all the symbols have been read with their corresponding state transitions applied, the finite automaton will be in an _Accepting_ state (double circle in the diagram) or a _Rejecting_ state (single circle in the diagram). If _Accepting_, then the list symbols, i.e., string, are part of a language that the finite automaton accepts. Otherwise, it is not part of that language.
@@ -73,8 +72,7 @@ Compressing several weeks of lecture proofs into one sentence, the only types of
 There’s even a stronger relationship between the two. Given any finite automaton, we can always construct a regular language that describes the strings that the automaton accepts. Given any regular language, we can always construct a finite automaton that accepts strings in that language. Finite automata and regular expressions are two sides of the same coin.
 
 ### Pushdown Automata
-https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Pushdown-overview.svg/1280px-Pushdown-overview.svg.png
-https://en.wikipedia.org/wiki/Pushdown_automaton#/media/File:Pushdown-overview.svg
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Pushdown-overview.svg/1280px-Pushdown-overview.svg.png" alt="Pushdown Automata" title="Image Source: https://en.wikipedia.org/wiki/Pushdown_automaton#/media/File:Pushdown-overview.svg" width = "40%" align="right" style="padding-right: 35px;">
  
 Can we design automata that have more computational power than Finite Automata?
 
@@ -91,9 +89,8 @@ But stack memory has two limitations:
 * Once the top element has been popped off the stack, that information is lost.
 
 ### Turing Machine
-https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Example_of_a_Turing_machine.svg/524px-Example_of_a_Turing_machine.svg.png?20230901133749
-https://commons.wikimedia.org/wiki/File:Example_of_a_Turing_machine.svg
- 
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Example_of_a_Turing_machine.svg/524px-Example_of_a_Turing_machine.svg.png?20230901133749" alt="Turing Machine" title="Image Source:https://commons.wikimedia.org/wiki/File:Example_of_a_Turing_machine.svg" width = "40%" align="right" style="padding-right: 35px;">
+
 Can we design an automaton that has more computational power than Pushdown Automata?
 
 This leads to the [Turing Machine](https://en.wikipedia.org/wiki/Turing_machine), named after its creator [Alan Turing](https://en.wikipedia.org/wiki/Alan_Turing).
@@ -112,8 +109,7 @@ Alan Turing is considered the father of Theorical Computer Science, and he did m
 There are so many wild and wonderful topics here, but I need to stop before I venture too deep down into the rabbit hole.
 
 ## Practice
-https://upload.wikimedia.org/wikipedia/commons/d/d6/Parser_Flow%D5%B8.gif
-https://en.wikipedia.org/wiki/Parsing#/media/File:Parser_Flow%D5%B8.gif
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Parser_Flow%D5%B8.gif" alt="Interpreter/Compiler Architecture Flow" title="Image Source: https://en.wikipedia.org/wiki/Parsing#/media/File:Parser_Flow%D5%B8.gif" width = "20%" align="right" style="padding-right: 35px;">
  
 In general, Interpreters will scan, parse and evaluate a statement each time it encounters it. For example, the body of a `while` loop will be scanned, parsed and reevaluated in each loop execution. Interpreters tend to have more runtime flexibility, but these programs tend to execute slower.
 
