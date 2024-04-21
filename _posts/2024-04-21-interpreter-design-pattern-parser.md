@@ -169,7 +169,7 @@ These parsers basically work this way:
 * Each grammar rule will have its own method.
 * All rules will tend to be __OR__ or __AND__ rules (See: [What the Gang of Four Skimmed Over](https://jhumelsine.github.io/2024/04/07/interpreter-design-pattern-design.html#what-the-gang-of-four-skimmed-over)):
     * When considering an __OR__ rule, determine which of the possible more specific rule options applies, and call that rule’s method. This may require peeking at the next token or two, the __k__ lookahead, until we know which rule method to call.
-    * When considering an __AND__rule, call each rule’s method that’s in the __AND__ rule’s definition. There’s generally no token look ahead needed here, but tokens are usually consumed from the scanner.
+    * When considering an __AND__ rule, call each rule’s method that’s in the __AND__ rule’s definition. There’s generally no token look ahead needed here, but tokens are usually consumed from the scanner.
 * Start with the top/main rule.
 * Continue until all tokens have been consumed and all rule methods have been processed.
 
