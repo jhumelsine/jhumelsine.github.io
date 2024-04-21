@@ -40,15 +40,15 @@ Fundamentally the Parser is a [Configurer](https://jhumelsine.github.io/2023/10/
 My previous Configurer representations have mostly been straightforward applications of the [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) pattern. These examples have mostly been hardcoded, and any variation has generally been achieved via a switch statement.
 
 Parser is more sophisticated. It will dynamically build a Composite object tree based upon a script/program written in the DSL grammar. There is one design pattern that’s close to this concept, but the GoF didn’t fully flesh out its ability to be a Parser. It’s the Builder Design Pattern, and I’ll blog about it in the future. For now, here are a few references:
-* [SourceMaking Builder](https://sourcemaking.com/design_patterns/builder)
-* [Refactoring.guru Builder](https://refactoring.guru/design-patterns/builder)
+* [Builder at SourceMaking](https://sourcemaking.com/design_patterns/builder)
+* [Builder at Refactoring.guru](https://refactoring.guru/design-patterns/builder)
 
 Builder hints at Parser behavior in that it creates and assembles objects based upon a configuration specification, but that does not seem to be its primary intent.
 
 # Parser and Scanner Theory and Practice
 By pure serendipity, I took [Automata Theory](https://en.wikipedia.org/wiki/Automata_theory) and [Compiler Design and Implementation](https://en.wikipedia.org/wiki/Compiler) in the same semester at college. There were a few times where I literally had the same lecture material in both classes on the same day. The Automata Theory course presented the theory of a concept in my first period class, and then the Compiler course presented the same concept as practice for compilers in my third period class. Seeing theory and practice of the same concept helped me understand both.
 
-Given that [Jeffery Ullman](https://en.wikipedia.org/wiki/Jeffrey_Ullman) was the co-author for my text books in both classes (the [Cinderella](https://en.wikipedia.org/wiki/Introduction_to_Automata_Theory,_Languages,_and_Computation) book and the [Dragon](https://en.wikipedia.org/wiki/Principles_of_Compiler_Design) book respectively), I guess I should not be surprised. Both books still reside on my bookshelf over 40 years later.
+Given that [Jeffery Ullman](https://en.wikipedia.org/wiki/Jeffrey_Ullman) was the co-author for my text books in both classes, the [Cinderella](https://en.wikipedia.org/wiki/Introduction_to_Automata_Theory,_Languages,_and_Computation) book and the [Dragon](https://en.wikipedia.org/wiki/Principles_of_Compiler_Design) book respectively, I guess I should not be surprised. Both books still reside on my bookshelf over 40 years later.
 
 ## Theory
 [Automata Theory](https://en.wikipedia.org/wiki/Automata_theory) is about mathematical models of computation and what is [computable](https://en.wikipedia.org/wiki/Theory_of_computation). There are three basic mathematical models, also known as automata:
@@ -61,15 +61,15 @@ Automata Theory defines these machines and proves what they can and cannot compu
 ### Finite Automata
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Deterministic_Finite-state_Automaton.svg/1029px-Deterministic_Finite-state_Automaton.svg.png?20150524185635" alt="Finite Automata" title="Image Source: https://commons.wikimedia.org/wiki/File:Deterministic_Finite-state_Automaton.svg" width = "40%" align="right" style="padding-right: 35px;">
 
-A [Finite Automata](https://en.wikipedia.org/wiki/Finite-state_machine) is a state machine. It consists of a set of states with transitions that move from state to state. From a start state, it reads a list of symbols (or characters), which are event triggers that move the machine from one state to another. Each read symbol triggers one state transition.
+A [Finite Automata](https://en.wikipedia.org/wiki/Finite-state_machine) is a state machine. It consists of a set of states with transitions that move from state to state. From a start state, it reads a list of symbols (or characters), i.e., a string, which are event triggers that move the machine from one state to another. Each read symbol triggers one state transition.
 
-After all the symbols have been read with their corresponding state transitions applied, the finite automaton will be in an _Accepting_ state (double circle in the diagram) or a _Rejecting_ state (single circle in the diagram). If _Accepting_, then the list symbols, i.e., string, are part of a language that the finite automaton accepts. Otherwise, it is not part of that language.
+After all the symbols have been read with their corresponding state transitions applied, the finite automaton will be in an _Accepting_ state (double circle in the diagram) or a _Rejecting_ state (single circle in the diagram). If _Accepting_, then the list symbols, i.e., the string, are part of a language that the finite automaton accepts. Otherwise, it is not part of that language.
 
 If the finite automaton encounters a symbol in mid-list processing for which there is not an event transition to another state, then that string is not in the language either.
 
 Compressing several weeks of lecture proofs into one sentence, the only types of languages that a finite automata can accept are [regular languages/expressions](https://en.wikipedia.org/wiki/Regular_language). This is the boundary of finite automata computation.
 
-There’s even a stronger relationship between the two. Given any finite automaton, we can always construct a regular language that describes the strings that the automaton accepts. Given any regular language, we can always construct a finite automaton that accepts strings in that language. Finite automata and regular expressions are two sides of the same coin.
+There’s even a stronger relationship between the two. Given any Finite Automaton, we can always construct a Regular Language that describes the only strings that the Automaton accepts. Given any Regular Language, we can always construct a Finite Automaton that only accepts strings in that Language. Finite Automata and Regular Languages are two sides of the same coin.
 
 ### Pushdown Automata
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Pushdown-overview.svg/1280px-Pushdown-overview.svg.png" alt="Pushdown Automata" title="Image Source: https://en.wikipedia.org/wiki/Pushdown_automaton#/media/File:Pushdown-overview.svg" width = "40%" align="right" style="padding-right: 35px;">
@@ -80,9 +80,9 @@ This leads to the [Pushdown Automata](https://en.wikipedia.org/wiki/Pushdown_aut
 
 The only types of languages that a Pushdown Automata accepts are [Context-Free Grammars](https://en.wikipedia.org/wiki/Context-free_language), which I introduced in the [Interpreter Grammar](https://jhumelsine.github.io/2024/04/02/interpreter-design-pattern-grammars.html) blog.
 
-The same sort of relationship holds. Given any Pushdown Automaton, we can construct a Context-Free Grammar that defines what it accepts. Given any Context-Free Grammar, we can construct a Pushdown Automaton that accepts that grammar. Pushdown Automata and Context-Free Grammars are two sides of their own same coin.
+The same sort of relationship holds. Given any Pushdown Automaton, we can always construct a Context-Free Grammar that describes the only strings that the Automaton accepts. Given any Context-Free Grammar, we can always construct a Pushdown Automaton that only accepts strings in that Grammar. Pushdown Automata and Context-Free Grammars are two sides of their own same coin.
 
-Recall that Context-Free Grammars are rules defined in terms of other rules with recursive references as well. When a referenced rule has been completed, the grammar returns to the rule from which it was referenced. This is conceptually equivalent to a procedure call. Programming languages manage procedure calls via the call stack. The Pushdown Automata stack provides the same functionality. It remembers the state of where it left off so that it can return to that state.
+Recall that Context-Free Grammars are rules defined in terms of other rules, which includes recursive references as well. When a referenced rule has been completed, the grammar returns to the rule from which it was referenced. This is conceptually equivalent to a procedure call. Programming languages manage procedure calls via the call stack. The Pushdown Automata stack provides the same functionality. It remembers the state of where it left off so that it can return to that state.
 
 But stack memory has two limitations:
 * We can only access the top element of the stack.
@@ -101,6 +101,8 @@ The main difference between a Finite Automata and a Turing Machine is how each i
 
 That relatively simple list change from Finite Automata to Turing Machines unlocks all known forms of computation. See: [Church-Turing Thesis](https://en.wikipedia.org/wiki/Church%E2%80%93Turing_thesis). Turing proved that even when you try to define a more powerful Turing Machine, he could still use a basic Turing Machine to emulate the more “powerful” version. No matter what new direction we go into, we return to where we started. For example, a Turing Machine with multiple lists of symbols is no more powerful than a Turing Machine with one list of symbols. That is, given any multiple list Turing machine, we can always create a single list Turing Machine that returns the same computable results. The single list Turing Machine will have more components, and it will probably take more cycles to complete, but it won’t compute anything new.
 
+<img src="https://commons.wikimedia.org/wiki/File:Breadboard.JPG" alt="Breadboard" title="Image Source: https://upload.wikimedia.org/wikipedia/commons/5/52/Breadboard.JPG?20151209201332" width = "40%" align="right" style="padding-right: 35px;">
+
 Turing Machines are hardcoded. They are the mathematical equivalent of breadboards. Turing proved there existed a Turing Machine that could read the configuration specification of any hardcoded Turing Machine and emulate its behavior. It’s known as a [Universal Turing Machine](https://en.wikipedia.org/wiki/Universal_Turing_machine). A Universal Turing Machine can be programmed! All modern computers are Universal Turing Machines.
 Turing also proved that some problems are not computable. That is, there is no solution to them. The most famous unsolvable problem is the [Halting Problem](https://en.wikipedia.org/wiki/Halting_problem).
 
@@ -108,9 +110,7 @@ Alan Turing is considered the father of Theorical Computer Science, and he did m
 
 There are so many wild and wonderful topics here, but I need to stop before I venture too deep down into the rabbit hole.
 
-## Practice
-<img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Parser_Flow%D5%B8.gif" alt="Interpreter/Compiler Architecture Flow" title="Image Source: https://en.wikipedia.org/wiki/Parsing#/media/File:Parser_Flow%D5%B8.gif" width = "20%" align="right" style="padding-right: 35px;">
- 
+## Practice 
 In general, Interpreters will scan, parse and evaluate a statement each time it encounters it. For example, the body of a `while` loop will be scanned, parsed and reevaluated in each loop execution. Interpreters tend to have more runtime flexibility, but these programs tend to execute slower.
 
 In general, Compilers will scan and parse the entire program once, and create object code for the entire program. Compilers tend to have less runtime flexibility, but these programs tend to execute faster.
@@ -119,6 +119,8 @@ In the [Grammar to Design](https://jhumelsine.github.io/2024/04/07/interpreter-d
 > Explicit token elements, such as ‘(‘ or ‘)’ or keywords, are used for parsing, but they won’t be in the design. The token elements are road signs that help the parser identify where rules start and end and verify that parsing is on track.
 
 These explicit tokens will be critical in parsing. It’s how the parser determines which grammar rules to apply.
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Parser_Flow%D5%B8.gif" alt="Interpreter/Compiler Architecture Flow" title="Image Source: https://en.wikipedia.org/wiki/Parsing#/media/File:Parser_Flow%D5%B8.gif" width = "30%" align="right" style="padding-right: 35px;">
 
 Interpreters and Compilers are comprised of three basic parts:
 * Scanner, also known as Lexical Analyzer, Tokenizer among other terms
