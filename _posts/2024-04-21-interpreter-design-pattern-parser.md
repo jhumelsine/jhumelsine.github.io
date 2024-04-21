@@ -101,7 +101,7 @@ The main difference between a Finite Automata and a Turing Machine is how each i
 
 That relatively simple list change from Finite Automata to Turing Machines unlocks all known forms of computation. See: [Church-Turing Thesis](https://en.wikipedia.org/wiki/Church%E2%80%93Turing_thesis). Turing proved that even when you try to define a more powerful Turing Machine, he could still use a basic Turing Machine to emulate the more “powerful” version. No matter what new direction we go into, we return to where we started. For example, a Turing Machine with multiple lists of symbols is no more powerful than a Turing Machine with one list of symbols. That is, given any multiple list Turing machine, we can always create a single list Turing Machine that returns the same computable results. The single list Turing Machine will have more components, and it will probably take more cycles to complete, but it won’t compute anything new.
 
-<img src="https://commons.wikimedia.org/wiki/File:Breadboard.JPG" alt="Breadboard" title="Image Source: https://upload.wikimedia.org/wikipedia/commons/5/52/Breadboard.JPG?20151209201332" width = "40%" align="right" style="padding-right: 35px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Breadboard.JPG" alt="Breadboard" title="Image Source: https://commons.wikimedia.org/wiki/File:Breadboard.JPG" width = "25%" align="right" style="padding-right: 35px;">
 
 Turing Machines are hardcoded. They are the mathematical equivalent of breadboards. Turing proved there existed a Turing Machine that could read the configuration specification of any hardcoded Turing Machine and emulate its behavior. It’s known as a [Universal Turing Machine](https://en.wikipedia.org/wiki/Universal_Turing_machine). A Universal Turing Machine can be programmed! All modern computers are Universal Turing Machines.
 Turing also proved that some problems are not computable. That is, there is no solution to them. The most famous unsolvable problem is the [Halting Problem](https://en.wikipedia.org/wiki/Halting_problem).
@@ -120,7 +120,7 @@ In the [Grammar to Design](https://jhumelsine.github.io/2024/04/07/interpreter-d
 
 These explicit tokens will be critical in parsing. It’s how the parser determines which grammar rules to apply.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Parser_Flow%D5%B8.gif" alt="Interpreter/Compiler Architecture Flow" title="Image Source: https://en.wikipedia.org/wiki/Parsing#/media/File:Parser_Flow%D5%B8.gif" width = "30%" align="right" style="padding-right: 35px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Parser_Flow%D5%B8.gif" alt="Interpreter/Compiler Architecture Flow" title="Image Source: https://en.wikipedia.org/wiki/Parsing#/media/File:Parser_Flow%D5%B8.gif" width = "25%" align="right" style="padding-right: 35px;">
 
 Interpreters and Compilers are comprised of three basic parts:
 * Scanner, also known as Lexical Analyzer, Tokenizer among other terms
