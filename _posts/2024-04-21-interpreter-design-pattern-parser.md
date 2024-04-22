@@ -67,7 +67,7 @@ After all the symbols have been read with their corresponding state transitions 
 
 If the Finite Automaton encounters a symbol in mid-list processing for which there is not an event transition to another state, then that string is not in the language either.
 
-Compressing several weeks of lecture proofs into a one sentence conclusion, the only types of languages that a Finite Automata can accept are [Fegular Languages/Expressions](https://en.wikipedia.org/wiki/Regular_language). This is the extent of Finite Automata computation.
+Compressing several weeks of lecture proofs into a one sentence conclusion, the only types of languages that a Finite Automata can accept are [Regular Languages/Expressions](https://en.wikipedia.org/wiki/Regular_language). This is the extent of Finite Automata computation.
 
 There’s even a stronger relationship between the two. Given any Finite Automaton, we can always construct a Regular Language that describes the only strings that the Automaton accepts. Given any Regular Language, we can always construct a Finite Automaton that only accepts strings in that Language.
 
@@ -189,7 +189,7 @@ The design approach should make more sense with the Parser I plan to create and 
 ### Semantic Analyzer
 The Semantic Analyzer adds meaning to the parse tree. In a Compiler, the Semantic Analyzer will tend to generate object code, which could be machine code, [Java Bytecode]( https://en.wikipedia.org/wiki/Java_bytecode), or a higher level language. The object code in my college compiler course was Pascal.
 
-In an Interpreter, especially with our design pattern, it will be the classes already implemented from the grammar as seen in the [Grammar to Implementation](https://jhumelsine.github.io/2024/04/17/interpreter-design-pattern-implementation.html) blog.
+In an Interpreter, especially with our design pattern, it will be the classes already implemented from the grammar as seen in the [Design to Implementation](https://jhumelsine.github.io/2024/04/17/interpreter-design-pattern-implementation.html) blog.
 
 We don’t get the same break with semantic analysis that we get with __Regular Languages/Finite Automata__ and __Context-Free Grammars/Pushdown Automata__. Technically we do, but all programs are Turing Machines, and there’s no semantic definition to guide us. We must code the semantics ourselves.
 
