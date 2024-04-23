@@ -39,7 +39,7 @@ Fundamentally the Parser is a [Configurer](https://jhumelsine.github.io/2023/10/
 
 My previous Configurer representations have mostly been straightforward applications of the [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) pattern. These examples have mostly been hardcoded, and any variation has generally been achieved via a switch statement.
 
-Parser is more sophisticated. It will dynamically build a Composite object tree based upon a script/program/configuration/specification written in the DSL grammar. There is one design pattern that’s close to this concept, but the GoF didn’t fully flesh out its ability as a Parser. It’s the Builder Design Pattern, and I’ll blog about it in the future. For now, here are a two references:
+Parser is more sophisticated. It will dynamically build a Composite object tree based upon a script/program/configuration/specification written in the DSL grammar. There is one design pattern that’s close to this concept, but the GoF didn’t fully flesh out its ability as a Parser. It’s the Builder Design Pattern, and I’ll blog about it in the future. For now, here are two references:
 * [Builder at SourceMaking](https://sourcemaking.com/design_patterns/builder)
 * [Builder at Refactoring.guru](https://refactoring.guru/design-patterns/builder)
 
@@ -139,9 +139,9 @@ A scanner would combine those four letters into the word: __pool__. But this alo
 Let’s continue with __pool__ in the following sentences:
 * _We need to __pool__ our resources to complete the __pool__ so that the kids can enjoy it this summer. I may need to __pull__ some money from our savings account to pay for it._
 
-A parser would determine how each word functions in its sentence. In the first apperance, __pool__ is a verb. In the second apperance, __pool__ is a noun. In the third apperance, __pull__ is a verb.
+A parser would determine how each word functions in its sentence. In the first appearance, __pool__ is a verb. In the second appearance, __pool__ is a noun. In the third appearance, __pull__ is a verb.
 
-___pull___? Where did __pull__ come from? While __pool__ and __pull__ are spelled differently, they are pronounced the same. In spoken language, we’d need to distinguish which use applies. If this were parser were part of a digital assistance, such as Alexa, then it would need to distinguish __pool__ from __pull__.
+___pull___? Where did __pull__ come from? While __pool__ and __pull__ are spelled differently, they are pronounced the same. In spoken language, we’d need to distinguish which use applies. If this were parser were part of a digital assistant, such as Alexa, then it would need to distinguish __pool__ from __pull__.
 
 Parsers identify parts of speech, but not their meaning. They focus upon syntax not semantics. The semantic analyzer provides meaning and context.
 
