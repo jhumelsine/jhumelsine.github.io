@@ -61,7 +61,8 @@ I may modify this list below, but here’s what I’m currently considering as s
 * [Programming Language Grammars](https://jhumelsine.github.io/2024/04/02/interpreter-design-pattern-grammars.html)
 * [Grammars to Design](https://jhumelsine.github.io/2024/04/07/interpreter-design-pattern-design.html)
 * [Design to Implementation](https://jhumelsine.github.io/2024/04/17/interpreter-design-pattern-implementation.html)
-* Parsers and Scanners
+* [Parsers and Scanners, Theory and Practice](https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html)
+* Rational Expression Evaluator Implementation
 * A Use Case based upon a project-based Interpreter/DSL that I designed, and the project deployed.
 
 # Specification is Interpreter
