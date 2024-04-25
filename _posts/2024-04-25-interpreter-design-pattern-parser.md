@@ -1,7 +1,6 @@
 ---
 title: Interpreter Design Pattern – Scanner and Parser
 description: The basics of Scanner and Parser theory and practice.
-unlisted: true
 ---
 
 # Introduction
@@ -19,7 +18,7 @@ __Trigger Warning__: Unlike the previous blog, which contained no theory, this o
 Theory and practice are tightly coupled for scanners and parsers. Scanners and parsers can be auto-generated due to the mathematical rigor defined in the theory. Even if you hand-craft your own, the theory dictates most of the design.
 
 # Gang of Four Parser References
-Technically, the Gang of Four (GoF) didn’t leave the reader completely hanging.  There are a few parser references from them in their Interpreter description:
+Technically, the Gang of Four (GoF) didn’t leave the reader completely hanging.  There are a few parser references in their Interpreter description:
 > For complex grammars, the class hierarchy for the grammar becomes large and unmanageable. Tools such as __parser__ generators are a better alternative in such cases. They can interpret expressions without building abstract syntax trees, which can save space and possibly time.
 > 
 > Classes defining nodes in the abstract syntax tree have similar implementations. These classes are easy to write, and often their generation can be automated with a compiler or __parser__ generator.
@@ -141,7 +140,7 @@ Let’s continue with __pool__ in the following sentences:
 
 A parser would determine how each word functions in its sentence. In the first appearance, __pool__ is a verb. In the second appearance, __pool__ is a noun. In the third appearance, __pull__ is a verb.
 
-___pull___? Where did __pull__ come from? While __pool__ and __pull__ are spelled differently, they are pronounced the same. In spoken language, we’d need to distinguish which use applies. If this were parser were part of a digital assistant, such as Alexa, then it would need to distinguish __pool__ from __pull__.
+___pull___? Where did __pull__ come from? While __pool__ and __pull__ are spelled differently, they are pronounced the same. In spoken language, we’d need to distinguish which use applies. A parser for a digital assistant, such as Alexa, it would need to distinguish __pool__ from __pull__.
 
 Parsers identify parts of speech, but not their meaning. They focus upon syntax not semantics. The semantic analyzer provides meaning and context.
 
