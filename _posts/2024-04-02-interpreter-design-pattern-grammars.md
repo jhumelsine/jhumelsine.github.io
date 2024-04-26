@@ -13,7 +13,7 @@ Programming languages allow developers to communicate functional intent with com
 * _Programs are meant to be read by humans and only incidentally for computers to execute._ ― Donald Knuth
 
 Programming languages are bound by their grammar rules that document their syntax and structure.
-If you already feel confident about Programming Language Grammers, then skim this blog or skip it completely.
+If you already feel confident about Programming Language Grammars, then skim this blog or skip it completely.
 
 __Here's a summary of the DSL concepts presented here:__
 * __Natural Languages and Programming Languages are both described with grammars.__
@@ -134,7 +134,7 @@ Statement ::= if ParExpression Statement [else Statement] // Snippet of one Stat
 ParExpression: ( Expression )
 ```
 
-# Rational Number Evaluator Grammer Use Case
+# Rational Number Evaluator Grammar Use Case
 DSL grammars tend to be smaller than GPL grammars. Let’s see some examples using the [Rational Number Evaluator Use Case](https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html#rational-number-evaluator-use-case).
 
 ## A Few Examples
