@@ -9,7 +9,7 @@ unlisted: true
 # Introduction
 This blog continues the [Interpreter Design Pattern](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) series by implementing a Scanner and Parser for the Rational Expression Evaluator using the theory and practice described in [Scanner and Parser](https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html).
 
-This blog wraps up the Rational Expression Evaluator with a fully functioning Domain-Specific Language (DSL) example. For background on the journey that concludes here, see:
+This blog wraps up the Rational Expression Evaluator with a fully functioning Domain-Specific Language (DSL) implementation. For background on the journey that concludes here, see:
 * [Rational Number Evaluator Use Case Introduction](https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html#rational-number-evaluator-use-case) where the Rational Number Evaluator DSL was first introduced.
 * [Rational Number Evaluator Grammar Use Case](https://jhumelsine.github.io/2024/04/02/interpreter-design-pattern-grammars.html#rational-number-evaluator-grammar-use-case) where the Rational Number Evaluator grammar was presented.
 * [Rational Expression Evaluator Design](https://jhumelsine.github.io/2024/04/07/interpreter-design-pattern-design.html#grammar-to-design-via-use-case) where a UML class design for the Rational Expression Evaluator based upon the grammar was presented. I think this is when I started changing the name of the use case from _Rational Number Evaluator_ to _Rational Expression Evaluator_.
@@ -44,7 +44,7 @@ Iterator is a Gang of Four (GoF) Design Pattern. See:
 * [Iterator at SourceMaking](https://sourcemaking.com/design_patterns/iterator)
 * [Iterator at Refactoring.guru](https://refactoring.guru/design-patterns/iterator)
 
-Why would the GoF devote a design pattern to something so obvious and ubiquitous? In [The Big Wheel Keeps on Turning](https://jhumelsine.github.io/2023/08/28/wheels.html) where I used the _wheel_ as an example of a pattern to emphasize that patterns have been around for a long time, I wrapped up the example with:
+Why would the GoF devote a design pattern to something so obvious and ubiquitous? In [The Big Wheel Keeps on Turning](https://jhumelsine.github.io/2023/08/28/wheels.html) where I used the _wheel_ as an example of a real world pattern to emphasize that patterns have been around for a long time, I wrapped up the example with:
 
 > The wheel feels obvious to us since it’s so ubiquitous, but it took centuries if not millennia to perfect. Pre-Columbian indigenous peoples in the Americas, even with their own sophisticated technology, never developed it.
 
@@ -52,17 +52,17 @@ Sometimes patterns, such as the _wheel_, are only obvious once we’ve seen them
 
 I can assure you that Iterators were not as obvious and ubiquitous as they are today. Much like the wheel, they are only obvious in hindsight.
 
-Iterator abstracts traversing through a collection of data. I learned Data Structures in college in 1982. I’ve checked my Data Structures textbook, and I can’t find any references to anything that remotely looks like an Iterator. I remember quite explicitly learning the following traversal techniques:
+Iterator abstracts traversing a collection of data. I learned Data Structures in college in 1982. I’ve checked my Data Structures textbook, and I can’t find any references to anything that remotely looks like an Iterator. I remember quite explicitly learning the following traversal techniques in that course:
 * For an _array_, use a `for` loop with an integer index, and access each array element via the index value.
 * For a _linked list_, assign a pointer to the first node in the list. Then execute the body of a `while` loop while the pointer is not `null`. In the loop body, access the node being pointed at and reassign the pointer the `next` value of the current node.
 * For a _tree_, recursively descend the left sub-tree, access the current node, and recursively descend the right sub-tree.
 
 I remember the first time I was introduced to the Iterator concept. It was the mid 1990s and my project was using an internal proprietary framework/library which used Iterator internally. We could choose any data structure mechanism we desired, but we had to implement `first()` and `next()` so that the framework/library would know how to iterate whatever data structure we decided to use.
 
-I was very confused by the requirement to provide implementations for `first()` and `next()`. 
+I was very confused by the requirement to provide implementations for `first()` and `next()`. In hindsight, these are two common methods for Iterator implementations.
 
 ## Token
-The Scanner interface references `Token`. I’ve debated whether to return `Token` or `String`. I decided upon `Token`. It’s a [Value Object](https://en.wikipedia.org/wiki/Value_object) which allows for more context and additional token related methods, which I don’t know yet. Additional `Token` methods will emerge as I work on the `Parser` implementation, and I’ll add them when needed.
+The `Scanner` interface references `Token`. I debated whether to return `Token` or `String`. I decided upon `Token`. It’s a [Value Object](https://en.wikipedia.org/wiki/Value_object) which allows for more context and additional token related methods, which will emerge as I work on the `Parser` implementation. I’ll add them when needed.
 ```java
 class Token {
     private final String tokenValue;
@@ -78,11 +78,11 @@ class Token {
 ```
 
 ## Scanner Tests
-Here is a basic test for `Scanner`. It does a bit more than I usually prefer unit tests, but I wanted to get the basics in place:
+Here is a basic test for `Scanner`. It confirming a bit more than I usually prefer unit tests, but I wanted to get the basics in place:
 * `toString()` returns a string version of the internal data of the `Scanner`.
-* `peek(0)` returns the current token. It’s idempotent, so I’ve asserted it twice.
-* `consume()` returns the current token. It is not idempotent.
+* `peek(0)` returns the current token. It’s idempotent, so I’ve asserted it twice. It does not change the state of the `Scanner`.
 * A `peek(int)` beyond the remaining list of `Token`s should throw an exception.
+* `consume()` returns the current token. It is not idempotent. It does change the state of the `Scanner`.
 * `consume()` should throw an exception once all tokens are consumed.
 * The `IndexOutOfBoundsException` is a bit leaky, but I’m going to use it for now just to keep the implementation smaller.
 
@@ -146,13 +146,13 @@ class ScannerImpl implements Scanner {
 }
 ```
 
-I have been using [Test-Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) (TDD) as I progress with the `ScannerImpl` implementation while I’m writing this blog.
+I have been using [Test-Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) (TDD) as I progress with the `ScannerImpl` implementation in conjunction with writing this blog.
 
 … I have completed `ScannerImpl` using TDD. Here is some context about the implementation:
-* I’ve kept the `Scanner` implementation bare bones. If I were designing a DSL for production use:
+* I’ve kept the `Scanner` implementation to bare bones. If I were designing a DSL for production use:
     * I would have kept track of line and column information in the input so that when a syntax error is encountered, it would indicate issue with context.
-    * I would have allowed for comments, and they would have been stripped out in the `Scanner` implementation.
-    * I would not have leaked an `IndexOutOfBoundsException`. I would have caught it and returned an Exception that is specific to the `Scanner`.
+    * I would have supported comments, and they would have been stripped out in the `Scanner` implementation.
+    * I would not have leaked an `IndexOutOfBoundsException`. I would have caught it and returned an Exception that is specific to the `Scanner`. That is, it would have been an exception indicating that there were no more `Token`s without indicating a index issue.
     * I would have been more particular about alphanumerics starting with a letter. My current `Scanner` implementation will accept __123ABC__ as a token. Most scanners would balk at this.
 * My implementation has two basic phases:
     * Split the String into tokens based upon whitespace.
@@ -206,12 +206,12 @@ class ScannerImpl implements Scanner {
 ```
 
 # Parser
-The Parser implementation will more closely follow the techniques I specified in [Scanner and Parser]( https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html):
+The Parser implementation will more closely follow the techniques I described in [Scanner and Parser]( https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html):
 
-__OR__ and __AND__ concepts are very important in the grammar, design, implementation and parser. It’s the concept that binds them together. Define a solid grammar using __OR__ and __AND__ rules and the design, implementation and parser practically write themselves.
+__OR__ and __AND__ concepts are very important in the grammar, design, implementation and parser. __OR__ and __AND__ concepts bind them together. Define a solid grammar using __OR__ and __AND__ rules and the design, implementation and parser practically write themselves.
 * __OR__ rules:
     * Map to __IS-A__ relationships in the design.
-    * Map to interfaces and inheritance in the class implementation.
+    * Map to interfaces and `implements` in the class implementation.
     * Map to a method that peeks ahead looking at tokens to determine which of several more specific rule methods to call recursively.
 * __AND__ rules:
     * Map to __HAS-A__ relationships in the design.
@@ -229,16 +229,17 @@ The first Design to Implementation test was:
 assertEquals("0", new Rational("0").evaluate(null).toString());
 ```
 
-The same test will be modified to a `Parser` test by removing the specific `Rational` reference and replacing it with a `Parser` reference as so:
+The same test will be modified as a `Parser` test by removing the specific `Rational` reference and replacing it with `ScannerImpl` and `Parser` references as so:
 ```java
 assertEquals("0", new Parser(new ScannerImpl("0")).parse().evaluate(null).toString());
 ```
 
 Everything else is the same. Rather than explicitly creating a `Rational` object, the `Parser` and `ScannerImpl` will create it for us implicitly.
 
-Here is the initial `Parser` implementation with just enough non-hardcoded content to allow this test to pass. That is, it doesn’t hardcode something like: `return new Rational(“0”)`; although, I did use this as a stepping stone to the implementation directly below.
+Here is the initial `Parser` implementation with just enough provided to allow this test to pass.
 
-Look at the parallels of these methods and the [Design to Implementation – Where to Start?](https://jhumelsine.github.io/2024/04/17/interpreter-design-pattern-implementation.html#where-to-start) 
+Look at the parallels of these methods and the equivalent UML classes in [Design to Implementation – Where to Start?](https://jhumelsine.github.io/2024/04/17/interpreter-design-pattern-implementation.html#where-to-start). Recall that parsers are [Configurers](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) so they have knowledge of the classes in the design.
+
 ```java
 class Parser {
     private final Scanner scanner;
@@ -307,7 +308,7 @@ Here’s the updated methods that handle all three cases. It could possibly use 
     }
 ```
 
-I added a few more methods to `Scanner` and `Token` as I needed them. I’ll continue this as I progress with the rest of the implementation.
+I added a few more methods to `Scanner` and `Token` as I needed them. I’ll continue this as I progress with the rest of the implementation. See the complete implementation at the end of the blog for what's been added.
 
 We can think of `Rational` as a combination of __OR__ and __AND__ rules. It peeks at tokens to determine which of the three `Rational` forms applies, and it consumes the tokens that apply in constructing the `Rational` object.
 
@@ -383,7 +384,8 @@ The `SubtractOperation` parse method will consume tokens and recursively parse t
 
 ## DivideOp
 `DivideOp` is so much like `SubtractOp` that it’s not worth repeating here. See complete code below.
-There’s quite a bit of similar code, but I don’t think I’m going to try and refactor it.
+
+There’s quite a bit of similar code, but I don’t think I’m going to try and refactor it. NOTE: I have refactored it as can be seen in the complete implementation.
 
 ## AddOp
 `AddOp` is like `SubtractOp`, except that it supports multiple `Expression`s. Here are some examples of the previous `AddOp` unit tests:
@@ -448,7 +450,8 @@ The implementation is also slightly different, since it needs to support any num
 
 ## MultiplyOp
 `MultiplyOp` is so like `AddOp` that it’s not worth repeating here. See complete code below.
-There’s quite a bit of similar code, but I don’t think I’m going to try and refactor it.
+
+There’s quite a bit of similar code, but I don’t think I’m going to try and refactor it. NOTE: I have refactored it as can be seen in the complete implementation.
 
 ## Identifier
 `Identifier` was trivial to add to the `Parser`. See complete code below.
@@ -485,21 +488,25 @@ Here is what the new unit test looks like with the `Scanner` and `Parser` implem
             assertEquals("4218 10488/30625", new Parser(new ScannerImpl("f")).parse().evaluate(context).toString());
 ```
 
-It’s so much nicer, and the final asserts are mostly redundant. I still need a little bit more to make it a true DSL that a user can use it.
+It’s so much nicer, and the final asserts are mostly redundant.
+
+I still need a little bit more to make it a true DSL that a user can use it.
 
 # Scanner/Parser Summary
-I was able to complete the `Scanner`, `ScannerImpl`, `Token` and `Parser` classes from scratch in one day. The class implementations are about 314 lines of code. The tests are an additional 231 lines of code, but they were mostly a translation of the design implementation unit test scenarios with the parser.
+I was able to complete the `Scanner`, `ScannerImpl`, `Token` and `Parser` classes from scratch in one day. The class implementations are about 314 lines of code. The tests are an additional 231 lines of code, but they were mostly a translation of the design implementation unit test scenarios so that they could confirm `Parser` behavior.
 
-For the most part, the code flew out of my fingertips. The mathematical rigor I presented in [Scanner and Parser](https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html) dictated most of the implementation. TDD allowed me to implement behavior in chucks without concerns that I was breaking previous behavior.
+For the most part, the code flew out of my fingertips. The mathematical rigor I presented in [Scanner and Parser](https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html) dictated most of the implementation. TDD allowed me to implement in small manageable chucks without concerns that I was breaking previous behavior.
 
-NOTE: I broke previous behavior a few times, for example, when I forgot to take the minus sign into consideration when parsing. My minus sign tests failed, and I immediately knew how to address it. I also made a few changes and tests failed in a way I didn’t initially understand. I reverted recent changes, got back to passing, and proceeded in smaller steps without further incident.
+NOTE: I broke previous behavior a few times, for example, when I forgot to take the minus sign into consideration when parsing. The existing minus sign tests failed, and I immediately knew how to address it. I also made a few too many changes and tests failed in a way I didn’t initially understand. I reverted those changes, got back to passing, and proceeded in smaller steps without further incident.
 
 The recursive nature of parsers has always fascinated me, especially in the __AND__ rule implementations. When the code makes that recursive descending call, it doesn’t know how many tokens will be consumed or how much processing will be completed. It could be a few a tokens or it could be thousands of tokens. And when that processing has completed, it returns exactly to where it left off. I know we can count on this because of the theory, but it always feels a little magical when I implement it and see it working.
 
 # REPL
 The pieces are done, except for one. How does the user interact with my Rational Expression Evaluator DSL?
 
-I think the user should interact with this DSL via a Read-Eval-Print Loop ([REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)). This was simple to add, and it is not technically part of the Interpreter design. It’s a loop in `main` that reads in a string from standard `in` and evaluates it. The `REE>` prompt stands for __Rational Expression Evaluator__:
+I think the user should interact with this DSL via a Read-Eval-Print Loop ([REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)). This was simple to add. It is not technically part of the Interpreter design, but it's needed to complete the entire user DSL experience.
+
+It’s a loop in `main` that reads in a string from standard `in` and evaluates it. The `REE>` prompt stands for __Rational Expression Evaluator__:
 ```java
 public class RationalEvaluator {
     public static void main(String[] args) throws Exception {
@@ -541,7 +548,9 @@ One more thing is missing. Right now, the REPL will attempt to evaluate the expr
 I will update the REPL code so that it will accumulate input until there’s a complete expression, which I can determine when the number of open and closed parentheses are balanced. I won’t provide that update here, but it will be in the complete code below.
 
 # Summary
-__We’re done!__ This wraps up the description, theory, practice, design, implementation, et al. associated with the Interpreter Design Pattern. Congratulations if you made it this far.
+__We’re done!__
+
+This wraps up the description, theory, practice, design, implementation, et al. associated with the Interpreter Design Pattern. __Congratulations if you made it this far.__
 
 I have one more follow up Interpreter blog, but it will be feature the DSL I designed and implemented in my career and some of the experienced our team had with the pattern.
 
@@ -556,6 +565,7 @@ A few highlights:
 * The entire implementation is just over 950 lines. This is the entire Rational Expression Evaluator DSL implementation with tests.
 * The code is about half implementation and half test.
 * I refactored the Subtract/Divide Operator and Add/Multiply Operator parse methods. The similar/duplicate code has been consolidated.
+* Additional public methods were added to `Scanner` and `Token`. They are included in the code below.
 
 ```java
 import java.util.*;
