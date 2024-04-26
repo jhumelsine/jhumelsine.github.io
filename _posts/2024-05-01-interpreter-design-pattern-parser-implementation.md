@@ -553,9 +553,967 @@ Here’s the entire implementation up to this point as one file. Copy and paste 
 
 A few highlights:
 * The REPL portion accommodates expressions across multiple lines.
-* The entire implementation is just over 1,000 lines.
+* The entire implementation is just over 950 lines. This is the entire Rational Expression Evaluator DSL implementation with tests.
 * The code is about half implementation and half test.
+* I refactored the Subtract/Divide Operator and Add/Multiply Operator parse methods. The similar/duplicate code has been consolidated.
 
 ```java
+import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
+public class RationalEvaluator {
+    public static void main(String[] args) throws Exception {
+        Test.test(); // Comment this out to start up faster.
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        String accumulatingExpression = "";
+        int parenthesesBalanceCounter = 0;
+        Context context = new Context();
+        while (true) {
+            System.out.print("REE> ");
+            String expression = reader.readLine().trim();
+            accumulatingExpression = accumulatingExpression + " " + expression;
+            parenthesesBalanceCounter += getParenthesesBalanceCounter(expression);
+            if (parenthesesBalanceCounter == 0) {
+                System.out.println(new Parser(new ScannerImpl(accumulatingExpression)).parse().evaluate(context).toString());
+                accumulatingExpression = "";
+            }
+        }
+    }
+
+    private static int getParenthesesBalanceCounter(String expression) {
+        int parenthesesBalanceCounter = 0;
+
+        for (int i = 0; i < expression.length(); i++) {
+            switch (expression.charAt(i)) {
+                case '(': parenthesesBalanceCounter++; break;
+                case ')': parenthesesBalanceCounter--; break;
+                default:;
+            }
+        }
+
+        return parenthesesBalanceCounter;
+    }
+}
+
+interface Statement {
+    Rational evaluate(Context context);
+}
+
+class Context {
+    private final Map<String, Rational> state = new HashMap<>();
+
+    public void add(String identifier, Rational rational) {
+        state.put(identifier, rational);
+    }
+
+    public boolean containsKey(String identifier) {
+        return state.containsKey(identifier);
+    }
+
+    public Rational getRational(String identifier) {
+        return state.get(identifier);
+    }
+}
+
+interface Expression extends Statement {}
+
+class Rational implements Expression {
+    private final int numerator;
+    private final int denominator;
+
+    public Rational(String rationalString) {
+        int integer = 0;
+        int numerator;
+        int denominator;
+
+        if (!rationalString.contains("/")) {
+            numerator = Integer.parseInt(rationalString.trim());
+            denominator = 1;
+        } else {
+            String[] integers = rationalString.split("/");
+            if (integers[0].trim().contains(" ")) {
+                String[] tokens = integers[0].trim().split("\\s+");
+                integer = Integer.parseInt(tokens[0].trim());
+                numerator = Integer.parseInt(tokens[1].trim());
+            } else {
+                numerator = Integer.parseInt(integers[0].trim());
+            }
+            denominator = Integer.parseInt(integers[1].trim());
+            numerator += integer * denominator ;
+        }
+
+        int divisor = denominator;
+        while (divisor > 1) {
+            if (numerator % divisor == 0 && denominator % divisor == 0) {
+                numerator = numerator / divisor;
+                denominator = denominator / divisor;
+            } else {
+                divisor--;
+            }
+        }
+
+        this.numerator = numerator;
+        this.denominator = denominator;
+
+        if (denominator == 0) throw new ArithmeticException();
+    }
+
+    @Override
+    public Rational evaluate(Context context) {
+        return this;
+    }
+
+    public int getNumerator() {
+        return numerator;
+    }
+
+    public int getDenominator() {
+        return denominator;
+    }
+
+    @ Override
+    public String toString() {
+        if (denominator == 1) {
+            return String.valueOf(numerator);
+        } else if (Math.abs(numerator) > denominator) {
+            return String.format("%d %d/%d", numerator/denominator, Math.abs(numerator%denominator), denominator);
+        }
+        return String.valueOf(numerator) + "/" + String.valueOf(denominator);
+    }
+
+}
+
+abstract class BinaryOp implements Expression {
+    private final Expression operand1;
+    private final Expression operand2;
+
+    public BinaryOp(Expression operand1, Expression operand2) {
+        this.operand1 = operand1;
+        this.operand2 = operand2;
+    }
+
+    @Override
+    public Rational evaluate(Context context) {
+        Rational rational1 = operand1.evaluate(context);
+        Rational rational2 = operand2.evaluate(context);
+
+        return operation(rational1.getNumerator(), rational1.getDenominator(), rational2.getNumerator(), rational2.getDenominator());
+    }
+
+    abstract protected Rational operation(int numerator1, int denominator1, int numerator2, int denominator2);
+}
+
+class SubtractOp extends BinaryOp {
+    public SubtractOp(Expression op1, Expression op2) {
+        super(op1, op2);
+    }
+
+    @Override
+    protected Rational operation(int numerator1, int denominator1, int numerator2, int denominator2) {
+        int numerator = numerator1 * denominator2 - numerator2 * denominator1;
+        int denominator = denominator1 * denominator2;
+
+        return new Rational(String.format("%d/%d", numerator, denominator));
+    }
+}
+
+class DivideOp extends BinaryOp {
+    public DivideOp(Expression op1, Expression op2) {
+        super(op1, op2);
+    }
+
+    @Override
+    protected Rational operation(int numerator1, int denominator1, int numerator2, int denominator2) {
+        int numerator = numerator1 * denominator2;
+        int denominator = denominator1 * numerator2;
+
+        return new Rational(String.format("%d/%d", numerator, denominator));
+    }
+}
+
+abstract class MultiOperandsOp implements Expression {
+    private final List<Expression> expressions = new LinkedList<>();
+
+    public void addExpression(Expression expression) {
+        expressions.add(expression);
+    }
+
+    @Override
+    public Rational evaluate(Context context) {
+        Rational accumulator = getIdentity();
+        for(Expression expression : expressions) {
+            Rational operand = expression.evaluate(context);
+            accumulator = operation(accumulator.getNumerator(), accumulator.getDenominator(), operand.getNumerator(), operand.getDenominator());
+        }
+
+        return accumulator;
+    }
+
+    abstract protected Rational getIdentity();
+
+    abstract protected Rational operation(int numerator1, int denominator1, int numerator2, int denominator2);
+}
+
+class AddOp extends MultiOperandsOp {
+    @Override
+    protected Rational getIdentity() {
+        return new Rational("0");
+    }
+
+    @Override
+    protected Rational operation(int numerator1, int denominator1, int numerator2, int denominator2) {
+        int numerator = numerator1 * denominator2 + numerator2 * denominator1;
+        int denominator = denominator1 * denominator2;
+
+        return new Rational(String.format("%d/%d", numerator, denominator));
+    }
+}
+
+class MultiplyOp extends MultiOperandsOp {
+    @Override
+    protected Rational getIdentity() {
+        return new Rational("1");
+    }
+
+    @Override
+    protected Rational operation(int numerator1, int denominator1, int numerator2, int denominator2) {
+        int numerator = numerator1 * numerator2;
+        int denominator = denominator1 * denominator2;
+
+        return new Rational(String.format("%d/%d", numerator, denominator));
+    }
+}
+
+class Identifier implements Expression {
+    private final String identifier;
+
+    public Identifier(String identifier) {
+        this.identifier = identifier;
+    }
+
+    @Override
+    public Rational evaluate(Context context) {
+        if (!context.containsKey(identifier)) return new Rational("0");
+        return context.getRational(identifier);
+    }
+}
+
+class Assignment implements Statement {
+    private final String identifier;
+    private final Expression expression;
+
+    public Assignment(String identifier, Expression expression) {
+        this.identifier = identifier;
+        this.expression = expression;
+    }
+
+    @Override
+    public Rational evaluate(Context context) {
+        Rational rational = expression.evaluate(context);
+        context.add(identifier, rational);
+        return rational;
+    }
+}
+
+interface Scanner {
+    // Peek several tokens ahead.
+    public Token peek(int index);
+
+    // Consume a token making it unavailable in subsequent Scanner calls.
+    public Token consume();
+
+    public int getRemainingTokenCount();
+}
+
+class ScannerImpl implements Scanner {
+    private int iteratorIndex = 0;
+    private List<String> tokens = new ArrayList<>();
+
+    public ScannerImpl(String input) {
+        for (String whitespaceDelimitedToken : Arrays.asList(input.trim().split("\\s+"))) {
+            refinedScanning(whitespaceDelimitedToken);
+        }
+    }
+
+    private void refinedScanning(String token) {
+        String accumulatingToken = "";
+
+        for (int i = 0; i < token.length(); i++) {
+            String nextSymbol = token.substring(i, i+1);
+            if ("+-*/()=,".contains(nextSymbol)) {
+                if (!accumulatingToken.isEmpty()) {
+                    tokens.add(accumulatingToken);
+                    accumulatingToken = "";
+                }
+                tokens.add(nextSymbol);
+            } else {
+                accumulatingToken = accumulatingToken + nextSymbol;
+            }
+        }
+
+        if (!accumulatingToken.isEmpty()) tokens.add(accumulatingToken);
+    }
+
+    public Token peek(int index) {
+        return new Token(tokens.get(iteratorIndex + index));
+    }
+
+    public Token consume() {
+        return new Token(tokens.get(iteratorIndex++));
+    }
+
+    public int getRemainingTokenCount() {
+        return tokens.size() - iteratorIndex;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("index=%d, tokens=%s", iteratorIndex, tokens.toString());
+    }
+}
+
+class Token {
+    private final String tokenValue;
+
+    public Token(String tokenValue) {
+        this.tokenValue = tokenValue;
+    }
+
+    public String getValue() {
+        return tokenValue;
+    }
+
+    public boolean isAssignment() {
+        return "=".equals(tokenValue);
+    }
+
+    public boolean isPlus() {
+        return "+".equals(tokenValue);
+    }
+
+    public boolean isMinus() {
+        return "-".equals(tokenValue);
+    }
+    
+    public boolean isStar() {
+        return "*".equals(tokenValue);
+    }
+
+    public boolean isSlash() {
+        return "/".equals(tokenValue);
+    }
+
+    public boolean isOperationStart() {
+        return "(".equals(tokenValue);
+    }
+
+    public boolean isOperationFinish() {
+        return ")".equals(tokenValue);
+    }
+
+    public boolean isDelimiter() {
+        return ",".equals(tokenValue);
+    }
+
+    public boolean isInteger() {
+        try {
+            Integer.parseInt(tokenValue);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+}
+
+class Parser {
+    private final Scanner scanner;
+
+    public Parser(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
+    // OR Rule. Determine which specific Statement rule to apply.
+    public Statement parse() throws Exception {
+        if (scanner.getRemainingTokenCount() > 1) {
+            if (scanner.peek(1).isAssignment()) {
+                return parseAssignment();
+            }
+        }
+
+        return parseExpression();
+    }
+
+    // AND Rule. Consume tokens and build object from its components.
+    private Assignment parseAssignment() throws Exception {
+        Token variableNameToken = scanner.consume();
+
+        Token assignmentToken = scanner.consume();
+        if (!assignmentToken.isAssignment()) throw new Exception("Expected Assignment Symbol (=). Got: " + assignmentToken);
+
+        return new Assignment(variableNameToken.getValue(), parseExpression());
+    }
+
+    // OR Rule. Determine which specific Expression rule to apply.
+    private Expression parseExpression() throws Exception {
+        Token token0 = scanner.peek(0);
+
+        if (scanner.getRemainingTokenCount() > 1) {
+            Token token1 = scanner.peek(1);
+
+            if (token1.isOperationStart()) {
+                if (token0.isMinus() || token0.isSlash()) {
+                    return parseBinaryOp();
+                }
+
+                if (token0.isPlus() || token0.isStar()) {
+                    return parseMultiOperandsOp();
+                }
+            }
+        }
+
+        if (!token0.isInteger() && !token0.isMinus()) {
+            return parseIdentifier();
+        } 
+
+        return parseRational();
+    }
+
+    // AND Rule. Consume tokens and build object from its components.
+    private BinaryOp parseBinaryOp() throws Exception {
+        Token operatorToken = scanner.consume();
+
+        Token operationStartToken = scanner.consume();
+        if (!operationStartToken.isOperationStart()) throw new Exception("Expected Operation Start Symbol ((). Got: " + operationStartToken);
+
+        Expression expression1 = parseExpression();
+
+        Token delimiterToken = scanner.consume();
+        if (!delimiterToken.isDelimiter()) throw new Exception("Expected Delimiter Symbol (,). Got: " + delimiterToken);
+
+        Expression expression2 = parseExpression();
+        
+        Token operationFinishToken = scanner.consume();
+        if (!operationFinishToken.isOperationFinish()) throw new Exception("Expected Operation Finish Symbol ()). Got: " + operationFinishToken);
+
+        return getBinaryOp(operatorToken, expression1, expression2);
+    }
+
+    private BinaryOp getBinaryOp(Token operatorToken, Expression expression1, Expression expression2) throws Exception {
+        if (operatorToken.isMinus()) {
+            return new SubtractOp(expression1, expression2);
+        } else if (operatorToken.isSlash()) {
+            return new DivideOp(expression1, expression2);
+        } else {
+            throw new Exception("Unexpected operator symbol: " + operatorToken.getValue());
+        }
+    }
+
+    // AND Rule. Consume tokens and build object from its components.
+    private MultiOperandsOp parseMultiOperandsOp() throws Exception {
+        MultiOperandsOp multiOperandsOp = getMultiOperandsOp(scanner.consume());
+
+        Token operationStartToken = scanner.consume();
+        if (!operationStartToken.isOperationStart()) throw new Exception("Expected Operation Start Symbol ((). Got: " + operationStartToken);
+
+        while (true) {
+            multiOperandsOp.addExpression(parseExpression());
+            
+            Token nextToken = scanner.peek(0);
+            if (nextToken.isDelimiter()) {
+                scanner.consume();
+            } else if (nextToken.isOperationFinish()) {
+                break;
+            }
+        }
+
+        return multiOperandsOp;
+    }
+
+    private MultiOperandsOp getMultiOperandsOp(Token operatorToken) throws Exception {
+        if (operatorToken.isPlus()) {
+            return new AddOp();
+        } else if (operatorToken.isStar()) {
+            return new MultiplyOp();
+        } else {
+            throw new Exception("Unexpected operator symbol: " + operatorToken.getValue());
+        }
+    }
+
+    private Identifier parseIdentifier() {
+        return new Identifier(scanner.consume().getValue());
+    }
+
+    private Rational parseRational() {
+        Token token = scanner.peek(0);
+
+        if (token.isMinus()) {
+            scanner.consume();
+            return new Rational("-" + parseNumber());
+        }
+
+        return new Rational(parseNumber());
+    }
+
+    private String parseNumber() {
+        Token token0 = scanner.peek(0);
+
+        if (scanner.getRemainingTokenCount() > 2) {
+            Token token1 = scanner.peek(1);
+            Token token2 = scanner.peek(2);
+
+            if (scanner.getRemainingTokenCount() > 3) {
+                Token token3 = scanner.peek(3);
+
+                if (token0.isInteger() && token1.isInteger() && token2.isSlash() && token3.isInteger()) {
+                    return String.format("%s %s %s %s", scanner.consume().getValue(), scanner.consume().getValue(), scanner.consume().getValue(), scanner.consume().getValue());
+                }
+            }
+            
+            if (token0.isInteger() && token1.isSlash() && token2.isInteger()) {
+                return String.format("%s %s %s", scanner.consume().getValue(), scanner.consume().getValue(), scanner.consume().getValue());
+            }
+        }
+
+        return scanner.consume().getValue();
+    }
+
+}
+
+class Test {
+    public static void test() throws Exception {
+        testDesignElements();
+
+        testScanner();
+
+        testParser();
+    }
+
+    private static void testDesignElements() throws Exception {
+        assertEquals("0", new Rational("0").evaluate(null).toString());
+        assertEquals("1", new Rational("1 ").evaluate(null).toString());
+        assertEquals("-1", new Rational(" -1").evaluate(null).toString());
+        assertEquals("5", new Rational(" 5 ").evaluate(null).toString());
+        assertEquals("5", new Rational("    5   ").evaluate(null).toString());
+
+        assertEquals("1/2", new Rational(" 1/2 ").evaluate(null).toString());
+        assertEquals("-1/2", new Rational(" -1/2 ").evaluate(null).toString());
+        assertEquals("2/3", new Rational("2 / 3").evaluate(null).toString());
+        try {
+            new Rational("1/0").evaluate(null);
+            throw new Exception(); // Should throw ArithmeticException and not reach here.
+        } catch (ArithmeticException e) {
+            // Expected. Division by zero.
+        }
+        try {
+            new Rational("0/0").evaluate(null);
+            throw new Exception(); // Should throw ArithmeticException and not reach here.
+        } catch (ArithmeticException e) {
+            // Expected. Division by zero.
+        }
+
+        assertEquals("1/2", new Rational("2/4").evaluate(null).toString());
+        assertEquals("1/2", new Rational("32/64").evaluate(null).toString());
+        assertEquals("1/4", new Rational("30 / 120").evaluate(null).toString());
+
+        assertEquals("1 2/5", new Rational("7/5").evaluate(null).toString());
+        assertEquals("2 1/4", new Rational("36/16").evaluate(null).toString());
+        assertEquals("-2 1/4", new Rational("-36/16").evaluate(null).toString());
+        assertEquals("5", new Rational("15 / 3").evaluate(null).toString());
+        assertEquals("-3", new Rational("-15 / 5").evaluate(null).toString());
+
+        assertEquals("1 5/6", new Rational("1 5/6").evaluate(null).toString());
+        assertEquals("2 2/3", new Rational(" 2 4 / 6 ").evaluate(null).toString());
+        assertEquals("4 1/2", new Rational("    2     10 /  4       ").evaluate(null).toString());
+        assertEquals("5", new Rational("    3   4   /   2   ").evaluate(null).toString());
+
+        assertEquals("1", new SubtractOp(new Rational("4"), new Rational("3")).evaluate(null).toString());
+        assertEquals("2 1/2", new SubtractOp(new Rational("4"), new Rational("1 1/2")).evaluate(null).toString());
+        assertEquals("-3", new SubtractOp(new Rational("2"), new Rational("5")).evaluate(null).toString());
+
+        assertEquals("2", new DivideOp(new Rational("4"), new Rational("2")).evaluate(null).toString());
+        assertEquals("3/4", new DivideOp(new Rational("3"), new Rational("4")).evaluate(null).toString());
+        assertEquals("1", new DivideOp(new Rational("3"), new Rational("3")).evaluate(null).toString());
+        assertEquals("57/110", new DivideOp(new Rational("3 4/5"), new Rational("7 1/3")).evaluate(null).toString());
+        try {
+            new DivideOp(new Rational("1"), new Rational("0")).evaluate(null);
+            throw new Exception(); // Should throw ArithmeticException and not reach here.
+        } catch (ArithmeticException e) {
+            // Expected. Division by zero.
+        }
+        try {
+            new DivideOp(new Rational("0"), new Rational("0")).evaluate(null);
+            throw new Exception(); // Should throw ArithmeticException and not reach here.
+        } catch (ArithmeticException e) {
+            // Expected. Division by zero.
+        }
+
+        {
+            MultiOperandsOp addOp = new AddOp();
+            addOp.addExpression(new Rational("4"));
+            addOp.addExpression(new Rational("3"));
+            assertEquals("7", addOp.evaluate(null).toString());
+        }
+
+        {
+            MultiOperandsOp addOp = new AddOp();
+            addOp.addExpression(new Rational("1/2"));
+            addOp.addExpression(new Rational("1/6"));
+            assertEquals("2/3", addOp.evaluate(null).toString());
+        }
+
+        {
+            MultiOperandsOp addOp = new AddOp();
+            addOp.addExpression(new Rational("1/2"));
+            addOp.addExpression(new Rational("1/6"));
+            addOp.addExpression(new Rational("1/6"));
+            assertEquals("5/6", addOp.evaluate(null).toString());
+        }
+
+        {
+            MultiOperandsOp addOp = new AddOp();
+            addOp.addExpression(new Rational("1 1/2"));
+            addOp.addExpression(new Rational("2 1/6"));
+            addOp.addExpression(new Rational("3 1/6"));
+            addOp.addExpression(new Rational("4 1/6"));
+            assertEquals("11", addOp.evaluate(null).toString());
+        }
+
+        {
+            MultiOperandsOp multiplyOp = new MultiplyOp();
+            multiplyOp.addExpression(new Rational("4"));
+            multiplyOp.addExpression(new Rational("3"));
+            assertEquals("12", multiplyOp.evaluate(null).toString());
+        }
+
+        {
+            MultiOperandsOp multiplyOp = new MultiplyOp();
+            multiplyOp.addExpression(new Rational("4 1/2"));
+            multiplyOp.addExpression(new Rational("3 1/3"));
+            multiplyOp.addExpression(new Rational("2 1/6"));
+            assertEquals("32 1/2", multiplyOp.evaluate(null).toString());
+        }
+
+        {
+            Context context = new Context();
+            assertEquals("0", new Identifier("a").evaluate(context).toString()); // Evaluates to zero when not found.
+
+            context.add("a", new Rational("5"));
+            assertEquals("5", new Identifier("a").evaluate(context).toString());
+
+            context.add("a", new Rational("7"));
+            assertEquals("7", new Identifier("a").evaluate(context).toString());
+        }
+
+        {
+            Context context = new Context();
+            assertEquals("0", new Identifier("a").evaluate(context).toString()); // Evaluates to zero when not found.
+
+            assertEquals("5", new Assignment("a", new Rational("5")).evaluate(context).toString());
+            assertEquals("5", new Identifier("a").evaluate(context).toString());
+
+            assertEquals("7", new Assignment("a", new Rational("7")).evaluate(context).toString());
+            assertEquals("7", new Identifier("a").evaluate(context).toString());
+        }
+
+        {
+            // a = 1 4/5
+            // b = 2 5/7
+            // c = a * b
+            // d = a + b + c
+            // e = a + b + c + d
+            // f = a * b * c * d * e
+
+            Context context = new Context();
+
+            new Assignment("a", new Rational("1 4/5")).evaluate(context);
+
+            new Assignment("b", new Rational("2 5/7")).evaluate(context);
+
+            MultiplyOp cProduct = new MultiplyOp();
+            cProduct.addExpression(new Identifier("a").evaluate(context));
+            cProduct.addExpression(new Identifier("b").evaluate(context)); 
+            new Assignment("c", cProduct).evaluate(context);
+
+            AddOp dSum = new AddOp();
+            dSum.addExpression(new Identifier("a").evaluate(context));
+            dSum.addExpression(new Identifier("b").evaluate(context));
+            dSum.addExpression(new Identifier("c").evaluate(context));
+            new Assignment("d", dSum).evaluate(context);
+
+            AddOp eSum = new AddOp();
+            eSum.addExpression(new Identifier("a").evaluate(context));
+            eSum.addExpression(new Identifier("b").evaluate(context));
+            eSum.addExpression(new Identifier("c").evaluate(context));
+            eSum.addExpression(new Identifier("d").evaluate(context));
+            new Assignment("e", eSum).evaluate(context);
+
+            MultiplyOp fProduct = new MultiplyOp();
+            fProduct.addExpression(new Identifier("a").evaluate(context));
+            fProduct.addExpression(new Identifier("b").evaluate(context));
+            fProduct.addExpression(new Identifier("c").evaluate(context));
+            fProduct.addExpression(new Identifier("d").evaluate(context));
+            fProduct.addExpression(new Identifier("e").evaluate(context));
+            new Assignment("f", fProduct).evaluate(context);
+
+            assertEquals("1 4/5", new Identifier("a").evaluate(context).toString());
+            assertEquals("2 5/7", new Identifier("b").evaluate(context).toString());
+            assertEquals("4 31/35", new Identifier("c").evaluate(context).toString());
+            assertEquals("9 2/5", new Identifier("d").evaluate(context).toString());
+            assertEquals("18 4/5", new Identifier("e").evaluate(context).toString());
+            assertEquals("4218 10488/30625", new Identifier("f").evaluate(context).toString());
+        }
+
+    }
+
+    private static void testScanner() throws Exception {
+        {
+            Scanner scanner = new ScannerImpl("  A  ");
+            assertEquals("index=0, tokens=[A]", scanner.toString());
+            assertEquals(1, scanner.getRemainingTokenCount());
+
+            Token peekToken1 = scanner.peek(0);
+            assertEquals("A", peekToken1.getValue());
+            assertEquals("index=0, tokens=[A]", scanner.toString());
+            assertEquals(1, scanner.getRemainingTokenCount());
+
+            Token peekToken2 = scanner.peek(0);
+            assertEquals("A", peekToken2.getValue());
+            assertEquals("index=0, tokens=[A]", scanner.toString());
+            assertEquals(1, scanner.getRemainingTokenCount());
+
+            Token consumedToken1 = scanner.consume();
+            assertEquals("A", consumedToken1.getValue());
+            assertEquals("index=1, tokens=[A]", scanner.toString());
+            assertEquals(0, scanner.getRemainingTokenCount());
+
+            try {
+                Token peekToken3 = scanner.peek(0);
+                throw new Exception(); // Should throw IndexOutOfBoundsException and not reach here.
+            } catch (IndexOutOfBoundsException e) {
+                // Expected. No more tokens available after consume();
+            }
+
+            try {
+                Token consumedToken2 = scanner.consume();
+                throw new Exception(); // Should throw IndexOutOfBoundsException and not reach here.
+            } catch (IndexOutOfBoundsException e) {
+                // Expected. No more tokens available after previous consume();
+            }
+        }
+
+        {
+            Scanner scanner = new ScannerImpl("A");
+            assertEquals("index=0, tokens=[A]", scanner.toString());
+            assertEquals(1, scanner.getRemainingTokenCount());
+
+            try {
+                Token peekToken = scanner.peek(1);
+                throw new Exception(); // Should throw IndexOutOfBoundsException and not reach here.
+            } catch (IndexOutOfBoundsException e) {
+                // Expected. No more tokens available after consume();
+            }
+        }
+
+        {
+            Scanner scanner = new ScannerImpl("      A       B       ");
+            assertEquals("index=0, tokens=[A, B]", scanner.toString());
+            assertEquals(2, scanner.getRemainingTokenCount());
+
+            Token peekToken0 = scanner.peek(0);
+            assertEquals("A", peekToken0.getValue());
+            assertEquals("index=0, tokens=[A, B]", scanner.toString());
+            assertEquals(2, scanner.getRemainingTokenCount());
+
+            Token peekToken1 = scanner.peek(1);
+            assertEquals("B", peekToken1.getValue());
+            assertEquals("index=0, tokens=[A, B]", scanner.toString());
+            assertEquals(2, scanner.getRemainingTokenCount());
+
+            Token consumedToken0 = scanner.consume();
+            assertEquals("A", consumedToken0.getValue());
+            assertEquals("index=1, tokens=[A, B]", scanner.toString());
+            assertEquals(1, scanner.getRemainingTokenCount());
+
+            Token consumedToken1 = scanner.consume();
+            assertEquals("B", consumedToken1.getValue());
+            assertEquals("index=2, tokens=[A, B]", scanner.toString());
+            assertEquals(0, scanner.getRemainingTokenCount());
+        }
+
+        {
+            Scanner scanner = new ScannerImpl("A BC DEF");
+            assertEquals("index=0, tokens=[A, BC, DEF]", scanner.toString());
+        }
+
+        {
+            Scanner scanner = new ScannerImpl("A + BC - DEF , ( )");
+            assertEquals("index=0, tokens=[A, +, BC, -, DEF, ,, (, )]", scanner.toString());
+        }
+
+        {
+            Scanner scanner = new ScannerImpl("++");
+            assertEquals("index=0, tokens=[+, +]", scanner.toString());
+        }
+
+        {
+            Scanner scanner = new ScannerImpl("++++ A +++");
+            assertEquals("index=0, tokens=[+, +, +, +, A, +, +, +]", scanner.toString());
+        }
+
+        {
+            Scanner scanner = new ScannerImpl("--");
+            assertEquals("index=0, tokens=[-, -]", scanner.toString());
+        }
+
+        {
+            Scanner scanner = new ScannerImpl("+--+ A ---");
+            assertEquals("index=0, tokens=[+, -, -, +, A, -, -, -]", scanner.toString());
+        }
+
+        {
+            Scanner scanner = new ScannerImpl("+A--B*+*C=(DE))123,,))");
+            assertEquals("index=0, tokens=[+, A, -, -, B, *, +, *, C, =, (, DE, ), ), 123, ,, ,, ), )]", scanner.toString());
+        }
+
+        {
+            Scanner scanner = new ScannerImpl("ABC123 123ABC");
+            assertEquals("index=0, tokens=[ABC123, 123ABC]", scanner.toString());
+        }
+    }
+
+    private static void testParser() throws Exception {
+        assertEquals("0", new Parser(new ScannerImpl("0")).parse().evaluate(null).toString());
+        assertEquals("1", new Parser(new ScannerImpl("1")).parse().evaluate(null).toString());
+        assertEquals("-1", new Parser(new ScannerImpl(" -1")).parse().evaluate(null).toString());
+        assertEquals("5", new Parser(new ScannerImpl(" 5 ")).parse().evaluate(null).toString());
+        assertEquals("5", new Parser(new ScannerImpl("    5   ")).parse().evaluate(null).toString());
+
+        assertEquals("1/2", new Parser(new ScannerImpl(" 1/2 ")).parse().evaluate(null).toString());
+        assertEquals("-1/2", new Parser(new ScannerImpl(" -1/2 ")).parse().evaluate(null).toString());
+        assertEquals("2/3", new Parser(new ScannerImpl("2 / 3")).parse().evaluate(null).toString());
+
+        try {
+            new Parser(new ScannerImpl("1/0")).parse().evaluate(null);
+            throw new Exception(); // Should throw ArithmeticException and not reach here.
+        } catch (ArithmeticException e) {
+            // Expected. Division by zero.
+        }
+        try {
+            new Parser(new ScannerImpl("0/0")).parse().evaluate(null);
+            throw new Exception(); // Should throw ArithmeticException and not reach here.
+        } catch (ArithmeticException e) {
+            // Expected. Division by zero.
+        }
+
+        assertEquals("1/2", new Parser(new ScannerImpl("2/4")).parse().evaluate(null).toString());
+        assertEquals("1/2", new Parser(new ScannerImpl("32/64")).parse().evaluate(null).toString());
+        assertEquals("1/4", new Parser(new ScannerImpl("30 / 120")).parse().evaluate(null).toString());
+
+        assertEquals("1 2/5", new Parser(new ScannerImpl("7/5")).parse().evaluate(null).toString());
+        assertEquals("2 1/4", new Parser(new ScannerImpl("36/16")).parse().evaluate(null).toString());
+        assertEquals("5", new Parser(new ScannerImpl("15 / 3")).parse().evaluate(null).toString());
+        assertEquals("-3", new Parser(new ScannerImpl("-15 / 5")).parse().evaluate(null).toString());
+
+        assertEquals("1 5/6", new Parser(new ScannerImpl("1 5/6")).parse().evaluate(null).toString());
+        assertEquals("2 2/3", new Parser(new ScannerImpl(" 2 4 / 6 ")).parse().evaluate(null).toString());
+        assertEquals("4 1/2", new Parser(new ScannerImpl("    2     10 /  4       ")).parse().evaluate(null).toString());
+        assertEquals("5", new Parser(new ScannerImpl("    3   4   /   2   ")).parse().evaluate(null).toString());
+
+        assertEquals("1", new Parser(new ScannerImpl("-(4, 3)")).parse().evaluate(null).toString());
+        assertEquals("2 1/2", new Parser(new ScannerImpl("-(4, 1 1/2)")).parse().evaluate(null).toString());
+        assertEquals("-3", new Parser(new ScannerImpl("-(2, 5)")).parse().evaluate(null).toString());
+
+        assertEquals("2", new Parser(new ScannerImpl("/(4, 2)")).parse().evaluate(null).toString());
+        assertEquals("3/4", new Parser(new ScannerImpl("/(3, 4)")).parse().evaluate(null).toString());
+        assertEquals("1", new Parser(new ScannerImpl("/(3, 3)")).parse().evaluate(null).toString());
+        assertEquals("57/110", new Parser(new ScannerImpl("/(3 4/5, 7 1/3)")).parse().evaluate(null).toString());
+
+
+        try {
+            new Parser(new ScannerImpl("/(1, 0)")).parse().evaluate(null);
+            throw new Exception(); // Should throw ArithmeticException and not reach here.
+        } catch (ArithmeticException e) {
+            // Expected. Division by zero.
+        }
+        try {
+            new Parser(new ScannerImpl("/(0, 0)")).parse().evaluate(null);
+            throw new Exception(); // Should throw ArithmeticException and not reach here.
+        } catch (ArithmeticException e) {
+            // Expected. Division by zero.
+        }
+
+        assertEquals("7", new Parser(new ScannerImpl("+(4, 3)")).parse().evaluate(null).toString());
+        assertEquals("2/3", new Parser(new ScannerImpl("+(1/2, 1/6)")).parse().evaluate(null).toString());
+        assertEquals("5/6", new Parser(new ScannerImpl("+(1/2, +(1/6, 1/6))")).parse().evaluate(null).toString());
+        assertEquals("5/6", new Parser(new ScannerImpl("+(1/2, 1/6, 1/6)")).parse().evaluate(null).toString());
+        assertEquals("11", new Parser(new ScannerImpl("+(1 1/2, 2 1/6, 3 1/6, 4 1/6)")).parse().evaluate(null).toString());
+
+        assertEquals("12", new Parser(new ScannerImpl("*(4, 3)")).parse().evaluate(null).toString());
+        assertEquals("32 1/2", new Parser(new ScannerImpl("*(4 1/2, 3 1/3, 2 1/6)")).parse().evaluate(null).toString());
+
+        {
+            Context context = new Context();
+            assertEquals("0", new Parser(new ScannerImpl("a")).parse().evaluate(context).toString()); // Evaluates to zero when not found.
+
+            context.add("a", new Rational("5"));
+            assertEquals("5", new Parser(new ScannerImpl("a")).parse().evaluate(context).toString());
+
+            context.add("a", new Rational("7"));
+            assertEquals("7", new Parser(new ScannerImpl("a")).parse().evaluate(context).toString());
+        }
+
+        {
+            Context context = new Context();
+            assertEquals("0", new Parser(new ScannerImpl("a")).parse().evaluate(context).toString()); // Evaluates to zero when not found.
+
+            assertEquals("5", new Parser(new ScannerImpl("a = 5")).parse().evaluate(context).toString());
+            assertEquals("5", new Parser(new ScannerImpl("a")).parse().evaluate(context).toString());
+            assertEquals("7", new Parser(new ScannerImpl("a = 7")).parse().evaluate(context).toString());
+            assertEquals("7", new Identifier("a").evaluate(context).toString());
+        }
+
+        {
+            // a = 1 4/5
+            // b = 2 5/7
+            // c = a * b
+            // d = a + b + c
+            // e = a + b + c + d
+            // f = a * b * c * d * e
+
+            Context context = new Context();
+            assertEquals("1 4/5", new Parser(new ScannerImpl("a = 1 4/5")).parse().evaluate(context).toString());
+            assertEquals("2 5/7", new Parser(new ScannerImpl("b = 2 5/7")).parse().evaluate(context).toString());
+            assertEquals("4 31/35", new Parser(new ScannerImpl("c = *(a, b)")).parse().evaluate(context).toString());
+            assertEquals("9 2/5", new Parser(new ScannerImpl("d = +(a, b, c)")).parse().evaluate(context).toString());
+            assertEquals("18 4/5", new Parser(new ScannerImpl("e = +(a, b, c, d)")).parse().evaluate(context).toString());
+            assertEquals("4218 10488/30625", new Parser(new ScannerImpl("f = *(a, b, c, d, e)")).parse().evaluate(context).toString());
+
+            assertEquals("1 4/5", new Parser(new ScannerImpl("a")).parse().evaluate(context).toString());
+            assertEquals("2 5/7", new Parser(new ScannerImpl("b")).parse().evaluate(context).toString());
+            assertEquals("4 31/35", new Parser(new ScannerImpl("c")).parse().evaluate(context).toString());
+            assertEquals("9 2/5", new Parser(new ScannerImpl("d")).parse().evaluate(context).toString());
+            assertEquals("18 4/5", new Parser(new ScannerImpl("e")).parse().evaluate(context).toString());
+            assertEquals("4218 10488/30625", new Parser(new ScannerImpl("f")).parse().evaluate(context).toString());
+        }
+    }
+    
+    private static void assertEquals(String expected, String actual) throws Exception {
+        if (!expected.equals(actual)) {
+            System.out.format("expected=%s, actual=%s\n", expected, actual);
+            throw new Exception();
+        }
+    }
+
+    private static void assertEquals(int expected, int actual) throws Exception {
+        if (expected != actual) {
+            System.out.format("expected=%d, actual=%d\n", expected, actual);
+            throw new Exception();
+        }
+    }
+
+}
 ```
