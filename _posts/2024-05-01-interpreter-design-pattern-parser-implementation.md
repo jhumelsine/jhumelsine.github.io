@@ -26,7 +26,7 @@ While I devoted quite a bit of space writing about how [Scanners](https://jhumel
 My Rational Expression Evaluator DSL has simple tokens. They are integers, alphanumerics and several symbols. I think I can hand-craft something simple.
 
 ## Scanner Interface
-Here’s my initial Scanner interface:
+Here’s my initial `Scanner` interface:
 ```java
 interface Scanner {
     // Peek several tokens ahead.
@@ -37,14 +37,14 @@ interface Scanner {
 }
 ```
 
-This interface is inspired by Iterators. I want the Parser to be able to peek ahead for Tokens in the __OR__ rule-based methods and consume Tokens in the __AND__ rule-based methods.
+This interface is inspired by Iterators. I want the `Parser` to be able to peek ahead for `Token`s in the __OR__ rule-based methods and consume `Token`s in the __AND__ rule-based methods.
 
 ### Iterator
 Iterator is a Gang of Four (GoF) Design Pattern. See:
 * [Iterator at SourceMaking](https://sourcemaking.com/design_patterns/iterator)
 * [Iterator at Refactoring.guru](https://refactoring.guru/design-patterns/iterator)
 
-Why would the GoF devote a design pattern to something so obvious and ubiquitous? In [The Big Wheel Keeps on Turning](https://jhumelsine.github.io/2023/08/28/wheels.html) where I used the _wheel_ as an example of a real world pattern to emphasize that patterns have been around for a long time, I wrapped up the example with:
+Why would the GoF devote a design pattern to something so obvious and ubiquitous? In [The Big Wheel Keeps on Turning](https://jhumelsine.github.io/2023/08/28/wheels.html) I used the _wheel_ as an example of a real world pattern to emphasize that patterns have been around for a long time. I wrapped up the example with:
 
 > The wheel feels obvious to us since it’s so ubiquitous, but it took centuries if not millennia to perfect. Pre-Columbian indigenous peoples in the Americas, even with their own sophisticated technology, never developed it.
 
@@ -62,7 +62,7 @@ I remember the first time I was introduced to the Iterator concept. It was the m
 I was very confused by the requirement to provide implementations for `first()` and `next()`. In hindsight, these are two common methods for Iterator implementations.
 
 ## Token
-The `Scanner` interface references `Token`. I debated whether to return `Token` or `String`. I decided upon `Token`. It’s a [Value Object](https://en.wikipedia.org/wiki/Value_object) which allows for more context and additional token related methods, which will emerge as I work on the `Parser` implementation. I’ll add them when needed.
+The `Scanner` interface references `Token`. I debated whether to return `Token` or `String`. I decided upon `Token`. It’s a [Value Object](https://en.wikipedia.org/wiki/Value_object) which allows for more context and additional token related methods, whose need will emerge as I work on the `Parser` implementation. I’ll add them when needed.
 ```java
 class Token {
     private final String tokenValue;
@@ -78,7 +78,7 @@ class Token {
 ```
 
 ## Scanner Tests
-Here is a basic test for `Scanner`. It confirming a bit more than I usually prefer unit tests, but I wanted to get the basics in place:
+Here is a basic test for `Scanner`. It confirms a bit more than I usually prefer unit tests, but I wanted to get the basics in place:
 * `toString()` returns a string version of the internal data of the `Scanner`.
 * `peek(0)` returns the current token. It’s idempotent, so I’ve asserted it twice. It does not change the state of the `Scanner`.
 * A `peek(int)` beyond the remaining list of `Token`s should throw an exception.
@@ -153,10 +153,10 @@ I have been using [Test-Driven Development](https://en.wikipedia.org/wiki/Test-d
     * I would have kept track of line and column information in the input so that when a syntax error is encountered, it would indicate issue with context.
     * I would have supported comments, and they would have been stripped out in the `Scanner` implementation.
     * I would not have leaked an `IndexOutOfBoundsException`. I would have caught it and returned an Exception that is specific to the `Scanner`. That is, it would have been an exception indicating that there were no more `Token`s without indicating a index issue.
-    * I would have been more particular about alphanumerics starting with a letter. My current `Scanner` implementation will accept __123ABC__ as a token. Most scanners would balk at this.
+    * I would have been more particular about alphanumerics starting with a letter. My current `Scanner` implementation will accept __123ABC__ as a token. Most scanners would balk at an alphanumeric starting with a digit.
 * My implementation has two basic phases:
     * Split the String into tokens based upon whitespace.
-    * Refine each whitespace delimited token one symbol at a time with DSL defined symbols, such as `+`, `-`, `=`, etc., as their own tokens and all other symbols concatenated together as one token.
+    * Refine each whitespace delimited token one symbol at a time with DSL defined symbols, such as `+`, `-`, `=`, etc., as their own `Token`s and all other symbols concatenated together as one `Token`.
 * My implementation is a form of state machine. It’s evaluating the string one symbol at a time as it determines which are `Token`s.
 
 ```java
@@ -206,7 +206,7 @@ class ScannerImpl implements Scanner {
 ```
 
 # Parser
-The Parser implementation will more closely follow the techniques I described in [Scanner and Parser]( https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html):
+The `Parser` implementation will more closely follow the techniques I described in [Scanner and Parser]( https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html):
 
 __OR__ and __AND__ concepts are very important in the grammar, design, implementation and parser. __OR__ and __AND__ concepts bind them together. Define a solid grammar using __OR__ and __AND__ rules and the design, implementation and parser practically write themselves.
 * __OR__ rules:
@@ -238,7 +238,7 @@ Everything else is the same. Rather than explicitly creating a `Rational` object
 
 Here is the initial `Parser` implementation with just enough provided to allow this test to pass.
 
-Look at the parallels of these methods and the equivalent UML classes in [Design to Implementation – Where to Start?](https://jhumelsine.github.io/2024/04/17/interpreter-design-pattern-implementation.html#where-to-start). Recall that parsers are [Configurers](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) so they have knowledge of the classes in the design.
+Look at the parallels of these methods and the equivalent UML classes in [Design to Implementation – Where to Start?](https://jhumelsine.github.io/2024/04/17/interpreter-design-pattern-implementation.html#where-to-start) Recall that parsers are [Configurers](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) so they have knowledge of the classes in the design.
 
 ```java
 class Parser {
@@ -552,13 +552,13 @@ __We’re done!__
 
 This wraps up the description, theory, practice, design, implementation, et al. associated with the Interpreter Design Pattern. __Congratulations if you made it this far.__
 
-I have one more follow up Interpreter blog, but it will be feature the DSL I designed and implemented in my career and some of the experienced our team had with the pattern.
+I have one more follow up Interpreter blog, but it will be feature the DSL I designed and implemented in my career and some of the experienced our team had with the pattern. It will not present any new Interpreter concepts or details.
 
 # References
 See: [Interpreter Design Pattern Introduction/References](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html#references) for overall references.
 
 ## The Complete Implementation
-Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment]( https://www.tutorialspoint.com/java/online-java-compiler.php).
+Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment]( https://www.tutorialspoint.com/java/online-java-compiler.php). However, it's a little glitchy with the REPL interface. I've gotten a few bash errors where I shouldn't be getting them.
 
 A few highlights:
 * The REPL portion accommodates expressions across multiple lines.
