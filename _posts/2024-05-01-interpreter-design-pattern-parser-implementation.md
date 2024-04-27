@@ -21,7 +21,7 @@ Each phase from __Domain Specific Language__ to __Grammar__ to __Design__ to __I
 There's still work to be done, but if the DSL and its Grammar are well thought out, that work tends to proceed smoothly.
 
 # Scanner
-While I devoted quite a bit of space writing about how [Scanners](https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html#scanners) can be implemented as [State Machines](https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html#finite-automata) derived from [Regular Languages](https://en.wikipedia.org/wiki/Regular_language), I’m not going to leverage much of that in my implementation.
+While I devoted quite a bit of space writing about how [Scanners](https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html#scanner) can be implemented as [State Machines](https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html#finite-automata) derived from [Regular Languages](https://en.wikipedia.org/wiki/Regular_language), I’m not going to leverage much of that in my implementation.
 
 My Rational Expression Evaluator DSL has simple tokens. They are integers, alphanumerics and several symbols. I think I can hand-craft something simple.
 
@@ -57,7 +57,7 @@ Iterator abstracts traversing a collection of data. I learned Data Structures in
 * For a _linked list_, assign a pointer to the first node in the list. Then execute the body of a `while` loop while the pointer is not `null`. In the loop body, access the node being pointed at and reassign the pointer the `next` value of the current node.
 * For a _tree_, recursively descend the left sub-tree, access the current node, and recursively descend the right sub-tree.
 
-I remember the first time I was introduced to the Iterator concept. It was the mid 1990s and my project was using an internal proprietary framework/library which used Iterator internally. We could choose any data structure mechanism we desired, but we had to implement `first()` and `next()` so that the framework/library would know how to iterate whatever data structure we decided to use.
+I remember the first time I was introduced to the Iterator concept. It was the mid-1990s and my project was using an internal proprietary framework/library which used Iterator internally. We could choose any data structure mechanism we desired, but we had to implement `first()` and `next()` so that the framework/library would know how to iterate whatever data structure we decided to use.
 
 I was very confused by the requirement to provide implementations for `first()` and `next()`. In hindsight, these are two common methods for Iterator implementations.
 
@@ -494,7 +494,7 @@ I still need a little bit more to make it a true DSL that a user can use it.
 # Scanner/Parser Summary
 I was able to complete the `Scanner`, `ScannerImpl`, `Token` and `Parser` classes from scratch in one day. The class implementations are about 314 lines of code. The tests are an additional 231 lines of code, but they were mostly a translation of the design implementation unit test scenarios so that they could confirm `Parser` behavior.
 
-For the most part, the code flew out of my fingertips. The mathematical rigor I presented in [Scanner and Parser](https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html) dictated most of the implementation. TDD allowed me to implement in small manageable chucks without concerns that I was breaking previous behavior.
+For the most part, the code flew out of my fingertips. The mathematical rigor I presented in [Scanner and Parser](https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html) dictated most of the implementation. TDD allowed me to implement small manageable chucks without concerns that I was breaking previous behavior.
 
 NOTE: I broke previous behavior a few times, for example, when I forgot to take the minus sign into consideration when parsing. The existing minus sign tests failed, and I immediately knew how to address it. I also made a few too many changes and tests failed in a way I didn’t initially understand. I reverted those changes, got back to passing, and proceeded in smaller steps without further incident.
 
@@ -551,7 +551,7 @@ __We’re done!__
 
 This wraps up the description, theory, practice, design, implementation, et al. associated with the Interpreter Design Pattern. __Congratulations if you made it this far.__
 
-I have one more follow up Interpreter blog, but it will be feature the DSL I designed and implemented in my career and some of the experienced our team had with the pattern. It will not present any new Interpreter concepts or details.
+I have one more follow up Interpreter blog, but it will feature the DSL I designed and implemented in my career and some of the experienced our team had with the pattern. It will not present any new Interpreter concepts or details.
 
 # References
 See: [Interpreter Design Pattern Introduction/References](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html#references) for overall references.
