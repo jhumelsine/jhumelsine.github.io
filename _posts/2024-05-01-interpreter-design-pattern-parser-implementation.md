@@ -80,9 +80,9 @@ class Token {
 ## Scanner Tests
 Here is a basic test for `Scanner`. It confirms a bit more than I usually prefer unit tests, but I wanted to get the basics in place:
 * `toString()` returns a string version of the internal data of the `Scanner`.
-* `peek(0)` returns the current token. It’s idempotent, so I’ve asserted it twice. It does not change the state of the `Scanner`.
+* `peek(0)` returns the current token. It does not change the state of the `Scanner`. It’s idempotent, so I’ve asserted it twice.
 * A `peek(int)` beyond the remaining list of `Token`s should throw an exception.
-* `consume()` returns the current token. It is not idempotent. It does change the state of the `Scanner`.
+* `consume()` returns the current token. It does change the state of the `Scanner`. It is not idempotent.
 * `consume()` should throw an exception once all tokens are consumed.
 * The `IndexOutOfBoundsException` is a bit leaky, but I’m going to use it for now just to keep the implementation smaller.
 
@@ -146,14 +146,13 @@ class ScannerImpl implements Scanner {
 }
 ```
 
-I have been using [Test-Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) (TDD) as I progress with the `ScannerImpl` implementation in conjunction with writing this blog.
+I have been using [Test-Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) (TDD) as I progress with the `ScannerImpl` implementation in conjunction with writing this blog. … I have completed `ScannerImpl` using TDD. Here is some context about the implementation:
 
-… I have completed `ScannerImpl` using TDD. Here is some context about the implementation:
 * I’ve kept the `Scanner` implementation to bare bones. If I were designing a DSL for production use:
     * I would have kept track of line and column information in the input so that when a syntax error is encountered, it would indicate issue with context.
     * I would have supported comments, and they would have been stripped out in the `Scanner` implementation.
-    * I would not have leaked an `IndexOutOfBoundsException`. I would have caught it and returned an Exception that is specific to the `Scanner`. That is, it would have been an exception indicating that there were no more `Token`s without indicating a index issue.
-    * I would have been more particular about alphanumerics starting with a letter. My current `Scanner` implementation will accept __123ABC__ as a token. Most scanners would balk at an alphanumeric starting with a digit.
+    * I would not have leaked an `IndexOutOfBoundsException`. I would have caught it and returned an Exception that is specific to the `Scanner` such as `NoMoreTokensException`.
+    * I would have been more particular about alphanumerics starting with a letter. My current `Scanner` implementation will accept __123ABC__ as a `Token`. Most scanners would balk at an alphanumeric starting with a digit, especially as an identifier.
 * My implementation has two basic phases:
     * Split the String into tokens based upon whitespace.
     * Refine each whitespace delimited token one symbol at a time with DSL defined symbols, such as `+`, `-`, `=`, etc., as their own `Token`s and all other symbols concatenated together as one `Token`.
@@ -208,7 +207,7 @@ class ScannerImpl implements Scanner {
 # Parser
 The `Parser` implementation will more closely follow the techniques I described in [Scanner and Parser]( https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html):
 
-__OR__ and __AND__ concepts are very important in the grammar, design, implementation and parser. __OR__ and __AND__ concepts bind them together. Define a solid grammar using __OR__ and __AND__ rules and the design, implementation and parser practically write themselves.
+__OR__ and __AND__ concepts are important in the grammar, design, implementation and parser. __OR__ and __AND__ concepts are their common thread. Define a solid grammar using __OR__ and __AND__ rules and the design, implementation and parser practically write themselves.
 * __OR__ rules:
     * Map to __IS-A__ relationships in the design.
     * Map to interfaces and `implements` in the class implementation.
@@ -216,7 +215,7 @@ __OR__ and __AND__ concepts are very important in the grammar, design, implement
 * __AND__ rules:
     * Map to __HAS-A__ relationships in the design.
     * Map to field attributes in the class implementation.
-    * Map to a method that consumes tokens, recursively call the rule methods recursively that define the rule and assemble all elements into an object.
+    * Map to a method that consumes tokens, call the rule methods recursively that define the rule and assemble all elements into an object.
 
 The `Parser` implementation will mirror the steps that were taken for the [class implementation](https://jhumelsine.github.io/2024/04/17/interpreter-design-pattern-implementation.html). Even the tests will basically be the same, except now they will be confirming the `Parser`’s ability to create and construct to the class objects rather than the functionality of the classes themselves.
 
@@ -234,7 +233,7 @@ The same test will be modified as a `Parser` test by removing the specific `Rati
 assertEquals("0", new Parser(new ScannerImpl("0")).parse().evaluate(null).toString());
 ```
 
-Everything else is the same. Rather than explicitly creating a `Rational` object, the `Parser` and `ScannerImpl` will create it for us implicitly.
+Everything else is the same. Rather than explicitly creating a `Rational` object, the `Parser` and `ScannerImpl` will create it for us implicitly. The other `Parser` tests will follow the same technique to replace the explicit class creation with the `Parser` and `ScannerImpl`.
 
 Here is the initial `Parser` implementation with just enough provided to allow this test to pass.
 
@@ -308,7 +307,7 @@ Here’s the updated methods that handle all three cases. It could possibly use 
     }
 ```
 
-I added a few more methods to `Scanner` and `Token` as I needed them. I’ll continue this as I progress with the rest of the implementation. See the complete implementation at the end of the blog for what's been added.
+I have added a few more methods to `Scanner` and `Token` as I needed them. I’ll continue this as I progress with the rest of the implementation. See the complete implementation at the end of the blog for what's been added.
 
 We can think of `Rational` as a combination of __OR__ and __AND__ rules. It peeks at tokens to determine which of the three `Rational` forms applies, and it consumes the tokens that apply in constructing the `Rational` object.
 
@@ -408,7 +407,7 @@ There’s quite a bit of similar code, but I don’t think I’m going to try an
         }
 ```
 
-Here’s what the `Parser` based equivalent tests look like. All of the previous construction disappears here. The `Parser` implementation will manage it:
+Here’s what the `Parser` based equivalent tests look like. All of the previous construction disappears when using the `Parser` which will manage it:
 ```java
         assertEquals("7", new Parser(new ScannerImpl("+(4, 3)")).parse().evaluate(null).toString());
         assertEquals("2/3", new Parser(new ScannerImpl("+(1/2, 1/6)")).parse().evaluate(null).toString());
