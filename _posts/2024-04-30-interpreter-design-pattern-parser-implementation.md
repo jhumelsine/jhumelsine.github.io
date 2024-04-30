@@ -1,7 +1,6 @@
 ---
 title: Interpreter Design Pattern – Scanner and Parser Implementation
 description: Implementing the Scanner and Parser for the Rational Expression Evaluator Use Case
-unlisted: true
 ---
 
 <img src="https://miro.medium.com/v2/resize:fit:828/format:webp/0*Z-EsrBvHP6n403Kq.jpg" alt="Code Listing on Screen with Magnifying Glass" title="Image Source: https://seniorbrogrammer.medium.com/3-good-software-engineering-practices-489674e8586e" width = "50%" align="center" style="padding-right: 35px;">
@@ -223,7 +222,7 @@ The `Parser` implementation will mirror the steps that were taken for the [class
 Let’s start with parsing Rational.
 
 ### First Rational Test and Implementation
-The first Design to Implementation test was:
+The first _Design to Implementation_ test was:
 ```java
 assertEquals("0", new Rational("0").evaluate(null).toString());
 ```
