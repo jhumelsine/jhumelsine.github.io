@@ -204,11 +204,11 @@ We no longer have an SRP violation. This is an application of the [Strategy](htt
 But there's still a problem. `ManageStuff` only has one reference to `IHandleStuff`, but now we have two classes that implement `IHandleStuff`.
 We could update `ManageStuff` to have two references to `IHandleStuff`, but now we're making changes in the Red Hexagon, and we want to avoid that, since this is an architecture update and not a behavior update.
 
-One solution is to problem is to employ the [Composite](https://en.wikipedia.org/wiki/Composite_pattern) design pattern. Here is the design diagram followed by some implementation snippets to help describe it. Notice that the only difference between this diagram and the one above is the new `HandleStuffViaComposite` class and an update to the `Configurer`. Not only is the Red Hexagon content unaffected, but the other Adapters are unaffected as well.
+One solution to problem is to employ the [Composite](https://jhumelsine.github.io/2024/02/29/composite-design-pattern-use-case.html) design pattern. Here is the design diagram followed by some implementation snippets to help describe it. Notice that the only difference between this diagram and the one above is the new `HandleStuffViaComposite` class and an update to the `Configurer`. Not only is the Red Hexagon content unaffected, but the other Adapters are unaffected as well.
 
 <img src="/assets/HexArchStructureBreadth3.png" alt="Basic Hexagonal Architecture with Composite" width = "90%" align="center" style="padding-right: 35px;">
 
-I will blog about **Composite** in the future, but here's a brief update of how it can solve our problem.
+Here's a brief summary of how Composite can solve our problem.
 
 Let's assume that this is the declaration for `IHandleStuff`:
 ```java
