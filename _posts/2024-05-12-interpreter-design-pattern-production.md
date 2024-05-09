@@ -104,10 +104,10 @@ A `ConcreteAction` implementation might look like this:
 ```java
 class AirTransportationRouter implements Action {
     private final Router router;
-    // …
+    ...
     @Override
-    public void execute(Package package) {
-        router.sendViaAirTransportation(package);
+    public void execute(Package packageToBeRouted) {
+        router.sendViaAirTransportation(packageToBeRouted);
     }
 }
 ```
@@ -121,8 +121,8 @@ For the most part, they were not __Adapters__. They were simple enough to reside
 ```java
 class IsHighPriority implements Condition {
     @Override
-    public Boolean isSatisfied(Package package) {
-        return Package.HIGH_PRIORITY == package.getPriority();
+    public Boolean isSatisfied(Package packageToBeRouted) {
+        return Package.HIGH_PRIORITY == packageToBeRouted.getPriority();
     }
 }
 ```
@@ -137,11 +137,11 @@ The implementation would basically be:
 ```java
 Class ActionList implements Action {
     private final List<Action> actions;
-    // …
+    ...
     @Override
-    public void execute(Package package) {
+    public void execute(Package packageToBeRouted) {
         for (Action action : actions) {
-            action.execute(package);
+            action.execute(packageToBeRouted);
         }
     }
 }
@@ -154,13 +154,13 @@ class ConditionAction implements Action {
     private final Condition condition;
     private final Action thenAction;
     private final Action elseAction;
-    …
+    ...
     @Override
-    public void execute(Package package) {
-        if (condition.isSatisfied(package)) {
-            thenAction.execute(package);
+    public void execute(Package packageToBeRouted) {
+        if (condition.isSatisfied(packageToBeRouted)) {
+            thenAction.execute(packageToBeRouted);
         } else if (elseAction != null) {
-            elseAction.execute(package);
+            elseAction.execute(packageToBeRouted);
         }
     }
 }
@@ -218,7 +218,7 @@ A few highlights:
 * `main` would be the first `action` executed, much like `main()` in Java or C++.
 * `main` references named `condition`s and `action`s: `isHighPriority`, `highPriorityRouting` and `lowPriorityRouting`. Unlike most modern languages where definitions can be referenced before being defined, in this DSL, they must be declared and defined before being referenced. Therefore, `main` was always at the bottom of the script. I could have enhanced the DSL to allow declaration/definition and reference to be independent, but it wasn’t worth the effort.
 * The concrete condition and action names were handles to their class names in the implementation language. I added parentheses in the DSL so that object for each object could be initialized as needed within the context of the script. The content between the parentheses would be passed as a `String`. Each class had its own mini-parser to interpret the `String` and configure the class object as needed. Most `String`s were simple so parsing was trivial.
-* `Package` does not appear in the script and yet it is the focal point of the DSL. `Package` is injected as the Context in `execute(Package package)` and `isSatisfied(Package package)`. We can assume that it’s always provided when an `Action` is executed or a `Condition` is evaluated. It’s the same as audio Tracks in the [Specification Smart Playlist](https://jhumelsine.github.io/2024/03/07/specification-design-pattern-use-case.html) example as well as the variable state storage Context in the [Rational Expression Evaluator](https://jhumelsine.github.io/2024/04/30/interpreter-design-pattern-parser-implementation.html) example. In all three Context is implicit.
+* `Package` does not appear in the script and yet it is the focal point of the DSL. `Package` is injected as the Context in `execute(Package packageToBeRouted)` and `isSatisfied(Package packageToBeRouted)`. We can assume that it’s always provided when an `Action` is executed or a `Condition` is evaluated. It’s the same as audio Tracks in the [Specification Smart Playlist](https://jhumelsine.github.io/2024/03/07/specification-design-pattern-use-case.html) example as well as the variable state storage Context in the [Rational Expression Evaluator](https://jhumelsine.github.io/2024/04/30/interpreter-design-pattern-parser-implementation.html) example. In all three Context is implicit.
 * The curly braces are optional in the example above. Curly braces are only required for `ActionList`s, but they can be useful for readability. NOTE: even if only added for readability, they will still be constructed as an `ActionList` containing only one `Action`.
 
 # The Grammar
