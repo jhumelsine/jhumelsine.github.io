@@ -104,7 +104,7 @@ A `ConcreteAction` implementation might look like this:
 ```java
 class AirTransportationRouter implements Action {
     private final Router router;
-    …
+    // …
     @Override
     public void execute(Package package) {
         router.sendViaAirTransportation(package);
@@ -137,7 +137,7 @@ The implementation would basically be:
 ```java
 Class ActionList implements Action {
     private final List<Action> actions;
-    …
+    // …
     @Override
     public void execute(Package package) {
         for (Action action : actions) {
