@@ -1,6 +1,6 @@
 ---
 title: Interpreter Design Pattern – Production Example
-description: Summary of My Use of Interpreter on a Work Project
+description: My Use of Interpreter on a Work Project
 unlisted: true
 ---
 <img src="https://fdczvxmwwjwpwbeeqcth.supabase.co/storage/v1/object/public/images/bd37709b-b3c9-4fa5-a4b1-d771dcf83123/3e87f742-895d-46c1-bd74-4bfe6bc61668.png" alt="Automated Package Processing Center" title="Image Source: https://easy-peasy.ai/ai-image-generator/images/modern-factory-sophisticated-robots-automation-system" width = "50%" align="center" style="padding-right: 35px;">
