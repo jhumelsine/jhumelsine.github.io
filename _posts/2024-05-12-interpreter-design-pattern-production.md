@@ -78,6 +78,8 @@ I thought a configurable design would accommodate what we needed. I understood t
 I wanted a design that glued the repeating behaviors together easily. I wanted the design to be lightweight.
 
 I sketched my initial design on a whiteboard in a conference room during a team meeting. To my surprise, my manager gave me the okay to move forward with it. I had been with the company for about 3 weeks at this point.
+
+<img src="/assets/InterpreterDesignPatternPackage1.png" alt="UML class diagram of the pitch"  width = "80%" align="center" style="padding-right: 35px;">
  
 This design allows us to configure any Rule based upon a set of `Action`s and `Condition`s. Notice the direction of knowledge and dependency. `Action` and `Condition` are stable/fixed elements. The other classes are unstable/flexible elements.
 
@@ -282,6 +284,8 @@ I added the following to the design. Most are Design Patterns not yet covered in
 
 ## Enhancements
 Here is the enhanced design:
+
+<img src="/assets/InterpreterDesignPatternPackage2.png" alt="Enhanced Design"  width = "80%" align="center" style="padding-right: 35px;">
  
 There are only a few differences between this version and the whiteboard version:
 * `ConcreteAction` has been replaced with an abstract `PrototypeAction`.
@@ -323,6 +327,8 @@ The GoF use the method name `clone()`, but since `clone` has additional baggage 
 I’m using Prototype to manage the Pseudo Keywords, which map to concrete classes in our design. We knew we would have many concrete classes. I didn’t want to update the Parser with class type each time we added a new class, so I used Prototype. Each time we created a new class type for the DSL, an object of that class type was created and registered with the Prototype Repo. The Parser could acquire a new object instance by copying the object stored in the Prototype repo.
 
 Here's the `PrototypeCondition` design:
+
+<img src="/assets/InterpreterDesignPatternPackage3.png" alt="PrototypeCondition Design"  width = "80%" align="center" style="padding-right: 35px;">
  
 There are two phases with Prototype:
 * Registering an object with the Prototype Repo.
@@ -348,6 +354,8 @@ This independence can be confirmed by following the lines of knowledge and depen
 `PrototypeAction` follows the same design as `PrototypeCondition`. I will include the classes in the `PrototypeAction` design, but I won’t provide the method details. They are identical, except that _Condition_ would be replaced by _Action_.
 
 There is a new concept that I’ll review. I have added an abstract `DecoratorAction` class with `Unpacking` as a concrete class example. `DecoratorAction` is based upon the [Decorator Design Pattern](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html).
+
+<img src="/assets/InterpreterDesignPatternPackage4.png" alt="PrototypeAction Design featuring Decorator"  width = "80%" align="center" style="padding-right: 35px;">
  
 `DecoratorAction` is a `PrototypeAction`, which contains an attribute reference back to `Action`.
 
