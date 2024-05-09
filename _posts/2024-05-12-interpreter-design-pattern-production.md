@@ -328,7 +328,7 @@ I’m using Prototype to manage the Pseudo Keywords, which map to concrete class
 
 Here's the `PrototypeCondition` design:
 
-<img src="/assets/InterpreterDesignPatternPackage3.png" alt="PrototypeCondition Design"  width = "80%" align="center" style="padding-right: 35px;">
+<img src="/assets/InterpreterDesignPatternPackage3.png" alt="PrototypeCondition Design"  width = "100%" align="center" style="padding-right: 35px;">
  
 There are two phases with Prototype:
 * Registering an object with the Prototype Repo.
@@ -355,7 +355,7 @@ This independence can be confirmed by following the lines of knowledge and depen
 
 There is a new concept that I’ll review. I have added an abstract `DecoratorAction` class with `Unpacking` as a concrete class example. `DecoratorAction` is based upon the [Decorator Design Pattern](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html).
 
-<img src="/assets/InterpreterDesignPatternPackage4.png" alt="PrototypeAction Design featuring Decorator"  width = "80%" align="center" style="padding-right: 35px;">
+<img src="/assets/InterpreterDesignPatternPackage4.png" alt="PrototypeAction Design featuring Decorator"  width = "100%" align="center" style="padding-right: 35px;">
  
 `DecoratorAction` is a `PrototypeAction`, which contains an attribute reference back to `Action`.
 
