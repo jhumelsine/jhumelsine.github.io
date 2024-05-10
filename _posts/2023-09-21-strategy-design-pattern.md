@@ -34,7 +34,7 @@ The client application’s Strategy reference is resolved at runtime, and it can
 
 Reference resolution doesn’t get as much attention in Strategy and other similar design patterns as it probably should. The Gang of Four (GoF) provide a few vague suggestions, but I don’t feel they provide clear guidance.
 
-I will provide my own thoughts as I continue with [Essential Design Patterns](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html) blog entries, but I don’t want to get the cart before the horse. For now, assume that the Client Applications will have the Strategy references they require. Rest assured; I’ll provide blogs on how to achieve that. Spoiler Alert: I’ll cover this with [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html), [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) and possibly more.
+I will provide my own thoughts as I continue with [Essential Design Patterns](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html) blog entries, but I don’t want to get the cart before the horse. For now, assume that the Client Applications will have the Strategy references they require. (See: [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) and [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html))
 
 # Strategy’s Structure
 Since a picture is worth a thousand words, here’s the traditional Strategy UML class diagram from [DoFactory.com](https://www.dofactory.com/net/strategy-design-pattern):
