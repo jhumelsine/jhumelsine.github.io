@@ -26,7 +26,7 @@ The processing center’s automation is based upon a set of routing rules. My pr
 Our domain was so like an automated packaging processing center that we often used the package processing center as a metaphor in understanding and modeling concepts in our own domain. I can convey most of what we experienced in our own domain with the automated package processing center domain without losing too much in translation.
 
 # The Requirements
-I had joined this software company just as a new project was ramping up. Our Project Manager (PM) described its main features to our team. Our main feature routed packages based upon a set of rules. Our PM presented the rules as slides in a PowerPoint presentation deck, which I assumed was what he had in presentations with the customer.
+I had joined this software company just as a new project was ramping up. Our Project Manager (PM) described its main features to our team. Our main feature routed packages based upon a set of rules. Our PM presented the rules as slides in a PowerPoint presentation deck, which I assumed was what he had used in presentations with the customer.
 
 There were about two dozen slides each in the form of an __IF RULEs__ that were like the following: 
 ```
@@ -59,11 +59,11 @@ I asked when we would get a formal requirements document with enumerated require
 
 The two dozen routing rules were different combinations of the same basic routing concepts. Several thoughts came to mind:
 * Were they correct and complete? I had my doubts. Turns out, those doubts were well founded.
-* The rules, or at least their fundamental concepts, felt cohesive. I was concerned that a traditional implementation might distribute the rules in such a way that we’d lose the cohesiveness.
+* The rules, or at least their fundamental concepts, felt cohesive. I was concerned that a traditional implementation might distribute the rules in such a way that we’d obscure their cohesiveness.
 * I had a gut feeling that flexibility might be needed even if the PowerPoint slide requirements were correct and complete. Would every processing center have the same set of routing rules? Might each need its own set of rules?
 
 # The Pitch
-I thought about the requirements. The slide presentation didn’t give me a sense of confidence. I modeled them to see if I could obtain a better understanding even if only for my own benefit.
+I thought about the requirements. The slide presentation didn’t give me a great sense of confidence. I modeled them to see if I could obtain a better understanding even if only for my own benefit.
 
 The same phrases repeated:
 * Is High Priority (or its negation)
@@ -73,11 +73,11 @@ The same phrases repeated:
 * Route to Filled-Truck Ground Transportation
 * Etc.
 
-I thought a configurable design would accommodate what we needed. I understood the Interpreter design pattern, but only as it applied to UML class diagrams. I didn’t appreciate what the Gang of Four (GoF) were trying to convey when they referred to _Language_ or _Grammar_. Therefore, I never had any thoughts of a DSL or Grammar when I dove headfirst into a UML class design.
+I thought a [composable design](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html) would accommodate what we needed. I understood the [Interpreter Design Pattern](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html), but only as it applied to UML class diagrams. I didn’t appreciate what the Gang of Four (GoF) were trying to convey when they referred to _Language_ or _Grammar_. Therefore, I never had any thoughts of a DSL or Grammar when I dove headfirst into a UML class design.
 
 I wanted a design that glued the repeating behaviors together easily. I wanted the design to be lightweight.
 
-I sketched my initial design on a whiteboard in a conference room during a team meeting. To my surprise, my manager gave me the okay to move forward with it. I had been with the company for about 3 weeks at this point.
+I sketched my initial design on a whiteboard in a conference room and presented it during a team meeting. To my surprise, my manager gave me the okay to move forward with it. I had been with the company for about 3 weeks at this point.
 
 <img src="/assets/InterpreterDesignPatternPackage1.png" alt="UML class diagram of the pitch"  width = "80%" align="center" style="padding-right: 35px;">
  
@@ -96,7 +96,7 @@ There are several design patterns tucked away in this design.
 * Route to Air Transportation
 * Route to Filled-Truck Ground Transportation
 
-There were more `Action`s than just transportation behaviors, but this list above should suffice as examples for now. The __Route__ implementation was often a family of cohesive classes. Each __Route__ behavior might require many classes with a substantial amount of code. I didn’t want a `ConcreteAction` class to contain those details.
+There were more `Action`s than just transportation behaviors, but this list above should suffice as examples for now. The __Route__ implementation was often a family of cohesive classes. Each __Route__ behavior might require many classes with a substantial amount of code. I didn’t want a `ConcreteAction` class to contain those implementation details.
 
 The `ConcreteAction` classes were often [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html), which implemented `Action` and delegated to a class that did the routing. The Adapter Design Pattern allows the `ConcreteAction` classes to plug into the design above and delegate to __Route__ classes. Since all knowledge and dependency flows away from Adapters, the design above has no knowledge of the __Route__ classes and the __Route__ classes have no knowledge of the design above. They can be designed, implemented, and tested independently. The Adapter is the only class that needs to adjust when either the design above or a __Route__ class has an impacting update.
 
@@ -113,7 +113,7 @@ class AirTransportationRouter implements Action {
 ```
 
 ## ConcreteCondition
-`ConcreteCondition` is like `ConcreteAction`, exception that if focused upon conditional features, such as:
+`ConcreteCondition` is like `ConcreteAction`, except that it focused upon conditional features, such as:
 * Is High Priority
 * Is Local Address
 
@@ -178,7 +178,7 @@ My tests indicated that the design worked, but at the cost of losing intent and 
 # The Solution
 I was a bit distraught. This was not going to work. Loss of intent with __Configurer__ is not much of an issue when only a few objects are created and assembled. But our Routing Rules structure was going to be many objects, and the loss of intent and comprehension was too extreme.
 
-I don’t remember when I had the Aha! moment when I realized I could describe the object organization via a script. From there, it was too much of a leap to a DSL. I was moving in reverse from what I have been writing all along in this Interpreter blog series. I had started with a design and worked my way back to a DSL.
+I don’t remember when I had the Aha! moment when I realized I could describe the object organization via a script. From there, it was not too much of a leap to a DSL. I was moving in reverse from what I have been writing all along in this Interpreter blog series. I had started with a design and worked my way back to a DSL.
 
 I wanted just enough of a DSL that would allow us to __glue__ together the functional behaviors in different combinations. Our DSL was going to look more like a script or a program and less like a [Specification](https://jhumelsine.github.io/2024/03/07/specification-design-pattern-use-case.html) or [REPL](https://jhumelsine.github.io/2024/04/30/interpreter-design-pattern-parser-implementation.html#repl).
 
@@ -215,11 +215,12 @@ action main = {
 ```
 
 A few highlights:
+* The DSL was imperative. If I had stayed with the original structure of the slide deck rules, then the DSL may have been declarative.
 * `main` would be the first `action` executed, much like `main()` in Java or C++.
 * `main` references named `condition`s and `action`s: `isHighPriority`, `highPriorityRouting` and `lowPriorityRouting`. Unlike most modern languages where definitions can be referenced before being defined, in this DSL, they must be declared and defined before being referenced. Therefore, `main` was always at the bottom of the script. I could have enhanced the DSL to allow declaration/definition and reference to be independent, but it wasn’t worth the effort.
-* The concrete condition and action names were handles to their class names in the implementation language. I added parentheses in the DSL so that object for each object could be initialized as needed within the context of the script. The content between the parentheses would be passed as a `String`. Each class had its own mini-parser to interpret the `String` and configure the class object as needed. Most `String`s were simple so parsing was trivial.
+* The concrete condition and action names were handles to their class names in the implementation language. I added parentheses in the DSL so that each object could be initialized as needed within the context of the script. The content between the parentheses would be passed as a `String`. Each class had its own mini-parser to interpret the `String` and configure the class object as needed. Most `String`s were simple so parsing was trivial.
 * `Package` does not appear in the script and yet it is the focal point of the DSL. `Package` is injected as the Context in `execute(Package packageToBeRouted)` and `isSatisfied(Package packageToBeRouted)`. We can assume that it’s always provided when an `Action` is executed or a `Condition` is evaluated. It’s the same as audio Tracks in the [Specification Smart Playlist](https://jhumelsine.github.io/2024/03/07/specification-design-pattern-use-case.html) example as well as the variable state storage Context in the [Rational Expression Evaluator](https://jhumelsine.github.io/2024/04/30/interpreter-design-pattern-parser-implementation.html) example. In all three Context is implicit.
-* The curly braces are optional in the example above. Curly braces are only required for `ActionList`s, but they can be useful for readability. NOTE: even if only added for readability, they will still be constructed as an `ActionList` containing only one `Action`.
+* The curly braces are optional in the example above. Curly braces are only required for `ActionList`s, but they can be useful for readability. NOTE: even if only added for readability, they will still be constructed as an `ActionList` containing only one `Action` in the composite object parse tree.
 
 # The Grammar
 Given the example above, I defined a Grammar for the DSL:
@@ -255,22 +256,20 @@ ACTION_LIST ::= { ACTION [; ACTION]* }
 * `;` - Semicolon is only needed in action lists. It’s an `action` separator, not a line terminator. That distinction would cause a lot of confusion.
 
 ## Pseudo Keywords
-The script contains pseudo keyword references, such as `RouteAirTransportation()`. These are not keywords defined in the Grammar. They are `ConcreteAction` classes for which an object will be created and added to the parse tree by the parser. The same applies to `ConcreteCondition` classes as well. I will need a way to manage this.
+The script contains pseudo keyword references, such as `RouteAirTransportation()`. These are not keywords defined in the Grammar. They are `ConcreteAction` classes for which an object will be created and added to the parse tree by the parser. The same applies to `ConcreteCondition` classes as well. I would need a way to manage this.
 
 ## Defined Actions and Conditions
-The script contains script declared references, such as `isLocal ` and `highPriorityRouting`. They are not keywords or pseudo keywords. They are identifiers declared, defined and referenced in the script. I will need a way to manage them too.
+The script contains declared references, such as `isLocal ` and `highPriorityRouting`. They are not keywords or pseudo keywords. They are identifiers declared, defined and referenced in the script. I would need a way to manage them too.
 
 ## Decomposition Packages
 I’ve only listed `Package` as our Context, but we needed to support different types of `Package`s. Some `Package`s were collections of other `Package`s. For example, a `MailBag` could contain many `Letter`s each of which requiring their own routing.
 
 Sometimes the components of the decomposed `Package`s were decomposable themselves.
 
-I will need a way to manage them too and ideally the same technique should work regardless of the layers of `Package` decomposition.
+I would need a way to manage them too and ideally the same technique should work regardless of the layers of `Package` decomposition.
 
 # The Parser
-It only took me one day to implement the first workable versions of the Scanner and Parser. I had come into the office on a federal holiday in exchange for another vacation day, which I wanted for the end of the year as a new employee. I had the office to myself without meetings or any other interruptions.
-
-My implementation progress was similar to what I described in [Rational Expression Evaluator Scanner and Parser Implementation](https://jhumelsine.github.io/2024/04/30/interpreter-design-pattern-parser-implementation.html), and progress proceeded about as smoothly. The main difference was that I didn’t know about TDD techniques at the time, so I didn’t have a great set of unit tests, and what tests I had were written after I had coded the feature.
+It only took me one day to implement the first workable versions of the Scanner and Parser. My implementation progress was similar to what I described in [Rational Expression Evaluator Scanner and Parser Implementation](https://jhumelsine.github.io/2024/04/30/interpreter-design-pattern-parser-implementation.html), and progress proceeded about as smoothly. The main difference was that I didn’t know about TDD techniques at the time, so I didn’t have a great set of unit tests, and what tests I had were written after I had coded the feature.
 
 My Scanner supported comments and when parsing hit an unexpected token, it would print the line with line and column numbers for the first character in the token.
 
@@ -314,9 +313,9 @@ The __Singleton__ Design Pattern will ensure that there’s only one instance of
 ## PrototypeCondition
 I’m going start with `PrototypeCondition` since it’s less complex than `PrototypeAction`.
 
-The __Prototype__ Design Pattern is not a proof-of-concept implementation. This is unfortunate, since I think, it can lead to confusion. I feel that __Clone__ or __Breeder__ may have been a better name for the design pattern.
+The __Prototype__ Design Pattern is not a proof-of-concept implementation. This name is unfortunate, since I think, it can lead to confusion. I feel that __Clone__ or __Breeder__ may have been a better name for the design pattern.
 
-The __Prototype__ Design Pattern is a [Creational Design Pattern](https://refactoring.guru/design-patterns/creational-patterns), but it’s unlike the other creational design patterns. In most creational patterns, the pattern’s implementation knows the class type, which it uses to create an object via the constructor. Prototype does not know the class type.
+The __Prototype__ Design Pattern is a [Creational Design Pattern](https://refactoring.guru/design-patterns/creational-patterns), but it’s unlike the other creational design patterns. In most creational patterns, the pattern’s implementation knows the class type, which it uses to create an object without the client code knowing the class type or having direct access to the constructor. Prototype does not know the class type or have direct access to the constructor either.
 
 Prototype creates and returns a new object without class knowledge, because it does not create the object via a class constructor. It creates the object by asking an object of that class to make a copy of itself. Constructors are still used, but they are encapsulated in the copy method and unknown to the Prototype implementation. See:
 * [Prototype via SourceMaking](https://sourcemaking.com/design_patterns/prototype)
@@ -336,7 +335,7 @@ There are two phases with Prototype:
 
 The following happens at startup:
 1.	The `ConcreteConditionConfigurer` acquires an instance of the `PrototypeConditionalRepoImpl` which is a Singleton that implements `PrototypeConditionalRepo`.
-2.	The `ConcreteConditionConfigurer` creates a new object instance of `ConcreteCondition` while injecting the Repo instance. This is the first place where `new()` is called. We still need to create the object via `new()`, but it’s an external call in the `Configurer`. The `ConcreteCondition` is a placeholder example. In practice, there will be many concrete condition classes. An object instance will be created for each. Our implementation language was C++, which supported the ability for the class to create and register an instance of itself during static initialization. Not all programming languages support this auto-registration ability. A separate Configurer class may be required as is modeled in the diagram above. NOTE: Since I didn’t understand Dependency Injection, I didn’t use it in our implementation. The `ConcreteCondition` resolved the Repo Singleton itself. This works, but it results in a circular dependency where the Repo Singleton, and the `ConcreteCondition` know about and depend upon each other. The enhanced design above removes the circular dependency.
+2.	The `ConcreteConditionConfigurer` creates a new object instance of `ConcreteCondition` while injecting the Repo instance. This is the first place where `new()` is called. We still need to create the object via `new()`, but it’s an external call in the `Configurer`. The `ConcreteCondition` is a placeholder example. In practice, there will be many concrete condition classes. An object instance will be created for each. Our implementation language was C++, which supported the ability for the class to create and register an instance of itself during static initialization. Not all programming languages support static initialization. A separate Configurer class may be required as is modeled in the diagram above. NOTE: Since I didn’t understand Dependency Injection, I didn’t use it in our implementation. The `ConcreteCondition` resolved the Repo Singleton itself. This works, but it results in a circular dependency where the Repo Singleton, and the `ConcreteCondition` know about and depend upon each other. The enhanced design above removes the circular dependency.
 3.	The `ConcreteConditionConfigurer` registers the object instance with the `PrototypeConditionRepo` Singleton using its class name. NOTE: Any unique key identifier will work, but class name is what we used.
 4.	`PrototypeConditionRepo` will contain a mapping of class name to an object of that class. Recall that the `PrototypeConditionRepo` will have no knowledge of the concrete class. It will only know the object as a `PrototypeCondition`.
 
@@ -359,7 +358,7 @@ There is a new concept that I’ll review. I have added an abstract `DecoratorAc
  
 `DecoratorAction` is a `PrototypeAction`, which contains an attribute reference back to `Action`.
 
-`Unpacking` unpacks the enclosed `Package`s from the main Package, and it executes its `action` for each enclosed `Package` with it as the Context. This looks a lot like the [Composite Design Pattern](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html), which is used for `ActionList`, but it’s slightly different. Composite iterates through its sub-`Action`s defined in the composite object parse tree. Decorator iterates through sub-`Package` objects in the `Package`.
+`Unpacking` unpacks the enclosed `Package`s from the main Package, and it executes its `action` for each enclosed `Package` with it as the Context. This looks a lot like the [Composite Design Pattern](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html), which is used for `ActionList`, but it’s slightly different. Composite iterates through its sub-`Action`s defined in the composite object parse tree executing the original `package` for each of its sub-`Action`s. Decorator iterates through sub-`Package` objects executing its sole `action` for each of the `sub-`Package`s in the original `package`.
 
 This allowed us write lines like this in the script:
 ```code
@@ -390,21 +389,21 @@ However, `DecoratorAction` introduced a problem with the Parser. How would the P
 
 My memory is a bit fuzzy on this, since it was 15 years ago, but here’s what I think I did. After calling `PrototypeAction.acquire(name)`, the Parser asked the returned object whether it was a `DecoratorAction` or not. This was done via reflection or a method that indicates Decorator status, such as `isDecoratorAction()`. If it was a `DecoratorAction` then the Parser would make another descending call into `parseAction()` and inject to the `action` into the `DecoratorAction` object. Otherwise, continue parsing as normal.
 
- # The Mystery
+# The Mystery
 After Grammar and Scanner/Parser implementations stabilized, we coded the Routing Rules into a script and started testing it.
 Within a few days my QA tester stopped by. We had a lab with several servers that created virtual `Package`s and moved through our scripted Routing Rules. He was expecting one of the `Package`s to end up on a specific outgoing loading dock, but it disappeared without a trace. It was like the `Package` was swallowed within our Routing Rules, and he had no idea what or where to diagnose the unexpected behavior.
 
-He asked whether DSL could support a tracing mechanism. Excellent idea! I added code that documented what each object in the composite object parse tree was doing as it encountered a `Package`. But each object only documented its actions. For example:
+He asked whether DSL could support a tracing mechanism. Excellent idea! I added code that documented what each object in the composite object parse tree was doing as it encountered a `Package`. But each object only documented its behaviors. For example:
 * `ConcreteCondition` logged whether it evaluated to true or false and what data it used to make that decision.
-* `AndCondition` logged whether it evaluated to true or false based upon an aggregate value.
+* `AndCondition` logged whether it evaluated to true or false based upon an aggregation of its `Condition`s.
 * `ConcreteAction` logged a summary of what action it performed.
 * `ConditionAction` logged whether it executed its `thenAction` or `elseAction` based upon the Condition value it received.
 
-I figured out a way to indent the logged content indicating scope, such as the _then_ or _else_ `Action`s within a `ConditionAction`. No individual object was responsible for the entire trace report, but the collective lines produced by each object as it processed `Package` documented the entire journey.
+I figured out a way to indent the logged content indicating scope, for example the _then_ or _else_ `Action`s behaviors would be indented underneath a `ConditionAction` log. No individual object was responsible for the entire trace report, but the collective lines produced by each object as it processed a `Package` documented the entire journey.
 
 We called the trace an _itinerary_ since documented the `Package`’s journey through the Routing Rules. The _itinerary_ was stored in the `Package` Context. This was the first time I had to add something to `Package` that was not part of the original intent. It would not be the last time. We started to refer to this additional content collectively as _luggage_. In hindsight, I should have created a new class named something like `RoutingContext` and `Package`, `Itinerary` and other _luggage_ elements would have been part of it.
 
-It only took me a few hours to add the _itinerary_ behavior and my QA reran his test. The `Package`’s itinerary stopped abruptly on the equivalent of an __IsExpired__ rule. This concept doesn’t fit the processing center domain exactly, but our _Packages_ had a 15-minute expiration timestamp on them. Recall that our actual domain was message routing, and if certain messages were too old, they were dropped. It was like they were old news.
+It only took me a few hours to add the _itinerary_ behavior and my QA reran his test. The `Package`’s itinerary stopped abruptly on the equivalent of an __IsExpired__ rule. This concept doesn’t fit the processing center domain exactly, but our _Packages_ had a 15-minute expiration timestamp on them. Recall that our actual domain was message routing, and if certain messages were too old, they were dropped like they were old news.
 
 The itinerary indicated that the `Package` was 3 hours past its expiration timestamp. My QA scratched his head, and then he checked the clocks on the servers in the lab. The one that created the `Package` and the one that hosted the scripted Routing Rules were 3 hours out of sync. He fixed the errant clock, tried it again, and the `Package` was processed through the scripted Routing Rules exactly as we expected. Who knows how long it could have taken to diagnose the clock mismatch without the itinerary.
 
@@ -420,7 +419,7 @@ In order to address runtime region knowledge, I added a __Template__ feature to 
 The new __Template__ Rule was added and looked something like this:
 ```code
 STATEMENT ::= CONDITION_DEFINITION | ACTION_DEFINITION | TEMPLATE_DEFINITION
-TEMPLATE_DEFINITION ::= template templateId < ID [, ID] > = { String }
+TEMPLATE_DEFINITION ::= ID < ID [, ID] > = { String }
 ```
 
 `String` was any string of characters. It might look like the following in the script:
@@ -437,11 +436,11 @@ template RouteLocalTransportation<REGION>= {
 
 When the Parser encountered an identifier returned from the Scanner, it would determine what type of identifier in the following order:
 * Keyword, which was hardcoded in the Parser.
-* Template, if the identifier was in the Template Repo.
-* PrototypeAction/PrototypeCondition, if the identifier was in the respective Prototype Repos.
-* Action/Condition, if the identifier was in the Action/Condition Repos.
+* Template Identifier, if it was in the Template Repo.
+* PrototypeAction/PrototypeCondition Identifier, if it was in the respective Prototype Repos.
+* Action/Condition Identifier, if it was in the Action/Condition Repos.
 
-Once a Region was known at runtime, our code would reference a `Template` identifier known to the Parser with the Region name injected into it, such as ` RouteLocalGroundTransportation<NorthEastRegion>`. The Parser would construct a runtime object tree for use on the fly to create the following String:
+Once a Region was known at runtime, our code would reference a `Template` identifier found in the Template Repo by the Parser with the Region name injected into it, such as ` RouteLocalGroundTransportation<NorthEastRegion>`. The Parser would substitute the parameterized type, _NorthEastRegion_, for the Template name, REGION, into the Template to create a String like this:
 ```code
 if (isRegional) {
     RouteLocalGroundTransportation(NorthEastRegion)
@@ -453,18 +452,20 @@ This use of the DSL/Grammar/Parser was more akin to an interpreter. The named `T
 
 We decided to try the `Template` ideas a proof-of-concept implementation in the morning. I had it working before the end of the day. I was surprised by how easily and quickly the design and implementation accommodated it. The only issue was that if the Parser had a Template parsing issue, the line/column information was a bit skewed, so it was a little harder to debug any Template typos.
 
-We later realized that we could simplify our scripted Routing Rules using `Template`s as well. `Template` was created for regional support, but it wasn’t limited to regional support. `Template` was flexible enough to accommodate `Template`s of `Template`s.
+We later realized that we could simplify our scripted Routing Rules using `Template`s as well. `Template` was created for regional support, but it wasn’t limited to regional support.
 
 We were also able to leverage the On-Demand nature of the DSL such that we could construct a String in the DSL/Grammar at runtime and parse it to create a composite object parse tree on-demand. On-Demand parsing was created for `Template` support, but it wasn’t limited to `Template` support.
+
+`Template` was flexible enough to accommodate `Template`s of `Template`s.
 
 # The Updates
 I mentioned previously that I was suspicious that our PowerPoint routing rules were not complete or correct. We found out that was the case during field testing.
 
 There was a major testing effort at a processing center with all related parties. We weren’t the only software shop working on the package processing center project.
 
-Two members of our team were on site for the exercise. Routing wasn’t functioning as expected on site. Once our crew observed what was really needed, they spent a few evening hours updating our Routing Rules script. They uploaded the updated scripit for the package processing center servers on site the next day, and it all worked. They were able to fix the problems without having to update or access to our source code or our versioning system.
+Two members of our team were on site for the exercise. Routing wasn’t functioning as expected on site. Once our crew observed what was really needed, they spent a few hours after the day's excerises were over updating our Routing Rules script. They uploaded the updated scripit on the package processing center servers on site the next day, and it all worked. They were able to fix the problems without having to update or access to our source code or our versioning system.
 
-We put the updated script into our version management system when they returned.
+We committed the updated script into our version management system when they returned.
 
 # The Party
 I was sitting next to our PM at the annual company holiday party. A customer was sitting on his other side. The customer was happy about the updates to the package processing center. I was a bit confused since I knew we had not yet delivered our code yet.
@@ -473,7 +474,7 @@ I asked my PM about it, and he said, “You know how _Alan_ and _Joe_ have been 
 
 Different routing functionality could be provided for different package processing centers from the same code base. The only difference was in the scripted Routing Rules.
 
-I have one additional story related to _Joe_. In the original Grammar, the semicolon was an `Action` separator, not a line terminator. I could usually keep this straight since I had defined it. However, _Joe_ kept trying to terminate almost every line with a semicolon, which I understood. I had to fight the urge to add a semicolon at the end of the last `Action` myself.
+I have one additional story related to _Joe_. In the original Grammar, the semicolon was an `Action` separator, not a line terminator. I could usually keep this straight since I had defined it. However, _Joe_ kept trying to terminate almost every line with a semicolon, which I understood, since that's what our source language did. I had to fight the urge to add a semicolon at the end of the last `Action` myself.
 
 He complained to me several times about it. I was able to fix it in the Parser easily. In the `ActionList` parsing, I updated the code to accept redundant semicolons and ignore them without generating a parsing error.
 
@@ -492,7 +493,7 @@ When behavior updates were needed, we found that:
 * Of the remaining updates, about 95% of the time, we could address them with a new concrete `Action` or `Condition` class. Prototype allowed us to plug them in easily without affecting the rest of the implementation.
 * Of the remaining updates, it was a concept not supported by the DSL/Grammar or Parser, such as the introduction of `Template`. This involved more effort, but the loose coupling of the design accommodated the updates easily.
 
-By the time we were done, the script was about 2,000 lines long, with comments, and the composite object tree had about 2,000 objects in it.
+By the time we were done, the script was about 2,000 lines long, with comments, and the composite object parse tree had about 2,000 objects in it.
 
 # The Summary
 Our Routing Rules DSL was an experiment. We were surprised by how well it worked. It provided the glue that allowed us to connect the different behaviors of our product without tightly coupling them. It was flexible and when updates were required, they could be made easily.
