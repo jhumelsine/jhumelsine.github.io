@@ -63,4 +63,4 @@ There’s nothing special about it, like most of these patterns, other than it p
 
 Most of these patterns demonstrate [Program to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html) in that most of them have an interface or abstract base class at the top of their diagrams.
 
-Many of these patterns work well together. I think this is demonstrated best with [Hexagonal Architecture](https://www.youtube.com/watch?v=aayl6FysZ_U) or Ports and Adapters, which I will present in future blog entries.
+Many of these patterns work well together. I think this is demonstrated best with [Hexagonal Architecture](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html), which is also known as Ports and Adapters.
