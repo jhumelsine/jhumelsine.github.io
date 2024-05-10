@@ -7,7 +7,7 @@ description: Do you know how to truly play the game, or do you only know the rul
 
 I learned the rules of chess when I was about eight years old. The rules fit on a single piece of paper that came with most chess sets. I could play the game casually with friends, but I was never really any good.
 
-Fast forward 15 or so years, soon after starting my first job. I was in the bookstore at the local mall, and I spotted this book, [The Logical Approach To Chess](https://www.amazon.com/Logical-Approach-Chess-Max-Euwe/dp/4871874729) by Euwe, et al.:
+Fast forward 15 or so years, soon after starting my first job. I was in the bookstore at the local mall, and I spotted this book, [The Logical Approach To Chess](https://www.amazon.com/Logical-Approach-Chess-Max-Euwe/dp/4871874729) by Euwe, et al.
 
 <img src="https://pictures.abebooks.com/isbn/9780486243535-us.jpg" alt="The Logical Approach To Chess Book Cover" title="Image Source: https://www.abebooks.com/servlet/BookDetailsPL?bi=31643813477" width = "25%" align="right" style="padding-right: 20px;">
 
