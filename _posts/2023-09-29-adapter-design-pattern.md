@@ -60,7 +60,7 @@ The Object Adapter is based upon composition and delegation. Here are the basic 
 
 <img src="/assets/ObjectAdapter.png" alt="Object Adapter" align="center" width = "75%" style="padding-right: 20px;">
  
-That’s it … mostly. The field attributes still need to be resolved. I’ll get to a way to address that in a few blog posts. Please sit tight.
+That’s it … mostly. The field attributes still need to be resolved. (See: [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) and [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html))
 
 ### Class Adapter 
 The Class Adapter is based upon inheritance and tradition. Here are the basic elements:
