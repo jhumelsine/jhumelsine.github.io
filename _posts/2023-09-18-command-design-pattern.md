@@ -64,7 +64,7 @@ printer.execute();
 ```
 # Command Decouples What from Whom
 The examples above created instances of `HelloWorld` and `Printer` directly by invoking the `new()` operation. This violates the first design principle: [Program to an interface rather than an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation).
-We can use another [Essential Design Pattern](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html), [Factory Method](https://refactoring.guru/design-patterns/factory-method), and acquire the Command this way:
+We can use another [Essential Design Pattern](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html), [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html), and acquire the Command this way:
 ```java
 Command command = Commands.acquire(“Hello World”);
 Command.execute();
@@ -116,7 +116,7 @@ The Command Design Pattern provides a foundation from which the Command Processo
 Java’s [Runnable](https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html) interface is an example of Command only with different nomenclature. The structure is identical, but instead of `execute()`, it declares `void run()`. This is part of `run`'s [description](https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html#run--):
 > The general contract of the method run is that it may take any action whatsoever.
 
-I love that definition. So unobstructed. Runnable allows developers the freedom to objectify "any action whatsoever."
+I love that definition. So unrestricted. Runnable allows developers the freedom to objectify "any action whatsoever."
 
 `Runnable` is often associated with Java’s `Thread` class. “Thread” appears in the Runnable documentation, which I disagree with. `Runnable` has no knowledge of or dependency upon `Thread`. It’s `Thread` that has knowledge of and a dependency upon `Runnable`.
 
