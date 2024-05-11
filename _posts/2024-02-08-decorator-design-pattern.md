@@ -199,13 +199,13 @@ DrinkOrder buildDrinkOrder(String ingredients) {
 
 DrinkOrder acquire(String ingredient, DrinkOrder drinkOrder) throws Exception {
     switch(ingredient) {
-        case “Coffee”: return new Coffee();
-        case “Tea”: return new Tea();
-        case “Sugar”: return new Sugar(drinkOrder);
-        case “Milk”: return new Milk(drinkOrder);
-        case “Lemon”: return new Lemon(drinkOrder);
-        case “PumpkinSpice”: return new PumpkinSpice(drinkOrder);
-        default: throw new Exception(“Unknown ingredient=” + ingredient);
+        case "Coffee": return new Coffee();
+        case "Tea": return new Tea();
+        case "Sugar": return new Sugar(drinkOrder);
+        case "Milk": return new Milk(drinkOrder);
+        case "Lemon": return new Lemon(drinkOrder);
+        case "PumpkinSpice": return new PumpkinSpice(drinkOrder);
+        default: throw new Exception("Unknown ingredient=" + ingredient);
     }
 }
 ```
