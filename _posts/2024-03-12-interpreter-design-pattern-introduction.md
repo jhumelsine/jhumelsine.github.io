@@ -116,8 +116,8 @@ Grammars generally have three basic rule types:
 Here’s a quick example of some grammar rule syntax:
 ```
 RuleX ::= RuleA | RuleB  // i.e., RuleX can become RuleA OR RuleB
-RuleA ::= “A” “(“ RuleX “)” // i.e, RuleA is comprised of "A" AND "(" AND RuleX AND ")".
-RuleB ::= “B” // i.e., DEFINITION
+RuleA ::= "A" "(" RuleX ")" // i.e, RuleA is comprised of "A" AND "(" AND RuleX AND ")".
+RuleB ::= "B" // i.e., DEFINITION
 ```
 
 The __OR__ operation is denoted by `|`. The __AND__ operation is assumed, much like multiplication is assumed in algebra when not specified. We assume that mass and acceleration are being multiplied in `F = ma`. The same applies to grammar rules. Assume __AND__ when not provided.
@@ -165,13 +165,13 @@ Notice that all of these observations are described in terms of __IS-A__ or __HA
 Given this brief example and the grammar notation above, we can define a Specification grammar as:
 ```
 Specification ::= Genre | Rating | Artist | All | Any | Not
-Genre ::= “genre” “(“ genreType “)”
-Rating ::= “rating” “(“ ratingValue “)”
-Artist ::= “genre” “(“ artistName “)”
-All ::= “all” “(“ SpecificationList “)”
-Any ::= “any” “(“ SpecificationList “)”
-Not ::= “not” “(“ Specification “)”
-SpecificationList ::= Specification (“,” Specification)* // NOTE: Star indicates any number of repetitions, including zero.
+Genre ::= "genre" "(" genreType ")"
+Rating ::= "rating" "(" ratingValue ")"
+Artist ::= "genre" "(" artistName ")"
+All ::= "all" "(" SpecificationList ")"
+Any ::= "any" "(" SpecificationList ")"
+Not ::= "not" "(" Specification ")"
+SpecificationList ::= Specification ["," Specification]* // NOTE: Star indicates any number of repetitions, including zero.
 ```
 
 The `Not` and `SpecificationList` rules include `Specification` in their definition. This means that the grammar is indirectly recursive. This is what allows `all`, `any` and `not` constructs to be nested. The grammar supports a tree structure that's as deep and wide as needed.
