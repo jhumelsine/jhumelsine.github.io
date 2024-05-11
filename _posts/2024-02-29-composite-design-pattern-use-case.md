@@ -181,7 +181,7 @@ Two new classes have been added to replace the previous hardcoded menu item clas
 #### A Simple Request
 Let’s start with the most basic request with a request for a Burger. It would look like this in code:
 ```java
-FoodItem foodItem = FoodItemFactory.acquire(“Burger”);
+FoodItem foodItem = FoodItemFactory.acquire("Burger");
 ```
 
 `FoodItemFactory`’s switch statement would match on “Burger” and return a new `Burger` instance.
@@ -189,7 +189,7 @@ FoodItem foodItem = FoodItemFactory.acquire(“Burger”);
 #### A More Complex Request
 Let’s consider this:
 ```java
-FoodItem foodItem = FoodItemFactory.acquire(“ProteinStyle”);
+FoodItem foodItem = FoodItemFactory.acquire("ProteinStyle");
 ```
 
 Unlike the previous example, `FoodItemFactory` won’t find a match for “ProteinStyle”. Its default behavior will return a `FoodItem` from the `FoodItemBuilder` for “ProteinStyle”. The `FoodItemBuilder` is a generic version of the hardcoded designs above such as `AnimalFries` and `FlyingDutchman`. The previous classes and this new `FoodItemBuilder` class have the following in common:
@@ -203,7 +203,7 @@ Since ProteinStyle is defined as `ProteinStyle => Burger|Lettuce`, `FoodItemBuil
 #### Hey, Watch This
 Now consider this:
 ```java
-FoodItem foodItem = FoodItemFactory.acquire(“RoadkillFries”);
+FoodItem foodItem = FoodItemFactory.acquire("RoadkillFries");
 ```
 
 RoadkillFries are defines as:
