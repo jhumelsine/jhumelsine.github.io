@@ -19,7 +19,7 @@ __Spoiler Alert:__ My Interpreter experience didn’t start with a Domain-Specif
 # The Domain
 I will feature a domain that wasn’t my project’s actual domain. They are conceptually similar, but the blog domain should be more familiar to a wider audience.
 
-Imagine an automated package processing center, such as one used by [United Parcel Service]( https://www.ups.com), [Federal Express]( https://www.fedex.com/) or [DHL](https://www.dhl.com/). Packages enter the processing center on an inbound loading dock. They’re routed through the center based upon address, priority, client loyalty program, etc. with their final destination being an outbound loading dock.
+Imagine an automated package processing center, such as one used by [United Parcel Service]( https://www.ups.com), [Federal Express]( https://www.fedex.com/) or [DHL](https://www.dhl.com/). Packages enter the processing center on an inbound loading dock. They’re routed through the center based upon address, priority, client loyalty program, etc. with their destination being an outbound loading dock.
 
 The processing center’s automation is based upon a set of routing rules. My project was responsible for the implementation of the routing rules in our domain, but our domain’s routing rules were not for physical packages. Our domain routed messages, much like [TCP Packets](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#TCP_segment_structure).
 
