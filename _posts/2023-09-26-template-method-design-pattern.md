@@ -83,7 +83,7 @@ class Behavior {
     }
 }
 
-…
+...
 class SpecialBehavior extends Behavior {
     @Override
     protected void behavior(User user) {
