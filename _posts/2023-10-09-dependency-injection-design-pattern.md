@@ -77,7 +77,7 @@ class Person {
         this.name = name;
     }
 }
-…
+...
 Person person = new Person(“Tommy”);
 ```
 
@@ -91,10 +91,10 @@ class ClientApplication {
     public ClientApplication(MyInterface myInterface) {
         this.myInterface = myInterface;
     }
-    …
+    ...
     myInterface.doThis();
 }
-…
+...
 ClientApplication clientApplication = new ClientApplication(new MyClass());
 ```
 
@@ -121,7 +121,7 @@ I have finally settled on a term I used many years ago when presenting Design Pa
 ## Red Lines
 The red lines are design/architectural boundaries, and they convey the same intent as seen in [Factories: Abstract Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#abstract-factory). They constrain the flow of knowledge in a design.
 
-I could go deep into the implications of knowledge boundaries and arrows, and I may go into more detail a future blog, but I’ll try to highlight what’s important now:
+I could go deep into the implications of knowledge boundaries and arrows, and I may go into more detail a future blog (See: [Hexagonal Architecture - Why It Works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html)), but I’ll try to highlight what’s important now:
 * `ClientApplication` and `MyInterface` are isolated in the upper right quadrant of this diagram. All class relationships cross the red boundary pointing inward. These entities have no knowledge or dependency upon other elements of the design. The rest of the design is invisible to them.
 * `Configurer` and `TestConfigurer` are on the far left of the diagram. All class relationships cross the red boundary pointing outwardly from these classes. These elements have knowledge and dependency of the entire design, but they restrain themselves. They only use this knowledge to create and configure the objects in the rest of the design. They don’t contain any business logic. Not only are Configurers invisible to the rest of the design. They are invisible to each other as well. This design supports as many Configurers as needed.
 * `MyClass` and `MyTestDouble` are in the lower right quadrant of this diagram. They have knowledge of and depend upon `MyInterface`. They tend to be small, and they are often [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) or [Façades](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html). Only the `Configurer` knows about them, so they can be swapped out easily as needed.
