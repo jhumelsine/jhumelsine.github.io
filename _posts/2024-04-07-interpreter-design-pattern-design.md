@@ -28,7 +28,7 @@ The GoF’s diagram is missing much of the richness and elegance of the pattern.
 
 The GoF provide a grammar for their Regular Expression Interpreter example without providing any details as to how they created the grammar:
 ```
-expression ::= literal | alternation | sequence | repetition | ‘(‘ expression ‘)’
+expression ::= literal | alternation | sequence | repetition | ‘(’ expression ‘)’
 alternation ::= expression ‘|’ expression
 sequence ::= expression ‘&’ expression
 repetition ::= expression ‘*’
@@ -150,7 +150,7 @@ The `Identifier` class will have a String identifier value that will return the 
 
 The `Assignment` class gets more interesting. While the grammar shows that it __HAS-An__ `Identifier`, I don’t think `Assignment` will contain an `Identifier` attribute in the implementation. I think the `Assignment` class will have a String identifier value that it will use as a key to store the `Rational` that’s evaluated from its `Expression`.
 
-These implementation considerations are only in my head. I haven’t spelled them out in detail here; therefore, my design refactoring intent may not be too clear. My intent should make more sense when I present the implementation of the classes in the design in the next blog.
+These implementation considerations are only in my head. I haven’t spelled them out in detail here; therefore, my design refactoring intent may not be too clear. My intent should make more sense when I present the implementation of the classes in the design in the next blog, [Interpreter Design Pattern - Design to Implementation](https://jhumelsine.github.io/2024/04/17/interpreter-design-pattern-implementation.html).
 
 ### Redesign Conclusion
 Design refactoring is the perfect time to do a lot of thinking and coming up with alternative ideas. Any change is simply a modification to a drawing tool. There’s almost zero sunk cost at this point.
@@ -175,7 +175,7 @@ I feel the Interpreter Design Pattern is the apex of the [Design Pattern Princip
 * Program to an interface, not an implementation
 * Favor object composition over class inheritance
 
-The next blog will feature the design’s implementation.
+The next blog, [Interpreter Design Pattern - Design to Implementation](https://jhumelsine.github.io/2024/04/17/interpreter-design-pattern-implementation.html), will feature the design’s implementation.
 
 # References
 Here are some resources that can be purchased or are included in a subscription service:
