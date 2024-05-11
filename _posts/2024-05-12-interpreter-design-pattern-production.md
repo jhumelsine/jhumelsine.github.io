@@ -26,7 +26,7 @@ The processing center’s automation is based upon a set of routing rules. My pr
 Our domain was so like an automated packaging processing center that we often used the package processing center as a metaphor in understanding and modeling concepts in our own domain. I can convey most of what we experienced with the automated package processing center domain without losing too much in translation.
 
 # The Requirements
-I had joined this software company just as the new project was ramping up. Our Project Manager (PM) described to our team its main features, which routed packages based upon a set of rules. Our PM presented the rules as slides in a PowerPoint presentation deck, which I assumed was what he had used in presentations with the customer.
+I joined this software company just as the new project was ramping up. Our Project Manager (PM) described to our team its main features, which routed packages based upon a set of rules. Our PM presented the rules as slides in a PowerPoint presentation deck, which I assumed was what he had used in presentations with the customer.
 
 There were about two dozen slides each in the form of an __IF RULEs__ that were like the following: 
 ```
@@ -83,7 +83,7 @@ I sketched my initial design on a whiteboard in a conference room and presented 
  
 This design allows us to configure any Rule based upon a set of `Action`s and `Condition`s. Notice the direction of knowledge and dependency. `Action` and `Condition` are stable/fixed elements. The other classes are unstable/flexible elements.
 
-Unstable/flexible can be added, modified or removed without affecting the rest of the design. This is the same knowledge and dependency management benefits described with [Hexagonal Architecture Knowledge and Dependency Management](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html).
+Unstable/flexible can be added, modified, or removed without affecting the rest of the design. This is the same knowledge and dependency management benefits described with [Hexagonal Architecture Knowledge and Dependency Management](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html).
 
 There are several design patterns tucked away in this design. 
 
@@ -98,7 +98,7 @@ There are several design patterns tucked away in this design.
 
 There were more `Action`s than just transportation behaviors, but this list above should suffice as examples for now. A __Route__ implementation was often a family of cohesive classes. Each __Route__ behavior might require many classes with a substantial amount of code. I didn’t want a `ConcreteAction` class to contain those implementation details.
 
-The `ConcreteAction` classes were often [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html), which implemented `Action` and delegated to a class that did the routing. The Adapter Design Pattern allows the `ConcreteAction` classes to plug into the design above and delegate to __Route__ classes. Since all knowledge and dependency flows away from Adapters, the design above has no knowledge of the __Route__ classes and the __Route__ classes have no knowledge of the design above. They can be designed, implemented, and tested independently. The Adapter is the only class that needs to adjust when either the design above or a __Route__ class has an impacting update.
+The `ConcreteAction` classes were often [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html), which implemented `Action` and delegated to a class that did the routing. The Adapter Design Pattern allows the `ConcreteAction` classes to plug into the design above and delegate to __Route__ classes. Since all knowledge and dependency flows away from Adapters, the design above has no knowledge of the __Route__ classes, and the __Route__ classes have no knowledge of the design above. They can be designed, implemented, and tested independently. The Adapter is the only class that needs to adjust when either the design above or a __Route__ class has an impacting update.
 
 A `ConcreteAction` implementation might look like this:
 ```java
@@ -311,7 +311,7 @@ The __Singleton__ Design Pattern will ensure that there’s only one instance of
 * [Singleton via Refactoring.guru](https://refactoring.guru/design-patterns/singleton)
 
 ## PrototypeCondition
-I’m going start with `PrototypeCondition` since it’s less complex than `PrototypeAction`.
+I’m going to start with `PrototypeCondition` since it’s less complex than `PrototypeAction`.
 
 The __Prototype__ Design Pattern is not a proof-of-concept implementation. This name is unfortunate, since I think, it can lead to confusion. I feel that __Clone__ or __Breeder__ may have been a better name for the design pattern.
 
@@ -414,7 +414,7 @@ We expanded upon this idea as the project matured. We created concrete `Log`, `E
 # The Regions
 Different processing centers would service different geographical regions. The regions were dynamic values discovered at runtime. I originally envisioned the DSL/Grammar/Parser as a compiler. At system start up, our scripted rules were _compiled_ into one large composite object parse tree with __main__ at the top. Each `Package` was processed through the same __main__ object rooted parse tree, which never changed.
 
-In order to address runtime region knowledge, I added a __Template__ feature to the DSL/Grammar so that we could inject runtime parameters into the DSL and generate new composite object parse trees at runtime. Its name was inspired by C++ Templates, and it’s the same concept as Generics in Java. 
+To address runtime region knowledge, I added a __Template__ feature to the DSL/Grammar so that we could inject runtime parameters into the DSL and generate new composite object parse trees at runtime. Its name was inspired by C++ Templates, and it’s the same concept as Generics in Java. 
 
 The new __Template__ Rule was added and looked something like this:
 ```code
@@ -436,9 +436,9 @@ template RouteLocalTransportation<REGION> = {
 
 When the Parser encountered an identifier returned from the Scanner, it would determine what type of identifier in the following order:
 * Keyword, which was hardcoded in the Parser.
-* Template Identifier, if it was in the Template Repo.
-* PrototypeAction/PrototypeCondition Identifier, if it was in the respective Prototype Repos.
-* Action/Condition Identifier, if it was in the Action/Condition Repos.
+* Template Identifier if it were in the Template Repo.
+* PrototypeAction/PrototypeCondition Identifier if it were in the respective Prototype Repos.
+* Action/Condition Identifier if it were in the Action/Condition Repos.
 
 Once a Region was known at runtime, our code would reference a `Template` identifier with the REGION name injected, as such: `RouteLocalTransportation<NorthEastRegion>`. The Parser would look up `RouteLocalTransportation` in the `Template` Repo, which would return the whole String with `REGION` still in it. The Parser would substitute the parameterized type, _NorthEastRegion_, for the Template name, REGION, into the Template to create a String like this:
 ```code
@@ -451,7 +451,7 @@ It would then parse that String into a small composite object parse tree allowin
 
 This use of the DSL/Grammar/Parser was more akin to an interpreter. The named `Template`, `Action`, and `Condition` object composite trees residing in their respective Repos were more like libraries that the newly interpreted instruction could access.
 
-We decided to try the `Template` ideas a proof-of-concept implementation in the morning. I had it working before the end of the day. I was surprised by how easily and quickly the design and implementation accommodated it. The only issue was that if the Parser had a Template parsing issue, the line/column information was a bit skewed, so it was a little harder to debug any Template typos.
+We decided to try the `Template` ideas for proof-of-concept implementation in the morning. I had it working before the end of the day. I was surprised by how easily and quickly the design and implementation accommodated it. The only issue was that if the Parser had a Template parsing issue, the line/column information was a bit skewed, so it was a little harder to debug any Template typos.
 
 We later realized that we could simplify our scripted Routing Rules using `Template`s as well. `Template` was created for regional support, but it wasn’t limited to regional support.
 
@@ -464,7 +464,7 @@ I mentioned previously that I was suspicious that our PowerPoint routing rules w
 
 There was a major testing effort at a processing center with all related parties. We weren’t the only software shop working on the package processing center project.
 
-Two members of our team were on site for the exercise. Routing wasn’t functioning as expected on site. Once our crew observed what was really needed, they spent a few hours after the day's excerises were over updating our Routing Rules script. They uploaded the updated scripit on the package processing center servers on site the next day, and it worked. They were able to fix the problems without having to update or access to our source code or our versioning system.
+Two members of our team were on site for the exercise. Routing wasn’t functioning as expected on site. Once our crew observed what was really needed, they spent a few hours after the day's exercises were over updating our Routing Rules script. They uploaded the updated script on the package processing center servers on site the next day, and it worked. They were able to fix the problems without having to update or access our source code or our versioning system.
 
 We committed the updated script into our version management system when they returned.
 
