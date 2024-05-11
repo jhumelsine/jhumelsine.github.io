@@ -11,9 +11,9 @@ My previous [blog]( https://jhumelsine.github.io/2024/04/17/interpreter-design-p
 > 
 > The final implementation will be the parser, which will process the DSL and build the elements as shown above. The DSL should be easier to express intent than the raw code.
 
-My original intent was to describe scanners and parsers and then add the scanner and parser implementation for the Rational Expression Evaluator. But the scanner and parser write up required more space than I anticipated. The next blog will include the implementation.
+My original intent was to describe scanners and parsers and then add the scanner and parser implementation for the Rational Expression Evaluator. But the scanner and parser write up required more space than I anticipated. The next [blog](https://jhumelsine.github.io/2024/04/30/interpreter-design-pattern-parser-implementation.html) will include the implementation.
 
-__Trigger Warning__: Unlike the previous blog, which contained no theory, this one has some. I’ve tried to provide the theory in context and there are no proofs.
+__Trigger Warning__: Unlike the previous [blog](https://jhumelsine.github.io/2024/04/17/interpreter-design-pattern-implementation.html), which contained no theory, this one has some. I’ve tried to provide the theory in context and there are no proofs.
 
 Theory and practice are tightly coupled for scanners and parsers. Scanners and parsers can be auto-generated due to the mathematical rigor defined in the theory. Even if you hand-craft your own, the theory dictates most of the design.
 
@@ -183,7 +183,7 @@ These parsers basically work this way:
 
 This description is a form of Pushdown Automata. The flow of control in the methods is the “state machine” and the implicit call stack is the stack. A Parser is still a Pushdown Automata, but it’s in the form of more conventional programming language constructs.
 
-The design approach should make more sense with the Parser I plan to create and post in the next blog.
+The design approach should make more sense with the Parser I plan to create and post in the next [blog](https://jhumelsine.github.io/2024/04/30/interpreter-design-pattern-parser-implementation.html).
 
 ### Semantic Analyzer
 The Semantic Analyzer adds meaning to the parse tree. In a Compiler, the Semantic Analyzer will tend to generate object code, which could be machine code, [Java Bytecode]( https://en.wikipedia.org/wiki/Java_bytecode), or a higher level language. The object code in my college compiler course was Pascal.
@@ -225,7 +225,7 @@ If you made it this far, you have my respect. This can be some pretty dense mate
 
 Scanners and Parsers will allow us to convert DSL scripts/programs/specifications/configurations into objects organized within a Composite object tree. Mathematical rigor may support their being auto-generated or we can write our own without much difficulty.
 
-I had originally planned for this blog to include the implementation, but I’m well over 3,000 words and I need to wrap it up. I will continue with the Rational Expression Evaluator scanner and parser code in the next blog.
+I had originally planned for this blog to include the implementation, but I’m well over 3,000 words and I need to wrap it up. I will continue with the Rational Expression Evaluator scanner and parser code in the next [blog](https://jhumelsine.github.io/2024/04/30/interpreter-design-pattern-parser-implementation.html).
 
 # References
 See: [Interpreter Design Pattern Introduction/References](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html#references) for overall references.
