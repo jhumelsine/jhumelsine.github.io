@@ -161,7 +161,7 @@ a = 3             // Should evaluate to 3
 ```
 
 I’m using prefix notation for arithmetic operations for at least two reasons:
-* It’s easier to parse, which I’ll get to in a future blog. Arithmetic operations are infix only because that’s been the tradition for arithmetic notation for centuries. For an example of how to define a grammar for infix operations see: [University of Wisconsin CS 536 Notes](https://pages.cs.wisc.edu/~fischer/cs536.s08/course.hold/html/NOTES/3.CFG.html).
+* It’s easier to parse, which I’ll get to in a future blog (See: [Interpreter Design Pattern - Scanners and Parsers](https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html)). Arithmetic operations are infix only because that’s been the tradition for arithmetic notation for centuries. For an example of how to define a grammar for infix operations see: [University of Wisconsin CS 536 Notes](https://pages.cs.wisc.edu/~fischer/cs536.s08/course.hold/html/NOTES/3.CFG.html).
 * It’s different than most languages, so it shows a different way to do something.
 
 It will be similar to how Microsoft Excel uses prefix notation in many of its functions. For example, the [`SUM`](https://support.microsoft.com/en-us/office/sum-function-043e1c7d-7726-4e80-8f32-07b23e057f89) function is prefix, and its syntax is almost identical to what I've shown above. For example, it will support the following in a cell definition:
