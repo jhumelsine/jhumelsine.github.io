@@ -32,7 +32,7 @@ The 6-sided hexagon has no architectural/design implications. Any number of side
 
 Cockburn did want a shape with sides rather than a circle, which distinguishes HexArch from CleanArch in the diagrams. He wanted each side of a polygon to represent a _facet_ as an access point. A polygon could have any number of facets or access points that it needed.
 
-The polygon, whether a hexagon or other shape, isn’t an element in the implementation. It’s not a class, object, or other implementation concern. The hexagon is a design concept that defines a closed boundary and dependency and knowledge constraints associated with those boundaries. I’ll address the boundaries and constraints in future blog posts.
+The polygon, whether a hexagon or other shape, isn’t an element in the implementation. It’s not a class, object, or other implementation concern. The hexagon is a design concept that defines a closed boundary and dependency and knowledge constraints associated with those boundaries. I’ll address the boundaries and constraints in future blog posts. See: [Hexagonal Architecture - Why It Works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html).
 
 Several years after his first designs, Cockburn was also learning more about design patterns, He realized that a _facet_ is really a _port_, and he changed the name to _Ports and Adapters_. He still prefers this new name since it’s more descriptive of the pattern. But by then, many had been calling it _Hexagonal Architecture_ and the original name still stuck. So now we have both names.
 
@@ -47,7 +47,7 @@ Regardless of the name, HexArch/P&A, CleanArch, and OnionArch are all based upon
 <img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHg3NjQ3NjUtaW1hZ2Uta3d2dXpmZ3EuanBn.jpg" alt="Cocoons" title="Image Source: https://www.rawpixel.com/image/5905381/photo-image-flower-public-domain-green
 https://images.rawpixel.com/image_800/" width = "35%" align="right" style="padding-right: 35px;">
  
-The common core theme is that Business Domain implementation is sheltered in its own cocoon protected from external dependencies. I’ll spend more time in future blogs about what an external dependency may be, but to make it a bit more concrete here, one common example of an external dependency is the database.
+The common core theme is that Business Domain implementation is sheltered in its own cocoon protected from external dependencies. I’ll spend more time in future blogs (See: [Hexagonal Architecture](https://jhumelsine.github.io/2023/10/28/hexagonal-architecture-structure.html)) about what an external dependency may be, but to make it a bit more concrete here, one common example of an external dependency is the database.
 
 The Business Domain implementation depends upon access points, which are the _Ports_ in Cockburn’s nomenclature. In the implementation, these _Ports_ will usually be interface contracts. Pluggable elements resolve the interface contract port references, which allows the Business Domain implementation to interact with external dependencies without depending upon those external dependencies nor having any knowledge of them.
 
@@ -72,7 +72,7 @@ HexArch/P&A pulls a lot of ideas together. It’s a structure which can be layer
 And once we see how these different concepts relate to HexArch/P&A, we can see how they relate to each other. For example, Anti-Corruption Layer and Adapter are the same concept in two different contexts.
 
 # Summary
-This has been a brief introduction to HexArch/P&A. Hopefully it has whetted your appetite for more. I’ll focus upon different aspects of HexArch/P&A in subsequent blogs posts. I’ll add forward links when those blogs are posted.
+This has been a brief introduction to HexArch/P&A. Hopefully it has whetted your appetite for more. I’ll focus upon different aspects of HexArch/P&A in subsequent blogs posts.
 
 If you want to learn more about HexArch/P&A in the interim, please do so with some of the references provided below.
 
