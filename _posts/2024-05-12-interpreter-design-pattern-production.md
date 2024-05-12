@@ -121,7 +121,7 @@ For the most part, they were not __Adapters__. They were simple enough to reside
 ```java
 class IsHighPriority implements Condition {
     @Override
-    public Boolean isSatisfied(Package packageToBeRouted) {
+    public boolean isSatisfied(Package packageToBeRouted) {
         return Package.HIGH_PRIORITY == packageToBeRouted.getPriority();
     }
 }
