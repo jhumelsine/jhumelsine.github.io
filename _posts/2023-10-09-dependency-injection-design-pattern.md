@@ -78,7 +78,7 @@ class Person {
     }
 }
 ...
-Person person = new Person(“Tommy”);
+Person person = new Person("Tommy");
 ```
 
 The `Person` class does not depend upon the name being “Tommy” or “Joe” or “Jane”. It can handle any of these names.
