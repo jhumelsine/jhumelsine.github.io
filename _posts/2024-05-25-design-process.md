@@ -184,6 +184,7 @@ public class CircuitDiagram {
     public static void main(String []args) {
         Test.test();
 
+
         Map<String, Expression> map = new HashMap<>();
         Parser parser = new Parser(map);
         for (String instruction : Reader.getData("data.txt")) 
@@ -193,13 +194,13 @@ public class CircuitDiagram {
 }
 
 class Parser {
-    private Map<String, Expression> map;
+    private final Map<String, Expression> map;
 
     public Parser(Map map) {
         this.map = map;
     }
 
-    public void parse(String instruction) {
+    public final void parse(String instruction) {
         String[] tokens = instruction.split("->");
         map.put(tokens[1].trim(), getExpression(tokens[0]));
     }
@@ -227,23 +228,23 @@ interface Expression {
 }
 
 class Constant implements Expression {
-    private int value;
+    private final int value;
 
     public Constant(int value) {
         this.value = value;
     }
 
     @Override
-    public int getSignal() {
+    public final int getSignal() {
         return value;
     }
 }
 
 abstract class Composite implements Expression {
-    private Map<String, Expression> map;
-    private Map<String, Integer> calculatedMap = new HashMap<>();
-    protected String expressionA;
-    protected String expressionB;
+    private final Map<String, Expression> map;
+    private final Map<String, Integer> calculatedMap = new HashMap<>();
+    protected final String expressionA;
+    protected final String expressionB;
 
     public Composite(Map<String, Expression> map, String expressionA, String expressionB) {
         this.map = map;
@@ -259,7 +260,7 @@ abstract class Composite implements Expression {
         } catch (NumberFormatException e) {}
     }
 
-    protected int getSignal(String name) {
+    protected final int getSignal(String name) {
         if (calculatedMap.containsKey(name)) return calculatedMap.get(name);
         int calculatedValue = map.get(name).getSignal();
         calculatedMap.put(name, calculatedValue);
@@ -273,7 +274,7 @@ class Variable extends Composite {
     }
 
     @Override
-    public int getSignal() {
+    public final int getSignal() {
         return getSignal(expressionA);
     }
 }
@@ -284,7 +285,7 @@ class Not extends Composite {
     }
 
     @Override
-    public int getSignal() {
+    public final int getSignal() {
         return 0x0000FFFF & ~getSignal(expressionA);
     }
 }
@@ -295,7 +296,7 @@ class And extends Composite {
     }
 
     @Override
-    public int getSignal() {
+    public final int getSignal() {
         return getSignal(expressionA) & getSignal(expressionB);
     }
 }
@@ -306,13 +307,13 @@ class Or extends Composite {
     }
 
     @Override
-    public int getSignal() {
+    public final int getSignal() {
         return getSignal(expressionA) | getSignal(expressionB);
     }
 }
 
 abstract class Shift extends Composite {
-    protected int shift;
+    protected final int shift;
 
     public Shift(Map<String, Expression> map, String expressionA, int shift) {
         super(map, expressionA, null);
@@ -326,7 +327,7 @@ class LShift extends Shift {
     }
     
     @Override
-    public int getSignal() {
+    public final int getSignal() {
         return getSignal(expressionA) << shift;
     }
 }
@@ -337,7 +338,7 @@ class RShift extends Shift {
     }
 
     @Override
-    public int getSignal() {
+    public final int getSignal() {
         return getSignal(expressionA) >>> shift;
     }
 }
