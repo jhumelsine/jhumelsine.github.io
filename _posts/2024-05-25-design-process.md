@@ -3,7 +3,7 @@ title: Design Process
 description: My design process from concept to implementation
 unlisted: true
 ---
- 
+<img src="/assets/ConstructionProcess.jpeg" alt="Constructor Workers Reviewing a Design"  width = "50%" align="center" style="padding-right: 35px;">
 
 # Introduction
 I’m taking a break from specific Design Patterns for a while and focus upon other Software Engineering topics. I’ll start with my design process, which will still reference design patterns, but I won’t focus upon them.
@@ -19,16 +19,14 @@ __Caveat:__ I developed this process before I knew about [Test-Driven Developmen
 ## Where To Start
 I posted quotes with several planning quotes a few months ago in [Bumper Sticker Computer Science and Software Engineering](https://jhumelsine.github.io/2023/12/15/bumper-sticker-computer-science-software-engineering.html#planning). My favorites are:
 * _The sooner you start to code, the longer the program will take._ — Roy Carlson
-* _ Weeks of coding can save you hours of planning._ — Unknown
+* _Weeks of coding can save you hours of planning._ — Unknown
 
 I don’t jump into the code immediately. I first need to have a sense of the desired behavior. This usually comes from requirements, use cases, user stories, acceptance criteria, etc. Even the [Package Routing PowerPoint Slides](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#therequirements) provided me with a starting point.
 
 If desired behavior isn’t described, then I’m probably wasting my time working on a design or implementation.
 
 ## Visual Thinker
- 
-https://upload.wikimedia.org/wikipedia/commons/e/e3/Allgemeiner-baum.png
-https://commons.wikimedia.org/wiki/File:Allgemeiner-baum.png
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Allgemeiner-baum.png" alt="Data Structure" title="Image Source: https://upload.wikimedia.org/wikipedia/commons/e/e3/Allgemeiner-baum.png" width = "20%" align="right" style="padding-right: 35px;">
 
 I’m a visual thinker. I didn’t understand data structures in college until our professor drew them on the whiteboard using rectangles and lines representing pointers.
 
@@ -133,7 +131,8 @@ __Spoiler Alert!__: I’m going to present my solution. After almost nine years 
 
 ## Pen and Paper
 Here’s my pen and paper design:
- 
+
+<img src="/assets/HandDrawnDesign.jpg" alt="Hand Drawn Design"  width = "80%" align="center" style="padding-right: 35px;">
 
 I think it was the third or fourth iteration. It’s messy, but since it’s only for my use, that’s okay. It was enough for me to organize my initial thoughts.
 
@@ -150,9 +149,12 @@ This design won’t fit on one PowerPoint slide. I split it into two slides with
 __NOTE:__ In hindsight, I should have used `Gate` rather than `Expression` and `getOutputWire()` rather than `getSignal()`. And `Composite`’s protected attributes should have probably been named `inputWireA` and `inputWireB`. And `Composite` should have probably been named `GateOperation`. If the assignment had more longevity than the typical Advent of Code assignment, I would have considered using more accurate names.
 
 `Composite` is a Composite by name. It acquires an `Expression` by name and delegates to it.
- 
+
+<img src="/assets/LogicGates1.png" alt="Logic Gates Design 1"  width = "80%" align="center" style="padding-right: 35px;">
 
 The second diagram details the different Logic Gates each of which supports a logic operation.
+
+<img src="/assets/LogicGates2.png" alt="Logic Gates Design 2"  width = "80%" align="center" style="padding-right: 35px;">
 
 I realized that I could use Java’s shift operations for LShift and RShift rather than multiplying or dividing by a power of 2 as shown in the hand drawn diagram, so I made the update in the PowerPoint.
  
@@ -173,4 +175,250 @@ This process has always worked well for me. It might work for you or not. Feel f
 # References
 My Logic Gate implementation:
 ```java
+import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class CircuitDiagram {
+    public static void main(String []args) {
+        Test.test();
+
+        Map<String, Expression> map = new HashMap<>();
+        Parser parser = new Parser(map);
+        for (String instruction : Reader.getData("data.txt")) 
+            parser.parse(instruction);
+        System.out.println(map.get("a").getSignal());
+    }
+}
+
+class Parser {
+    private Map<String, Expression> map;
+
+    public Parser(Map map) {
+        this.map = map;
+    }
+
+    public void parse(String instruction) {
+        String[] tokens = instruction.split("->");
+        map.put(tokens[1].trim(), getExpression(tokens[0]));
+    }
+
+    private Expression getExpression(String instruction) {
+        instruction = instruction.trim();
+
+        String[] tokens = instruction.split(" ");
+        if (instruction.contains("NOT")) return new Not(map, tokens[1]);
+        if (instruction.contains("AND")) return new And(map, tokens[0], tokens[2]);
+        if (instruction.contains("OR")) return new Or(map, tokens[0], tokens[2]);
+        if (instruction.contains("LSHIFT")) return new LShift(map, tokens[0], Integer.parseInt(tokens[2].trim()));
+        if (instruction.contains("RSHIFT")) return new RShift(map, tokens[0], Integer.parseInt(tokens[2].trim()));
+
+        try {
+            return new Constant(Integer.parseInt(instruction));
+        } catch (NumberFormatException e) {
+            return new Variable(map, instruction);
+        }
+    }
+}
+
+interface Expression {
+    int getSignal();
+}
+
+class Constant implements Expression {
+    private int value;
+
+    public Constant(int value) {
+        this.value = value;
+    }
+
+    @Override
+    public int getSignal() {
+        return value;
+    }
+}
+
+abstract class Composite implements Expression {
+    private Map<String, Expression> map;
+    private Map<String, Integer> calculatedMap = new HashMap<>();
+    protected String expressionA;
+    protected String expressionB;
+
+    public Composite(Map<String, Expression> map, String expressionA, String expressionB) {
+        this.map = map;
+        this.expressionA = expressionA;
+        this.expressionB = expressionB;
+        addConstant(expressionA);
+        addConstant(expressionB);
+    }
+
+    private void addConstant(String value) {
+        try {
+            if (!map.containsKey(value)) map.put(value, new Constant(Integer.parseInt(value)));
+        } catch (NumberFormatException e) {}
+    }
+
+    protected int getSignal(String name) {
+        if (calculatedMap.containsKey(name)) return calculatedMap.get(name);
+        int calculatedValue = map.get(name).getSignal();
+        calculatedMap.put(name, calculatedValue);
+        return calculatedValue;
+    }
+}
+
+class Variable extends Composite {
+    public Variable(Map<String, Expression> map, String expressionA) {
+        super(map, expressionA, null);
+    }
+
+    @Override
+    public int getSignal() {
+        return getSignal(expressionA);
+    }
+}
+
+class Not extends Composite {
+    public Not(Map<String, Expression> map, String expressionA) {
+        super(map, expressionA, null);
+    }
+
+    @Override
+    public int getSignal() {
+        return 0x0000FFFF & ~getSignal(expressionA);
+    }
+}
+
+class And extends Composite {
+    public And(Map<String, Expression> map, String expressionA, String expressionB) {
+        super(map, expressionA, expressionB);
+    }
+
+    @Override
+    public int getSignal() {
+        return getSignal(expressionA) & getSignal(expressionB);
+    }
+}
+
+class Or extends Composite {
+    public Or(Map<String, Expression> map, String expressionA, String expressionB) {
+        super(map, expressionA, expressionB);
+    }
+
+    @Override
+    public int getSignal() {
+        return getSignal(expressionA) | getSignal(expressionB);
+    }
+}
+
+abstract class Shift extends Composite {
+    protected int shift;
+
+    public Shift(Map<String, Expression> map, String expressionA, int shift) {
+        super(map, expressionA, null);
+        this.shift = shift;
+    }
+}
+
+class LShift extends Shift {
+    public LShift(Map<String, Expression> map, String expressionA, int shift) {
+        super(map, expressionA, shift);
+    }
+    
+    @Override
+    public int getSignal() {
+        return getSignal(expressionA) << shift;
+    }
+}
+
+class RShift extends Shift {
+    public RShift(Map<String, Expression> map, String expressionA, int shift) {
+        super(map, expressionA, shift);
+    }
+
+    @Override
+    public int getSignal() {
+        return getSignal(expressionA) >>> shift;
+    }
+}
+
+class Reader {
+    public static List<String> getData(String fileName) {
+        List<String> data = new LinkedList<>();
+        BufferedReader reader;
+        try {
+            reader = new BufferedReader(new FileReader(fileName));
+            String line = reader.readLine();
+            while (line != null) {
+                data.add(line);
+                line = reader.readLine();
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
+}
+
+class Test {
+    public static void test() {
+        constantReturnsItsValue();
+
+        variableReturnsItsValue();
+
+        testParser();
+
+        System.out.println("END OF TESTS");
+    }
+
+    private static void constantReturnsItsValue() {
+        Constant constant = new Constant(123);
+        assertEquals(123, constant.getSignal());
+    }
+
+    private static void variableReturnsItsValue() {
+        Map<String, Expression> map = new HashMap<>();
+        map.put("123", new Constant(123));
+
+        Variable variable = new Variable(map, "123");
+        
+        assertEquals(123, variable.getSignal());
+    }
+
+    private static void testParser() {
+        Map<String, Expression> map = new HashMap<>();
+        Parser parser = new Parser(map);
+
+        parser.parse("123 -> x");
+        parser.parse("456 -> y");
+        parser.parse("y -> z");
+        parser.parse("x AND y -> d");
+        parser.parse("x OR y -> e");
+        parser.parse("x LSHIFT 2 -> f");
+        parser.parse("y RSHIFT 2 -> g");
+        parser.parse("NOT x -> h");
+        parser.parse("NOT y -> i");
+        parser.parse("1 OR 2 -> j");
+        parser.parse("1 AND 3 -> k");
+
+        assertEquals(123, map.get("x").getSignal());
+        assertEquals(456, map.get("y").getSignal());
+        assertEquals(456, map.get("z").getSignal());
+        assertEquals(72, map.get("d").getSignal());
+        assertEquals(507, map.get("e").getSignal());
+        assertEquals(492, map.get("f").getSignal());
+        assertEquals(114, map.get("g").getSignal());
+        assertEquals(65412, map.get("h").getSignal());
+        assertEquals(65079, map.get("i").getSignal());
+        assertEquals(3, map.get("j").getSignal());
+        assertEquals(1, map.get("k").getSignal());
+    }
+
+    private static void assertEquals(int expected, int actual) {
+        if (expected != actual) {
+            System.out.format("expected=%d, actual=%d\n", expected, actual);
+        }
+    }
+}
 ```
