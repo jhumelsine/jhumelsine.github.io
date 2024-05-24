@@ -6,9 +6,9 @@ unlisted: true
 <img src="/assets/ConstructionProcess.jpeg" alt="Constructor Workers Reviewing a Design"  width = "50%" align="center" style="padding-right: 35px;">
 
 # Introduction
-I’m taking a break from specific Design Patterns for a while and focus upon other Software Engineering topics. I’ll start with my design process, which will still reference design patterns, but I won’t focus upon them.
+I am taking a break from specific Design Patterns for a while to focus upon other Software Engineering topics. I’ll start with my design process, which will still reference design patterns, but I won’t focus upon them.
 
-I’ve provided glimpses of my process in previous blog posts. I’ll be more intentional here. This process worked best for me when scoped to functional component, such as a [bounded context](https://martinfowler.com/bliki/BoundedContext.html). I wouldn’t use the process for an entire architecture, nor would I use it for an individual class.
+I have provided glimpses of my process in previous blog posts. I’ll be more intentional here. This process worked best for me when scoped to a functional component, such as a [bounded context](https://martinfowler.com/bliki/BoundedContext.html). I wouldn’t use this process for an entire architecture, nor would I use it for an individual class.
 
 This is my personal process, which won’t apply to everyone in all situations. Developers must find a process that works for them. Hopefully, some readers may find some elements of my process helpful for their own processes.
 
@@ -17,40 +17,43 @@ __Caveat:__ I developed this process before I knew about [Test-Driven Developmen
 # My Process
 
 ## Where To Start
-I posted quotes with several planning quotes a few months ago in [Bumper Sticker Computer Science and Software Engineering](https://jhumelsine.github.io/2023/12/15/bumper-sticker-computer-science-software-engineering.html#planning). My favorites are:
+I posted quotes with several quotes a few months ago in [Bumper Sticker Computer Science and Software Engineering](https://jhumelsine.github.io/2023/12/15/bumper-sticker-computer-science-software-engineering.html#planning). My favorite planning quotes are:
 * _The sooner you start to code, the longer the program will take._ — Roy Carlson
 * _Weeks of coding can save you hours of planning._ — Unknown
 
-I don’t jump into the code immediately. I first need to have a sense of the desired behavior. This usually comes from requirements, use cases, user stories, acceptance criteria, etc. Even the [Package Routing PowerPoint Slides](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#therequirements) provided me with a starting point.
+I don’t jump into the code immediately. I first need to have a sense of the desired behavior. This usually comes from requirements, use cases, user stories, acceptance criteria, etc. Even the [Package Routing PowerPoint Slide Requirements](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#therequirements) provided me with a starting point.
 
 If desired behavior isn’t described, then I’m probably wasting my time working on a design or implementation.
 
 ## Visual Thinker
-<img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Allgemeiner-baum.png" alt="Data Structure" title="Image Source: https://upload.wikimedia.org/wikipedia/commons/e/e3/Allgemeiner-baum.png" width = "20%" align="right" style="padding-right: 35px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Allgemeiner-baum.png" alt="Data Structure" title="Image Source: https://upload.wikimedia.org/wikipedia/commons/e/e3/Allgemeiner-baum.png" width = "25%" align="right" style="padding-right: 35px;">
 
 I’m a visual thinker. I didn’t understand data structures in college until our professor drew them on the whiteboard using rectangles and lines representing pointers.
 
-[UML Class Diagrams](https://jhumelsine.github.io/2021/06/22/uml.html#class-diagrams) is how I visualize code. But it’s more than that. It’s how I visualize the domain model. UML Class Diagrams do a great job of representing __IS-A__ and __HAS-A__ relationships between domain concepts. This occurred to me [When I realized how to use them]( https://jhumelsine.github.io/2021/06/22/uml.html#when-i-realized-how-to-use-them) to model behavior from requirements. I was using [Object-Modeling Technique](https://en.wikipedia.org/wiki/Object-modeling_technique) (OMT) at the time, the predecessor to UML. The concepts are consistent. The main difference is notation.
+[UML Class Diagrams](https://jhumelsine.github.io/2021/06/22/uml.html#class-diagrams) is how I visualize object-oriented (OO) code. But it’s more than that. It’s how I visualize the domain model. UML Class Diagrams do a great job of representing __IS-A__ and __HAS-A__ relationships between domain concepts. This occurred to me [When I realized how to use them]( https://jhumelsine.github.io/2021/06/22/uml.html#when-i-realized-how-to-use-them) to model behavior from requirements without concern of an implementation. I was using [Object-Modeling Technique](https://en.wikipedia.org/wiki/Object-modeling_technique) (OMT) at the time, the predecessor to UML. The concepts are consistent. The main difference is notation.
 
-I start with UML Class Diagrams to understand the domain model, and they transform almost seamlessly into class designs.
+I start with UML Class Diagrams to understand the domain model, its domain elements, and their relationships. The design transform almost seamlessly into a design of OO classes.
 
 ## The Process Should Work for You, Not You for the Process
-I worked on a massive waterfall-based project where we were required to create complete designs including:
-* UML Class Diagrams
-* Sequence Diagrams
-* State Machine Diagrams, if apropos
+I worked on a massive waterfall-based project many years ago where we were required to create complete designs including:
+* [Class Diagrams](https://en.wikipedia.org/wiki/Class_diagram)
+* [Use Case Diagrams](https://en.wikipedia.org/wiki/Use_case_diagram)
+* [Sequence Diagrams](https://en.wikipedia.org/wiki/Sequence_diagram)
+* [State Machine Diagrams](https://en.wikipedia.org/wiki/UML_state_machine), if apropos
 * Etc.
 
 It was a massive waste of resources. We had to provide so much detail that we were practically _coding_ the entire implementation in the UML documentation tool without the benefit of being able to test the code, knowing external APIs, etc. Then once we started the implementation, we’d find flaws in our design. We would correct them in the code, but we never updated our design documents. No one ever read them anyhow.
 
-The UML documentation tool forced upon us was a bit buggy. My sequence diagrams would sporadically seize up, and all subsequent work from the most recent save would be lost. I got into the habit of saving after every individual step. If it seized, I’d kill it and start from the most recently saved version.
+The UML documentation tool forced upon us was a bit buggy. My sequence diagrams would sporadically go haywire, rendering the diagram useless. There was not way to undo the damage. My only option was to terminate the tool, then start it once more from the point of the most recently saved version. All subsequent work would be lost. I got into the habit of saving after every step. If it seized, I’d terminate it and start from the most recently saved version.
 
-The only benefit I remember from it was completeness and consistency. If you added a class, method, attribute, etc. in one diagram, then it would be accessible in other diagrams that referenced it. Sometimes this accessibility was useful. Sometimes it cluttered the design with more information than needed.
+The only benefit I remember was its completeness and consistency. If you added a class, method, attribute, etc. in one diagram, then it would be accessible in other diagrams that referenced it. Sometimes this accessibility was useful. Sometimes it cluttered the design with more information than needed.
 
 While I like visual thinking via UML, this level of detail was overkill. We were working for the process. The process was not working for us. 
 
 ## Pen to Paper
-I use just enough UML detail to keep my thoughts organized. Each design requires a different level of detail. Each designer will use their own level of detail.
+I use just enough UML detail to keep my thoughts organized. I tend to use UML Class Diagrams for the vast majority of my design, but sometimes I may also create Use Case Diagrams, State Machine Diagrams and Sequence/Communication Diagrams. I only create them when I need them.
+
+Each design requires a different level of detail. Each designer will use their own level of detail.
 
 I often start with pen and paper to jot down domain elements and their __IS-A__/__HAS-A__ relationships. I tend to create several hand drawn diagrams. Quite often I’ll spot issues before I’ve finished a diagram. I’ll complete the diagram and then I’ll grab a blank sheet of paper and start a fresh one.
 
@@ -60,7 +63,7 @@ I usually don’t include administrative details, such as constructors or access
 
 If the design is cluttered, especially with many cross-crossing lines, then this is an indication that the implementation will be cluttered as well. If the design becomes cluttered, I rethink it and try to create a less cluttered design.
 
-A design emerges for the domain elements often incorporating design patterns concepts.
+A design emerges for the domain elements often structured around design patterns concepts.
 
 ## PowerPoint
 Once I’m reasonably satisfied with a design on pen and paper, I’ll recreate it in PowerPoint. I’ve used PowerPoint for all the UML Class Diagrams that I’ve presented previously in my blogs.
@@ -70,29 +73,29 @@ There are many UML tools that will assist. Developers are free to choose whateve
 Moving to a drawing tool cleans up the rough edges. It gives me more opportunities to think about the design. When I need to make changes, I don’t need to redraw the entire diagram from scratch. I can often move the existing elements around in the diagram as needed with minimal clean up.
 
 ## One to Many
-When a hand drawn design won’t easily fit on a single slide (or page) in PowerPoint, I’ll split the design into different pages. Sometimes I must split the design while I’m still using pen and paper.
+When a hand drawn design won’t easily fit on a single slide (or page) in PowerPoint, I’ll split the design across pages. Sometimes I split the design while I’m still using pen and paper.
 
-I’ll use a class, often an interface or an abstract class, as the connecting elements among slides. The connecting element will appear on multiple pages. 
+I’ll use a class, often an interface or an abstract class, as the connecting elements among pages. The connecting element will appear on multiple pages. 
 
 Most interface and class elements have two aspects in a design:
-* What other classes access their public methods. I.e., __WHAT__ they do.
-* How they are implemented, as in the other classes that implement or extend them. I.e., __HOW__ they do it.
+* Classes that access their public methods. I.e., highlighting __WHAT__ they do.
+* Classes that implement or access them. I.e., highlighing __HOW__ they do it.
 
-The connecting classes tend to be on the edges of a design when presenting as classes that are being used. They are supporting elements of that page.
+The page connecting classes tend to be on the edges of a design when modeling how they are used. They are supporting elements of that page.
 
-The connecting classes tend to be at the top center of a design when presenting their implementation elements. They are primary elements of that page.
+The page connecting classes tend to be at the top center of a design when modeling how they are implemented. They are primary elements of that page.
 
 ## Implementation
 Once I’m reasonably satisfied with a design in PowerPoint, I’ll implement the elements in the design.
 
-I tend to follow TDD practices with its Red-Green-Refactor cycle. I also try to adhere to Bob Martin’s [Three Rules of TDD](http://butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd). I only implement enough test and code to confirm the desired behavior, and I refactor in each cycle as needed.
+I tend to follow TDD practices with its Red-Green-Refactor cycle. I also try to adhere to Bob Martin’s [Three Rules of TDD](http://butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd). I only implement enough test and code to confirm the emerging behavior, and I refactor in each cycle as needed.
 
 The implementation tends to go quickly and usually without too many issues.
 
 Since the design tends to already have code snippets, I’ve technically gotten a little ahead of myself with respect to TDD practices. I rationalize this with the second _D_ in _TDD_ standing for _Development_ whereas I have been focusing upon _Design_ up to this point. LOL.
 
 Even though some code snippets already exist in the design, I still find TDD practices useful, since:
-* The tests declare my intent and ensure that the code always adheres to that intent.
+* The tests declare intent and ensure that the code always adheres to that intent.
 * The tests are the first software to use the API via the public methods, so I’m the first person to encounter anything that’s janky with the API.
 * The tests are the first user documentation, and it’s guaranteed to work.
 * The tests reveal any previously unforeseen issues in the design. Design is theory. Implementation is the confirmation of that theory.
