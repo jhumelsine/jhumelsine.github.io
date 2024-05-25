@@ -80,7 +80,7 @@ I’ll use a class, often an interface or an abstract class, as the connecting e
 
 Most interface and class elements have two aspects in a design:
 * Classes that access their public methods. I.e., highlighting __WHAT__ they do.
-* Classes that implement or extend them. I.e., highlighing __HOW__ they do it.
+* Classes that implement or extend them. I.e., highlighting __HOW__ they do it.
 
 The page connecting classes tend to be on the edges of a design when modeling __what__ they provide. They are supporting elements of that page.
 
@@ -90,7 +90,7 @@ The page connecting classes tend to be at the top center of a design when modeli
 Once I’m reasonably satisfied with a design in PowerPoint, I’ll implement the elements in the design.
 
 I tend to follow TDD practices with its Red-Green-Refactor cycle. I also try to adhere to Bob Martin’s [Three Rules of TDD](http://butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd).
-I only write enough test and code to confirm behavior as it's being incrementially implemented.
+I only write enough test and code to confirm behavior as it's being incrementally implemented.
 I refactor in each cycle as needed.
 
 The implementation tends to go quickly and usually without too many issues.
@@ -126,14 +126,14 @@ Segregating a design across several pages with interfaces and abstract classes a
 
 The design elements on one page don’t depend upon nor know about the design elements on other pages. The stable/fixed connecting elements don’t allow information to flow through them. There are exceptions to this, especially with [Leaky Abstractions](https://en.wikipedia.org/wiki/Leaky_abstraction), but leaks should be kept to a minimum.
 
-Design elements on the same page tend to be cohesive without being coupled to design elements on other pages. If the stable/fixed connecting elements are reasonablely mature, implementation can proceed with the design elements across the pages in parallel.
+Design elements on the same page tend to be cohesive without being coupled to design elements on other pages. If the stable/fixed connecting elements are reasonably mature, implementation can proceed with the design elements across the pages in parallel.
 
 Stable/fixed connecting elements become natural boundaries for the design and implementation. If a design results in three separate pages, then three different developers/teams should be able to implement them in parallel without depending upon or knowing each other’s details.
 
 # Example
 I’m working on the [Advent of Code](https://adventofcode.com/) backlog between blog posts. The [Advent of Code 2015 Day 7 Challenge](https://adventofcode.com/2015/day/7) is based upon [Logic Gates](https://en.wikipedia.org/wiki/Logic_gate). The assignment defines 16-bit logic gates for AND, OR, LSHIFT, RSHIFT and NOT operations. The assignment data defines a layout of over 300 logic gates. The challenge is to calculate the output value of gate `a`.
 
-__Spoiler Alert!__: I’m going to present my solution. After almost nine years to statute of limitations for revealing a solution has passed. This is your last chance to solve it yourself before seeing my solution.
+__Spoiler Alert!__ I’m going to present my solution. After almost nine years to statute of limitations for revealing a solution has passed. This is your last chance to solve it yourself before seeing my solution.
 
 ## Pen and Paper
 Here’s my pen and paper design:
@@ -158,7 +158,7 @@ __NOTE:__ In hindsight, I should have used `Gate` rather than `Expression` and `
 
 <img src="/assets/LogicGates1.png" alt="Logic Gates Design 1"  width = "80%" align="center" style="padding-right: 35px;">
 
-The second diagram details the different Logic Gates each of which supports a logic operation.
+The second diagram details the different Logic Gates, each of which supports a logic operation.
 
 <img src="/assets/LogicGates2.png" alt="Logic Gates Design 2"  width = "80%" align="center" style="padding-right: 35px;">
 
@@ -167,7 +167,7 @@ I realized that I could use Java’s shift operations for LShift and RShift rath
 ## Implementation
 The implementation was straight forward, but I ran into two issues not anticipated in the design.
 
-`Not` was not returning correct results in the test case examples. The assignment is for 16-bit logic gates. My implementation is using Java `int`, which is 32 bits. Flipping the 16 high order bits in the `Not` implementation was giving me incorrect results. I addressed it by masking the 16 high order bits to zeros.
+`Not` was not returning correct results in the test case examples. The assignment is for 16-bit logic gates. My implementation is using Java `int`, which is 32 bits. Flipping the 16 high order bits in the `Not` implementation gave me incorrect results. I addressed it by masking the 16 high order bits to zeros.
 
 My unit tests worked, once I fixed `Not`. I tried the assignment dataset, and my program didn’t terminate. The problem was in `Composite`. It was evaluating `Expression` in the `Map` regardless of how many times it had previously been evaluated. I surmised that the same set of gets were being evaluated repeatedly. I added [memoization](https://en.wikipedia.org/wiki/Memoization) with a few new lines on `Composite` to remember previously evaluated `Expression` values, and the performance issues disappeared.
 
