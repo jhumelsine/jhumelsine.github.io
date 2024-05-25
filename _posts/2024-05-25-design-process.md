@@ -32,7 +32,7 @@ I’m a visual thinker. I didn’t understand data structures in college until o
 
 [UML Class Diagrams](https://jhumelsine.github.io/2021/06/22/uml.html#class-diagrams) is how I visualize object-oriented (OO) code. But it’s more than that. It’s how I visualize the domain model. UML Class Diagrams do a great job of representing __IS-A__ and __HAS-A__ relationships between domain concepts. This occurred to me [When I realized how to use them]( https://jhumelsine.github.io/2021/06/22/uml.html#when-i-realized-how-to-use-them) to model behavior from requirements without concern of an implementation. I was using [Object-Modeling Technique](https://en.wikipedia.org/wiki/Object-modeling_technique) (OMT) at the time, the predecessor to [Unified Modeling Language](https://en.wikipedia.org/wiki/Unified_Modeling_Language) (UML). The concepts are consistent in both with their main differences being notation.
 
-I start my process with UML Class Diagrams to understand the domain model, its domain elements, and their relationships. The design transform almost seamlessly into a design of OO classes.
+I start my process with UML Class Diagrams to understand the domain model, its domain elements, and their relationships. The design transforms almost seamlessly into a design of OO classes.
 
 ## The Process Should Work for You, Not You for the Process
 I worked on a massive waterfall-based project many years ago where we were required to create complete designs including:
@@ -44,7 +44,7 @@ I worked on a massive waterfall-based project many years ago where we were requi
 
 It was a massive waste of resources. We had to provide so much detail that we were practically _coding_ the entire implementation in the UML documentation tool without the benefit of being able to test the code, knowing external APIs, etc. Then once we started the implementation, we’d find flaws in our design. We would correct them in the code, but we never updated our design documents. No one ever read them anyhow.
 
-The UML documentation tool forced upon us was a bit buggy. My sequence diagrams would sporadically go haywire, rendering the diagram useless. There was not way to undo the damage. My only option was to terminate the tool, then start it using the most recently saved version. All subsequent work would be lost. I got into the habit of saving after every step so that lost work would be kept to a minimum on a restart.
+The UML documentation tool forced upon us was a bit buggy. My sequence diagrams would sporadically go haywire, rendering the diagram useless. There was no way to undo the damage. My only option was to terminate the tool, then start it using the most recently saved version. All subsequent work would be lost. I got into the habit of saving after every step so that lost work would be kept to a minimum on a restart.
 
 Its only benefit I remember was its completeness and consistency. If you added a class, method, attribute, etc. in one diagram, then it would be accessible in other diagrams that referenced it. Sometimes this accessibility was useful. Sometimes it cluttered the design with more information than needed.
 
