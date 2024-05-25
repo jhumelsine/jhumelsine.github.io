@@ -21,7 +21,7 @@ I posted several quotes a few months ago in [Bumper Sticker Computer Science and
 * _The sooner you start to code, the longer the program will take._ — Roy Carlson
 * _Weeks of coding can save you hours of planning._ — Unknown
 
-I don’t jump into the code immediately. I first need to have a sense of the desired behavior. This usually comes from requirements, use cases, user stories, acceptance criteria, etc. Even the [Package Routing PowerPoint Slide Requirements](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#therequirements) provided me with a starting point.
+I don’t jump into the code immediately. I first need to have a sense of the desired behavior. This usually comes from requirements, use cases, user stories, acceptance criteria, etc. Even the [Package Routing PowerPoint Slide Requirements](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#the-requirements) provided me with a starting point.
 
 If desired behavior isn’t described, then I’m probably wasting my time working on a design or implementation.
 
@@ -30,7 +30,7 @@ If desired behavior isn’t described, then I’m probably wasting my time worki
 
 I’m a visual thinker. I didn’t understand data structures in college until our professor drew them on the whiteboard using rectangles and lines representing pointers.
 
-[UML Class Diagrams](https://jhumelsine.github.io/2021/06/22/uml.html#class-diagrams) is how I visualize object-oriented (OO) code. But it’s more than that. It’s how I visualize the domain model. UML Class Diagrams do a great job of representing __IS-A__ and __HAS-A__ relationships between domain concepts. This occurred to me [When I realized how to use them]( https://jhumelsine.github.io/2021/06/22/uml.html#when-i-realized-how-to-use-them) to model behavior from requirements without concern of an implementation. I was using [Object-Modeling Technique](https://en.wikipedia.org/wiki/Object-modeling_technique) (OMT) at the time, the predecessor to UML. The concepts are consistent in both with their main differences being notation.
+[UML Class Diagrams](https://jhumelsine.github.io/2021/06/22/uml.html#class-diagrams) is how I visualize object-oriented (OO) code. But it’s more than that. It’s how I visualize the domain model. UML Class Diagrams do a great job of representing __IS-A__ and __HAS-A__ relationships between domain concepts. This occurred to me [When I realized how to use them]( https://jhumelsine.github.io/2021/06/22/uml.html#when-i-realized-how-to-use-them) to model behavior from requirements without concern of an implementation. I was using [Object-Modeling Technique](https://en.wikipedia.org/wiki/Object-modeling_technique) (OMT) at the time, the predecessor to [Unified Modeling Language](https://en.wikipedia.org/wiki/Unified_Modeling_Language) (UML). The concepts are consistent in both with their main differences being notation.
 
 I start my process with UML Class Diagrams to understand the domain model, its domain elements, and their relationships. The design transform almost seamlessly into a design of OO classes.
 
@@ -131,7 +131,7 @@ Design elements on the same page tend to be cohesive without being coupled to de
 Stable/fixed connecting elements become natural boundaries for the design and implementation. If a design results in three separate pages, then three different developers/teams should be able to implement them in parallel without depending upon or knowing each other’s details.
 
 # Example
-I’m working on the [Advent of Code](https://adventofcode.com/) backlog between blog posts. The [Advent of Code 2015 Day 7 callenge](https://adventofcode.com/2015/day/7) is based upon [Logic Gates](https://en.wikipedia.org/wiki/Logic_gate). The assignment defines 16-bit logic gates for AND, OR, LSHIFT, RSHIFT and NOT operations. The assignment data defines a layout of over 300 logic gates. The challenge is to calculate the output value of gate `a`.
+I’m working on the [Advent of Code](https://adventofcode.com/) backlog between blog posts. The [Advent of Code 2015 Day 7 Challenge](https://adventofcode.com/2015/day/7) is based upon [Logic Gates](https://en.wikipedia.org/wiki/Logic_gate). The assignment defines 16-bit logic gates for AND, OR, LSHIFT, RSHIFT and NOT operations. The assignment data defines a layout of over 300 logic gates. The challenge is to calculate the output value of gate `a`.
 
 __Spoiler Alert!__: I’m going to present my solution. After almost nine years to statute of limitations for revealing a solution has passed. This is your last chance to solve it yourself before seeing my solution.
 
@@ -169,7 +169,7 @@ The implementation was straight forward, but I ran into two issues not anticipat
 
 `Not` was not returning correct results in the test case examples. The assignment is for 16-bit logic gates. My implementation is using Java `int`, which is 32 bits. Flipping the 16 high order bits in the `Not` implementation was giving me incorrect results. I addressed it by masking the 16 high order bits to zeros.
 
-My unit tests worked, once I fixed `Not`. I tried the assignment dataset, and my program didn’t terminate. The problem was in `Composite`. It was evaluating `Expression` in the `Map` regardless of how many times it had previously been evaluated. I surmised that the same set of gets were being evaluated repeatedly. I added [memorization](https://en.wikipedia.org/wiki/Memoization) with a few new lines on `Composite` to remember previously evaluated `Expression` values, and the performance issues disappeared.
+My unit tests worked, once I fixed `Not`. I tried the assignment dataset, and my program didn’t terminate. The problem was in `Composite`. It was evaluating `Expression` in the `Map` regardless of how many times it had previously been evaluated. I surmised that the same set of gets were being evaluated repeatedly. I added [memoization](https://en.wikipedia.org/wiki/Memoization) with a few new lines on `Composite` to remember previously evaluated `Expression` values, and the performance issues disappeared.
 
 See the complete implementation in the References section.
 
