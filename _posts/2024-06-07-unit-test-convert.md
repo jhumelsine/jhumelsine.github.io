@@ -26,7 +26,7 @@ Unit testing was not presented in my academic career. I suspect this was because
 Our programming assignments in my first two years in college were on punch cards and executed in batch mode. The time from feeding your card deck into the card reader until we got our printout back was usually 5 to 10 minutes. Then we’d look at the output, which was usually wrong, figure out what needed to be changed, type up new cards, insert them into our deck, avoid dropping the deck on the walk back to the card reader and start all over again. Turnaround time for the entire cycle could easily be 20 to 30 minutes.
 
 Our instructors taught us how to prove that our programs were correct using [invariants](https://en.wikipedia.org/wiki/Invariant_(mathematics)#Invariants_in_computer_science). We learned how to prove the correctness of recursive programs using [strong mathematical induction](https://www.codecademy.com/resources/docs/discrete-math/proofs/proof-by-strong-induction).
-Our instructors also showed us techniques that can best be described as a debugger on paper while we executed our code in our brains. We’d _think_ through the code while keeping track of the state using pencil and paper. I usually wrote my programming assignments out completely longhand before ever venturing to the Computer Lab.
+Our instructors also showed us techniques that can best be described as a debugger on paper while we executed our code in our brains. We’d _think_ through the code while keeping track of the state using pencil and paper. I usually wrote my programming assignments out completely by hand before ever venturing to the Computer Lab.
 
 I still use some of these techniques informally while thinking about my code.
 
@@ -43,7 +43,7 @@ Even basic sanity testing could be difficult. It was often end-to-end testing, s
 When the code didn’t work, it often became a major debugging effort. Did the problem reside in my code or some other part of the system that my code was calling?
 
 # Test Code, But I Wouldn’t Call It Unit Test Code
-I created test code programs with limited success throughout the years. Most were not automated. I had to run them manually. Often, I had to temporarily update the [Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) to return [Test Doubles](https://en.wikipedia.org/wiki/Test_double). See [Dependency Injection Introduction](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) for additional details.
+I created test code programs with limited success throughout the years. Most were not automated. I had to run them manually. Often, I had to temporarily update the [Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) in the implementation to return [Test Doubles](https://en.wikipedia.org/wiki/Test_double) and then change it back again. See [Dependency Injection Introduction](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) for additional details.
 
 The tests rarely told me anything that I didn’t already know. Once I started using Design Pattern in my designs and implementations, my error rate dropped significantly. I was happy with the quality of my code with or without automated tests. The tests were redundant at best, and they took time away from writing more implementation code. That was part of my rationalization, since the tests tended to break as more code was implemented.
 
@@ -61,7 +61,7 @@ It’s only in hindsight that I know what I was doing wrong with these earlier t
 I was part of a weekly technical book club at the office.
 
 ## The Forgotten Unit Testing Book
-We read a Unit Testing book, whose title and author I don’t remember. It didn’t convince me that I should be writing unit tests. I think this may have been the first place where I read about the unit testing process of writing a failing test before implementing the code. _That’s weird._ And then make the failing test pass by the quickest means possible, such as hardcoding what the test expects. _That makes no sense whatsoever._
+We read a Unit Testing book, whose title and author I don’t remember. It didn’t convince me that I should be writing unit tests. I think this may have been the first place where I read about the unit testing process of writing a failing test before implementing the code. _Write a test before writing the code. That’s weird._ And then make the failing test pass by the quickest means possible, such as hardcoding what the test expects. _That makes even worse sense._
 
 The only part that made an impression on me was the section on Test Doubles.
 
@@ -79,7 +79,7 @@ I’m currently of the opinion that code becomes legacy as soon as it’s been c
 
 Feathers defines legacy code as code without unit tests. He describes the typical process of updating legacy code as __edit and pray__. I could relate to that. 
 
-Feathers devotes the first five chapters of his book to the value of unit tests, which can basically be summarized as moving legacy code modifications from an __edit and pray__ process to a __cover and modify__ process. Unit tests provide a _safety net_ so that changes can be made confidently. I think unit tests do much more than that, but I was just starting to gain a new appreciation for unit testing.
+Feathers devotes the first five chapters of his book to the value of unit tests, which can basically be summarized as moving the legacy code modification process from __edit and pray__ to __cover and modify__. Unit tests provide a _safety net_ so that changes can be made confidently. I think unit tests do much more than that, but I was just starting to gain a new appreciation for unit testing.
 
 Legacy code is obdurate to having unit tests added to it. We often must modify legacy code before it can accommodate unit tests. We can’t confidently update legacy code without unit tests, and we can’t add unit tests without updating the legacy code. We have a _Catch-22_ situation.
 
@@ -90,7 +90,7 @@ My unit test epiphany came in __Chapter 13: I Need to Make a Change, but I Don�
 
 Automated tests aren’t about testing the code. They’re about specifying and preserving behavior. I can document behavior, assumptions, invariants, etc. via an automated test. They will be confirmed each time the tests are executed. Any deviation will be immediately obvious in a failing test.
 
-A failed automated test indicates an inconsistency between the test and implementation. The inconsistency is usually due to a recently updated implementation that violates a behavior, assumption or invariant. But sometimes it may be a new or updated test. When failing, either the implementation or the test must be updated to resolve the inconsistency whether it’s new code that violates a behavior/assumption/invariant, or a behavior, et al., that no longer applies for an outdated test.
+A failed automated test indicates an inconsistency between the test and implementation. The inconsistency is usually due to a recently updated implementation that violates a behavior, assumption or invariant. Or sometimes it may be a new or updated test. When failing, either the implementation or the test must be updated to resolve the inconsistency whether it’s new code that violates a behavior/assumption/invariant, or the behavior, et al., that no longer applies for an outdated test.
 
 Regardless, the failing test cannot be ignored. This automated inconsistency verification is something our volumes of tree-killing analysis and design documents could never do.
 
@@ -100,7 +100,7 @@ Soon after reading ___Working Effectively …___ I watched [Bob Martin’s](http
 Bob reinforced what I was starting to appreciate from Michael Feathers.
 
 # Put the Tests to the Test
-I felt I had a reasonable understanding of unit test techniques. I tried the techniques for some Design Pattern example code I had been writing. I couldn’t believe how quickly I could proceed. I even changed my mind about the design midway through, and I was able to pivot seamlessly.
+I felt I had a reasonable understanding of unit test techniques. I tried the techniques for some Design Pattern example code I had been writing. I couldn’t believe how quickly I could proceed. I even changed the design midway through, and I was able to pivot seamlessly.
 
 I started to use the techniques with project code going into production. Even though I was learning the techniques, I was happy with the results. I felt a new sense of confidence that I had never felt before.
 
@@ -117,7 +117,7 @@ ___Working Effectively with Legacy Code___ by Michael Feathers:
 * [O’Reilly](https://learning.oreilly.com/library/view/working-effectively-with/0131177052/) 
 * [The key points of Working Effectively with Legacy Code](https://understandlegacycode.com/blog/key-points-of-working-effectively-with-legacy-code/), a summary by [Nicolas Carlo](https://x.com/nicoespeon)
 
-Bob Martin’s Test Videos:
+Bob Martin’s Test Related Videos:
 * TDD Part, Part 1: [Clean Coders](https://cleancoders.com/episode/clean-code-episode-6-p1), [O’Reilly](https://learning.oreilly.com/videos/clean-code-fundamentals/9780134661742/9780134661742-code_01_06_01/)
 * TDD Part, Part 2: [Clean Coders](https://cleancoders.com/episode/clean-code-episode-6-p2), [O’Reilly]( https://learning.oreilly.com/videos/clean-code-fundamentals/9780134661742/9780134661742-code_01_06_02/)
 * Advanced TDD‚ Part 1: [Clean Coders](https://cleancoders.com/episode/clean-code-episode-19-p1), [O’Reilly](https://learning.oreilly.com/videos/clean-code-fundamentals/9780134661742/9780134661742-code_02_19_01/)
