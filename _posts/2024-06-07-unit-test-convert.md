@@ -35,7 +35,7 @@ Formal proofs are necessary for algorithms and data structure correctness. But i
 Our testing consisted of running our programs on the assignment data until it produced the desired results. Once we saw it work, we’d grab our results, pack up our stuff, head home and hope for a few hours of sleep before the next day of classes began.
 
 # Unit … Well Really System Testing
-<img src="https://i.imgflip.com/8sgtrw.jpg" alt="Star Wars Meme" title="Image Source: https://imgflip.com/memegenerator" width = "45%" align="right" style="padding-right: 35px;">
+<img src="https://i.imgflip.com/8sgtrw.jpg" alt="Star Wars Meme" title="Image Source: https://imgflip.com/memegenerator" width = "50%" align="right" style="padding-right: 35px;">
 
 Things didn’t change too much once I started my career, except for fewer late nights. Waterfall was all the rage several decades ago. We’d document our analysis and design in massive three-ring binders, killing a lot of trees, and then finally we’d implement. We’d perform some manual testing for basic sanity, and then we’d hand it over to QA. They’d find any real problems with the code, right?
 
