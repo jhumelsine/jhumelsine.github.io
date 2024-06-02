@@ -12,7 +12,7 @@ I don’t think I was unique with this opinion. Unit testing has been and contin
 
 I was chatting with a former colleague recently. He told me that his shop is advocating [Test-Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) (TDD). He said they were getting pushback from some developers. I chimed in, “Let me guess. The developers fighting the policy are the more experienced ones, right?” His expression indicated agreement. “Yes. The senior developers don’t want to do it. The junior developers are more willing to consider it.” No one seemed enthusiastic about it.
 
-I bucked the trend of my friend’s senior developers’ opinions. Late in my career, I had a complete about face and embraced unit testing. I not only embraced the practice, but I presented unit testing training to other developers at my company.
+I bucked the trend of my friend’s senior developers’ opinions. Late in my career, I had a complete about face and embraced unit testing. I not only embraced the practice, but I created and presented unit testing training to other developers at my company.
 
 This blog will serve two purposes:
 * Tell a bit of my story from unit test denier to convert.
@@ -26,7 +26,7 @@ Unit testing was not presented in my academic career. I suspect this was because
 Our programming assignments in my first two years in college were on punch cards and executed in batch mode. The time from feeding your card deck into the card reader until we got our printout back was usually 5 to 10 minutes. Then we’d look at the output, which was usually wrong, figure out what needed to be changed, type up new cards, insert them into our deck, avoid dropping the deck on the walk back to the card reader and start all over again. Turnaround time for the entire cycle could easily be 20 to 30 minutes.
 
 Our instructors taught us how to prove that our programs were correct using [invariants](https://en.wikipedia.org/wiki/Invariant_(mathematics)#Invariants_in_computer_science). We learned how to prove the correctness of recursive programs using [strong mathematical induction](https://www.codecademy.com/resources/docs/discrete-math/proofs/proof-by-strong-induction).
-Our instructors also showed us techniques that can best be described as a debugger on paper while we executed our code in our brains. We’d _think_ through the code while keeping track of the state using pencil and paper. I usually wrote my programming assignments out longhand before ever venturing to the Computer Lab.
+Our instructors also showed us techniques that can best be described as a debugger on paper while we executed our code in our brains. We’d _think_ through the code while keeping track of the state using pencil and paper. I usually wrote my programming assignments out completely longhand before ever venturing to the Computer Lab.
 
 I still use some of these techniques informally while thinking about my code.
 
@@ -42,14 +42,14 @@ Things didn’t change too much once I started my career, except for fewer late 
 Even basic sanity testing could be difficult. It was often end-to-end testing, sometimes in the lab. It could take a lot of time and effort to even get your code into a test environment, as I described in the [Introduction of Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html). Confirming specific behaviors could be difficult, especially edge cases.
 When the code didn’t work, it often became a major debugging effort. Did the problem reside in my code or some other part of the system that my code was calling?
 
-# Test Code, But I Wouldn’t Call It Unit Testing
-I created test code with limited success throughout the years. Most were not automated. I had to run them manually. Often, I had to temporarily update the [Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) to return [Test Doubles](https://en.wikipedia.org/wiki/Test_double), even if I didn’t know the term _Test Double_ at the time. See [Dependency Injection Introduction](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) for additional details.
+# Test Code, But I Wouldn’t Call It Unit Test Code
+I created test code programs with limited success throughout the years. Most were not automated. I had to run them manually. Often, I had to temporarily update the [Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) to return [Test Doubles](https://en.wikipedia.org/wiki/Test_double). See [Dependency Injection Introduction](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) for additional details.
 
-The tests didn’t often tell me anything that I didn’t already know. Once I started applying Design Pattern inspired designs and implementations, my error rate dropped. I was happy with the quality of my code with or without automated tests. Tests were redundant at best, and they took time away from my being able to write more implementation code. That was part of my rationalization, since the tests tended to break as more code was implemented.
+The tests rarely told me anything that I didn’t already know. Once I started using Design Pattern in my designs and implementations, my error rate dropped significantly. I was happy with the quality of my code with or without automated tests. The tests were redundant at best, and they took time away from writing more implementation code. That was part of my rationalization, since the tests tended to break as more code was implemented.
 
 It’s only in hindsight that I know what I was doing wrong with these earlier testing attempts:
 * Tests were written after the code had been written.
-* Each Test confirmed as much behavior as possible.
+* Each test confirmed as much behavior as possible.
 * Test environment included system dependencies.
 * Setting up a test took a long time, often due to the dependencies.
 * Executing a test could take a long time, often due to the dependencies.
@@ -63,7 +63,7 @@ I was part of a weekly technical book club at the office.
 ## The Forgotten Unit Testing Book
 We read a Unit Testing book, whose title and author I don’t remember. It didn’t convince me that I should be writing unit tests. I think this may have been the first place where I read about the unit testing process of writing a failing test before implementing the code. _That’s weird._ And then make the failing test pass by the quickest means possible, such as hardcoding what the test expects. _That makes no sense whatsoever._
 
-The only part that I think I retained was the section on Test Doubles.
+The only part that made an impression on me was the section on Test Doubles.
 
 ## Working Effectively with Legacy Code
 <img src="https://m.media-amazon.com/images/I/51spmHveKdL._SY445_SX342_.jpg" alt="Working Effectively with Legacy Code Book Cover" title="Image Source: https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052" width = "30%" align="right" style="padding-right: 35px;">
@@ -79,7 +79,7 @@ I’m currently of the opinion that code becomes legacy as soon as it’s been c
 
 Feathers defines legacy code as code without unit tests. He describes the typical process of updating legacy code as __edit and pray__. I could relate to that. 
 
-Feathers devotes the first five chapters of his book to the value of unit tests, which can basically be summarized as moving legacy code modifications from an __edit and pray__ process to a __cover and modify__ process. Unit tests provide a _safety net_ so that changes can be made confidently. I think unit tests do much more than that, but I was just starting to come to a new appreciation for unit testing.
+Feathers devotes the first five chapters of his book to the value of unit tests, which can basically be summarized as moving legacy code modifications from an __edit and pray__ process to a __cover and modify__ process. Unit tests provide a _safety net_ so that changes can be made confidently. I think unit tests do much more than that, but I was just starting to gain a new appreciation for unit testing.
 
 Legacy code is obdurate to having unit tests added to it. We often must modify legacy code before it can accommodate unit tests. We can’t confidently update legacy code without unit tests, and we can’t add unit tests without updating the legacy code. We have a _Catch-22_ situation.
 
@@ -95,14 +95,14 @@ A failed automated test indicates an inconsistency between the test and implemen
 Regardless, the failing test cannot be ignored. This automated inconsistency verification is something our volumes of tree-killing analysis and design documents could never do.
 
 # Clean Coder Videos
-Soon after ___Working Effectively …___ I watched [Bob Martin’s](https://en.wikipedia.org/wiki/Robert_C._Martin) [Clean Coder Video Series](https://cleancoders.com/) on O’Reilly. Bob devotes several videos to unit testing where he provides more arguments for Unit Testing and details on how to create unit tests.
+Soon after reading ___Working Effectively …___ I watched [Bob Martin’s](https://en.wikipedia.org/wiki/Robert_C._Martin) [Clean Coder Video Series](https://cleancoders.com/) on O’Reilly. Bob devotes several videos to unit testing where he provides more arguments for Unit Testing and details on how to create unit tests.
 
 Bob reinforced what I was starting to appreciate from Michael Feathers.
 
 # Put the Tests to the Test
 I felt I had a reasonable understanding of unit test techniques. I tried the techniques for some Design Pattern example code I had been writing. I couldn’t believe how quickly I could proceed. I even changed my mind about the design midway through, and I was able to pivot seamlessly.
 
-I started to use the techniques with project code going into production. Even though I was learning the techniques, I was happy with the results. I felt a new sense of confidence that I hadn’t felt before.
+I started to use the techniques with project code going into production. Even though I was learning the techniques, I was happy with the results. I felt a new sense of confidence that I had never felt before.
 
 I was sold.
 
