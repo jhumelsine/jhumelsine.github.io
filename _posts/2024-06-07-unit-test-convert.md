@@ -12,7 +12,7 @@ I don’t think I was unique with this opinion. Unit testing has been and contin
 
 I was chatting with a former colleague recently. He told me that his shop is advocating [Test-Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) (TDD). He said they were getting pushback from some developers. I chimed in, “Let me guess. The developers fighting the policy are the more experienced ones, right?” His expression indicated agreement. “Yes. The senior developers don’t want to do it. The junior developers are more willing to consider it.” No one seemed enthusiastic about it.
 
-I bucked the trend of my friend’s senior developers’ opinions. Late in my career, I had a complete about face and embraced unit testing. I not only embraced the practice, but I created and presented unit testing training to other developers at my company.
+I bucked the trend of my friend’s senior developers’ opinions. Late in my career, I had a complete about-face and embraced unit testing. I not only embraced the practice, but I created and presented unit testing training to other developers at my company.
 
 This blog will serve two purposes:
 * Tell a bit of my story from unit test denier to convert.
@@ -32,7 +32,7 @@ I still use some of these techniques informally while thinking about my code.
 
 Formal proofs are necessary for algorithms and data structure correctness. But if they really worked for code, then the Computer Lab would not have been more active than the bars downtown at 3:00 AM. Our _proven_ code should have worked on the first syntax-free execution.
 
-Our testing consisted of running our programs on the assignment data until it produced the desired results. Once we saw it work, we’d grab our results, pack up our stuff, head home and hope for a few hours of sleep before the next day of classes began.
+Our testing consisted of running our programs on the assignment data until it produced the desired results. Once we saw it work, we’d grab our results, pack up our gear, head home and hope for a few hours of sleep before the next day of classes began.
 
 # Unit … Well Really System Testing
 <img src="https://i.imgflip.com/8sgtrw.jpg" alt="Star Wars Meme" title="Image Source: https://imgflip.com/memegenerator" width = "50%" align="right" style="padding-right: 35px;">
@@ -45,7 +45,7 @@ When the code didn’t work, it often became a major debugging effort. Did the p
 # Test Code, But I Wouldn’t Call It Unit Test Code
 I created test code programs with limited success throughout the years. Most were not automated. I had to run them manually. Often, I had to temporarily update the [Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) in the implementation to return [Test Doubles](https://en.wikipedia.org/wiki/Test_double) and then change it back again. See [Dependency Injection Introduction](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) for additional details.
 
-The tests rarely told me anything that I didn’t already know. Once I started using Design Pattern in my designs and implementations, my error rate dropped significantly. I was happy with the quality of my code with or without automated tests. The tests were redundant at best, and they took time away from writing more implementation code. That was part of my rationalization, since the tests tended to break as more code was implemented.
+The tests rarely told me anything that I didn’t already know. Once I started using Design Pattern in my designs and implementations, my error rate dropped significantly. I was happy with the quality of my code with or without automated tests. The tests were redundant at best, and they took time away from writing implementation code. That was part of my rationalization, since the tests tended to break as more code was implemented.
 
 It’s only in hindsight that I know what I was doing wrong with these earlier testing attempts:
 * Tests were written after the code had been written.
@@ -61,7 +61,7 @@ It’s only in hindsight that I know what I was doing wrong with these earlier t
 I was part of a weekly technical book club at the office.
 
 ## The Forgotten Unit Testing Book
-We read a Unit Testing book, whose title and author I don’t remember. It didn’t convince me that I should be writing unit tests. I think this may have been the first place where I read about the unit testing process of writing a failing test before implementing the code. _Write a test before writing the code. That’s weird._ And then make the failing test pass by the quickest means possible, such as hardcoding what the test expects. _That makes even worse sense._
+We read a Unit Testing book, whose title and author I don’t remember. It didn’t convince me that I should be writing unit tests. I think this may have been the first place where I read about the unit testing process of writing a failing test before implementing the code. _Write a test before writing the code? That’s weird._ And then make the failing test pass by the quickest means possible, such as hardcoding what the test expects. _That makes even worse sense._
 
 The only part that made an impression on me was the section on Test Doubles.
 
@@ -73,13 +73,13 @@ Later we read ___Working Effectively with Legacy Code___ by [Michael Feathers](h
 * Code no one wants to touch
 * Code without an official owner
 * Code that’s used by the customer and responsible for most of our paychecks
-* The only true source of the behavior of our products, even if no one knows where to find it anymore
+* The only true source of the behavior of our products, even if no one knows exactly what it is or where to find it
 
 I’m currently of the opinion that code becomes legacy as soon as it’s been committed to the main branch.
 
 Feathers defines legacy code as code without unit tests. He describes the typical process of updating legacy code as __edit and pray__. I could relate to that. 
 
-Feathers devotes the first five chapters of his book to the value of unit tests, which can basically be summarized as moving the legacy code modification process from __edit and pray__ to __cover and modify__. Unit tests provide a _safety net_ so that changes can be made confidently. I think unit tests do much more than that, but I was just starting to gain a new appreciation for unit testing.
+Feathers devotes the first five chapters of his book to the value of unit tests, which can basically be summarized as moving the legacy code modification process from __edit and pray__ to __cover and modify__. Unit tests provide a _safety net_ so that changes can be made confidently. I think unit tests do much more than that, but I was just starting to gain a new appreciation for unit testing at the time.
 
 Legacy code is obdurate to having unit tests added to it. We often must modify legacy code before it can accommodate unit tests. We can’t confidently update legacy code without unit tests, and we can’t add unit tests without updating the legacy code. We have a _Catch-22_ situation.
 
@@ -90,7 +90,7 @@ My unit test epiphany came in __Chapter 13: I Need to Make a Change, but I Don�
 
 Automated tests aren’t about testing the code. They’re about specifying and preserving behavior. I can document behavior, assumptions, invariants, etc. via an automated test. They will be confirmed each time the tests are executed. Any deviation will be immediately obvious in a failing test.
 
-A failed automated test indicates an inconsistency between the test and implementation. The inconsistency is usually due to a recently updated implementation that violates a behavior, assumption or invariant. Or sometimes it may be a new or updated test. When failing, either the implementation or the test must be updated to resolve the inconsistency whether it’s new code that violates a behavior/assumption/invariant, or the behavior, et al., that no longer applies for an outdated test.
+A failed automated test indicates an inconsistency between the test and implementation. The inconsistency is usually due to a recently updated implementation that violates a behavior, assumption or invariant. Or sometimes it may be a new or updated test. When failing, either the implementation or the test must be updated to resolve the inconsistency whether it’s new code that violates a behavior, et al., or the behavior, et al., that no longer applies for an outdated test.
 
 Regardless, the failing test cannot be ignored. This automated inconsistency verification is something our volumes of tree-killing analysis and design documents could never do.
 
