@@ -72,7 +72,7 @@ Later we read ___Working Effectively with Legacy Code___ by [Michael Feathers](h
 * Code that's complicated and difficult to understand
 * Code no one wants to touch
 * Code without an official owner
-* Code that’s used by the customer and responsible for most of our paychecks
+* Code that works, is used by the customer and responsible for most of our paychecks
 * The only true source of the behavior of our products, even if no one knows exactly what it is or where to find it
 
 I’m currently of the opinion that code becomes legacy as soon as it’s been committed to the main branch.
