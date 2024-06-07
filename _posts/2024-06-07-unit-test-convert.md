@@ -45,7 +45,7 @@ When the code didn’t work, it often became a major debugging effort. Did the p
 # Test Code, But I Wouldn’t Call It Unit Test Code
 I created test code programs with limited success throughout the years. Most were not automated. I had to run them manually. Often, I had to temporarily update the [Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) in the implementation to return [Test Doubles](https://en.wikipedia.org/wiki/Test_double) and then change it back again. See [Dependency Injection Introduction](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) for additional details.
 
-The tests rarely told me anything that I didn’t already know. Once I started using Design Pattern in my designs and implementations, my error rate dropped significantly. I was happy with the quality of my code with or without automated tests. The tests were redundant at best, and they took time away from writing implementation code. That was part of my rationalization, since the tests tended to break as more code was implemented.
+The tests rarely told me anything that I didn’t already know. Once I started using Design Pattern in my designs and implementations, my error rate dropped significantly. I was happy with the quality of my code with or without automated tests. The tests were redundant at best, and they took time away from writing implementation code. That was part of my rationalization, since the tests tended to break as more code was modified.
 
 It’s only in hindsight that I know what I was doing wrong with these earlier testing attempts:
 * Tests were written after the code had been written.
@@ -53,7 +53,8 @@ It’s only in hindsight that I know what I was doing wrong with these earlier t
 * Test environment included system dependencies.
 * Setting up a test took a long time, often due to the dependencies.
 * Executing a test could take a long time, often due to the dependencies.
-* Tests generated extensive and detailed reports, which I had to read to determine whether they passed or failed.
+* Tests changed state in such a way that they induced dependencies upon one another. I.e., Tests could not be run in isolation, and changing a test could cause others to fail.
+* Tests generated extensive and detailed reports, which I had to read and evaluate to determine whether they passed or failed.
 * When a test failed, I was never quite sure if the issue was in my code or a dependency.
 * As failing tests accumulated, I usually stopped running them. I _knew_ the code was working. Fixing the tests was too much effort.
 
@@ -61,14 +62,14 @@ It’s only in hindsight that I know what I was doing wrong with these earlier t
 I was part of a weekly technical book club at the office.
 
 ## The Forgotten Unit Testing Book
-We read a Unit Testing book, whose title and author I don’t remember. It didn’t convince me that I should be writing unit tests. I think this may have been the first place where I read about the unit testing process of writing a failing test before implementing the code. _Write a test before writing the code? That’s weird._ And then make the failing test pass by the quickest means possible, such as hardcoding what the test expects. _That makes even worse sense._
+We read a Unit Testing book, whose title and author I don’t remember. It didn’t convince me that I should be writing unit tests. I think this may have been the first place where I read about the unit testing process of writing a failing test before implementing the code. _Write a test before writing the code? That’s weird._ And then make the failing test pass by the quickest means possible, such as hardcoding what the test expects. _That makes even less sense._
 
 The only part that made an impression on me was the section on Test Doubles.
 
 ## Working Effectively with Legacy Code
 <img src="https://m.media-amazon.com/images/I/51spmHveKdL._SY445_SX342_.jpg" alt="Working Effectively with Legacy Code Book Cover" title="Image Source: https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052" width = "30%" align="right" style="padding-right: 35px;">
  
-Later we read ___Working Effectively with Legacy Code___ by [Michael Feathers](https://www.linkedin.com/in/michaelfeathers/). There are many definitions for legacy code:
+Then we read ___Working Effectively with Legacy Code___ by [Michael Feathers](https://www.linkedin.com/in/michaelfeathers/). There are many definitions for legacy code:
 * Code that's complicated and difficult to understand
 * Code no one wants to touch
 * Code without an official owner
@@ -90,7 +91,9 @@ My unit test epiphany came in __Chapter 13: I Need to Make a Change, but I Don�
 
 Automated tests aren’t about testing the code. They’re about specifying and preserving behavior. I can document behavior, assumptions, invariants, etc. via an automated test. They will be confirmed each time the tests are executed. Any deviation will be immediately obvious in a failing test.
 
-A failed automated test indicates an inconsistency between the test and implementation. The inconsistency is usually due to a recently updated implementation that violates a behavior, assumption or invariant. Or sometimes it may be a new or updated test. When failing, either the implementation or the test must be updated to resolve the inconsistency whether it’s new code that violates a behavior, et al., or the behavior, et al., that no longer applies for an outdated test.
+A failed automated test indicates an inconsistency between the test and implementation. The inconsistency may due to a recently updated implementation that violates current behavior, assumption or invariant. Or sometimes it may be a new or updated test for new or updated behavior, et al., that is not supported by the implementation.
+
+When failing, either the implementation or the test must be updated to resolve the inconsistency whether it’s new or updated code that violates a behavior, et al., or the behavior, et al., that no longer applies for an outdated test.
 
 Regardless, the failing test cannot be ignored. This automated inconsistency verification is something our volumes of tree-killing analysis and design documents could never do.
 
@@ -107,7 +110,7 @@ I started to use the techniques with project code going into production. Even th
 I was sold.
 
 # Summary
-I saw the light. I, a Unit Test Denier, became a Unit Test Evangelist. I created a __Unit  Test Introduction__ course at work and presented it well over a dozen times.
+I saw the light. I, a _Unit Test Denier_, became a _Unit Test Evangelist_. I created a __Unit  Test Introduction__ course at work and presented it well over a dozen times.
 
 I have more to say about testing, but I don’t have room to continue in this blog post. I will follow up with a series of blogs about different aspects of unit testing. I’ll provide a link for each on this page when completed.
 
