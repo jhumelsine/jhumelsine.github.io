@@ -1,7 +1,6 @@
 ---
 title: The Conversion of a Unit Test Denier or …
 description: How I Learned to Stop Worrying and Love Unit Testing
-unlisted: true
 ---
 <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Statue_of_Saint_Paul%2C_Damascus.jpg" alt="Blinding and conversion of St. Paul on the road to Damascus" title="Image Source: https://commons.wikimedia.org/wiki/File:Statue_of_Saint_Paul,_Damascus.jpg" width = "50%" align="center" style="padding-right: 35px;">
  
@@ -45,7 +44,7 @@ When the code didn’t work, it often became a major debugging effort. Did the p
 # Test Code, But I Wouldn’t Call It Unit Test Code
 I created test code programs with limited success throughout the years. Most were not automated. I had to run them manually. Often, I had to temporarily update the [Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) in the implementation to return [Test Doubles](https://en.wikipedia.org/wiki/Test_double) and then change it back again. See [Dependency Injection Introduction](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) for additional details.
 
-The tests rarely told me anything that I didn’t already know. Once I started using Design Pattern in my designs and implementations, my error rate dropped significantly. I was happy with the quality of my code with or without automated tests. The tests were redundant at best, and they took time away from writing implementation code. That was part of my rationalization, since the tests tended to break as more code was modified.
+The tests rarely told me anything that I didn’t already know. Once I started using Design Patterns in my designs and implementations, my error rate dropped significantly. I was happy with the quality of my code with or without automated tests. The tests were redundant at best, and they took time away from writing implementation code. That was part of my rationalization, since the tests tended to break as more code was modified.
 
 It’s only in hindsight that I know what I was doing wrong with these earlier testing attempts:
 * Tests were written after the code had been written.
