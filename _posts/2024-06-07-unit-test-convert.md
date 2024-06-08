@@ -90,7 +90,7 @@ My unit test epiphany came in __Chapter 13: I Need to Make a Change, but I Don�
 
 Automated tests aren’t about testing the code. They’re about specifying and preserving behavior. I can document behavior, assumptions, invariants, etc. via an automated test. They will be confirmed each time the tests are executed. Any deviation will be immediately obvious in a failing test.
 
-A failed automated test indicates an inconsistency between the test and implementation. The inconsistency may due to a recently updated implementation that violates current behavior, assumption or invariant. Or sometimes it may be a new or updated test for new or updated behavior, et al., that is not supported by the implementation.
+A failed automated test indicates an inconsistency between the test and implementation. The inconsistency may be due to a recently updated implementation that violates current behavior, assumption or invariant. Or sometimes it may be a new or updated test for new or updated behavior, et al., that is not supported by the implementation.
 
 When failing, either the implementation or the test must be updated to resolve the inconsistency whether it’s new or updated code that violates a behavior, et al., or the behavior, et al., that no longer applies for an outdated test.
 
