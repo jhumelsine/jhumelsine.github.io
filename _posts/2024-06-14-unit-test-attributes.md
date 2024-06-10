@@ -111,7 +111,7 @@ These references go beyond the scope of this blog, but I’ll address most of th
 * [Unit Testing Best Practices: 9 to Ensure You Do It Right](https://www.testim.io/blog/unit-testing-best-practices/) on testim
 * [What Is Unit Testing?](https://builtin.com/software-engineering-perspectives/unit-testing) blog by Artem Oppermann
 * [Unit Testing: Principles, Benefits & 6 Quick Best Practices](https://codefresh.io/learn/unit-testing/) on codefresh
-* [Unit Testing | What it is, How it Works, Types & Top Benefits](https://testsigma.com/blog/unit-testing/) blog by Diane Wong
+* [Unit Testing: What it is, How it Works, Types & Top Benefits](https://testsigma.com/blog/unit-testing/) blog by Diane Wong
 * [Unit Testing](https://www.agilealliance.org/glossary/unit-test/) on agilealliance.org/glossary
 * [Unit Test – Definition](https://www.artofunittesting.com/definition-of-a-unit-test) on The Art of Unit Testing
 * [What Is Unit Testing?](https://www.youtube.com/watch?v=x95ez7_V7rA) video on Surfing Scratcher
