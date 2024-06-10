@@ -61,7 +61,7 @@ Classes with more inward arrowhead relationships than outward arrowhead relation
 
 Martin’s term for these elements is _Stable_. I prefer the term _Fixed_. They are Stable in that they are unlikely to change.
 
-Strings, LinkedLists and other utility classes are Stable. They are so ubiquitous that no one would dream of making a non-backwardly compatible change to them. These are classes with well-defined with narrowly scoped behaviors that don’t change and usually have no business specific context. Strings, LinkedLists and other utilities classes have thousands if not millions of inward arrowhead relationships if we could count them. On the other hand, they have very few outward arrowhead relationships.
+Strings, LinkedLists and other utility classes are Stable. They are so ubiquitous that no one would dream of making a non-backwardly compatible change to them. These are classes with well-defined narrowly scoped behaviors that don’t change and usually have no business specific context. Strings, LinkedLists and other utilities classes have thousands if not millions of inward arrowhead relationships if we could count them. On the other hand, they have very few outward arrowhead relationships.
 
 We all feel comfortable using and depending upon these utilities, since we know their behavior won’t change and rip the rug out from underneath our design.
 
