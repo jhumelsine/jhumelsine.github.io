@@ -14,7 +14,8 @@ Future blogs will present practices that help achieve and maintain these attribu
 # Behavior Based
 Unit Tests should define and confirm observable behavior, not implementation. This can be tricky, since behavior comes from the implementation, and implementation is based upon the behavior.
 
-A good unit test should define the behavior. It should not indicate or depend upon the code. We should be able to refactor the code without breaking the unit tests, where [refactoring](https://refactoring.com/) is defined as changing the structure of the code without changing its behavior.
+A good unit test should define the behavior. It should not indicate or depend upon the code. We should be able to [refactor](https://refactoring.com/) the code without breaking the unit tests, where refactoring is defined as changing the structure of the code without changing its behavior.
+
 Unit tests that depend upon the implementation will be more brittle. They will fail as the implementation is updated. They will become a maintenance burden.
 
 # Fine Grained
@@ -25,7 +26,7 @@ When behavior is violated when the implementation changes, then ideally only the
 # Declarative
 Unit tests should declare the observable behavior. They provide context. Not only does this help limit one test to one behavior, but it also documents intent.
 
-When a test fails, it provides context as to where the failure might reside within the implementation. Context may be as mechanical as running the failing test in isolation with coverage activated and then reviewing the statements that were executed.
+When a test fails, it provides context as to where the failure might reside within the implementation. Context may be as mechanical as running the failing test in isolation with code coverage activated and then reviewing the statements that were executed.
 
 # Complete
 A suite of unit tests should declare and confirm all possible behaviors that the software may encounter. This includes the this-should-never-happen edge cases.
@@ -36,7 +37,7 @@ I want to subject my code to every conceivable scenario I can imagine, even thos
 
 This is like subjecting astronauts to every conceivable scenario in training so that should they encounter it on a mission, it won’t be their first experience.
 
-Covering all behavior is as much art as science. Desired behavior is often an evolutionary and exploratory process. It won’t all reveal itself on the first and possibly even subsequent iterations.
+Covering all behavior is as much art as science. Cataloging desired behavior is often an evolutionary and exploratory process. It won’t all reveal itself on the first and possibly even subsequent iterations.
 
 # Simple
 A unit test should be simple. It should declare expected behavior and be obvious in how it will confirm that behavior. Most unit tests should require no more than 20 lines of code.
@@ -46,15 +47,17 @@ If unit tests are an issue, then focus upon the implementation.
 
 # Future Proof
 Unit tests don’t find bugs now. They help prevent bugs from being introduced in the future.
-Code tends to work when we first write it and we’re paying attention to everything. Bug are introduced when the code is subsequently updated and we’re not quite as vigilant. Unit tests confirm that implementation updates are consistent with the existing unit test specified behaviors. Any inconsistencies will result in a failed unit test.
 
-For example, if a method is updated, but that update inadvertently violates existing behavior, then the test that confirms that behavior will fail. We want to see that failing test as soon as possible, ideally in the developer’s environment within seconds or minutes of the inconsistency failure first being introduced. If not immediately, then a bit later during automated testing in the pipeline.
+Code tends to work when we first write it when we’re paying attention to every detail. Bug are introduced when the code is subsequently updated and we’re not quite as vigilant. Unit tests confirm that implementation updates are consistent with the existing unit test specified behaviors. Any inconsistencies will result in a failed unit test.
+
+For example, if a method is updated, but that update inadvertently violates existing behavior, then the test that confirms that behavior will fail. We want to see that failing test as soon as possible, ideally in the developer’s environment within seconds or minutes of when the inconsistency failure was first introduced. If not then, then soon after during automated testing in the pipeline.
+
 The worst-case scenario is when the user encounters the issue and reports it to customer support.
 
 # Scoped
 The software being tested within a unit test is referred to as the [Software Under Test](https://en.wikipedia.org/wiki/System_under_test) (SUT).
 
-The SUT should be tested as if it had been plucked from the codebase and tested in isolation without the SUT knowing that it had been plucked from the codebase. This was a difficult concept for me to understand. I had long considered testing an all-or-nothing situation, especially when dependencies were coupled to the code, and there are always dependencies coupled to the code.
+The SUT should be tested as if it had been plucked from the codebase and tested in isolation without the SUT knowing that it had been plucked from the codebase. This was a difficult concept for me to understand. I had long considered testing an all-or-nothing situation, especially when dependencies were coupled to the code. There are always dependencies coupled to the code.
 
 SUT can only be isolated when there are well defined boundaries between software elements that allow us to isolate the SUT from its dependencies via [Test Doubles](https://en.wikipedia.org/wiki/Test_double).
 
@@ -68,7 +71,7 @@ Unit tests confirm the nuts-and-bolts of your system. Integration tests will con
 # Isolated
 The SUT should be isolated from its external dependencies, such as: Databases, File Systems, Internet, Clocks, and other components of the project. Test Doubles will replace external dependencies by emulating their behaviors.
 
-Any developer should be able to clone a repository, compile the code and the unit tests should execute without environment issues. I.e., the SUT should have no dependencies upon the original developer’s development or test environment.
+Any developer should be able to clone a repository, compile the code and the unit tests should execute without environmental issues. I.e., the SUT should have no dependencies upon the original developer’s development or test environment.
 
 # Fast
 Unit tests should be fast. The test suite for a method or class may contain dozens or even hundreds of unit tests. They should complete in no more than a few seconds. We want developers to run unit tests early and often so that any issues are found and addressed as quickly as possible.
@@ -86,7 +89,7 @@ Additional analysis should only be needed when a test fails so that the cause of
 # Deterministic
 Unit tests should produce consistent and deterministic results. There’s nothing quite as frustrating as a flaky test, which sometimes passes and sometimes fails even when nothing has changed in the interim.
 
-On the surface, flaky tests cause process problems when they fail in pipeline builds because the commit will be aborted. You may have to resubmit multiple times until all flaky tests pass. Sometimes it feels like rolling the dice and hoping for a Yahtzee!
+On the surface, flaky tests cause process problems when they fail in pipeline builds which causes the commit to be aborted. You may have to resubmit multiple times until all flaky tests pass. Sometimes it feels like rolling the dice and hoping for a Yahtzee!
 
 But there’s a more insidious problem with flaky tests. We can’t trust them. Are they exhibiting false positive or false negative behavior. Is the code sound, except that the test sometimes fails, or is the code faulty, except that sometimes the test passes? The latter is a more serious issue, since it provides a false sense of security.
 
