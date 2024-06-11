@@ -64,15 +64,15 @@ The SUT should be tested as if it had been plucked from the codebase and tested 
 
 SUT can only be isolated when there are well defined boundaries between software elements that allow us to isolate the SUT from its dependencies via Test Doubles. 
 
-The SUT may be one method or one class. It may consiste of several cohesive classes. Different SUTs may have different sized boundaries even for the same classes and methods. Boundary size is a tradeoff.
+The SUT may be one method or one class. It may consist of several cohesive classes. Different SUTs may have different sized boundaries even for the same classes and methods.
 
-The more expansive the boundary, the greater the scope of the SUT. We exercise more of the implementation in a larger scoped SUT, but when there’s a failure, it may be more difficult to determine the cause. We exercise less of the implementation in a smaller scoped SUT, limiting the space where a bug resides, but we may have to emulate more via Test Doubles.
+Boundary size is a tradeoff. The more expansive the boundary, the greater the scope of the SUT. We exercise more of the implementation in a larger scoped SUT, but when there’s a failure, it may be more difficult to determine the cause. We exercise less of the implementation in a smaller scoped SUT, limiting the space where a bug resides, but we may have to emulate more via Test Doubles.
 
 I feel that unit tests should have smaller scoped SUTs. But [integration tests](https://en.wikipedia.org/wiki/Integration_testing) will have larger scoped SUTs.
 Unit tests confirm the nuts-and-bolts of your system. Integration tests confirm that those nuts-and-bolts work together.
 
 # Fast
-Unit tests should be fast. The test suite for a method or class may contain dozens or even hundreds of unit tests. They should complete in no more than a few seconds. We want developers to run unit tests early and often so that any issues are found and addressed as quickly as possible.
+Unit tests should be fast. The test suite for a method or class may contain dozens or even hundreds of unit tests. They should complete within a few seconds. We want developers to run unit tests early and often so that any issues are found and addressed as quickly as possible. If a test suite takes too long to complete, then developers are less likely to run it often.
 
 # Independent
 Unit tests should be independent of one another. Any subset should be able to run in any order, even simultaneously, without affecting each other.
@@ -121,4 +121,4 @@ These references go beyond the scope of this blog, but I’ll address most of th
 * Playlists on Dave Farley’s [video channel](https://www.youtube.com/@ContinuousDelivery/):
     * [Automated Testing](https://www.youtube.com/watch?v=fPlBLlE8vOI&list=PLwLLcwQlnXBzwEqy9R3odTJKURxfwqDXa)
     * [TDD – Test Driven Development](https://www.youtube.com/watch?v=llaUBH5oayw&list=PLwLLcwQlnXByqD3a13UPeT4SMhc3rdZ8q)
-    * [Acceptance Testing & BDD](https://www.youtube.com/watch?v=llaUBH5oayw&list=PLwLLcwQlnXByqD3a13UPeT4SMhc3rdZ8q)
+    * [Acceptance Testing & BDD](https://www.youtube.com/watch?v=gXh0iUt4TXA&list=PLwLLcwQlnXByKR1Fo7UnE6gQAbx-JfYJZ)
