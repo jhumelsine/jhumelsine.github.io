@@ -17,7 +17,7 @@ Unit Tests should define and confirm expected observable behavior. Unit tests sh
 Unit tests that depend upon implementation details will be more brittle. They will fail as the implementation is updated. They will become a maintenance burden.
 
 # Fine Grained
-A unit test should define and confirm a single observable behavior. Since methods often contain multiple behaviors, including validation and edge cases, a single method often requires a suite of multiple unit tests to cover all of its cases.
+A unit test should define and confirm a single observable behavior. Since methods often contain multiple behaviors, including validation and edge cases, a single method often requires a suite of multiple unit tests to cover all its cases.
 
 When an implementation change violates defined behavior, then ideally only the unit tests that are based upon that behavior should fail.
 
@@ -50,7 +50,7 @@ Code tends to work when we first write it when we’re paying attention to every
 
 For example, if a method is updated, but that update inadvertently violates existing behavior, then the test that confirms that behavior will fail. We want to see that failing test as soon as possible, ideally in the developer’s environment within seconds or minutes of when the inconsistency was first introduced. If not then, then soon after during automated testing in the pipeline.
 
-The worst-case scenario is when the user is the first to encounter the issue and report it to customer support. Actually, the worst-case is when the user encounters the issue and doesn't report it.
+The worst-case scenario is when the user is the first to encounter the issue and report it to customer support. Actually, the worst-case scenario is when the user encounters the issue and doesn't report it.
 
 # Isolated
 The software being tested within a unit test is referred to as the [Software Under Test](https://en.wikipedia.org/wiki/System_under_test) (SUT).
@@ -80,7 +80,7 @@ Unit tests should be independent of one another. Any subset should be able to ru
 Some argue that testing independence is the _Unit_ of Unit Testing.
 
 # Pass/Fail
-Unit test results should not generate a report or require analysis. The test passes or fails. It’s green or red. The aggregate result of a test suite is the Boolean __AND__ of all the tests within that suite. A test suite passes when all of its individual tests pass. One quick glance should indicate that they all passed.
+Unit test results should not generate a report or require analysis. The test passes or fails. It’s green or red. The aggregate result of a test suite is the Boolean __AND__ of all the tests within that suite. A test suite passes when all its individual tests pass. One quick glance should indicate that they all passed.
 
 Additional analysis should only be needed when a test fails so that the cause of the failed test can be understood and addressed.
 
