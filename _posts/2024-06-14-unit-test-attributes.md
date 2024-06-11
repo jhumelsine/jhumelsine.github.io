@@ -12,21 +12,19 @@ This blog will focus upon the attributes of effective unit tests. This is not an
 Future blogs will present practices that help achieve and maintain these attributes.
 
 # Behavior Based
-Unit Tests should define and confirm expected observable behavior, not implementation. This can be tricky, since observable behavior derives from the implementation, and implementation is shaped by expected behavior.
-
-A good unit test should define the expected behavior. It should not indicate or depend upon implementation details. We should be able to [refactor](https://refactoring.com/) the code without breaking the unit tests, where refactoring is defined as changing the structure of the code without changing its behavior.
+Unit Tests should define and confirm expected observable behavior. Unit tests should not indicate or depend upon implementation details. This can be tricky, since observable behavior derives from the implementation, and implementation is shaped by expected behavior. We should be able to [refactor](https://refactoring.com/) the code without breaking the unit tests, where refactoring is defined as changing the structure of the code without changing its behavior.
 
 Unit tests that depend upon implementation details will be more brittle. They will fail as the implementation is updated. They will become a maintenance burden.
 
 # Fine Grained
-A unit test should define and confirm a single observable behavior. Since methods often contain multiple behaviors, including validation and edge cases, a method often requires a suite of multiple unit tests.
+A unit test should define and confirm a single observable behavior. Since methods often contain multiple behaviors, including validation and edge cases, a single method often requires a suite of multiple unit tests to cover all of its cases.
 
-When an implementation change violates previous behavior, then ideally only the unit tests that are associated with that behavior should fail.
+When an implementation change violates defined behavior, then ideally only the unit tests that are based upon that behavior should fail.
 
 # Declarative
 Unit tests should declare the context of the observable behavior. Not only does this help limit one test to one behavior, but it also documents intent.
 
-When a test fails, it provides context as to where the failure might reside within the implementation. Context may be as mechanical as running the failing test in isolation with code coverage activated and then reviewing the statements that were executed. The highlighted statements are probably the best places to start investigating the failure.
+When a test fails, its context should provide clues as to where the failure might reside within the implementation. This may be as mechanical as running the failing test in isolation with code coverage activated and then reviewing the statements that were executed. The highlighted statements are probably the best places to start investigating the failure.
 
 # Complete
 A suite of unit tests should declare and confirm all possible behaviors that the software may encounter. This includes the this-should-never-happen edge cases.
@@ -37,7 +35,7 @@ I want to subject my code to every conceivable scenario I can imagine, even thos
 
 This is like subjecting astronauts to every conceivable scenario in training so that should they encounter it on a mission, it won’t be their first experience.
 
-Covering all behavior is as much art as science. Cataloging desired behavior is often an evolutionary and exploratory process. Expected behavior won’t all reveal itself on the first and possibly even subsequent iterations.
+Covering all behavior is as much art as science. Cataloging desired behavior is often an evolutionary and exploratory process. Expected behavior won’t reveal all of itself on the first and possibly even subsequent iterations.
 
 # Simple
 A unit test should be simple. It should declare expected behavior and be obvious in how it will confirm that behavior. Most unit tests should require no more than 20 lines of code.
@@ -57,14 +55,14 @@ The worst-case scenario is when the user is the first to encounter the issue and
 # Isolated
 The software being tested within a unit test is referred to as the [Software Under Test](https://en.wikipedia.org/wiki/System_under_test) (SUT).
 
-The SUT should be isolated from its external dependencies, such as: Databases, File Systems, Internet, Clocks, and other components of the project. Test Doubles will replace external dependencies by emulating their behaviors.
+The SUT should be isolated from its external dependencies, such as: Databases, File Systems, Internet, Clocks, and other components of the project. [Test Doubles](https://en.wikipedia.org/wiki/Test_double) will replace external dependencies by emulating their behaviors. __NOTE:__ Test Doubles leak implementation information into the tests, which introduces a bit of brittleness. I don't know of a way to avoid this, but there may be techniques to minimize it, which I'll discuss in future blogs.
 
 Any developer should be able to clone a repository, compile the code and the unit tests should execute without environmental issues. I.e., the SUT should have no dependencies upon the original developer’s development or test environment.
 
 # Scoped
 The SUT should be tested as if it had been plucked from the codebase and tested in isolation without the SUT knowing that it had been plucked from the codebase. This was a difficult concept for me to understand. I had long considered testing an all-or-nothing situation, especially when dependencies were coupled to the code. There are always dependencies coupled to the code.
 
-SUT can only be isolated when there are well defined boundaries between software elements that allow us to isolate the SUT from its dependencies via [Test Doubles](https://en.wikipedia.org/wiki/Test_double). __NOTE:__ Test Doubles leak implementation information into the tests, which introduces a bit of brittleness. I don't know of a way to avoid this, but there may be techniques to minimize it, which I'll discuss in future blogs.
+SUT can only be isolated when there are well defined boundaries between software elements that allow us to isolate the SUT from its dependencies via Test Doubles. 
 
 The SUT may be one method or one class. It may consiste of several cohesive classes. Different SUTs may have different sized boundaries even for the same classes and methods. Boundary size is a tradeoff.
 
