@@ -7,7 +7,7 @@ unlisted: true
 # Introduction
 I listed some of the issues I had with my unit tests in my previous [blog](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html#test-code-but-i-wouldnt-call-it-unit-test-code). My early attempts at unit testing were ineffective, and I soon abandoned them.
 
-This blog will focus upon the attributes of effective unit tests. This is not an exhaustive list, and other references will have different attributes as well.
+This blog will focus upon the attributes of effective unit tests. This is not an exhaustive list. Other references will have different attributes as well.
 
 Future blogs will present practices that help achieve and maintain these attributes.
 
@@ -38,7 +38,7 @@ This is like subjecting astronauts to every conceivable scenario in training so 
 Covering all behavior is as much art as science. Cataloging desired behavior is often an evolutionary and exploratory process. Expected behavior won’t reveal all of itself on the first and possibly even subsequent iterations.
 
 # Simple
-A unit test should be simple. It should declare expected behavior and be obvious in how it will confirm that behavior. Most unit tests should require no more than 20 lines of code. A unit test should be simple enough that the Project Manager/Owner, Business Analyist, and other non-tech domain experts should be able to comprehend its intent. They may not understand all of the details, but they should be able to confirm that it's confirm intended behavior.
+A unit test should be simple. It should declare expected behavior and be obvious in how it will confirm that behavior. Most unit tests should require no more than 20 lines of code.
 
 Large, complicated or ugly unit tests are an indication of a large, complicated or ugly implementation. The problem is not in the test. The problem is in the code.
 If unit tests are an issue, then focus upon the implementation.
