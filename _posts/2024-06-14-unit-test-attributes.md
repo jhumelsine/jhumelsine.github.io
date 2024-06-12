@@ -103,6 +103,7 @@ Most of these attributes apply to other types of tests too, such as Integration 
 # References
 These references go beyond the scope of this blog, but I’ll address most of the concepts in future blogs about testing.
 * Previous [blog references](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html#references)
+* Google search results for [Kent Back Test Desiderata](https://www.google.com/search?q=kent+beck+test+desiderata)
 * [Unit Test](https://www.martinfowler.com/bliki/UnitTest.html) blog by Martin Fowler
 * [Unit Testing](https://en.wikipedia.org/wiki/Unit_testing) on Wikipedia
 * [Unit Test](https://wiki.c2.com/?UnitTest) on wiki.c2.com
