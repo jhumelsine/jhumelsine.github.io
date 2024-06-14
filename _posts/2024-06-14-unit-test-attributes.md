@@ -1,7 +1,6 @@
 ---
 title: Attributes of Effective Unit Tests
 description: Unit Test properties that make them more useful than not
-unlisted: true
 ---
 
 # Introduction
@@ -12,7 +11,7 @@ This blog will focus upon the attributes of effective unit tests. This is not an
 Future blogs will present practices that help achieve and maintain these attributes.
 
 # Behavior Based
-Unit Tests should define and confirm expected observable behavior. Unit tests should not indicate or depend upon implementation details. This can be tricky, since observable behavior derives from the implementation, and implementation is shaped by expected behavior. We should be able to [refactor](https://refactoring.com/) the code without breaking the unit tests, where refactoring is defined as changing the structure of the code without changing its behavior.
+Unit Tests should define and confirm expected observable behavior. Unit tests should not indicate or depend upon implementation details. This can be tricky, since observable behavior derives from the implementation, and implementation is based upon expected behavior. We should be able to [refactor](https://refactoring.com/) the code without breaking the unit tests, where refactoring is defined as changing the structure of the code without changing its behavior.
 
 Unit tests that depend upon implementation details will be more brittle. They will fail as the implementation is updated. They will become a maintenance burden.
 
@@ -27,7 +26,7 @@ Unit tests should declare the context of the observable behavior. Not only does 
 When a test fails, its context should provide clues as to where the failure might reside within the implementation. This may be as mechanical as running the failing test in isolation with code coverage activated and then reviewing the statements that were executed. The highlighted statements are probably the best places to start investigating the failure.
 
 # Complete
-A suite of unit tests should declare and confirm all possible behaviors that the software may encounter. This includes the this-should-never-happen edge cases.
+A suite of unit tests should declare and confirm all possible behaviors that the software may encounter. This includes the _this-should-never-happen_f edge cases.
 
 ___Hard in Training; Easy in Battle___
 
@@ -80,7 +79,7 @@ Unit tests should be independent of one another. Any subset should be able to ru
 Some argue that testing independence is the _Unit_ of Unit Testing.
 
 # Pass/Fail
-Unit test results should not generate a report or require analysis. The test passes or fails. It’s green or red. The aggregate result of a test suite is the Boolean __AND__ of all the tests within that suite. A test suite passes when all its individual tests pass. One quick glance should indicate that they all passed.
+Unit test results should not generate a report or require analysis. The test passes or fails. It’s green or red. The aggregated result of a test suite is the Boolean __AND__ of the tests within that suite. A test suite passes when all its individual tests pass. One quick glance should indicate that they all passed.
 
 Additional analysis should only be needed when a test fails so that the cause of the failed test can be understood and addressed.
 
