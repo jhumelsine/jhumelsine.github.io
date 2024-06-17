@@ -115,7 +115,7 @@ Even with this substantial list of DSL examples, opportunities for DSLs and Inte
 Here are some of my personal experencies with DSLs: implemented, denied and not quite there.
 
 ## I Implemented It Once
-I have designed and implemented the Interpreter design pattern only once in my career. We couldn’t believe how well it worked. Our DSL was simple, but it was highly effective for our needs. And even then, I sort of stumbled into the DSL backwards. I will provide more details in a subsequent blog.
+I have designed and implemented the Interpreter design pattern only once in my career. We couldn’t believe how well it worked. Our DSL was simple, but it was highly effective for our needs. And even then, I sort of stumbled into the DSL backwards. I will provide more details in a [subsequent blog](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html).
 
 ## I Got Shot Down When Suggesting DSLs
 After the above DSL experience, I moved to another company, and I was eager to work on another DSL. I found a few areas that I thought could be DSL candidates.
