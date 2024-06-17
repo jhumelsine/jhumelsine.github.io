@@ -63,7 +63,7 @@ I may modify this list below, but here’s what I’m currently considering as s
 * [Design to Implementation](https://jhumelsine.github.io/2024/04/17/interpreter-design-pattern-implementation.html)
 * [Scanners and Parsers, Theory and Practice](https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html)
 * [Scanners and Parsers, Implementation: Rational Expression Implementation Example Completed](https://jhumelsine.github.io/2024/04/30/interpreter-design-pattern-parser-implementation.html)
-* A Use Case based upon a project-based Interpreter/DSL that I designed, and the project deployed.
+* [Interpreter Design Pattern – Production Example: My Experience Using Interpreter on a Work Project](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html)
 
 # Specification is Interpreter
 While I think I will need additional blogs to describe Interpreter sufficiently, I can provide a quick overview here.
@@ -182,7 +182,7 @@ The class design emerges from the grammar, especially since __IS-A__ is associat
 <img src="/assets/SpecificationPlaylistComposite.png" alt="Composite Playlist Classes" width = "90%" align="center" style="padding-right: 35px;">
 
 ## Scanner and Parser
-We still need to convert the `fiveStarAltRock` text definition above into the following object tree (NOTE: The names, such as _genres_, _constraints_, etc. won't be in tree. This is a copy of the tree from the previous blog, which composed the tree with hardcoding and intermediate Composite variables.):
+We still need to convert the `fiveStarAltRock` text definition above into the following object tree (NOTE: The names, such as _genres_, _constraints_, etc. won't be in tree. This is a copy of the tree from the [previous blog](https://jhumelsine.github.io/2024/03/07/specification-design-pattern-use-case.html), which composed the tree with hardcoding and intermediate Composite variables.):
 
 <img src="/assets/SpecificationPlaylistObjects.png" alt="Leaf Playlist Classes" width = "90%" align="center" style="padding-right: 35px;">
 
