@@ -9,7 +9,7 @@ I’ve posted two blogs about unit testing with the first being about my [becomi
 
 I’ll devote this blog to the fundamental elements of unit tests. These fundamental elements tend to apply to all automated tests.
 
-__Caveat__ – I’m going to focus upon the fundamental elements of unit/automated tests. I’m not going to provide specific unit test examples. Unit test examples for different languages abound upon the internet.
+__Caveat__ – I’m going to focus upon the fundamental elements of unit/automated tests. I’m not going to provide specific unit test examples. Unit test examples for different languages abound on the internet.
 
 # We’ve Always Been Testing Our Code
 We’ve always tested our code, even when the code has been proven correct.
