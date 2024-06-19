@@ -24,11 +24,11 @@ In most courses, we never had to look at the code again. Those programs had no f
 While most of us got better at testing in our careers, it was probably a refinement of the techniques we picked up in college. We’d inject more ad-hoc tests as we were writing the code, but testing often wasn’t much fun. The tests might be difficult to set up. We might only be able to run them with the entire product possibly in the [lab](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#introduction):
 > Often when we needed to test new behavior, we’d compile the entire product on our desktop machines, copy the executable to a thumb drive, walk it into our __QA lab__, copy the executable from the thumb drive to a server and then try to observe the new or updated functionality through the user interface.
 
-Our tests were probably not documented. Any insights residing in those tests probably existed only in our heads. The tests weren’t consistently executed upon subsequent updates, and if so, probably only by us. The tests tended to be manual and subject to human error. And as the number of tests grew, their execution wasn’t scalable.
+Our tests were probably not documented. Any insights residing in those tests probably existed only in our heads at the time and then started to fade away soon afterwards. The tests weren’t consistently executed upon subsequent updates, and if so, probably only by us, if we could remember them. The tests tended to be manual and subject to human error. And as the number of tests grew, their execution wasn’t scalable.
 
 One-off testing is adequate for one-off programs, such as college assignments. But software engineering involves programs that will be in production for months and years, possibly decades. Production code doesn’t have to just work now. It must continue working in the future. One-off testing is inadequate.
 
-__I advocate elevating testing to first-class citizen status as part of the software development process.__ The first step in this journey will be to automate tests so that they can be executed frequently and consistently to ensure that our programs remain in working order.
+__I advocate elevating testing to first-class citizen status as part of the software development process.__ The first step in this journey toward full citizenship will be to automate tests so that they can be executed frequently and consistently to ensure that our programs remain in working order.
 I will mostly focus upon unit testing here, but I believe that the principles apply to other layers of testing as well.
 
 # It’s All Code
@@ -50,23 +50,23 @@ Tests for more serious projects and production code should leverage the power an
 
 Test frameworks manage the testing environment. We’re still responsible for writing the tests, which are usually methods within a test class. Each test is a method, which is identified as a test via framework annotations, such as `@Test`. There are often annotations for other test related elements, such as those for common set-up and clean-up methods.
 
-Test frameworks allow us to run the tests with the press of a button in our IDEs. They will execute all tests in scope, whether one test or all, and indicate which passed and which failed. Frameworks allow the entire test suite for the project to be executed in each CI/CD pipeline build.
+Test frameworks allow us to run the tests with the press of a button in our IDEs. They will execute all tests in scope, whether one test or all and indicate which passed and which failed. Frameworks execute the entire test suite for the project in each CI/CD pipeline build.
 
 # Test Elements
 Each test focuses upon a specific SUT. The SUT may be limited to an object or set of cohesive objects. Each test confirms one aspect of a method/function in the SUT. Multiple tests are often required to confirm the entire SUT.
 
 Ideally, we’d like to treat the SUT as a black box. The test should not know SUT implementation details. The test should not know the number of objects in the SUT. The test should only know the public method/function, i.e., the API, being invoked and the expected behavior. We should be able to [refactor](https://en.wikipedia.org/wiki/Code_refactoring) the SUT implementation without causing any unit tests to fail.
 
-Automated tests for the SUT typically consist of three (sometimes four) parts. I will use generic names here. However, the first three parts are often called [__Arrange/Act/Assert__](https://wiki.c2.com/?ArrangeActAssert) or [__Given/When/Then__](https://en.wikipedia.org/wiki/Given-When-Then). I’ll present these practices in greater detail in further blogs with additional context as to how they apply to a test strategy.
+Automated tests for the SUT typically consist of three (sometimes four) parts. I will use generic terms here. However, the first three parts are often called [__Arrange/Act/Assert__](https://wiki.c2.com/?ArrangeActAssert) or [__Given/When/Then__](https://en.wikipedia.org/wiki/Given-When-Then). I’ll present these practices in greater detail in further blogs with additional context as to how they apply to a test strategy.
 
 ## Set Up – I.e., Arrange/Given
-We want to test the SUT in [isolation](https://jhumelsine.github.io/2024/06/14/unit-test-attributes.html#isolated) from the rest of the codebase without the SUT knowing that it’s been isolated. Isolation focuses and limits the scope of the test. When the test fails, debugging tends to be easier, since the failure often resides within the bounds of the isolated SUT.
+We want to test the SUT in [isolation](https://jhumelsine.github.io/2024/06/14/unit-test-attributes.html#isolated) from the rest of the codebase without the SUT knowing that it’s been isolated. Isolation focuses and limits the scope of SUT being tested. It also limits the complexity of the test. When the test fails, debugging tends to be easier, since the failure often resides within the bounds of the isolated SUT.
 
 But code rarely exists in isolation. Most code has dependencies on other elements including other components of the product, databases, file systems, internet, clocks, etc.
 
 To isolate the SUT from its dependencies, we override these dependencies with [Test Doubles](https://en.wikipedia.org/wiki/Test_double). I’ll provide more details about Test Doubles in the next blog. For now, a Test Double emulates dependency behavior with the SUT being none to the wiser. Test Doubles tend to be small snippets of code that emulate a specific dependency behavior that’s only needed within the context of each test.
 
-We replace production dependencies with Test Doubles mostly because Test Doubles tend to be easier to configure and execute faster in the test than the production dependencies. We also have complete control over dependency behaviors via Test Doubles, which can also be challenging with production dependencies.
+We replace production dependencies with Test Doubles mostly because Test Doubles tend to be easier to configure and execute faster in the test than the production dependencies. We also have complete control over dependency behaviors via Test Doubles. It may be very difficult to force behavior in a production dependency. For example, how challenging would it be force a production dependency to throw a specific exception, such as `OutOfMemoryError`, consistently on demand?
 
 A test only needs Test Doubles if the flow of execution through the SUT interacts with the dependency. Different tests may have different Test Doubles emulating different behaviors depending upon the test. For tests that do not reference dependencies, Test Doubles are not needed.
 
@@ -87,7 +87,7 @@ There are at least three mechanisms to determine whether the SUT is working as e
 * __State Change__ — The test may invoke state changes in the SUT. Assert the state changes via an SUT accessor method. I often return the aggregated state of an object via its `toString()` method and assert the returned String. This is useful when multiple attributes change state in the test.
 * __Dependency Interaction__ — The SUT may interact with its dependencies … I mean with its Test Doubles. Verify those interactions with Spy Test Doubles. A Spy records its interactions with the SUT and returns an account of those interactions via a query. E.g., a Database Spy can verify that the SUT requested data persistence via a Database API call when data persistence is an expected behavior to be verified. Dependency verifications via Spies peek a bit behind the SUT black box veil much like the Test Double set up can.
 
-A test passes when all assertions and verifications pass; otherwise, the test fails.
+A test passes when all its assertions and verifications pass; otherwise, the test fails.
 
 If a test requires many assertions and verifications, then this may be an indication that the SUT is taking on too much responsibility, and it may be a good candidate for refactoring or redesign.
 
