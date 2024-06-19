@@ -9,7 +9,7 @@ I’ve posted two blogs about unit testing with the first being about my [becomi
 
 I’ll devote this blog to the fundamental elements of unit tests. These fundamental elements tend to apply to all automated tests.
 
-__Caveat__ – I’m going to focus upon the fundamental elements of unit/automated tests. I’m not going to provide specific unit test examples. Unit test examples for different languages are abound upon the internet.
+__Caveat__ – I’m going to focus upon the fundamental elements of unit/automated tests. I’m not going to provide specific unit test examples. Unit test examples for different languages abound upon the internet.
 
 # We’ve Always Been Testing Our Code
 We’ve always tested our code, even when the code has been proven correct.
@@ -66,13 +66,13 @@ But code rarely exists in isolation. Most code has dependencies on other element
 
 To isolate the SUT from its dependencies, we override these dependencies with [Test Doubles](https://en.wikipedia.org/wiki/Test_double). I’ll provide more details about Test Doubles in the next blog. For now, a Test Double emulates dependency behavior with the SUT being none to the wiser. Test Doubles tend to be small snippets of code that emulate a specific dependency behavior that’s only needed within the context of each test.
 
-We replace production dependencies with Test Doubles mostly because Test Doubles tend to be easier to configure and execute faster in the test than the production dependencies. We also have complete control over dependency behaviors via Test Doubles. It may be very difficult to force behavior in a production dependency. For example, how challenging would it be force a production dependency to throw a specific exception, such as `OutOfMemoryError`, consistently on demand?
+We replace production dependencies with Test Doubles mostly because Test Doubles tend to be easier to configure and execute faster in the test than the production dependencies. We also have complete control over dependency behaviors via Test Doubles. It may be very difficult to force behavior in a production dependency. For example, how challenging would it be to force a production dependency to throw a specific exception, such as `OutOfMemoryError`, consistently on demand?
 
 A test only needs Test Doubles if the flow of execution through the SUT interacts with the dependency. Different tests may have different Test Doubles emulating different behaviors depending upon the test. For tests that do not reference dependencies, Test Doubles are not needed.
 
 Test Doubles shed a little light upon the SUT black box. The dependencies they override are SUT design details, which cannot be ignored in the test. The SUT is still a black box, but it’s a box for which the test knows a few details about the exterior of the box. It’s like electronic equipment. We may not know the circuitry in an electronic component, but we do need to know how to plug the stereo components together.
 
-The SUT’s design and implementation usually need to accommodate a Test Double easily so that can can override the production dependency in the test. This means that the SUT should not be tightly coupled to its dependencies. I’ll blog more on this in the future.
+The SUT’s design and implementation usually need to accommodate a Test Double easily so that can override the production dependency in the test. This means that the SUT should not be tightly coupled to its dependencies. I’ll blog more on this in the future.
 
 When tests require a lot of Test Double configuration, and especially if it’s complex, then this may be an indication that SUT may be a good candidate for refactoring or redesign.
 
