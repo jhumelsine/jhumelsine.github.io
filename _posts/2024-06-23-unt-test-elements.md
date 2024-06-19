@@ -1,5 +1,5 @@
 ---
-title: Basic Elements Automated Unit Tests
+title: Basic Elements of Automated Unit Tests
 description: Elevating automated tests to first-class citizen status
 unlisted: true
 ---
@@ -21,7 +21,10 @@ I referenced my testing experiences from my college years in [Formal Proofs](htt
 
 In most courses, we never had to look at the code again. Those programs had no future. They were one-off assignments. We’d get a fresh programming assignment and start the process anew all over again.
 
-While most of us got better at testing in our careers, it was probably a refinement of the techniques we picked up in college. We’d inject more ad-hoc tests as we were writing the code, but testing often wasn’t much fun. The tests might be difficult to set up. We might only be able to run them with the entire product possibly in the [lab](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#introduction).
+While most of us got better at testing in our careers, it was probably a refinement of the techniques we picked up in college. We’d inject more ad-hoc tests as we were writing the code, but testing often wasn’t much fun. The tests might be difficult to set up. We might only be able to run them with the entire product possibly in the [lab](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#introduction):
+> About a dozen years ago, I worked on a tightly knit small team. I wrote some of the best code of my career while on that team. It just wasn’t the team that was tight. Our code was tightly coupled as well. It was modular, but it was still tightly coupled.
+
+> Often when we needed to test new behavior, we’d compile the entire product on our desktop machines, copy the executable to a thumb drive, walk it into our __QA lab__, copy the executable from the thumb drive to a server and then try to observe the new or updated functionality through the user interface.
 
 Our tests were probably not documented. Any insights residing in those tests probably existed only in our heads. The tests weren’t consistently executed upon subsequent updates, and if so, probably only by us. The tests tended to be manual and subject to human error. And as the number of tests grew, their execution wasn’t scalable.
 
@@ -82,7 +85,7 @@ A test executes the SUT’s method or function. This is often the smallest part 
 Without confirmation, we can only know that the SUT doesn’t crash when it is executed. The test confirmation ensures that the SUT is operating as expected. The test must confirm the SUT’s operations without peering into its black box.
 
 There are at least three mechanisms to determine whether the SUT is working as expected without cracking the black box open. A test may use one, two or all three mechanisms:
-* __Return Value__ — Many methods/functions return values. Assert that the value returned from the SUT is the expected value. For example, if a function reverses a String, then assert this behavior via a statement like: `assertEquals(“cba”, reverse(“abc”);`
+* __Return Value__ — Many methods/functions return values. Assert that the value returned from the SUT is the expected value. For example, if a function reverses a String, then assert this behavior via a statement like: `assertEquals("cba", reverse("abc");`
 * __State Change__ — The test may invoke state changes in the SUT. Assert the state changes via an SUT accessor method. I often return the aggregated state of an object via its `toString()` method and assert the returned String. This is useful when multiple attributes change state in the test.
 * __Dependency Interaction__ — The SUT may interact with its dependencies … I mean with its Test Doubles. Verify those interactions with Spy Test Doubles. A Spy records its interactions with the SUT and returns an account of those interactions via a query. E.g., a Database Spy can verify that the SUT requested data persistence via a Database API call when data persistence expected behavior. Dependency verifications via Spies peek a bit behind the SUT black box veil much like the Test Double set up can.
 
