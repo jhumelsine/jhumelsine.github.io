@@ -74,7 +74,9 @@ Test Doubles shed a little light upon the SUT black box. The dependencies they o
 
 The SUT’s design and implementation usually need to accommodate a Test Double easily so that can override the production dependency in the test. This means that the SUT should not be tightly coupled to its dependencies. I’ll blog more on this in the future.
 
-When tests require a lot of Test Double configuration, and especially if it’s complex, then this may be an indication that SUT may be a good candidate for refactoring or redesign.
+When tests require a lot of Test Double configuration, and especially if it’s complex, then this may be an indication that the SUT may be a good candidate for refactoring or redesign.
+
+Different cohesive Test Doubles may cluster in different sets of tests associated with the same SUT. For example, one set of tests may require Test Doubles `A`, `B`, and `C`; whereas, another set of tests may require Test Doubles `D`, `E`, and `F`. This means that some execution path flows through the SUT require one set of dependencies while other execution path flows require a different set. If these execution path flows are in the same class, then this may be an indication that the class is taking on too many responsiblities. The class may be a good redesign candidate by splitting it into smaller classes based upon these responsibilities.
 
 ## Execution – I.e., Act/When
 A test executes the SUT’s method or function. This is often the smallest part of the test, usually one statement, but it’s the most important part. This is where SUT is invoked and executed. A little or a lot can occur in the SUT before it returns.
