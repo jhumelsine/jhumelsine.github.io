@@ -1,7 +1,6 @@
 ---
 title: Basic Elements of Automated Unit Tests
 description: Elevating automated tests to first-class citizen status
-unlisted: true
 ---
 
 # Introduction
