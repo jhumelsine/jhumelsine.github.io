@@ -23,6 +23,8 @@ In short:
 The Test Double is not part of the SUT. It is an element of the test configuration that supports the SUT by taking the place of the actual dependency. It’s easy to confuse what’s part of the SUT and what’s a Test Double. I swear that I’ve seen tests that were confirming Test Double behavior.
 
 The term _Test Double_ is inspired by the term _Stunt Double_. A Stunt Double is a replacement for an actor in a TV show or movie when the scene is too dangerous for the actor. The Stunt Double is a temporary substitute, who mostly looks like the actor but has special skills. A Test Double is a temporary substitute, that mostly emulates a dependency but has special skills.
+
+<img src="/assets/StuntDoubles.jpeg" alt="Stunt Doubles" align="center" width = "50%" style="padding-right: 20px;">
  
 # Test Double Worthy Dependencies
 Almost all software has dependencies, but not all dependencies require Test Doubles in testing. There are no absolute rules. The same dependency may require a Test Double in some tests and none in other tests.
