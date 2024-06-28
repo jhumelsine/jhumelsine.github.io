@@ -7,7 +7,7 @@ unlisted: true
 # Introduction
 I’ve used the term ___Test Double___ in several previous blogs with the [promise]( https://jhumelsine.github.io/2024/06/23/unt-test-elements.html#set-up--ie-arrangegiven) to provide more details:
 
-> To isolate the SUT from its dependencies, we override these dependencies with Test Doubles. I’ll provide more details about Test Doubles in the next blog. For now, a Test Double emulates dependency behavior with the [SUT](https://en.wikipedia.org/wiki/Test_double) being none to the wiser. Test Doubles tend to be small snippets of code that emulate a specific dependency behavior that’s only needed within the context of each test.
+> To isolate the SUT from its dependencies, we override these dependencies with Test Doubles. __I’ll provide more details about Test Doubles in the next blog__. For now, a Test Double emulates dependency behavior with the [SUT](https://en.wikipedia.org/wiki/Test_double) being none to the wiser. Test Doubles tend to be small snippets of code that emulate a specific dependency behavior that’s only needed within the context of each test.
 
 This is where I follow up upon that promise.
 
@@ -50,7 +50,8 @@ However, higher-level testing will still probably include Test Doubles. We won�
 
 # Test Double Example
 A Test Double is a special case of the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html). A Test Double is a specific Strategy implementation, but with the distinction that it exists only for testing purposes. A Test Double even made a cameo appearance in the [Testing](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html#Testing) section with:
- 
+
+<img src="/assets/ShapeTesting.png" alt="Shape Testing UML Class Diagram" align="center" width = "95%" style="padding-right: 20px;">
 
 Let’s consider how this diagram from nine months ago foreshadowed concepts that I’m writing about now:
 * `ComputerAidedDesign` is the SUT. This test confirms that its `render()` method will drawn any `Shape`s that have been added to it.
@@ -291,8 +292,12 @@ The SUT should be unaware of its dependency reference origins so that the SUT fu
 Here are two examples from the Dependency Injection blog.
 
 Injecting a production dependency, `MyClass`:
+
+<img src="/assets/DependencyInjection.png" alt="Dependency Injection" width = "95%" align="center" style="padding-right: 20px;">
  
 The following is the same SUT, but injecting a Test Double, `MyTestDouble`:
+
+<img src="/assets/DependencyInjectionTesting.png" alt="Dependency Injection Testing" width = "95%" align="center" style="padding-right: 20px;">
  
 `ClientApplication` and `MyInterface` are the SUT. They are unaware of any dependency specifics beyond the red boundary for which all arrows of knowledge and dependency cross that boundary by pointing toward the SUT and never away from it.
 
@@ -343,6 +348,7 @@ Here’s a brief review of some previous ideas with blog references that are coa
 * [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) and to lesser degree [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) and [Façade](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) as well to design for loose coupling.
 * [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) with [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) to resolve dependencies.
 * [Hexagonal Architecture – Structure](https://jhumelsine.github.io/2023/10/28/hexagonal-architecture-structure.html) especially hexagonally shaped boundaries to highlight contracts and boundaries:
+<img src="/assets/HexArchHexagons.png" alt="Hexagons" width = "100%" align="center" style="padding-right: 35px;">
 * [Dependency and Knowledge Management](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html), which was presented in the context of Hexagonal Architecture, which also applies beyond the Hexagonal Architecture design, to allow SUTs to be unaware of their execution environments.
 
 Future blogs will introduce additional concepts that will coalesce as well. I feel there may be a grand unified theory of software engineering that’s still beyond my grasp. If there is such a grand unified theory, I’d be willing to bet that Dependency and Knowledge Management is part of it.
