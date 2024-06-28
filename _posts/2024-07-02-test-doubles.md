@@ -12,9 +12,10 @@ I’ve used the term ___Test Double___ in several previous blogs with the [promi
 This is where I follow up upon that promise.
 
 # Test Double Raison D'être
-Why do we Test Doubles? Why don’t we just test the code as is? Once more I’ll reference my previous blog entry:
+Why do we use Test Doubles? Why don’t we test the code as is? Once more I’ll reference my previous blog entry:
 
 > We replace production dependencies with Test Doubles mostly because Test Doubles tend to be easier to configure and execute faster in the test than the production dependencies. We also have complete control over dependency behaviors via Test Doubles. It may be very difficult to force behavior in a production dependency. For example, how challenging would it be to force a production dependency to throw a specific exception, such as `OutOfMemoryError`, consistently on demand?
+
 In short:
 * Configuration convenience
 * Test execution speed
