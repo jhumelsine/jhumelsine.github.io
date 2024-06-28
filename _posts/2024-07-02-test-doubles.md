@@ -362,5 +362,13 @@ Future blogs will introduce additional concepts that will coalesce as well. I fe
 * [Test Doubles](http://xunitpatterns.com/Test%20Double.html) on xUnit Patterns
 * [Test Doubles](https://testsigma.com/blog/test-doubles/) on Test Sigma Blog
 * [Test Doubles in Android](https://developer.android.com/training/testing/fundamentals/test-doubles)
-* [Test Doubles](https://abseil.io/resources/swe-book/html/ch13.html) Chapter 13 from by [Software Engineering at Google](https://abseil.io/resources/swe-book) by Andrew Trenk and Dillon Bly
+* [Test Doubles](https://abseil.io/resources/swe-book/html/ch13.html) Chapter 13 from [Software Engineering at Google](https://abseil.io/resources/swe-book) by Andrew Trenk and Dillon Bly
 * [Test Doubles](https://learn.microsoft.com/en-us/archive/msdn-magazine/2007/september/unit-testing-exploring-the-continuum-of-test-doubles) from MSDN Magazine from Microsoft
+* [Mockito](https://en.wikipedia.org/wiki/Mockito) on Wikipedia
+* [Mockito](https://site.mockito.org/) on Mockito.org
+* [Mockito](https://github.com/mockito/mockito) on GitHub
+* [Mockito Guide](https://dzone.com/refcardz/mockito) on DZone
+* [Mockito RefCard](https://dzone.com/refcardz/mockito) on DZone
+* [Mockito Tutorial](https://www.baeldung.com/mockito-series) on Baeldung
+* [Mokito's Mock Methods](https://www.baeldung.com/mockito-mock-methods) on Baeldung
+* [Clean Unit Tests with Mockito](https://reflectoring.io/clean-unit-tests-with-mockito/) on Refactoring.io
