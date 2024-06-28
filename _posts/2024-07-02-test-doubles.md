@@ -7,7 +7,7 @@ unlisted: true
 # Introduction
 I’ve used the term ___Test Double___ in several previous blogs with the [promise]( https://jhumelsine.github.io/2024/06/23/unt-test-elements.html#set-up--ie-arrangegiven) to provide more details:
 
-> To isolate the SUT from its dependencies, we override these dependencies with Test Doubles. __I’ll provide more details about Test Doubles in the next blog__. For now, a Test Double emulates dependency behavior with the [SUT](https://en.wikipedia.org/wiki/Test_double) being none to the wiser. Test Doubles tend to be small snippets of code that emulate a specific dependency behavior that’s only needed within the context of each test.
+> To isolate the SUT from its dependencies, we override these dependencies with Test Doubles. __I’ll provide more details about Test Doubles in the next blog__. For now, a Test Double emulates dependency behavior with the _Software Under Test_ [SUT](https://en.wikipedia.org/wiki/Test_double) being none to the wiser. Test Doubles tend to be small snippets of code that emulate a specific dependency behavior that’s only needed within the context of each test.
 
 This is where I follow up upon that promise.
 
@@ -21,7 +21,7 @@ In short:
 * Test execution speed
 * Complete control
 
-The Test Double is not part of the SUT. It is an element of the test configuration that supports the SUT by taking the place of the actual dependency. It’s easy to confuse what’s part of the SUT and what’s a Test Double. I swear that I’ve seen tests that were confirming Test Double behavior.
+The Test Double is not part of the SUT. It is an element of the test configuration that supports the SUT by taking the place of the actual dependency. It’s easy to confuse what’s part of the SUT and what’s a Test Double. I swear that I’ve seen tests that only confirmed Test Double behavior.
 
 The term _Test Double_ is inspired by the term _Stunt Double_. A Stunt Double is a replacement for an actor in a TV show or movie when the scene is too dangerous for the actor. The Stunt Double is a temporary substitute, who mostly looks like the actor but has special skills. A Test Double is a temporary substitute, that mostly emulates a dependency but has special skills.
 
@@ -29,6 +29,7 @@ The term _Test Double_ is inspired by the term _Stunt Double_. A Stunt Double is
  
 # Test Double Worthy Dependencies
 Almost all software has dependencies, but not all dependencies require Test Doubles in testing. There are no absolute rules. The same dependency may require a Test Double in some tests and none in other tests.
+
 The decision is often based upon what I listed above: configuration, speed and control.
 
 ## Dependencies That Do Not Tend To Require Test Doubles
@@ -37,12 +38,12 @@ Programming language features and language utilities don’t tend to require Tes
 [Value Objects]( https://en.wikipedia.org/wiki/Value_object), [Data Transfer Objects](https://en.wikipedia.org/wiki/Data_transfer_object) (DTO), and other relatively small and isolated classes don’t tend to require Test Doubles. They usually require no configuration, they’re fast and they have no external dependencies.
 
 ## Dependencies That Do Tend To Require Test Doubles
-External dependencies, such as databases, file systems, internet calls, time, etc. tend to require Test Doubles.
+External dependencies, such as databases, file systems, internet calls, time, etc. tend to require Test Doubles. They almost always require configuration, they are slow and difficult to control. They may not handle tests executing simultaneously either.
 
 ## Project Component Dependencies Can Go Either Way
 Dependencies upon other components in the project may or may not require Test Doubles. It depends upon the scenario.
 
-Project components that are relatively small and isolated don’t tend to require Test Doubles. Using them as-is confirms more of your system but may require more debugging when tests fail.
+Project components that are relatively small and isolated don’t tend to require Test Doubles. Using them as is confirms more of your system but may require more debugging when tests fail.
 
 Project components that are more complex or have their own external dependencies may require Test Doubles.
 
@@ -94,6 +95,8 @@ class CustomerService {
 
 We want to design tests that confirm authorization without knowing the implementation of `CustomerService`. We only know that it has two dependencies: `CustomerRepo` and `Authorization`.
 
+We also don't know how `CustomerRepo` and `Authorization` are implemented. The production implementations of these interfaces are probably fairly substantial. At a minimum they would include persistence. In my test examples below, I'll provide Test Doubles for `CustomerRepo` and `Authorization`, which won't have any substance or persistence.
+
 ## Null or Dummy
 Sometimes you don’t need anything. Even if the SUT contains dependencies, you may not need to provide Test Doubles. The flow of execution through the SUT may not reference those dependencies, so there’s no need for a Test Double.
 A Dummy is an implementation that mostly provides default implementations or an implementation that throws a `NotImplementedException`. Default implementations would be:
@@ -102,6 +105,7 @@ A Dummy is an implementation that mostly provides default implementations or an 
 * int => 0
 * float => 0.0
 * etc.
+
 In the example below:
 * `CustomerRepo` is null since it should not be accessed.
 * `Authorization` is a dummy.
@@ -304,7 +308,7 @@ The following is the same SUT, but injecting a Test Double, `MyTestDouble`:
  
 `ClientApplication` and `MyInterface` are the SUT. They are unaware of any dependency specifics beyond the red boundary for which all arrows of knowledge and dependency cross that boundary by pointing toward the SUT and never away from it.
 
-__NOTE:__ When an SUT is not loosely coupled with its dependencies, then it may need to be refactored that will be loosely coupled before Test Doubles can be added.
+__NOTE:__ When an SUT is not loosely coupled with its dependencies, then the SUT may need to be refactored so that it will be loosely coupled to its dependencies before Test Doubles can be added.
 
 ## Constructor Injection
 Constructor Injection is probably the most common technique. I’ve used this technique in my examples above with Test Doubles being injected into the `CustomerService` via a constructor.
@@ -348,13 +352,13 @@ Test Doubles has been the focus of this blog, but there’s something more subtl
 
 Here’s a brief review of some previous ideas with blog references that are coalescing:
 * _Program to an interface, not an implementation_ from [Design Pattern Principles](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html). This principle is crucial for loose coupling.
-* [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) and to lesser degree [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) and [Façade](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) as well to design for loose coupling.
+* [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html), and to lesser degree [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) and [Façade](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) as well, to design for loose coupling.
 * [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) with [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) to resolve dependencies.
 * [Hexagonal Architecture – Structure](https://jhumelsine.github.io/2023/10/28/hexagonal-architecture-structure.html) especially hexagonally shaped boundaries to highlight contracts and boundaries:
 <img src="/assets/HexArchHexagons.png" alt="Hexagons" width = "100%" align="center" style="padding-right: 35px;">
 * [Dependency and Knowledge Management](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html), which was presented in the context of Hexagonal Architecture, which also applies beyond the Hexagonal Architecture design, to allow SUTs to be unaware of their execution environments.
 
-Future blogs will introduce additional concepts that will coalesce as well. I feel there may be a grand unified theory of software engineering that’s still beyond my grasp. If there is such a grand unified theory, I’d be willing to bet that Dependency and Knowledge Management is part of it.
+Future blogs will introduce additional concepts that will coalesce as well. I feel there may be a grand unified theory of software engineering that’s a bit beyond my grasp. If there is such a grand unified theory, I’d be willing to bet that Dependency and Knowledge Management is part of it.
 
 # References
 * Previous [blog references](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html#references)
