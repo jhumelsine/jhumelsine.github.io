@@ -357,5 +357,10 @@ Future blogs will introduce additional concepts that will coalesce as well. I fe
 
 # References
 * Previous [blog references](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html#references)
-* TBD
-
+* [Test Doubles](https://en.wikipedia.org/wiki/Test_double) on Wikipedia
+* [Test Doubles](https://martinfowler.com/bliki/TestDouble.html) by Martin Fowler
+* [Test Doubles](http://xunitpatterns.com/Test%20Double.html) on xUnit Patterns
+* [Test Doubles](https://testsigma.com/blog/test-doubles/) on Test Sigma Blog
+* [Test Doubles in Android](https://developer.android.com/training/testing/fundamentals/test-doubles)
+* [Test Doubles](https://abseil.io/resources/swe-book/html/ch13.html) Chapter 13 from by [Software Engineering at Google](https://abseil.io/resources/swe-book) by Andrew Trenk and Dillon Bly
+* [Test Doubles](https://learn.microsoft.com/en-us/archive/msdn-magazine/2007/september/unit-testing-exploring-the-continuum-of-test-doubles) from MSDN Magazine from Microsoft
