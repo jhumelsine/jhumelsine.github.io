@@ -89,7 +89,9 @@ Let’s assume that the SUT `CustomerService` only allows authorized `User`s to 
 ```java
 class CustomerService {
     public CustomerService(CustomerRepo customerRepo, Authorization authorization) {…}
+
     public Customer getCustomer(CustomerId customerId, User user) throws UnauthorizedException {…}
+
 }
 ```
 
@@ -339,13 +341,13 @@ Method Override leaks some implementation details into the tests, which makes th
 # Write Your Own Test Doubles Or Use A Framework?
 My examples in this blog have been hand rolled Test Doubles. They aren't huge, but each one takes at least five or six lines as seen in this Stub:
 ```java
-    Customer persistedCustomer = new Customer();
-    CustomerRepo repo = new CustomerRepo() {
-        @Override
-        public Customer getCustomer(CustomerId customerId) {
-            return persistedCustomer;
-        }
-    };
+Customer persistedCustomer = new Customer();
+CustomerRepo repo = new CustomerRepo() {
+    @Override
+    public Customer getCustomer(CustomerId customerId) {
+        return persistedCustomer;
+    }
+};
 ```
 
 Maybe I could have saved a few lines via lambda rather than an anonymous class, but that would only work for interfaces with one method. Most interfaces have several methods. What if the CustomerRepoo were:
@@ -359,7 +361,7 @@ interface CustomerRepo {
 ```
 
 The anonymous class above would not work unless it included implementations for the other three methods in the interface, even if they were not referenced by the SUT in the test. Then much like the `AuthorizationSpy`, we'd need a `CustomerRepoDummy`:
-```jav
+```java
 class CustomerRepoDummy implements CustomerRepo {
     public void createCustomer(CustomerId customerId, Customer customer) {
         throws new NotImplementedException();
@@ -378,16 +380,17 @@ class CustomerRepoDummy implements CustomerRepo {
     }
 
 }
+```
 
 Then in the test, we can do this:
 ```java
-    Customer persistedCustomer = new Customer();
-    CustomerRepo repo = new CustomerRepoDummy() {
-        @Override
-        public Customer getCustomer(CustomerId customerId) {
-            return persistedCustomer;
-        }
-    };
+Customer persistedCustomer = new Customer();
+CustomerRepo repo = new CustomerRepoDummy() {
+    @Override
+    public Customer getCustomer(CustomerId customerId) {
+        return persistedCustomer;
+    }
+};
 ```
 
 Writing your own Test Doubles is not your only option. There are Test Double frameworks, such as [Mockito](https://site.mockito.org/).
