@@ -7,7 +7,7 @@ unlisted: true
 # Introduction
 I’ve used the term ___Test Double___ in several previous blogs with the [promise]( https://jhumelsine.github.io/2024/06/23/unt-test-elements.html#set-up--ie-arrangegiven) to provide more details:
 
-> To isolate the SUT from its dependencies, we override these dependencies with Test Doubles. __I’ll provide more details about Test Doubles in the next blog__. For now, a Test Double emulates dependency behavior with the _Software Under Test_ [SUT](https://en.wikipedia.org/wiki/Test_double) being none to the wiser. Test Doubles tend to be small snippets of code that emulate a specific dependency behavior that’s only needed within the context of each test.
+> To isolate the SUT from its dependencies, we override these dependencies with Test Doubles. __I’ll provide more details about Test Doubles in the next blog__. For now, a Test Double emulates dependency behavior with the [Software Under Test](https://en.wikipedia.org/wiki/Test_double) (SUT) being none to the wiser. Test Doubles tend to be small snippets of code that emulate a specific dependency behavior that’s only needed within the context of each test.
 
 This is where I follow up upon that promise.
 
@@ -70,7 +70,7 @@ Notice that `ComputerAidedDesign` and `Shape` have no arrows pointing away from 
 SUT will always be the blue boxes. Test Doubles will always (well almost always) be the purple boxes.
 
 # Test Double Types
-There are several types of Test Doubles. Structurally they are all the same. Their distinction is based upon the amount of emulated behavior they provide. Test Double type names haven’t become standardized. You may see the same term used in different ways. For example, ___Mock___ is a term often used for _Test Double_ in general, especially with [Mockito](https://en.wikipedia.org/wiki/Mockito), but it also has a more restrictive meaning within the overall Test Double family.
+There are several types of Test Doubles. Structurally they are all the same. Their distinction is based upon the amount of emulated behavior they provide. Test Double type names haven’t become standardized. You may see the same term used in different ways. For example, ___Mock___ is a term often used for _Test Double_ in general, especially with [Mockito](https://en.wikipedia.org/wiki/Mockito), but it has a more restrictive meaning within the overall Test Double family.
 
 Here is how I view them. Each Test Double type tends to be an extension of the one before it. When defining Test Doubles, I recommend starting with the least functional Test Double and then extending it as needed.
 
@@ -139,7 +139,8 @@ public void getCustomer_ThrowsUnauthorizedException_WhenUserIsNotAuthorized() th
 ## Stub
 The `Authorization` Dummy above was sufficient for that scenario, but that was more accidental than intentional.
 A Stub is one step up from a Dummy. Stub implementation is usually minimal, but it tends to be intentional.
-Let’s consider a test that uses Stubs.
+
+Let’s consider a test that uses Stubs. `CustomerRepo` and `Authorization` have stubbed method implementations.
 ```java
 @Test
 public void getCustomer_ReturnsCustomer_WhenUserIsAuthorized() throws Exception {
@@ -170,7 +171,7 @@ public void getCustomer_ReturnsCustomer_WhenUserIsAuthorized() throws Exception 
 ```
 
 ## Mock
-The Stubbed test above is a good start, but how good is it? From the two tests, we can assume that `isAuthorized(User user)` has been called, but we have confirmation that the user making the request has been authorized? It passed even when the `User` is `null`. That feels a bit sketchy. We don't even know if the correct `customerId` is being used.
+The Stubbed test above is a good start, but how good is it? From the two tests, we can assume that `isAuthorized(User user)` has been called, but we have confirmation that the user making the request has been authorized? It passed even when the `User` is `null`. That feels a bit sketchy. Additionally, we don't even know if the correct `customerId` is being used to get the `Customer`.
 
 A Mock adds assertions into the Test Double to confirm invariants. Let’s upgrade the `CustomerRepo` Stub to a Mock to confirm `customerId` and the `Authorize` Stub to a Mock to confirm the `User`.
 
@@ -210,7 +211,7 @@ public void getCustomer_ReturnsCustomer_WhenConfirmedUserIsAuthorized() throws E
 ```
 
 ## Spy
-The Mock above provides more confidence, but do we really know for sure that `isAuthorized(User user)` has been called for the `User`? The Mocked version of the test only confirms that if `isAuthorized(User user)` is called that it will return `true` for the specific User. We can infer to some degree from the Null/Dummy test above that it was called, but I don’t think it’s definitive enough.
+The Mock above provides more confidence, but do we really know for sure that `isAuthorized(User user)` has been called for the `User`? The Mocked version of the test only confirms that if `isAuthorized(User user)` is called that it will return `true` for the specific `User`. We can infer to some degree from the Null/Dummy test above that it was called, but I don’t think it’s definitive enough.
 
 A Spy Test Double can help with this. A Spy Test Double records its interactions and returns them via a query.
 Let’s make this test more obvious by upgrading the Test Double to a Spy:
@@ -289,7 +290,7 @@ The dependency’s behavior should be well a defined contract defined via its in
 * Contact the dependency provider for clarification
 * Create tests that interact with the dependencies to observe and confirm their behaviors, which we can then emulate in the Test Doubles.
 
-Test Doubles emulate dependency behavior based upon the dependency’s contract. Unit tests confirm SUT functionality and its interactions with its contract defined dependencies via Test Doubles emulating those contracts. The unit test does not confirm that the dependencies honor their own contracts. Dependency confirmation is the responsibility of the dependency provider.
+Test Doubles emulate dependency behavior based upon the dependency’s contract. Unit tests confirm SUT functionality and its interactions with its contract defined dependencies via Test Doubles emulating those contracts. __The unit test does not confirm that the dependencies honor their own contracts. Dependency confirmation is the responsibility of the dependency provider__.
 
 It took me a long time to realize this and appreciate the distinction. Before I understood contracts and their implied boundaries, I thought tests could only confirm the whole software rather than using these contracts and boundaries to separate software components so they could be confirmed separately.
 Sometimes dependency contracts are vague. The dependency provider may have one thought in mind, whereas the dependency user may have a different interpretation of the contract.
@@ -352,7 +353,7 @@ CustomerRepo repo = new CustomerRepo() {
 };
 ```
 
-Maybe I could have saved a few lines via lambda rather than an anonymous class, but that would only work for interfaces with one method. Most interfaces have several methods. What if the CustomerRepoo were:
+Maybe I could have saved a few lines via a lambda rather than an anonymous class, but that would only work for functional interfaces with one method. Most interfaces have several methods. What if the `CustomerRepo` were:
 ```java
 interface CustomerRepo {
     void createCustomer(CustomerId customerId, Customer customer);
