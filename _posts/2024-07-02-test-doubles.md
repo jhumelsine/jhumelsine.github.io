@@ -336,8 +336,62 @@ I will feature Method Override in the next blog, but I will briefly describe it 
 
 Method Override leaks some implementation details into the tests, which makes them a bit more brittle. I use Method Override sparingly, but sometimes it’s the best technique until the SUT can be refactored more so that the dependencies are truly loosely coupled.
 
-# Roll Your Own Test Doubles Or Use A Framework?
-My examples in this blog have been hand rolled Test Doubles. This is not your only option. There are Test Double frameworks, such as [Mockito](https://site.mockito.org/).
+# Write Your Own Test Doubles Or Use A Framework?
+My examples in this blog have been hand rolled Test Doubles. They aren't huge, but each one takes at least five or six lines as seen in this Stub:
+```java
+    Customer persistedCustomer = new Customer();
+    CustomerRepo repo = new CustomerRepo() {
+        @Override
+        public Customer getCustomer(CustomerId customerId) {
+            return persistedCustomer;
+        }
+    };
+```
+
+Maybe I could have saved a few lines via lambda rather than an anonymous class, but that would only work for interfaces with one method. Most interfaces have several methods. What if the CustomerRepoo were:
+```java
+interface CustomerRepo {
+    void createCustomer(CustomerId customerId, Customer customer);
+    Customer getCustomer(CustomerId customerId);
+    void updateCustomer(CustomerId customerId, Customer customer);
+    void deleteCustomer(CustomerId customerId);
+}
+```
+
+The anonymous class above would not work unless it included implementations for the other three methods in the interface, even if they were not referenced by the SUT in the test. Then much like the `AuthorizationSpy`, we'd need a `CustomerRepoDummy`:
+```jav
+class CustomerRepoDummy implements CustomerRepo {
+    void createCustomer(CustomerId customerId, Customer customer) {
+        throws new NotImplementedException();
+    }
+
+    Customer getCustomer(CustomerId customerId) {
+        throws new NotImplementedException();
+    }
+
+    void updateCustomer(CustomerId customerId, Customer customer) {
+        throws new NotImplementedException();
+    }
+
+    void deleteCustomer(CustomerId customerId) {
+        throws new NotImplementedException();
+    }
+
+}
+
+Then in the test, we can do this:
+```java
+```java
+    Customer persistedCustomer = new Customer();
+    CustomerRepo repo = new CustomerRepoDummy() {
+        @Override
+        public Customer getCustomer(CustomerId customerId) {
+            return persistedCustomer;
+        }
+    };
+```
+
+Writing your own Test Doubles is not your only option. There are Test Double frameworks, such as [Mockito](https://site.mockito.org/).
 
 I created my own Test Doubles as I was learning how to implement unit tests. This gave me the freedom and power to define Test Doubles that did exactly what I wanted them to do. It also helped me distinguish SUT from Test Doubles, which can be a bit confusing when first learning how to implement unit tests. It also provided an environment where I truly learned what I could and could not do with Test Doubles rather than copying some code I found online. However, there was a tradeoff. My own Test Doubles were larger and took more time to implement.
 
