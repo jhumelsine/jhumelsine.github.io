@@ -101,16 +101,17 @@ We also don't know how `CustomerRepo` and `Authorization` are implemented. The p
 
 ## Null or Dummy
 Sometimes you don’t need anything. Even if the SUT contains dependencies, you may not need to provide Test Doubles. The flow of execution through the SUT may not reference those dependencies, so there’s no need for a Test Double.
-A Dummy is an implementation that mostly provides default implementations or an implementation that throws a `NotImplementedException`. Default implementations would be:
-* Boolean => false
-* String => “”
-* int => 0
-* float => 0.0
+A Dummy is an implementation that mostly provides default implementations or an implementation that throws a `NotImplementedException`. Default implementations given the following return types could be:
+* Boolean returns false
+* String returns "" or null
+* int returns 0
+* float returns 0.0
+* any class returns null
 * etc.
 
 In the example below:
 * `CustomerRepo` is null since it should not be accessed.
-* `Authorization` is a dummy.
+* `Authorization` is a dummy returning false.
 
 ```java
 @Test
@@ -137,8 +138,8 @@ public void getCustomer_ThrowsUnauthorizedException_WhenUserIsNotAuthorized() th
 
 ## Stub
 The `Authorization` Dummy above was sufficient for that scenario, but that was more accidental than intentional.
-A Stub is one step up from a Dummy. The implementation is minimal, but it tends to be intentional.
-Let’s consider a test that uses Stubs. The User is 
+A Stub is one step up from a Dummy. Stub implementation is usually minimal, but it tends to be intentional.
+Let’s consider a test that uses Stubs.
 ```java
 @Test
 public void getCustomer_ReturnsCustomer_WhenUserIsAuthorized() throws Exception {
@@ -169,9 +170,9 @@ public void getCustomer_ReturnsCustomer_WhenUserIsAuthorized() throws Exception 
 ```
 
 ## Mock
-The Stubbed test above is a good start, but how good is it? From the two tests, we can assume that `isAuthorized(User user)` has been called, but has it been called for the expected user? It passed even when the `User` is `null`. That feels a bit sketchy.
+The Stubbed test above is a good start, but how good is it? From the two tests, we can assume that `isAuthorized(User user)` has been called, but we have confirmation that the user making the request has been authorized? It passed even when the `User` is `null`. That feels a bit sketchy. We don't even know if the correct `customerId` is being used.
 
-A Mock adds assertions into the Test Double to confirm invariants. Let’s update the `Authorize` Stub to a Mock to confirm the User and the CustomerId.
+A Mock adds assertions into the Test Double to confirm invariants. Let’s upgrade the `CustomerRepo` Stub to a Mock to confirm `customerId` and the `Authorize` Stub to a Mock to confirm the `User`.
 
 ```java
 @Test
@@ -209,8 +210,9 @@ public void getCustomer_ReturnsCustomer_WhenConfirmedUserIsAuthorized() throws E
 ```
 
 ## Spy
-The Mock above provides more confidence, but do we really know for sure that `isAuthorized(User user)` has been called for the `User`. The Mocked version of the test only confirms that if `isAuthorized(User user)` is called that it will return `true` for the specific User. We can infer to some degree from the Null/Dummy test above that it was called, but I don’t think it’s definitive enough.
-A Spy Test Double can help with this. A Spy Test Double records its interactions and returns them via a query:
+The Mock above provides more confidence, but do we really know for sure that `isAuthorized(User user)` has been called for the `User`? The Mocked version of the test only confirms that if `isAuthorized(User user)` is called that it will return `true` for the specific User. We can infer to some degree from the Null/Dummy test above that it was called, but I don’t think it’s definitive enough.
+
+A Spy Test Double can help with this. A Spy Test Double records its interactions and returns them via a query.
 Let’s make this test more obvious by upgrading the Test Double to a Spy:
 ```java
 class AuthorizationSpy implements Authorization {
@@ -283,14 +285,14 @@ How do we know that the emulated Test Double behavior accurately represents the 
 
 This feels like a legitimate concern, but I’m going to argue that within the realm of unit testing, it’s not that much of a concern.
 
-The dependency’s behavior should be well defined via contract defined via its interface or public methods. Test Doubles emulating dependency behavior defined via clear and well-defined contracts should not be a major challenge. However, if dependency contracts aren’t clear or well defined, then we have some options:
+The dependency’s behavior should be well a defined contract defined via its interface or public methods. Test Doubles emulating dependency behavior defined via clear and well-defined contracts should not be a major challenge. However, if dependency contracts aren’t clear or well defined, then we have some options:
 * Contact the dependency provider for clarification
 * Create tests that interact with the dependencies to observe and confirm their behaviors, which we can then emulate in the Test Doubles.
 
-Test Doubles emulate dependency behavior based upon the dependency’s contract. Unit tests confirm SUT functionality and its interactions with its dependencies as defined by its contract via Test Doubles emulating that contract. The unit test does not confirm that the dependencies honor their own contracts. Dependency confirmation is the responsibility of the dependency provider.
+Test Doubles emulate dependency behavior based upon the dependency’s contract. Unit tests confirm SUT functionality and its interactions with its contract defined dependencies via Test Doubles emulating those contracts. The unit test does not confirm that the dependencies honor their own contracts. Dependency confirmation is the responsibility of the dependency provider.
 
 It took me a long time to realize this and appreciate the distinction. Before I understood contracts and their implied boundaries, I thought tests could only confirm the whole software rather than using these contracts and boundaries to separate software components so they could be confirmed separately.
-Sometimes dependency contracts are vague. The dependency provider may have one thought in mind, whereas the dependency user may have another thought in mind.
+Sometimes dependency contracts are vague. The dependency provider may have one thought in mind, whereas the dependency user may have a different interpretation of the contract.
 
 Unit testing won’t catch these contract interpretation inconsistencies. This is where integration testing becomes important. I’ll devote a blog to these concerns in the series.
 
@@ -298,7 +300,7 @@ Unit testing won’t catch these contract interpretation inconsistencies. This i
 The SUT should be unaware of its dependency reference origins so that the SUT functions in production exactly in the same way that it functions in its unit test.
 [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) is probably the most common technique, but it only works when the SUT is loosely coupled with its dependencies.
 
-Here are two examples from the Dependency Injection blog.
+Here are two examples from the [Dependency Injection blog](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#dependency-injection-helps-support-dependency-inverse-principle).
 
 Injecting a production dependency, `MyClass`:
 
@@ -319,10 +321,10 @@ Constructor Injection is probably the most common technique. I’ve used this te
 
 We can have both Production and Test [Configurers](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#configurers) since no other elements in the design tends to depend upon them. In design diagrams, arrows point away from them, not into them. They are invisible to the rest of the design. They are invisible to each other.
 
-Therefore, we can drop the SUT in many different test and production scenarios without their having knowledge or dependency upon those scenarios.
+Therefore, we can drop the SUT in many different test and production scenarios without the SUT having knowledge or dependency upon those scenarios.
 
 ## Method Injection
-Method Injection is much like Constructor Injection, except that the dependency is injected via a method, which is not the constructor. Some classes may have a set accessor which allows dependencies to be updated after object construction.
+Method Injection is much like Constructor Injection, except that the dependency is injected via a method, which is similar to, but not the constructor. Some classes may have a set accessor which allows dependencies to be updated after object construction.
 
 ## Dependency Frameworks
 Some frameworks, such as the [Spring Framework](https://spring.io/projects/spring-framework), provide mechanisms, such as the [@Autowired](https://www.baeldung.com/spring-autowire) annotation, but they are mostly wrappers to facilitate dependency injection.
@@ -336,10 +338,10 @@ I will feature Method Override in the next blog, but I will briefly describe it 
 * Separate the dependency into its own method using the [Extract Method](https://refactoring.guru/extract-method) refactoring. Most IDEs provide a tool to do most of this for you. The extracted method will probably be declared as `private` by default. We will need to remove this so that it’s package-private. This will keep the method hidden from elements outside the package, but it will be accessible to elements inside the package, specifically the test code. __NOTE:__ This is Java terminology. Other languages may have different terminology.
 * When creating the SUT class in the test, override the extracted method and inject the Test Double behavior needed for the test.
 
-Method Override leaks some implementation details into the tests, which makes them a bit more brittle. I use Method Override sparingly, but sometimes it’s the best technique until the SUT can be refactored more so that the dependencies are truly loosely coupled.
+Method Override leaks implementation details into the tests, which makes them a bit more brittle. I use Method Override sparingly, but sometimes it’s the best technique until the SUT can be refactored more so that the dependencies are truly loosely coupled.
 
 # Write Your Own Test Doubles Or Use A Framework?
-My examples in this blog have been hand rolled Test Doubles. They aren't huge, but each one takes at least five or six lines as seen in this Stub:
+My examples in this blog have been hand written Test Doubles. They aren't huge, but each one takes at least five or six lines as seen in this Stub:
 ```java
 Customer persistedCustomer = new Customer();
 CustomerRepo repo = new CustomerRepo() {
@@ -354,9 +356,13 @@ Maybe I could have saved a few lines via lambda rather than an anonymous class, 
 ```java
 interface CustomerRepo {
     void createCustomer(CustomerId customerId, Customer customer);
+
     Customer getCustomer(CustomerId customerId);
+
     void updateCustomer(CustomerId customerId, Customer customer);
+
     void deleteCustomer(CustomerId customerId);
+
 }
 ```
 
@@ -424,9 +430,9 @@ try (MockedStatic<CustomerRepo> customerRepo = Mockito.mockStatic(CustomerRepo.c
 
 When you make a specification mistake, which you can see from above is easy to do, it often won’t alert you. It just won’t work as you think it should. I spent a lot of time scratching my head staring at my SUT implementation when the real problem was in the Mockito Test Double specification.
 
-There were times when I just couldn’t emulate the Test Double behavior, that I wanted. This could have been behavior that Mockito did not support or it could have been Mockito knowledge that I didn’t quite have yet. I’d create my own Test Double when I couldn’t continue with Mockito.
+There were times when I just couldn’t emulate the Test Double behavior that I wanted. This could have been behavior that Mockito did not support or it could have been Mockito knowledge that I didn’t quite have yet. I’d create my own Test Double when I couldn’t continue with Mockito.
 
-While this is completely subjective, I recommend the same path. Create your own Test Doubles until you gain confidence. Then slowly migrate to a Test Double Framework, such as Mockito.
+While this is completely subjective, I recommend the same path. Create your own Test Doubles until you gain confidence and understanding of Test Doubles. Then slowly migrate to a Test Double Framework, such as Mockito.
 
 # Summary
 Test Doubles has been the focus of this blog, but there’s something more subtle afoot. Many ideas from previous blogs are coalescing into a common theme and Test Doubles has been a catalyst for that reaction.
@@ -439,7 +445,7 @@ Here’s a brief review of some previous ideas with blog references that are coa
 <img src="/assets/HexArchHexagons.png" alt="Hexagons" width = "100%" align="center" style="padding-right: 35px;">
 * [Dependency and Knowledge Management](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html), which was presented in the context of Hexagonal Architecture, which also applies beyond the Hexagonal Architecture design, to allow SUTs to be unaware of their execution environments.
 
-Future blogs will introduce additional concepts that will coalesce as well. I feel there may be a grand unified theory of software engineering that’s a bit beyond my grasp. If there is such a grand unified theory, I’d be willing to bet that Dependency and Knowledge Management is part of it.
+Future blogs will introduce additional concepts that will coalesce as well. I feel there may be a grand unified theory of software engineering that’s still just a bit beyond my grasp. If there is such a grand unified theory, I’d be willing to bet that Dependency and Knowledge Management is part of it.
 
 # References
 * Previous [blog references](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html#references)
