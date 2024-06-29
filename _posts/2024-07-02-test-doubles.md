@@ -38,7 +38,7 @@ Programming language features and language utilities don’t tend to require Tes
 [Value Objects]( https://en.wikipedia.org/wiki/Value_object), [Data Transfer Objects](https://en.wikipedia.org/wiki/Data_transfer_object) (DTO), and other relatively small and isolated classes don’t tend to require Test Doubles. They usually require no configuration, they’re fast and they have no external dependencies.
 
 ## Dependencies That Do Tend To Require Test Doubles
-External dependencies, such as databases, file systems, internet calls, time, etc. tend to require Test Doubles. They almost always require configuration, they are slow and difficult to control. They may not handle tests executing simultaneously either.
+External dependencies, such as databases, file systems, internet calls, time, etc. tend to require Test Doubles. They almost always require configuration. They are slow and difficult to control. They may not handle tests executing simultaneously either.
 
 ## Project Component Dependencies Can Go Either Way
 Dependencies upon other components in the project may or may not require Test Doubles. It depends upon the scenario.
@@ -97,7 +97,7 @@ class CustomerService {
 
 We want to design tests that confirm authorization without knowing the implementation of `CustomerService`. We only know that it has two dependencies: `CustomerRepo` and `Authorization`.
 
-We also don't know how `CustomerRepo` and `Authorization` are implemented. The production implementations of these interfaces are probably fairly substantial. At a minimum they would include persistence. In my test examples below, I'll provide Test Doubles for `CustomerRepo` and `Authorization`, which won't have any substance or persistence.
+We also don't know how `CustomerRepo` and `Authorization` are implemented. The production implementations of these interfaces are probably substantial. At a minimum they would include persistence. In my test examples below, I'll provide Test Doubles for `CustomerRepo` and `Authorization`, which won't have any substance or persistence.
 
 ## Null or Dummy
 Sometimes you don’t need anything. Even if the SUT contains dependencies, you may not need to provide Test Doubles. The flow of execution through the SUT may not reference those dependencies, so there’s no need for a Test Double.
@@ -342,7 +342,7 @@ I will feature Method Override in the next blog, but I will briefly describe it 
 Method Override leaks implementation details into the tests, which makes them a bit more brittle. I use Method Override sparingly, but sometimes it’s the best technique until the SUT can be refactored more so that the dependencies are truly loosely coupled.
 
 # Write Your Own Test Doubles Or Use A Framework?
-My examples in this blog have been hand written Test Doubles. They aren't huge, but each one takes at least five or six lines as seen in this Stub:
+My examples in this blog have been handwritten Test Doubles. They aren't huge, but each one takes at least five or six lines as seen in this Stub:
 ```java
 Customer persistedCustomer = new Customer();
 CustomerRepo repo = new CustomerRepo() {
@@ -431,7 +431,7 @@ try (MockedStatic<CustomerRepo> customerRepo = Mockito.mockStatic(CustomerRepo.c
 
 When you make a specification mistake, which you can see from above is easy to do, it often won’t alert you. It just won’t work as you think it should. I spent a lot of time scratching my head staring at my SUT implementation when the real problem was in the Mockito Test Double specification.
 
-There were times when I just couldn’t emulate the Test Double behavior that I wanted. This could have been behavior that Mockito did not support or it could have been Mockito knowledge that I didn’t quite have yet. I’d create my own Test Double when I couldn’t continue with Mockito.
+There were times when I just couldn’t emulate the Test Double behavior that I wanted. This could have been behavior that Mockito did not support, or it could have been Mockito knowledge that I didn’t quite have yet. I’d create my own Test Double when I couldn’t continue with Mockito.
 
 While this is completely subjective, I recommend the same path. Create your own Test Doubles until you gain confidence and understanding of Test Doubles. Then slowly migrate to a Test Double Framework, such as Mockito.
 
