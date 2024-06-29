@@ -361,26 +361,25 @@ interface CustomerRepo {
 The anonymous class above would not work unless it included implementations for the other three methods in the interface, even if they were not referenced by the SUT in the test. Then much like the `AuthorizationSpy`, we'd need a `CustomerRepoDummy`:
 ```jav
 class CustomerRepoDummy implements CustomerRepo {
-    void createCustomer(CustomerId customerId, Customer customer) {
+    public void createCustomer(CustomerId customerId, Customer customer) {
         throws new NotImplementedException();
     }
 
-    Customer getCustomer(CustomerId customerId) {
+    public Customer getCustomer(CustomerId customerId) {
         throws new NotImplementedException();
     }
 
-    void updateCustomer(CustomerId customerId, Customer customer) {
+    public void updateCustomer(CustomerId customerId, Customer customer) {
         throws new NotImplementedException();
     }
 
-    void deleteCustomer(CustomerId customerId) {
+    public void deleteCustomer(CustomerId customerId) {
         throws new NotImplementedException();
     }
 
 }
 
 Then in the test, we can do this:
-```java
 ```java
     Customer persistedCustomer = new Customer();
     CustomerRepo repo = new CustomerRepoDummy() {
@@ -395,9 +394,34 @@ Writing your own Test Doubles is not your only option. There are Test Double fra
 
 I created my own Test Doubles as I was learning how to implement unit tests. This gave me the freedom and power to define Test Doubles that did exactly what I wanted them to do. It also helped me distinguish SUT from Test Doubles, which can be a bit confusing when first learning how to implement unit tests. It also provided an environment where I truly learned what I could and could not do with Test Doubles rather than copying some code I found online. However, there was a tradeoff. My own Test Doubles were larger and took more time to implement.
 
-As I gained more confidence, I started to dip my toe into the Mockito waters. I was able to create and inject Test Double behavior more quickly, but it also came with tradeoffs. Mockito Test Double defined behavior can be a bit cryptic. Its specifications are inconsistent. When you make a specification mistake, it often won’t alert you. It just won’t work as you think it should. I spent a lot of time scratching my head staring at my SUT implementation when the real problem was in the Mockito Test Double specification. There were times when I just couldn’t emulate the Test Double behavior, that I wanted. This could have been behavior that Mockito did not support or it could have been Mockito knowledge that I didn’t quite have yet. I’d roll my own Test Double when I couldn’t continue with Mockito.
+As I gained more confidence, I started to dip my toe into the Mockito waters. I was able to create and inject Test Double behavior more quickly. A Mockito version of the previous Test Double might be something like this:
+```java
+Customer persistedCustomer = new Customer();
+CustomerRepo repo = mock(CustomerRepo.class);
+when(repo.getCustomer(any(CustomerId.class)).thenReturn(persistedCustomer);
+```
 
-Even with these tradeoffs, I migrated to Mockito for my Test Doubles and created my own when I had no other known options. Mockito was faster to specify in most cases.
+Mockito is more concise. Its `mock` creates a Dummy and the `when/thenReturn` pairing allows us to inject Stub behavior for `getCustomer` only.
+
+I migrated to Mockito for my Test Doubles. Mockito was faster to specify in most cases. For the most part I liked Mockito, but it had some quirks. Mockito Test Double defined behavior can be a bit cryptic. Its specifications are inconsistent. For example:
+```java
+// For a typical Test Double
+when(repo.getCustomer(any(CustomerId.class)).thenReturn(persistedCustomer);
+
+// For when repo is the SUT ... I think. I was never quite sure.
+doReturn(persistedCustomer).when(repo).getCustomer(any(CustomerId.class));
+
+// For when CustomerRepo.getCustomer(CustomerId customerId) is a static method.
+// It was a hassle, but at least it allowed me to create Test Doubles for static methods.
+try (MockedStatic<CustomerRepo> customerRepo = Mockito.mockStatic(CustomerRepo.class)) {
+    customerRepo.when(CustomerRepo.getCustomer(CustomerId.class)).thenReturn(persistecCustomer);
+    // Complete testing that references static within the try-with-resources block.
+}
+```
+
+When you make a specification mistake, which you can see from above is easy to do, it often won’t alert you. It just won’t work as you think it should. I spent a lot of time scratching my head staring at my SUT implementation when the real problem was in the Mockito Test Double specification.
+
+There were times when I just couldn’t emulate the Test Double behavior, that I wanted. This could have been behavior that Mockito did not support or it could have been Mockito knowledge that I didn’t quite have yet. I’d create my own Test Double when I couldn’t continue with Mockito.
 
 While this is completely subjective, I recommend the same path. Create your own Test Doubles until you gain confidence. Then slowly migrate to a Test Double Framework, such as Mockito.
 
