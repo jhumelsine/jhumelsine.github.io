@@ -48,9 +48,15 @@ Project components that are relatively small and isolated don’t tend to requir
 Project components that are more complex or have their own external dependencies may require Test Doubles.
 
 # As Testing Scope Changes, Test Double Needs Change
-A project component may require a Test Double in unit testing, but it may not require a Test Double in integration testing. Lower-level/unit testing is more narrowly scoped so that we can confirm an individual component. Test Doubles help define that boundary. Higher-level/integration testing is more broadly scoped so that we can confirm that the configuration and assembly of components work together. These tests will tend to use the project component dependencies rather than their Test Doubles.
+The SUT in unit tests are more narrowly scoped and focused. These unit test are shallow. They tend to focus upon one isolated component of the system. They generally don't dive too deep below the surface of the SUT until they reach Test Doubles. The Test Doubles may often include other components of the system before reaching more traditional external dependencies.
 
-However, higher-level testing will still probably include Test Doubles. We won’t jump from unit testing individual components to testing the entire system in one hop. Higher-level tests confirm larger parts of the system together, but not the whole system. The larger parts still have boundaries, and Test Doubles will complete the testing environment for those larger boundaries as well.
+The SUT in integration tests are more broadly scoped and focused. These integration tests are deep. They tend to focus upon the interaction of components of the system. They dive a bit deeper through the interacting components of the SUT until they reach Test Doubles. The Test Doubles may be other components of the system as well, but they may also emulate more traditional external dependencies.
+
+In all test scenarios the Test Doubles define the boundary of the SUT.
+
+Unit testing confirms the components. Integration testing confirms the components work together. I view the distinction between unit and integration testing as:
+* Unit testing confirms each individual nut and bolt.
+* Integration testing confirms that the bolt screws unto the nut.
 
 # Test Double Example
 A Test Double is a special case of the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html). A Test Double is a specific Strategy implementation, but with the distinction that it exists only for testing purposes. A Test Double even made a cameo appearance in the [Testing](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html#Testing) section with:
