@@ -114,6 +114,7 @@ I saw the light. I, a _Unit Test Denier_, became a _Unit Test Evangelist_. I cre
 I have more to say about testing, but I don’t have room to continue in this blog post. I will follow up with a series of blogs about different aspects of unit testing. I’ll provide a link for each on this page when completed:
 * [Attributes of Effective Unit Tests](https://jhumelsine.github.io/2024/06/14/unit-test-attributes.html)
 * [Basic Elements of Automated Unit Tests](https://jhumelsine.github.io/2024/06/23/unt-test-elements.html)
+* [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html)
 
 # References
 ___Working Effectively with Legacy Code___ by Michael Feathers:
