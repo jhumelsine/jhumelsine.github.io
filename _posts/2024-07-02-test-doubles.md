@@ -56,7 +56,7 @@ In all test scenarios the Test Doubles define the boundary of the SUT.
 
 Unit testing confirms the components. Integration testing confirms the components work together. I view the distinction between unit and integration testing as:
 * Unit testing confirms each individual nut and bolt.
-* Integration testing confirms that the bolt screws unto the nut.
+* Integration testing confirms that the bolt screws into the nut.
 
 # Test Double Example
 A Test Double is a special case of the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html). A Test Double is a specific Strategy implementation, but with the distinction that it exists only for testing purposes. A Test Double even made a cameo appearance in the [Testing](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html#Testing) section with:
@@ -108,7 +108,7 @@ We also don't know how `CustomerRepo` and `Authorization` are implemented. The p
 ## Null or Dummy
 Sometimes you don’t need anything. Even if the SUT contains dependencies, you may not need to provide Test Doubles. The flow of execution through the SUT may not reference those dependencies, so there’s no need for a Test Double.
 A Dummy is an implementation that mostly provides default implementations or an implementation that throws a `NotImplementedException`. Default implementations given the following return types could be:
-* Boolean returns false
+* boolean returns false
 * String returns "" or null
 * int returns 0
 * float returns 0.0
@@ -408,7 +408,7 @@ CustomerRepo repo = new CustomerRepoDummy() {
 
 Writing your own Test Doubles is not your only option. There are Test Double frameworks, such as [Mockito](https://site.mockito.org/).
 
-I created my own Test Doubles as I was learning how to implement unit tests. This gave me the freedom and power to define Test Doubles that did exactly what I wanted them to do. It also helped me distinguish SUT from Test Doubles, which can be a bit confusing when first learning how to implement unit tests. It also provided an environment where I truly learned what I could and could not do with Test Doubles rather than copying some code I found online. However, there was a tradeoff. My own Test Doubles were larger and took more time to implement.
+I created my own Test Doubles as I was learning how to implement unit tests. This gave me the freedom and power to define Test Doubles that did exactly what I wanted them to do. It also helped me distinguish SUT from Test Doubles, which can be a bit confusing when first learning how to implement unit tests. It also provided an environment where I truly learned what I could and could not do with Test Doubles rather than copying some Test Double framework specification I found online, didn't understand, but hoped it did what I wanted it to do. However, there was a tradeoff to creating my own Test Doubles. They were larger and took more time to implement.
 
 As I gained more confidence, I started to dip my toe into the Mockito waters. I was able to create and inject Test Double behavior more quickly. A Mockito version of the previous Test Double might be something like this:
 ```java
@@ -419,7 +419,7 @@ when(repo.getCustomer(any(CustomerId.class)).thenReturn(persistedCustomer);
 
 Mockito is more concise. Its `mock` creates a Dummy and the `when/thenReturn` pairing allows us to inject Stub behavior for `getCustomer` only.
 
-I migrated to Mockito for my Test Doubles. Mockito was faster to specify in most cases. For the most part I liked Mockito, but it had some quirks. Mockito Test Double defined behavior can be a bit cryptic. Its specifications are inconsistent. For example:
+I migrated to Mockito for my Test Doubles. Mockito was faster to specify in most cases. For the most part I liked Mockito, but it had some quirks. Mockito Test Double defined behavior can be a bit cryptic. Its specifications are inconsistent. For example the syntax for stubbing behavior is completely different in these three cases:
 ```java
 // For a typical Test Double
 when(repo.getCustomer(any(CustomerId.class)).thenReturn(persistedCustomer);
@@ -435,7 +435,7 @@ try (MockedStatic<CustomerRepo> customerRepo = Mockito.mockStatic(CustomerRepo.c
 }
 ```
 
-When you make a specification mistake, which you can see from above is easy to do, it often won’t alert you. It just won’t work as you think it should. I spent a lot of time scratching my head staring at my SUT implementation when the real problem was in the Mockito Test Double specification.
+When you make a specification mistake, which you can see from above is easy to do, it often won’t alert you. It just won’t work as you think it should. I spent a lot of time scratching my head staring at my SUT implementation to find the problem when the real problem was in the Mockito Test Double specification.
 
 There were times when I just couldn’t emulate the Test Double behavior that I wanted. This could have been behavior that Mockito did not support, or it could have been Mockito knowledge that I didn’t quite have yet. I’d create my own Test Double when I couldn’t continue with Mockito.
 
