@@ -1,7 +1,6 @@
 ---
 title: Test Doubles
 description: Emulate dependencies without depending upon dependencies
-unlisted: true
 ---
 
 # Introduction
