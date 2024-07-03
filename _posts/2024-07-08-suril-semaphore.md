@@ -74,6 +74,8 @@ I spent the evening and a part of the night mulling over these ideas in my head.
 This diagram highlights why we were struggling with developing a test plan strategy:
 * The `Test` also depends upon the `Semaphore` indirectly.
 * The `SoftwareUnderTest` behavior is tightly coupled to `Semaphore` and depends upon behavior provided by `Semaphore`. `Test` cannot access or influence the `Semaphore` embedded within `SoftwareUnderTest`. Therefore, there’s no easy way to get the `Semaphore` to do what we want it to do to confirm the SUT.
+
+<img src="/assets/Semaphore2.png" alt="SoftwareUnderTest Original Test Design" width = "75%" align="center" style="padding-right: 20px;">
  
 # The Most Fruitful Stand-Up Meeting of my Career
 I reported that Suril and I had made test good progress during our next morning’s stand-up. We still had a section of code to cover. It was going to be challenging. It would probably take at least half a day or the entire day to confirm the rest.
@@ -128,6 +130,8 @@ class SoftwareUnderTest {
 
 ```
 Here’s the diagram of the change. It looks almost identical to the original design diagram above. In production, we still have the same dependency as before:
+
+<img src="/assets/Semaphore3.png" alt="SoftwareUnderTest Refactored Design" width = "75%" align="center" style="padding-right: 20px;">
  
 However, we’re going to leverage that new extracted package-private `isPermitAcquired(…)` method in the tests.
 
@@ -161,6 +165,8 @@ public void doSomething_Proceeds_WhenAPermitIsAquired() throws Exception {
 When we overrode the package-private `isPermitAcquired(…)` method, we in essence removed its implementation from `SoftwareUnderTest` with its tight coupling to `Semaphore.tryAcquire(…)`.
 
 The design diagram shows how this removed the `Semaphore` dependency while testing with the red DO ALLOWED symbol. Technically, the `Semaphore` is still a private attribute of `SoftwareUnderTest`, but since our test is no longer accessing it, it’s no longer a dependency for the test.
+
+<img src="/assets/Semaphore4.png" alt="Proceed Test Design" width = "75%" align="center" style="padding-right: 20px;">
  
 ## Adjust Test
 Our second test was structured the same as the first test, except that `isPermitAcquired(…)` returned `false`. This eliminated the concurrent `Thread` management I had been dreading the evening before.
@@ -183,7 +189,9 @@ public void doSomething_Adjusts_WhenAPermitRequestTimesOut() throws Exception {
 }
 ```
 The diagram is almost the same as well:
- 
+
+<img src="/assets/Semaphore5.png" alt="Adjust Test Design" width = "75%" align="center" style="padding-right: 20px;">
+
 ## Take Action Test
 Finally, for the last test, `isPermitAcquired(…)` throws an InterruptedException. I had no idea how to force `Semaphore` to do this, but now it’s trivial:
 ```java
@@ -205,6 +213,8 @@ public void doSomething_TakesAction_WhenPermitRequestIsInterrupted() throws Exce
 }
 ```
 Final diagram:
+
+<img src="/assets/Semaphore6.png" alt="Take Action Test Design" width = "75%" align="center" style="padding-right: 20px;">
  
 ## Method Override Summary
 Rather than half a day to get the tests written and working, it was more like half an hour. We had coverage for everything except the package-protected `isPermitAcquired(…)` method. And if we had not overridden it in the first test, it might have worked without issues.
