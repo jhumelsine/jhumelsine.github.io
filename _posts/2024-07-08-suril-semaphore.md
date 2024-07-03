@@ -61,7 +61,7 @@ I’ve not included the implementation details, since I don’t remember one iot
 
 Here’s the design, which highlights the main design issue. All dependency and knowledge flows from the `Client` through the `SoftwareUnderTest` and into the `Semaphore`, which I’ve shaded red to highlight that it’s an external dependency. Everything in this design depends directly or indirectly upon `Semaphore`.
 
-<img src="/assets/Semaphore1.png" alt="SoftwareUnderTest Original Design" width = "95%" align="center" style="padding-right: 20px;">
+<img src="/assets/Semaphore1.png" alt="SoftwareUnderTest Original Design" width = "75%" align="center" style="padding-right: 20px;">
 
 It was near the end of the day, we were tired, and we didn’t think we had the mental resources to tackle this in the last hour of the day. Suril and I did a little brainstorming before calling it a day. Several ideas included:
 * Overriding the 30 second timeout to make it shorter – much shorter to possibly milliseconds. 30 seconds would be way too long for test runtime.
