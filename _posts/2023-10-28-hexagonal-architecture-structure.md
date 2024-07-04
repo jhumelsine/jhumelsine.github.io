@@ -48,7 +48,7 @@ The first is more obvious. These are dependencies that your code delegates to. *
 
 The second is a bit more subtle. These are dependencies that delegate to the Business Logic code. **Calls from these dependencies DRIVE the Business Logic**. Frameworks are an example of this. How often do you declare `main()`? I’d be willing to bet that it’s probably not too often. `main()` often resides within the framework, and it eventually calls your code. These dependencies traditionally appear on the left-hand side of Hexagonal Architecture diagrams.
 
-Sometimes there’s a hybrid, such as with a Messaging Platform. The Business Logic might produce events, in which case it delegates to the Messaging Platform. The Business Logic might consume events, in which case it’s called by the Messaging Platform. And it’s possible that the Business Logic could be a consumer and a producer.
+Sometimes there’s a hybrid, such as with a Messaging Platform, which resides on both the left-hand and right-hand side of Hexagonal Architecture diagrams. The Business Logic might produce events, in which case it delegates to the Messaging Platform. The Business Logic might consume events, in which case it’s called by the Messaging Platform. And it’s possible that the Business Logic could be a consumer and a producer.
 
 ## How "Your Code" Interacts with These Dependencies
 The Business Logic will only interact with the dependencies that it requires. This may be a fraction of the potential dependencies in the system.
@@ -57,7 +57,7 @@ The External Dependency APIs were not designed with _your_ specific Business Log
 
 Even after figuring it all out, these External Dependency APIs may be embedded in Business Logic code. The coupling is more than just functional dependency to execute the external behavior. The Business Logic code will have knowledge of those dependencies baked into the implementation.
 
-Here’s a simple example of Business Logic that implements a Framework, possibly something like REST, and delegates to an External Dependency API, possibly something like a Database. The design will work, but it’s not modular, flexible, or very maintainable. This example only highlights two External Dependencies. In most designs, there will be more. A back-of-the-envelop estimation can be acquired in some languages by counting the number of external references. For example, in Java count the number of `import` statements. I've worked in some classes that have had over 50 project specific import statements. That's almost certainly a class that's doing too much and can be refactored.
+Here’s a simple example of Business Logic that implements a Framework, possibly something like REST, and delegates to an External Dependency API, possibly something like a Database. The design will work, but it’s not modular, flexible, or very maintainable. This example only highlights two External Dependencies. Most designs will have more. A back-of-the-envelop estimation can be acquired in some languages by counting the number of external references. For example, in Java count the number of `import` statements. I've worked in some classes that have had over 50 project specific import statements. That's almost certainly a class that's doing too much and can be refactored.
 
 This simple design runs into problems since the Business Logic is tightly coupled to its Dependencies. I’ve colored the External Dependencies red to indicate that they’re a little dangerous, since their management resides outside of the control of the developer of the Business Logic.
 
@@ -103,7 +103,7 @@ In what order do we design and implement the feature? These three elements may g
 * When the Business Logic implementation needs behavior that it cannot provide, then declare what it needs in a Driven Dependency Contract.
 
 The design to do this, along with the testing, would look something like this where Test Case:
-* Creates a Drive Dependency Test Double
+* Creates a Drive Dependency [Test Double](https://jhumelsine.github.io/2024/07/02/test-doubles.html)
 * Injects it into a created Business Logic object
 * Validates behavior via a test via the Driver Business Logic
 
@@ -197,7 +197,7 @@ The design’s main purpose is to insulate Business Logic from its External Depe
 
 There are other implications of this design, which I’ll address in future blogs posts in this series. We’ve already seen one of the implications – the Business Logic testing is almost trivial to set up.
 
-In the next blog post, I’ll present why I think this design works so well.
+In the [next blog post](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html), I’ll present why I think this design works so well.
 
 # References
 See previous blog [References]( https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html#references).
