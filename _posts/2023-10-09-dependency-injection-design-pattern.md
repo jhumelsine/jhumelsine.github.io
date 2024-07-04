@@ -116,7 +116,7 @@ There’s a lot in both diagrams. I need to clarify some details.
 ## Configurer?
 `Configurer`? It’s not a real word. I made it up. I prefer _Orchestrator_ but it’s too close to _Orchestration_, which has other meanings. I considered _Dependency Injector_ or _Injector_, but that’s an implementation technique. I want to convey design intent. Martin Fowler used the term _Assembler_ in [Inversion of Control Containers and the Dependency Injection pattern](https://martinfowler.com/articles/injection.html), but that's a term that used elsewhere too.
 
-I have finally settled on a term I used many years ago when presenting Design Patterns Lunch & Learn seminars at the office. _Configurer_ appeared in many of my Lunch & Learn Design Pattern diagrams, often as an external actor. I'm resurrecting it for these blogs too. The concept rarely appears in the Gang of Four diagrams. This is another sin of omission in their book in my humble opinion.
+I have finally settled on the term I used many years ago when presenting Design Patterns Lunch & Learn seminars at the office. _Configurer_ appeared in many of my Lunch & Learn Design Pattern diagrams, often as an external actor. I'm resurrecting it for these blogs too. The concept rarely appears in the Gang of Four diagrams. This is another sin of omission in their book in my humble opinion.
 
 ## Red Lines
 The red lines are design/architectural boundaries, and they convey the same intent as seen in [Factories: Abstract Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#abstract-factory). They constrain the flow of knowledge in a design.
