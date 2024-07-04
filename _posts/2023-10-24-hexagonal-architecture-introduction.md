@@ -51,13 +51,13 @@ The common core theme is that Business Domain implementation is sheltered in its
 
 The Business Domain implementation depends upon access points, which are the _Ports_ in Cockburn’s nomenclature. In the implementation, these _Ports_ will usually be interface contracts. Pluggable elements resolve the interface contract port references, which allows the Business Domain implementation to interact with external dependencies without depending upon those external dependencies nor having any knowledge of them.
 
-Using the Gang of Four nomenclature, _Ports_ will tend to be [Strategies]( https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html). The pluggable elements will be [Adapters]( https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) or [Façades]( https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html). Object resolution will occur via [Dependency Injection]( https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html).
+Using the Gang of Four nomenclature, _Ports_ will tend to be [Strategies](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html). The pluggable elements will be [Adapters]( https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) or [Façades](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html). Object resolution will occur via [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html).
 
-Since the pluggable design isolates the Business Domain from external dependencies, the design allows us to delay dependency decisions. It allows us more flexibility to change external dependencies. I know that many projects will argue that they’re never going to change their external dependencies. **Is it a case that they are never going to change to those external dependencies because they choose not to, or that they never can change them because they’ve become too tightly coupled to them?** 
+Since the pluggable design isolates the Business Domain from external dependencies, the design allows us to delay dependency decisions. It allows us more flexibility to change external dependencies. I know that many projects will argue that they’re never going to change their external dependencies. **Is it a case that they are never going to change to those external dependencies because they choose not to, or that they never can change those dependencies because they’ve become too tightly coupled to them?** 
 
 And sometimes projects don’t have a choice. A dependency may be an external vendor who goes out of business. A project may be forced to change external dependencies even if that was never the plan.
 
-Even if a project is 100% certain that an external dependency will never change, another reason to favor a pluggable design is for testing. A pluggable design accommodates test doubles more easily.
+Even if a project is 100% certain that an external dependency will never change, another reason to favor a pluggable design is for testing. A pluggable design accommodates [test doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) more easily.
 
 # Boundaries and Constraints
 I’m convinced that HexArch/P&A works because of boundaries and constraints it imposes. The constraint almost screams where implementation should reside and why it should reside there.
@@ -69,7 +69,7 @@ I will provide a separate [blog](https://jhumelsine.github.io/2023/11/03/hexagon
  
 HexArch/P&A pulls a lot of ideas together. It’s a structure which can be layered on top of other software engineering concepts, such as: Domain-Driven Design, Agile, Framework management, Form Factor management, Internationalization (I18n), Localization (L10n) and Accessibility (A11y).
 
-And once we see how these different concepts relate to HexArch/P&A, we can see how they relate to each other. For example, Anti-Corruption Layer and Adapter are the same concept in two different contexts.
+And once we see how these different concepts relate to HexArch/P&A, we can see how they relate to each other. For example, Anti-Corruption Layer and [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) are the same concept in two different contexts.
 
 # Summary
 This has been a brief introduction to HexArch/P&A. Hopefully it has whetted your appetite for more. I’ll focus upon different aspects of HexArch/P&A in subsequent blogs posts.
