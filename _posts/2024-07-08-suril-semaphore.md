@@ -19,10 +19,10 @@ This is a true story, maybe embellished a bit, but still true. I’ve cleared it
 # Suril, the Semaphore and Me
 Suril was a tester with the first team on my embedded rotations. He was a junior developer, and I had known him since his summers as an intern.
 
-We paired together adding test coverage to existing code. I was pleased with how much progress we were able to make. I felt he was understanding the process as we were applying it.
+We paired together adding test coverage to existing code. I was pleased with how much progress we were making. I felt he understood the process as we were applying it.
 
 ## Code Coverage should NOT be a Management Metric
-Code coverage is a tool to identify code without tests. Code without coverage is an indication to developers that there is no automated test confirmation. Change that code, potentially introducing a fault, and no test will catch it. 
+Our progress was guided by code coverage. Code coverage is a tool to identify code without tests. Code without coverage is an indication to developers that there is no automated test confirmation. Change that code, potentially introducing a fault, and no test will catch it. 
 
 Code coverage should not be a metric or target used by management. Management should not dictate minimum code coverage. As pointed out in [Goodhart’s Law]( https://en.wikipedia.org/wiki/Goodhart%27s_law): _When a measure becomes a target, it ceases to be a good measure._
 
@@ -63,10 +63,10 @@ Here’s the design, which highlights the main design issue. All dependency and 
 
 <img src="/assets/Semaphore1.png" alt="SoftwareUnderTest Original Design" width = "75%" align="center" style="padding-right: 20px;">
 
-It was near the end of the day, we were tired, and we didn’t think we had the mental resources to tackle this in the last hour of the day. Suril and I did a little brainstorming before calling it a day. Several ideas included:
-* Overriding the 30 second timeout to make it shorter – much shorter to possibly milliseconds. 30 seconds would be way too long for test runtime.
+It was near the end of the day, we were tired, and we didn’t have the mental stamina to tackle this in the last hour of the day. Suril and I brainstormed a bit before calling it a day. Several ideas included:
+* Overriding the 30 second timeout to make it shorter – much shorter to possibly in the milliseconds. 30 seconds would be way too long for test runtime.
 * Creating enough concurrently running `Thread`s such that some would acquire the permits while others would have to wait.
-* Injecting sleeps into the `Thread` so that the timing would be just right for some threads to acquire a permit immediately while others block-waited and then get their permits after the previous ones released them while others timed out and never got their permits. This would have to be coordinated with the overridden timeouts. Even if we got this to work, I was concerned that the tests could be flakey. That is, sometimes the tests pass, and sometimes they fail.
+* Injecting sleeps into the `Thread` so that the timing would be just right for some threads to acquire a permit immediately while others block-waited and then get their permits after the previous ones released them while others timed out having never received their permits. This would have to be coordinated with the overridden timeouts. Even if we got this to work, I was concerned that the tests could be flakey. That is, sometimes the tests pass, and sometimes they fail.
 * We had no idea to force an `InterruptedException`.
 
 I spent the evening and a part of the night mulling over these ideas in my head.
@@ -82,9 +82,9 @@ At our next morning's stand-up, I was up first and reported that Suril and I had
 
 As others reported their status, my mind wandered as it is want to do when I’m not too engaged in the current activity.
 
-Then I had an Aha! idea. It was a _Eureka!_ moment. I knew how to test everything. It wasn’t nearly the challenge Suril and I had imagined.
+Then I had an _Aha!_ idea. It was a _Eureka!_ moment. I knew how to test everything. It wasn’t nearly the challenge Suril and I had imagined.
 
-This was probably the most fruitful stand-up meeting of my career, but that’s not much of a high bar to clear.
+This was probably the most fruitful stand-up meeting of my career, but that’s not too high of a bar to clear.
 
 # What Are We Really Trying to Test?
 I pulled Suril to the side as soon as the meeting was over. I told him that I had an idea for how we could test the code much easier.
@@ -97,16 +97,16 @@ __We only need to test how our code reacts to what `Semaphore` does.__
 Suril and I didn’t need to become experts on Java’s [`Semaphore`]( https://docs.oracle.com/javase%2F8%2Fdocs%2Fapi%2F%2F/java/util/concurrent/Semaphore.html). We just needed to understand [`boolean tryAcquire(long timeout, TimeUnit unit) throws InterruptedException`](https://docs.oracle.com/javase%2F8%2Fdocs%2Fapi%2F%2F/java/util/concurrent/Semaphore.html#tryAcquire-long-java.util.concurrent.TimeUnit-) well enough to emulate its behavior.
 
 From what we could tell the method only did three things:
-* Return true when it could acquire a permit.
-* Return false when it could not acquire a permit within the timeout period.
-* Throw an InterruptedException when interrupted.
+* Return `true` when it could acquire a permit.
+* Return `false` when it could not acquire a permit within the timeout period.
+* Throw an `InterruptedException` when interrupted.
 
 We only needed to create tests that confirmed that our code performed the expected behavior for each of these three `tryAcquire(…)` cases.
 
 # A Minor Refactoring to Introduce a Test Seam
-We can’t easily test our implementation in its current form. It is obdurate to having tests added to it. Legacy code is often obdurate to testing.
+We could not easily test our implementation in its current form. It was obdurate to having tests added to it. Legacy code is often obdurate to testing.
 
-The method implementation was too tightly coupled to the `Semaphore`. It calls `tryAcquire(…)` directly. We need to refactor the implementation safely so that it is not quite as tightly coupled. We used the [Extract Method](https://refactoring.guru/extract-method) refactoring to isolate `tryAcquire(…)`. Notice that the new extracted method, `isPermitAcquired(…)`, is package-private. We will need this in testing soon. I also renamed the extracted method, since I feel it’s more descriptive in the context of its use:
+The method implementation was tightly coupled to the `Semaphore`. It calls `tryAcquire(…)` directly. We needed to refactor the implementation safely so that it would be not quite as tightly coupled. We used the [Extract Method](https://refactoring.guru/extract-method) refactoring to isolate `tryAcquire(…)`. Notice that the new extracted method, `isPermitAcquired(…)`, is package-private. We will need this in testing soon. I also renamed the extracted method here, since I feel it’s more descriptive in the context of its use:
 ```java
 class SoftwareUnderTest {
     private static Semaphore semaphore = new Semaphore(10);
@@ -140,10 +140,10 @@ At the time, I didn’t have the vocabulary to describe the technique to Suril. 
 
 Suril and I were able to carve off a little bit of the `SoftwareUnderTest` and replace it with a Test Double method that allowed us to inject the behavior we desired. We used the [Method Override Test Double]( https://jhumelsine.github.io/2024/07/02/test-doubles.html#method-override) technique, which I mentioned in the previous blog, which described the steps. I’ll continue here with the `Semaphore` as an example.
 
-Our Test Double was not a separate class as it was for most of the examples in [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html). Our Test Double was the package-private `isPermitAcquired(…)` method, which we were able to override in the test and inject whatever behavior we desired.
+Our Test Double was not a separate class as it was for most of the examples in [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html). Our Test Double was the package-private `isPermitAcquired(…)` method, which we were able to override in the test and inject whatever behavior we desired. By being package-private, our tests, which were in the same package could access it, but classes outside the package could not.
 
 ## Proceed Test
-We overrode the package-private `isPermitAcquired(…)` method so that it always returned true. Then we asserted that the SUT _proceeded_. Assertion details are not provided.
+We overrode the package-private `isPermitAcquired(…)` method so that it always returned `true`. Then we asserted that the SUT _proceeded_. Assertion details are not provided.
 ```java
 @Test
 public void doSomething_Proceeds_WhenAPermitIsAquired() throws Exception {
@@ -164,7 +164,7 @@ public void doSomething_Proceeds_WhenAPermitIsAquired() throws Exception {
 ```
 When we overrode the package-private `isPermitAcquired(…)` method, we in essence removed its implementation from `SoftwareUnderTest` with its tight coupling to `Semaphore.tryAcquire(…)`.
 
-The design diagram shows how this removed the `Semaphore` dependency while testing with the red NOT ALLOWED symbol. Technically, the `Semaphore` is still a private attribute of `SoftwareUnderTest`, but since our test is no longer accessing it, it’s no longer a dependency for the test.
+The design diagram shows how this removed the `Semaphore` dependency during the test with the red NOT ALLOWED symbol over the package-private `isPermitAcquired(...)`. Technically, the `Semaphore` is still a private attribute of `SoftwareUnderTest`, but since our test is no longer accessing it, it’s no longer a dependency for the test.
 
 <img src="/assets/Semaphore4.png" alt="Proceed Test Design" width = "75%" align="center" style="padding-right: 20px;">
  
@@ -193,7 +193,7 @@ The diagram is almost the same as well:
 <img src="/assets/Semaphore5.png" alt="Adjust Test Design" width = "75%" align="center" style="padding-right: 20px;">
 
 ## Take Action Test
-Finally, for the last test, `isPermitAcquired(…)` throws an InterruptedException. I had no idea how to force `Semaphore` to do this, but now it’s trivial:
+Finally, for the last test, `isPermitAcquired(…)` throws an `InterruptedException`. We had no idea how to force `Semaphore` to do this previously, but now it’s trivial:
 ```java
 @Test
 public void doSomething_TakesAction_WhenPermitRequestIsInterrupted() throws Exception {
@@ -217,14 +217,14 @@ Final diagram:
 <img src="/assets/Semaphore6.png" alt="Take Action Test Design" width = "75%" align="center" style="padding-right: 20px;">
  
 ## Method Override Summary
-Rather than half a day to get the tests written and working, it was more like half an hour. We had coverage for everything except the package-protected `isPermitAcquired(…)` method. And if we had not overridden it in the first test, it might have worked without issues.
+Rather than needing half a day to get the tests written and working, it was more like half an hour. We had coverage for everything except the package-protected `isPermitAcquired(…)` method. And if we had not overridden it in the first test, it might have worked without issues with the package-private `isPermitAcquired(...)` method.
 
-However, our efficiency came at a cost. Our tests had implementation knowledge. They were a bit more brittle. But given how few and small we were willing to accept that price.
+However, our efficiency came at a cost. Our tests had implementation knowledge. They were a bit more brittle. But given how few and small they were, we were willing to accept that price.
 
 # Summary
-While most of this blog provided an example of Method Override to inject a Test Double into the SUT in practice, I really wrote it for the lessons I learned with Suril:
+While most of this blog provided an example of Method Override to inject a Test Double into the SUT in practice, I wrote it for the lessons I learned with Suril:
 * Tightly coupled dependencies aren’t always obvious.
-* Releasing yourself from the responsibility of confirming dependency behavior is liberating, and testing becomes much easier.
+* Releasing yourself from the responsibility of confirming dependency behavior is liberating, and testing becomes much easier. This may have been the first time I truly understood and appreciated the concept of a bounded SUT not directly depending upon its production dependencies.
 * Concurrency is always hard.
 
 # References
