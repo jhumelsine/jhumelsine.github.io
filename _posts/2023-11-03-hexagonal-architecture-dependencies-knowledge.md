@@ -121,7 +121,7 @@ Adapter responsibility is limited to implementing their Contract dependency and 
 The Contract may require behavior that’s not provided by a single External Dependency API. A Façade manages the transition to multiple External Dependency APIs. Since it has more External Dependencies, Façades will be more likely to change than an Adapter. It will have a larger implementation, but Façades should still not contain any business logic implementations.
 
 ## Business Logic
-Business Logic is Unstable/Flexible, which is sort of surprising. The Business Logic the main reason for the entire design and it is mostly invisible! Like Adapters, the only Business Logic inward relationship is its creation. Since the Business Logic is Unstable/Flexible, it can be updated or even replaced without any impact upon the rest of the design.
+Business Logic is Unstable/Flexible, which is sort of surprising. The Business Logic is the main reason for the entire design, and it is mostly invisible! Like Adapters, the only Business Logic inward relationship is its creation. Since the Business Logic is Unstable/Flexible, it can be updated or even replaced without any impact upon the rest of the design.
 
 ## Configurers
 Configurers are pure Unstable/Flexible elements. Nothing depends upon them. Nothing knows about them. They are completely invisible to the rest of the design. Their only responsibility is to create objects in the design and assemble them.
@@ -170,7 +170,7 @@ Pure Unstable/Flexible elements are those with only outward arrowhead relationsh
 * The Configurer
 * The Purple Hexagon Boundary
 
-Pure Unstable/Flexible element behavior is more like Event Horizon behavior. No element has the ability to depend upon or have knowledge of Configurers or the Purple Hexagonal Boundary. Pure Unstable/Flexible elements and boundaries have dependency and knowledge beyond their own boundaries, but the other elements have no knowledge of them. The other elements don't know if _pure Unstable/Flexible/ elements are implemented as one class or a thousand. The other elements of the design don't even know that Pure Unstable/Flexible elements are part of their design.
+Pure Unstable/Flexible element behavior is more like Event Horizon behavior. No element has the ability to depend upon or have knowledge of Configurers or the Purple Hexagonal Boundary. Pure Unstable/Flexible elements and boundaries have dependency and knowledge beyond their own boundaries, but the other elements have no knowledge of them. The other elements don't know if _pure Unstable/Flexible_ elements are implemented as one class or a thousand. The other elements of the design don't even know that Pure Unstable/Flexible elements are part of their design.
 
 Business Logic and Adapters/Façades are technically not _pure_; however, they are only known by the Configurer, which is _pure_. If one were to draw a boundary around the Configurer, Business Logic and Adapters/Façades, then that boundary would be _Pure Unstable/Flexible_, and it would exhibit all of the behaviors listed in the paragraph above.
 
