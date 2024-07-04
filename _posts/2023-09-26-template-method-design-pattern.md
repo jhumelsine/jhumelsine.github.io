@@ -26,7 +26,7 @@ The [Project Management Institute](https://www.pmi.org/disciplined-agile/the-des
  
 The diagram doesn’t indicate what’s in the `Client`. It will probably be something along the lines of:
 ```java
-TargetAbstraction target = TargetAbstractions.acquire(“A”);
+TargetAbstraction target = TargetAbstractions.acquire("A");
 target.templateMethod();
 ```
 In this example, `templateMethod()` is the only method that the `Client` can access. The `step()` methods are not accessible. They are implementation details encapsulated from the `Client`.
@@ -57,7 +57,7 @@ As was seen in my [CircuitPack example](https://jhumelsine.github.io/2023/09/22/
 ## Don’t Abdicate Responsibility
 One of my pet peeves with some OO practices, and I’m talking to you Java, is that it’s too easy to override methods. By default, all methods in Java can be overridden. Developers can prevent this by making a method `final`, but I’d prefer a paradigm where the method is final unless declared as overridable. Of course, the horse is out of the barn on this one with Java.
 
-With an overridable default, a class developer is basically conveying in the contract, “I think this method will satisfy your needs. But it may not. If it doesn’t then override it. Oh, and if you do decide to override it, be sure to honor the intent of the contract.” I’m not sure all developers honor contracts when overriding methods.
+With an overridable default, a class developer is basically conveying in the contract, _I think this method will satisfy your needs. But it may not. If it doesn’t then override it. Oh, and if you do decide to override it, be sure to honor the intent of the contract._ I’m not sure all developers honor contracts when overriding methods.
 
 What if the method being overridden performs authentication and authorization rejecting an invalid User? How do we know that the extending class will also perform the authentication and authorization? We don’t.
 
@@ -115,7 +115,8 @@ The [Android Activity](https://developer.android.com/reference/android/app/Activ
 Several states in the state machine call the protected methods, and if the application developer has implemented them, they will be executed. One can think of these protected methods as a means for the application developer to manage resources used by the Activity. For example, if the Activity is not visible, then a battery draining resource, such as the GSP, could be deactivated in `onPause()` and reactivated in `onRestart()`.
 
 Keep in mind that the developer never calls these methods directly. It’s the Activity framework that calls what the developer has provided.
-![Activity State Machine Lifecycle](https://developer.android.com/images/activity_lifecycle.png "Image Source: https://developer.android.com/guide/components/activities/activity-lifecycle")
+
+<img src="https://developer.android.com/images/activity_lifecycle.png" title="Image Source: [https://dzone.com/articles/the-hollywood-principle](https://developer.android.com/guide/components/activities/activity-lifecycle)" alt="Activity State Machine Lifecycle" align="center" width = "75%" style="padding-right: 20px;">
  
 # Template Method and Strategy Comparison
 Template Method and Strategy solve the same problem but in different ways.
