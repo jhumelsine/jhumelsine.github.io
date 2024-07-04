@@ -33,7 +33,7 @@ Here’s a simple example of a Command implementation:
 ```java
 class HelloWorld implements Command {
     void execute() {
-        System.out.println(“Hello World!”);
+        System.out.println("Hello World!");
     }
 }
 
@@ -66,7 +66,7 @@ printer.execute();
 The examples above created instances of `HelloWorld` and `Printer` directly by invoking the `new()` operation. This violates the first design principle: [Program to an interface rather than an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation).
 We can use another [Essential Design Pattern](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html), [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html), and acquire the Command this way:
 ```java
-Command command = Commands.acquire(“Hello World”);
+Command command = Commands.acquire("Hello World");
 Command.execute();
 ```
 `Commands.acquire(String commandName)` is a static method that encapsulates the specific class type from the code that uses it. Not only is the class type hidden, but the mechanism for choosing the class type  is hidden.
