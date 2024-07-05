@@ -15,7 +15,7 @@ Programming languages allow developers to communicate functional intent with com
 Programming languages are bound by their grammar rules that document their syntax and structure.
 If you already feel confident about Programming Language Grammars, then skim this blog or skip it completely.
 
-__Here's a summary of the DSL concepts presented here:__
+__Here's a summary of the Grammar concepts presented here:__
 * __Natural Languages and Programming Languages are both described with grammars.__
 * __People communicate thoughts with natural languages and programming intent with programming languages.__
 * __Natural Languages emerge from social interactions. They contain ambiguities, irregular forms, etc.__
