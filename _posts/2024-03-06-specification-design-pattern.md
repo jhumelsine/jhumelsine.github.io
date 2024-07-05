@@ -226,7 +226,7 @@ This blog entry is too large to include the Use Case. It will be posted in the n
 # Specification Pros and Cons
 The relative pros and cons of Specification are like those with most of the Composable design patterns. Its flexibility is both a pro and a con.
 
-The implementation for Specification is shockingly small. Almost the entire implementation has been shown in the code snippets above. Unit testing will also be trivial.
+The implementation for Specification is shockingly small. Almost the entire implementation has been shown in the code snippets above. [Unit testing](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html) will also be trivial.
 
 The power of Specification resides in giving the Client ability to design their own Specifications. Clients can construct a Specification with almost any Boolean satisfiability expression needed. It could be simple. It could be complex. When they configure a logical mistake, they'll probably blame you first.
 
