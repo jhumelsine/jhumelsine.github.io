@@ -63,7 +63,7 @@ We want to test the SUT in [isolation](https://jhumelsine.github.io/2024/06/14/u
 
 But code rarely exists in isolation. Most code has dependencies on other elements including other components of the product, databases, file systems, internet, clocks, etc.
 
-To isolate the SUT from its dependencies, we override these dependencies with [Test Doubles](https://en.wikipedia.org/wiki/Test_double). I’ll provide more details about Test Doubles in the next blog. For now, a Test Double emulates dependency behavior with the SUT being none to the wiser. Test Doubles tend to be small snippets of code that emulate a specific dependency behavior that’s only needed within the context of each test.
+To isolate the SUT from its dependencies, we override these dependencies with [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html). A Test Double emulates dependency behavior with the SUT being none to the wiser. Test Doubles tend to be small snippets of code that emulate a specific dependency behavior that’s only needed within the context of each test.
 
 We replace production dependencies with Test Doubles mostly because Test Doubles tend to be easier to configure and execute faster in the test than the production dependencies. We also have complete control over dependency behaviors via Test Doubles. It may be very difficult to force behavior in a production dependency. For example, how challenging would it be to force a production dependency to throw a specific exception, such as `OutOfMemoryError`, consistently on demand?
 
