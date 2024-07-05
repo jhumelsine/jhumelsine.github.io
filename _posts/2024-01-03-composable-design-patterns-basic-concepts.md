@@ -58,7 +58,7 @@ Object composition is front-and-center in Minecraft with its redstone material a
 # Composable Design Patterns
 The GoF did not define a set of Composable Design Patterns per-se. This is my grouping, just like the Essential Design Patterns is my grouping as well. I’m not even sure that this is the best name for these patterns. I’ve also called them the Reuse/Reuseable/Reusability Design Patterns.
 
-Regardless of the name, here are the patterns, which I feel most highlight the concept of composability. They are listed in order of generally least complexity to most complexity. Several patterns expand upon concepts that first appear in previous ones as well. I will feature each of these in this blog series (I’ll provide links when I blog about each individually):
+Regardless of the name, here are the patterns, which I feel most highlight the concept of composability. They are listed in order of generally least complexity to most complexity. Several patterns expand upon concepts that first appear in previous ones as well. I will feature each of these in this blog series:
 * [Proxy](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html) - Place administrative wrapper objects around objects often to help manage their complexity or resources.
 * [Decorator](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html) -Layer additional behaviors upon core features.
 * [Chain of Responsibility](https://jhumelsine.github.io/2024/02/20/chain-of-responsibility-design-pattern.html) - Delegate a request through a linked chain of handlers until one of the handlers can complete the request.
@@ -82,14 +82,14 @@ The Composable Design Patterns feature similar concrete classes as well as deleg
 
 Here’s a UML class diagram that highlights this self-referential delegation. Each of the specific Composable Design Patterns will be slightly different based upon their own contexts than this example, but they will contain similar structures:
 
-![Composable Design Patterns Template](/assets/ComposableDesignPatternsIntroduction.png)
+<img src="/assets/ComposableDesignPatternsIntroduction.png" alt="Composable Design Patterns Template" width = "75%" align="center" style="padding-right: 35px;">
  
 * `Composable` is self-referential because it both implements `Feature` and delegates to `Feature`. That is, it’s a `Feature` class that delegates to the `Feature` interface. This is not a circular dependency, even if it feels like it at first. Follow the dependency arrowheads connecting `Feature` and `Composable`. They both flow from `Composable` to `Feature`. This delegate reference is the only new feature. If it were removed, we’d have a UML class diagram for Strategy.
 * The self-referential nature of `Composable` means that one instance of `Composable` can delegate to other instances of `Composable`. This allows the set of composed objects to be as small or as large as needed. This configuration flexibility is the power behind these patterns.
 * The [`Configurer`](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) is critical to the Composable Design Patterns, and it’s never featured by the GoF in their design patterns. It’s the component that instantiates the objects, assembles their configuration, and injects the “root” instance into the `Client`. The `Configurer` manages the entire design. Without it, the classes in these patterns only have potential. The `Configurer` knows the context of each application, and it instantiates and assembles the low-level objects to satisfy that context.
 * From the `Client`’s point of view, it has knowledge of a single reference to `Feature` upon which it calls `execute()`. It has no knowledge whatsoever of the design or configuration on the other side of `Feature`. The composition may consist of a single object or thousands of objects. This encapsulation supports the flexibility of these patterns, since the `Client` has no dependencies beyond the `Feature` contract.
   
-Non-`Configurer` concrete classes only know about interfaces. New concrete classes can be added without affecting existing classes or existing configurations. All the classes can be easily unit tested.
+Non-`Configurer` concrete classes only know about interfaces. New concrete classes can be added without affecting existing classes or existing configurations. All the classes can be easily [unit tested](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html).
 
 The classes in these patterns tend to be stateless. Each can be viewed as a pure function. Therefore, their composition can be viewed as a composition of pure functions. This makes them ideal for concurrent implementations. Multiple threads can execute simultaneously within the set of objects. The composition might only need to be composed once and then used repeatedly by many threads without additional concern.
 
