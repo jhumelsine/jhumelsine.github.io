@@ -36,7 +36,7 @@ Their motivation section continues with:
 >
 > The Interpreter pattern describes how to define a grammar for simple languages, represent sentences in the language, and interpret these sentences.
 
-Well, those are mostly a circular definitions that really don’t help me understand what they mean by  _language_, _grammar_, _sentences_ or _interpreter_ or the pattern’s actual __intent__ or __motification__.
+Well, those are mostly a circular definitions that really don’t help me understand what they mean by  _language_, _grammar_, _sentences_ or _interpreter_ or the pattern’s actual __intent__ or __motivation__.
 
 ## Domain and Domain-Specific Languages
 Here is [SourceMaking's Interpreter](https://sourcemaking.com/design_patterns/interpreter) description:
