@@ -233,7 +233,7 @@ Decorator’s composable behavior is a double-edged sword. It's also a pro in ad
 
 Sometimes new behavior is beyond the scope of a new composition. New behavior may require new core feature or decorator classes. It should be obvious where a new concrete class resides in the design. And as soon as the class is defined, the IDE or the compiler will scream which methods need to be implemented. Existing concrete classes can be referenced as implementation examples for new concrete class implementations.
 
-The classes can be unit tested with ease. The classes in my Starbuzz design generally only need one test to confirm the label content that they produce. Even the abstract _`Flavor`_ class can be unit tested with a dependency upon a [test double](https://martinfowler.com/bliki/TestDouble.html) without depending upon another concrete class in the design.
+The classes can be unit tested with ease. The classes in my Starbuzz design generally only need one test to confirm the label content that they produce. Even the abstract _`Flavor`_ class can be unit tested with a dependency upon a [test double](https://jhumelsine.github.io/2024/07/02/test-doubles.html) without depending upon another concrete class in the design.
 
 There may be many concrete classes in a Decorator design, but the concrete classes tend to be independent. They don’t depend upon or know about each other. Therefore, new concrete classes can be added without fear of breaking existing classes. It’s also easier to identify and remove deprecated classes when they are no longer needed without impacting the rest of the design.
 
