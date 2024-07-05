@@ -256,7 +256,7 @@ Chain of Responsibility’s composable behavior is also a pro. Behavior is not h
 
 Sometimes new handler responsibility is beyond the scope of a new composition. A new handler class may need to be implemented. Existing concrete classes can be implementation references to provide examples for new concrete class implementation.
 
-The classes can be unit tested with ease. Even the abstract `DelegatingRequestHandler` class can be unit tested with a dependency upon a [test double](https://martinfowler.com/bliki/TestDouble.html) without depending upon another concrete class in the design.
+The classes can be unit tested with ease. Even the abstract `DelegatingRequestHandler` class can be unit tested with a dependency upon a [test double](https://jhumelsine.github.io/2024/07/02/test-doubles.html) without depending upon another concrete class in the design.
 
 There may be many concrete classes in a CoR design, but they tend to be independent. They don’t depend upon or know about each other. Therefore, new concrete classes can be added with fear of breaking existing classes. It’s also easier to identify and remove deprecated classes when they are no longer needed.
 
