@@ -15,7 +15,7 @@ Here’s a copy of the UML class diagram from [Grammar to Design Blog](https://j
 
 <img src="/assets/InterpreterDesignPatternDesign3.png" alt="Rational Expression Evaluation Design 3"  width = "80%" align="center" style="padding-right: 35px;">
  
-This design has no external dependencies. Therefore, it will not require [Test Doubles](https://en.wikipedia.org/wiki/Test_double) to test it. When there are dependencies, we’ll be using actual elements, such as `Rational`.
+This design has no external dependencies. Therefore, it will not require [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) to [test](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html) it. When there are dependencies, we’ll be using actual elements, such as `Rational`.
 
 # Where to start?
 While we can technically start implementation anywhere, I tend to like to use dependency management principles, listed above, as a guideline. I start with the elements with the least number of dependencies in the design, which is the `Statement` above. It’s an interface with only a declaration, so there's nothing needed other than to declare it.
