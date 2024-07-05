@@ -26,7 +26,7 @@ Unit tests should declare the context of the observable behavior. Not only does 
 When a test fails, its context should provide clues as to where the failure might reside within the implementation. This may be as mechanical as running the failing test in isolation with code coverage activated and then reviewing the statements that were executed. The highlighted statements are probably the best places to start investigating the failure.
 
 # Complete
-A suite of unit tests should declare and confirm all possible behaviors that the software may encounter. This includes the _this-should-never-happen_f edge cases.
+A suite of unit tests should declare and confirm all possible behaviors that the software may encounter. This includes the _this-should-never-happen_ edge cases.
 
 ___Hard in Training; Easy in Battle___
 
@@ -54,7 +54,7 @@ The worst-case scenario is when the user is the first to encounter the issue and
 # Isolated
 The software being tested within a unit test is referred to as the [Software Under Test](https://en.wikipedia.org/wiki/System_under_test) (SUT).
 
-The SUT should be isolated from its external dependencies, such as: Databases, File Systems, Internet, Clocks, and other components of the project. [Test Doubles](https://en.wikipedia.org/wiki/Test_double) will replace external dependencies by emulating their behaviors. __NOTE:__ Test Doubles leak implementation information into the tests, which introduces a bit of brittleness. I don't know of a way to avoid this, but there may be techniques to minimize it, which I'll discuss in future blogs.
+The SUT should be isolated from its external dependencies, such as: Databases, File Systems, Internet, Clocks, and other components of the project. [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) will replace external dependencies by emulating their behaviors. __NOTE:__ Test Doubles leak implementation information into the tests, which introduces a bit of brittleness. I don't know of a way to avoid this, but there may be techniques to minimize it, which I'll discuss in future blogs.
 
 Any developer should be able to clone a repository, compile the code and the unit tests should execute without environmental issues. I.e., the SUT should have no dependencies upon the original developer’s development or test environment.
 
