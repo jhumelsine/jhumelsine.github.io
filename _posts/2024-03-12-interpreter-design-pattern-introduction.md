@@ -56,7 +56,7 @@ I think [Source Making Interpreter](https://sourcemaking.com/design_patterns/int
 
 Even with this elegant description, a few more specifics would be useful.
 
-I may modify this list below, but here’s what I’m currently considering as subsequent blog entries for Interpreter. I'll adjust and add links here when posted:
+Here's the rest of the Interpreter story over seven blog posts:
 * [Domain-Specific Languages](https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html)
 * [Programming Language Grammars](https://jhumelsine.github.io/2024/04/02/interpreter-design-pattern-grammars.html)
 * [Grammars to Design](https://jhumelsine.github.io/2024/04/07/interpreter-design-pattern-design.html)
@@ -74,7 +74,7 @@ I featured Specification in the two previous blogs ([Specification](https://jhum
 
 Coincidentally, the GoF used a similar problem, a Boolean expression evaluator, for their C++ Interpreter example. Specification is a Boolean evaluator as well. The main difference between the GoF example and Specification is the leaf nodes. Leaf nodes in the GoF example are either Boolean variables or true/false Boolean constants. With Specification, the leaf nodes are Boolean values based upon the satisfiability of the field attributes within a Context object. In the case of the Smart Playlist Specification, the leaf node Boolean values derive from a Track's Genre, Rating, Artist, and other attributes.
 
-The GoF don’t show all the steps from grammar to implementation in their C++ example. I’m going to fill in a few of the gaps with Specification here as a short primer. I’ll present more details in the subsequent blog entries.
+The GoF don’t show all the steps from grammar to implementation in their C++ example. I’m going to fill in a few of the gaps with Specification as the context as a short primer. I’ll present more details in the subsequent blog entries.
 
 ## Domain-Specific Language Primer
 Specification is a [Domain-Specific Language](https://en.wikipedia.org/wiki/Domain-specific_language) (DSL). A DSL is a small language that’s designed for a specific domain. In the [Smart Playlist Use Case](https://jhumelsine.github.io/2024/03/07/specification-design-pattern-use-case.html), it’s a domain that allows the user to organize Smart Playlists based upon a set of user defined rules that dynamically organize tracks in those playlists based upon their attribute values.
