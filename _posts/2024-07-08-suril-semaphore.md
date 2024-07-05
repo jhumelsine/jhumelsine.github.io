@@ -1,5 +1,5 @@
 ---
-title: DRAFT Suril, the Semaphore and Me
+title: DRAFT - Suril, the Semaphore and Me
 description: My theory-to-practice test double epiphany
 unlisted: true
 ---
@@ -36,7 +36,7 @@ When code is not covered, developers should ask themselves:
 * Is this dead code? Was it implemented before fully understanding the problem, and it’s part of a scenario that never happens? Rather than adding coverage to dead code with an artificial test scenario, can the dead code be removed?
 
 # The Semaphore
-Suril and I had covered a significant portion of the code, but we still had a block of uncovered code containing a Java [`Semaphore`]( https://docs.oracle.com/javase%2F8%2Fdocs%2Fapi%2F%2F/java/util/concurrent/Semaphore.html) and its [`tryAcquire(...)`]( https://docs.oracle.com/javase%2F8%2Fdocs%2Fapi%2F%2F/java/util/concurrent/Semaphore.html#tryAcquire--) method. The `Semaphore.tryAcquire(...)` was deep in the implementation and being used for concurrency management. Concurrency is difficult to implement correctly and challenging to test.
+Suril and I had covered a significant portion of the code, but we still had a block of uncovered code containing a Java [`Semaphore`]( https://docs.oracle.com/javase%2F8%2Fdocs%2Fapi%2F%2F/java/util/concurrent/Semaphore.html) and its [`tryAcquire(...)`]( https://docs.oracle.com/javase%2F8%2Fdocs%2Fapi%2F%2F/java/util/concurrent/Semaphore.html#tryAcquire--) method. The `Semaphore/tryAcquire(...)` was deep in the implementation and being used for concurrency management. Concurrency is difficult to implement correctly and challenging to test.
 
 The `Semaphore` related code was like the following:
 ```java
