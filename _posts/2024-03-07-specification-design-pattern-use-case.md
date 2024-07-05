@@ -65,8 +65,8 @@ genres.add(new GenreSpecification(Rock));
 genres.add(new GenreSpecification(NewWave));
 
 Specification acceptedArtists = new AllSpecification();
-acceptedArtists.add(new NotSpecification(new ArtistSpecification(“The Rolling Stones”)));
-acceptedArtists.add(new NotSpecification(new ArtistSpecification(“U2”)));
+acceptedArtists.add(new NotSpecification(new ArtistSpecification("The Rolling Stones")));
+acceptedArtists.add(new NotSpecification(new ArtistSpecification("U2")));
 
 Specification constraints = new AllSpecification();
 constraints.add(new RatingSpecification(5));
@@ -91,8 +91,8 @@ genres.add(new GenreSpecification(Rock));
 genres.add(new GenreSpecification(NewWave));
 
 Specification acceptedArtists = new AllSpecification();
-acceptedArtists.add(new NotSpecification(new ArtistSpecification(“The Rolling Stones”)));
-acceptedArtists.add(new NotSpecification(new ArtistSpecification(“U2”)));
+acceptedArtists.add(new NotSpecification(new ArtistSpecification("The Rolling Stones")));
+acceptedArtists.add(new NotSpecification(new ArtistSpecification("U2")));
 
 Specification fiveStarAltRock = new AllSpecification();
 fiveStarAltRock.add(genres);
