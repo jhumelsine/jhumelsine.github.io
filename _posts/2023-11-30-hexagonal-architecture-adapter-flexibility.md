@@ -54,7 +54,7 @@ I'll highlight a few points here from that blog starting with my basic Hexagonal
 * The Adapters
 * The Purple Hexagon Boundary
 
-Technically the Configurer and the Purple Hexagon Boundary are the only Pure Unstable/Flexible elements, but the Business Logic and Adapters only have a creation arrow pointing into them, which originate from the Configurer. I consider that pure enough for my needs.
+Technically the Configurer and the Purple Hexagon Boundary are the only Pure Unstable/Flexible elements. Business Logic and Adapters are pseudo-pure. They only have a creation arrow pointing into them, which originate from the pure Configurer. I consider that pure enough for my needs.
 
 Almost all design options presented here will be with these Pure Unstable/Flexible elements. All the fun is in the Adapter zone. Red Hexagons are mostly unchanged in the diagrams. They don't change as we _flex_ the Adapters. Likewise, the Red External Frameworks and Dependencies don't change either.
 
@@ -193,7 +193,7 @@ The diagram in the **Breadth and Behavior** section above shows how this could b
 
 The first consideration may be to update, or really replace, `PersistStuffViaDB` with a new Adapter that persists and sends event notifications, possibly with the name: `PersistStuffViaDBAndNotifyStuffViaMessageService`. This is one of the reasons that we favor Adapters. They allow us to swap one out for another one smoothly.
 
-The name is rather long, but that's my main issue with it. It contains **And**. This method is doing more than one thing. We may break the DB functionality when adding the Message Service functionality. The Adapter has more than one reason to be changed. In the future it could be updated because of DB dependencies or Message Service dependencies. An update to one feature runs the risk of breaking the other feature. This **And** Adapter violates the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) (SRP).
+The name is rather long, but that's not my main issue with it. It contains **And**. This method is doing more than one thing. We may break the DB functionality when adding the Message Service functionality. The Adapter has more than one reason to be changed. In the future it could be updated because of DB dependencies or Message Service dependencies. An update to one feature runs the risk of breaking the other feature. This **And** Adapter violates the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) (SRP).
 
 Consider this design enhancement, which adds a new Adapter for the Message Service.
 
@@ -430,7 +430,7 @@ Ah! He's working on a book, and he posted images of a few pages. On [Page 4](htt
 
 I think Cockburn is being too restrictive. As I stated above, I think he views the Port as the edge of the system. I view the Port as the edge of the Business Logic. While Cockburn doesn't think the pattern nests, I do.
 
-I considered how to represent nested hexagons. The diagram was going to get way to cluttered. What did I even consider nested hexagons?
+I considered how to represent nested hexagons. The diagram was going to get way to cluttered. Is what did I even consider nested hexagons?
 
 I often think about my blogs while I drift to sleep. While dozing off one evening I had a thought. My relationship lines leaving my Purple Hexagons always point outward. Cockburn doesn't address this at all. Martin gets it backwards.
 
@@ -485,7 +485,7 @@ These designs are highly modular. This was hopefully evident as I was swapping a
 
 The separation of concerns means that different developers and different teams can work on the implementation simultaneously without interfering with one another if their shared interfaces are reasonable stable. All implementations are encapsulated within their Event Horizons. If they honor their dependencies, any internal design and implementation is possible since it's invisible to the rest of the design.
 
-Unit testing should be relatively easy to set up since there are no tight couplings. Test doubles can be provided for all dependencies.
+[Unit testing](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html) should be relatively easy to set up since there are no tight couplings. [Test doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) can be provided for all dependencies.
 
 Who should be working on what and when? There are many ways to approach this. Here are some of my personal thoughts:
 * Architects and Senior Developers should declare the Port/Interface/Contracts. These are Pure Stable/Fixed elements. Other elements depend upon and have knowledge of them. We don't want them to change often. Architects and Senior Developers should have the most domain knowledge to do this.
