@@ -42,7 +42,7 @@ Even basic sanity testing could be difficult. It was often end-to-end testing, s
 When the code didn’t work, it often became a major debugging effort. Did the problem reside in my code or some other part of the system that my code was calling?
 
 # Test Code, But I Wouldn’t Call It Unit Test Code
-I created test code programs with limited success throughout the years. Most were not automated. I had to run them manually. Often, I had to temporarily update the [Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) in the implementation to return [Test Doubles](https://en.wikipedia.org/wiki/Test_double) and then change it back again. See [Dependency Injection Introduction](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) for additional details.
+I created test code programs with limited success throughout the years. Most were not automated. I had to run them manually. Often, I had to temporarily update the [Factories](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) in the implementation to return [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) and then change it back again. See [Dependency Injection Introduction](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) for additional details.
 
 The tests rarely told me anything that I didn’t already know. Once I started using Design Patterns in my designs and implementations, my error rate dropped significantly. I was happy with the quality of my code with or without automated tests. The tests were redundant at best, and they took time away from writing implementation code. That was part of my rationalization, since the tests tended to break as more code was modified.
 
