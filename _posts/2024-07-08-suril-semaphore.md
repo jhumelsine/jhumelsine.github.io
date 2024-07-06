@@ -64,10 +64,10 @@ Here’s the design, which highlights the main design issue. All dependency and 
 <img src="/assets/Semaphore1.png" alt="SoftwareUnderTest Original Design" width = "75%" align="center" style="padding-right: 20px;">
 
 It was near the end of the day, we were tired, and we didn’t have the mental stamina to tackle this in the last hour of the day. Suril and I brainstormed a bit before calling it a day. Several ideas included:
-* Overriding the 30 second timeout to make it shorter – much shorter to possibly in the milliseconds. 30 seconds would be way too long for test runtime.
+* Overriding the 30 second timeout to make it shorter – much shorter to possibly milliseconds. 30 seconds would be way too long for testing runtime.
 * Creating enough concurrently running `Thread`s such that some would acquire the permits while others would have to wait.
 * Injecting sleeps into the `Thread` so that the timing would be just right for some threads to acquire a permit immediately while others block-waited and then get their permits after the previous ones released them while others timed out having never received their permits. This would have to be coordinated with the overridden timeouts. Even if we got this to work, I was concerned that the tests could be flakey. That is, sometimes the tests pass, and sometimes they fail.
-* We had no idea to force an `InterruptedException`.
+* We had no idea how to force an `InterruptedException`.
 
 I spent the evening and a part of the night mulling over these ideas in my head.
 
@@ -80,7 +80,7 @@ This diagram highlights why we were struggling with developing a test plan strat
 # The Most Fruitful Stand-Up Meeting of my Career
 At our next morning's stand-up, I was up first and reported that Suril and I had made test good progress. We still had a section of code to cover. It was going to be challenging. It would probably take at least half a day or the entire day to confirm the rest.
 
-As others reported their status, my mind wandered as it is want to do when I’m not too engaged in the current activity.
+As others reported their status, my mind wandered as it is wont to do when I’m not too engaged in the current activity.
 
 Then I had an _Aha!_ idea. It was a _Eureka!_ moment. I knew how to test everything. It wasn’t nearly the challenge Suril and I had imagined.
 
@@ -104,7 +104,7 @@ From what we could tell the method only did three things:
 We only needed to create tests that confirmed that our code performed the expected behavior for each of these three `tryAcquire(…)` cases.
 
 # A Minor Refactoring to Introduce a Test Seam
-We could not easily test our implementation in its current form. It was obdurate to having tests added to it. Legacy code is often obdurate to testing.
+We could not easily test our implementation in its current form. It was obdurate to have testing added to it. Legacy code is often obdurate to testing.
 
 The method implementation was tightly coupled to the `Semaphore`. It calls `tryAcquire(…)` directly. We needed to refactor the implementation safely so that it would be not quite as tightly coupled. We used the [Extract Method](https://refactoring.guru/extract-method) refactoring to isolate `tryAcquire(…)`. Notice that the new extracted method, `isPermitAcquired(…)`, is package-private. We will need this in testing soon. I also renamed the extracted method here, since I feel it’s more descriptive in the context of its use:
 ```java
