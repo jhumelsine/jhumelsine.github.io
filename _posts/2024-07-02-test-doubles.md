@@ -469,4 +469,5 @@ Future blogs will introduce additional concepts that will coalesce as well. I fe
 * [Mockito RefCard](https://dzone.com/refcardz/mockito) on DZone
 * [Mockito Tutorial](https://www.baeldung.com/mockito-series) on Baeldung
 * [Mokito's Mock Methods](https://www.baeldung.com/mockito-mock-methods) on Baeldung
+* [Mocking Static Methods With Mockito](https://www.baeldung.com/mockito-mock-static-methods) on Baeldung
 * [Clean Unit Tests with Mockito](https://reflectoring.io/clean-unit-tests-with-mockito/) on Refactoring.io
