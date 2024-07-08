@@ -1,7 +1,6 @@
 ---
-title: DRAFT - Suril, the Semaphore and Me
+title: Suril, the Semaphore and Me
 description: My theory-to-practice test double epiphany
-unlisted: true
 ---
 
 # Introduction
@@ -138,7 +137,7 @@ However, we’re going to leverage that new extracted package-private `isPermitA
 # Method Override Test Double
 At the time, I didn’t have the vocabulary to describe the technique to Suril. I basically had to show it to him. But now I have the vocabulary with some diagrams.
 
-Suril and I were able to carve off a little bit of the `SoftwareUnderTest` and replace it with a Test Double method that allowed us to inject the behavior we desired. We used the [Method Override Test Double]( https://jhumelsine.github.io/2024/07/02/test-doubles.html#method-override) technique, which I mentioned in the previous blog, which described the steps. I’ll continue here with the `Semaphore` as an example.
+Suril and I were able to carve off a little bit of the `SoftwareUnderTest` and replace it with a Test Double method that allowed us to inject the behavior we desired. We used the [Method Override Test Double](https://jhumelsine.github.io/2024/07/02/test-doubles.html#method-override) technique, which I mentioned in the previous blog, which described the steps. I’ll continue here with the `Semaphore` as an example.
 
 Our Test Double was not a separate class as it was for most of the examples in [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html). Our Test Double was the package-private `isPermitAcquired(…)` method, which we were able to override in the test and inject whatever behavior we desired. By being package-private, our tests, which were in the same package could access it, but classes outside the package could not.
 
