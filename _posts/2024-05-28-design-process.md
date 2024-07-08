@@ -1,5 +1,5 @@
 ---
-title: Design Process
+title: My Design Process
 description: My design process from concept to implementation
 ---
 <img src="/assets/ConstructionProcess.jpeg" alt="Constructor Workers Reviewing a Design"  width = "50%" align="center" style="padding-right: 35px;">
