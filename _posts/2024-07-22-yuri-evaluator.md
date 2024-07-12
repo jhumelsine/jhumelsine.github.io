@@ -1,6 +1,6 @@
 ---
 title: DRAFT - Yuri, the Programming Assignment and Me
-description: The TDD indoctrination of young developers via testing propaganda OR show them it’s beneficial
+description: The TDD indoctrination of development youth via testing propaganda OR just show them it’s beneficial
 unlisted: true
 ---
 
@@ -18,7 +18,7 @@ I asked Yuri when it was due – two days. I asked him how long he had had it �
 
 My first thought when reading the assignment was, “Those are [technical] words.” This remains the worst assignment description I think I have ever read. Maybe the instructor was trying to get the students prepared for a career of bad system requirements. For comparison, Princeton’s Data Structures course has great [assignment descriptions]( https://www.cs.princeton.edu/courses/archive/spring24/cos226/assignments.php).
 
-> __Side Note:__ We got weekly programming assignments in college. I recall one assignment and completing it before the next class. In the next class a few students complained that it was too difficult. Our instructor changed the assignment on the spot. Several of us had completed the original assignment, and we argued that we shouldn’t be subjected to another assignment when we had completed the original one.
+> __Side Note:__ We got weekly programming assignments when I was in college. I recall receiving one assignment and completing it before the next class. In the next class a few students complained that it was too difficult. Our instructor changed the assignment on the spot. Several of us had completed the original assignment, and we argued that we shouldn’t be subjected to another assignment when we had completed the original one.
 > 
 > He looked at us and said, “Requirements change. Get used to it.”
 
@@ -31,9 +31,7 @@ Here’s the gist:
 * It supports the basic arithmetic operations.
 * It supports parentheses.
 * It supports a read-only datastore of variables.
-* It supports a read-only datastore of arrays.
-
-The array value initialization formatting looked like something you’d see in an [Advent of Code](adventofcode.com) challenge.
+* It supports a read-only datastore of arrays. The array value initialization formatting looked like something you’d see in an [Advent of Code](adventofcode.com) challenge.
 
 # Let’s Try Something Different
 I still wasn’t 100% sure of my interpretation, and I needed to get Yuri started with something.
@@ -49,7 +47,7 @@ I suggested a quick experiment. I created the following method:
 We ran the test in Eclipse, and it passed. Sweet. His IDE had JUnit. I was going to see if [Test-Driven Development TBD](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) (TDD) would work for him.
 
 # Test-Driven Development
-I’ll recreate test and code examples of what we did, but this was four and a half years ago. I don’t have access to the software artifacts for details. My memory is a bit fuzzy so this will be a memoir of that evening.
+I’ll recreate test and code examples of what we did for this blog, but this was four and a half years ago. I don’t have access to the software artifacts for details. My memory is a bit fuzzy so this will be a memoir of that evening.
 
 The assignment suggests that the evaluation returns a `float`, but the examples suggest an `int`. I’ll stick with `int` in my examples here. I’m also going to take some liberties with the read-only datastore. My examples will not include the arrays.
 
@@ -75,7 +73,7 @@ I convinced him to implement the method like this:
 “See. It passes,” I said. Yuri eyed me suspiciously. I asked him to be a little patient and have a little faith.
 
 ## The second test
-I admitted to Yuri that this was just the first step. We’d have more. The next test:
+I assured Yuri that this was just the first step. We’d have more. The next test:
 ```java
     @Test
     public static void evaluate_Returns4_WhenEvaluating4() throws Exception {
@@ -126,13 +124,14 @@ This time we’re not going to make it pass with a hard-coded value. The impleme
 
 This is a bit more challenging. I asked Yuri if he understood recursion. He did. Great.
 
-Notice that `3` and `4`, while operands, are expressions as well. It took a few tries to get the substring boundaries correct, but we got it easily:
+Notice that `3` and `4`, while operands, are expressions as well. It took a few tries to get the substring boundaries correct, but we got them working:
 ```java
     @Test
     public int evaluate(String expression, Map<String, Integer> variables) throws Exception {
         int plusIndex = expression.indexOf("+");
         if (plusIndex > 0) {
-            return evaluate(expression.substring(0, plusIndex), variables) + evaluate(expression.substring(plusIndex+1), variables);
+            return evaluate(expression.substring(0, plusIndex), variables) +
+                   evaluate(expression.substring(plusIndex+1), variables);
         }
 
         try {
@@ -184,7 +183,7 @@ Maybe it was going too well. I felt that Yuri needed to work on the assignment o
 
 Yuri said that he felt confident enough to complete it on his own.
 
-We had not tried expressions with multiple different operations such as `3 + 4 * 5`, which must evaluate `4 * 5` first to get `20` and then add `3` to get `23`.
+We had not tried expressions with different multiple operators such as `3 + 4 * 5`. This must evaluate `4 * 5` first to get `20` and then add `3` to get `23`.
 
 I suggested that he didn’t have to overthink how to get this to work. Create a test that declared an expected evaluation of `23`, and then try it. We had already implemented addition and multiplication. If the test passed, then it evaluated in the correct order returning `23`.
 
@@ -198,14 +197,15 @@ I sent him on his way.
 I ran into Yuri a week or so later. I asked if he got the assignment done. He said that he got it working except for the parentheses, which he stated were extra credit. Either my memory is faulting about this, or the assignment I found online is different from his, since it doesn’t list parentheses as extra credit.
 
 Then he added, “That testing technique you showed me was really useful. Why aren’t they teaching us that in class?”
-Exactly! That is an excellent question.
+
+__Exactly! That is an excellent question.__
 
 # TDD is Introduced Too Late
 I don’t know why TDD is not introduced in introductory programming classes. I suspect that academia doesn’t know or understand the practice. Some students might be exposed to it in a Software Engineering class, but by then, I think it’s too late.
 
 By the time most developers are first exposed to TDD, they’ve spent years programming. It’s not part of their discipline. The window of receptiveness slams shut quickly.
 
-This is the third reason I alluded to in the [previous blog]( https://jhumelsine.github.io/2024/07/15/tdd.html#why-are-developers-so-reluctant-to-write-tests-first) as to why developers are reluctant to try TDD. It was never taught to them during their formative years, and there’s a lot of reluctance for them to change how they’ve been doing it for years.
+This is the third reason I alluded to in the [previous blog]( https://jhumelsine.github.io/2024/07/15/tdd.html#why-are-developers-so-reluctant-to-write-tests-first) as to why developers are reluctant to try TDD. It was never taught to them during their formative years, and there’s a lot of reluctance for them to change how they’ve been doing things for years.
 
 I firmly believe that if TDD were taught in introductory programming, then the practice would be so second nature that developers would shutter at the thought of writing any code without writing a specifying test first.
 
@@ -230,7 +230,7 @@ I asked Yuri if I could tell this story. He responded with:
 __His email reply made me very happy.__
 
 # Second Epilog
-As I was writing this blog and recreating the code, I became more interested in how to implement the parentheses behavior. It’s different than the other behaviors. It’s not a binary arithmetic operator or a variable look up. It’s all about grouping and order of precedence. I decided to tackle it.
+As I was writing this blog and recreating the code, I became more interested in how to implement the parentheses behavior. It’s different than the other behaviors. It’s not a binary arithmetic operation or a variable look up. It’s about grouping and order of precedence. I decided to tackle it.
 
 I started with simple parentheses infused expressions and worked my way toward more complex ones. I lumped them all into one test, which I normally wouldn’t do, but I felt it was okay for this exercise. _Learn the rules, and then break the rules_.
 ```java
@@ -253,7 +253,9 @@ I started with simple parentheses infused expressions and worked my way toward m
 ```
 
 I got each assert to pass before adding a new one. I won’t provide evolution of the implementation but suffice it to say the first version assumed that the parentheses were the first and last characters in the expression. It returned the recursive `evaluate` of the characters between them. This worked for the first three tests but failed for the fourth when I needed to move toward a more general solution.
+
 Before I started any implementation, I thought the solution would mostly consist of String processing. But as I was layering in more tests and moving toward a more general solution, I had some time to think and experiment. There may be an elegant approach to this problem.
+
 If I can identify the outermost opening and closing matching parentheses, then I can do the following:
 * Evaluate the expression substring between these parentheses, much like I did with my first naïve implementation.
 * Construct a new expression, which consists of the substring before the opening parenthesis followed by the evaluated `int` from the expression substring between the parentheses followed by the substring after the closing parentheses.
@@ -261,11 +263,10 @@ If I can identify the outermost opening and closing matching parentheses, then I
 
 The solution contains doubly nested recursive calls to `evaluate(…)`.
 
-My main challenge was off-by-one errors in the substring indexing. I even broke `(4)` as I was working on the more general implementation. But I knew I had broken the previous test immediately, and I adjusted accordingly.
+My main challenge was off-by-one errors in the substring indexing. I even broke `(4)` as I was working on the more general implementation. But I knew I had broken the test immediately, and I adjusted accordingly.
 
 The parentheses specific implementation took about an hour from start to finish to complete. This would not have been my first approach if I had tried to implement all the behaviors at the start. However, upon seeing this implementation, it just feels right, possibly elegant.
 
-Here’s the code:
 ```java
     public static int evaluate(String expression, Map<String, Integer> variables) throws Exception {
         expression = expression.trim();
@@ -283,12 +284,14 @@ Here’s the code:
 
         int plusIndex = expression.indexOf("+");
         if (plusIndex > 0) {
-            return evaluate(expression.substring(0, plusIndex), variables) + evaluate(expression.substring(plusIndex+1), variables);
+            return evaluate(expression.substring(0, plusIndex), variables) +
+                   evaluate(expression.substring(plusIndex+1), variables);
         }
 
         int timesIndex = expression.indexOf("*");
         if (timesIndex > 0) {
-            return evaluate(expression.substring(0, timesIndex), variables) * evaluate(expression.substring(timesIndex+1), variables);
+            return evaluate(expression.substring(0, timesIndex), variables) *
+                   evaluate(expression.substring(timesIndex+1), variables);
         }
 
         try {
