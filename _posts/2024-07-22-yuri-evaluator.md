@@ -256,12 +256,24 @@ I got each assert to pass before adding a new one. I won’t provide evolution o
 
 Before I started any implementation, I thought the solution would mostly consist of String processing. But as I was layering in more tests and moving toward a more general solution, I had some time to think and experiment. There may be an elegant approach to this problem.
 
-If I can identify the outermost opening and closing matching parentheses, then I can do the following:
-* Evaluate the expression substring between these parentheses, much like I did with my first naïve implementation.
-* Construct a new expression, which consists of the substring before the opening parenthesis followed by the evaluated `int` from the expression substring between the parentheses followed by the substring after the closing parentheses.
-* Evaluate this newly constructed expression and return its result.
+If I can identify the first opening and closing matching parentheses in the expression, then the expression will be of the form:
+```
+preParenthesesExpression ( parenthesesBoundedExpression ) postParenthesesExpression
+```
+A few notes about the form above:
+* This is the original expression chopped into pieces using the parentheses as the delimiters.
+* The opening delimiting parenthesis is the first one in the expression.
+* The closing delimiting parenthesis is the pair match to the opening delimiter. It is not necessarily the first closing parameter in the expression. Nor is it necessarily the last closing parameter in the expression.
+* The `preParenthesesExpression` may be an empy string. It will not contain an opening parenthesis, since the opening delimiting parentheses is the first one in the expression.
+* The `parenthesesBoundedExpession` will not be empty. It may also contain additional parentheses.
+* The `postParenthesesExpression` may be any empty string. I may also contain additional parentheses.
 
-The solution contains doubly nested recursive calls to `evaluate(…)`.
+The evaluation of the parentheses delimited expression is doubly nested recursive calls to `evaluta(...)`, where `+` is concatination:
+```
+evaluate(preParenthesesExpression + evaluate(parenthesesBoundedExpression) + postParenthesesExpression)
+```
+
+As an example, if the original expression were `3 * (4 + 5) * 2`, then the inner recursive call would `evaluate("4 + 5")` returning `9`. Then the outer recursive call would `evaluate("3 * 9 * 2")` returning `54`. Since each recursive call is an expression shorter than the original expresion, the recursion will always work.
 
 My main challenge was off-by-one errors in the substring indexing. I even broke `(4)` as I was working on the more general implementation. But I knew I had broken the test immediately, and I adjusted accordingly.
 
@@ -271,13 +283,13 @@ The parentheses specific implementation took about an hour from start to finish 
     public static int evaluate(String expression, Map<String, Integer> variables) throws Exception {
         expression = expression.trim();
 
-        int openParenIndex = expression.indexOf("(");
+        int openParenIndex = expression.indexOf("("); // First opening parenthesis
         if (openParenIndex >= 0) {
-            int closeParenIndex = openParenIndex + getClosingParen(expression.substring(openParenIndex));
-            return evaluate(
+            int closeParenIndex = openParenIndex + getClosingParen(expression.substring(openParenIndex)); // Matching closing parenthesis
+            return evaluate(                                                                      // Evaluate and return shorter version of original expression
                 String.format("%s%d%s",
                     expression.substring(0, openParenIndex),
-                    evaluate(expression.substring(openParenIndex+1, closeParenIndex), variables),
+                    evaluate(expression.substring(openParenIndex+1, closeParenIndex), variables), // Evalate parentheses bounded expression
                     expression.substring(closeParenIndex+1, expression.length())),
                 variables);
         }
