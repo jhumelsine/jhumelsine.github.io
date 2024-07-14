@@ -16,7 +16,7 @@ He dropped by the house one evening, and he pulled up this [assignment](https://
 
 I asked Yuri when it was due – two days. I asked him how long he had had it – two weeks. After I scolded him for procrastinating, I hoped I could give him enough pointers so that he could complete some of it before the due date.
 
-My first thought when reading the assignment was, “Those are [technical] words.” This remains the worst assignment description I think I have ever read. Maybe the instructor was trying to get the students prepared for a career of bad system requirements. For comparison, Princeton’s Data Structures course has great [assignment descriptions]( https://www.cs.princeton.edu/courses/archive/spring24/cos226/assignments.php).
+My first thought when reading the assignment was, “Those are [technical] words.” This remains the poorest organized assignment description I think I have ever read. Maybe the instructor was trying to get the students prepared for a career of bad system requirements. For comparison, Princeton’s Data Structures course has great [assignment descriptions]( https://www.cs.princeton.edu/courses/archive/spring24/cos226/assignments.php).
 
 > __Side Note:__ We got weekly programming assignments when I was in college. I recall receiving one assignment and completing it before the next class. In the next class a few students complained that it was too difficult. Our instructor changed the assignment on the spot. Several of us had completed the original assignment, and we argued that we shouldn’t be subjected to another assignment when we had completed the original one.
 > 
@@ -47,7 +47,7 @@ I suggested a quick experiment. I created the following method:
 We ran the test in Eclipse, and it passed. Sweet. His IDE had JUnit. I was going to see if [Test-Driven Development TBD](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) (TDD) would work for him.
 
 # Test-Driven Development
-I’ll recreate test and code examples of what we did for this blog, but this was four and a half years ago. I don’t have access to the software artifacts for details. My memory is a bit fuzzy so this will be a memoir of that evening.
+I’ll recreate test and code examples of what we did for this blog, but this was four and a half years ago. I don’t have access to the software artifacts for details. My memory is a bit fuzzy so this will be a memoir of that evening. More on that in the [second epilog](#second-epilog).
 
 The assignment suggests that the evaluation returns a `float`, but the examples suggest an `int`. I’ll stick with `int` in my examples here. I’m also going to take some liberties with the read-only datastore. My examples will not include the arrays.
 
@@ -230,6 +230,8 @@ I asked Yuri if I could tell this story. He responded with:
 __His email reply made me very happy.__
 
 # Second Epilog
+
+# Third Epilog
 As I was writing this blog and recreating the code, I became more interested in how to implement the parentheses behavior. It’s different than the other behaviors. It’s not a binary arithmetic operation or a variable look up. It’s about grouping and order of precedence. I decided to tackle it.
 
 I started with simple parentheses infused expressions and worked my way toward more complex ones. I lumped them all into one test, which I normally wouldn’t do, but I felt it was okay for this exercise. _Learn the rules, and then break the rules_.
