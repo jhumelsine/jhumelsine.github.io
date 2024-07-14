@@ -230,6 +230,11 @@ I asked Yuri if I could tell this story. He responded with:
 __His email reply made me very happy.__
 
 # Second Epilog
+After I had posted a draft of this blog, I invited Yuri to review it. I wanted to make sure that I didn't misrepresent him or our work. He has different memories. I don't think they're inconsistent, but maybe different events impressed each of us differently.
+
+Yuri remembers our struggles with the [StringTokenizer](https://docs.oracle.com/javase/8/docs/api/java/util/StringTokenizer.html), which the assignment warns is legacy. But for the purpose of this assignment, it can be used along with several other suggestions, such as [Pattern](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html) and [Matcher](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Matcher.html). Though not listed in the assignment, [Scanner](https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html) might be a reasonable option as well.
+
+MORE TO COME.
 
 # Third Epilog
 As I was writing this blog and recreating the code, I became more interested in how to implement the parentheses behavior. It’s different than the other behaviors. It’s not a binary arithmetic operation or a variable look up. It’s about grouping and order of precedence. I decided to tackle it.
