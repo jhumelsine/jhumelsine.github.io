@@ -281,27 +281,31 @@ The parentheses specific implementation took about an hour from start to finish 
 
 ```java
     public static int evaluate(String expression, Map<String, Integer> variables) throws Exception {
-        expression = expression.trim();
+        expression = expression.trim(); // Remove pre and post whitespace
 
-        int openParenIndex = expression.indexOf("("); // First opening parenthesis
+        // Parentheses Evaluation
+        int openParenIndex = expression.indexOf("("); // First opening parenthesis index
         if (openParenIndex >= 0) {
-            int closeParenIndex = openParenIndex + getClosingParen(expression.substring(openParenIndex)); // Matching closing parenthesis
-            // Evaluate and return shorter version of original expression
+            // Matching closing parenthesis index
+            int closeParenIndex = openParenIndex + getClosingParen(expression.substring(openParenIndex));
+
+            // Evaluate and return a shorter version of original expression
             return evaluate(
-                String.format("%s%d%s",
-                    expression.substring(0, openParenIndex),
+                    expression.substring(0, openParenIndex) +
                     // Evalate parentheses bounded expression
-                    evaluate(expression.substring(openParenIndex+1, closeParenIndex), variables), 
-                    expression.substring(closeParenIndex+1, expression.length())),
+                    evaluate(expression.substring(openParenIndex+1, closeParenIndex), variables) +
+                    expression.substring(closeParenIndex+1, expression.length()),
                 variables);
         }
 
+        // Addition Evaluation
         int plusIndex = expression.indexOf("+");
         if (plusIndex > 0) {
             return evaluate(expression.substring(0, plusIndex), variables) +
                    evaluate(expression.substring(plusIndex+1), variables);
         }
 
+        // Multiplication Evaluation
         int timesIndex = expression.indexOf("*");
         if (timesIndex > 0) {
             return evaluate(expression.substring(0, timesIndex), variables) *
@@ -309,8 +313,10 @@ The parentheses specific implementation took about an hour from start to finish 
         }
 
         try {
+            // Integer Resolution
             return Integer.valueOf(expression);
         } catch (NumberFormatException e) {
+            // Variable Resolution
             return variables.get(expression);
         }
     }
