@@ -268,7 +268,7 @@ A few notes about the form above:
 * The `parenthesesBoundedExpession` will not be empty. It may also contain additional parentheses.
 * The `postParenthesesExpression` may be any empty string. I may also contain additional parentheses.
 
-The evaluation of the parentheses delimited expression is doubly nested recursive calls to `evaluta(...)`, where `+` is concatination:
+The evaluation of the parentheses delimited expression is doubly nested recursive calls to `evaluate(...)`, where `+` is concatination:
 ```
 evaluate(preParenthesesExpression + evaluate(parenthesesBoundedExpression) + postParenthesesExpression)
 ```
@@ -286,10 +286,12 @@ The parentheses specific implementation took about an hour from start to finish 
         int openParenIndex = expression.indexOf("("); // First opening parenthesis
         if (openParenIndex >= 0) {
             int closeParenIndex = openParenIndex + getClosingParen(expression.substring(openParenIndex)); // Matching closing parenthesis
-            return evaluate(                                                                      // Evaluate and return shorter version of original expression
+            // Evaluate and return shorter version of original expression
+            return evaluate(
                 String.format("%s%d%s",
                     expression.substring(0, openParenIndex),
-                    evaluate(expression.substring(openParenIndex+1, closeParenIndex), variables), // Evalate parentheses bounded expression
+                    // Evalate parentheses bounded expression
+                    evaluate(expression.substring(openParenIndex+1, closeParenIndex), variables), 
                     expression.substring(closeParenIndex+1, expression.length())),
                 variables);
         }
