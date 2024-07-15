@@ -88,7 +88,7 @@ The page connecting classes tend to be at the top center of a design when modeli
 ## Implementation
 Once I’m reasonably satisfied with a design in PowerPoint, I’ll implement the elements in the design.
 
-I tend to follow TDD practices with its Red-Green-Refactor cycle. I also try to adhere to Bob Martin’s [Three Rules of TDD](http://butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd).
+I tend to follow TDD practices with its Red-Green-Refactor cycle. I also try to adhere to Bob Martin’s [Three Rules of TDD](https://jhumelsine.github.io/2024/07/15/tdd.html#the-three-laws-rules-of-tdd).
 I only write enough test and code to confirm behavior as it's being incrementally implemented.
 I refactor in each cycle as needed.
 
