@@ -12,7 +12,7 @@ This blog wraps up the Rational Expression Evaluator with a fully functioning Do
 * [Rational Number Evaluator Use Case Introduction](https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html#rational-number-evaluator-use-case) where the Rational Number Evaluator DSL was first introduced.
 * [Rational Number Evaluator Grammar Use Case](https://jhumelsine.github.io/2024/04/02/interpreter-design-pattern-grammars.html#rational-number-evaluator-grammar-use-case) where the Rational Number Evaluator grammar was presented.
 * [Rational Expression Evaluator Design](https://jhumelsine.github.io/2024/04/07/interpreter-design-pattern-design.html#grammar-to-design-via-use-case) where a UML class design for the Rational Expression Evaluator based upon the grammar was presented. I think this is when I started changing the name of the use case from _Rational Number Evaluator_ to _Rational Expression Evaluator_.
-* [Rational Expression Evaluator Implementation](https://jhumelsine.github.io/2024/04/17/interpreter-design-pattern-implementation.html) where the Rational Expression Design classes were implemented based upon the design using [Test-Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) (TDD) techniques for behavior confirmation and remain on track.
+* [Rational Expression Evaluator Implementation](https://jhumelsine.github.io/2024/04/17/interpreter-design-pattern-implementation.html) where the Rational Expression Design classes were implemented based upon the design using [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) techniques for behavior confirmation and remain on track.
 * [An Introduction to Scanner and Parser Theory and Practice](https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html) where Scanner and Parser fundamentals were presented in preparation for the implementation presented here.
 
 Each phase from __Domain Specific Language__ to __Grammar__ to __Design__ to __Implementation__ to __Scanner/Parser__ has flowed almost seamlessly from one to the next. Though it's a bit of a cliché, and I cringe a bit whenever I state it, I still feel it applies: __The design and code almost writes themselves.__
@@ -145,7 +145,7 @@ class ScannerImpl implements Scanner {
 }
 ```
 
-I have been using [Test-Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) (TDD) as I progress with the `ScannerImpl` implementation in conjunction with writing this blog. … I have completed `ScannerImpl` using TDD. Here is some context about the implementation:
+I have been using [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) as I progress with the `ScannerImpl` implementation in conjunction with writing this blog. … I have completed `ScannerImpl` using TDD. Here is some context about the implementation:
 
 * I’ve kept the `Scanner` implementation to bare bones. If I were designing a DSL for production use:
     * I would have kept track of line and column information in the input so that when a syntax error is encountered, it would indicate issue with context.
