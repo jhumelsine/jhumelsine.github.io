@@ -1,6 +1,6 @@
 ---
 title: DRAFT - Yuri, the Programming Assignment and Me
-description: The TDD indoctrination of the programming youth via testing propaganda OR just show them it’s beneficial
+description: The TDD indoctrination of youthful programmers via testing propaganda OR just show them it’s beneficial
 unlisted: true
 ---
 
