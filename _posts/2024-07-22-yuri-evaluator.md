@@ -47,7 +47,7 @@ I suggested a quick experiment. I created the following method:
 We ran the test in Eclipse, and it passed. Sweet. His IDE had JUnit. I was going to see if [Test-Driven Development TBD](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) (TDD) would work for him.
 
 # Test-Driven Development
-I’ll recreate test and code examples of what we did for this blog, but this was four and a half years ago. I don’t have access to the software artifacts for details. My memory is a bit fuzzy so this will be a memoir of that evening. More on that in the [second epilog](#second-epilog).
+I’ll recreate test and code examples of what we did for this blog, but this was four and a half years ago. I don’t have access to the software artifacts for details. My memory is a bit fuzzy so this will be a memoir of that evening. More on the fuzziness in the [second epilog](#second-epilog).
 
 The assignment suggests that the evaluation returns a `float`, but the examples suggest an `int`. I’ll stick with `int` in my examples here. I’m also going to take some liberties with the read-only datastore. My examples will not include the arrays.
 
@@ -230,11 +230,23 @@ I asked Yuri if I could tell this story. He responded with:
 __His email reply made me very happy.__
 
 # Second Epilog
-After I had posted a draft of this blog, I invited Yuri to review it. I wanted to make sure that I didn't misrepresent him or our work. He has different memories. I don't think they're inconsistent, but maybe different events impressed each of us differently.
+After I had posted a draft of this blog, I invited Yuri to review it. I wanted to make sure that I didn't misrepresent our evening. He has slightly different memories. I don't think they're inconsistent, but maybe different parts of the evening impressed each of us differently.
 
-Yuri remembers our struggles with the [StringTokenizer](https://docs.oracle.com/javase/8/docs/api/java/util/StringTokenizer.html), which the assignment warns is legacy. But for the purpose of this assignment, it can be used along with several other suggestions, such as [Pattern](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html) and [Matcher](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Matcher.html). Though not listed in the assignment, [Scanner](https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html) might be a reasonable option as well.
+Yuri remembers our struggles with the [StringTokenizer](https://docs.oracle.com/javase/8/docs/api/java/util/StringTokenizer.html), which the assignment warned is a legacy class retained only for backward compatability. New implementations should not use it. But for the purpose of this assignment, it could be used along with several other suggestions, such as [Pattern](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html) and [Matcher](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Matcher.html). Though not listed in the assignment, [Scanner](https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html) might be a reasonable option as well.
 
-MORE TO COME.
+I have no memory of attempting to isolate tokens. We may have attempted to extract tokens from the expression. We may have also attempted to extract index values which are defined more like sparse array, with zero values omitted, or a map of __Integer => Integer__ where the `key` is the index into the array and the `value` is the array's index value.
+
+Here's the assignment's description of variable and array values:
+> Since the expression has a variable, a, the evaluator needs to be supplied with a file that has a value for it. Here's what etest1.txt looks like, and in this example lower-case letters are variable declarations and defintions and upper-case letters are array declarations and definitions:
+> * a 3
+> * b 2
+> * A 5 (2,3) (4,5)
+> * B 3 (2,1)
+> * d 56
+
+Yuri also doesn't recall the use of a `Map` for the variable resolution as I have implemented in my reconstruction. He remembers them learning about Linked Lists at the time. That is quite possible. The assignment mentions an `Variable` class that's provided. Its definition is in the assignmnt package, which I can't access, so I didn't know its method definitions for the recreation. The assignment also mentions an `Array` class that's provided too for the array 
+
+___MORE TO COME.___
 
 # Third Epilog
 As I was writing this blog and recreating the code, I became more interested in how to implement the parentheses behavior. It’s different than the other behaviors. It’s not a binary arithmetic operation or a variable look up. It’s about grouping and order of precedence. I decided to tackle it.
