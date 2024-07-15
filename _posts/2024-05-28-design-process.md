@@ -11,7 +11,7 @@ I have provided glimpses of my process in previous blog posts. I’ll be more in
 
 This is my personal process, which won’t apply to everyone in all situations. Developers must find a process that works for them. Hopefully, some readers may find some elements of my process helpful for their own processes.
 
-__Caveat:__ I developed this process before I knew about [Test-Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) (TDD). I have since incorporated elements of TDD into my process, but had I known TDD before I developed this process, I’m sure my process would have been different.
+__Caveat:__ I developed this process before I knew about [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD). I have since incorporated elements of TDD into my process, but had I known TDD before I developed this process, I’m sure my process would have been different.
 
 # My Process
 
