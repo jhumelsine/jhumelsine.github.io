@@ -166,7 +166,7 @@ class ConditionAction implements Action {
 ```
 
 # The Problem
-I started implementing the design mostly as a proof-of-concept task. This was before I knew [Test-Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) (TDD) techniques or [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html). I was able to test my code, but the tests were a bit clunky.
+I started implementing the design mostly as a proof-of-concept task. This was before I knew [https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) techniques or [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html). I was able to test my code, but the tests were a bit clunky.
 
 The design was solid. Much like the [Rational Expression Evaluator Implementation](https://jhumelsine.github.io/2024/04/17/interpreter-design-pattern-implementation.html), the classes and methods fell into place and worked.
 
