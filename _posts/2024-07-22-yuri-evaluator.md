@@ -234,7 +234,7 @@ After I had posted a draft of this blog, I invited Yuri to review it. I wanted t
 
 Yuri remembers our struggles with the [StringTokenizer](https://docs.oracle.com/javase/8/docs/api/java/util/StringTokenizer.html), which the assignment warned is a legacy class retained only for backward compatability. New implementations should not use it. But for the purpose of this assignment, it could be used along with several other suggestions, such as [Pattern](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html) and [Matcher](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Matcher.html). Though not listed in the assignment, [Scanner](https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html) might be a reasonable option as well.
 
-I have no memory of attempting to isolate tokens. We may have attempted to extract tokens from the expression. We may have also attempted to extract index values which are defined more like sparse array, with zero values omitted, or a map of __Integer => Integer__ where the `key` is the index into the array and the `value` is the array's index value.
+I have no memory of attempting to isolate tokens. We may have attempted to extract tokens from the expression. We may have also attempted to extract index values which are defined more like sparse array, with zero values omitted, or a `Map` of __Integer => Integer__ where the `key` is the index into the array and the `value` is the array's index value.
 
 Here's the assignment's description of variable and array values:
 > Since the expression has a variable, a, the evaluator needs to be supplied with a file that has a value for it. Here's what etest1.txt looks like, and in this example lower-case letters are variable declarations and defintions and upper-case letters are array declarations and definitions:
@@ -244,9 +244,47 @@ Here's the assignment's description of variable and array values:
 > * B 3 (2,1)
 > * d 56
 
-Yuri also doesn't recall the use of a `Map` for the variable resolution as I have implemented in my reconstruction. He remembers them learning about Linked Lists at the time. That is quite possible. The assignment mentions an `Variable` class that's provided. Its definition is in the assignmnt package, which I can't access, so I didn't know its method definitions for the recreation. The assignment also mentions an `Array` class that's provided too for the array 
+Yuri doesn't recall the use of a `Map` for the variable resolution as I have implemented in my reconstruction. This is because the assignment provided helper classes for the datastore. It mentions a `Variable` class and `Array` class are provided for the variable and array datastores respectively. Their definitions are in the assignment package, which are inaccessible unless registered in the class. I'm sure we used the provided classes back then, but I used a `Map` for the recreation here.
 
-___MORE TO COME.___
+I don't remember using tokens for expression processing, nor did I use it in the recreation. I'm using just enough `String` processing to identify operator token locations and isolate substrings. Then I leaned heavily upon recursion to handle the rest as described with more detail in [Third Epilog](#third-epilog). The assignment recomments recursion:
+> While recursion is optional for this assignment, using it to evaluate subexpressions will make it a LOT easier to write working code. (This is a great opportunity to learn how to use recursion in a realistic situation!!)
+
+I was thinking about my recursion based recreation implemenation, and I'm pretty sure that it has a mistake. But guess what? For right now, I don't care.
+
+I'm near 100% sure that the addition and multiplicate code will evaluate right-to-left rather than left-to-right. But none of the test cases fail. And just to be on the safe side, I added these additional tests to confirm this:
+```java
+    @Test
+    public void evaluate_handlesMultipleAdditionAndMultiplications() throws Exception {
+        assertEquals(10, evaluate("1+2+3+4", null));
+        assertEquals(10, evaluate("4+3+2+1", null));
+        assertEquals(24, evaluate("1*2*3*4", null));
+        assertEquals(24, evaluate("4*3*2*1", null));
+    }
+```
+
+These pass because additional and multiplication are communative. The order of operations doesn't matter. Right-to-left is just as good as left-to-right is just as good as outer to inner or inner to outer.
+
+The relative order of performing multiplication before addition is enforced in the implementation with the addition token being processed before the multiplication token. This feels backwards, since it feels like we're performing the addition before we're performing the multiplication, but that's not the case. And we don't to over analyze it. The following tests confirm it:
+```java
+    @Test
+    public void evaluate_Returns23_WhenEvaluating3Plus4Times5() throws Exception {
+        assertEquals(23, evaluate("3 + 4 * 5", null));
+        assertEquals(23, evaluate("5 * 4 + 3", null));
+    }
+```
+
+The point is that even if the implementation is not 100% correct with respect to the rules of arithmetic evaluation, it doesn't matter. All of the tests still work. It will evaluate the expected result.
+
+However, my arithmetic evaluator code hasn't completed the assignment. It doesn't evaluate subtraction or division, and that's when I think that left-to-right evaluation will become important. That's because addition/multiplication are in different order of evaluation hierarchies, which the current implementation supports, whereas addition/subtraction are on the same evaluation classification, and left-to-right evaluation resolves any evaluation ambiguities.
+
+If I were to continue with the assignment, I would do the following:
+* Create tests for basic subtraction and division functionality.
+* Implement subtraction and division code that mirros the addition and multiplication code.
+* Create more sophisticated tests that contain different arithmetic operations.
+* They will fail, since order of operations won't be correct.
+* Rather than looking for the operator tokens using `indexOf("+")`, etc., look for them using `lastIndexOf("+")`, etc. This will find the index of the last one rather than the first one. This should implement left-to-right evaluation.
+* But that still won't be enough. Rather than looking from just the `lastIndexOf("+")`, the implementation will need to look for the last index of either `+` or `-`, and perform the appropriate operation between the two recursion calls. The same applies for multiplication/division.
+* And while the code is being pulled apart and rebuilt to handle subtraction and division, the previous tests still be confirming that we're not breaking any previous functionality in the process.
 
 # Third Epilog
 As I was writing this blog and recreating the code, I became more interested in how to implement the parentheses behavior. It’s different than the other behaviors. It’s not a binary arithmetic operation or a variable look up. It’s about grouping and order of precedence. I decided to tackle it.
