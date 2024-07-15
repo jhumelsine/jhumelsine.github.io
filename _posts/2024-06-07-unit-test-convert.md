@@ -9,7 +9,7 @@ Unit testing was a waste of time. At best, unit tests only confirmed the code th
 
 I don’t think I was unique with this opinion. Unit testing has been and continues to be a contentious topic in our industry. Some love it. Some hate it. There’s not much middle ground.
 
-I was chatting with a former colleague recently. He told me that his shop is advocating [Test-Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) (TDD). He said they were getting pushback from some developers. I chimed in, “Let me guess. The developers fighting the policy are the more experienced ones, right?” His expression indicated agreement. “Yes. The senior developers don’t want to do it. The junior developers are more willing to consider it.” No one seemed enthusiastic about it.
+I was chatting with a former colleague recently. He told me that his shop is advocating [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD). He said they were getting pushback from some developers. I chimed in, “Let me guess. The developers fighting the policy are the more experienced ones, right?” His expression indicated agreement. “Yes. The senior developers don’t want to do it. The junior developers are more willing to consider it.” No one seemed enthusiastic about it.
 
 I bucked the trend of my friend’s senior developers’ opinions. Late in my career, I had a complete about-face and embraced unit testing. I not only embraced the practice, but I created and presented unit testing training to other developers at my company.
 
