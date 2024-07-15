@@ -1,6 +1,6 @@
 ---
 title: DRAFT - Yuri, the Programming Assignment and Me
-description: The TDD indoctrination of youthful programmers via testing propaganda OR just show them it’s beneficial
+description: The TDD indoctrination of youthful programmers via testing propaganda, OR just show them it’s beneficial
 unlisted: true
 ---
 
@@ -16,7 +16,7 @@ He dropped by the house one evening, and he pulled up this [assignment](https://
 
 I asked Yuri when it was due – two days. I asked him how long he had had it – two weeks. After I scolded him for procrastinating, I hoped I could give him enough pointers so that he could complete some of it before the due date.
 
-My first thought when reading the assignment was, “Those are [technical] words.” This remains the poorest organized assignment description I think I have ever read. Maybe the instructor was trying to get the students prepared for a career of bad system requirements. For comparison, Princeton’s Data Structures course has great [assignment descriptions]( https://www.cs.princeton.edu/courses/archive/spring24/cos226/assignments.php).
+My first thought when reading the assignment was, “Those are [technical] words.” This remains the most poorly organized assignment description I think I have ever read. Maybe the instructor was trying to get the students prepared for a career of bad system requirements. For comparison, Princeton’s Data Structures course has great [assignment descriptions]( https://www.cs.princeton.edu/courses/archive/spring24/cos226/assignments.php).
 
 > __Side Note:__ We got weekly programming assignments when I was in college. I recall receiving one assignment and completing it before the next class. In the next class a few students complained that it was too difficult. Our instructor changed the assignment on the spot. Several of us had completed the original assignment, and we argued that we shouldn’t be subjected to another assignment when we had completed the original one.
 > 
