@@ -16,22 +16,23 @@ He dropped by the house one evening, and he pulled up this [assignment](https://
 
 I asked Yuri when it was due – two days. I asked him how long he had had it – two weeks. After I scolded him for procrastinating, I hoped I could give him enough pointers so that he could complete some of it before the due date.
 
-My first thought when reading the assignment was, “Those are [technical] words.” This remains the most poorly organized assignment description I think I have ever read. Maybe the instructor was trying to get the students prepared for a career of bad system requirements. For comparison, Princeton’s Data Structures course has great [assignment descriptions]( https://www.cs.princeton.edu/courses/archive/spring24/cos226/assignments.php).
+My first thought when reading the assignment was, “Those are [technical] words.” This probably remains one of the most poorly organized assignment description I think I have ever seen. Maybe the instructor was trying to get the students prepared for a career of bad system requirements. For comparison, Princeton’s Data Structures course has great [assignment descriptions]( https://www.cs.princeton.edu/courses/archive/spring24/cos226/assignments.php).
 
 > __Side Note:__ We got weekly programming assignments when I was in college. I recall receiving one assignment and completing it before the next class. In the next class a few students complained that it was too difficult. Our instructor changed the assignment on the spot. Several of us had completed the original assignment, and we argued that we shouldn’t be subjected to another assignment when we had completed the original one.
 > 
 > He looked at us and said, “Requirements change. Get used to it.”
-
-__This was probably the most valuable lesson I learned in that class.__ 
+>
+> __This was probably the most valuable lesson I learned in that class.__ 
 
 ## The Gist of the Assignment
 After about an hour of reading and rereading Yuri’s assignment and looking at the programming artifacts provided, I thought I had a good sense of what was needed.
 Here’s the gist:
-* The assignment evaluates an arithmetic expression string.
+* The assignment evaluates a String formatted as an arithmetic expression.
 * It supports the basic arithmetic operations.
 * It supports parentheses.
 * It supports a read-only datastore of variables.
 * It supports a read-only datastore of arrays. The array value initialization formatting looked like something you’d see in an [Advent of Code](adventofcode.com) challenge.
+* Some helper classes are provided. Some classes are incomplete, and the students need to provide implementations for some methods.
 
 # Let’s Try Something Different
 I still wasn’t 100% sure of my interpretation, and I needed to get Yuri started with something.
@@ -44,7 +45,7 @@ I suggested a quick experiment. I created the following method:
     }
 ```
 
-We ran the test in Eclipse, and it passed. Sweet. His IDE had JUnit. I was going to see if [Test-Driven Development TBD](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) (TDD) would work for him.
+We ran the test in Eclipse, and it passed. Sweet. His IDE had JUnit. I was going to see if [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) (TDD) would work for him.
 
 # Test-Driven Development
 I’ll recreate test and code examples of what we did for this blog, but this was four and a half years ago. I don’t have access to the software artifacts for details. My memory is a bit fuzzy so this will be a memoir of that evening. More on the fuzziness in the [second epilog](#second-epilog).
@@ -83,7 +84,7 @@ I assured Yuri that this was just the first step. We’d have more. The next tes
 
 Of course, this failed. I had Yuri change the implementation to return `4`. The new test passed, but it broke the previous one. We’re going to need a more general implementation.
 
-We could make both pass with a `switch` statement, but that won’t scale to all possible integers. Hmmm. What else could we use? How about this:
+What else could we use? How about this:
 ```java
     public static int evaluate(String expression, Map<String, Integer> variables) throws Exception {
         return Integer.valueOf(expression);
@@ -104,7 +105,7 @@ Bingo. Now both tests pass.
 
 This failed with a `java.lang.NumberFormatException: For input string: "A"`.
 
-This time we’re not going to make it pass with a hard-coded value. The implementation to cover the three existing tests was obvious:
+The implementation to cover the three existing tests seemed mostly obvious:
 ```java
     public static int evaluate(String expression, Map<String, Integer> variables) throws Exception {
         try {
@@ -114,6 +115,8 @@ This time we’re not going to make it pass with a hard-coded value. The impleme
         }
     }
 ```
+
+And the tests passed.
 
 ## Let’s try addition
 ```java
@@ -143,7 +146,7 @@ Notice that `3` and `4`, while operands, are expressions as well. It took a few 
 ```
 
 ## A little off the top
-The assignment states that the expression can have whitespaces. Let’s redo some of the tests with whitespace:
+The assignment states that the expression can have whitespaces. Let’s duplicate and redefine some of the passing tests with whitespace:
 ```java
     public void evaluate_with_whitespaces() throws Exception {
         assertEquals(3, evaluate("          3               ", null));
@@ -175,13 +178,13 @@ They fail. But one quick String `trim()` will clean them right up.
 ```
 
 ## This was going well... maybe too well.
-This was going well. We were slicing through the assignment like a hot knife through butter.
+We were slicing through the assignment like a hot knife through butter.
 
 We got multiplication to work. It was mostly a copy-and-paste of the addition implementation.
 
-Maybe it was going too well. I felt that Yuri needed to work on the assignment on his own, and if I didn’t send him home soon, we would have finished in short order.
+I felt that Yuri needed to work on the assignment on his own, and if I didn’t send him home soon, we would have finished most of the assignment in short order.
 
-Yuri said that he felt confident enough to complete it on his own.
+Yuri said that he felt confident enough to continue on his own.
 
 We had not tried expressions with different multiple operators such as `3 + 4 * 5`. This must evaluate `4 * 5` first to get `20` and then add `3` to get `23`.
 
@@ -196,21 +199,21 @@ I sent him on his way.
 # That’s an Excellent Question
 I ran into Yuri a week or so later. I asked if he got the assignment done. He said that he got it working except for the parentheses, which he stated were extra credit. Either my memory is faulting about this, or the assignment I found online is different from his, since it doesn’t list parentheses as extra credit.
 
-Then he added, “That testing technique you showed me was really useful. Why aren’t they teaching us that in class?”
+Then he added, “___That testing technique you showed me was really useful. Why aren’t they teaching us that in class?___”
 
 __Exactly! That is an excellent question.__
 
 # TDD is Introduced Too Late
 I don’t know why TDD is not introduced in introductory programming classes. I suspect that academia doesn’t know or understand the practice. Some students might be exposed to it in a Software Engineering class, but by then, I think it’s too late.
 
-By the time most developers are first exposed to TDD, they’ve spent years programming. It’s not part of their discipline. The window of receptiveness slams shut quickly. And then the practice progresses slowly one promotion to management, one retirement or one funeral at a time.
+By the time most developers are first exposed to TDD, they’ve spent years programming. It’s not part of their discipline. The window of receptiveness slams shut quickly. And then the practice might only progress slowly, one promotion to management, one retirement or one funeral at a time.
 
-This is the third reason I alluded to in the [previous blog]( https://jhumelsine.github.io/2024/07/15/tdd.html#why-are-developers-so-reluctant-to-write-tests-first) as to why developers are reluctant to try TDD. It was never taught to them during their formative years, and there’s a lot of reluctance for them to change how they’ve been doing things for years.
+The absense of TDD in introductory programming classes is the third reason I alluded to in the [previous blog]( https://jhumelsine.github.io/2024/07/15/tdd.html#why-are-developers-so-reluctant-to-write-tests-first) as to why developers are reluctant to try TDD. It was never taught to them during their formative years, and there’s a lot of reluctance for them to change how they’ve been doing things for years.
 
 I firmly believe that if TDD were taught in introductory programming, then the practice would be so second nature that developers would shutter at the thought of writing any code without writing a specifying test first.
 
 I envision an introductory TDD curriculum along these lines:
-* Provide all tests in introductory programming with the assignments. Deactivate them except the first one. Instruct students to focus upon getting one test to pass at a time. Activate a new test as the previously activated tests pass and get the new test to pass without breaking the previously activated tests.
+* Provide all tests in introductory programming with the assignments where they are deactivated except the first one. Instruct students to focus upon getting one test to pass at a time. Activate a new test as the previously activated tests pass and get the new test to pass without breaking the previously activated tests.
 * Educate them about the provided tests. Focus upon why they are useful and how they would go about designing their own.
 * Ween students off tests by providing fewer and fewer as they learn more about creating their own tests.
 * Once students have learned how to create their own tests, then don’t provide any tests. Let them create their own tests.
@@ -230,26 +233,16 @@ I asked Yuri if I could tell this story. He responded with:
 __His email reply made me very happy.__
 
 # Second Epilog
-After I had posted a draft of this blog, I invited Yuri to review it. I wanted to make sure that I didn't misrepresent our evening. He has slightly different memories. I don't think they're inconsistent, but maybe different parts of the evening impressed each of us differently.
+I invited Yuri to review an early draft. I wanted to make sure that I didn't misrepresent our evening. He has slightly different memories. I don't think our individual memories are inconsistent, but maybe different parts of the evening impressed each of us differently.
 
 Yuri remembers our struggles with the [StringTokenizer](https://docs.oracle.com/javase/8/docs/api/java/util/StringTokenizer.html), which the assignment warned is a legacy class retained only for backward compatability. New implementations should not use it. But for the purpose of this assignment, it could be used along with several other suggestions, such as [Pattern](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html) and [Matcher](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Matcher.html). Though not listed in the assignment, [Scanner](https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html) might be a reasonable option as well.
 
-I have no memory of attempting to isolate tokens. We may have attempted to extract tokens from the expression. We may have also attempted to extract index values which are defined more like sparse array, with zero values omitted, or a `Map` of __Integer => Integer__ where the `key` is the index into the array and the `value` is the array's index value.
+I have no memory of attempting to isolate tokens. We may have attempted to extract tokens from the expression. We may have also attempted to extract index values which are defined like sparse array.
 
-Here's the assignment's description of variable and array values:
-> Since the expression has a variable, a, the evaluator needs to be supplied with a file that has a value for it. Here's what etest1.txt looks like, and in this example lower-case letters are variable declarations and defintions and upper-case letters are array declarations and definitions:
-> * a 3
-> * b 2
-> * A 5 (2,3) (4,5)
-> * B 3 (2,1)
-> * d 56
-
-Yuri doesn't recall the use of a `Map` for the variable resolution as I have implemented in my reconstruction. This is because the assignment provided helper classes for the datastore. It mentions a `Variable` class and `Array` class are provided for the variable and array datastores respectively. Their definitions are in the assignment package, which are inaccessible unless registered in the class. I'm sure we used the provided classes back then, but I used a `Map` for the recreation here.
-
-I don't remember using tokens for expression processing, nor did I use it in the recreation. I'm using just enough `String` processing to identify operator token locations and isolate substrings. Then I leaned heavily upon recursion to handle the rest as described with more detail in [Third Epilog](#third-epilog). The assignment recomments recursion:
+I did not parse tokens in the recreation examples. I'm using just enough `String` processing to identify operator token locations and isolate substrings. I am leaning heavily upon recursion to handle the rest as described with more detail in [Third Epilog](#third-epilog). The assignment recomments recursion:
 > While recursion is optional for this assignment, using it to evaluate subexpressions will make it a LOT easier to write working code. (This is a great opportunity to learn how to use recursion in a realistic situation!!)
 
-I was thinking about my recursion based recreation implemenation, and I'm pretty sure that it has a mistake. But guess what? For right now, I don't care.
+I was thinking about my recursion based recreation implemenation, and I'm pretty sure that it has a mistake. Guess what? For right now, I don't care. I will describe it, but I won't address it.
 
 I'm near 100% sure that the addition and multiplicate code will evaluate right-to-left rather than left-to-right. But none of the test cases fail. And just to be on the safe side, I added these additional tests to confirm this:
 ```java
@@ -262,9 +255,9 @@ I'm near 100% sure that the addition and multiplicate code will evaluate right-t
     }
 ```
 
-These pass because additional and multiplication are communative. The order of operations doesn't matter. Right-to-left is just as good as left-to-right is just as good as outer to inner or inner to outer.
+These pass because additional and multiplication are communative. The order of operations doesn't matter. Right-to-left is just as good as left-to-right.
 
-The relative order of performing multiplication before addition is enforced in the implementation with the addition token being processed before the multiplication token. This feels backwards, since it feels like we're performing the addition before we're performing the multiplication, but that's not the case. And we don't to over analyze it. The following tests confirm it:
+The relative order of performing multiplication before addition is enforced in the implementation with the addition token being processed before the multiplication token. It feels like we're evaluating the addition before we're evaluating the multiplication, but that's not the case. And we don't need to over analyze it. The following tests confirm that the addition/multiplication evaluation is in the correct order:
 ```java
     @Test
     public void evaluate_Returns23_WhenEvaluating3Plus4Times5() throws Exception {
@@ -273,18 +266,18 @@ The relative order of performing multiplication before addition is enforced in t
     }
 ```
 
-The point is that even if the implementation is not 100% correct with respect to the rules of arithmetic evaluation, it doesn't matter. All of the tests still work. It will evaluate the expected result.
+Even if the implementation is not 100% correct with respect to the rules of arithmetic evaluation, it doesn't matter. The tests still pass. `evaluate(...)` is returning expected values.
 
-However, my arithmetic evaluator code hasn't completed the assignment. It doesn't evaluate subtraction or division, and that's when I think that left-to-right evaluation will become important. That's because addition/multiplication are in different order of evaluation hierarchies, which the current implementation supports, whereas addition/subtraction are on the same evaluation classification, and left-to-right evaluation resolves any evaluation ambiguities.
+However, my arithmetic evaluator code hasn't completed the assignment. It doesn't evaluate subtraction or division, and that's when I think that left-to-right evaluation will become important. Addition/multiplication are in different order of evaluation hierarchies, which the current implementation supports, whereas addition/subtraction are on the same evaluation classification, and left-to-right evaluation resolves any evaluation ambiguities.
 
 If I were to continue with the assignment, I would do the following:
 * Create tests for basic subtraction and division functionality.
-* Implement subtraction and division code that mirros the addition and multiplication code.
+* Implement subtraction and division code that mirrors the addition and multiplication implementations.
 * Create more sophisticated tests that contain different arithmetic operations.
 * They will fail, since order of operations won't be correct.
-* Rather than looking for the operator tokens using `indexOf("+")`, etc., look for them using `lastIndexOf("+")`, etc. This will find the index of the last one rather than the first one. This should implement left-to-right evaluation.
-* But that still won't be enough. Rather than looking from just the `lastIndexOf("+")`, the implementation will need to look for the last index of either `+` or `-`, and perform the appropriate operation between the two recursion calls. The same applies for multiplication/division.
-* And while the code is being pulled apart and rebuilt to handle subtraction and division, the previous tests still be confirming that we're not breaking any previous functionality in the process.
+* Rather than looking for the operator tokens using `indexOf("+")`, etc., look for them using `lastIndexOf("+")`, etc. This will find the index of the last one rather than the first one. This should implement left-to-right evaluation, but I don't need to over analyze it. The tests would confirm when the implementation is correct.
+* `lastIndexOf(...)` still won't be sufficient. Rather than looking for just the `lastIndexOf("+")`, the implementation will need to look for the last index of either `+` or `-`, and perform the appropriate operation between the two recursion calls. The same applies for multiplication/division. A regular expression approach may work better.
+* And while the code is being pulled apart and rebuilt to handle subtraction and division, the previous tests are still confirming that we're not breaking any previous functionality in the process.
 
 # Third Epilog
 As I was writing this blog and recreating the code, I became more interested in how to implement the parentheses behavior. It’s different than the other behaviors. It’s not a binary arithmetic operation or a variable look up. It’s about grouping and order of precedence. I decided to tackle it.
@@ -309,9 +302,9 @@ I started with simple parentheses infused expressions and worked my way toward m
     }
 ```
 
-I got each assert to pass before adding a new one. I won’t provide evolution of the implementation but suffice it to say the first version assumed that the parentheses were the first and last characters in the expression. It returned the recursive `evaluate` of the characters between them. This worked for the first three tests but failed for the fourth when I needed to move toward a more general solution.
+I got each assert to pass before adding a new one. I won’t provide evolution of the implementation but suffice it to say the first version assumed that the parentheses were the first and last characters in the expression. It returned the recursive `evaluate` of the characters between them. This worked for the first three tests but failed for the fourth when I needed to move toward a more generic solution.
 
-Before I started any implementation, I thought the solution would mostly consist of String processing. But as I was layering in more tests and moving toward a more general solution, I had some time to think and experiment. There may be an elegant approach to this problem.
+Before I started any implementation, I thought the solution would mostly consist of String processing. But as I was layering in more tests and moving toward a more generic solution, I had some time to think and experiment. There may be an elegant approach to this problem.
 
 If I can identify the first opening and closing matching parentheses in the expression, then the expression will be of the form:
 ```
@@ -321,7 +314,7 @@ A few notes about the form above:
 * This is the original expression chopped into pieces using the parentheses as the delimiters.
 * The opening delimiting parenthesis is the first one in the expression.
 * The closing delimiting parenthesis is the pair match to the opening delimiter. It is not necessarily the first closing parameter in the expression. Nor is it necessarily the last closing parameter in the expression.
-* The `preParenthesesExpression` may be an empy string. It will not contain an opening parenthesis, since the opening delimiting parentheses is the first one in the expression.
+* The `preParenthesesExpression` may be an empty string. It will not contain an opening parenthesis, since the opening delimiting parentheses is the first one in the expression.
 * The `parenthesesBoundedExpession` will not be empty. It may also contain additional parentheses.
 * The `postParenthesesExpression` may be any empty string. I may also contain additional parentheses.
 
@@ -334,7 +327,7 @@ As an example, if the original expression were `3 * (4 + 5) * 2`, then the inner
 
 My main challenge was off-by-one errors in the substring indexing. I even broke `(4)` as I was working on the more general implementation. But I knew I had broken the test immediately, and I adjusted accordingly.
 
-The parentheses specific implementation took about an hour from start to finish to complete. This would not have been my first approach if I had tried to implement all the behaviors at the start. However, upon seeing this implementation, it just feels right, possibly elegant.
+The parentheses specific implementation took about an hour from start to finish. This would not have been my first approach if I had tried to implement all the behaviors at the start. However, upon seeing this implementation, it just feels right, possibly elegant.
 
 ```java
     public static int evaluate(String expression, Map<String, Integer> variables) throws Exception {
