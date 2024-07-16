@@ -61,9 +61,9 @@ We followed the examples in the assignment, which recommended evaluating “3”
     }
 ```
 
-The `null` is for the variables datastore. It didn’t compile, because `evaluate` didn’t exist.
+The `null` is for the variables datastore, which is not accessed. It didn’t compile, because `evaluate` didn’t exist.
 
-I convinced him to implement the method like this:
+I convinced Yuri to implement the method like this:
 ```java
     public static int evaluate(String expression, Map<String, Integer> variables) throws Exception {
         return 3;
@@ -158,14 +158,15 @@ The assignment states that the expression can have whitespaces. Let’s duplicat
     }
 ```
 
-They fail. But one quick String `trim()` will clean them right up.
+They fail. But one quick String `trim()` cleaned them right up.
 ```java
     public static int evaluate(String expression, Map<String, Integer> variables) throws Exception {
         expression = expression.trim();
         
         int plusIndex = expression.indexOf("+");
         if (plusIndex > 0) {
-            return evaluate(expression.substring(0, plusIndex), variables) + evaluate(expression.substring(plusIndex+1), variables);
+            return evaluate(expression.substring(0, plusIndex), variables) +
+                   evaluate(expression.substring(plusIndex+1), variables);
         }
 
         try {
@@ -188,9 +189,7 @@ Yuri said that he felt confident enough to continue on his own.
 
 We had not tried expressions with different multiple operators such as `3 + 4 * 5`. This must evaluate `4 * 5` first to get `20` and then add `3` to get `23`.
 
-I suggested that he didn’t have to overthink how to get this to work. Create a test that declared an expected evaluation of `23`, and then try it. We had already implemented addition and multiplication. If the test passed, then it evaluated in the correct order returning `23`.
-
-If it failed and returned `35`, then the order of operator processing is in the wrong order. Swap them and test again.
+I suggested that he didn’t have to over think how to get this to work. Create a test that declared an expected evaluation of `23`, and then try it. We had already implemented addition and multiplication. If the test passed, then it evaluated in the correct order returning `23`. If it failed and returned `35`, then the order of operator processing is in the wrong order. Swap them and test again.
 
 Do this for the other operators too. Create a few more complicated expressions. Test and adjust takes less thinking effort and time than adjust and test.
 
@@ -204,9 +203,9 @@ Then he added, “___That testing technique you showed me was really useful. Why
 __Exactly! That is an excellent question.__
 
 # TDD is Introduced Too Late
-I don’t know why TDD is not introduced in introductory programming classes. I suspect that academia doesn’t know or understand the practice. Some students might be exposed to it in a Software Engineering class, but by then, I think it’s too late.
+I don’t know why TDD is not presented in introductory programming classes. I suspect that academia doesn’t know or understand the practice. Some students might be exposed to it in a Software Engineering class, but by then, I think it’s too late.
 
-By the time most developers are first exposed to TDD, they’ve spent years programming. It’s not part of their discipline. The window of receptiveness slams shut quickly. And then the practice might only progress slowly, one promotion to management, one retirement or one funeral at a time.
+By the time most developers are first exposed to TDD, they’ve spent years programming. It’s not part of their discipline. The window of receptiveness slams shut quickly. And then the practice might only progress slowly, one promotion to management, one retirement, or one funeral at a time.
 
 The absense of TDD in introductory programming classes is the third reason I alluded to in the [previous blog]( https://jhumelsine.github.io/2024/07/15/tdd.html#why-are-developers-so-reluctant-to-write-tests-first) as to why developers are reluctant to try TDD. It was never taught to them during their formative years, and there’s a lot of reluctance for them to change how they’ve been doing things for years.
 
@@ -239,12 +238,12 @@ Yuri remembers our struggles with the [StringTokenizer](https://docs.oracle.com/
 
 I have no memory of attempting to isolate tokens. We may have attempted to extract tokens from the expression. We may have also attempted to extract index values which are defined like sparse array.
 
-I did not parse tokens in the recreation examples. I'm using just enough `String` processing to identify operator token locations and isolate substrings. I am leaning heavily upon recursion to handle the rest as described with more detail in [Third Epilog](#third-epilog). The assignment recomments recursion:
+I did not parse tokens in the recreation examples. I'm using only enough `String` processing to identify operator token locations and isolate substrings. I am leaning heavily upon recursion to handle the rest as described with more detail in [Third Epilog](#third-epilog). The assignment recomments recursion:
 > While recursion is optional for this assignment, using it to evaluate subexpressions will make it a LOT easier to write working code. (This is a great opportunity to learn how to use recursion in a realistic situation!!)
 
-I was thinking about my recursion based recreation implemenation, and I'm pretty sure that it has a mistake. Guess what? For right now, I don't care. I will describe it, but I won't address it.
+I've been thinking about my recursion based recreation implemenation, and I'm pretty sure that it has a mistake. Guess what? For right now, I don't care. I will describe flaw, but I won't correct the code.
 
-I'm near 100% sure that the addition and multiplicate code will evaluate right-to-left rather than left-to-right. But none of the test cases fail. And just to be on the safe side, I added these additional tests to confirm this:
+I'm near 100% sure that the addition and multiplicate code will evaluate right-to-left rather than left-to-right. None of the test cases fail. And to be on the safe side, I added these additional tests to confirm this:
 ```java
     @Test
     public void evaluate_handlesMultipleAdditionAndMultiplications() throws Exception {
@@ -257,7 +256,7 @@ I'm near 100% sure that the addition and multiplicate code will evaluate right-t
 
 These pass because additional and multiplication are communative. The order of operations doesn't matter. Right-to-left is just as good as left-to-right.
 
-The relative order of performing multiplication before addition is enforced in the implementation with the addition token being processed before the multiplication token. It feels like we're evaluating the addition before we're evaluating the multiplication, but that's not the case. And we don't need to over analyze it. The following tests confirm that the addition/multiplication evaluation is in the correct order:
+The relative order of performing multiplication before addition is enforced in the implementation with the addition token being handled before the multiplication token. It feels like we're evaluating the addition before we're evaluating the multiplication, but that's not the case. And we don't need to over analyze it. The following tests confirm that the addition/multiplication evaluation is in the correct order:
 ```java
     @Test
     public void evaluate_Returns23_WhenEvaluating3Plus4Times5() throws Exception {
@@ -274,9 +273,9 @@ If I were to continue with the assignment, I would do the following:
 * Create tests for basic subtraction and division functionality.
 * Implement subtraction and division code that mirrors the addition and multiplication implementations.
 * Create more sophisticated tests that contain different arithmetic operations.
-* They will fail, since order of operations won't be correct.
+* They should fail, since order of operations won't be correct.
 * Rather than looking for the operator tokens using `indexOf("+")`, etc., look for them using `lastIndexOf("+")`, etc. This will find the index of the last one rather than the first one. This should implement left-to-right evaluation, but I don't need to over analyze it. The tests would confirm when the implementation is correct.
-* `lastIndexOf(...)` still won't be sufficient. Rather than looking for just the `lastIndexOf("+")`, the implementation will need to look for the last index of either `+` or `-`, and perform the appropriate operation between the two recursion calls. The same applies for multiplication/division. A regular expression approach may work better.
+* `lastIndexOf(...)` still won't be sufficient. Rather than looking for just the `lastIndexOf("+")`, the implementation will need to look for the last index of either `+` or `-`, and perform the appropriate operation between the two recursion calls. The same applies for multiplication/division. A regular expression implementation may work better.
 * And while the code is being pulled apart and rebuilt to handle subtraction and division, the previous tests are still confirming that we're not breaking any previous functionality in the process.
 
 # Third Epilog
