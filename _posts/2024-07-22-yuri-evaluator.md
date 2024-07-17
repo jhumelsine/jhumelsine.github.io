@@ -253,7 +253,7 @@ I did not parse tokens in my recreation examples. I'm using only enough `String`
 
 I've been thinking about my recursion-based recreation implementation, and I'm pretty sure that it has a mistake. For now, I don't care. I will describe flaw, but I won't correct the code.
 
-I'm near 100% sure that the addition and multiplication code will evaluate right-to-left rather than left-to-right. None of the test cases fail. And to be on the safe side, I added these additional tests with multiple additions and multiplications in the same expression to confirm this:
+I'm near 100% sure that the addition and multiplication code will evaluate right-to-left rather than left-to-right. None of the test cases failed. And to be on the safe side, I added these additional tests with multiple additions and multiplications in the same expression to confirm this:
 ```java
     @Test
     public void evaluate_handlesMultipleAdditionAndMultiplications() throws Exception {
@@ -282,7 +282,7 @@ However, my arithmetic evaluator code hasn't completed the assignment. It doesn'
 If I were to continue with the assignment, I would do the following:
 * Create tests for basic subtraction and division functionality.
 * Implement subtraction and division code that mirrors the addition and multiplication implementations.
-* Create more sophisticated tests that contain different arithmetic operations. I think these tests whould fail, since order of operations won't be correct.
+* Create more sophisticated tests that contain different arithmetic operations. I think these tests whould fail, since the order of operations won't be correct.
 * Rather than looking for the operator tokens using `indexOf("+")`, etc., look for them using `lastIndexOf("+")`, etc. This will find the index of the last one rather than the first one. This should implement left-to-right evaluation, but I don't need to over analyze it. The tests would confirm when the implementation is correct.
 * `lastIndexOf(...)` still won't be sufficient. Rather than looking for just the `lastIndexOf("+")`, the implementation will need to look for the last index of either `+` or `-`, and perform the appropriate operation between the two recursion calls. The same applies for multiplication/division. A regular expression implementation may work better. And even if this is a better solution, I should not implement it until I have a need to implement it. And I won't have that need until I have failing tests that force me to implement it.
 * And while the code is being pulled apart and rebuilt to handle subtraction and division, the previous tests are still confirming that we're not breaking any previous functionality in the process.
