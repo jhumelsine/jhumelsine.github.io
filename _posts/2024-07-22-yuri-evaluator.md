@@ -219,7 +219,7 @@ I don’t know why TDD is not presented in introductory programming classes. I s
 
 By the time most developers are first exposed to TDD, they’ve spent years programming. It’s not part of their discipline. The window of receptiveness slams shut quickly. And then the practice might only progress slowly, one promotion to management, one retirement, or one funeral at a time.
 
-The absense of TDD in introductory programming classes is the third reason I alluded to in the [previous blog]( https://jhumelsine.github.io/2024/07/15/tdd.html#why-are-developers-so-reluctant-to-write-tests-first) as to why developers are reluctant to try TDD. It was never taught to them during their formative years, and there’s a lot of reluctance for them to change how they’ve been doing things for from the start.
+The absense of TDD in introductory programming classes is the third reason I alluded to in the [previous blog]( https://jhumelsine.github.io/2024/07/15/tdd.html#why-are-developers-so-reluctant-to-write-tests-first) as to why developers are reluctant to try TDD. It was never taught to them during their formative years, and there’s a lot of reluctance for them to change how they’ve been doing things from the start.
 
 I firmly believe that if TDD were taught in introductory programming, then the practice would be so second nature that developers would shutter at the thought of writing any code without writing a specifying test first.
 
