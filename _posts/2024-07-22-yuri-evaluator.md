@@ -16,7 +16,7 @@ He dropped by the house one evening, and he pulled up this [assignment](https://
 
 I asked Yuri when it was due – two days. I asked him how long he had had it – two weeks. After I scolded him for procrastinating, I hoped I could give him enough direction so that he could complete some of it before the due date.
 
-My first thought when reading the assignment was, “Those are [technical] words.” This remains one of the most poorly organized assignment description I think I have ever seen. Maybe the instructor was trying to get the students prepared for a career of bad system requirements. For comparison, Princeton’s Data Structures course has great [assignment descriptions]( https://www.cs.princeton.edu/courses/archive/spring24/cos226/assignments.php).
+My first thought when reading the assignment was, “Those are [technical] words.” This remains one of the most poorly organized assignment descriptions I think I have ever seen. Maybe the instructor was trying to get the students prepared for a career of bad system requirements. For comparison, Princeton’s Data Structures course has great [assignment descriptions]( https://www.cs.princeton.edu/courses/archive/spring24/cos226/assignments.php).
 
 > __Side Note:__ We received weekly programming assignments when I was in college. I recall receiving one assignment and completing it before the next class. In the next class a few students complained that it was too difficult. Our instructor changed the assignment on the spot. Several of us had completed the original assignment, and we argued that we shouldn’t be subjected to another assignment when we had completed the original one.
 > 
@@ -219,14 +219,14 @@ I don’t know why TDD is not presented in introductory programming classes. I s
 
 By the time most developers are first exposed to TDD, they’ve spent years programming. It’s not part of their discipline. The window of receptiveness slams shut quickly. And then the practice might only progress slowly, one promotion to management, one retirement, or one funeral at a time.
 
-The absense of TDD in introductory programming classes is the third reason I alluded to in the [previous blog]( https://jhumelsine.github.io/2024/07/15/tdd.html#why-are-developers-so-reluctant-to-write-tests-first) as to why developers are reluctant to try TDD. It was never taught to them during their formative years, and there’s a lot of reluctance for them to change how they’ve been doing things from the start.
+The absence of TDD in introductory programming classes is the third reason I alluded to in the [previous blog]( https://jhumelsine.github.io/2024/07/15/tdd.html#why-are-developers-so-reluctant-to-write-tests-first) as to why developers are reluctant to try TDD. It was never taught to them during their formative years, and there’s a lot of reluctance for them to change how they’ve been doing things from the start.
 
 I firmly believe that if TDD were taught in introductory programming, then the practice would be so second nature that developers would shudder at the thought of writing any code without writing a specifying test first.
 
 I envision an introductory TDD curriculum along these lines:
 * Provide all tests in introductory programming with the assignments where they are deactivated except the first one. Instruct students to focus upon getting one test to pass at a time. Activate a new test as the previously activated tests pass and get the new test to pass without breaking the previously activated tests.
 * Educate them about the provided tests. Focus upon why they are useful and how they would go about designing their own.
-* Ween students off tests by providing fewer and fewer as they learn more about creating their own tests. Maybe start be describing the behavior to test and let them write the test that specifies that behavior.
+* Wean students off tests by providing fewer and fewer as they learn more about creating their own tests. Maybe start be describing the behavior to test and let them write the test that specifies that behavior.
 * Once students have learned how to create their own tests, then don’t provide any tests. Let them create their own tests.
 
 # Summary
@@ -248,10 +248,10 @@ I invited Yuri to review an early draft. I wanted to make sure that I didn't mis
 
 Yuri remembers our struggles with the [StringTokenizer](https://docs.oracle.com/javase/8/docs/api/java/util/StringTokenizer.html). I have no memory of attempting to isolate tokens. We may have attempted to extract tokens from the expression. We may have also attempted to extract index values which are defined like sparse array.
 
-I did not parse tokens in the my recreation examples. I'm using only enough `String` processing to identify operator token locations and isolate substrings. I am leaning heavily upon recursion to handle the rest as described with more detail in [Third Epilog](#third-epilog). The assignment recommends recursion:
+I did not parse tokens in my recreation examples. I'm using only enough `String` processing to identify operator token locations and isolate substrings. I am leaning heavily upon recursion to handle the rest as described with more detail in [Third Epilog](#third-epilog). The assignment recommends recursion:
 > While recursion is optional for this assignment, using it to evaluate subexpressions will make it a LOT easier to write working code. (This is a great opportunity to learn how to use recursion in a realistic situation!!)
 
-I've been thinking about my recursion based recreation implemenation, and I'm pretty sure that it has a mistake. For now, I don't care. I will describe flaw, but I won't correct the code.
+I've been thinking about my recursion-based recreation implementation, and I'm pretty sure that it has a mistake. For now, I don't care. I will describe flaw, but I won't correct the code.
 
 I'm near 100% sure that the addition and multiplication code will evaluate right-to-left rather than left-to-right. None of the test cases fail. And to be on the safe side, I added these additional tests with multiple additions and multiplications in the same expression to confirm this:
 ```java
@@ -264,7 +264,7 @@ I'm near 100% sure that the addition and multiplication code will evaluate right
     }
 ```
 
-These pass because additional and multiplication are communative. The order of operations doesn't matter. Right-to-left is just as good as left-to-right.
+These pass because additional and multiplication are commutative. The order of operations doesn't matter. Right-to-left is just as good as left-to-right.
 
 The relative order of performing multiplication before addition is enforced in the implementation with the addition token being handled before the multiplication token. It feels like we're evaluating the addition before we're evaluating the multiplication, but that's not the case. And we don't need to over analyze it. The following tests confirm that the addition/multiplication evaluation is in the correct order:
 ```java
@@ -326,12 +326,12 @@ A few notes about the form above:
 * The `parenthesesBoundedExpession` will not be empty. It may also contain additional parentheses.
 * The `postParenthesesExpression` may be any empty string. I may also contain additional parentheses.
 
-The evaluation of the parentheses delimited expression is doubly nested recursive calls to `evaluate(...)`, where `+` is concatination:
+The evaluation of the parentheses delimited expression is doubly nested recursive calls to `evaluate(...)`, where `+` is concatenation:
 ```
 evaluate(preParenthesesExpression + evaluate(parenthesesBoundedExpression) + postParenthesesExpression)
 ```
 
-As an example, if the original expression were `3 * (4 + 5) * 2`, then the inner recursive call would `evaluate("4 + 5")` returning `9`. Then the outer recursive call would `evaluate("3 * 9 * 2")` returning `54`. Since each recursive call is an expression shorter than the original expresion, the recursion will always work.
+As an example, if the original expression were `3 * (4 + 5) * 2`, then the inner recursive call would `evaluate("4 + 5")` returning `9`. Then the outer recursive call would `evaluate("3 * 9 * 2")` returning `54`. Since each recursive call is an expression shorter than the original expression, the recursion will always work.
 
 My main challenge was off-by-one errors in the substring indexing. I even broke `(4)` as I was working on the more general implementation. But I knew I had broken the test immediately, and I adjusted accordingly.
 
