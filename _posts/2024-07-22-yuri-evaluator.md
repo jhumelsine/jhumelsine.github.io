@@ -1,6 +1,6 @@
 ---
 title: DRAFT - Yuri, the Programming Assignment and Me
-description: The TDD indoctrination of youthful programmers via testing propaganda, OR just show them it’s beneficial
+description: The TDD indoctrination of youthful programmers via testing propaganda, OR just show them how it’s beneficial
 unlisted: true
 ---
 
@@ -55,7 +55,7 @@ The method signatures are not provided in the assignment. They are defined withi
 float res = evaluate(expr.substring(3,11), vars, arrays);
 ```
 
-The assignment example indicates that the evaluation returns a `float`. It also indicates that `vars` and `arrays` datastore objects are arguments, which suggests that `evaluate(...)` is a static method. If I had access to its method signature, I'd know for sure.
+The assignment example indicates that the evaluation returns a `float`. It also indicates that `vars` and `arrays` datastore objects are arguments, which along with no object associated with `evaluate(...)` suggests that it is a static method. If I had access to its method signature, I'd know for sure.
 
 Since `vars` and `arrays` are read-only datastores, I feel that a better design might have been an `Evaluator` class, which declared private field attributes for `vars` and `arrays` and initialized them in its constructor. That would have changed the method signature to:
 ```java
@@ -221,7 +221,7 @@ By the time most developers are first exposed to TDD, they’ve spent years prog
 
 The absense of TDD in introductory programming classes is the third reason I alluded to in the [previous blog]( https://jhumelsine.github.io/2024/07/15/tdd.html#why-are-developers-so-reluctant-to-write-tests-first) as to why developers are reluctant to try TDD. It was never taught to them during their formative years, and there’s a lot of reluctance for them to change how they’ve been doing things from the start.
 
-I firmly believe that if TDD were taught in introductory programming, then the practice would be so second nature that developers would shutter at the thought of writing any code without writing a specifying test first.
+I firmly believe that if TDD were taught in introductory programming, then the practice would be so second nature that developers would shudder at the thought of writing any code without writing a specifying test first.
 
 I envision an introductory TDD curriculum along these lines:
 * Provide all tests in introductory programming with the assignments where they are deactivated except the first one. Instruct students to focus upon getting one test to pass at a time. Activate a new test as the previously activated tests pass and get the new test to pass without breaking the previously activated tests.
@@ -251,7 +251,7 @@ Yuri remembers our struggles with the [StringTokenizer](https://docs.oracle.com/
 I did not parse tokens in the my recreation examples. I'm using only enough `String` processing to identify operator token locations and isolate substrings. I am leaning heavily upon recursion to handle the rest as described with more detail in [Third Epilog](#third-epilog). The assignment recommends recursion:
 > While recursion is optional for this assignment, using it to evaluate subexpressions will make it a LOT easier to write working code. (This is a great opportunity to learn how to use recursion in a realistic situation!!)
 
-I've been thinking about my recursion based recreation implemenation, and I'm pretty sure that it has a mistake. Guess what? For right now, I don't care. I will describe flaw, but I won't correct the code.
+I've been thinking about my recursion based recreation implemenation, and I'm pretty sure that it has a mistake. For now, I don't care. I will describe flaw, but I won't correct the code.
 
 I'm near 100% sure that the addition and multiplication code will evaluate right-to-left rather than left-to-right. None of the test cases fail. And to be on the safe side, I added these additional tests with multiple additions and multiplications in the same expression to confirm this:
 ```java
