@@ -8,7 +8,7 @@ I listed some of the issues I had with my unit tests in my previous [blog](https
 
 This blog will focus upon the attributes of effective unit tests. This is not an exhaustive list. Other references will have different attributes as well.
 
-Future blogs will present practices that help achieve and maintain these attributes.
+Future blogs (TBD) will present practices that help achieve and maintain these attributes.
 
 # Behavior Based
 Unit Tests should define and confirm expected observable behavior. Unit tests should not indicate or depend upon implementation details. This can be tricky, since observable behavior derives from the implementation, and implementation is based upon expected behavior. We should be able to [refactor](https://refactoring.com/) the code without breaking the unit tests, where refactoring is defined as changing the structure of the code without changing its behavior.
@@ -54,7 +54,7 @@ The worst-case scenario is when the user is the first to encounter the issue and
 # Isolated
 The software being tested within a unit test is referred to as the [Software Under Test](https://en.wikipedia.org/wiki/System_under_test) (SUT).
 
-The SUT should be isolated from its external dependencies, such as: Databases, File Systems, Internet, Clocks, and other components of the project. [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) will replace external dependencies by emulating their behaviors. __NOTE:__ Test Doubles leak implementation information into the tests, which introduces a bit of brittleness. I don't know of a way to avoid this, but there may be techniques to minimize it, which I'll discuss in future blogs.
+The SUT should be isolated from its external dependencies, such as: Databases, File Systems, Internet, Clocks, and other components of the project. [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) will replace external dependencies by emulating their behaviors. __NOTE:__ Test Doubles leak implementation information into the tests, which introduces a bit of brittleness. I don't know of a way to avoid this, but there may be techniques to minimize it, which I'll discuss in future blogs (TBD).
 
 Any developer should be able to clone a repository, compile the code and the unit tests should execute without environmental issues. I.e., the SUT should have no dependencies upon the original developer’s development or test environment.
 
@@ -95,7 +95,7 @@ The flakiness might be in the test, but often, it’s in the implementation. Fla
 Resolving a flaky test may involve updates in the test, but it’s probably going to require updates to the implementation as well. Resolving a flaky test is probably going to take some time to track down and resolve.
 
 # Summary
-I’ve listed a dozen attributes that yield effective unit tests. I haven’t specified how to achieve these attributes. I’ll present practices in future blogs.
+I’ve listed a dozen attributes that yield effective unit tests. I haven’t specified how to achieve these attributes. I’ll present practices in future blogs (TBD).
 
 Most of these attributes apply to other types of tests too, such as Integration Tests.
 
