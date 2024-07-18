@@ -56,7 +56,7 @@ Each test focuses upon a specific SUT. The SUT may be limited to an object or se
 
 Ideally, we’d like to treat the SUT as a black box. The test should not know SUT implementation details. The test should not know the number of objects in the SUT. The test should only know the public method/function, i.e., the API, being invoked and the expected behavior. We should be able to [refactor](https://en.wikipedia.org/wiki/Code_refactoring) the SUT implementation without causing any unit tests to fail.
 
-Automated tests for the SUT typically consist of three (sometimes four) parts. I will use generic terms here. However, the first three parts are often called [__Arrange/Act/Assert__](https://wiki.c2.com/?ArrangeActAssert) or [__Given/When/Then__](https://en.wikipedia.org/wiki/Given-When-Then). I’ll present these practices in greater detail in further blogs with additional context as to how they apply to a test strategy.
+Automated tests for the SUT typically consist of three (sometimes four) parts. I will use generic terms here. However, the first three parts are often called [__Arrange/Act/Assert__](https://wiki.c2.com/?ArrangeActAssert) or [__Given/When/Then__](https://en.wikipedia.org/wiki/Given-When-Then). I’ll present these practices in greater detail in further blogs (TBD) with additional context as to how they apply to a test strategy.
 
 ## Set Up – I.e., Arrange/Given
 We want to test the SUT in [isolation](https://jhumelsine.github.io/2024/06/14/unit-test-attributes.html#isolated) from the rest of the codebase without the SUT knowing that it’s been isolated. Isolation focuses and limits the scope of SUT being tested. It also limits the complexity of the test. When the test fails, debugging tends to be easier, since the failure often resides within the bounds of the isolated SUT.
@@ -71,7 +71,7 @@ A test only needs Test Doubles if the flow of execution through the SUT interact
 
 Test Doubles shed a little light upon the SUT black box. The dependencies they override are SUT design details, which cannot be ignored in the test. The SUT is still a black box, but it’s a box for which the test knows a few details about the exterior of the box. It’s like electronic equipment. We may not know the circuitry in an electronic component, but we do need to know how to plug the stereo components together.
 
-The SUT’s design and implementation usually need to accommodate a Test Double easily so that can override the production dependency in the test. This means that the SUT should not be tightly coupled to its dependencies. I’ll blog more on this in the future (TBD).
+The SUT’s design and implementation usually need to accommodate a Test Double easily so that can override the production dependency in the test. This means that the SUT should not be tightly coupled to its dependencies. I’ll blog (TBD) more on this in the future.
 
 When tests require a lot of Test Double configuration, and especially if it’s complex, then this may be an indication that the SUT may be a good candidate for refactoring or redesign.
 
@@ -104,7 +104,7 @@ Passing tests does not guarantee bug free code.
 
 _Testing can show the presence of bugs, but not their absence!_ — Edsger W. Dijkstra
 
-A test case scenario may be missing. A test may need additional assertions or verifications. I’ll address some of these issues in subsequent blog posts.
+A test case scenario may be missing. A test may need additional assertions or verifications. I’ll address some of these issues in subsequent blog (TBD) posts.
 
 # Summary
 This is the first step toward making tests first-class citizens. These are foundational elements automated tests. Subsequent blogs will add more context with these automated test elements.
