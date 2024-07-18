@@ -198,7 +198,7 @@ The design as shown has an issue with stale cached `Group`s. I mentioned that th
 We were able to accommodate for this with another design feature in the real project, which I’ll describe briefly, but I won’t represent in the design example.
 We subscribed to updates and deletions from the Database and the WebService. When we received a notification that a `Group` had been updated or deleted, we deleted it from the `Cache`. A fresh version would be repopulated in the `Cache` upon the next request that referenced it.
 
-The subscription and notification mechanism is the [Observer](https://sourcemaking.com/design_patterns/observer) design pattern, which I’ve not mentioned previously, but I plan to blog about it in the future.
+The subscription and notification mechanism is the [Observer](https://sourcemaking.com/design_patterns/observer) design pattern, which I’ve not mentioned previously, but I plan to blog about it in the future (TBD).
 
 And to be technically accurate, our `DataBaseAddressBook` did not add the `Group` to the Database in its `addGroup(String name, Group group)` method. Another organization was responsible for the Database’s content. We only had read-only permission. Therefore the `addGroup(String name, Group group)` method, for which an implementation was required, was an empty method. The same was true for `WebServiceAddressBook.addGroup(String name, Group group)` method for similar reasons.
 
