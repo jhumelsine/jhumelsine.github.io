@@ -92,7 +92,7 @@ I tend to follow TDD practices with its Red-Green-Refactor cycle. I also try to 
 I only write enough test and code to confirm behavior as it's being incrementally implemented.
 I refactor in each cycle as needed.
 
-The implementation tends to go quickly and usually without too many issues.
+The implementation tends to go quickly and usually without too many issues. However, the TDD process may reveal issues in the design or architecture, and I'll make adjustments if they arise.
 
 Since the design tends to already have code snippets, I’ve technically gotten a little ahead of myself with respect to TDD practices. I rationalize this with the second _D_ in _TDD_ standing for _Development_ whereas I have been focusing upon _Design_ up to this point. __LOL__.
 
@@ -147,7 +147,7 @@ There is a wrinkle in the logic gate assignment data. The logic gate layout elem
 
 Instead, I decided to store each gate in a `Map` with its output wire as the key. `Composite` will look up the gate in the `Map` based upon the wire name and get its signal value. This worked fine with the test data, but I had a performance issue with the assignment data, which I’ll address later.
 
-## PointPoint
+## PowerPoint
 This design won’t fit on one PowerPoint slide. I split it into two slides with the abstract `Composite` as the connecting element.
 `Composite` isn’t a traditional Composite by reference. It doesn’t delegate to `Expression` directly. It doesn’t implement `getSignal()`. The `Composite` to `Expression` reference in the hand drawn design has been removed in the PowerPoint design once I realized that it was not 100% correct. 
 
