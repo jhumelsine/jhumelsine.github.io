@@ -451,7 +451,7 @@ Here’s a brief review of some previous ideas with blog references that are coa
 <img src="/assets/HexArchHexagons.png" alt="Hexagons" width = "100%" align="center" style="padding-right: 35px;">
 * [Dependency and Knowledge Management](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html), which was presented in the context of Hexagonal Architecture, which also applies beyond the Hexagonal Architecture design, to allow SUTs to be unaware of their execution environments.
 
-Future blogs will introduce additional concepts that will coalesce as well. I feel there may be a grand unified theory of software engineering that’s still just a bit beyond my grasp. If there is such a grand unified theory, I’d be willing to bet that Dependency and Knowledge Management is part of it.
+Future blogs (TBD) will introduce additional concepts that will coalesce as well. I feel there may be a grand unified theory of software engineering that’s still just a bit beyond my grasp. If there is such a grand unified theory, I’d be willing to bet that Dependency and Knowledge Management is part of it.
 
 # References
 * Previous [blog references](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html#references)
