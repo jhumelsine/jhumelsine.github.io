@@ -38,7 +38,7 @@ Fundamentally the Parser is a [Configurer](https://jhumelsine.github.io/2023/10/
 
 My previous Configurer representations have mostly been straightforward applications of the [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) pattern. These examples have mostly been hardcoded, and any variation has generally been achieved via a switch statement.
 
-Parser is more sophisticated. It will dynamically build a Composite object tree based upon a script/program/configuration/specification written in the DSL grammar. There is one design pattern that’s close to this concept, but the GoF didn’t fully flesh out its ability as a Parser. It’s the Builder Design Pattern, and I’ll blog about it in the future. For now, here are two references:
+Parser is more sophisticated. It will dynamically build a Composite object tree based upon a script/program/configuration/specification written in the DSL grammar. There is one design pattern that’s close to this concept, but the GoF didn’t fully flesh out its ability as a Parser. It’s the Builder Design Pattern, and I’ll blog about it in the future (TBD). For now, here are two references:
 * [Builder at SourceMaking](https://sourcemaking.com/design_patterns/builder)
 * [Builder at Refactoring.guru](https://refactoring.guru/design-patterns/builder)
 
