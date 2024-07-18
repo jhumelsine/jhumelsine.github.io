@@ -71,7 +71,7 @@ It’s a space-efficient probabilistic algorithm that will efficiently determine
 
 The main difference between `switch`/`if/else-if/else` and CoR is that the former is statically locked in the code and the latter is dynamic. This is not unlike the comparison of inheritance and the [Decorator](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html) design pattern.
 
-I’m not a huge fan of `switch`/`if/else-if/else` in the code base. I’ve encountered them being replicated repeatedly for different behaviors throughout the code base, rather organizing and encapsulating behaviors within their respective classes. `switch`/`if/else-if/else` code is difficult to understand and maintain. This is a [code smell](https://refactoring.guru/smells/switch-statements) and really a topic for another blog.
+I’m not a huge fan of `switch`/`if/else-if/else` in the code base. I’ve encountered them being replicated repeatedly for different behaviors throughout the code base, rather organizing and encapsulating behaviors within their respective classes. `switch`/`if/else-if/else` code is difficult to understand and maintain. This is a [code smell](https://refactoring.guru/smells/switch-statements) and really a topic for another blog (TBD).
 
 Sometimes these control flow structures are needed for algorithmic or business policy. For me, they become code smells when the control flow structures are based upon different type variations of the same common theme.
 
@@ -198,7 +198,7 @@ The design as shown has an issue with stale cached `Group`s. I mentioned that th
 We were able to accommodate for this with another design feature in the real project, which I’ll describe briefly, but I won’t represent in the design example.
 We subscribed to updates and deletions from the Database and the WebService. When we received a notification that a `Group` had been updated or deleted, we deleted it from the `Cache`. A fresh version would be repopulated in the `Cache` upon the next request that referenced it.
 
-The subscription and notification mechanism is the [Observer](https://sourcemaking.com/design_patterns/observer) design pattern, which I’ve not mentioned previously, but I plan to blog about it in the future (TBD).
+The subscription and notification mechanism is the [Observer](https://sourcemaking.com/design_patterns/observer) design pattern, which I’ve not mentioned previously, but I plan to blog (TBD) about it in the future.
 
 And to be technically accurate, our `DataBaseAddressBook` did not add the `Group` to the Database in its `addGroup(String name, Group group)` method. Another organization was responsible for the Database’s content. We only had read-only permission. Therefore the `addGroup(String name, Group group)` method, for which an implementation was required, was an empty method. The same was true for `WebServiceAddressBook.addGroup(String name, Group group)` method for similar reasons.
 
