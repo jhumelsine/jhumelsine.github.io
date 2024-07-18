@@ -64,7 +64,7 @@ A Test Double is a special case of the [Strategy Design Pattern](https://jhumels
 
 Let’s consider how this diagram from nine months ago foreshadowed concepts that I’m writing about now:
 * `ComputerAidedDesign` is the SUT. This test confirms that its `render()` method will drawn any `Shape`s that have been added to it.
-* `TestDoubleShape` is a Spy, as mentioned in the [previous blog]( https://jhumelsine.github.io/2024/06/23/unt-test-elements.html# confirmation--ie-assertthen). It implements `Shape.draw()`, but it doesn’t actually draw anything. Its only behavior is to remember that its `draw()` method has been called and provides a means, `isDrawn()`, to report that information.
+* `TestDoubleShape` is a Spy, as mentioned in the [previous blog](https://jhumelsine.github.io/2024/06/23/unt-test-elements.html#confirmation--ie-assertthen). It implements `Shape.draw()`, but it doesn’t actually draw anything. Its only behavior is to remember that its `draw()` method has been called and provides a means, `isDrawn()`, to report that information.
 * `ComputerAidedDesignTest` is a test class with the `render_DrawsShapes()` method. It uses the __Given/When/Then__ story telling structure that I mentioned in the [previous blog](https://jhumelsine.github.io/2024/06/23/unt-test-elements.html#test-elements) as well:
     * __Given__ that we have a `ComputerAidedDesign` instance with a `TestDoubleShape` added to it …
     * __When__ `render()` is invoked for the `ComputerAidedDesign` instance …
@@ -338,7 +338,7 @@ Some frameworks, such as the [Spring Framework](https://spring.io/projects/sprin
 ## Method Override
 Sometimes the dependency is within the SUT class itself, which can happen when the SUT is tightly coupled to its dependencies, which is common with Legacy Code.
 
-I will feature Method Override in the next blog, but I will briefly describe it here:
+I will feature Method Override in the [next blog](https://jhumelsine.github.io/2024/07/08/suril-semaphore.html#method-override-test-double), but I will briefly describe it here:
 * Method Override works to decouple tight dependencies in the SUT.
 * The dependency may be external, such as a direct call to a DB API. The dependency may be another class in the project. Or the dependency may be code within the method being tested.
 * Separate the dependency into its own method using the [Extract Method](https://refactoring.guru/extract-method) refactoring. Most IDEs provide a tool to do most of this for you. The extracted method will probably be declared as `private` by default. We will need to remove this so that it’s package-private. This will keep the method hidden from elements outside the package, but it will be accessible to elements inside the package, specifically the test code. __NOTE:__ This is Java terminology. Other languages may have different terminology.
@@ -451,7 +451,7 @@ Here’s a brief review of some previous ideas with blog references that are coa
 <img src="/assets/HexArchHexagons.png" alt="Hexagons" width = "100%" align="center" style="padding-right: 35px;">
 * [Dependency and Knowledge Management](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html), which was presented in the context of Hexagonal Architecture, which also applies beyond the Hexagonal Architecture design, to allow SUTs to be unaware of their execution environments.
 
-Future blogs (TBD) will introduce additional concepts that will coalesce as well. I feel there may be a grand unified theory of software engineering that’s still just a bit beyond my grasp. If there is such a grand unified theory, I’d be willing to bet that Dependency and Knowledge Management is part of it.
+Future blogs will introduce additional concepts that will coalesce as well. I feel there may be a grand unified theory of software engineering that’s still just a bit beyond my grasp. If there is such a grand unified theory, I’d be willing to bet that Dependency and Knowledge Management is part of it.
 
 # References
 * Previous [blog references](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html#references)
