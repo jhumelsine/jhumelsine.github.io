@@ -62,7 +62,7 @@ Even if a project is 100% certain that an external dependency will never change,
 # Boundaries and Constraints
 I’m convinced that HexArch/P&A works because of boundaries and constraints it imposes. The constraint almost screams where implementation should reside and why it should reside there.
 
-I will provide a separate [blog](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html) about the boundaries and constraints.
+I will provide a separate blog about the boundaries and constraints. See: [Hexagonal Architecture - Why It Works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html).
 
 # That Hexagon Really Pulled the Room Together
 <img src="https://media.makeameme.org/created/that-hexagon-really.jpg" alt="The Dude" title="Image Source: https://makeameme.org/meme/that-hexagon-really" width = "30%" align="right" style="padding-right: 35px;">
