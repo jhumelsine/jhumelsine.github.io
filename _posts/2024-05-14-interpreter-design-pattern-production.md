@@ -276,8 +276,8 @@ My Scanner supported comments and when parsing hit an unexpected token, it would
 The design I had sketched on the whiteboard was close, but it needed a few elements for the Parser, specifically how to resolve the Pseudo Keywords, `Action`/`Command` identifiers, and Decomposed Packages concerns listed above.
 
 I added the following to the design. Most are Design Patterns not yet covered in my blogs:
-* __Prototype__
-* __Singleton Repos__
+* __Prototype__ (TBD)
+* __Singleton Repos__ (TBD)
 * __Decorator__
 
 ## Enhancements
