@@ -28,7 +28,7 @@ He views this design as restricted to only those elements that I represent on ei
 I include more elements to the basic design, such as the Purple Hexagon and the Adapters relationships with External Frameworks and External Dependencies.
 
 So much of Hexagonal design applies to _Clean, Onion, DDD, Modular Monolith_ and more. 
-I plan to blog about the relationship of Hexagonal Architecture to these concepts. I've already blogged about the relationship of Hexagonal Architecture to Clean Architecture in [Hexagonal/Clean Compare and Contrast](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html).
+I plan to blog (TBD) about the relationship of Hexagonal Architecture to these concepts. I've already blogged about the relationship of Hexagonal Architecture to Clean Architecture in [Hexagonal/Clean Compare and Contrast](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html).
 
 <img src="https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg" alt="The Clean Architecture" title="Image Source: https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html" width = "55%" align="right" style="padding-right: 35px;">
 
