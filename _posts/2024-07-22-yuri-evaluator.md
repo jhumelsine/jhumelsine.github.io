@@ -31,7 +31,7 @@ Here’s the gist:
 * It supports the basic arithmetic operations.
 * It supports parentheses.
 * It supports a read-only datastore of variables.
-* It supports a read-only datastore of arrays. The array value initialization formatting looked like something you’d see in an [Advent of Code](adventofcode.com) challenge.
+* It supports a read-only datastore of arrays. The array value initialization formatting looked like something you’d see in an [Advent of Code](https://adventofcode.com/) challenge.
 * Some helper classes are provided. Some classes are incomplete, and the students need to provide implementations for some methods.
 
 # Let’s Try Something Different
