@@ -1,7 +1,6 @@
 ---
-title: DRAFT - Yuri, the Programming Assignment and Me
+title: Yuri, the Programming Assignment and Me
 description: The TDD indoctrination of youthful programmers via testing propaganda, OR just show them how it’s beneficial
-unlisted: true
 ---
 
 # Introduction
@@ -226,7 +225,7 @@ I firmly believe that if TDD were taught in introductory programming, then the p
 I envision an introductory TDD curriculum along these lines:
 * Provide all tests in introductory programming with the assignments where they are deactivated except the first one. Instruct students to focus upon getting one test to pass at a time. Activate a new test as the previously activated tests pass and get the new test to pass without breaking the previously activated tests.
 * Educate them about the provided tests. Focus upon why they are useful and how they would go about designing their own.
-* Wean students off tests by providing fewer and fewer as they learn more about creating their own tests. Maybe start be describing the behavior to test and let them write the test that specifies that behavior.
+* Wean students off tests by providing fewer and fewer as they learn more about creating their own tests. Maybe start by describing the behavior to test and let them write the test that specifies that behavior.
 * Once students have learned how to create their own tests, then don’t provide any tests. Let them create their own tests.
 
 # Summary
@@ -326,7 +325,7 @@ A few notes about the form above:
 * The `parenthesesBoundedExpession` will not be empty. It may also contain additional parentheses.
 * The `postParenthesesExpression` may be any empty string. I may also contain additional parentheses.
 
-The evaluation of the parentheses delimited expression is doubly nested recursive calls to `evaluate(...)`, where `+` is concatenation:
+The evaluation of the parentheses delimited expression is doubly nested recursive calls to `evaluate(...)`, where `+` is String concatenation:
 ```
 evaluate(preParenthesesExpression + evaluate(parenthesesBoundedExpression) + postParenthesesExpression)
 ```
