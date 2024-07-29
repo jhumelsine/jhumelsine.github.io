@@ -133,6 +133,7 @@ And the tests passed.
 
 ## Let’s try addition
 ```java
+    @Test
     public static void evaluate_Returns7_WhenEvaluating3Plus4() throws Exception {
         assertEquals(7, evaluate("3+4", null));
     }
@@ -142,7 +143,6 @@ This is a bit more challenging. I asked Yuri if he understood recursion. He did.
 
 Notice that `3` and `4`, while operands, are expressions as well. It took a few tries to get the substring boundaries correct, but we got them working:
 ```java
-    @Test
     public int evaluate(String expression, Map<String, Integer> variables) throws Exception {
         int plusIndex = expression.indexOf("+");
         if (plusIndex > 0) {
