@@ -4,7 +4,7 @@ description: Emulate dependencies without depending upon dependencies
 ---
 
 # Introduction
-I’ve used the term ___Test Double___ in several previous blogs with the [promise]( https://jhumelsine.github.io/2024/06/23/unt-test-elements.html#set-up--ie-arrangegiven) to provide more details:
+I’ve used the term ___Test Double___ in several previous blogs with the [promise]( https://jhumelsine.github.io/2024/06/23/unit-test-elements.html#set-up--ie-arrangegiven) to provide more details:
 
 > To isolate the SUT from its dependencies, we override these dependencies with Test Doubles. __I’ll provide more details about Test Doubles in the next blog__. For now, a Test Double emulates dependency behavior with the [Software Under Test](https://en.wikipedia.org/wiki/Test_double) (SUT) being none to the wiser. Test Doubles tend to be small snippets of code that emulate a specific dependency behavior that’s only needed within the context of each test.
 
@@ -64,8 +64,8 @@ A Test Double is a special case of the [Strategy Design Pattern](https://jhumels
 
 Let’s consider how this diagram from nine months ago foreshadowed concepts that I’m writing about now:
 * `ComputerAidedDesign` is the SUT. This test confirms that its `render()` method will drawn any `Shape`s that have been added to it.
-* `TestDoubleShape` is a Spy, as mentioned in the [previous blog](https://jhumelsine.github.io/2024/06/23/unt-test-elements.html#confirmation--ie-assertthen). It implements `Shape.draw()`, but it doesn’t actually draw anything. Its only behavior is to remember that its `draw()` method has been called and provides a means, `isDrawn()`, to report that information.
-* `ComputerAidedDesignTest` is a test class with the `render_DrawsShapes()` method. It uses the __Given/When/Then__ story telling structure that I mentioned in the [previous blog](https://jhumelsine.github.io/2024/06/23/unt-test-elements.html#test-elements) as well:
+* `TestDoubleShape` is a Spy, as mentioned in the [previous blog](https://jhumelsine.github.io/2024/06/23/unit-test-elements.html#confirmation--ie-assertthen). It implements `Shape.draw()`, but it doesn’t actually draw anything. Its only behavior is to remember that its `draw()` method has been called and provides a means, `isDrawn()`, to report that information.
+* `ComputerAidedDesignTest` is a test class with the `render_DrawsShapes()` method. It uses the __Given/When/Then__ story telling structure that I mentioned in the [previous blog](https://jhumelsine.github.io/2024/06/23/unit-test-elements.html#test-elements) as well:
     * __Given__ that we have a `ComputerAidedDesign` instance with a `TestDoubleShape` added to it …
     * __When__ `render()` is invoked for the `ComputerAidedDesign` instance …
     * __Then__ assert that the added `TestDoubleShape` was drawn. 
