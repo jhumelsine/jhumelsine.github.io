@@ -34,7 +34,7 @@ I turned to the internet. I found a very useful page on Wikipedia: [Software Des
 
 Once more I felt as if the scales had fallen from my eyes. I had been programming in C++ poorly for years. I was following the rules of the programming language but without good Object-Oriented design. But now I knew some techniques of how to design in OO. My software improved appreciably from this knowledge – fewer mysteries, fewer errors, and fewer late nights.
 
-Learning design patterns during those months of unemployed was the best investment I made in my career outside of my college experience.
+Learning design patterns during those months of unemployment was the best investment I made in my career outside of my college experience.
 
 If you haven’t found the time to learn design patterns, try and carve out some time. I’ll be blogging about them, but here are a few good resources to start.
 
