@@ -70,7 +70,7 @@ Leverage Google. Here’s an example starting with _software engineering jobs ne
 Other search engines may offer similar functionality.
 
 # The Gift That Doesn’t Feel Like A Gift At The Time
-I had spare time when I was unemployed. My wife urged me to enjoy it. It just couldn’t enjoy it. I tried a few matinee movies, but I felt guilty.
+I had spare time when I was unemployed. My wife urged me to enjoy it. I just couldn’t enjoy it. I tried a few matinee movies, but I felt guilty.
 
 I had been given a gift of time, but it didn’t feel like a gift at the time. Had I known that my unemployment would last no more than eight months, then I would have enjoyed it. It was the indeterminate length that I found vexing.
 
