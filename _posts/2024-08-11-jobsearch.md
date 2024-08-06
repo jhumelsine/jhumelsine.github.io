@@ -88,6 +88,7 @@ I had tried to learn the Design Patterns while employed, but they just weren’t
 I incorporated design patterns into my Java coding assignments to gain a better understand of both together.
 From ___It’s Your Move___:
 >Learning design patterns during those months of unemployment was the best investment I made in my career outside of my college experience.
+
 There are even more online learning opportunities.
 
 ## Helping Others
