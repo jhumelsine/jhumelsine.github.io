@@ -6,9 +6,9 @@ description: Unit Test properties that make them more useful than not
 # Introduction
 I listed some of the issues I had with my unit tests in my previous [blog](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html#test-code-but-i-wouldnt-call-it-unit-test-code). My early attempts at unit testing were ineffective, and I soon abandoned them.
 
-This blog will focus upon the attributes of effective unit tests. This is not an exhaustive list. Other references will have different attributes as well.
+This blog will focus upon the attributes of effective unit tests. This is not an exhaustive list. References by others will have different attributes as well.
 
-Future blogs (TBD) will present practices that help achieve and maintain these attributes.
+Future blogs will present practices that help achieve and maintain these attributes.
 
 # Behavior Based
 Unit Tests should define and confirm expected observable behavior. Unit tests should not indicate or depend upon implementation details. This can be tricky, since observable behavior derives from the implementation, and implementation is based upon expected behavior. We should be able to [refactor](https://refactoring.com/) the code without breaking the unit tests, where refactoring is defined as changing the structure of the code without changing its behavior.
@@ -95,7 +95,7 @@ The flakiness might be in the test, but often, it’s in the implementation. Fla
 Resolving a flaky test may involve updates in the test, but it’s probably going to require updates to the implementation as well. Resolving a flaky test is probably going to take some time to track down and resolve.
 
 # Summary
-I’ve listed a dozen attributes that yield effective unit tests. I haven’t specified how to achieve these attributes. I’ll present practices in future blogs (TBD).
+I’ve listed a dozen attributes that yield effective unit tests. I haven’t specified how to achieve these attributes. I’ll present practices in future blogs. See: [Basic Test Elements](https://jhumelsine.github.io/2024/06/23/unit-test-elements.html), [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html), [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) and [Behavior-Driven Development](https://jhumelsine.github.io/2024/08/08/bdd.html).
 
 Most of these attributes apply to other types of tests too, such as Integration Tests.
 
