@@ -26,14 +26,14 @@ Examine spending patterns and reduce or eliminate items that aren’t critical. 
 ## Severance Package
 A lump sum severance package helps, but the amount varies based upon they company's policy and the employee's length of service. What seems like a nice chunk of money will soon dwindle if unemployment lingers.
 
-One might also be able to negotiate severance before separation from the company.
+One might also be able to negotiate a more favorable severance.
 
 ## Unemployment Insurance
 Unemployment insurance in the United States lasts for about six months. This is not a universal benefit, and the length and amount of assistance will vary. I was grateful for it when I collected it, but it didn’t cover all the bills. And those six months went by fast. 
 
 ## Emergency Funds
 Saving for an emergency fund feels like a drag until you need it. But when you need it, you’ll be glad you have it.
-An emergency fund should cover living expenses for three to twelve months. Opinions of the amount vary.
+An emergency fund should cover living expenses for three to twelve months. Opinions of how much financial cushion preparation vary.
 
 Emergency funds must be funded before they are needed.
 
@@ -61,7 +61,7 @@ Finding your next job is a part-time job. Keep the job search alive, but don’t
 ## Automate Your Job Search
 Update your LinkedIn status to __open to work__. Post your resume on other job sites. Let others know that you’re in the job market.
 
-Leverage Google. Here’s an example starting with _software engineering jobs near Silicon Valley_:
+Leverage Google. Here’s an example starting with _Software Engineering Jobs near Silicon Valley_:
 * On Google, search for: [Software Engineering Jobs near Silicon Valley](https://www.google.com/search?q=Software+Engineering+Jobs+near+Silicon+Valley&sca_esv=d2a4c35c63dffda7&sxsrf=ADLYWIJCt4VfFMUUWAUm1xHdcI9nw5x0cQ%3A1722888922027&source=hp&ei=2TKxZp7-O5C3ptQP8YP34AQ&iflsig=AL9hbdgAAAAAZrFA6mu06fY1h2sur-6wmIiLx3XGB1n0&ved=0ahUKEwjezrqx1d6HAxWQm4kEHfHBHUwQ4dUDCBk&uact=5&oq=Software+Engineering+Jobs+near+Silicon+Valley&gs_lp=Egdnd3Mtd2l6Ii1Tb2Z0d2FyZSBFbmdpbmVlcmluZyBKb2JzIG5lYXIgU2lsaWNvbiBWYWxsZXkyBhAAGBYYHjILEAAYgAQYhgMYigUyCxAAGIAEGIYDGIoFMggQABiABBiiBDIIEAAYgAQYogRIoQdQlgJYlgJwAXgAkAEAmAGHAaABhwGqAQMwLjG4AQPIAQD4AQL4AQGYAgKgApwBqAIKwgIHECMYJxjqApgDDJIHAzEuMaAHhQQ&sclient=gws-wiz&jbr=sep:0)
 * This will return several jobs. After the first several you’ll see a button with `100+ more jobs ->`. Click on that, which will take you to Google’s Jobs Search Modal. Click here: [100+ more jobs ->](https://www.google.com/search?q=Software%20Engineering%20Jobs%20near%20Silicon%20Valley&sca_esv=d2a4c35c63dffda7&sxsrf=ADLYWIJCt4VfFMUUWAUm1xHdcI9nw5x0cQ%3A1722888922027&source=hp&ei=2TKxZp7-O5C3ptQP8YP34AQ&iflsig=AL9hbdgAAAAAZrFA6mu06fY1h2sur-6wmIiLx3XGB1n0&ved=2ahUKEwimpPuy1d6HAxWCrYkEHY83Bv4Q3L8LegQIHhAK&uact=5&oq=Software%20Engineering%20Jobs%20near%20Silicon%20Valley&gs_lp=Egdnd3Mtd2l6Ii1Tb2Z0d2FyZSBFbmdpbmVlcmluZyBKb2JzIG5lYXIgU2lsaWNvbiBWYWxsZXkyBhAAGBYYHjILEAAYgAQYhgMYigUyCxAAGIAEGIYDGIoFMggQABiABBiiBDIIEAAYgAQYogRIoQdQlgJYlgJwAXgAkAEAmAGHAaABhwGqAQMwLjG4AQPIAQD4AQL4AQGYAgKgApwBqAIKwgIHECMYJxjqApgDDJIHAzEuMaAHhQQ&sclient=gws-wiz&jbr=sep:0&udm=8)
 * Update the search as desired with more details such as: industry, full-time/part-time, remote/in-office, location, skillset, etc. Once you have a query result you like, click on the `Follow` button near the top of the page. Google will retain that query and send you emails when it finds new jobs that match your query.
@@ -74,25 +74,25 @@ I had spare time when I was unemployed. My wife urged me to enjoy it. I just cou
 
 I had been given a gift of time, but it didn’t feel like a gift at the time. Had I known that my unemployment would last no more than eight months, then I would have enjoyed it. It was the indeterminate length that I found vexing.
 
-The key for me wasn’t enjoying this time. The key was finding a way to make this time meaningful and giving my days purpose. Meaningful use of this time will be different for each person. For some it may be spending more time with the family, getting into shape, or it may indeed be going to the movies.
+The key for me wasn’t enjoying this time. The key was finding a way to make this time meaningful and giving my days purpose. Meaningful use of this time will be different for each person. For some it may be spending more time with the family, getting into shape, working on a project, or it may indeed be going to the movies.
 
 For me, it fell into two broad categories:
 * Investing in myself
 * Helping others
 
 ## Improving Myself
-I was not even considered for two potential jobs, because they were in Java, and I only had C++ experience at the time. I enrolled in a weekly evening Java class at our local community college to expand my prospects. It was ten years before I had a job that required Java, which I got after my second layoff. That previous preparation paid off ten years and two companies later.
+I was not considered for two potential Java jobs, because I only had C++ experience at the time. I enrolled in a weekly evening Java class at our local community college to expand my prospects. It was ten years before I had a job that required Java, which I got after my second layoff. That previous preparation paid off ten years and two companies later.
 
 I had tried to learn the Design Patterns while employed, but they just weren’t clicking for me. I didn’t have the time to do a deep dive into them. Once I was laid off, I had all the time in the world. I was on a sabbatical sponsored by the New Jersey Department of Unemployment. I learned the design patterns on my own via online resources. I described this in more detail almost a year ago in [It’s Your Move](https://jhumelsine.github.io/2023/08/24/its-your-move.html).
 
-I incorporated design patterns into my Java coding assignments to gain a better understand of both.
+I incorporated design patterns into my Java coding assignments to gain a better understanding of both.
 From ___It’s Your Move___:
 >Learning design patterns during those months of unemployment was the best investment I made in my career outside of my college experience.
 
-There are even more online learning opportunities available today than there were twenty years ago.
+There are more online learning opportunities available today than there were twenty years ago.
 
 ## Helping Others
-I tutored a 60-ish year-old woman at my church who was working on her degree in English literature. Her degree required passing an Algebra course, a topic she had not studied in over four decades, and I’m not sure she understood it then.
+I tutored a 60-ish year-old member of my church who was working on her degree in English literature. Her degree required passing an Algebra course, a topic she had not studied in over four decades, and I’m not sure she understood it then.
 
 We spent hours solving for `x`, reviewing fraction arithmetic, ratios, percentages, etc. She couldn’t abstract mathematical concepts, so each new chapter was like starting from scratch. With my time and her hard work, she passed the Algebra course and received her degree. I don’t think she ever contemplated another Algebra problem for the rest of her life.
 
