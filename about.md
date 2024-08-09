@@ -28,7 +28,9 @@ It may take me a whole to find my own style, but here are some guidelines that I
 * [jhumelsine@gmail.com](mailto:jhumelsine@gmail.com)
 * X/Twitter: **@jhumelsine**
 * [Coding Blocks Slack](https://www.codingblocks.net/slack/): **Design Pattern Evangelist (Jim)**
-* [Tabs and Spaces](https://tabsandspaces.io/) Discord: **Design Pattern Evangelist (Jim)**
+* [Legacy Code Rocks! Slack](http://slack.legacycode.rocks/): **Jim Humelsine**
+* [We Do TDD Slack](http://wedotdd.slack.com): **Design Pattern Evangelist (Jim)**
+* [Tabs and Spaces Discord](https://tabsandspaces.io/): **Design Pattern Evangelist (Jim)**
 * [Linkedin](https://www.linkedin.com/in/james-humelsine-16b0749/)
 
 # Links
