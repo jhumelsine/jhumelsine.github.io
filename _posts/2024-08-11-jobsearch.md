@@ -24,18 +24,18 @@ No one knows how long their unemployment may last. It could be days, weeks or ev
 Examine spending patterns and reduce or eliminate items that aren’t critical. Cut back on eating out, coffee shops, streaming services, etc. Every little bit helps. Make sure housing expenses, insurance, food, etc. are covered.
 
 ## Severance Package
-A lump sum severance package helps, but the amount varies based upon company policy and length of service. What seems like a nice chunk of money will soon dwindle if unemployment lingers.
+A lump sum severance package helps, but the amount varies based upon they company's policy and the employee's length of service. What seems like a nice chunk of money will soon dwindle if unemployment lingers.
 
 One might also be able to negotiate severance before separation from the company.
 
 ## Unemployment Insurance
-Unemployment insurance in the United States lasts for about six months. It varies elsewhere. I was grateful for it when I collected it, but it didn’t cover all the bills. And those six months went by fast. 
+Unemployment insurance in the United States lasts for about six months. This is not a universal benefit, and the length and amount of assistance will vary. I was grateful for it when I collected it, but it didn’t cover all the bills. And those six months went by fast. 
 
 ## Emergency Funds
 Saving for an emergency fund feels like a drag until you need it. But when you need it, you’ll be glad you have it.
 An emergency fund should cover living expenses for three to twelve months. Opinions of the amount vary.
 
-Emergency funds need to be funded before they are needed.
+Emergency funds must be funded before they are needed.
 
 __If you’re employed, and you don’t have an emergency fund, start one today!__ 
 
@@ -52,11 +52,11 @@ Your main goal is to get your next job.
 I was laid off in late 2003 in the wake of the dot-com bubble burst. The unemployment office staff was constantly reminding us that finding our next job was our full-time job. I was getting no responses to my job search inquiries. Focusing all your time on a job search in a weak job market is too depressing.
 
 Finding your next job is a part-time job. Keep the job search alive, but don’t spend your entire day doing it. Advance your job search by doing at least three things each day, such as:
-* Network with a past coworker.
-* Investigate a company that looks interesting.
-* Apply for a position.
-* Work on your resume.
-* Practice interviewing skills.
+* Network with a past coworker
+* Investigate a company that looks interesting
+* Apply for a position
+* Work on your resume
+* Practice interviewing skills
 
 ## Automate Your Job Search
 Update your LinkedIn status to __open to work__. Post your resume on other job sites. Let others know that you’re in the job market.
@@ -77,19 +77,19 @@ I had been given a gift of time, but it didn’t feel like a gift at the time. H
 The key for me wasn’t enjoying this time. The key was finding a way to make this time meaningful and giving my days purpose. Meaningful use of this time will be different for each person. For some it may be spending more time with the family, getting into shape, or it may indeed be going to the movies.
 
 For me, it fell into two broad categories:
-* Improving myself
+* Investing in myself
 * Helping others
 
 ## Improving Myself
-I learned of two potential jobs for which I wasn’t considered, because they were in Java, and I only had C++ experience at the time. I enrolled in a weekly evening Java class at our local community college to expand my prospects. It was ten years before I had a job that required Java, which I needed after my second layoff. That previous preparation paid off ten years and two companies later.
+I was not even considered for two potential jobs, because they were in Java, and I only had C++ experience at the time. I enrolled in a weekly evening Java class at our local community college to expand my prospects. It was ten years before I had a job that required Java, which I got after my second layoff. That previous preparation paid off ten years and two companies later.
 
-I had tried to learn the Design Patterns while employed, but they just weren’t clicking for me. I didn’t have the time to do a deep dive into them. Once I was laid off, I had all the time in the world. I was on a sabbatical sponsored by the New Jersey Department of Unemployment. I learned the design patterns via online resources. I described this in more detail almost a year ago in [It’s Your Move](https://jhumelsine.github.io/2023/08/24/its-your-move.html).
+I had tried to learn the Design Patterns while employed, but they just weren’t clicking for me. I didn’t have the time to do a deep dive into them. Once I was laid off, I had all the time in the world. I was on a sabbatical sponsored by the New Jersey Department of Unemployment. I learned the design patterns on my own via online resources. I described this in more detail almost a year ago in [It’s Your Move](https://jhumelsine.github.io/2023/08/24/its-your-move.html).
 
-I incorporated design patterns into my Java coding assignments to gain a better understand of both together.
+I incorporated design patterns into my Java coding assignments to gain a better understand of both.
 From ___It’s Your Move___:
 >Learning design patterns during those months of unemployment was the best investment I made in my career outside of my college experience.
 
-There are even more online learning opportunities.
+There are even more online learning opportunities available today than there were twenty years ago.
 
 ## Helping Others
 I tutored a 60-ish year-old woman at my church who was working on her degree in English literature. Her degree required passing an Algebra course, a topic she had not studied in over four decades, and I’m not sure she understood it then.
