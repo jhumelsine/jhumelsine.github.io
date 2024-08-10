@@ -74,7 +74,7 @@ Other search engines may offer similar functionality.
 # The Gift That Doesn’t Feel Like A Gift At The Time
 I had spare time when I was unemployed. My wife urged me to enjoy it. I just couldn’t enjoy it. I tried a few matinee movies, but I felt guilty.
 
-I had been given a gift of time, but it didn’t feel like a gift at the time. Had I known that my unemployment would last no more than eight months, then I would have enjoyed it. It was the indeterminate length that made me weary.
+I had been given the gift of time, but it didn’t feel like a gift at the time. Had I known that my unemployment would last no more than eight months, then I would have endured it better. It was the indeterminate length that made me weary.
 
 The key for me wasn’t enjoying this time. The key was finding a way to make this time meaningful and giving my days purpose. Meaningful use of this time will be different for each person. For some it may be spending more time with the family, getting into shape, working on a project, or it may indeed be going to the movies.
 
@@ -83,9 +83,9 @@ For me, it fell into two broad categories:
 * Helping others
 
 ## Improving Myself
-I was not considered for two potential Java jobs, because I only had C++ experience at the time. I enrolled in a weekly evening Java class at our local community college to expand my prospects. It was ten years before I had a job that required Java, which I got after my second layoff. That previous preparation paid off ten years and two companies later.
+I was not considered for two potential Java jobs, because I only had C/C++ experience at the time. I enrolled in a weekly evening Java class at our local community college to expand my prospects. It was ten years before I had a job that required Java, which I got after my second layoff. That previous preparation paid off ten years and two companies later.
 
-I had tried to learn the Design Patterns while employed, but they just weren’t clicking for me. I didn’t have the time to do a deep dive into them. Once I was laid off, I had all the time in the world. I was on a sabbatical sponsored by the New Jersey Department of Unemployment. I learned the design patterns on my own via online resources. I described this in more detail almost a year ago in [It’s Your Move](https://jhumelsine.github.io/2023/08/24/its-your-move.html).
+I had tried to learn the Design Patterns while employed, but they just weren’t clicking for me. I didn’t have the time while working to do a deep dive into them. Once I was laid off, I had all the time in the world. I was on a sabbatical sponsored by the New Jersey Department of Unemployment. I learned the design patterns on my own via online resources. I described this in more detail almost a year ago in [It’s Your Move](https://jhumelsine.github.io/2023/08/24/its-your-move.html).
 
 I incorporated design patterns into my Java coding assignments to gain a better understanding of both.
 
