@@ -1,7 +1,6 @@
 ---
-title: DRAFT – Losing Your Job Stinks
-description: How I mentally coped when seeking employment in a down job market
-unlisted: true
+title: Losing Your Job Stinks
+description: How I coped when seeking employment in a down job market
 ---
 
 # Introduction
@@ -92,7 +91,7 @@ I incorporated design patterns into my Java coding assignments to gain a better 
 From ___It’s Your Move___:
 >Learning design patterns during those months of unemployment was the best investment I made in my career outside of my college experience.
 
-There are more online learning opportunities available today than there were twenty years ago.
+There are more online learning opportunities available today than there were twenty years ago during this time for me.
 
 ## Helping Others
 I tutored a 60-ish year-old member of my church who was working on her degree in English literature. Her degree required passing an Algebra course, a topic she had not studied in over four decades. I’m not sure she even understood it then.
