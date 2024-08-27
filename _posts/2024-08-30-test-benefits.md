@@ -17,8 +17,7 @@ Many of these benefits are variations on the same theme. A failing test indicate
 
 # Tests are Codified Specifications
 
-https://www.thebluediamondgallery.com/handwriting/s/specification.html
-https://www.thebluediamondgallery.com/handwriting/images/specification.jpg
+<img src="https://www.thebluediamondgallery.com/handwriting/images/specification.jpg" alt="Specification" title="Image Source: https://www.thebluediamondgallery.com/handwriting/s/specification.html" width = "35%" align="right" style="padding-right: 20px;">
  
 I’ve mentioned this several times in previous blog posts, and I’m sure I’ll mention it again. The purpose of tests is not to confirm the implementation, but to specify behavior. Taken from [Behavior-Driven Development]( https://jhumelsine.github.io/2024/08/08/bdd.html#behavior-driven-development):
 > __BDD tests specify behavior for the [Software Under Test](https://en.wikipedia.org/wiki/System_under_test) (SUT), whose implementation is challenged and confirmed each time the tests are executed.__ The consistency between the behavior specification defined in the test and the observed behavior implemented in the code is confirmed each time the tests are executed.
@@ -51,8 +50,7 @@ Testing cannot prove that our code is correct especially for large and complex s
 
 Tests are experiments. Specification tests define behavior, but we should also consider tests that challenge behavior. We should always be thinking of ways to specify behavior via a test challenging the implementation and attempting to make it fail. When we can no longer create failing tests, then our code is probably good enough to release.
 
-https://en.wikipedia.org/wiki/File:Suvorov_by_Schteiben.jpg
-https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Suvorov_by_Schteiben.jpg/741px-Suvorov_by_Schteiben.jpg
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Suvorov_by_Schteiben.jpg/741px-Suvorov_by_Schteiben.jpg" alt="Alexander Suvorov" title="Image Source: https://en.wikipedia.org/wiki/File:Suvorov_by_Schteiben.jpg" width = "35%" align="right" style="padding-right: 20px;">
  
 ___Hard in training; easy in battle.___ — [Alexander Suvorov](https://en.wikipedia.org/wiki/Alexander_Suvorov), 18th century Russian General.
 
@@ -88,7 +86,7 @@ Let’s pivot to the __Automated Test__ version of this story. The original deve
 
 When the code is updated, and a bug violating previous behavior is unknowingly introduced, then the test that specifies that behavior will fail. Not only will the failing tests prevent the new code from being delivered, but the failing tests will document the original assumption and/or intent. The developer will hopefully have enough context to resolve the inconsistency.
 
-https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTRqcWhyMjF3bWZpd3AxbzFxdTE3Njg2bDYybWNkcDFrdThwNzduaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UeK5obZpDdYjPKnIli/giphy.gif
+<img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTRqcWhyMjF3bWZpd3AxbzFxdTE3Njg2bDYybWNkcDFrdThwNzduaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UeK5obZpDdYjPKnIli/giphy.gif" alt="Bug Stomping" title="Image Source: https://media.giphy.com" width = "25%" align="right" style="padding-right: 20px;">
 
 __Automated tests don’t find bugs now. They find and prevent future bugs.__
 
@@ -111,7 +109,7 @@ _If you're good at the debugger it means you spent a lot of time debugging. I do
 
 If practicing TDD, you’re in a tight __Red-Green-Refactor__ cycle, which should take no more than a few minutes to complete. The code should never be more than a few minutes from having been in a working state.
 
-https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdG84NDFhaGVnNHEwYmFsODJocmh2OGxiMm8ybnJ1MHRvdTIxdHBxYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NHIecaiSc7YjK/giphy.gif
+<img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdG84NDFhaGVnNHEwYmFsODJocmh2OGxiMm8ybnJ1MHRvdTIxdHBxYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NHIecaiSc7YjK/giphy.gif" alt="Robot Debugging" title="Image Source: https://media.giphy.com" width = "25%" align="right" style="padding-right: 20px;">
 
 When I find that my tests are failing, I give myself a few minutes to spot the issue. If I can’t find it easily, then I `undo` changes until I’m back into a state where all tests are working once more, and I start anew. Hopefully I don’t have to `undo` too many changes.
 
@@ -148,8 +146,7 @@ If implementation comes before the test, then the complexity of the implementati
 When practicing TDD, tests come before the implementation. When combined with BDD, those tests specify behavior in a straightforward __Given-When-Then__ structure. These straightforward tests tend to create a better more modular implementation than writing the implementation first. As I wrote in the [BDD](https://jhumelsine.github.io/2024/08/08/bdd.html) blog:
 >Developers, who practice TDD/BDD and create complex tests and implementations, are taking extraordinary efforts to make their lives more miserable.
 
-https://commons.wikimedia.org/wiki/File:Rubber_duck_at_work.jpg
-https://upload.wikimedia.org/wikipedia/commons/9/99/Rubber_duck_at_work.jpg
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Rubber_duck_at_work.jpg" alt="Rubber Ducking" title="Image Source: https://commons.wikimedia.org/wiki/File:Rubber_duck_at_work.jpg" width = "35%" align="right" style="padding-right: 20px;">
  
 I’m not sure why test first tends to produce better code. I think it’s similar to [Rubber Duck Debugging](https://en.wikipedia.org/wiki/Rubber_duck_debugging). It changes your perspective. From the Rubber Duck Debugging Wikipedia page:
 >In describing what the code is supposed to do and observing what it actually does, any incongruity between these two becomes apparent.
