@@ -65,7 +65,7 @@ Here’s the design, which highlights the main design issue. All dependency and 
 It was near the end of the day, we were tired, and we didn’t have the mental stamina to tackle this in the last hour of the day. Suril and I brainstormed a bit before calling it a day. Several ideas included:
 * Overriding the 30 second timeout to make it shorter – much shorter to possibly milliseconds. 30 seconds would be way too long for testing runtime.
 * Creating enough concurrently running `Thread`s such that some would acquire the permits while others would have to wait.
-* Injecting sleeps into the `Thread` so that the timing would be just right for some threads to acquire a permit immediately while others block-waited and then get their permits after the previous ones released them while others timed out having never received their permits. This would have to be coordinated with the overridden timeouts. Even if we got this to work, I was concerned that the tests could be flakey. That is, sometimes the tests pass, and sometimes they fail.
+* Injecting sleeps into the `Thread` so that the timing would be just right for some threads to acquire a permit immediately while others block-waited and then get their permits after the previous ones released them while others timed out having never received their permits. This would have to be coordinated with the overridden timeouts. Even if we got this to work, I was concerned that the tests could be flaky. That is, sometimes the tests pass, and sometimes they fail.
 * We had no idea how to force an `InterruptedException`.
 
 I spent the evening and a part of the night mulling over these ideas in my head.
