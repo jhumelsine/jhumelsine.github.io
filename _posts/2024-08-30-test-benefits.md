@@ -9,7 +9,7 @@ In previous [blog posts]( https://jhumelsine.github.io/2024/06/07/unit-test-conv
 
 This blog post will list some of those benefits here, and I’ll cover concerns in the next blog (TBD).
 
-__Spoiler Alert:__ Testing the code isn’t the main benefit.
+__Spoiler Alert: Testing the code isn’t the main benefit.__
 
 Here are some of the benefits I perceive with [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) and [Behavior-Driven Development](https://jhumelsine.github.io/2024/08/08/bdd.html) (BDD).
 
@@ -27,13 +27,13 @@ And in [What Is Behavior](https://jhumelsine.github.io/2024/08/20/behavior.html#
 
 Throughout most of my career, requirements were defined in natural language and stored in three-ring binders, Word Documents, PowerPoint Slides and of course our favorite, Jira.
 
-Sometimes these requirement documents extended beyond behavior requirements by dictating architecture and sometimes even defining the design.
+Sometimes these requirement documents extended the beyond behavior requirements by dictating architecture and sometimes even defining the design.
 
-Natural language is interpreted in the eyes of the reader. The reader’s interpretation may not align with the writer’s intent. As [Alan Greenspan](https://www.goodreads.com/quotes/9347-i-know-that-you-believe-you-understand-what-you-think), former Chairman of the US Federal Reserve, famously said: _I know that you believe you understand what you think I said, but I'm not sure you realize that what you heard is not what I meant._.
+Natural language is interpreted in the eyes of the reader. The reader’s interpretation may not align with the writer’s intent. As [Alan Greenspan](https://www.goodreads.com/quotes/9347-i-know-that-you-believe-you-understand-what-you-think), former Chairman of the US Federal Reserve, famously said: _I know that you believe you understand what you think I said, but I'm not sure you realize that what you heard is not what I meant._
 
-There’s no internal consistency checking in a document unless someone catches it in review. Subsequent updates to the document might not make it into the code.
+There’s no internal consistency checking in a document unless someone catches it in review. Subsequent requirement updates to the document might not make it into the code.
 
-These issues disappear with behavior specifications codified in the form of automated tests. Test defined behaviors can’t be vague or ambiguous. If test specified behaviors are inconsistent, then when executed against the implementation, at least one will fail. Additional behavior updates added as automated tests will fail until implemented, meaning they won’t be overlooked.
+These issues disappear when behavior specifications are codified in the form of automated tests. Test defined behaviors cannot be vague or ambiguous. If test specified behaviors are inconsistent, then when executed against the implementation, at least one will fail. Additional behavior updates added as automated tests will fail until implemented, meaning they won’t be overlooked.
 
 This clarity hinges upon well implemented automated tests that are clear and concise in specifying behavior. [__Given-When-Then__](https://en.wikipedia.org/wiki/Given-When-Then) structure is one means to achieve this by documenting:
 * __Given__ the state of the system before the SUT is executed
@@ -67,7 +67,7 @@ _Tests don't break your code; they break your illusions about your code._ — [L
 Make sure your code is ready for every challenge it could possibly encounter, including _this should never happen_ cases. If it's encountered every possible condition in testing and responded as expected, then it should _easily_ be able to handle what it encounters in the production.
 
 # Tests Can Document Developer Assumptions, Intentions and Expectations
-All developers make assumptions and have intentions and expectations in their code. They might be mentioned in design documents or in code comments, but design documents and code comments never stay up to date with the implementation. Assumptions, intentions and expectations may never leave the developer's head when considering the design and implementation. When the developer leaves the project or enough time has passed, that knowledge is gone. Fresh eyes may not notice the subtle invariants and make invariant violating updates with dire consequences. 
+All developers make assumptions and have intentions and expectations in their code. These invariants might be mentioned in design documents or in code comments, but design documents and code comments never stay up to date with the implementation. Assumptions, intentions and expectations may never leave the developer's head when considering the design and implementation. When the developer leaves the project or enough time has passed, that knowledge is gone. Fresh eyes may not notice the subtle invariants and introeuce a invariant violating updates with dire consequences. 
 
 Automated tests can document the developer’s assumptions, intentions and expectations. Should any developer update the code such that it violates a test specified assumption, intentions or expectations, then that test will fail. The failing test or tests may provide additional context for the developer to better understand the code that’s being modified.
 
@@ -86,7 +86,7 @@ What if the original developer has left the project, and the ticket has been ass
 
 Let’s pivot to the __Automated Test__ version of this story. The original developer created automated tests that specified behavior. The tests defined the original developer’s assumptions, intentions and expectations.
 
-When the code is updated, and a bug violating a previous invariant is unknowingly introduced, then the test that specifies that invariant will fail. Not only will the failing tests prevent the new code from being delivered, but the failing tests will document the original invariant. The developer will hopefully have enough context to resolve the inconsistency.
+When the code is updated, and a bug violating a previous invariant is unknowingly introduced, then the test that specifies that invariant will fail. Not only will the failing tests prevent the new code from being delivered, but the failing tests will document the original invariant. The developer will hopefully have enough context to resolve the inconsistency and squash that bug.
 
 <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTRqcWhyMjF3bWZpd3AxbzFxdTE3Njg2bDYybWNkcDFrdThwNzduaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UeK5obZpDdYjPKnIli/giphy.gif" alt="Bug Stomping" title="Image Source: https://media.giphy.com" width = "25%" align="right" style="padding-right: 20px;">
 
@@ -102,7 +102,7 @@ If behavior is inconsistent in testing, it will be inconsistent in production.
 
 I don’t think most flaky tests are a result of the test being flaky. I think it’s a result of the implementation being flaky. Therefore, a flaky test may be an indication of issues in the implementation.
 
-I suspect that most flaky issues are due to concurrency issues in the implementation such as non-deterministic race conditions, which are difficult to confirm in deterministic tests. When tests are flaky reexamine the implementation to understand why they are flaky and make adjustment. This may not be easy. It may take some time to figure out. It may require some redesign, possibly with the [Humble Object](https://jhumelsine.github.io/2024/07/15/tdd.html) pattern.
+I suspect that most flaky issues are due to concurrency issues in the implementation such as non-deterministic race conditions, which are difficult to resolve in deterministic tests. When tests are flaky reexamine the implementation to understand why they are flaky and make adjustment. This may not be easy. It may take some time to figure out. It may require some redesign, possibly with the [Humble Object](https://jhumelsine.github.io/2024/07/15/tdd.html) pattern.
 
 # Tests Reduce Debugging
 I don’t know how to use the debugger on my IDE.
@@ -115,7 +115,7 @@ If practicing TDD, you’re in a tight __Red-Green-Refactor__ cycle, which shoul
 
 When I find that my tests are failing, I give myself a few minutes to spot the issue. If I can’t find it easily, then I `undo` changes until I’m back into a state where all tests are working once more, and I start anew. Hopefully I don’t have to `undo` too many changes.
 
-There have been a few times when I’ve gotten lax in running the test suite while working on the code, and when I do run the tests, at least one fails. The bug isn’t so obvious after several sets of changes. It can be a bit painful to watch code disappear that I wrote 15, 30 or even 60 minutes ago as I `undo`. However, after I have gotten back to a passing state and start again, I run the test suite more frequently, and I find that progress goes much faster since it’s now the second time that I’m addressing the issue.
+There have been a few times when I’ve gotten lax in running the test suite while working on the code, and when I do run the tests, at least one fails. The bug isn’t so obvious after several sets of changes. It can be a bit painful to watch code disappear that I wrote 15, 30 or even 60 minutes ago as I `undo` recent changes. However, after I have gotten back to a passing state and start again, I run the test suite more frequently, and I find that progress goes much faster since it’s now the second time that I’m addressing the issue.
 
 I never had to `undo` changes for the same task more than once.
 
@@ -128,7 +128,7 @@ Why would we want to refactor our code? Code can almost always be made cleaner. 
 
 We often make implementation decisions before we fully understand the customer’s domain. As we get feedback from previous releases, we may learn that some of our architecture, design or implementation decisions do not align with the customer’s domain. This misalignment might introduce friction making it more difficult to add new behaviors or enhance existing ones.
 
-If we knew then what we know now, would we have proceeded with this implementation? If the answer is __No__, then we may have identified a refactoring candidate.
+If we knew then what we know now, would we have proceeded with the current implementation? If the answer is __No__, then we may have identified a refactoring candidate.
 
 While I like time to ___think___ about my design, I’ve found that once I’m in the refactoring phase, I don’t need to ___think___ nearly as much. When I used to make code updates before I understood how to leverage automated tests, I’d fret over my updates. I consider mini-proofs in my head. I’d always be concerned that I had missed something. Had I introduced a hidden bug lurking in the code?
 
@@ -157,11 +157,13 @@ That sounds sort of familiar to our testing practices too.
 
 If automated tests are complex, messy or nasty, it’s probably an indication of an implementation that’s complex, messy or nasty. Ugly tests will identify implementation candidates for refactoring or redesign.
 
+# Tests Produce Less Dead Code
+
 TDD/BDD produces less dead code. Code should only be written only if it’s needed to make failing tests pass. Refactored code may cause some previously alive code to become dead code. It can be removed.
 
 Dead code would remain only when the tests that cover it are not realistic scenarios. Should unrealistic tests be identified, then they can be deactivated. Coverage would identify any newly revealed dead code, which can be removed as well as the deactivated tests.
 
-While I’m not a fan of minimum code coverage quality gates, developers should strive toward 100% code coverage for their own satisfaction. Code that’s not covered is code that has no automated confirmation. It may work now, but should it be changed, there’s no guarantee that a bug might slip through.
+While I’m not a fan of minimum code coverage quality gates, developers should strive toward 100% code coverage for their own asperations. Code that’s not covered is code that has no automated confirmation. It may work now, but should it be changed, there’s no guarantee that a bug might slip through.
 
 Code created via TDD/BDD will tend to have high code coverage by default via the process. There will be exceptions. For example, [Humble Object](https://jhumelsine.github.io/2024/07/15/tdd.html) code doesn’t tend to have coverage, since that code has been quarantined due to its testing difficulties.
 
@@ -175,7 +177,7 @@ The test becomes the first user of the public API. The developer creating the te
 # Tests Provide Working Reference Model Documentation
 Sometimes developers don’t have control over the public APIs that they implement. The public methods may have already been defined by the architects or team leads. Or the SUT’s public API may be a pluggable class that’s part of an already defined [Composable](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html) design that’s using [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html), [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html), [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html), etc.
 
-Regardless of the developer’s flexibility in shaping the public API declaration, the tests still serve as reference model documentation to the user demonstrating how to access those public APIs. This is why I like to keep the Given, When and Then portions of my tests as separate within the test. The tests serve as a reference model documenting how the SUT is accessed through its public API methods. If written with the intent of being documentation, then tests can also provide additional context for the public API methods.
+Regardless of the developer’s flexibility in shaping the public API declaration, the tests still serve as reference model documentation to the user demonstrating how to access those public APIs. This is why I like to keep the Given, When and Then portions of my tests as separate sections within the test. The tests serve as a reference model documenting how the SUT is accessed through its public API methods. If written with the intent of being documentation, then tests can also provide additional context for the public API methods.
 
 Unlike more traditional documentation, which sometimes does not work, tests as documentation are guaranteed to work.
 
@@ -191,11 +193,11 @@ But what about legacy code? There’s a good chance that legacy code:
 
 Most developers shutter when plunged into legacy code for the reasons listed above. I will address legacy code soon (future blog TBD). While we can’t practice TDD as defined with legacy code that’s missing tests, we can use automated tests to explore, discover and document the behavior that lies within the legacy code.
 
-Post-implementation automated tests are characterization tests (TBD). They define and lock down current behavior in legacy code without too much concern as to whether the current behavior is correct or not. It's probably correct, else we'd hear about it from users.
+Automated tests created after the code has been implemented are characterization tests (TBD). They define and lock down current behavior in legacy code without too much concern as to whether the current behavior is correct or not. It's probably correct, else we'd hear about it from users.
 
-Characterization tests written after the code has been implemented still follow the __Give-When-Then__ structure. We assume the legacy code works for non-error reporting scenarios in the legacy code. We start with the __Given-When__ portion of the tests that access the legacy SUT. Then we observe and codify what the legacy code does via the test. For example, if the SUT’s method returns a `boolean` then we assert in the __Then__ portion of the test whether `true` or `false` is returned.
+Characterization tests still follow the __Give-When-Then__ structure. We assume the legacy code works for non-error reporting scenarios in the legacy code. We start with the __Given-When__ portion of the tests that access the legacy SUT. Then we observe and codify what the legacy code does via the test. For example, if the SUT’s method returns a `boolean` then we assert in the __Then__ portion of the test based upon which `boolean` value is actually returned.
 
-Characterization tests tend to depend more upon the implementation than behavior specification tests, since we may not know behavior when we’re writing them. They tend to be more brittle than the behavior specifying characterization tests. However, characterization test coverage provides a safety net providing us confidence to refactor the legacy code. Hopefully the embedded true nature of the code will begin to emerge through refactoring. As more behavior emerges, we can continue to refactor and redesign the legacy code so that it’s more aligned with its behaviors as specified in new or updated tests that will be created during the refactor and redesign phase.
+Characterization tests tend to depend more upon the implementation than behavior specification tests, since we may not know behavior when we’re writing them. They tend to be more brittle than the behavior specifying characterization tests. However, characterization test coverage provides a safety net providing us confidence to refactor the legacy code. Hopefully the embedded true nature of the code will begin to emerge through refactoring. As more behavior emerges, we can continue to refactor and redesign the legacy code so that it’s more aligned with its behaviors as specified in new or updated tests that will be created during the refactor and redesign phase as well.
 
 # Tests Provide Working Reference Model Documentation for External Dependencies
 APIs for external dependencies can be confusing. The contract behavior of the external dependency may not be obvious in the documentation. There might not even be any documentation.
@@ -203,6 +205,8 @@ APIs for external dependencies can be confusing. The contract behavior of the ex
 Just as we can explore and document legacy code with tests, we can do the same with external dependency APIs in a variation of Consumer-Driven Contract (CDC) Testing (future blog TBD).
 
 Tests that interact with external dependency APIs not only confirm and document their behavior, but they also serve as a developer reference model. And should the external dependency behavior change, then these tests will fail, and we may be able to adjust before the customer starts to notice the changes.
+
+Failing CDC Tests will also save us time from going down the rabbit hole in our own code when investigating a customer support ticket. Once we know that the undesired behavior is due to a change by the external dependency then we can decide whether to update our own code to adjust for that change, file a ticket with the external dependency vendor or both.
 
 Since these tests interact with external dependencies, they may require more configuration. They may take longer to run. They may cost resources to execute. Therefore, these tests should probably not be executed as part of unit testing. We may not even want to execute them in the CI/CD pipelines. But we may want to execute them nightly or weekly to confirm that our expectations of external dependency behavior, as specified in our tests, is still observed with the external dependencies.
 
@@ -213,3 +217,4 @@ Almost all these benefits are a result of test and implementation consistency. I
 * Previous [blog references](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html#references)
 * [Does TDD really lead to good design?](https://www.codurance.com/publications/2015/05/12/does-tdd-lead-to-good-design) Blog by Sandro Mancuso
 * [Testing Yourself – Growing Through Refactoring](https://www.linkedin.com/pulse/testing-yourself-growing-refactoring-michael-feathers/) Linkedin article by Michael Feathers
+* [Do you-ou-ou a-wanna test like  me-e-e?](https://tabsandspaces.libsyn.com/2022/02) Tabs and Spaces Podcast with me as the featured artist with the three regular hosts discussing some of the topics I've listed here.
