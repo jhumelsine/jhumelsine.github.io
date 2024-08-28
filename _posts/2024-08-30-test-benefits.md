@@ -35,7 +35,7 @@ There’s no internal consistency checking in a document unless someone catches 
 
 These issues disappear when behavior specifications are codified in the form of automated tests. Test defined behaviors cannot be vague or ambiguous. If test specified behaviors are inconsistent, then when executed against the implementation, at least one will fail. Additional behavior updates added as automated tests will fail until implemented, meaning they won’t be overlooked.
 
-This clarity hinges upon well implemented automated tests that are clear and concise in specifying behavior. [__Given-When-Then__](https://en.wikipedia.org/wiki/Given-When-Then) structure is one means to achieve this by documenting:
+This clarity hinges upon well implemented automated tests that are clear and concise in specifying behavior. [__Given-When-Then__](https://en.wikipedia.org/wiki/Given-When-Then) structure is one means to achieve this by documenting that:
 * __Given__ the state of the system before the SUT is executed
 * __When__ the SUT is executed
 * __Then__ this is the state of the system after the SUT has been executed
@@ -56,7 +56,7 @@ Specification tests define behavior, but we should also consider tests that chal
  
 ___Hard in training; easy in battle.___ — [Alexander Suvorov](https://en.wikipedia.org/wiki/Alexander_Suvorov), 18th century Russian General.
 
-Live rounds are often fired over recruits training at boot camp, but this training and hardening applies beyond the military. Football coaches will play loud music and spray water in a place kicker's face as he's practicing for a game winning field goal. Pilots encounter every possible failure in the flight simulator before taking to the skies. Astronauts train for every imaginable scenario before a space mission.
+Live rounds are often fired over recruits training at boot camp, but this training and hardening applies beyond the military. Football coaches will play loud music and spray water in a placekicker's face as he's practicing for a game winning field goal. Pilots encounter every possible failure in the flight simulator before taking to the skies. Astronauts train for every imaginable scenario before a space mission.
 
 Testing is our training. We want to stress our implementations in as many hard and difficult situations as we can. [Test doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) help accomplish this by becoming the training adversaries. Test doubles can easily throw exceptions, return quirky results, return no results, refuse to work, etc.
 
@@ -141,7 +141,7 @@ I consider this redesign rather than refactoring, or at least it is refactoring 
 Unit tests tend to specify and confirm behavior scoped at classes. Since classes are being redesigned, their previous automated tests may need to be redesigned as well. Some tests will remain as is. Some tests may need to be modified. Some tests may need to move to another class if the behavior moves to that class as well.
 
 # Tests Lead Toward Better More Modular Designs
-The complexities of unit tests and implementations tend to correlate. The complexity of the first one defined will cause the complexity of the second one defined.
+The complexities of unit tests and implementations tend to correlate. The complexity of the first one implemented will cause the complexity of the second one implemented.
 
 If implementation comes before the test, then the complexity of the implementation tends to show up in the test. If the test comes before the test, then the complexity of the test tends to show up in the implementation.
 
