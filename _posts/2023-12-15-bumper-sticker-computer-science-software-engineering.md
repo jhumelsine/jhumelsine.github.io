@@ -158,7 +158,7 @@ _Architecture is a hypothesis, that needs to be proven by implementation and mea
 
 _The tragedy is that the architects, by making a premature decision, multiplied the development effort enormously._ ― Robert C. Martin
 
-_At a certian level of abstraction, all complex systems are message passing systems. ... Genes are one mechanism that life uses to pass information across time; memes are one mechanism that societies use to pass information across time._ — Grady BoochThomp
+_At a certian level of abstraction, all complex systems are message passing systems. ... Genes are one mechanism that life uses to pass information across time; memes are one mechanism that societies use to pass information across time._ — Grady Booch
 
 # Abstraction
 
@@ -232,7 +232,7 @@ _Always implement things when you actually need them, never when you just forese
 
 _TDD applies a pressure to create code that is objectively “higher quality.” This is irrespective of the talent or experience of the software developer. It doesn’t make bad software developers great, but it does make “bad software developers” better and “great software developers” greater._ ― David Farley
 
-_Legacy code isn't the problem. It's all the technical debt in the legacy code that's the problem._ ― Jim Humelsine
+_Legacy code isn't the problem. It's all the cruft and technical debt in the legacy code that's the problem._ ― Jim Humelsine
 
 # Readable/Comprehensible Code
 
@@ -251,8 +251,6 @@ _A procedure should fit on a page._ — David Tribble
 _Clean code always looks like it was written by someone who cares._ — Michael Feathers
 
 _Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live._ — Martin Golding
-
-_Any fool can write code that a computer can understand. Good programmers write code that humans can understand._ — Martin Fowler
 
 _Writing software as if we are the only person that ever has to comprehend it is one of the biggest mistakes and false assumptions that can be made._ — Karolina Szczur
 
@@ -320,6 +318,8 @@ _Test-driven development is double-entry bookkeeping._ — Bob Martin
 
 _The art of debugging is figuring out what you really told your program to do rather than what you thought you told it to do._ — Andrew Singer
 
+_Tests don’t break your code; they break your illusions about your code._ — Llewellyn Falco.
+
 _Beware of bugs in the above code; I have only proved it correct, not tried it._ — Donald Knuth
 
 _Testing leads to failure, and failure leads to understanding._ — Burt Rutan
@@ -344,7 +344,7 @@ _Premature optimization is the root of all evil._ ― Donald Knuth
 
 _The best performance improvement is the transition from the nonworking state to the working state._ — John Ousterhout
 
-_The fastest algorithm can frequently be replaced by one that is almost as fast and much easier to understand._ — Douglas W. Iones 
+_The fastest algorithm can frequently be replaced by one that is almost as fast and much easier to understand._ — Douglas W. Jones 
 
 _Fancy algorithms are slow when n is small, and n is usually small._ — Rob Pike
 
