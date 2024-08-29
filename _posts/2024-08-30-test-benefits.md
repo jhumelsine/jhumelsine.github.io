@@ -60,7 +60,7 @@ Live rounds are often fired over recruits training at boot camp, but this traini
 
 Testing is our training. We want to stress our implementations in as many hard and difficult situations as we can. [Test doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) help accomplish this by becoming the training adversaries. Test doubles can easily throw exceptions, return quirky results, return no results, refuse to work, etc.
 
-Be sadistic. Adverse testing is a safe environment to _train_ and _harden_ your code. We want to ensure what our code really does, not what we think it does.
+Be sadistic. Adverse testing in a test environment is a safe way to _train_ and _harden_ your code. We want to ensure what our code really does, not what we think it does.
 
 _Tests don't break your code; they break your illusions about your code._ — [Llewellyn Falco](https://x.com/llewellynfalco/status/540084786128498688).
 
