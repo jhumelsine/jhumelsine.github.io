@@ -33,7 +33,7 @@ Natural language is interpreted in the eyes of the reader. The reader’s interp
 
 There’s no internal consistency checking in a document unless someone catches it in review. Subsequent requirement updates to the document might not make it into the code.
 
-These issues disappear when behavior specifications are codified in the form of automated tests. Test defined behaviors cannot be vague or ambiguous. If test specify conflicting behavior among themselves, then when executed against the implementation, at least one will fail. Additional behavior updates added as automated tests will fail until implemented, meaning they won’t be overlooked.
+These issues disappear when behavior specifications are codified in the form of automated tests. Test defined behaviors cannot be vague or ambiguous. If tests specify conflicting behavior among themselves, then when executed against the implementation, at least one will fail. Additional behavior updates added as automated tests will fail until implemented, meaning they won’t be overlooked.
 
 This clarity hinges upon well implemented automated tests that are clear and concise in specifying behavior. [__Given-When-Then__](https://en.wikipedia.org/wiki/Given-When-Then) structure is one means to achieve this by documenting that:
 * __Given__ the state of the system before the SUT is executed
@@ -165,7 +165,7 @@ TDD/BDD produces less dead code. Code should only be written only if it’s need
 
 Dead code would remain only when the tests that cover it are not realistic scenarios. Should unrealistic tests be identified, then they can be deactivated. Coverage would identify any newly revealed dead code, which can be removed as well as the deactivated tests.
 
-While I’m not a fan of minimum code coverage quality gates, developers should strive toward 100% code coverage for their own asperations. Code that’s not covered is code that has no automated confirmation. It may work now, but should it be changed, there’s no guarantee that a bug might slip through.
+While I’m not a fan of minimum code coverage quality gates, developers should strive toward 100% code coverage for their own aspirations. Code that’s not covered is code that has no automated confirmation. It may work now, but should it be changed, there’s no guarantee that a bug might slip through.
 
 Code created via TDD/BDD will tend to have high code coverage by default via the process. There will be exceptions. For example, [Humble Object](https://jhumelsine.github.io/2024/07/15/tdd.html) code doesn’t tend to have coverage, since that code has been quarantined due to its testing difficulties.
 
