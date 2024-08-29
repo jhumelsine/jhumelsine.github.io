@@ -27,13 +27,13 @@ And in [What Is Behavior](https://jhumelsine.github.io/2024/08/20/behavior.html#
 
 Throughout most of my career, requirements were defined in natural language and stored in three-ring binders, Word Documents, PowerPoint Slides and of course our favorite, Jira.
 
-Sometimes these requirement documents extended the beyond behavior requirements by dictating architecture and sometimes even defining the design.
+Sometimes these requirement documents extended beyond the behavior requirements by dictating architecture and sometimes even defining the design.
 
 Natural language is interpreted in the eyes of the reader. The reader’s interpretation may not align with the writer’s intent. As [Alan Greenspan](https://www.goodreads.com/quotes/9347-i-know-that-you-believe-you-understand-what-you-think), former Chairman of the US Federal Reserve, famously said: _I know that you believe you understand what you think I said, but I'm not sure you realize that what you heard is not what I meant._
 
 There’s no internal consistency checking in a document unless someone catches it in review. Subsequent requirement updates to the document might not make it into the code.
 
-These issues disappear when behavior specifications are codified in the form of automated tests. Test defined behaviors cannot be vague or ambiguous. If test specified behaviors are inconsistent, then when executed against the implementation, at least one will fail. Additional behavior updates added as automated tests will fail until implemented, meaning they won’t be overlooked.
+These issues disappear when behavior specifications are codified in the form of automated tests. Test defined behaviors cannot be vague or ambiguous. If test specify conflicting behavior among themselves, then when executed against the implementation, at least one will fail. Additional behavior updates added as automated tests will fail until implemented, meaning they won’t be overlooked.
 
 This clarity hinges upon well implemented automated tests that are clear and concise in specifying behavior. [__Given-When-Then__](https://en.wikipedia.org/wiki/Given-When-Then) structure is one means to achieve this by documenting that:
 * __Given__ the state of the system before the SUT is executed
@@ -50,7 +50,7 @@ But most importantly, the developer will almost immediately know when there’s 
 # Tests are Experiments
 Testing cannot prove that our code is correct especially for large and complex software projects. We can use the [Scientific Method](https://jhumelsine.github.io/2024/08/08/bdd.html#scientific-method) to gain confidence in our code to determine when it is good enough.
 
-Specification tests define behavior, but we should also consider tests that challenge behavior. Tests are experiments. We should always be thinking of ways to specify behavior via a test challenging the implementation and attempting to make it fail. When we can no longer create failing tests, then our code is probably good enough to release.
+Specification tests define behavior, but we should also consider tests that challenge behavior. Tests are experiments. We should always be thinking of ways to specify behavior in a test that challenges the implementation and attempts to make it fail. When we can no longer create failing tests, then our code is probably good enough to release.
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Suvorov_by_Schteiben.jpg/741px-Suvorov_by_Schteiben.jpg" alt="Alexander Suvorov" title="Image Source: https://en.wikipedia.org/wiki/File:Suvorov_by_Schteiben.jpg" width = "35%" align="right" style="padding-right: 20px;">
  
@@ -64,10 +64,10 @@ Be sadistic. Adverse testing is a safe environment to _train_ and _harden_ your 
 
 _Tests don't break your code; they break your illusions about your code._ — [Llewellyn Falco](https://x.com/llewellynfalco/status/540084786128498688).
 
-Make sure your code is ready for every challenge it could possibly encounter, including _this should never happen_ cases. If it's encountered every possible condition in testing and responded as expected, then it should _easily_ be able to handle what it encounters in the production.
+Make sure your code is ready for every challenge it could possibly encounter, including _this should never happen_ cases. If the code has encountered every possible condition in testing and responded as expected, then it should _easily_ be able to handle what it encounters in the production.
 
 # Tests Can Document Developer Assumptions, Intentions and Expectations
-All developers make assumptions and have intentions and expectations in their code. These invariants might be mentioned in design documents or in code comments, but design documents and code comments never stay up to date with the implementation. Assumptions, intentions and expectations may never leave the developer's head when considering the design and implementation. When the developer leaves the project or enough time has passed, that knowledge is gone. Fresh eyes may not notice the subtle invariants and introeuce a invariant violating updates with dire consequences. 
+All developers make assumptions and have intentions and expectations in their code. These invariants might be mentioned in design documents or in code comments, but design documents and code comments never stay up to date with the implementation. Assumptions, intentions and expectations may never leave the developer's head when considering the design and implementation. When the developer leaves the project or enough time has passed, that knowledge is gone. Fresh eyes may not notice the subtle invariants and introduce a invariant violating feature updates with dire consequences. 
 
 Automated tests can document the developer’s assumptions, intentions and expectations. Should any developer update the code such that it violates a test specified assumption, intentions or expectations, then that test will fail. The failing test or tests may provide additional context for the developer to better understand the code that’s being modified.
 
@@ -76,7 +76,7 @@ The developer may need to take a new approach to accommodate the original assump
 Tests declared invariants never stray out of date with the implementation as design document or code comment invariants can.
 
 # Tests Help Find and Prevent Future Bugs
-Most new code doesn’t tend to have too many bugs in it regardless of whether automated tests have been provided or not. Developers are thinking through the scenarios and edge cases as they implement their code. They make sure those scenarios are handled appropriately. Developer assumptions, intentions and expectations are fresh in their minds. Developers who don’t create automated tests at the time are usually running informal and probably manual tests to confirm the new behavior they expect to see.
+Most new code doesn’t tend to have too many bugs in it regardless of whether automated tests have been provided or not. Developers are thinking through the scenarios and edge cases as they implement their code. They make sure those scenarios are handled appropriately. Developer assumptions, intentions and expectations are fresh in their minds. Developers who don’t create automated tests at the time are usually running informal and manual tests to confirm the new behavior they expect to see.
 
 Let’s continue with the __No Automated Test__ scenario. Days, weeks or even months go by without an incident. And then there’s a ticket. Maybe it’s a missing edge case that wasn’t originally considered. Maybe new functionality needs to be added. Someone must modify the code.
 
@@ -115,7 +115,7 @@ If practicing TDD, you’re in a tight __Red-Green-Refactor__ cycle, which shoul
 
 When I find that my tests are failing, I give myself a few minutes to spot the issue. If I can’t find it easily, then I `undo` changes until I’m back into a state where all tests are working once more, and I start anew. Hopefully I don’t have to `undo` too many changes.
 
-There have been a few times when I’ve gotten lax in running the test suite while working on the code, and when I do run the tests, at least one fails. The bug isn’t so obvious after several sets of changes. It can be a bit painful to watch code disappear that I wrote 15, 30 or even 60 minutes ago as I `undo` recent changes. However, after I have gotten back to a passing state and start again, I run the test suite more frequently, and I find that progress goes much faster since it’s now the second time that I’m addressing the issue.
+There have been a few times when I’ve gotten lax in running the test suite while working on the code, and when I do run the tests, at least one fails. The bug isn’t so obvious after several sets of changes. It can be a bit painful to watch code disappear that I wrote 15, 30 or even 60 minutes ago as I `undo` the recent changes. However, after I have gotten back to a passing state and start again, I run the test suite more frequently, and I find that progress goes much faster since it’s now the second time that I’m addressing the issue.
 
 I never had to `undo` changes for the same task more than once.
 
@@ -130,10 +130,6 @@ We often make implementation decisions before we fully understand the customer�
 
 If we knew then what we know now, would we have proceeded with the current implementation? If the answer is __No__, then we may have identified a refactoring candidate.
 
-While I like time to ___think___ about my design, I’ve found that once I’m in the refactoring phase, I don’t need to ___think___ nearly as much. When I used to make code updates before I understood how to leverage automated tests, I’d fret over my updates. I consider mini-proofs in my head. I’d always be concerned that I had missed something. Had I introduced a hidden bug lurking in the code?
-
-With automated tests I don’t worry about that nearly as much. I don’t need to overly think about a refactoring choice. I don’t run through every scenario in my head. The automated tests already cover them. If the tests pass after a refactoring step, then I move forward. If they fail, then I give myself a few minutes to spot the bug. If I can’t find it in a few minutes, I _undo_ my changes until the tests pass once more and start anew.
-
 Sometimes the changes are more than just localized refactoring. We gain new insights about the customer’s domain, such as emerging  abstractions we had not realized previously. Enhancements at this scale affect class design. Classes may be split. Classes may be merged. New classes may be created. Some existing classes may be removed.
 
 I consider this redesign rather than refactoring, or at least it is refactoring at a larger scale.
@@ -141,7 +137,7 @@ I consider this redesign rather than refactoring, or at least it is refactoring 
 Unit tests tend to specify and confirm behavior scoped at classes. Since classes are being redesigned, their previous automated tests may need to be redesigned as well. Some tests will remain as is. Some tests may need to be modified. Some tests may need to move to another class if the behavior moves to that class as well.
 
 # Tests Lead Toward Better More Modular Designs
-The complexities of unit tests and implementations tend to correlate. The complexity of the first one implemented will cause the complexity of the second one implemented.
+The complexities of unit tests and implementations tend to correlate. The complexity of the first one implemented will influence the complexity of the second one implemented.
 
 If implementation comes before the test, then the complexity of the implementation tends to show up in the test. If the test comes before the test, then the complexity of the test tends to show up in the implementation.
 
@@ -156,6 +152,12 @@ I’m not sure why test first tends to produce better code. I think it’s simil
 That sounds sort of familiar to our testing practices too.
 
 If automated tests are complex, messy or nasty, it’s probably an indication of an implementation that’s complex, messy or nasty. Ugly tests will identify implementation candidates for refactoring or redesign.
+
+# Tests Allow Me To Code Faster
+
+While I like time to ___think___ about my design, I’ve found that once I’m in the refactoring phase, I don’t need to ___think___ nearly as much. When I used to make code updates before I understood how to leverage automated tests, I’d fret over my updates. I consider mini-proofs in my head. I’d always be concerned that I had missed something. Had I introduced a hidden bug lurking in the code?
+
+With automated tests I don’t worry about that nearly as much. I don’t need to overly think about a refactoring choice. I don’t run through every scenario in my head. The automated tests already cover them. If the tests pass after a refactoring step, then I move forward. If they fail, then I give myself a few minutes to spot the bug. If I can’t find it in a few minutes, I _undo_ my changes until the tests pass once more and start anew.
 
 # Tests Produce Less Dead Code
 
@@ -188,7 +190,7 @@ But what about legacy code? There’s a good chance that legacy code:
 * Has been around for a long time.
 * Has few or no automated tests.
 * Was designed and written by someone who is long gone.
-* Is full of cruft and technical debt obscuring its behaviors.
+* Is full of cruft and technical debt obscuring its behaviors and invariants.
 * Is critical for the business and responsible for our paychecks.
 
 Most developers shutter when plunged into legacy code for the reasons listed above. I will address legacy code soon (future blog TBD). While we can’t practice TDD as defined with legacy code that’s missing tests, we can use automated tests to explore, discover and document the behavior that lies within the legacy code.
