@@ -61,7 +61,7 @@ Testing is our training. We want to stress our implementations in as many hard a
 
 Be sadistic. Adverse testing in a test environment is a safe way to _train_ and _harden_ your code. We want to ensure what our code really does, not what we think it does.
 
-_Tests don't break your code; they break your illusions about your code._ — [Llewellyn Falco](https://x.com/llewellynfalco/status/540084786128498688).
+_Tests don't break your code; they break your illusions about the quality of that code._ — [Maaret Pyhäjärvi](https://www.pinterest.com/pin/597149231821381509/).
 
 Make sure your code is ready for every challenge it could possibly encounter, including _this should never happen_ cases. If the code has encountered every possible condition in testing and responded as expected, then it should _easily_ be able to handle what it encounters in the production.
 
