@@ -17,6 +17,18 @@ This blog will serve two purposes:
 * Tell a bit of my story from unit test denier to convert.
 * Be a springboard for future unit test related blogs.
 
+# Grand Topic
+Automated testing is grand topic. Whole books have been devoted to it. I can't fit it all into one blog. I have more to say about testing. I will follow up with a series of blogs about different aspects of automated testing. I’ll provide a link for each on this page when completed:
+* [Attributes of Effective Unit Tests](https://jhumelsine.github.io/2024/06/14/unit-test-attributes.html) - Unit Test properties that make them more useful than not
+* [Basic Elements of Automated Unit Tests](https://jhumelsine.github.io/2024/06/23/unit-test-elements.html) - Elevating automated tests to first-class citizen status
+* [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) - Emulate dependencies without depending upon dependencies
+* [Suril, the Semaphore and Me](https://jhumelsine.github.io/2024/07/08/suril-semaphore.html) - When the theory became practice for me.
+* [Test-Driven Development - Writing Tests Before the Implementation](https://jhumelsine.github.io/2024/07/15/tdd.html) - I know it sounds completely backwards, but please give it some consideration.
+* [Yuri, the Programming Assignment and Me](https://jhumelsine.github.io/2024/07/22/yuri-evaluator.html) - My evening introducing [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) to a young Computer Science student.
+* [Be On Your Best Behavior](https://jhumelsine.github.io/2024/08/08/bdd.html) - Test-Driven Development - How to create tests; Behavior-Driven Development - What tests to create
+* [What is Behavior in Behavior-Driven Development](https://jhumelsine.github.io/2024/08/20/behavior.html) - More details about the nature of behavior.
+* [Testing Benefits](https://jhumelsine.github.io/2024/08/30/test-benefits.html) - Spoiler Alert – It’s not really about testing the code
+
 # Formal Proofs
 Unit testing was not presented in my academic career. I suspect this was because modern unit testing practices were still a decade or two in the future, and the technology didn’t support it.
 
@@ -110,16 +122,6 @@ I was sold.
 
 # Summary
 I saw the light. I, a _Unit Test Denier_, became a _Unit Test Evangelist_. I created a __Unit  Test Introduction__ course at work and presented it well over a dozen times.
-
-I have more to say about testing, but I don’t have room to continue in this blog post. I will follow up with a series of blogs about different aspects of unit testing. I’ll provide a link for each on this page when completed:
-* [Attributes of Effective Unit Tests](https://jhumelsine.github.io/2024/06/14/unit-test-attributes.html) - Unit Test properties that make them more useful than not
-* [Basic Elements of Automated Unit Tests](https://jhumelsine.github.io/2024/06/23/unit-test-elements.html) - Elevating automated tests to first-class citizen status
-* [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) - Emulate dependencies without depending upon dependencies
-* [Suril, the Semaphore and Me](https://jhumelsine.github.io/2024/07/08/suril-semaphore.html) - When the theory became practice for me.
-* [Test-Driven Development - Writing Tests Before the Implementation](https://jhumelsine.github.io/2024/07/15/tdd.html) - I know it sounds completely backwards, but please give it some consideration.
-* [Yuri, the Programming Assignment and Me](https://jhumelsine.github.io/2024/07/22/yuri-evaluator.html) - My evening introducing [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) to a young Computer Science student.
-* [Be On Your Best Behavior](https://jhumelsine.github.io/2024/08/08/bdd.html) - Test-Driven Development - How to create tests; Behavior-Driven Development - What tests to create
-* [What is Behavior in Behavior-Driven Development](https://jhumelsine.github.io/2024/08/20/behavior.html) - More details about the nature of behavior.
  
 # References
 ___Working Effectively with Legacy Code___ by Michael Feathers:
