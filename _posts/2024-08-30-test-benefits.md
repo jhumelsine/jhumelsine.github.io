@@ -11,7 +11,7 @@ This blog post will list some of those benefits here, and I’ll cover concerns 
 
 __Spoiler Alert: Testing the code isn’t the main benefit.__
 
-Here are some of the benefits I perceive with [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) and [Behavior-Driven Development](https://jhumelsine.github.io/2024/08/08/bdd.html) (BDD).
+Here are some of the benefits I perceive with [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) and [Behavior-Driven Development](https://jhumelsine.github.io/2024/08/08/bdd.html) (BDD). These are not all exclusively my original ideas. I learned many of these from Bob Martin's TDD videos, which are [referenced](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html#references) in my initial testing blog.
 
 Many of these benefits are variations on the same theme: __A failing test indicates an inconsistency between the behavior specification test and the implementation.__ The variations listed below are the different contexts in which this can happen.
 
@@ -29,9 +29,9 @@ Throughout most of my career, requirements were defined in natural language and 
 
 Sometimes these requirement documents extended beyond the behavior requirements by dictating architecture and sometimes even defining the design.
 
-Natural language is interpreted in the eyes of the reader. The reader’s interpretation may not align with the writer’s intent. As [Alan Greenspan](https://www.goodreads.com/quotes/9347-i-know-that-you-believe-you-understand-what-you-think), former Chairman of the US Federal Reserve, famously said: _I know that you believe you understand what you think I said, but I'm not sure you realize that what you heard is not what I meant._
+Natural language is interpreted in the mind of the reader. The reader’s interpretation may not align with the writer’s intent. As [Alan Greenspan](https://www.goodreads.com/quotes/9347-i-know-that-you-believe-you-understand-what-you-think), former Chairman of the US Federal Reserve, famously said: _I know that you believe you understand what you think I said, but I'm not sure you realize that what you heard is not what I meant._
 
-There’s no internal consistency checking in a document unless someone catches it in review. Subsequent requirement updates to the document might not make it into the code.
+There’s no internal consistency checking in a natural language document unless someone catches it in review. Subsequent requirement updates to the document might not make it into the code.
 
 These issues disappear when behavior specifications are codified in the form of automated tests. Test defined behaviors cannot be vague or ambiguous. If tests specify conflicting behavior among themselves, then when executed against the implementation, at least one will fail. Additional behavior updates added as automated tests will fail until implemented, meaning they won’t be overlooked.
 
@@ -56,7 +56,7 @@ Specification tests define behavior, but we should also consider tests that chal
  
 ___Hard in training; easy in battle.___ — [Alexander Suvorov](https://en.wikipedia.org/wiki/Alexander_Suvorov), 18th century Russian General.
 
-Live rounds are often fired over recruits training at boot camp, but this training and hardening applies beyond the military. Football coaches will play loud music and spray water in a placekicker's face as he's practicing for a game winning field goal. Pilots encounter every possible failure in the flight simulator before taking to the skies. Astronauts train for every imaginable scenario before a space mission.
+Live rounds are often fired over recruits training at boot camp, but this training and hardening applies beyond the military. Football coaches will play deafening music and spray water in a placekicker's face as he's practicing for a game winning field goal. Pilots encounter failure conditions in the flight simulator before taking to the skies. Astronauts train for every imaginable scenario before launching into space.
 
 Testing is our training. We want to stress our implementations in as many hard and difficult situations as we can. [Test doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) help accomplish this by becoming the training adversaries. Test doubles can easily throw exceptions, return quirky results, return no results, refuse to work, etc.
 
@@ -82,7 +82,7 @@ Let’s continue with the __No Automated Test__ scenario. Days, weeks or even mo
 
 If we’re lucky, the original developer is still on the project. How much do they recall? Do they remember their original assumptions, intentions and expectations? Probably most, but maybe not all. Do they remember their informal tests? Probably some, but maybe not all.
 
-What if the original developer has left the project, and the ticket has been assigned to a new developer? Those fresh eyes may not notice the original developer’s intent from the implementation alone. The new developer modifies the code for the item in the ticket but unknowingly also introduces a bug that violates one of the original developer’s undocumented invariants. If we’re lucky, spot testing will catch it, but there’s also a good chance that the bug will slip through, be delivered and released to the user.
+What if the original developer has left the project, and the ticket has been assigned to a new developer? Those fresh eyes may not notice the original developer’s intent from the implementation alone. The new developer modifies the code for the issue in the ticket but unknowingly also introduces a bug that violates one of the original developer’s undocumented invariants. If we’re lucky, spot testing will catch it, but there’s also a good chance that the bug will slip through, be delivered and released to the user.
 
 Let’s pivot to the __Automated Test__ version of this story. The original developer created automated tests that specified behavior. The tests defined the original developer’s assumptions, intentions and expectations.
 
@@ -155,7 +155,7 @@ If automated tests are complex, messy or nasty, it’s probably an indication of
 
 # Tests Allow Me To Code Faster
 
-While I like time to ___think___ about my design, I’ve found that once I’m in the refactoring phase, I don’t need to ___think___ nearly as much. When I used to make code updates before I understood how to leverage automated tests, I’d fret over my updates. I consider mini-proofs in my head. I’d always be concerned that I had missed something. Had I introduced a hidden bug lurking in the code?
+While I like time to ___think___ about my design, I’ve found that once I’m in the refactoring phase, I don’t need to ___think___ nearly as much. When I used to make code updates before I understood how to leverage automated tests, I’d fret over my updates. I'd consider mini-proofs in my head. I’d always be concerned that I had missed something. Had I introduced a hidden bug lurking in the code?
 
 With automated tests I don’t worry about that nearly as much. I don’t need to overly think about a refactoring choice. I don’t run through every scenario in my head. The automated tests already cover them. If the tests pass after a refactoring step, then I move forward. If they fail, then I give myself a few minutes to spot the bug. If I can’t find it in a few minutes, I _undo_ my changes until the tests pass once more and start anew.
 
@@ -181,17 +181,17 @@ Sometimes developers don’t have control over the public APIs that they impleme
 
 Regardless of the developer’s flexibility in shaping the public API declaration, the tests still serve as reference model documentation to the user demonstrating how to access those public APIs. This is why I like to keep the Given, When and Then portions of my tests as separate sections within the test. The tests serve as a reference model documenting how the SUT is accessed through its public API methods. If written with the intent of being documentation, then tests can also provide additional context for the public API methods.
 
-Unlike more traditional documentation, which sometimes does not work, tests as documentation are guaranteed to work.
+Unlike more traditional reference model documentation, which sometimes does not work, tests as documentation are guaranteed to work.
 
 # Tests Explore, Discover and Document Legacy Code
 All the benefits above are based upon the assumption that tests specify behavior which shapes the implementation.
 
 But what about legacy code? There’s a good chance that legacy code:
-* Has been around for a long time.
-* Has few or no automated tests.
-* Was designed and written by someone who is long gone.
-* Is full of cruft and technical debt obscuring its behaviors and invariants.
-* Is critical for the business and responsible for our paychecks.
+* Has been around for a long time
+* Has few or no automated tests
+* Was designed and written by someone who is long gone
+* Is full of cruft and technical debt obscuring its behaviors and invariants
+* Is critical for the business and responsible for our paychecks
 
 Most developers shutter when plunged into legacy code for the reasons listed above. I will address legacy code soon (future blog TBD). While we can’t practice TDD as defined with legacy code that’s missing tests, we can use automated tests to explore, discover and document the behavior that lies within the legacy code.
 
@@ -206,9 +206,9 @@ APIs for external dependencies can be confusing. The contract behavior of the ex
 
 Just as we can explore and document legacy code with tests, we can do the same with external dependency APIs in a variation of Consumer-Driven Contract (CDC) Testing (future blog TBD).
 
-Tests that interact with external dependency APIs not only confirm and document their behavior, but they also serve as a developer reference model. And should the external dependency behavior change, then these tests will fail, and we may be able to adjust before the customer starts to notice the changes.
+Tests that interact with external dependency APIs not only confirm and document their behavior, but they also serve as a developer reference model. And should the external dependency behavior change, then these tests will fail, and we may be able to adjust before the customer notices the changes in behavior.
 
-Failing CDC Tests will also save us time from going down the rabbit hole in our own code when investigating a customer support ticket. Once we know that the undesired behavior is due to a change by the external dependency then we can decide whether to update our own code to adjust for that change, file a ticket with the external dependency vendor or both.
+Failing CDC Tests will also save us time from going down the rabbit hole in our own code when investigating a customer support ticket. Once we know that the undesired behavior is due to a change in behavior by the external dependency then we can decide whether to update our own code to adjust for that change, file a ticket with the external dependency vendor or both.
 
 Since these tests interact with external dependencies, they may require more configuration. They may take longer to run. They may cost resources to execute. Therefore, these tests should probably not be executed as part of unit testing. We may not even want to execute them in the CI/CD pipelines. But we may want to execute them nightly or weekly to confirm that our expectations of external dependency behavior, as specified in our tests, is still observed with the external dependencies.
 
