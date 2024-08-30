@@ -318,7 +318,7 @@ _Test-driven development is double-entry bookkeeping._ — Bob Martin
 
 _The art of debugging is figuring out what you really told your program to do rather than what you thought you told it to do._ — Andrew Singer
 
-_Tests don’t break your code; they break your illusions about your code._ — Llewellyn Falco.
+_Tests don't break your code; they break your illusions about the quality of that code._ — Maaret Pyhäjärvi
 
 _Beware of bugs in the above code; I have only proved it correct, not tried it._ — Donald Knuth
 
