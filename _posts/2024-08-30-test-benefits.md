@@ -1,7 +1,6 @@
 ---
-title: DRAFT – Testing Benefits
+title: Testing Benefits
 description: Spoiler Alert – It’s not really about testing the code
-unlisted: true
 ---
 
 # Introduction
@@ -67,7 +66,7 @@ _Tests don't break your code; they break your illusions about your code._ — [L
 Make sure your code is ready for every challenge it could possibly encounter, including _this should never happen_ cases. If the code has encountered every possible condition in testing and responded as expected, then it should _easily_ be able to handle what it encounters in the production.
 
 # Tests Can Document Developer Assumptions, Intentions and Expectations
-All developers make assumptions and have intentions and expectations in their code. These invariants might be mentioned in design documents or in code comments, but design documents and code comments never stay up to date with the implementation. Assumptions, intentions and expectations may never leave the developer's head when considering the design and implementation. When the developer leaves the project or enough time has passed, that knowledge is gone. Fresh eyes may not notice the subtle invariants and introduce a invariant violating feature updates with dire consequences. 
+All developers make assumptions and have intentions and expectations in their code. These invariants might be mentioned in design documents or in code comments, but design documents and code comments never stay up to date with the implementation. Assumptions, intentions and expectations may never leave the developer's head when considering the design and implementation. When the developer leaves the project or enough time has passed, that knowledge is gone. Fresh eyes may not notice the subtle invariants and introduce an invariant violating feature updates with dire consequences. 
 
 Automated tests can document the developer’s assumptions, intentions and expectations. Should any developer update the code such that it violates a test specified assumption, intentions or expectations, then that test will fail. The failing test or tests may provide additional context for the developer to better understand the code that’s being modified.
 
@@ -130,7 +129,7 @@ We often make implementation decisions before we fully understand the customer�
 
 If we knew then what we know now, would we have proceeded with the current implementation? If the answer is __No__, then we may have identified a refactoring candidate.
 
-Sometimes the changes are more than just localized refactoring. We gain new insights about the customer’s domain, such as emerging  abstractions we had not realized previously. Enhancements at this scale affect class design. Classes may be split. Classes may be merged. New classes may be created. Some existing classes may be removed.
+Sometimes the changes are more than just localized refactoring. We gain new insights into the customer’s domain, such as emerging  abstractions we had not realized previously. Enhancements at this scale affect class design. Classes may be split. Classes may be merged. New classes may be created. Some existing classes may be removed.
 
 I consider this redesign rather than refactoring, or at least it is refactoring at a larger scale.
 
@@ -219,4 +218,4 @@ Almost all these benefits are a result of test and implementation consistency. I
 * Previous [blog references](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html#references)
 * [Does TDD really lead to good design?](https://www.codurance.com/publications/2015/05/12/does-tdd-lead-to-good-design) Blog by Sandro Mancuso
 * [Testing Yourself – Growing Through Refactoring](https://www.linkedin.com/pulse/testing-yourself-growing-refactoring-michael-feathers/) Linkedin article by Michael Feathers
-* [Do you-ou-ou a-wanna test like  me-e-e?](https://tabsandspaces.libsyn.com/2022/02) Tabs and Spaces Podcast with me as the featured artist with the three regular hosts discussing some of the topics I've listed here.
+* [Do you-ou-ou a-wanna test like  me-e-e?](https://tabsandspaces.libsyn.com/2022/02) Tabs and Spaces Podcast with me as the featured artist with the three regular hosts discussing some of the topics I've listed here
