@@ -310,6 +310,8 @@ _The first step in fixing a broken program is getting it to fail repeatably._ �
 
 _Debugging is like being the detective in a crime movie where you are also the murderer._ — @fortes
 
+_When programmers do their jobs, testers find nothing._ — Bob Martin
+
 _Hardware eventually fails. Software eventually works._ — Michael Hartung
 
 _Our end users are our best and most expensive testers._ — Jim Humelsine
