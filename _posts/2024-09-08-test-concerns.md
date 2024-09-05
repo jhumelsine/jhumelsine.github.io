@@ -8,10 +8,10 @@ unlisted: true
 I presented some benefits of automated testing in the previous [Testing Benefits](https://jhumelsine.github.io/2024/08/30/test-benefits.html) blog, but I’m sure there are readers who still have concerns based upon their previous experiences with automated tests.
 I’ll address some common concerns with some suggestions on how to accommodate them.
 
-## I Can’t Write Tests If I Write The Test First. How Will I Know What To Test?
-This is probably the most common reason for not writing tests first. Developers feel like they need to write the code before they can test it. This is the practice that's familiar to them from the days when they first learned to code. They may still feel that the purpose of the test is to exercise and confirm the code. The purpose of the test is to [specify behavior](https://jhumelsine.github.io/2024/08/30/test-benefits.html#tests-are-codified-specifications). Confirmation is just a nice benefit.
+## I Can’t Write Tests If I Write The Code First. How Will I Know What To Test?
+This is probably the most common reason for not writing tests first. Developers feel like they need to write the code before they can test it. This is the practice that's been familiar to them since the days when they first learned to code. They may still feel that the purpose of the test is to exercise and confirm the code. The purpose of the test is to [specify behavior](https://jhumelsine.github.io/2024/08/30/test-benefits.html#tests-are-codified-specifications). Confirmation is just a nice benefit.
 
-Let’s change our perspective a bit. How do developers even know what to code? I suspect they have some ideas based upon requirements, user stories, conversations, etc. Rather than expressing those ideas in code, can they express those ideas in words? Can they write an idea down as a sentence or a short paragraph? Can they write a test that defines that idea before trying to code it? I suspect that with some practice, they can.
+Let’s consider this a bit. How do developers even know what to code? I suspect they have some ideas based upon requirements, user stories, conversations, etc. Rather than expressing those ideas in code, can they express those ideas in words? Can they write an idea down as a sentence or a short paragraph? Can they write a test that defines that idea before trying to code it? I suspect that with some practice, they can.
 
 Don’t try to tackle the entire feature in one test. Write one test that confirms one aspect of behavior. Implement that behavior until the test passes. I like to start with the simplest case first, i.e., start with degenerate and exception cases as described in [Degenerate, Edge and Boundary Tests](https://jhumelsine.github.io/2024/08/08/bdd.html#degenerate-edge-and-boundary-tests). This builds momentum toward specifying more common case behaviors.
 
@@ -26,7 +26,7 @@ A test reflects the implementation. If the implementation is complex, ugly, nast
 
 If you write the test before the implementation, then you’re more likely to write a clean test, and as a result your implementation will be cleaner too. If you write a complex, ugly or nasty test before implementation, then you’re going out of your way to make yourself miserable.
 
-Another possibly way to make tests hard to write is in attempting to write one test that covers as many behaviors as possible for the entire feature. I used to do this myself. These tests, which tended to come after the implementation, were difficult to write, and they were brittle. In a few weeks, the tests started failing as the feature matured. The tests were too difficult to maintain, so I abandoned them.
+Another possibly way to make tests hard to write is in attempting to write one test that covers as many behaviors as possible for the entire feature. I used to do this myself. These tests, which tended to come after the implementation, were difficult to write, and they were brittle. In a few weeks, the tests started failing as the feature matured, and I made adjustments. The tests were too difficult to maintain, so I abandoned them.
 
 Specify only one aspect of behavior per test. Since a method might handle different behaviors, several test will be required to ensure each aspect of behavior is specified and covered.
 
@@ -63,7 +63,7 @@ Our QA teams were well organized with detailed test plans, which were often manu
 
 A full regression test of the system could take weeks to complete and evaluate. There were usually a substantial number of faults identified. Tickets would be created and assigned to developers, and the whole cycle would begin once more.
 
-I took a year long rotation on the QA team. I got a taste of my own medicine. I felt the pressure of being the last line of defense before subjecting our customers to the system. Development was submitting updates constantly. I felt like I could barely keep up with my testing responsibilities. Sometimes it felt futile. Why devote so much effort to test the latest version of the system when I knew another one is coming soon? And it was soul crushing toil since we would be running the same manual tests day after day. 
+I took a year long rotation on the QA team. I got a taste of my own medicine. I felt the pressure of being the last line of defense before subjecting our customers to the system. Development was submitting updates constantly. I felt like I could barely keep up with my testing responsibilities. Sometimes it felt futile. Why devote so much effort to test the latest version of the system when I knew another one is coming soon? And it was soul crushing toil since we would be running the same boring manual tests day after day. 
 
 I learned lessons during that year:
 * I never wanted to spend my career in QA.
