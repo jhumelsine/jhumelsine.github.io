@@ -13,9 +13,9 @@ This is probably the most common reason for not writing tests first. Developers 
 
 Let’s consider this a bit. How do developers even know what to code? I suspect they have some ideas based upon requirements, user stories, conversations, etc. Rather than expressing those ideas in code, can they express those ideas in words? Can they write an idea down as a sentence or a short paragraph? Can they write a test that defines that idea before trying to code it? I suspect that with some practice, they can.
 
-Don’t try to tackle the entire feature in one test. Write one test that confirms one aspect of behavior. Implement that behavior until the test passes. I like to start with the simplest case first, i.e., start with degenerate and exception cases as described in [Degenerate, Edge and Boundary Tests](https://jhumelsine.github.io/2024/08/08/bdd.html#degenerate-edge-and-boundary-tests). This builds momentum toward specifying more common case behaviors.
+Don’t try to tackle the entire feature in one test. Write one test that confirms one aspect of behavior. Implement that behavior until the test passes. I like to start with the simplest cases first, i.e., the degenerate and exception cases as described in [Degenerate, Edge and Boundary Tests](https://jhumelsine.github.io/2024/08/08/bdd.html#degenerate-edge-and-boundary-tests). This builds momentum toward specifying more common case behaviors.
 
-Don’t try to tackle too many test cases at the same time. Practice [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) by developing one test and its implementation at a time. If your head becomes filled with several test case scenarios, jot them down a description of the behaviors separately and develop them one test at a time.
+Don’t try to tackle too many test cases at the same time. Practice [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) by developing one test and its implementation at a time. If your head becomes filled with too many test case scenarios, jot them down a description of the behaviors separately and develop them one test at a time.
 
 Learning to define behavior via a test before implementing it can take some practice. It may feel awkward at first. Practice the techniques using [Code Katas](https://jhumelsine.github.io/2024/07/15/tdd.html#coding-katas).
 
@@ -26,12 +26,12 @@ A test reflects the implementation. If the implementation is complex, ugly, nast
 
 If you write the test before the implementation, then you’re more likely to write a clean test, and as a result your implementation will be cleaner too. If you write a complex, ugly or nasty test before implementation, then you’re going out of your way to make yourself miserable.
 
-Another possibly way to make tests hard to write is in attempting to write one test that covers as many behaviors as possible for the entire feature. I used to do this myself. These tests, which tended to come after the implementation, were difficult to write, and they were brittle. In a few weeks, the tests started failing as the feature matured, and I made adjustments. The tests were too difficult to maintain, so I abandoned them.
+Another possibly way to make tests hard to write is in attempting to write one test that covers as many behaviors as possible for the entire feature. I used to do this myself. These tests, which tended to come after the implementation, were difficult to write, and they were brittle. In a few weeks, the tests started failing as the feature matured as I made adjustments. The tests were too difficult to maintain, so I abandoned them.
 
-Specify only one aspect of behavior per test. Since a method might handle different behaviors, several test will be required to ensure each aspect of behavior is specified and covered.
+Specify only one aspect of behavior per test. Since a method might handle different behaviors, several tests will be required to ensure each aspect of behavior is specified and covered.
 
 # Writing Tests Is Too Boring
-The fun is in writing code and seeing it run. Writing tests is boring, especially if written after the code. After the coding fun, all you’re left with is drudgery of writing the tests.
+The fun is in writing code and seeing it run. Writing tests is boring, especially if written after the implementation is complete. After you're done with the coding full, all you’re left with is drudgery of writing the tests.
 
 Rather than procrastinate the writing of boring tests, write one test before you implement its behavior. You don’t have to write the complete set of tests at once, nor do you want to.
 
