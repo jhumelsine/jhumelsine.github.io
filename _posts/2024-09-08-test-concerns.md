@@ -1,21 +1,21 @@
 ---
 title: DRAFT – Testing Concerns
-description: Concerns may be a result of previous bad test experiences. There are ways to accommodate them.
+description: Test concerns may be a result of previous bad test experiences. There are ways to accommodate them.
 unlisted: true
 ---
 
 # Introduction
-I presented some benefits of automated testing in the previous [Testing Benefits](https://jhumelsine.github.io/2024/08/30/test-benefits.html) blog, but I’m sure there are many readers who still have concerns based upon their previous experiences with automated tests.
+I presented some benefits of automated testing in the previous [Testing Benefits](https://jhumelsine.github.io/2024/08/30/test-benefits.html) blog, but I’m sure there are readers who still have concerns based upon their previous experiences with automated tests.
 I’ll address some common concerns with some suggestions on how to accommodate them.
 
 ## I Can’t Write Tests If I Write The Test First. How Will I Know What To Test?
-This is probably the most common reason for not writing tests first. Developers feel like they need to write the code before they can test it. They may still feel that the purpose of the test is to exercise and confirm the code. The purpose of the test is to [specify behavior](https://jhumelsine.github.io/2024/08/30/test-benefits.html#tests-are-codified-specifications). Confirmation is just a nice benefit.
+This is probably the most common reason for not writing tests first. Developers feel like they need to write the code before they can test it. This is the practice that's familiar to them from the days when they first learned to code. They may still feel that the purpose of the test is to exercise and confirm the code. The purpose of the test is to [specify behavior](https://jhumelsine.github.io/2024/08/30/test-benefits.html#tests-are-codified-specifications). Confirmation is just a nice benefit.
 
-Let’s change our perspective a bit. How do developers even know what to code? I suspect they have some ideas based upon requirements, user stories, conversations, etc. Rather than expressing those ideas in code, can they express those ideas in words? Can thet write it down as a sentence or a short paragraph? Can they write a test that defines that idea before trying to code it? I suspect that with some practice, they can.
+Let’s change our perspective a bit. How do developers even know what to code? I suspect they have some ideas based upon requirements, user stories, conversations, etc. Rather than expressing those ideas in code, can they express those ideas in words? Can they write an idea down as a sentence or a short paragraph? Can they write a test that defines that idea before trying to code it? I suspect that with some practice, they can.
 
 Don’t try to tackle the entire feature in one test. Write one test that confirms one aspect of behavior. Implement that behavior until the test passes. I like to start with the simplest case first, i.e., start with degenerate and exception cases as described in [Degenerate, Edge and Boundary Tests](https://jhumelsine.github.io/2024/08/08/bdd.html#degenerate-edge-and-boundary-tests). This builds momentum toward specifying more common case behaviors.
 
-Don’t try to tackle too many test cases at the same time. Practice [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) by developing one test and its implementation at a time. If your head becomes filled with several test case scenarios, then jot them down a description of the behaviors separately and develop them one test at a time.
+Don’t try to tackle too many test cases at the same time. Practice [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) by developing one test and its implementation at a time. If your head becomes filled with several test case scenarios, jot them down a description of the behaviors separately and develop them one test at a time.
 
 Learning to define behavior via a test before implementing it can take some practice. It may feel awkward at first. Practice the techniques using [Code Katas](https://jhumelsine.github.io/2024/07/15/tdd.html#coding-katas).
 
@@ -28,10 +28,10 @@ If you write the test before the implementation, then you’re more likely to wr
 
 Another possibly way to make tests hard to write is in attempting to write one test that covers as many behaviors as possible for the entire feature. I used to do this myself. These tests, which tended to come after the implementation, were difficult to write, and they were brittle. In a few weeks, the tests started failing as the feature matured. The tests were too difficult to maintain, so I abandoned them.
 
-Specify only one aspect of behavior per test. Since a method might handle different behaviors, then several test will be required to ensure each aspect of behavior is specified and covered.
+Specify only one aspect of behavior per test. Since a method might handle different behaviors, several test will be required to ensure each aspect of behavior is specified and covered.
 
 # Writing Tests Is Too Boring
-The fun is in writing code and seeing it run. Writing tests is boring, especially if written after the code. After the coding fun, all you’re left with is drudgery of writing tests.
+The fun is in writing code and seeing it run. Writing tests is boring, especially if written after the code. After the coding fun, all you’re left with is drudgery of writing the tests.
 
 Rather than procrastinate the writing of boring tests, write one test before you implement its behavior. You don’t have to write the complete set of tests at once, nor do you want to.
 
@@ -40,7 +40,7 @@ Write a test. Implement enough to pass the test. Repeat. See: [TDD](https://jhum
 This weaves test and implementation creation together. You still get that jolt of satisfaction when a test passes. I wager that it’s even more fun, since not only is the most recent test passing, but all the previous tests are still passing. You can confirm that in addition to getting new behavior working in the implementation, you also haven’t broken any previous behavior in the process.
 
 # Writing Tests Takes Too Much Time. I’m Paid To Write Code
-In my experience, each line of implementation requires about three to four lines of test code. That’s a lot of test code that’s never executed by the customers. Many developers, and some managers, may not view this as worth the time.
+In my experience, each line of implementation requires about three to four lines of test code. That’s a lot of code that’s never executed by the customers. Many developers, and some managers, may not view this as worth the time.
 
 We’re paid to deliver code, not tests. Really? We’re paid to deliver __working__ code. We have three basic choices before submitting our code changes:
 * No Tests
@@ -48,7 +48,7 @@ We’re paid to deliver code, not tests. Really? We’re paid to deliver __worki
 * Automated Tests
 
 ## No Tests
-I doubt that many developers adopt the __No Test__ philosophy. Years ago, code written by one of our contractors failed often in QA. When asked if he was testing his code, his response was, “Yes. It compiled.” His contract was terminated soon thereafter.
+I doubt that many developers adopt the __No Test__ philosophy. Years ago, code written by one of our contractors failed often in QA. When asked if he was testing his code, his response was, “Of course I tested my code. It compiled.” His contract was terminated soon thereafter.
 
 That’s an extreme case, but how many of us can honestly state that we haven’t done something similar? I know I’ve delivered code that I didn’t fully test. Michael Feathers refers to this technique in ___Working Effectively With Legacy Code___ as [__Edit and Pray__](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html#working-effectively-with-legacy-code).
 
@@ -63,22 +63,22 @@ Our QA teams were well organized with detailed test plans, which were often manu
 
 A full regression test of the system could take weeks to complete and evaluate. There were usually a substantial number of faults identified. Tickets would be created and assigned to developers, and the whole cycle would begin once more.
 
-I took a year long rotation on the QA team. I got a taste of my own medicine. I felt the pressure of being the last line of defense before subjecting our customers to the system. Development was submitting updates constantly. I felt like I could barely keep up with my testing responsibilities. Sometimes it felt futile. Why devote so much effort to test an update when I knew another one is coming soon? And it was soul crushing toil since we would be running the same manual tests day after day. 
+I took a year long rotation on the QA team. I got a taste of my own medicine. I felt the pressure of being the last line of defense before subjecting our customers to the system. Development was submitting updates constantly. I felt like I could barely keep up with my testing responsibilities. Sometimes it felt futile. Why devote so much effort to test the latest version of the system when I knew another one is coming soon? And it was soul crushing toil since we would be running the same manual tests day after day. 
 
 I learned lessons during that year:
-* I never wanted to spend my career on QA.
-* I gained more respect for the QA team squeeze they felt as we got closer to the release date.
+* I never wanted to spend my career in QA.
+* I gained more respect for the squeeze the QA team felt as release date approached.
 * QA can’t find every issue.
 * Manual testing doesn’t scale.
 
-I consulted more with the requirements author than I did with the developer in an effort to understand what the system should do rather than test what the system actually did. This planted the first seed in my mind that testing was about behavior and not implementation. It would take years before that seed would bear fruit and fully mature.
+I consulted more with the requirements author during that rotation than I did with the developer. I needed  to understand what the system should do rather than test what the development team delivered. This planted the first seed in my brain that testing was about behavior and not implementation. It would take years before that seed would fully mature and bear fruit in my mind.
 
-Near the end of my career QA teams started to shrink and even disappear. More testing responsibility was placed upon the developer. At first, I balked at this, not because it was more work, but because it didn’t make sense to me. I already knew that that my implementation worked. I needed the testers to confirm that my implementation matched the requirements. This was when I still viewed tests are exercising the implementation rather than specifying the behavior.
+Near the end of my career QA teams started to shrink and even disappear. More testing responsibility was placed upon the developer. At first, I balked at this, not because it was more work, but because it didn’t make sense to me. I already knew that that my implementation worked. I needed the testers to confirm that my implementation matched the requirements. This was when I still viewed tests as exercising the implementation rather than specifying the behavior.
 
 No matter where you try to place them in the software development process, manual tests consume a huge number of resources, and they don’t provide consistent results.
 
 ## Automated Tests
-As more test responsibility was being shifted to developers, developers had to spend much more time performing their own manual tests or automating tests.
+As more test responsibility was being shifted to developers, developers had to spend much more time performing their own manual tests or spend that time creating automating tests.
 
 I would argue that taking the time to write the automated test in conjunction with the implementation using TDD and BDD is not a cost, but an investment:
 * Automated tests complete quickly, possibly seconds, whereas manual tests require more time, possibly minutes or hours. 
@@ -94,7 +94,7 @@ _Creating tests slow me down, especially when I’m in the flow._
 Flow state is definitely fun. I don’t deny that. But I feel there’s more than one way to achieve flow. Once you get comfortable with TDD, then you start to get into the flow once more. The __Red-Green-Refactor__ TDD cycle is constantly adding new code for specified behavior that’s confirmed at the touch of a button.
 And once legacy code (blog TBD) has enough test scaffolding confirming its behavior, then you can fly through refactoring confidently.
 
-I think automated tests made me faster. I didn’t have to set and contemplate every change to convince myself that it worked. My test suite would do that for me in seconds rather than me having to spend minutes thinking about what I had just updated.
+I think automated tests made me faster. I didn’t have to pause and contemplate every change to convince myself that it worked. My test suite would do that for me in seconds rather than me having to spend minutes thinking about what I had just updated.
 
 # Tests Require More Maintenance Than The Code
 I experienced this. My initial attempts at automated testing were brittle. They stopped working a few weeks after their initial creation. I tried to keep them up to date to match the implementation, but it became too much effort, and I abandoned them.
@@ -103,12 +103,12 @@ My tests were exercising the implementation. They were not specifying the behavi
 
 Tests that are written after the code tend to exercise implementation more than confirm behavior specification. When tests exercise implementation, they have a dependency upon the implementation. When the implementation is changed due to a new feature being added, a bug being fixed or code being refactoring, then these brittle implementation dependent tests often fail.
 
-If writing the test before the implementation, then there is no implementation to shape the test. The test is more likely to be based upon behavior and less brittle to implementation updates.
+If writing the test before the implementation, then there is no implementation to shape the test. The test is more likely to be based upon behavior and less brittle to subsequent implementation updates.
 
-If tests are scoped to one aspect of behavior per test, so that there are multiple tests that specify behavior as a whole. If an aspect of behavior changes, it’s most likely to only affect the subset of tests that specify that behavior aspect. Hopefully the impact is limited to only one test. You may not have to modify the test. It may be easier to create a new test for the updated/new behavior aspect and remove the outdated test.
+If tests are scoped to one aspect of behavior per test, so that there are multiple tests that specify behavior as a whole. If an aspect of behavior changes, it’s most likely to only affect the subset of tests that specify that behavior aspect. Hopefully the impact is limited to only one test. You may not have to modify the test either. It may be easier to create a new test for the updated/new behavior aspect and remove the outdated test.
 
 # TDD, Where Did It All Go Wrong?
-This provocative header comes from Ian Cooper's DevTernity 2017 presentation: [TDD, Where Did It All Go Wrong?](https://www.youtube.com/watch?v=EZ05e7EMOLM) He argues that we've overdone TDD. He noticed that projects that embraced TDD ran into all sorts of problems when they attempted to refactor their code. And the problems didn't reside in the source code. The problems resided in the unit test cases. They'd refactor the code, and half of the test cases would break. In Cooper's mind, refactoring changes implementation without changing behavior, which I believe as well. None of the unit test cases should have failed. What was wrong?
+This provocative header comes from Ian Cooper's DevTernity 2017 presentation: [TDD, Where Did It All Go Wrong?](https://www.youtube.com/watch?v=EZ05e7EMOLM) He argues that we've overdone TDD. He noticed that projects that embraced TDD ran into all sorts of problems when they attempted to refactor their code. And the problems didn't reside in the source code. The problems resided in the unit test cases. They'd refactor the code, and half of the test cases would break. In Cooper's mind, refactoring should update the implementation without changing its behavior, which I believe as well. Unit test cases should rarely fail due to refactoring. What was wrong?
 
 Cooper argues, and I think he's correct, that too many unit test cases were designed to execute the implementation and not specify the behavior. This gets a little tricky to distinguish, since implementation contains behavior and behavior comes from implementation. 
 
@@ -131,11 +131,11 @@ Cooper's presentation is worth watching, but to save you some time, here are his
 Concerns associated with automated testing may be a matter of education and practice. The concerns may be a result of not knowing or not following good test practices. This was the case for me when I tried to create automated tests without understanding how best to create automated tests.
 
 Here are some test smells that may indicate good test practices were not followed:
-* Tests that take too long to complete. They are probably coupled to an external dependency.
-* Tests are flaky. That is, they are non-deterministic, sometimes they pass. Sometimes they fail.
-* Tests are exercise entire operational scenarios and a single behavior.
-* Tests don't test anything. That is, they are false positives.
-* Tests are brittle. They exercise implementation and do not specify behavior. They are tests that start to fail when the code is refactored.
+* Tests that take too much time to complete. They are probably coupled to an external dependency.
+* Tests that are flaky. That is, they are non-deterministic, sometimes they pass. Sometimes they fail.
+* Tests that exercise entire operational scenarios rather than a single behavior.
+* Tests that don't test anything. That is, they are false positives.
+* Tests that are brittle. They exercise implementation and do not specify behavior. They are tests that start to fail when the code is refactored.
 * Tests that are complex. They have lots of Test Doubles, lots of assertions, etc. This is a reflection of problems with the implementation. Test complexity, ugliness, etc. is usually a reflection of implementation complexity, ugliness, etc.
 
 # References
