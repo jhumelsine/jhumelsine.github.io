@@ -63,11 +63,11 @@ Our QA teams were well organized with detailed test plans, which were often manu
 
 A full regression test of the system could take weeks to complete and evaluate. There were usually a substantial number of faults identified. Tickets would be created and assigned to developers, and the whole cycle would begin once more.
 
-I took a year long rotation on the QA team. I got a taste of my own medicine. I felt the pressure of being the last line of defense before subjecting our customers to the system. Development was submitting updates constantly. I felt like I could barely keep up with my testing responsibilities. Sometimes it felt futile. Why devote so much effort to test the latest version of the system when I knew another one is coming soon? And it was soul crushing toil since we would be running the same boring manual tests day after day. 
+I took a yearlong rotation on the QA team. I got a taste of my own medicine. I felt the pressure of being the last line of defense before subjecting our customers to the system. Development was submitting updates constantly. I felt like I could barely keep up with my testing responsibilities. Sometimes it felt futile. Why devote so much effort to test the latest version of the system when I knew another one is coming soon? And it was soul crushing toil since we would be running the same boring manual tests day after day. 
 
 I learned lessons during that year:
 * I never wanted to spend my career in QA.
-* I gained more respect for the squeeze the QA team felt as release date approached.
+* I gained more respect for the squeeze the QA team felt as the release date approached.
 * QA can’t find every issue.
 * Manual testing doesn’t scale.
 
