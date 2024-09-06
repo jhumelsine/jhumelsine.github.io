@@ -127,6 +127,24 @@ Cooper's presentation is worth watching, but to save you some time, here are his
 * Do not write tests for implementation details – these change
 * Only write tests to cover implementation details for better understanding the implementation for refactoring, but then delete or deactivate tests when done
 
+I received a review comment with a concern about: ___Don't test internals___. Specifically, it may be too difficult to test all scenarios via the public API of a complex system. There are too many cases and set up would be too complex. I don't disagree with that concern.
+
+I think Cooper's intent about _internal testing_ was: 
+* _Don't change the implementation so that its internals can be tested._
+* _Create internal implemenation only when it's needed to satisfy a test that specifies behavior._
+
+As for ___a complex system___, that suggests to me a design that is comprised of several or even many classes. It will be very difficult to test all scenarios in that configuration. Nor do we want to.
+
+There are different layers of testing, which I'll address in a future blog (TBD). I view the distinction among the layers of testing as the scope and boundary of the software being tested. The smallest scope is an individual class. The medium scope is a set of classes. The largest scope is the entire system. 
+
+Each layer of testing assembles more components of the system. Each layer has relative advantages and disadvantages compared to the other layers. The smallest scoped testing layers define and confirm the nuts and bolts. The larger scoped testing layers define and confirm that the nuts and bolts fit together.
+
+Small scoped testing confirms parts in every scenario imaginable. These tests are less expensive and complete quickly.
+
+Larger scoped testing confirms those parts work together. These tests are more expensive and take longer to complete.
+
+This is where the art of design becomes important. Regardless of the scope and boundary, most Software Under Test will have dependencies. Those dependencies may be replaced by [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) in the tests. While refactoring may not affect tests and test doubles, redesign may. If we can keep test double dependency to a minimum through good design, then we will have fewer tests breaking during redesign.
+
 # Summary
 Concerns associated with automated testing may be a matter of education and practice. The concerns may be a result of not knowing or not following good test practices. This was the case for me when I tried to create automated tests without understanding how best to create automated tests.
 
@@ -141,6 +159,7 @@ Here are some test smells that may indicate good test practices were not followe
 # References
 * Previous [blog references](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html#references)
 * [TDD, Where Did It All Go Wrong?](https://www.youtube.com/watch?v=EZ05e7EMOLM) - Ian Cooper's DevTernity 2017 presentation. I learned of this presentation from a [Tweet](https://x.com/unclebobmartin/status/1032405401009041409) on Twitter/X from Bob Martin.
+* [TDD Revisited](https://www.youtube.com/watch?v=IN9lftH0cJc) - Ian Cooper 2023 presentation.
 * [TDD Harms Architecture](https://blog.cleancoder.com/uncle-bob/2017/03/03/TDD-Harms-Architecture.html) - blog by Bob Martin
 * [When TDD Doesn’t Work](https://blog.cleancoder.com/uncle-bob/2014/04/30/When-tdd-does-not-work.html) – blog by Bob Martin
 * [Test Contra-variance](https://blog.cleancoder.com/uncle-bob/2017/10/03/TestContravariance.html) -blog by Bob Martin
