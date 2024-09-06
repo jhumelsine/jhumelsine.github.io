@@ -8,7 +8,7 @@ unlisted: true
 I presented some benefits of automated testing in the previous [Testing Benefits](https://jhumelsine.github.io/2024/08/30/test-benefits.html) blog, but I’m sure there are readers who still have concerns based upon their previous experiences with automated tests.
 I’ll address some common concerns with some suggestions on how to accommodate them.
 
-## I Can’t Write Tests If I Write The Code First. How Will I Know What To Test?
+## I Can’t Write Tests Unless I Write The Code First. How Will I Know What To Test?
 This is probably the most common reason for not writing tests first. Developers feel like they need to write the code before they can test it. This is the practice that's been familiar to them since the days when they first learned to code. They may still feel that the purpose of the test is to exercise and confirm the code. The purpose of the test is to [specify behavior](https://jhumelsine.github.io/2024/08/30/test-benefits.html#tests-are-codified-specifications). Confirmation is just a nice benefit.
 
 Let’s consider this a bit. How do developers even know what to code? I suspect they have some ideas based upon requirements, user stories, conversations, etc. Rather than expressing those ideas in code, can they express those ideas in words? Can they write an idea down as a sentence or a short paragraph? Can they write a test that defines that idea before trying to code it? I suspect that with some practice, they can.
