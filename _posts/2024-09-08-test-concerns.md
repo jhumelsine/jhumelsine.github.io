@@ -127,11 +127,11 @@ Cooper's presentation is worth watching, but to save you some time, here are his
 * Do not write tests for implementation details – these change
 * Only write tests to cover implementation details for better understanding the implementation for refactoring, but then delete or deactivate tests when done
 
-I received a review comment with a concern about: ___Don't test internals___. Specifically, it may be too difficult to test all scenarios via the public API of a complex system. There are too many cases and set up would be too complex. I don't disagree with that concern.
+I received a review comment with a concern about: ___Don't test internals___. Specifically, it may be too difficult to test all scenarios via the public API of a complex system. There are too many cases and the set up would be too complex. I don't disagree with that concern.
 
 I think Cooper's intent about _internal testing_ was: 
 * _Don't change the implementation so that its internals can be tested._
-* _Create internal implemenation only when it's needed to satisfy a test that specifies behavior._
+* _Create internal implementation only when it's needed to satisfy a test that specifies behavior._
 
 As for ___a complex system___, that suggests to me a design that is comprised of several or even many classes. It will be very difficult to test all scenarios in that configuration. Nor do we want to.
 
@@ -139,7 +139,7 @@ There are different layers of testing, which I'll address in a future blog (TBD)
 
 Each layer of testing assembles more components of the system. Each layer has relative advantages and disadvantages compared to the other layers. The smallest scoped testing layers define and confirm the nuts and bolts. The larger scoped testing layers define and confirm that the nuts and bolts fit together.
 
-Small scoped testing confirms parts in every scenario imaginable. These tests are less expensive and complete quickly.
+Smaller scoped testing confirms parts in every scenario imaginable. These tests are less expensive and complete quickly.
 
 Larger scoped testing confirms those parts work together. These tests are more expensive and take longer to complete.
 
@@ -154,7 +154,7 @@ Here are some test smells that may indicate good test practices were not followe
 * Tests that exercise entire operational scenarios rather than a single behavior.
 * Tests that don't test anything. That is, they are false positives.
 * Tests that are brittle. They exercise implementation and do not specify behavior. They are tests that start to fail when the code is refactored.
-* Tests that are complex. They have lots of Test Doubles, lots of assertions, etc. This is a reflection of problems with the implementation. Test complexity, ugliness, etc. is usually a reflection of implementation complexity, ugliness, etc.
+* Tests that are complex. They have lots of Test Doubles, lots of assertions, etc. This reflects problems with the implementation. Test complexity, ugliness, etc. is usually a reflection of implementation complexity, ugliness, etc.
 
 # References
 * Previous [blog references](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html#references)
