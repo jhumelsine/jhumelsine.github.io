@@ -130,24 +130,11 @@ Cooper's presentation is worth watching, but to save you some time, here are his
 I received a review comment with a concern about: ___Don't test internals___. Specifically, it may be too difficult to test all scenarios via the public API of a complex system. There are too many cases and the set up would be too complex. I don't disagree with that concern.
 
 I think Cooper's intent about _internal testing_ was: 
-* _Internals refers to the encapsulated implementation. Testing internals implies that the test has knowledge of and dependency upon the encapsulated  implementation. Subsequent refactoring would have a high probability of breaking tests that test internals. I.e., they would be brittle tests._
-* _Don't change the implementation access so that its internals can be tested. I.e., don't make private methods public so that they can be tested._
-* _Create internal implementation only when it's needed to satisfy a test that specifies behavior._
+* _Internal testing_ implies that the test has knowledge of and dependency upon the implementation itself and not necessarily its behavior. Subsequent refactoring of that implementation would have a high probability of breaking the test. I.e., The test would be brittle.
+* Don't change the implementation access so that its _internals_ can be _tested_. I.e., don't make private methods public so that they can be tested.
+* Implement code only when it's needed to satisfy a test that specifies behavior, not a test that specifies the implementation.
 
-As for ___a complex system___, that suggests to me a design that is comprised of multiple classes. It will be difficult to test all scenarios in that configuration. Nor do we want to. There are different layers of testing will help manage this, which I'll address in a future blog (TBD). 
-
-I view the distinction among the layers of testing as the scope and boundary of the software being tested:
-* The smallest scoped is bounded to an individual class.
-* The medium scoped is bounded to a set of classes.
-* The largest scoped is bounded to the entire system. 
-
-Each layer of testing assembles more components of the system. Each layer has of testing relative advantages and disadvantages compared to the other layers. The smallest scoped testing layers define and confirm the nuts and bolts. The larger scoped testing layers define and confirm that the nuts and bolts fit together.
-
-Smaller scoped testing confirms parts in every scenario imaginable. These tests are less expensive and complete quickly.
-
-Larger scoped testing confirms those parts work together. These tests are more expensive and take longer to complete.
-
-This is where the art of design becomes important. Regardless of the scope and boundary, most Software Under Test will have dependencies. Those dependencies may be replaced by [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) in the tests. While refactoring may not affect tests and test doubles, redesign may. If we can keep test double dependency to a minimum through good design, then we will have fewer tests breaking during redesign.
+As for ___a complex system___, that suggests to me a design that is comprised of multiple classes. It will be difficult to test all scenarios in that configuration, nor do we want to. There are different layers of testing that will help manage this, which I'll address in a future blog (TBD). 
 
 # Summary
 Concerns associated with automated testing may be a matter of education and practice. The concerns may be a result of not knowing or not following good test practices. This was the case for me when I tried to create automated tests without understanding how best to create automated tests.
