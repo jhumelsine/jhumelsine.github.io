@@ -130,7 +130,8 @@ Cooper's presentation is worth watching, but to save you some time, here are his
 I received a review comment with a concern about: ___Don't test internals___. Specifically, it may be too difficult to test all scenarios via the public API of a complex system. There are too many cases and the set up would be too complex. I don't disagree with that concern.
 
 I think Cooper's intent about _internal testing_ was: 
-* _Don't change the implementation so that its internals can be tested._
+* ___Internals__ refers to the encapsulated implementation that is resonsible for how behavior emerges from the code without being resonsible for what that behavior is. Testing internals tests implementation, not behavior. If this happens, then refactoring implementation will cause tests that test internals to fail even when behavior has not changed._
+* _Don't change the implementation access so that its internals can be tested. I.e., don't make private methods public so that they can be tested._
 * _Create internal implementation only when it's needed to satisfy a test that specifies behavior._
 
 As for ___a complex system___, that suggests to me a design that is comprised of several or even many classes. It will be very difficult to test all scenarios in that configuration. Nor do we want to.
