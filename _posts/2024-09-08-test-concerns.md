@@ -26,12 +26,12 @@ A test reflects the implementation. If the implementation is complex, ugly, nast
 
 If you write the test before the implementation, then you’re more likely to write a clean test, and as a result your implementation will be cleaner too. If you write a complex, ugly or nasty test before implementation, then you’re going out of your way to make yourself miserable.
 
-Another possibly way to make tests hard to write is in attempting to write one test that covers as many behaviors as possible for the entire feature. I used to do this myself. These tests, which tended to come after the implementation, were difficult to write, and they were brittle. In a few weeks, the tests started failing as the feature matured as I made adjustments. The tests were too difficult to maintain, so I abandoned them.
+Another possibly way to make tests hard to write is in attempting to write one test that covers as many behaviors as possible for the entire feature. I used to do this myself. These tests, which tended to come after the implementation, were difficult to write, and they were brittle. In a few weeks, the tests started failing when the feature matured as I made adjustments. The tests were too difficult to maintain, so I abandoned them.
 
-Specify only one aspect of behavior per test. Since a method might handle different behaviors, several tests will be required to ensure each aspect of behavior is specified and covered.
+Specify only one aspect of behavior per test. Since a method might handle different aspects of behaviors, several tests will be required to ensure each aspect of behavior is specified and covered.
 
 # Writing Tests Is Too Boring
-The fun is in writing code and seeing it run. Writing tests is boring, especially if written after the implementation is complete. After you're done with the coding full, all you’re left with is drudgery of writing the tests.
+The fun is in writing code and seeing it run. Writing tests is boring, especially if written after the implementation is complete. After you're done with the coding, all you’re left with is drudgery of writing the tests.
 
 Rather than procrastinate the writing of boring tests, write one test before you implement its behavior. You don’t have to write the complete set of tests at once, nor do you want to.
 
@@ -40,9 +40,9 @@ Write a test. Implement enough to pass the test. Repeat. See: [TDD](https://jhum
 This weaves test and implementation creation together. You still get that jolt of satisfaction when a test passes. I wager that it’s even more fun, since not only is the most recent test passing, but all the previous tests are still passing. You can confirm that in addition to getting new behavior working in the implementation, you also haven’t broken any previous behavior in the process.
 
 # Writing Tests Takes Too Much Time. I’m Paid To Write Code
-In my experience, each line of implementation requires about three to four lines of test code. That’s a lot of code that’s never executed by the customers. Many developers, and some managers, may not view this as worth the time.
+In my experience, each line of implementation requires about three to four lines of test code. That’s a lot of code that’s never executed by the customers. Many developers, and some managers, may not view this as worth the effort.
 
-We’re paid to deliver code, not tests. Really? We’re paid to deliver __working__ code. We have three basic choices before submitting our code changes:
+_We’re paid to deliver code, not tests._ Really? We’re paid to deliver __working__ code. We have three basic choices before submitting our code changes:
 * No Tests
 * Manual Tests
 * Automated Tests
@@ -73,7 +73,7 @@ I learned lessons during that year:
 
 I consulted more with the requirements author during that rotation than I did with the developer. I needed  to understand what the system should do rather than test what the development team delivered. This planted the first seed in my brain that testing was about behavior and not implementation. It would take years before that seed would fully mature and bear fruit in my mind.
 
-Near the end of my career QA teams started to shrink and even disappear. More testing responsibility was placed upon the developer. At first, I balked at this, not because it was more work, but because it didn’t make sense to me. I already knew that that my implementation worked. I needed the testers to confirm that my implementation matched the requirements. This was when I still viewed tests as exercising the implementation rather than specifying the behavior.
+Near the end of my career QA teams started to shrink and even disappear. More testing responsibility was placed upon the developer. At first, I balked at this, not because it was more work, but because it didn’t make sense to me. I already knew that my implementation worked. I needed the testers to confirm that my implementation matched the requirements. This was when I still viewed tests as exercising the implementation rather than specifying the behavior.
 
 No matter where you try to place them in the software development process, manual tests consume a huge number of resources, and they don’t provide consistent results.
 
@@ -105,7 +105,7 @@ Tests that are written after the code tend to exercise implementation more than 
 
 If writing the test before the implementation, then there is no implementation to shape the test. The test is more likely to be based upon behavior and less brittle to subsequent implementation updates.
 
-If tests are scoped to one aspect of behavior per test, so that there are multiple tests that specify behavior as a whole. If an aspect of behavior changes, it’s most likely to only affect the subset of tests that specify that behavior aspect. Hopefully the impact is limited to only one test. You may not have to modify the test either. It may be easier to create a new test for the updated/new behavior aspect and remove the outdated test.
+If tests are scoped to one aspect of behavior per test, so that there are multiple tests that specify behavior as a whole, then if an aspect of behavior changes, it’s most likely to only affect the subset of tests that specify that behavior aspect. Hopefully the impact is limited to only one test. You may not have to modify the test either. It may be easier to create a new test for the updated/new behavior aspect and remove the outdated test.
 
 # TDD, Where Did It All Go Wrong?
 This provocative header comes from Ian Cooper's DevTernity 2017 presentation: [TDD, Where Did It All Go Wrong?](https://www.youtube.com/watch?v=EZ05e7EMOLM) He argues that we've overdone TDD. He noticed that projects that embraced TDD ran into all sorts of problems when they attempted to refactor their code. And the problems didn't reside in the source code. The problems resided in the unit test cases. They'd refactor the code, and half of the test cases would break. In Cooper's mind, refactoring should update the implementation without changing its behavior, which I believe as well. Unit test cases should rarely fail due to refactoring. What was wrong?
@@ -127,7 +127,7 @@ Cooper's presentation is worth watching, but to save you some time, here are his
 * Do not write tests for implementation details – these change
 * Only write tests to cover implementation details for better understanding the implementation for refactoring, but then delete or deactivate tests when done
 
-I received a review comment with a concern about: ___Don't test internals___. Specifically, it may be too difficult to test all scenarios via the public API of a complex system. There are too many cases and the set up would be too complex. I don't disagree with that concern.
+I received a review comment with a concern about: ___Don't test internals___ listed above. Specifically, it may be too difficult to test all scenarios via the public API of a complex system. There are too many cases, and the set up would be too complex. I don't disagree with that concern.
 
 I think Cooper's intent about _internal testing_ was: 
 * _Internal testing_ implies that the test has knowledge of and dependency upon the implementation itself and not necessarily its behavior. Subsequent refactoring of that implementation would have a high probability of breaking the test. I.e., The test would be brittle.
