@@ -1,5 +1,5 @@
 ---
-title: DRAFT – Testing Concerns
+title: Testing Concerns
 description: Test concerns may be a result of previous bad test experiences. There are ways to accommodate them.
 ---
 
