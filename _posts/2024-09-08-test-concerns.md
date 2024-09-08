@@ -1,7 +1,6 @@
 ---
 title: DRAFT – Testing Concerns
 description: Test concerns may be a result of previous bad test experiences. There are ways to accommodate them.
-unlisted: true
 ---
 
 # Introduction
@@ -127,7 +126,7 @@ Cooper's presentation is worth watching, but to save you some time, here are his
 * Do not write tests for implementation details – these change
 * Only write tests to cover implementation details for better understanding the implementation for refactoring, but then delete or deactivate tests when done
 
-I received a review comment with a concern about: ___Don't test internals___ listed above. Specifically, it may be too difficult to test all scenarios via the public API of a complex system. There are too many cases, and the set up would be too complex. I don't disagree with that concern.
+I received an early review comment with a concern about: ___Don't test internals___ listed above. Specifically, it may be too difficult to test all scenarios via the public API of a complex system. There are too many cases, and the set up would be too complex. I don't disagree with that concern.
 
 I think Cooper's intent about _internal testing_ was: 
 * _Internal testing_ implies that the test has knowledge of and dependency upon the implementation itself and not necessarily its behavior. Subsequent refactoring of that implementation would have a high probability of breaking the test. I.e., The test would be brittle.
@@ -149,8 +148,8 @@ Here are some test smells that may indicate good test practices were not followe
 
 # References
 * Previous [blog references](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html#references)
-* [TDD, Where Did It All Go Wrong?](https://www.youtube.com/watch?v=EZ05e7EMOLM) - Ian Cooper's DevTernity 2017 presentation. I learned of this presentation from a [Tweet](https://x.com/unclebobmartin/status/1032405401009041409) on Twitter/X from Bob Martin.
-* [TDD Revisited](https://www.youtube.com/watch?v=IN9lftH0cJc) - Ian Cooper 2023 presentation.
+* [TDD, Where Did It All Go Wrong?](https://www.youtube.com/watch?v=EZ05e7EMOLM) - Ian Cooper's DevTernity 2017 presentation. I learned of this presentation from a [Tweet](https://x.com/unclebobmartin/status/1032405401009041409) on Twitter/X from Bob Martin
+* [TDD Revisited](https://www.youtube.com/watch?v=IN9lftH0cJc) - Ian Cooper 2023 presentation
 * [TDD Harms Architecture](https://blog.cleancoder.com/uncle-bob/2017/03/03/TDD-Harms-Architecture.html) - blog by Bob Martin
 * [When TDD Doesn’t Work](https://blog.cleancoder.com/uncle-bob/2014/04/30/When-tdd-does-not-work.html) – blog by Bob Martin
 * [Test Contra-variance](https://blog.cleancoder.com/uncle-bob/2017/10/03/TestContravariance.html) -blog by Bob Martin
