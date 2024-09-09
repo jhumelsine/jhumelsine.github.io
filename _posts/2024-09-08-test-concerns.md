@@ -154,3 +154,5 @@ Here are some test smells that may indicate good test practices were not followe
 * [When TDD Doesn’t Work](https://blog.cleancoder.com/uncle-bob/2014/04/30/When-tdd-does-not-work.html) – blog by Bob Martin
 * [Test Contra-variance](https://blog.cleancoder.com/uncle-bob/2017/10/03/TestContravariance.html) -blog by Bob Martin
 * [When Test Driven Development Goes Wrong](https://www.youtube.com/watch?v=UWtEVKVPBQ0) – video by Dave Farley
+* [Testability Problems Are Caused By Design Problems: Understanding Software Testing](https://www.youtube.com/watch?v=cG0HHZZoIcI) - video conversation with Dave Farley and Michael Feathers
+* [Michael Feathers: the deep synergy between testability and good design](https://www.youtube.com/watch?v=4cVZvoFGJTU) - video by Michael Feathers
