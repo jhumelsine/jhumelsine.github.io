@@ -22,12 +22,13 @@ Automated testing is grand topic. Whole books have been devoted to it. I can't f
 * [Attributes of Effective Unit Tests](https://jhumelsine.github.io/2024/06/14/unit-test-attributes.html) - Unit Test properties that make them more useful than not
 * [Basic Elements of Automated Unit Tests](https://jhumelsine.github.io/2024/06/23/unit-test-elements.html) - Elevating automated tests to first-class citizen status
 * [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) - Emulate dependencies without depending upon dependencies
-* [Suril, the Semaphore and Me](https://jhumelsine.github.io/2024/07/08/suril-semaphore.html) - When the theory became practice for me.
-* [Test-Driven Development - Writing Tests Before the Implementation](https://jhumelsine.github.io/2024/07/15/tdd.html) - I know it sounds completely backwards, but please give it some consideration.
-* [Yuri, the Programming Assignment and Me](https://jhumelsine.github.io/2024/07/22/yuri-evaluator.html) - My evening introducing [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) to a young Computer Science student.
+* [Suril, the Semaphore and Me](https://jhumelsine.github.io/2024/07/08/suril-semaphore.html) - When the theory became practice for me
+* [Test-Driven Development - Writing Tests Before the Implementation](https://jhumelsine.github.io/2024/07/15/tdd.html) - I know it sounds completely backwards, but please give it some consideration
+* [Yuri, the Programming Assignment and Me](https://jhumelsine.github.io/2024/07/22/yuri-evaluator.html) - My evening introducing [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) to a young Computer Science student
 * [Be On Your Best Behavior](https://jhumelsine.github.io/2024/08/08/bdd.html) - Test-Driven Development - How to create tests; Behavior-Driven Development - What tests to create
-* [What is Behavior in Behavior-Driven Development](https://jhumelsine.github.io/2024/08/20/behavior.html) - More details about the nature of behavior.
+* [What is Behavior in Behavior-Driven Development](https://jhumelsine.github.io/2024/08/20/behavior.html) - More details about the nature of behavior
 * [Testing Benefits](https://jhumelsine.github.io/2024/08/30/test-benefits.html) - Spoiler Alert – It’s not really about testing the code
+* [Testing Concerns](https://jhumelsine.github.io/2024/09/08/test-concerns.html) - Test concerns may be a result of previous bad test experiences; there are ways to accommodate them
 
 # Formal Proofs
 Unit testing was not presented in my academic career. I suspect this was because modern unit testing practices were still a decade or two in the future, and the technology didn’t support it.
