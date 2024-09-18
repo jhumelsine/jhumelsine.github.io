@@ -28,8 +28,6 @@ I took over ownership of some code when the original developer moved to another 
 <img src="/assets/CircuitPack.png" alt="CircuitPack UML Class Diagram" align="center" width = "40%" style="padding-right: 20px;">
 
 # Time to Think
-<img src="https://i.sstatic.net/G4tJM.jpg" alt="Green Bar Printer Paper" title="Image Source: https://superuser.com/questions/1628953/alternate-green-blue-bars-in-pdf-printout-like-old-paper-on-dot-matrix-printers" align="right" width = "35%" style="padding-right: 20px;">
-
 This was my code now, and I was responsible. This was before "Agile" practices had swept the software engineering industry. The Agile Industrial Complex had not yet squeezed time to think out of our schedules for their ceremonies.
 
 I printed the code on glorious printer paper sheets the size of placemats, and I hunkered down to think. I spread the printouts out on my large cubical workspace, we had reasonably sized desks then too, and I scribbled notes in the margins using ink and highlighter pens.
