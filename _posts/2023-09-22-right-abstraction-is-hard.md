@@ -53,7 +53,7 @@ class CircuitPack {
 
 I was still figuring out Object-Oriented principles myself, and this was well before I knew any of the Gang of Four Design Patterns. But I knew that this implementation had some issues:
 * I generally don’t like down casting, especially casting like this. It feels like a code smell or design flaw to me. While `instanceof` isn’t technically down casting, they hang around in the same neighborhood.
-* The `CircuitPack` base class had knowledge of its derived classes.
+* The `CircuitPack` base class had knowledge of its extended classes.
 * Behavior for specific TRs was in the `CircuitPack` base class.
 * What happens when we add a fourth TR, such as `TR768`?
     * `doTR768Process()` would have to be added to `CircuitPack`.
@@ -219,10 +219,10 @@ This technique is the Template Method Design Pattern. I had applied it a few yea
 # Refactored Code
 Once I had refactored the code, it made much more sense. The `CircuitPack` class made sense as an abstraction. Most of the implementation was in the `CircuitPack`, which made sense since most of the behavior was the same regardless of OC rates. The differences were mostly minor, and they resided in the specific TR classes to support the `CircuitPack`. The separation of concerns between the `CircuitPack` and TR abstraction layers became more obvious.
 
-I also felt confident that if a `TR768` were ever developed, all I would have needed to do would be to derive a `TR768` class from `CircuitPack` and provide the implementations for the abstract protected methods, which would be easily identified as a compile time errors until implemented. This would still involve work, but it would be isolated to the new `TR768` class. There would probably be no need to modify the other classes as well.
+I also felt confident that if a `TR768` were ever developed, all I would have needed to do would be to extend a `TR768` class from `CircuitPack` and provide the implementations for the abstract protected methods, which would be easily identified as a compile time errors until implemented. This would still involve work, but it would be isolated to the new `TR768` class. There would probably be no need to modify the other classes as well.
 
 # Hindsight is 20/20
-I do not blame the developer who originally created these classes. He was under tremendous pressure to deliver anything within extremely tight schedules. I suspect he started with just the `TR48`, and he later determined that a `CircuitPack` base class would be needed. He took his best guess as to what belonged in the `CircuitPack` base class and what belonged in the derived `TR48` class. When he added the `TR96` and `TR192` he may have realized that he had problems, and he did the best he could to get it working in his current design given his time constraints.
+I do not blame the developer who originally created these classes. He was under tremendous pressure to deliver anything within extremely tight schedules. I suspect he started with just the `TR48`, and he later determined that a `CircuitPack` base class would be needed. He took his best guess as to what belonged in the `CircuitPack` base class and what belonged in the extended `TR48` class. When he added the `TR96` and `TR192` he may have realized that he had problems, and he did the best he could to get it working in his current design given his time constraints.
 
 I had the luxury of being able to take a little time and think about the design. I also had the luxury of seeing three completed TR classes. By this point the layers of abstraction had emerged, even if they were in the wrong places.
 
