@@ -142,7 +142,7 @@ Here are some test smells that may indicate good test practices were not followe
 * Tests that take too much time to complete. They are probably coupled to an external dependency.
 * Tests that are flaky. That is, they are non-deterministic, sometimes they pass. Sometimes they fail.
 * Tests that exercise entire operational scenarios rather than a single behavior.
-* Tests that don't test anything. That is, they are false positives.
+* Tests that don't test anything. That is, they are false positives. They don't contain assertions. They only confirm that the code doesn't crash when executed.
 * Tests that are brittle. They exercise implementation and do not specify behavior. They are tests that start to fail when the code is refactored.
 * Tests that are complex. They have lots of Test Doubles, lots of assertions, etc. This reflects problems with the implementation. Test complexity, ugliness, etc. is usually a reflection of implementation complexity, ugliness, etc.
 
