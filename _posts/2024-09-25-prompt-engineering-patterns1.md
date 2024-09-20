@@ -8,31 +8,31 @@ unlisted: true
 
 
 # Introduction
-I introduced __Large Language Models__ (LLMs) and __Generative AI__ (GenAI) in my previous [blog](https://jhumelsine.github.io/2024/09/18/llm-genai.html). This blog will provide suggestions on how to invoke good results from LLMs and GenAI via [prompt engineering](https://en.wikipedia.org/wiki/Prompt_engineering).
+I wrote about __Large Language Models__ (LLMs) and __Generative AI__ (GenAI) in my previous [blog](https://jhumelsine.github.io/2024/09/18/llm-genai.html). This blog will provide suggestions on how to invoke good results from LLMs and GenAI via [prompt engineering](https://en.wikipedia.org/wiki/Prompt_engineering).
 
-I learned most of these prompts from two online courses I recently audited: [Generative AI: Prompt Engineering Basics](https://www.coursera.org/learn/generative-ai-prompt-engineering-for-everyone/home/welcome) and [Prompt Engineering for ChatGPT](https://www.coursera.org/learn/prompt-engineering/home/welcome). There are many more resources available in [References](#References) at the bottom of this blog entry.
+I learned most of these prompt patterns from two online courses I recently audited: [Generative AI: Prompt Engineering Basics](https://www.coursera.org/learn/generative-ai-prompt-engineering-for-everyone/home/welcome) and [Prompt Engineering for ChatGPT](https://www.coursera.org/learn/prompt-engineering/home/welcome). There are many more resources available in [References](#References) at the bottom of this blog entry.
 
 I will describe Prompt Engineering Patterns with descriptions and prompt examples. I will not provide GenAI results for the following reasons:
 * They will consume too much space if listed here.
-* Watch GenAI generate responses will have a greater impact than seeing my responses.
+* Watchvcing GenAI generate responses will have a greater impact than seeing my responses.
 * Your responses and my responses will not be the same. GenAI results always vary, even with the same prompt.
 
-I recommend having an LLM/GenAI platform open as you read this. [ChatGPT](https://chatgpt.com/) provided by [OpenAI’s](https://openai.com/) offers paid subscriber and free ChatGPT options. I use the free version of ChatGPT, which requires a login, It can be created on the platform, or you can use other platform accounts, such as Google. While I’ll confirm my prompt examples in ChatGPT, I think most will work in other LLM/GenAI platforms as well.
+I recommend having an LLM/GenAI platform open as you read this. [ChatGPT](https://chatgpt.com/) provided by [OpenAI’s](https://openai.com/) offers paid subscriber and free ChatGPT options. I use the free version of ChatGPT, which requires a login. It can be created on the platform, or you can use other platform accounts, such as Google. While I’ll confirm my prompt examples in ChatGPT, I think most will work in other LLM/GenAI platforms as well.
 
 Copy-and-paste my prompt examples into your chosen LLM/GenAI platform as you proceed through this blog.
 
 # Prompt Engineering Basics
-LLM models the relationship among words, technically tokens, based upon billions of examples of the relationship of words crafted from content on the internet.
+LLMs model the relationships among words, technically tokens, based upon billions of examples from the internet.
 
-When text is provided to the LLM’s prompt, GenAI uses the text to generate [the next most likely word](https://jhumelsine.github.io/2024/09/18/llm-genai.html#the-next-most-likely-word) based upon the relationship of words in the model. It adds this generated word to the text and repeats the process to generate the next most likely word. One doesn’t need to know the algorithmic details. I don’t quite understand it myself. All one really needs to consider is that the LLM is generating a series of the next most likely words using the prompt as the seed.
+When text is provided to an LLM’s prompt, GenAI uses the provided text to generate [the next most likely word](https://jhumelsine.github.io/2024/09/18/llm-genai.html#the-next-most-likely-word) based upon the relationship of words in the model. It adds this generated word to the text and repeats the process to generate the next most likely word. One doesn’t need to know the algorithmic details of how it does this. I don’t quite understand it myself. All one really needs to know is that the LLM is generating a series of the next most likely words using the text prompt as the seed to generate the next most likely words.
 
-Enter a set of random words as a prompt, and GenAI will balk with a response indicating that it can’t do too much with random words. But give it something with contextual form, such as an imperative or a question, then it will build a response.
+Enter a set of random words as a prompt, and GenAI will balk with a response indicating that it can’t do too much with random words. But give it something with contextual form, such as an request or a question, and it will build a response.
 
 # Good Prompt Basics
 The initial prompt is a conversation starter with the LLM/GenAI. Better prompts will elicit better responses from the LLM/GenAI. Prompting is communicating with the LLM. Good prompting is about good communication. A good prompt will include the following (mostly from: [Generative AI: Prompt Engineering Basics](https://www.coursera.org/learn/generative-ai-prompt-engineering-for-everyone/home/welcome)):
 * __Instructions:__ Provides guidelines regarding the task. That is, what do you want GenAI to do.
 * __Context:__ Lists details useful for generating relevant content. That is, narrow the scope of the conversation.
-* __Input Data:__ Includes additional information provided by you in the prompt. For example, you may want it to critique something you’ve written.
+* __Input Data:__ Includes additional information provided by you in the prompt. For example, you may want it to critique something you’ve written, such as an email.
 * __Output Indicator:__ Describes the structure of the generated response. For example, do you text, an outline, a table, etc.?
 
 For example, try copy-and-paste this as one prompt:
@@ -42,10 +42,10 @@ For example, try copy-and-paste this as one prompt:
 >
 >The diagonals will be the same branch in the row and column headers, so place "N/A" in those cells.
 
-Here is a more conversational set of two prompts:
+Here is a more conversational interaction to reach the same outcome:
 >What are the checks and balances of the three branches of the United States Federal government?
 
-Followed by:
+This returns a text based respons. If a table is desired, then continue with this additional prompt:
 >Put that in a table.
 
 I thought the second, more conversational and more natural prompts gave me better results than the first one, but rather than place __N/A__ on the diagonals, which would suggest that a branch has a check and balance upon itself, it lists powers associated with that branch. So I added this third request to clean that up:
@@ -54,9 +54,9 @@ I thought the second, more conversational and more natural prompts gave me bette
 This cleaned up the table.
 
 # Prompt Engineering Pattern Introduction
-It should be obvious by blog title and most of my blog entries that I’m a fan of [design pattern](https://jhumelsine.github.io/2023/08/29/toolbox.html). Whereas traditional design patterns apply to an object-oriented domain, Prompt Engineering Patterns are design patterns apply to a LLM/GenAI domain. They are solution approaches to common problems when interacting with LLMs/GenAIs. Unlike traditional design patterns, which require some technical expertise, prompt engineering patterns are not as technical. Each pattern is typically a phrase or two that invokes a certain type of response from the LLM/GenAI. Multiple patterns may be used in the same prompt.
+It should be obvious by the header at the top of each blog and the subject matter for most of my blog entries that I’m a fan of [design pattern](https://jhumelsine.github.io/2023/08/29/toolbox.html). Whereas traditional design patterns apply to an object-oriented domain, Prompt Engineering Patterns apply to a LLM/GenAI domain. They are solution approaches to common problems when interacting with LLMs/GenAIs. Unlike traditional design patterns, which require some technical expertise, prompt engineering patterns are not technical. Each pattern is typically a phrase or two that invokes a certain type of response from the LLM/GenAI. Multiple patterns may be used in the same prompt or session.
 
-Prompt Engineering Patterns are coalescing to some degree, but the same technique may have different names depending upon the source. There are also probably many more patterns waiting to be discovered.
+Prompt Engineering Patterns are coalescing to some degree, but the same technique may have different names depending upon the source. There are also many more patterns waiting to be discovered.
 
 # Best Practices for Prompt Creation
 [Generative AI: Prompt Engineering Basics](https://www.coursera.org/learn/generative-ai-prompt-engineering-for-everyone/home/welcome) continued with more suggestions for good prompts:
@@ -74,7 +74,7 @@ Prompt Engineering Patterns are coalescing to some degree, but the same techniqu
     * Assume a persona
     * Provide context for role-play
 
-In essence, if your prompts wouldn’t make sense to a person, they won’t make sense to the LLM/GenAI.
+In essence, if your prompts would make sense to a person, then they will probably make sense to the LLM/GenAI.
 
 # Prompt Engineering Patterns
 The main source for many of these Prompt Patterns is [Prompt Engineering for ChatGPT](https://www.coursera.org/learn/prompt-engineering/home/welcome).
@@ -83,17 +83,17 @@ The main source for many of these Prompt Patterns is [Prompt Engineering for Cha
 In the real world, if you wanted medical advice, you’d ask a doctor. If you wanted financial advice, you’d ask a financial planner. If you wanted tax advice, you’d ask a tax accountant.
 
 The __Persona Pattern__ allows the LLM/GenAI to respond as if it were that persona, which could be:
-* A role, such as doctor, but DO NOT take any of its medical advice seriously
+* A role, such as doctor, but DO NOT take any of its medical advice seriously - always confirm with a real doctor
 * A real person, living or dead, as long as there’s enough public information about that person
-* A fictional person
-* Inanimate object
+* A fictional character
+* An Inanimate object
 
-To activate the Persona Patter use phrases such as:
+To activate the Persona Pattern use phrases such as:
 * You are a _persona_ …
 * Act as a _persona_ …
 * Provide a response from a _persona_ perspective
 
-Here’s a prompt with more umph to it:
+Replace _persona_ with something more concrete. Here’s a prompt with more umph to it:
 > You will act as a _specific_ expert. Your objective is to engage in a comprehensible <specific> session with me. Begin by asking a series of detailed questions, one at a time, to gather all essential information required to craft the most tailored and memorable <thing> based upon my specific preferences, interests, etc.
 
 ## Examples to try
@@ -102,14 +102,14 @@ Here are a few examples to try. Copy-and-paste them into your LLM/GenAI platform
 ### Career Councilor 
 >Act as a career coach. I'm looking for new career opportunities. Help me come up with some options. Interview me to gain an assessment of what jobs I should consider pursuing.
 >
->Begin by asking me questions to learn more about me. Ask about my educational background, my previous employment experience, my skillset, the types of problems I like to solve and anything else that provides more insights into the type of jobs for which I would be a good match.
+>Begin by asking me questions to learn more about me. Ask about my educational background, my previous employment experience, my skillset, the types of problems that I like to solve. Also ask anything else that provides more insights into the type of jobs for which I would be a good match.
 >
 >Ask me one question at a time. Ask follow up questions to my specific answers but make sure to return to the high level questions as well.
 >Once you have acquired enough information about me via my answers, then provide a list of careers for which I would be a good match.
 
 What I like about this prompt is that it exposes you to considerations you may not have thought of yourself. It's a form of idea exploration. If there's a good idea, continue to pursue it, either in the real world or via the LLM. If it's not so much a good idea, then ignore it.
 
-Start the prompt anew, give it slightly different answers and see what else it may produce.
+Create a new session and prove the same promtp. Give it slightly different answers and see what else it may produce.
 
 ### Constitutional Scholar
 > Act as a United States Constitutional scholar. Answer my questions about the US Constitution including the Amendments. Provide the sections of the Constitution and Amendments as references to your answers. Include the text as well as the section where that text resides.
@@ -118,7 +118,7 @@ Here are some sample questions:
 * How long is the term of the US President?
 * Tell me about patent law.
 * What's the emoluments clause?
-* What are checks and balances?
+* What are checks and balances and how do they work?
 * What can Donald Trump teach us about the Constitution?
 
 ### Interfaith Discussion
@@ -132,11 +132,11 @@ Here are some sample questions:
 
 ### Meeting of the Minds
 Steve Allen produced a TV show in the late 1970s called [__The Meeting of the Minds__]( https://en.wikipedia.org/wiki/Meeting_of_Minds). It was a scripted show where four famous people from history would sit a table for a 30-minute conversation with Allen as their host/moderator. 
-> A meeting of the minds. Act as four personas: Galileo, Isaac Newton, Albert Einstein and Stephen Hawking. 
+>Act as four personas: Galileo, Isaac Newton, Albert Einstein and Stephen Hawking. 
 >
 >They are sitting at a round table having a discussion. They all speak English. Hawking's speech is not incumbered by his illness. 
 >
->The men of past histories know the men in the relative future, but they don't have detailed knowledge of future discoveries. 
+>The men of past histories know the men in their relative futures, but they don't have detailed knowledge of future discoveries. 
 >
 >They will have discussions about the nature of the universe as they understand it. They will be curious about what the other men know, especially the men of the future. They will inquire for more insights.
 >
