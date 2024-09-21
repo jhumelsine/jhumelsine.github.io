@@ -1,6 +1,6 @@
 ---
 title: DRAFT – Prompt Engineering Patterns
-description: How to have a dialog with a Large Language Model
+description: How to have a conversation with a Large Language Model
 unlisted: true
 ---
 
@@ -14,17 +14,17 @@ I learned most of these prompt patterns from two online courses I recently audit
 
 I will describe Prompt Engineering Patterns with descriptions and prompt examples. I will not provide GenAI results for the following reasons:
 * They will consume too much space if listed here.
-* Watchvcing GenAI generate responses will have a greater impact than seeing my responses.
+* Watchvcing GenAI generate responses will have a greater impact than reading my responses.
 * Your responses and my responses will not be the same. GenAI results always vary, even with the same prompt.
 
 I recommend having an LLM/GenAI platform open as you read this. [ChatGPT](https://chatgpt.com/) provided by [OpenAI’s](https://openai.com/) offers paid subscriber and free ChatGPT options. I use the free version of ChatGPT, which requires a login. It can be created on the platform, or you can use other platform accounts, such as Google. While I’ll confirm my prompt examples in ChatGPT, I think most will work in other LLM/GenAI platforms as well.
 
-Copy-and-paste my prompt examples into your chosen LLM/GenAI platform as you proceed through this blog.
+Copy-and-paste my prompt examples into your chosen LLM/GenAI platform as you proceed through this blog. And by all means, experiment as you follow along.
 
 # Prompt Engineering Basics
 LLMs model the relationships among words, technically tokens, based upon billions of examples from the internet.
 
-When text is provided to an LLM’s prompt, GenAI uses the provided text to generate [the next most likely word](https://jhumelsine.github.io/2024/09/18/llm-genai.html#the-next-most-likely-word) based upon the relationship of words in the model. It adds this generated word to the text and repeats the process to generate the next most likely word. One doesn’t need to know the algorithmic details of how it does this. I don’t quite understand it myself. All one really needs to know is that the LLM is generating a series of the next most likely words using the text prompt as the seed to generate the next most likely words.
+When text is provided to an LLM’s prompt, GenAI uses the provided text to generate [the next most likely word](https://jhumelsine.github.io/2024/09/18/llm-genai.html#the-next-most-likely-word) based upon the relationship of words in the model. It adds this generated word to the text and repeats the process to generate the next most likely word. One doesn’t need to know the algorithmic details of how it does this. I don’t quite understand it myself. All one really needs to know is that the LLM is generating a series of the next most likely words using the text prompt as the seed.
 
 Enter a set of random words as a prompt, and GenAI will balk with a response indicating that it can’t do too much with random words. But give it something with contextual form, such as an request or a question, and it will build a response.
 
@@ -54,7 +54,7 @@ I thought the second, more conversational and more natural prompts gave me bette
 This cleaned up the table.
 
 # Prompt Engineering Pattern Introduction
-It should be obvious by the header at the top of each blog and the subject matter for most of my blog entries that I’m a fan of [design pattern](https://jhumelsine.github.io/2023/08/29/toolbox.html). Whereas traditional design patterns apply to an object-oriented domain, Prompt Engineering Patterns apply to a LLM/GenAI domain. They are solution approaches to common problems when interacting with LLMs/GenAIs. Unlike traditional design patterns, which require some technical expertise, prompt engineering patterns are not technical. Each pattern is typically a phrase or two that invokes a certain type of response from the LLM/GenAI. Multiple patterns may be used in the same prompt or session.
+I’m a huge fan of [design pattern](https://jhumelsine.github.io/2023/08/29/toolbox.html). Whereas traditional design patterns apply to an object-oriented domain, Prompt Engineering Patterns apply to an LLM/GenAI domain. They are solution approaches to common problems when interacting with LLMs/GenAIs. Unlike traditional design patterns, which require some technical expertise, prompt engineering patterns are not technical. Each pattern is typically a phrase or two that invokes a certain type of response from the LLM/GenAI. Multiple patterns may be used in the same prompt or session.
 
 Prompt Engineering Patterns are coalescing to some degree, but the same technique may have different names depending upon the source. There are also many more patterns waiting to be discovered.
 
@@ -77,24 +77,24 @@ Prompt Engineering Patterns are coalescing to some degree, but the same techniqu
 In essence, if your prompts would make sense to a person, then they will probably make sense to the LLM/GenAI.
 
 # Prompt Engineering Patterns
-The main source for many of these Prompt Patterns is [Prompt Engineering for ChatGPT](https://www.coursera.org/learn/prompt-engineering/home/welcome).
+The main source for many of these Prompt Patterns is from [Prompt Engineering for ChatGPT](https://www.coursera.org/learn/prompt-engineering/home/welcome).
 
 ## The Persona Pattern
 In the real world, if you wanted medical advice, you’d ask a doctor. If you wanted financial advice, you’d ask a financial planner. If you wanted tax advice, you’d ask a tax accountant.
 
 The __Persona Pattern__ allows the LLM/GenAI to respond as if it were that persona, which could be:
-* A role, such as doctor, but DO NOT take any of its medical advice seriously - always confirm with a real doctor
+* A role, such as doctor, but DO NOT take any of its medical advice seriously - always confirm with an actual physician
 * A real person, living or dead, as long as there’s enough public information about that person
 * A fictional character
-* An Inanimate object
+* An inanimate object
 
 To activate the Persona Pattern use phrases such as:
 * You are a _persona_ …
 * Act as a _persona_ …
-* Provide a response from a _persona_ perspective
+* Provide a response from a _persona_ perspective ...
 
-Replace _persona_ with something more concrete. Here’s a prompt with more umph to it:
-> You will act as a _specific_ expert. Your objective is to engage in a comprehensible <specific> session with me. Begin by asking a series of detailed questions, one at a time, to gather all essential information required to craft the most tailored and memorable <thing> based upon my specific preferences, interests, etc.
+Replace _persona_ with something more concrete. Here’s a persona prompt with more instructions within it:
+> You will act as a _specific_ expert. Your objective is to engage in a comprehensible _specific_ session with me. Begin by asking a series of detailed questions, one at a time, to gather all essential information required to craft the most tailored and memorable <thing> based upon my specific preferences, interests, etc.
 
 ## Examples to try
 Here are a few examples to try. Copy-and-paste them into your LLM/GenAI platform.
@@ -102,7 +102,7 @@ Here are a few examples to try. Copy-and-paste them into your LLM/GenAI platform
 ### Career Councilor 
 >Act as a career coach. I'm looking for new career opportunities. Help me come up with some options. Interview me to gain an assessment of what jobs I should consider pursuing.
 >
->Begin by asking me questions to learn more about me. Ask about my educational background, my previous employment experience, my skillset, the types of problems that I like to solve. Also ask anything else that provides more insights into the type of jobs for which I would be a good match.
+>Begin by asking me questions to learn more about me. Ask about my educational background, my previous employment experience, my skillset, the types of work problems that I like to solve. Also ask anything else that provides more insights into the type of jobs for which I would be a good match.
 >
 >Ask me one question at a time. Ask follow up questions to my specific answers but make sure to return to the high level questions as well.
 >Once you have acquired enough information about me via my answers, then provide a list of careers for which I would be a good match.
@@ -123,7 +123,7 @@ Here are some sample questions:
 
 ### Interfaith Discussion
 LLM/GenAI can take on multiple personas. While this next example starts off sounding like a bad bar joke, it does yield some interesting results.
-> For this session you will take on 4 personas. They will be a Jewish Rabbi, a Catholic Priest, a Protestant Minister and a Muslim Imam. Each will respond from their point of view. Each will be polite. Each will cite scriptures to reinforce their response. They will respond to each other among themselves in a continued conversation for a few rounds before completing each topic. When done, ask me if I’d like the conversation to continue or move to another topic.
+> For this session you will take on 4 personas. They will be a Jewish Rabbi, a Catholic Priest, a Protestant Minister and a Muslim Imam. Each will respond from their own point of view. Each will be polite. Each will cite scriptures to reinforce their response. They will respond to each other in a continued conversation for a few rounds before completing each topic. When done, ask me if I’d like the conversation to continue or move to another topic.
 
 Here are some sample questions:
 * What is the nature of God?
@@ -131,8 +131,8 @@ Here are some sample questions:
 * How are your faiths different?
 
 ### Meeting of the Minds
-Steve Allen produced a TV show in the late 1970s called [__The Meeting of the Minds__]( https://en.wikipedia.org/wiki/Meeting_of_Minds). It was a scripted show where four famous people from history would sit a table for a 30-minute conversation with Allen as their host/moderator. 
->Act as four personas: Galileo, Isaac Newton, Albert Einstein and Stephen Hawking. 
+Steve Allen produced a TV show in the late 1970s called [__The Meeting of the Minds__]( https://en.wikipedia.org/wiki/Meeting_of_Minds). It was a scripted show where four famous people from history, portrayed by actors, would sit a table for a 30-minute conversation with Allen as their host/moderator. 
+>Act as four personas: Galileo Galilei, Isaac Newton, Albert Einstein and Stephen Hawking. 
 >
 >They are sitting at a round table having a discussion. They all speak English. Hawking's speech is not incumbered by his illness. 
 >
@@ -150,15 +150,19 @@ Here are some sample questions:
 * You've each changed how we view the universe. Do you have any thoughts on how our view of the universe might change again?
 
 ## Adding New Information to the LLM
-The LLM hasn’t been trained on all knowledge. Technically, it’s not all knowledge. Some LLMs are domain specific, such as those to assist with programming.
+The LLM hasn’t been trained with all knowledge. Some LLMs are domain specific, such as those that assist with programming.
+
 What if you want to leverage the LLM/GenAI in a domain in which it has not been trained? If your domain content is not too large, then include it prompt.
+
 __NOTE:__ In general, do not add any personal or proprietary information you wouldn't share freely with the world.
 
 ### Email Style Options
-Let’s say that you want the LLM/GenAI to provide different options for the same email you wish to send.
->I need some suggestions on an email that I need to send. I'll provide the email after <EMAIL>. I will tell you to rewrite the original email in different styles, one style at a time. Rewrite it. 
+Let’s say that you want the LLM/GenAI to provide different options for an email you wish to send.
+>I need some suggestions on an email that I need to send. I'll provide the email after \<EMAIL\>. I will tell you to rewrite the original email in different styles, one style at a time. Rewrite it. 
 >
->EMAIL Bill, After 30 years of working for the company, I have decided that it's time for me to pursue other interests. 
+>EMAIL
+>
+>Bill, After 30 years of working for the company, I have decided that it's time for me to pursue other interests. 
 >
 >Therefore, I will be retiring. My last day will be in two weeks on September 30. In the interim, I will work with the team in any desired knowledge transfer.
 >
@@ -172,13 +176,14 @@ Here are some style choices to try:
 * Write it as if by Dr. Seuss.
 * Write it as some who's sick and tired of work, as in "Take this job and shove it!"
 
-Of course, you’d probably make additional updates before sending the email.
+You’d probably wnat to make additional updates by hand before sending the email.
 
 ### Terms of Service Advisor
-Do you read the Terms of Service? Probably not. Take a look at the [YouTube Terms of Service](https://www.youtube.com/static?template=terms).
->Act as an advisor. I will ask you questions about a Terms of Service agreement, which will be copied directly after <TERMS OF SERVICE>. Base your answers upon the content provided. 
+Do you read the Terms of Service before clicking on __accept__? Probably not. Take a look at the [YouTube Terms of Service](https://www.youtube.com/static?template=terms). Do you understand it?
+>Act as an advisor. I will ask you questions about a Terms of Service agreement, which will be copied directly after \<TERMS OF SERVICE\>. Base your answers upon the content provided. 
 >
 >TERMS OF SERVICE
+>
 >_Copy the YouTube ToS content found on the page linked above and paste it in the prompt here._
 
 Here are some inquiries:
@@ -188,11 +193,11 @@ Here are some inquiries:
 * What are my rights and responsibilities?
 
 ### Too Large for the Prompt
-There’s a limit to how much you can add to a prompt. I suspect the limit will increase as LLMs advance. But if the Terms of Service agreement you want to understand is too large to copy-and-paste into the prompt.
+There’s a limit to how much text you can add to a prompt. I suspect the limit will increase as LLMs advance. But what if the Terms of Service agreement, or any other content, you want analysis from the LLM is too large to copy-and-paste into the prompt?
 
 There are several options, most along the same theme:
-* Split the content into smaller prompts. For example, rather than pasting your entire Terms of Service into the prompt, maybe you can seek advice section by section. The risk of this approach is that context among separated sections may be lost.
-* Split the agreement into smaller sections and summarize it. Do this manually or ask the LLM/GenAI to summarize it. Then combine the summarized parts. For example, have the LLM/GenAI summarize each section, and save all the sections into one document that will hopefully fit within one prompt. Now you can seek advice on the summarized version of the agreement. However, the risk of this approach is that important information may be excluded from the summary.
+* Split the content into smaller prompts. For example, rather than pasting your entire Terms of Service agreement into the prompt, maybe you can seek advice section by section. The risk of this approach is that context among separated sections may be lost.
+* Split the content into smaller sections and summarize each. Do this manually or ask the LLM/GenAI to summarize it. Then combine the summarized parts into one prompt. For example, have the LLM/GenAI summarize each section of the Terms and Service agreement, and save all the sections into one document that will hopefully fit within one prompt. Now you can seek advice on the summarized version of the agreement. However, the risk of this approach is that important information may be excluded from the summary.
 
 ## Question Refinement Pattern
 Good prompts should have clarity and context, but we often forgo those in casual conversation. Our friends and family tend to know context based upon their previous experiences with us. But LLMs don’t have that knowledge.
@@ -204,27 +209,27 @@ ChatGPT gave me an answer on the assumption that I was considering attending Har
 * Should accept a faculty position at Harvard?
 * Should I visit Harvard on my upcoming vacation to Boston?
 
-Add a prompt for asking the LLM/GenAI to refine your question:
+Add a prompt requesting that the LLM/GenAI refine your question:
 > From now on, when I ask a question, suggest a better version of my question.
 
-Or even better, rather than just ask for the question have it ask you if 
+Or even better, rather than just ask for a refined question, have it ask the refined questions you:
 > From now on, when I ask a question, suggest a better version of my question and ask me if I would like to use it.
 
 Or:
 > Whenever I ask a question, suggest a better question and ask me if I would like to use it instead.
 
-ChatGPT still assumed that my original question was in the context of attending Harvard as a student, but it told me that before answering as if that was my actual intent.
+ChatGPT still assumed that my original Harvard question was in the context of attending as a student, but it told me that was its assumption before answering.
 
-With the prompt, it provides more context. And it seems to trigger something else. Even if I confirm that I’m interested in attending, it starts to interview me by asking me questions.
+The Question Refinement Prompt seems to trigger something else. Even if I confirm that I’m interested in attending, it starts to interview me by asking me follow up questions.
 
 The __From now on__ and __Whenever__ phrases are a type of prompt pattern too. They set up rules for the rest of the conversation.
 
-I don’t need to provide additional examples. Choose one of the examples above which asks the LLM questions, such as the [Constitution Scholar](#Constitutional-Scholar) and the [Religious Scholars]($Interfaith-Discussion) examples. After the original prompt, add the question refinement prompt and ask the same questions or ask your own.
+I won't provide specific examples for the Question Refinement Pormpt. Choose one of the question related examples above, such as the [Constitution Scholar](#Constitutional-Scholar) and the [Religious Scholars]($Interfaith-Discussion) examples. After the original prompt, add the Question Refinement Prompt and ask the same questions or ask your own.
 
 # Summary
-Prompt engineering provides of providing context and details for extracting information from the LLM’s relationship of words that’s focused upon that context. It’s a conversation with the LLM in natural language. Prompt engineering patterns natural language phrases that have shown to return good results.
+Prompt engineering provides context and details for extracting information from the LLM’s relationship of words that’s focused upon that context. It’s a conversation with the LLM using natural language. Prompt engineering patterns are natural language phrases that have shown to return good results.
 
-I’ve provided several prompt examples of what I learned in the online courses. I’ll continue in the next blog with more. I don’t plan to list all that I’ve seen. I’ll focus on some of my favorites and the ones that wowed me. I’ll provide references to other prompt engineering patterns in the references.
+I have provided several prompt examples of what I learned in the online courses. I’ll continue with more in the next blog. I don’t plan to list all that I’ve seen. I’ll focus on some of my favorites and the ones that wowed me. I’ll provide references to other prompt engineering patterns in the references.
 
 LLM/GenAI technology is still new. I’m sure people will discover more prompt engineering patterns as LLM/GenAI technology and our experience with it advances. You may even create some of your own.
 
@@ -233,11 +238,12 @@ I’ve only scratched the surface of Prompt Engineering Patterns. Here are refer
 
 See the previous blog’s [references](https://jhumelsine.github.io/2024/09/18/llm-genai.html#references) for introduction LLM/GenAI courses and several LLM platforms.
 
-Search Google for [Prompt Engineering Patterns](https://www.google.com/search?q=prompt+engineering+patterns)
+Google Searches:
+* [Prompt Engineering Patterns](https://www.google.com/search?q=prompt+engineering+patterns)
+* [Prompt Engineering Pattern Videos](https://www.google.com/search?q=prompt+engineering+patterns&tbm=vid)
 
-Prompt Engineering Pattern Videos and Courses:
-* Google Video search for [Prompt Engineering Patterns](https://www.google.com/search?q=prompt+engineering+patterns&tbm=vid)
-* Coursera [Prompt Engineering Pattern]( https://www.coursera.org/search?query=Prompt%20Engineering&sortBy=BEST_MATCH&myLearningTab=IN_PROGRESS) courses. As of this posting, this query returns over 500 results. Enroll for a price for full experience, or audit for free, which doesn’t tend to include tests or grading. Some courses may not provide an audit option.
+Prompt Engineering Pattern Courses:
+* Coursera [Prompt Engineering Pattern]( https://www.coursera.org/search?query=Prompt%20Engineering&sortBy=BEST_MATCH&myLearningTab=IN_PROGRESS) courses. As of this posting, this query returns over 500 courses. Enroll for a price for the full experience, or audit for free, which doesn’t include tests or grading. Some courses may not provide an audit option.
 * Coursera courses I audited, which are the source of most of my blog content:
     * [Generative AI: Prompt Engineering Basics](https://www.coursera.org/learn/generative-ai-prompt-engineering-for-everyone/home/welcome) - Provided by IBM.
     * [Prompt Engineering for ChatGPT](https://www.coursera.org/learn/prompt-engineering/home/welcome) - Provided by Vanderbilt University.
@@ -249,7 +255,7 @@ Other Prompt Engineering Pattern content:
 * [Prompt engineering](https://platform.openai.com/docs/guides/prompt-engineering) – OpenAI Document
 * [Prompt engineering patterns](https://community.openai.com/t/prompt-engineering-patterns/121040) – OpenAI Prompt Engineering Pattern Forum
 * [What Is a Prompt Pattern?](https://www.coursera.org/articles/prompt-pattern) – by Coursera staff
-* [A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT](https://www.dre.vanderbilt.edu/~schmidt/PDF/prompt-patterns.pdf) – by Jules White, et al, White is the presenter in the Vanderbilt Coursera course
+* [A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT](https://www.dre.vanderbilt.edu/~schmidt/PDF/prompt-patterns.pdf) – by Jules White, et al. White is the presenter in the Vanderbilt Coursera course
 * [LLM Prompt Engineering Patterns]( https://www.linkedin.com/pulse/llm-prompt-engineering-patterns-stephen-redmond/) – by Stephen Redmond
 * [A Step-by-step Guide to Prompt Engineering: Best Practices, Challenges, and Examples](https://www.lakera.ai/blog/prompt-engineering-guide) – by Mokolaj Kowalczyk
 * [Prompt engineering: The process, uses, techniques, applications and best practices](https://www.leewayhertz.com/prompt-engineering/) – by Akash Takyar
