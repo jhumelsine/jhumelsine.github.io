@@ -10,14 +10,14 @@ unlisted: true
 # Introduction
 I wrote about __Large Language Models__ (LLMs) and __Generative AI__ (GenAI) in my previous [blog](https://jhumelsine.github.io/2024/09/18/llm-genai.html). This blog will provide suggestions on how to invoke good results from LLMs and GenAI via [prompt engineering](https://en.wikipedia.org/wiki/Prompt_engineering).
 
-I learned most of these prompt patterns from two online courses I recently audited: [Generative AI: Prompt Engineering Basics](https://www.coursera.org/learn/generative-ai-prompt-engineering-for-everyone/home/welcome) and [Prompt Engineering for ChatGPT](https://www.coursera.org/learn/prompt-engineering/home/welcome). There are more resources available in the [References](#References) at the bottom of this blog entry.
+I learned most of these prompt patterns from two online courses I recently audited: [Generative AI: Prompt Engineering Basics](https://www.coursera.org/learn/generative-ai-prompt-engineering-for-everyone/home/welcome) and [Prompt Engineering for ChatGPT](https://www.coursera.org/learn/prompt-engineering/home/welcome). There are more resources available in the [References](#references) at the bottom of this blog entry.
 
 I will describe Prompt Engineering Patterns with a few examples. I will not provide my GenAI generated results for the following reasons:
 * They would consume too much space if copied here.
 * Watching GenAI generate responses in real time will have a greater impact than reading my responses.
 * Your responses and my responses will not be the same. GenAI results always vary, even with the same prompt.
 
-I recommend having an LLM/GenAI platform open as you read this. [ChatGPT](https://chatgpt.com/), provided by [OpenAI](https://openai.com/), offers paid subscriber and free ChatGPT options. I use the free version of ChatGPT, which requires a login. The login can be created on their platform, or you can authenticate via other platform accounts, such as Google. While I have confirmed my prompt examples in ChatGPT, I think most will work in other [LLM/GenAI platforms](https://jhumelsine.github.io/2024/09/18/llm-genai.html) as well.
+I recommend having an LLM/GenAI platform open as you read this. [ChatGPT](https://chatgpt.com/), provided by [OpenAI](https://openai.com/), offers paid subscriber and free ChatGPT options. I use the free version of ChatGPT, which requires a login. The login can be created on their platform, or you can authenticate via other platform accounts, such as Google. While I have confirmed my prompt examples in ChatGPT, I think most will work in other [LLM/GenAI platforms](https://jhumelsine.github.io/2024/09/18/llm-genai.html#references) as well.
 
 Copy-and-paste my prompt examples into your chosen LLM/GenAI platform as you proceed through this blog. And by all means, experiment as you follow along.
 
@@ -230,7 +230,7 @@ The Question Refinement Prompt seems to trigger something else. Even if I confir
 
 The __From now on__ and __Whenever__ phrases are a type of prompt pattern too. They set up rules for the rest of the conversation.
 
-I won't provide specific examples for the Question Refinement Prompt, since it's a refinement to previous prompt patterns. Choose one of the question related examples above, such as [Constitution Scholar](#Constitutional-Scholar) or [Religious Scholars]($Interfaith-Discussion). After the original prompt, add the Question Refinement Prompt and ask the same questions or ask your own.
+I won't provide specific examples for the Question Refinement Prompt, since it's a refinement to previous prompt patterns. Choose one of the question related examples above, such as [Constitution Scholar](#constitutional-scholar) or [Religious Scholars]($interfaith-discussion). After the original prompt, add the Question Refinement Prompt and ask the same questions or ask your own.
 
 # Summary
 Prompt engineering provides context and details for extracting information from the LLM’s relationship of words that’s focused upon that context. It’s a conversation with the LLM using natural language. Prompt engineering patterns are natural language phrases that have shown to produce good results.
