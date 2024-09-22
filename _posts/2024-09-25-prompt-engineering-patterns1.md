@@ -17,7 +17,7 @@ I will describe Prompt Engineering Patterns with a few examples. I will not prov
 * Watching GenAI generate responses in real time will have a greater impact than reading my responses.
 * Your responses and my responses will not be the same. GenAI results always vary, even with the same prompt.
 
-I recommend having an LLM/GenAI platform open as you read this. [ChatGPT](https://chatgpt.com/), provided by [OpenAI’s](https://openai.com/), offers paid subscriber and free ChatGPT options. I use the free version of ChatGPT, which requires a login. It can be created on their platform, or you can use other platform accounts, such as Google. While I have confirmed my prompt examples in ChatGPT, I think most will work in other [LLM/GenAI platforms](https://jhumelsine.github.io/2024/09/18/llm-genai.html) as well.
+I recommend having an LLM/GenAI platform open as you read this. [ChatGPT](https://chatgpt.com/), provided by [OpenAI](https://openai.com/), offers paid subscriber and free ChatGPT options. I use the free version of ChatGPT, which requires a login. The login can be created on their platform, or you can authenticate via other platform accounts, such as Google. While I have confirmed my prompt examples in ChatGPT, I think most will work in other [LLM/GenAI platforms](https://jhumelsine.github.io/2024/09/18/llm-genai.html) as well.
 
 Copy-and-paste my prompt examples into your chosen LLM/GenAI platform as you proceed through this blog. And by all means, experiment as you follow along.
 
@@ -35,7 +35,7 @@ The initial prompt is a conversation starter with the LLM/GenAI. Better prompts 
 * __Input Data:__ Includes additional information provided by you in the prompt. For example, you may want it to critique something you’re written, such as an email.
 * __Output Indicator:__ Describes the structure of the response. For example, do you want text, an outline, a table, etc.?
 
-Copy-and-paste this as one prompt:
+Copy-and-paste this as one prompt, which should generate the table:
 >List the checks and balances of the three branches of the United States Federal government. 
 >
 >List them in a 3 by 3 grid with each branch listed as the header for each row and column in the grid. 
@@ -148,7 +148,7 @@ Steve Allen produced a TV show in the late 1970s called [__The Meeting of the Mi
 >
 >Do not start the discussion until I have introduced the first topic.
 
-Here are some sample topics:
+Here are some sample conversation topics:
 * What is the nature of universe for each of you?
 * What obstacles did you encounter when presenting your new ideas?
 * You've each changed how we view the universe. Do you have any thoughts on how our view of the universe might change again?
@@ -177,7 +177,7 @@ Let’s say that you want the LLM/GenAI to provide different options for an emai
 >John Q. Worker
 
 Here are some style choice follow up prompts:
-* Write as a formal business letter.
+* Write it as a formal business letter.
 * Write it as a joke.
 * Write it as if by Dr. Seuss.
 * Write it as some who's sick and tired of work, as in "Take this job and shove it!"
