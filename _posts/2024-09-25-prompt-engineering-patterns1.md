@@ -230,7 +230,7 @@ The Question Refinement Prompt seems to trigger something else. Even if I confir
 
 The __From now on__ and __Whenever__ phrases are a type of prompt pattern too. They set up rules for the rest of the conversation.
 
-I won't provide specific examples for the Question Refinement Prompt, since it's a refinement to previous prompt patterns. Choose one of the question related examples above, such as [Constitution Scholar](#constitutional-scholar) or [Religious Scholars]($interfaith-discussion). After the original prompt, add the Question Refinement Prompt and ask the same questions or ask your own.
+I won't provide specific examples for the Question Refinement Prompt, since it's a refinement to previous prompt patterns. Choose one of the question related examples above, such as [Constitution Scholar](#constitutional-scholar) or [Religious Scholars](#interfaith-discussion). After the original prompt, add the Question Refinement Prompt and ask the same questions or ask your own.
 
 # Summary
 Prompt engineering provides context and details for extracting information from the LLM’s relationship of words that’s focused upon that context. It’s a conversation with the LLM using natural language. Prompt engineering patterns are natural language phrases that have shown to produce good results.
