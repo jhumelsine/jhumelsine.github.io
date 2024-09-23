@@ -79,7 +79,7 @@ In essence, if your prompts would make sense to a person, then they will probabl
 # Prompt Engineering Patterns
 The main source for many of these Prompt Patterns is from the [Prompt Engineering for ChatGPT](https://www.coursera.org/learn/prompt-engineering/home/welcome) course.
 
-## The Persona Pattern
+## Persona Pattern
 In the real world, if you wanted medical advice, you’d ask a doctor. If you wanted financial advice, you’d ask a financial planner. If you wanted tax advice, you’d ask a tax accountant.
 
 There's a contextual domain for each of these professions. The Persona Pattern will allow us to tap into those domains with a few words or phrases
