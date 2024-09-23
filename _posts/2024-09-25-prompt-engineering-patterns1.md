@@ -262,6 +262,7 @@ Other Prompt Engineering Pattern content:
 * [Prompt engineering patterns](https://community.openai.com/t/prompt-engineering-patterns/121040) – OpenAI Prompt Engineering Pattern Forum
 * [What Is a Prompt Pattern?](https://www.coursera.org/articles/prompt-pattern) – by Coursera staff
 * [A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT](https://www.dre.vanderbilt.edu/~schmidt/PDF/prompt-patterns.pdf) – by Jules White, et al. White is the presenter in the Vanderbilt Coursera course
+* [Prompt Patterns: What They Are and 16 You Should Know](https://www.prompthub.us/blog/prompt-patterns-what-they-are-and-16-you-should-know) by PromptHub
 * [LLM Prompt Engineering Patterns]( https://www.linkedin.com/pulse/llm-prompt-engineering-patterns-stephen-redmond/) – by Stephen Redmond
 * [A Step-by-step Guide to Prompt Engineering: Best Practices, Challenges, and Examples](https://www.lakera.ai/blog/prompt-engineering-guide) – by Mokolaj Kowalczyk
 * [Prompt engineering: The process, uses, techniques, applications and best practices](https://www.leewayhertz.com/prompt-engineering/) – by Akash Takyar
