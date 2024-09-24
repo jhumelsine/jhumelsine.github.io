@@ -198,6 +198,10 @@ Here are some prompt inquiries:
 * How are legal disputes resolved?
 * What are my rights and responsibilities?
 
+Consider a slightly different scenario. You work in customer support at your company. There are many policies upon how you can assist customers, especially for refunds. There are different policies based upon the amount of the refund, the number of refunds that a customer has requested, etc. While the policies are documented, they read much like Terms of Service agreements.
+
+What if your company's customer support policies were part of its private LLM? You'd be able to type in each customer situation, and it could tell you what options you have for each customer situation that's consistent with customer support policies.
+
 ### Too Large for the Prompt
 There’s a limit to how much text you can add to a prompt. I suspect the limit will increase as LLMs advance. But what if the Terms of Service agreement, or any other content, you want analysis from the LLM is too large to copy-and-paste into the prompt?
 
