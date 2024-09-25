@@ -1,7 +1,6 @@
 ---
-title: DRAFT – Prompt Engineering Patterns
+title: Prompt Engineering Patterns
 description: How to have a productive conversation with a Large Language Model
-unlisted: true
 ---
 
 <img src="https://live.staticflickr.com/7259/7608126362_9b07f50b97_b.jpg" alt="Oracle of Delphi" title="Image Source: https://www.flickr.com/photos/gandalfsgallery/7608126362" width = "50%" align="center" style="padding-right: 20px;">
@@ -82,9 +81,9 @@ The main source for many of these Prompt Patterns is from the [Prompt Engineerin
 ## Persona Pattern
 In the real world, if you wanted medical advice, you’d ask a doctor. If you wanted financial advice, you’d ask a financial planner. If you wanted tax advice, you’d ask a tax accountant.
 
-There's a contextual domain for each of these professions. The Persona Pattern will allow us to tap into those domains with a few words or phrases
+There's a contextual domain for each of these professions. The __Persona Pattern__ will allow us to tap into those domains with a few words or phrases
 
-The __Persona Pattern__ allows the LLM/GenAI to respond as if it were that persona, which could be:
+The Persona Pattern allows the LLM/GenAI to respond as if it were that persona, which could be:
 * A role, such as doctor, but __DO NOT__ take any of its medical advice seriously — always confirm with an actual physician
 * A real person, living or dead, if there’s enough public information about that person
 * A fictional character
@@ -230,7 +229,7 @@ Or:
 
 ChatGPT still assumed that my original Harvard question was in the context of attending as a student, but it told me that was its assumption before answering.
 
-The Question Refinement Prompt seems to trigger something else. Even if I confirm that I’m interested in attending, it starts to interview me by asking me follow up questions.
+The __Question Refinement Prompt__ seems to trigger something else. Even if I confirm that I’m interested in attending, it starts to interview me by asking me follow up questions.
 
 The __From now on__ and __Whenever__ phrases are a type of prompt pattern too. They set up rules for the rest of the conversation.
 
@@ -242,6 +241,8 @@ Prompt engineering provides context and details for extracting information from 
 I have provided several prompt examples of what I learned in the online courses. I’ll continue with more in the next blog. I don’t plan to list all that I’ve seen. I’ll focus on some of my favorites and the ones that wowed me. I’ll provide references to other prompt engineering patterns in the references.
 
 LLM/GenAI technology is still new. I’m sure people will discover more prompt engineering patterns as LLM/GenAI technology and our experience with it advances. You may even create some of your own.
+
+And for kicks, copy this blog into ChatGPT. Ask it for a summary. Ask it what's good and bad about the blog. I liked the good. I thought the bad was a bit harsh. LOL.
 
 # References
 I’ve only scratched the surface of Prompt Engineering Patterns. Here are references to more prompt pattern content.
