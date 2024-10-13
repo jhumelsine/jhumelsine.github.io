@@ -8,7 +8,9 @@ unlisted: true
 I introduced __Prompt Engineering Patterns__ in my previous [blog](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html). This blog will continue with a few more.
 
 # Pre-Prompt or Built-In Prompts
-A Large Language Model/Generative AI (LLM/GenAI) platform may include some pre-prompts or built-in prompts to set up a few ground rules. These prompts are intrinsically added at the start of each session. They may instruct the LLM/GenAI to generate results of a certain form or avoid questionable content such as:
+A Large Language Model/Generative AI (LLM/GenAI) platform may include some pre-prompts or built-in prompts to set up a few ground rules. These prompts are intrinsically added at the start of each session.
+
+They may instruct the LLM/GenAI to generate results of a certain form or avoid questionable content such as:
 * Profanity
 * Racist, sexist, gender insulting language
 * Questionable responses, such as instructions on how to build a bomb
@@ -46,7 +48,7 @@ I asked ChatGPT:
 >
 >How do I change my lifestyle to be healthier?
 
-It asked 6 follow up questions about my current lifestyle, what I wanted to focus on, medical conditions, time availability, gym access, etc. It also provided me with a preliminary write-up on the importance of a healthy lifestyle.
+It asked about a half dozen follow up questions about my current lifestyle, what I wanted to focus on, medical conditions, time availability, gym access, etc. It also provided me with a preliminary write-up on the importance of a healthy lifestyle.
 
 I answered with one response with one word or short phrases, such as:
 >1. Answer1, 2. A bit more for Answer 2, … 6. Final Answer for 6.
@@ -77,7 +79,7 @@ Always be careful with generated recipes. LLMs/GenAIs have been known to create 
 
 Nothing in my generated recipe looked like it would kill anyone, but that doesn’t mean that it would be tasty. But we don’t need GenAI to create nasty dishes. Susan Stamberg’s Cranberry Relish recipe is broadcast on National Public Radio (NPR) every Thanksgiving season. I made it one year – horrible. See: [Cranberry Relish: The NPR Recipe That Divides Thanksgiving Tables](https://www.npr.org/sections/thesalt/2018/11/16/666296027/cranberry-relish-the-npr-recipe-that-divides-thanksgiving-tables).
 
-And
+And here's an example to help plan a trip:
 >When you are asked to plan a trip, follow these rules. Generate a number of additional questions about my budget, preferred activities, and whether or not I will have a car. Combine the answers to these questions to better plan my itinerary. 
 
 ## Audience Persona Pattern
@@ -89,8 +91,12 @@ The Personal Pattern and Audience Persona Pattern can be used together.
 
 To invoke the Audience Persona Pattern, add phrases such as:
 >Explain it to me like I’m \<persona\>.
+>
 >Assume that I’m a \<persona\>.
+>
 >Present it to a group of \<personas\>.
+
+And then replace <persona> with the desirec context.
 
 ### Physics Professor with High School Students
 >You’re a college physics professor. You’ve been invited by the local high school’s physics teacher to give a presentation to the advanced physics class on quantum mechanics. These are high school students who know some calculus. They also know classical physics, but this will be their first introduction to quantum mechanics.
@@ -115,8 +121,11 @@ The __Flipped Interaction Pattern__ puts the LLM/GenAI in the driver’s seat; a
 
 Here are some ways to activate this pattern:
 >I would like you to ask me questions about \<a topic\> to achieve \<a goal>\.
+>
 >You should ask questions until \<a condition\> is met to achieve the goal.
+>
 >_Optionally_ Ask me the questions one at a time, two at a time.
+>
 >Ask me the first question.
 
 ### Career Councilor
@@ -134,7 +143,9 @@ I snuck this pattern into the previous blog with the [Career Councilor](https://
 With a few simple adjustments, this prompt could be updated for most topics.
 
 ### Church Finances
->My church is experiencing a bit of a short fall in donations. Our expenses exceed our offerings. I would like you to ask me questions to help me address our financial shortfall. You should ask questions until you have sufficient information about our financial situation and some ideas of how to address it. Ask me the first question.
+>My church is experiencing a bit of a short fall in donations. Our expenses exceed our offerings. I would like you to ask me questions to help me address our financial shortfall. You should ask questions until you have sufficient information about our financial situation and some ideas of how to address it.
+>
+>Ask me the first question.
 
 Adjust for any other volunteer organization with financial concerns.
 
@@ -199,10 +210,14 @@ The __Template Pattern__ tells the GenAI if you want the result in a specific fo
 But if consistent responses are needed, such as via a form letter, then this may be the pattern to use.
 
 The prompts are long the lines of:
->I am going to provide a template for your output 
->X is my placeholder for content 
->Try to fit the output into one or more of the placeholders that I list 
->Please preserve the formatting and overall template that I provide 
+>I am going to provide a template for your output
+>
+>X is my placeholder for content
+>
+>Try to fit the output into one or more of the placeholders that I list
+>
+>Please preserve the formatting and overall template that I provide
+>
 >This is the template: PATTERN with PLACEHOLDERS
 
 You will need to replace "X" with an appropriate placeholder, such as "CAPITALIZED WORDS" or "<PLACEHOLDER>". You will then need to specify a pattern to fill in, such as "Dear <FULL NAME>" or "NAME, TITLE, COMPANY".
@@ -212,6 +227,8 @@ This example won’t start with the Template Pattern, but it will get there soon
 > I'm hosting Thanksgiving dinner for 8 people in total. Create a traditional menu for me.
 
 Adjust the menu as desired by adding or subtracting items.
+
+This is the prompt with formatting:
 > Please create a grocery list for me from this menu. I am going to provide a template for your output . \<placeholder\> are my placeholders for content. Try to fit the output into one or more of the placeholders that I list. Please preserve the formatting and overall template that I provide. This is the template: Aisle \<name of aisle\>: \<item needed from aisle\>, \<qty\> (\<dish(es) used in\>)
 
 And finally:
@@ -219,10 +236,14 @@ And finally:
 
 ### Hexagonal Architecture Q&A
 This is interesting, since it suggests that ChatGPT understand Markdown Language.
-> I am going to give you a template for your output. CAPITALIZED WORDS are my placeholders. Fill in my placeholders with your output. Please preserve the overall formatting of my template. My template is, with Topic, Question and Answer each listed separately. I.e., do not put the Answer on the same line as the Question: 
->##Topic: \<TOPIC NAME\> 
->***Question*** \<ONE SENTENCE QUESTION\> 
->***Answer*** \<ONE PARAGRAPH ANSWER\> 
+> I am going to give you a template for your output. CAPITALIZED WORDS are my placeholders. Fill in my placeholders with your output. Please preserve the overall formatting of my template. My template is, with Topic, Question and Answer each listed separately. I.e., do not put the Answer on the same line as the Question:
+> 
+>##Topic: \<TOPIC NAME\>
+> 
+>\***Question\*** \<ONE SENTENCE QUESTION\>
+> 
+>\***Answer\*** \<ONE PARAGRAPH ANSWER\>
+> 
 >Using information listed in the following URLs:
 >* https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html 
 >* https://jhumelsine.github.io/2023/10/28/hexagonal-architecture-structure.html 
