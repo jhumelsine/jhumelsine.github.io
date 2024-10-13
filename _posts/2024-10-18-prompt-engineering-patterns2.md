@@ -307,6 +307,26 @@ If you like its new prompt, then add:
 If you want more detail, then add:
 >I need more instructions, such as recipes and a more detailed preparation schedule.
 
+### College or Boot Camp?
+>When I ask you a question, I want you to generate several prompts could be used to obtain responses from ChatGPT. List the relative strengths and weaknesses of each prompt. Summarize the prompt strategies when done.
+>
+>I would like a career in software engineering. Should I consider get a college degree in computer science or attend a coding boot camp? Consider education investment. Time investment. Long term earnings. Anything else.
+
+This should generate several prompts. Continue with:
+>Execute each prompt one at a time here. After each one, ask me whether I'd like to continue with that prompt or continue to the next one.
+
+After it runs the prompt, continue with:
+>Let's stay with this one for now. Can you format this response in tabular form?
+
+Continue with:
+>Evaluate the next prompt.
+
+Then:
+>Next one.
+
+Finally:
+>Skip to the last prompt.
+
 ## Ask for Input Pattern
 We often start prompting with a precursor prompt setting up the “rules” of the session. Sometimes, the LLM/GenAI gets a bit overly enthusiastic, and it starts generating responses to what it thinks we want from the precursor prompt set up.
 
