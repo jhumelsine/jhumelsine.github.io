@@ -72,20 +72,23 @@ It provided me with a writeup based upon my specific answers.
 ChatGPT responded similarly with 6 questions. I provided made up answers. It produced a generic report, but it was tailored to my responses. For example, it asked if my plans needed to consider dependents to which I said I had a 10-year-old child and I wanted to make sure that college was covered. It suggested a 529 plan, which specific type of college funding plan available in the United States.
 
 ### Alternatives
-The prompt doesn’t need to be based upon questions. Here are two other examples
+The prompt doesn’t need to be based upon questions. Here are additional examples
 > When you are asked to create a recipe, follow these rules. Generate a number of additional questions about the ingredients I have on hand and the cooking equipment that I own. Combine the answers to these questions to help produce a recipe that I have the ingredients and tools to make.
 
 I asked it:
 > Create a recipe that's combines elements of a traditional Thanksgiving meal with Japanese cuisine.
 
-Based upon my answers, it created a recipe for: __ Sesame Ginger Turkey with Soy-Glazed Sweet Potatoes and Stuffing__. Your responses will differ.
+Based upon my answers, it created a recipe for: __Sesame Ginger Turkey with Soy-Glazed Sweet Potatoes and Stuffing__. Your responses will differ.
 
 Always be careful with generated recipes. LLMs/GenAIs have been known to create deadly concoctions. See: [AI can generate recipes that can be deadly. Food bloggers are not happy](https://www.npr.org/2024/09/23/g-s1-23843/artificial-intelligence-recipes-food-cooking-apple). 
 
 Nothing in my generated recipe looked like it would kill anyone, but that doesn’t mean that it would be tasty. But we don’t need GenAI to create nasty dishes. Susan Stamberg’s Cranberry Relish recipe is broadcast on National Public Radio (NPR) every Thanksgiving season. I made it one year – horrible. See: [Cranberry Relish: The NPR Recipe That Divides Thanksgiving Tables](https://www.npr.org/sections/thesalt/2018/11/16/666296027/cranberry-relish-the-npr-recipe-that-divides-thanksgiving-tables).
 
 And here's an example to help plan a trip:
->When you are asked to plan a trip, follow these rules. Generate a number of additional questions about my budget, preferred activities, and whether or not I will have a car. Combine the answers to these questions to better plan my itinerary. 
+>When you are asked to plan a trip, follow these rules. Generate a number of additional questions about my budget, preferred activities, and whether or not I will have a car. Combine the answers to these questions to better plan my itinerary.
+
+I asked it:
+> I'd like to take a trip from New Jersey to Texas.
 
 ## Audience Persona Pattern
 The [__Persona Pattern__](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html#persona-pattern) asks the LLM/GenAI to respond in the context of persona.
