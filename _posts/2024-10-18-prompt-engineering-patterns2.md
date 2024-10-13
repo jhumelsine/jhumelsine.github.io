@@ -21,6 +21,8 @@ These rules aren’t programmed in the traditional sense. They are in natural la
 Some of [Apple’s prompts were revealed]( https://apple.slashdot.org/story/24/08/06/2113250/apples-hidden-ai-prompts-discovered-in-macos-beta) with instructions such as:
 > You are an assistant which helps the user respond to their mails. Given a mail, a draft response is initially provided based on a short reply snippet. In order to make the draft response nicer and complete, a set of question and its answer are provided. Please write a concise and natural reply by modifying the draft response to incorporate the given questions and their answers. Please limit the reply within 50 words. Do not hallucinate. Do not make up factual information.
 
+If only a prompt to _Do not hallucinate_ actually worked.
+
 This YouTube video podcast recording, [ChatGPT Pre-Prompt Text Leaked](https://www.youtube.com/watch?v=QWhcFRcIbPw), describes ChatGPT’s pre-prompts that tell it that it has access to the browse tool, and that it can use it to get up-to-date information from the internet. The pre-prompts include instructions to guide it in obtaining this information.
 
 Depending upon your LLM/GenAI platform, you may have the ability to add your own pre-prompt built-ins. But if you don’t have this ability, then store any personal pre-prompts and copy-and-paste them at the start of each session.
