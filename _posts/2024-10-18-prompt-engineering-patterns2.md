@@ -355,7 +355,7 @@ And then reemphasize the original context. This isn’t quite as cut-and-paste a
 >
 >Each conversation will be primed by me as a moderator. The conversation should progress in several rounds. 
 >
->At the end of a conversation, ask me if I want the current discussion to continue or present a new topic among these minds of science.
+>At the end of a conversation, specifically ask with these words, "Do you want the current discussion to continue or present a new topic among these minds of science?"
 >
 >Do not start the discussion until I have introduced the first topic.
 
