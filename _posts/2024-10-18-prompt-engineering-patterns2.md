@@ -4,6 +4,9 @@ description: TBD
 unlisted: true
 ---
 
+<img src="https://www.worldhistory.org/img/r/p/1500x1500/996.jpg.webp?v=1725505385" alt="Confucius presenting Gautama Buddha to the philosopher Lao-Tzu." title="Image Source: https://www.worldhistory.org/image/996/confucius-buddha-and-lao-tzu/" width = "50%" align="center" style="padding-right: 20px;">
+
+
 # Introduction
 I introduced __Prompt Engineering Patterns__ in my previous [blog](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html). This blog will continue with a few more.
 
