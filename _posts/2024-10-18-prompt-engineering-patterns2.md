@@ -240,9 +240,9 @@ This is interesting, since it suggests that ChatGPT understand Markdown Language
 > 
 >##Topic: \<TOPIC NAME\>
 > 
->\***Question\*** \<ONE SENTENCE QUESTION\>
+>\*\*\*Question\*\*\* \<ONE SENTENCE QUESTION\>
 > 
->\***Answer\*** \<ONE PARAGRAPH ANSWER\>
+>\*\*\*Answer\*\*\* \<ONE PARAGRAPH ANSWER\>
 > 
 >Using information listed in the following URLs:
 >* https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html 
@@ -253,7 +253,7 @@ This is interesting, since it suggests that ChatGPT understand Markdown Language
 >* https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html 
 >* https://jhumelsine.github.io/2023/11/30/hexagonal-architecture-adapter-flexibility.html, 
 >
->create at least 20 questions and answers organized by topic.
+>Create at least 20 questions and answers organized by topic.
 
 ## Format of the Recipe Pattern
 My previous Thanksgiving preparation schedule prompt is a form of this pattern, but we can add more structure to the prompt.
