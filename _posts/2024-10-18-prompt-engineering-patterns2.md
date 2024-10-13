@@ -272,10 +272,14 @@ You will need to replace "X" with an appropriate task. You will then need to spe
 Rather than trying to craft the perfect prompt, ask the LLM/GenAI for some prompt examples. That is, let the LLM/GenAI brainstorm some ideas for you.
 
 Here are some phrases to trigger this pattern:
->If there are alternative ways to accomplish a task X that I give you, list the best alternate approaches 
->(Optional) Compare/contrast the pros and cons of each approach 
->(Optional) Include the original way that I asked 
+>If there are alternative ways to accomplish a task X that I give you, list the best alternate approaches
+>
+>(Optional) Compare/contrast the pros and cons of each approach
+>
+>(Optional) Include the original way that I asked
+>
 >(Optional) Prompt me for which approach I would like to use
+>
 
 You will need to replace "X" with an appropriate task.
 
@@ -300,6 +304,9 @@ Continue with:
 If you like its new prompt, then add:
 > Execute that optimized prompt.
 
+If you want more detail, then add:
+>I need more instructions, such as recipes and a more detailed preparation schedule.
+
 ## Ask for Input Pattern
 We often start prompting with a precursor prompt setting up the “rules” of the session. Sometimes, the LLM/GenAI gets a bit overly enthusiastic, and it starts generating responses to what it thinks we want from the precursor prompt set up.
 
@@ -321,6 +328,7 @@ Returning to a previous example, let’s add fact check list to the Constitution
 > Act as a United States Constitutional scholar. Answer my questions about the US Constitution including the Amendments. Provide the sections of the Constitution and Amendments as references to your answers. Include the text as well as the section where that text resides. 
 >
 >Whenever you output text, generate a set of facts that are contained in the output. The set of facts should be inserted at the end of the output. The set of facts should be the fundamental facts that could undermine the veracity of the output if any of them are incorrect.
+
 The LLM/GenAI should confirm this and here are several questions to ask, one at a time:
 > How do justices reach the Supreme Court?
 >
@@ -338,7 +346,7 @@ And then reemphasize the original context. This isn’t quite as cut-and-paste a
 
 ### Meeting of the Minds Revisited
 > Act as four personas: Galileo Galilei, Isaac Newton, Albert Einstein and Stephen Hawking.
-
+>
 >They are sitting at a round table having a discussion. They all speak English. Hawking’s speech is not incumbered by his illness. 
 >
 >The men of past histories know the men in their relative futures, but they don’t have detailed knowledge of future discoveries. 
@@ -350,6 +358,7 @@ And then reemphasize the original context. This isn’t quite as cut-and-paste a
 >At the end of a conversation, ask me if I want the current discussion to continue or present a new topic among these minds of science.
 >
 >Do not start the discussion until I have introduced the first topic.
+
 Then between responses, continue the conversation with the following, and choose to continue any topic that you find interesting:
 > Who were your inspirations?
 >
