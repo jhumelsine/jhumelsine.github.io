@@ -1,6 +1,6 @@
 ---
 title: DRAFT – Prompt Engineering Patterns Continued
-description: TBD
+description: More ways to have a productive conversation with a Large Language Model
 unlisted: true
 ---
 
@@ -16,25 +16,27 @@ A Large Language Model/Generative AI (LLM/GenAI) platform may include some pre-p
 They may instruct the LLM/GenAI to generate results of a certain form or avoid questionable content such as:
 * Profanity
 * Racist, sexist, gender insulting language
-* Questionable responses, such as instructions on how to build a bomb
+* Dangerous responses, such as instructions on how to build a bomb
 * Etc.
 
-These rules aren’t programmed in the traditional sense. They are in natural language much like the prompts I showed in the previous blog and will continue to show in this blog. They tend to be hidden from the user, but sometimes enterprising users find them.
+These rules aren’t programmed in the traditional sense. They are defined in natural language much like the prompts I showed in the previous blog and will continue to show in this blog. They tend to be hidden from the user, but sometimes enterprising users find them.
 
 Some of [Apple’s prompts were revealed]( https://apple.slashdot.org/story/24/08/06/2113250/apples-hidden-ai-prompts-discovered-in-macos-beta) with instructions such as:
 > You are an assistant which helps the user respond to their mails. Given a mail, a draft response is initially provided based on a short reply snippet. In order to make the draft response nicer and complete, a set of question and its answer are provided. Please write a concise and natural reply by modifying the draft response to incorporate the given questions and their answers. Please limit the reply within 50 words. Do not hallucinate. Do not make up factual information.
 
-If only a prompt to _Do not hallucinate_ actually worked.
+If only a prompt to _Do not hallucinate_ were that easy.
 
 This YouTube video podcast recording, [ChatGPT Pre-Prompt Text Leaked](https://www.youtube.com/watch?v=QWhcFRcIbPw), describes ChatGPT’s pre-prompts that tell it that it has access to the browse tool, and that it can use it to get up-to-date information from the internet. The pre-prompts include instructions to guide it in obtaining this information.
 
 Depending upon your LLM/GenAI platform, you may have the ability to add your own pre-prompt built-ins. But if you don’t have this ability, then store any personal pre-prompts and copy-and-paste them at the start of each session.
 
 # Prompt Engineering Patterns
-As with my previous [Prompt Engineering Patterns Blog Entry](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html), I won’t list the GenAI output. I encourage you to copy-and-paste my prompts into your LLM/GenAI of choice, such as ChatGPT, to see what is generated for you. Feel free to experiment as well.
+The context for most prompt engineering patterns is fairly obvious. I'll provide the context briefly, list some phrases that activate the pattern and then provide a complete example or two.
+
+As described in the [Introduction]((https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html#introduction) of my previous [Prompt Engineering Patterns Blog Entry'](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html), I won’t list my results here. I encourage you to copy-and-paste my example prompts into your LLM/GenAI of choice, such as ChatGPT, to see what is generated for you. Feel free to experiment as well.
 
 ## Cognitive Verifier Pattern
-Our interaction with an LLM/GenAI may be too broad at first. The __Cognitive Verifier Pattern__ instructs the LLM to break down an initial question into smaller more specific questions, which when answered it can aggregate to a more accurate answer.
+Our initial request with an LLM/GenAI may be too broad at first. The __Cognitive Verifier Pattern__ instructs the LLM to break down an initial question into smaller more specific questions, which when answered it can aggregate to a more accurate answer.
 
 Here’s the prompt:
 > When you are asked a question, follow these rules:
@@ -44,7 +46,7 @@ Here’s the prompt:
 >Combine the answers to the individual questions to produce the final answer to the overall question
 
 ### How to achieve a healthier lifestyle
-I asked ChatGPT:
+Here's the start of a ChatGPT session:
 > When you are asked a question, follow these rules:
 >
 >Generate a number of additional questions that would help more accurately answer the question.
@@ -61,6 +63,7 @@ I answered with one response with one word or short phrases, such as:
 It provided me with a writeup based upon my specific answers.
 
 ### Retirement Planning
+Here's another session opener:
 > When you are asked a question, follow these rules:
 >
 >Generate a number of additional questions that would help more accurately answer the question.
@@ -95,7 +98,7 @@ The [__Persona Pattern__](https://jhumelsine.github.io/2024/09/25/prompt-enginee
 
 The __Audience Persona Pattern__ asks the LLM/GenAI to respond to a specific audience.
 
-The Personal Pattern and Audience Persona Pattern can be used together.
+The Personal Pattern and Audience Persona Pattern work well together.
 
 To invoke the Audience Persona Pattern, add phrases such as:
 >Explain it to me like I’m \<persona\>.
@@ -104,7 +107,7 @@ To invoke the Audience Persona Pattern, add phrases such as:
 >
 >Present it to a group of \<personas\>.
 
-And then replace <persona> with the desirec context.
+And then replace \<persona\> with the desired context.
 
 ### Physics Professor with High School Students
 >You’re a college physics professor. You’ve been invited by the local high school’s physics teacher to give a presentation to the advanced physics class on quantum mechanics. These are high school students who know some calculus. They also know classical physics, but this will be their first introduction to quantum mechanics.
@@ -125,7 +128,7 @@ Compare the above with this:
 ## Flipped Interaction Pattern
 Most prompt patterns have focused upon the human driving the conversation with the LLM/GenAI either by the human making requests or asking questions.
 
-The __Flipped Interaction Pattern__ puts the LLM/GenAI in the driver’s seat; although, we do need to tell it that we’re putting it in the driver's seat.
+The __Flipped Interaction Pattern__ puts the LLM/GenAI in the driver’s seat; although, we do need to tell it that we’re putting it in the driver's seat. This is similar to the [Cognitive Verifier Pattern]{#cognitive-verifier-pattern] show above, but instead of a set of questions, __Flipped Interaction Pattern__ asks the questions one at a time.
 
 Here are some ways to activate this pattern:
 >I would like you to ask me questions about \<a topic\> to achieve \<a goal>\.
@@ -158,9 +161,9 @@ With a few simple adjustments, this prompt could be updated for most topics.
 Adjust for any other volunteer organization with financial concerns.
 
 ## Chain of Thought Pattern
-Solving a large problem often requires breaking it down into smaller problems. This is often the case with math problems when most of us were in school where we had to show so that we’d make fewer mistakes and demonstrate to our teachers that we understood the process.
+Solving a large problem often requires breaking it down into smaller problems. This is often the case with math problems when most of us were in school where we had to show our work so that we’d make fewer mistakes via simpler steps, and we would demonstrate to our teachers that we understood the process.
 
-We can do the same thing with LLMs and GenAIs. By asking them to solve the problem step-by-step, indicating their chain of thought and showing their work. They will break the problems down into smaller steps as well.
+We can do the same thing with LLMs and GenAIs. By asking them to solve the problem step-by-step, indicating their chain of thought and showing their work, they will break the problems down into smaller steps as well, which will hopefully yield more accurate results, or at least results that are easier to confirm.
 
 Recent updates in some LLMs, such as ChatGPT, may not require this pattern as frequently as before. See [Reasoning Models](https://platform.openai.com/docs/guides/reasoning), which recommends:
 >__Avoid chain-of-thought prompts:__ Since these models perform reasoning internally, prompting them to "think step by step" or "explain your reasoning" is unnecessary.
@@ -168,12 +171,14 @@ Recent updates in some LLMs, such as ChatGPT, may not require this pattern as fr
 Until reasoning is common in LLMs, we can still use it. This prompt can activate the pattern:
 >For this session, provide your step-by-step reasoning with your chain of thought, and show your work.
 
-I’ve tried all the examples below several times. They’ve always returned the correct answers to me, even if the form of their answers has varied.
+I’ve tried the examples below several times. They have always returned the correct answers to me, even if the form of their answers has varied.
 
 ### Medical Test Results
 >For this session, provide your step-by-step reasoning with your chain of thought, and show your work.
 >
->Assume that a medical test returns an accurate indication of the condition 99% of the time. 0.1% of the general population has this condition. If a test comes back positive, what's the probability that the patient has the condition?
+>Assume that a medical test returns an accurate indication of the condition 99% of the time. 0.1% of the general population has this condition.
+>
+>If a test comes back positive, what's the probability that the patient has the condition?
 
 The answer is a bit surprising at only about 9%. It uses [Bayes’ Theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem) which can be a bit intimidating.
 
@@ -237,13 +242,15 @@ This example won’t start with the Template Pattern, but it will get there soon
 Adjust the menu as desired by adding or subtracting items.
 
 This is the prompt with formatting:
-> Please create a grocery list for me from this menu. I am going to provide a template for your output . \<placeholder\> are my placeholders for content. Try to fit the output into one or more of the placeholders that I list. Please preserve the formatting and overall template that I provide. This is the template: Aisle \<name of aisle\>: \<item needed from aisle\>, \<qty\> (\<dish(es) used in\>)
+> Please create a grocery list for me from this menu. I am going to provide a template for your output . \<placeholder\> are my placeholders for content. Try to fit the output into one or more of the placeholders that I list. Please preserve the formatting and overall template that I provide.
+>
+> This is the template: Aisle \<name of aisle\>: \<item needed from aisle\>, \<qty\> (\<dish(es) used in\>)
 
-And finally:
+And finally, after the grocery list has been generated:
 > I want to serve the meal at 3PM. Create a step-by-step schedule of what I should be doing so that the meal can be served at the desired time.
 
 ### Hexagonal Architecture Q&A
-This is interesting, since it suggests that ChatGPT understand Markdown Language.
+This is an interesting example, since it will pull information from websites, and it suggests that ChatGPT understand Markdown Language.
 > I am going to give you a template for your output. CAPITALIZED WORDS are my placeholders. Fill in my placeholders with your output. Please preserve the overall formatting of my template. My template is, with Topic, Question and Answer each listed separately. I.e., do not put the Answer on the same line as the Question:
 > 
 >##Topic: \<TOPIC NAME\>
@@ -264,12 +271,16 @@ This is interesting, since it suggests that ChatGPT understand Markdown Language
 >Create at least 20 questions and answers organized by topic.
 
 ## Format of the Recipe Pattern
-My previous Thanksgiving preparation schedule prompt is a form of this pattern, but we can add more structure to the prompt.
->I would like to achieve X 
->I know that I need to perform steps A,B,C 
->Provide a complete sequence of steps for me 
->Fill in any missing steps 
->(Optional) Identify any unnecessary steps
+This pattern asks the LLM/GenAI to produce a set of steps to follow. My previous Thanksgiving preparation schedule prompt is a form of this pattern, but we can add more structure to the prompt.
+>I would like to achieve X
+>
+>I know that I need to perform steps A,B,C
+>
+>Provide a complete sequence of steps for me
+>
+>Fill in any missing steps
+>
+>_Optional_ Identify any unnecessary steps
 
 You will need to replace "X" with an appropriate task. You will then need to specify the steps A, B, C that you know need to be part of the recipe / complete plan.
 
@@ -277,26 +288,27 @@ You will need to replace "X" with an appropriate task. You will then need to spe
 > I would like to purchase a car. I know that I need to perform steps like deciding upon the type of car, find a dealership, secure financing, ... . Provide a complete sequence of steps for me. Fill in any missing steps.
 
 ## Alternative Approaches Pattern
-Rather than trying to craft the perfect prompt, ask the LLM/GenAI for some prompt examples. That is, let the LLM/GenAI brainstorm some ideas for you.
+Rather than trying to craft the perfect prompt, ask the LLM/GenAI for some prompt examples. That is, let the LLM/GenAI brainstorm some prompt ideas for you.
 
 Here are some phrases to trigger this pattern:
 >If there are alternative ways to accomplish a task X that I give you, list the best alternate approaches
 >
->(Optional) Compare/contrast the pros and cons of each approach
+>_Optional_ Compare/contrast the pros and cons of each approach
 >
->(Optional) Include the original way that I asked
+>_Optional_ Include the original way that I asked
 >
->(Optional) Prompt me for which approach I would like to use
+>_Optional_ Prompt me for which approach I would like to use
 >
 
 You will need to replace "X" with an appropriate task.
 
 Some examples:
->For every prompt I give you, If there are alternative ways to word a prompt that I give you, list the best alternate wordings. Compare/contrast the pros and cons of each wording.
+>For every prompt I give you, if there are alternative ways to word a prompt that I give you, list the best alternate wordings. Compare/contrast the pros and cons of each wording.
 >
 >For anything that I ask you to write, determine the underlying problem that I am trying to solve and how I am trying to solve it. List at least one alternative approach to solve the problem and compare / contrast the approach with the original approach implied by my request to you.
 
 ### Thanksgiving Dinner Revisited
+Let's return to our Thanksgiving dinner. This time, you're just not asking for a menu. You don't even know where to start.
 >When I ask you a question, I want you to generate several prompts that could be used to obtain responses from ChatGPT. List the relative strengths and weaknesses of each prompt. Summarize the prompt strategies when done.
 
 Then prompt:
@@ -338,13 +350,13 @@ Finally:
 ## Ask for Input Pattern
 We often start prompting with a precursor prompt setting up the “rules” of the session. Sometimes, the LLM/GenAI gets a bit overly enthusiastic, and it starts generating responses to what it thinks we want from the precursor prompt set up.
 
-We can ignore the preliminary response, or we can add a preemptive pattern in the precursor prompt set up by ending it with:
+We can ignore the preliminary response, or we can add a preemptive pattern in the precursor prompt set up that should make the LLM/GenAI pause by ending it with:
 >Ask me for the first task.
 
-And _task_ can be specific to the context of your prompt too.
+And _task_ can be specific to the context of your prompt too, such as _Ask me the furst question_. I've used this several times already, so I won't provide additional examples.
 
 ## Fact Check List Pattern
-LLM/GenAI is prone to hallucinate or fabricate facts in its responses. We always need to check its responses. The __Fact Check List Pattern__ leverages the LLM/GenAI to give us some of the facts that we should check in its responses.
+Most LLMs/GenAIs are prone to hallucinate or fabricate facts in their responses. We always need to check their responses. The __Fact Check List Pattern__ leverages the LLM/GenAI to give us some of the facts that we should check in the responses.
 
 This pattern won’t double check the facts for you. But it will provide a summary of the facts that you should check yourself.
 
@@ -357,7 +369,7 @@ Returning to a previous example, let’s add fact check list to the Constitution
 >
 >Whenever you output text, generate a set of facts that are contained in the output. The set of facts should be inserted at the end of the output. The set of facts should be the fundamental facts that could undermine the veracity of the output if any of them are incorrect.
 
-The LLM/GenAI should confirm this and here are several questions to ask, one at a time:
+The LLM/GenAI should confirm the prompt, and here are several questions to ask, one at a time:
 > How do justices reach the Supreme Court?
 >
 > What does the US Constitution say about tariffs?
@@ -365,9 +377,9 @@ The LLM/GenAI should confirm this and here are several questions to ask, one at 
 > Who has the right to vote?
 
 ## Tail Generation Pattern
-This blog is getting long. Do you remember the first prompt patterns presented without scrolling back up? Sometimes our conversations with an LLM/GenAI get long, and the LLM/GenAI may start to forget some of the early prompts. The __Tail Generate Pattern__ asks the LLM to remember the initial context of the session by having it repeat it. It’s much like people repeating temporary phone numbers to keep them in their short-term memory until they can write them down or place the call.
+This blog is getting long. Do you remember the first prompt patterns presented without scrolling back up? Sometimes our conversations with an LLM/GenAI get long, and the LLM/GenAI may start to forget some of the early prompts. The __Tail Generate Pattern__ asks the LLM to remember the initial context of the session by having it repeat it. It’s much like people repeating new phone numbers to keep them in their short-term memory until they can write them down or place the call.
 
-The pattern can activated by adding the following at the end of the initial prompts:
+The pattern can be activated by adding the following at the end of the initial prompts:
 >At the end, …
 
 And then reemphasize the original context. This isn’t quite as cut-and-paste as some other prompt patterns, so here’s an example.
@@ -383,11 +395,11 @@ And then reemphasize the original context. This isn’t quite as cut-and-paste a
 >
 >Each conversation will be primed by me as a moderator. The conversation should progress in several rounds. 
 >
->At the end of a conversation, specifically ask with these words, "Do you want the current discussion to continue or present a new topic among these minds of science?"
+>At the end of each conversation, specifically ask with these words, "Do you want the current discussion to continue, or do you want to present a new topic to be discussed among these minds of science?"
 >
 >Do not start the discussion until I have introduced the first topic.
 
-Then between responses, continue the conversation with the following, and choose to continue any topic that you find interesting:
+When you see the prompt above, and choose to continue the discussion, or introduce a new one. Here are some examples:
 > Who were your inspirations?
 >
 > Are you a man of faith, and do you find that faith supports your scientific work or conflicts with it?
@@ -398,7 +410,8 @@ Then between responses, continue the conversation with the following, and choose
 
 # Summary
 Prompt engineering patterns are not exclusive. Use them in combination. The previous _Meeting of the Minds_ used at least three patterns, possibly a few more.
-Explore more patterns on your own. Follow the reference link below to more prompt engineering patterns than I could jam into this blog post.
+
+Explore more patterns on your own. Follow the reference link below to more prompt engineering patterns.
 
 # References
 [references](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html#references)
