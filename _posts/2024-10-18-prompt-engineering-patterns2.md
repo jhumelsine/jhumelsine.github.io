@@ -21,7 +21,7 @@ They may instruct the LLM/GenAI to generate results of a certain form or avoid q
 
 These rules aren’t programmed in the traditional sense. They are defined in natural language much like the prompts I showed in the previous blog and will continue to show in this blog. They tend to be hidden from the user, but sometimes enterprising users find them.
 
-Some of [Apple’s prompts were revealed]( https://apple.slashdot.org/story/24/08/06/2113250/apples-hidden-ai-prompts-discovered-in-macos-beta) with instructions such as:
+Some of [Apple’s prompts were revealed](https://apple.slashdot.org/story/24/08/06/2113250/apples-hidden-ai-prompts-discovered-in-macos-beta) with instructions such as:
 > You are an assistant which helps the user respond to their mails. Given a mail, a draft response is initially provided based on a short reply snippet. In order to make the draft response nicer and complete, a set of question and its answer are provided. Please write a concise and natural reply by modifying the draft response to incorporate the given questions and their answers. Please limit the reply within 50 words. Do not hallucinate. Do not make up factual information.
 
 If only a prompt to _Do not hallucinate_ were that easy.
@@ -33,10 +33,10 @@ Depending upon your LLM/GenAI platform, you may have the ability to add your own
 # Prompt Engineering Patterns
 The context for most prompt engineering patterns is fairly obvious. I'll provide the context briefly, list some phrases that activate the pattern and then provide a complete example or two.
 
-As described in the [Introduction]((https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html#introduction) of my previous [Prompt Engineering Patterns Blog Entry'](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html), I won’t list my results here. I encourage you to copy-and-paste my example prompts into your LLM/GenAI of choice, such as ChatGPT, to see what is generated for you. Feel free to experiment as well.
+As described in the [Introduction](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html#introduction) of my previous [Prompt Engineering Patterns Blog Entry](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html), I won’t list my results here. I encourage you to copy-and-paste my example prompts into your LLM/GenAI of choice, such as ChatGPT, to see what is generated for you. Feel free to experiment as well.
 
 ## Cognitive Verifier Pattern
-Our initial request with an LLM/GenAI may be too broad at first. The __Cognitive Verifier Pattern__ instructs the LLM to break down an initial question into smaller more specific questions, which when answered it can aggregate to a more accurate answer.
+Our initial request with an LLM/GenAI may be too broad at first. The __Cognitive Verifier Pattern__ instructs the LLM to break down an initial prompt into smaller more specific prompt questions, which when answered it can aggregate to a more accurate answer.
 
 Here’s the prompt:
 > When you are asked a question, follow these rules:
@@ -161,7 +161,7 @@ With a few simple adjustments, this prompt could be updated for most topics.
 Adjust for any other volunteer organization with financial concerns.
 
 ## Chain of Thought Pattern
-Solving a large problem often requires breaking it down into smaller problems. This is often the case with math problems when most of us were in school where we had to show our work so that we’d make fewer mistakes via simpler steps, and we would demonstrate to our teachers that we understood the process.
+Solving a large problem often requires breaking it down into smaller problems. This was often the case with math problems when most of us were in school where we had to show our work so that we’d make fewer mistakes via simpler steps, and we would demonstrate to our teachers that we understood the process.
 
 We can do the same thing with LLMs and GenAIs. By asking them to solve the problem step-by-step, indicating their chain of thought and showing their work, they will break the problems down into smaller steps as well, which will hopefully yield more accurate results, or at least results that are easier to confirm.
 
@@ -216,7 +216,7 @@ And finally:
 >It flies back and forth between the two trains at 50 miles per hour until it is squashed in the collision. How far did the bird travel?
 
 ## Template Pattern
-This is not to be confused with the [Template Method Design Pattern](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html), which is something completely different.
+This is not to be confused with the [Template Method Design Pattern](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html).
 
 The __Template Pattern__ tells the GenAI if you want the result in a specific format. It’s good to know the technique, but I don’t use it often often. I’ve found that the default formatting tends to provide what I want, and if I want something other than text, such as a table, I ask it to reformat in tabular form, and that tends to work well too.
 
@@ -250,7 +250,7 @@ And finally, after the grocery list has been generated:
 > I want to serve the meal at 3PM. Create a step-by-step schedule of what I should be doing so that the meal can be served at the desired time.
 
 ### Hexagonal Architecture Q&A
-This is an interesting example, since it will pull information from websites, and it suggests that ChatGPT understand Markdown Language.
+This is an interesting example, since it will pull information from websites, and it suggests that ChatGPT understands Markdown Language.
 > I am going to give you a template for your output. CAPITALIZED WORDS are my placeholders. Fill in my placeholders with your output. Please preserve the overall formatting of my template. My template is, with Topic, Question and Answer each listed separately. I.e., do not put the Answer on the same line as the Question:
 > 
 >##Topic: \<TOPIC NAME\>
@@ -353,7 +353,7 @@ We often start prompting with a precursor prompt setting up the “rules” of t
 We can ignore the preliminary response, or we can add a preemptive pattern in the precursor prompt set up that should make the LLM/GenAI pause by ending it with:
 >Ask me for the first task.
 
-And _task_ can be specific to the context of your prompt too, such as _Ask me the furst question_. I've used this several times already, so I won't provide additional examples.
+And _task_ can be specific to the context of your prompt too, such as _Ask me the first question_. I've used this several times already, so I won't provide additional examples.
 
 ## Fact Check List Pattern
 Most LLMs/GenAIs are prone to hallucinate or fabricate facts in their responses. We always need to check their responses. The __Fact Check List Pattern__ leverages the LLM/GenAI to give us some of the facts that we should check in the responses.
@@ -377,12 +377,14 @@ The LLM/GenAI should confirm the prompt, and here are several questions to ask, 
 > Who has the right to vote?
 
 ## Tail Generation Pattern
-This blog is getting long. Do you remember the first prompt patterns presented without scrolling back up? Sometimes our conversations with an LLM/GenAI get long, and the LLM/GenAI may start to forget some of the early prompts. The __Tail Generate Pattern__ asks the LLM to remember the initial context of the session by having it repeat it. It’s much like people repeating new phone numbers to keep them in their short-term memory until they can write them down or place the call.
+This blog is getting long. Do you remember the first prompt patterns presented without scrolling back up? Probably not.
+
+Sometimes our conversations with an LLM/GenAI get long, and the LLM/GenAI may start to forget some of the early prompts. The __Tail Generate Pattern__ asks the LLM to remember the initial context of the session by having it repeat it. It’s much like people repeating new phone numbers to keep them in their short-term memory until they can write them down or place the call.
 
 The pattern can be activated by adding the following at the end of the initial prompts:
 >At the end, …
 
-And then reemphasize the original context. This isn’t quite as cut-and-paste as some other prompt patterns, so here’s an example.
+And then reemphasize the original context. This isn’t quite as cut-and-paste as some other prompt patterns, so here’s an example which extends the [Meeting of the Minds](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html#meeting-of-the-minds).
 
 ### Meeting of the Minds Revisited
 > Act as four personas: Galileo Galilei, Isaac Newton, Albert Einstein and Stephen Hawking.
