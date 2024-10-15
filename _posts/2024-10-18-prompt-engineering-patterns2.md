@@ -8,10 +8,10 @@ unlisted: true
 
 
 # Introduction
-I introduced __Prompt Engineering Patterns__ in my previous [blog](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html). This blog will continue with a few more.
+I introduced __Prompt Engineering Patterns__ in my previous [blog](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html) to get better results from Large Language Models/Generative AIs (LLMs/GenAIs). This blog will continue with a few more.
 
 # Pre-Prompt or Built-In Prompts
-A Large Language Model/Generative AI (LLM/GenAI) platform may include some pre-prompts or built-in prompts to set up a few ground rules. These prompts are intrinsically added at the start of each session.
+A LLM/GenAI platform may include some pre-prompts or built-in prompts to set up a few ground rules. These prompts are intrinsically added at the start of each session.
 
 They may instruct the LLM/GenAI to generate results of a certain form or avoid questionable content such as:
 * Profanity
@@ -31,14 +31,14 @@ This YouTube video podcast recording, [ChatGPT Pre-Prompt Text Leaked](https://w
 Depending upon your LLM/GenAI platform, you may have the ability to add your own pre-prompt built-ins. But if you don’t have this ability, then store any personal pre-prompts and copy-and-paste them at the start of each session.
 
 # Prompt Engineering Patterns
-The context for most prompt engineering patterns is fairly obvious. I'll provide the context briefly, list some phrases that activate the pattern and then provide a complete example or two.
+The context for most prompt engineering patterns is fairly obvious. I'll provide the context briefly, list some phrases that activate the pattern and then provide a complete example or two, which I have executed via ChatGPT.
 
-As described in the [Introduction](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html#introduction) of my previous [Prompt Engineering Patterns Blog Entry](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html), I won’t list my results here. I encourage you to copy-and-paste my example prompts into your LLM/GenAI of choice, such as ChatGPT, to see what is generated for you. Feel free to experiment as well.
+As described in the [Introduction](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html#introduction) of my previous [Prompt Engineering Patterns Blog Entry](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html), I won’t include the responses I received from ChatGPT here. I encourage you to copy-and-paste my example prompts into your LLM/GenAI of choice, such as ChatGPT, to see what is generated for you. Feel free to experiment as well.
 
 ## Cognitive Verifier Pattern
-Our initial request with an LLM/GenAI may be too broad at first. The __Cognitive Verifier Pattern__ instructs the LLM to break down an initial prompt into smaller more specific prompt questions, which when answered it can aggregate to a more accurate answer.
+Our initial prompt with an LLM/GenAI may be too broad at first. The __Cognitive Verifier Pattern__ instructs the LLM to break down an initial prompt into smaller more specific prompt questions, which when answered it can aggregate to a more accurate answer.
 
-Here’s the prompt:
+Here’s a prompt that should trigger this pattern:
 > When you are asked a question, follow these rules:
 >
 >Generate a number of additional questions that would help more accurately answer the question.
@@ -75,10 +75,10 @@ Here's another session opener:
 ChatGPT responded similarly with 6 questions. I provided made up answers. It produced a generic report, but it was tailored to my responses. For example, it asked if my plans needed to consider dependents to which I said I had a 10-year-old child and I wanted to make sure that college was covered. It suggested a 529 plan, which specific type of college funding plan available in the United States.
 
 ### Alternatives
-The prompt doesn’t need to be based upon questions. Here are additional examples
+The prompt doesn’t need to be based upon questions. Here are additional examples:
 > When you are asked to create a recipe, follow these rules. Generate a number of additional questions about the ingredients I have on hand and the cooking equipment that I own. Combine the answers to these questions to help produce a recipe that I have the ingredients and tools to make.
 
-I asked it:
+I asked it to:
 > Create a recipe that's combines elements of a traditional Thanksgiving meal with Japanese cuisine.
 
 Based upon my answers, it created a recipe for: __Sesame Ginger Turkey with Soy-Glazed Sweet Potatoes and Stuffing__. Your responses will differ.
@@ -96,7 +96,7 @@ I asked it:
 ## Audience Persona Pattern
 The [__Persona Pattern__](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html#persona-pattern) asks the LLM/GenAI to respond in the context of persona.
 
-The __Audience Persona Pattern__ asks the LLM/GenAI to respond to a specific audience.
+The __Audience Persona Pattern__ asks the LLM/GenAI to tailor its respond to a specific audience.
 
 The Personal Pattern and Audience Persona Pattern work well together.
 
@@ -126,9 +126,9 @@ Compare the above with this:
 >Come up with a set of slides that describe insects to these young kids in a way that’s fun and educational. The presentation will be about 30 minutes long.
 
 ## Flipped Interaction Pattern
-Most prompt patterns have focused upon the human driving the conversation with the LLM/GenAI either by the human making requests or asking questions.
+Most prompt patterns I've presented have focused upon the human driving the conversation with the LLM/GenAI either by the human making requests or asking questions.
 
-The __Flipped Interaction Pattern__ puts the LLM/GenAI in the driver’s seat; although, we do need to tell it that we’re putting it in the driver's seat. This is similar to the [Cognitive Verifier Pattern]{#cognitive-verifier-pattern] show above, but instead of a set of questions, __Flipped Interaction Pattern__ asks the questions one at a time.
+The __Flipped Interaction Pattern__ puts the LLM/GenAI in the driver’s seat; although, we do need to tell it that we’re putting it in the driver's seat. This is similar to the [Cognitive Verifier Pattern](#cognitive-verifier-pattern) show above, but instead of a set of questions, __Flipped Interaction Pattern__ asks the questions one at a time.
 
 Here are some ways to activate this pattern:
 >I would like you to ask me questions about \<a topic\> to achieve \<a goal>\.
@@ -161,7 +161,7 @@ With a few simple adjustments, this prompt could be updated for most topics.
 Adjust for any other volunteer organization with financial concerns.
 
 ## Chain of Thought Pattern
-Solving a large problem often requires breaking it down into smaller problems. This was often the case with math problems when most of us were in school where we had to show our work so that we’d make fewer mistakes via simpler steps, and we would demonstrate to our teachers that we understood the process.
+Solving a large problem often requires breaking it down into smaller problems. This was often the case with math assignments when most of us were in school. We had to show our work so that we’d make fewer mistakes via divide and conquer with simpler steps. It would demonstrate to our teachers that we understood the process.
 
 We can do the same thing with LLMs and GenAIs. By asking them to solve the problem step-by-step, indicating their chain of thought and showing their work, they will break the problems down into smaller steps as well, which will hopefully yield more accurate results, or at least results that are easier to confirm.
 
@@ -287,6 +287,9 @@ You will need to replace "X" with an appropriate task. You will then need to spe
 ### Purchase a Car
 > I would like to purchase a car. I know that I need to perform steps like deciding upon the type of car, find a dealership, secure financing, ... . Provide a complete sequence of steps for me. Fill in any missing steps.
 
+### Vacation to Italy
+> I am going on a vacation to Italy in 3 months. I know that I need to perform steps like what to pack, what to see, travel documents, … . Provide a complete sequence of steps for me. Fill in any missing steps.
+
 ## Alternative Approaches Pattern
 Rather than trying to craft the perfect prompt, ask the LLM/GenAI for some prompt examples. That is, let the LLM/GenAI brainstorm some prompt ideas for you.
 
@@ -327,7 +330,7 @@ If you like its new prompt, then add:
 If you want more detail, then add:
 >I need more instructions, such as recipes and a more detailed preparation schedule.
 
-### College or Boot Camp?
+### Computer Science Degree or Coding Boot Camp?
 >When I ask you a question, I want you to generate several prompts could be used to obtain responses from ChatGPT. List the relative strengths and weaknesses of each prompt. Summarize the prompt strategies when done.
 >
 >I would like a career in software engineering. Should I consider get a college degree in computer science or attend a coding boot camp? Consider education investment. Time investment. Long term earnings. Anything else.
@@ -416,4 +419,4 @@ Prompt engineering patterns are not exclusive. Use them in combination. The prev
 Explore more patterns on your own. Follow the reference link below to more prompt engineering patterns.
 
 # References
-[references](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html#references)
+[Previous References](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html#references)
