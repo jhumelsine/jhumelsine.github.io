@@ -11,7 +11,7 @@ unlisted: true
 I introduced __Prompt Engineering Patterns__ in my previous [blog](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html) to get better results from Large Language Models/Generative AIs (LLMs/GenAIs). This blog will continue with a few more.
 
 # Pre-Prompt or Built-In Prompts
-A LLM/GenAI platform may include some pre-prompts or built-in prompts to set up a few ground rules. These prompts are intrinsically added at the start of each session.
+An LLM/GenAI platform may include some pre-prompts or built-in prompts to set up a few ground rules. These prompts are intrinsically added at the start of each session.
 
 They may instruct the LLM/GenAI to generate results of a certain form or avoid questionable content such as:
 * Profanity
@@ -31,7 +31,7 @@ This YouTube video podcast recording, [ChatGPT Pre-Prompt Text Leaked](https://w
 Depending upon your LLM/GenAI platform, you may have the ability to add your own pre-prompt built-ins. But if you don’t have this ability, then store any personal pre-prompts and copy-and-paste them at the start of each session.
 
 # Prompt Engineering Patterns
-The context for most prompt engineering patterns is fairly obvious. I'll provide the context briefly, list some phrases that activate the pattern and then provide a complete example or two, which I have executed via ChatGPT.
+The context for most prompt engineering patterns is fairly obvious. I'll provide the context briefly, list some phrases that activate the pattern and then provide a complete example or two, which I have confirmed via ChatGPT.
 
 As described in the [Introduction](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html#introduction) of my previous [Prompt Engineering Patterns Blog Entry](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html), I won’t include the responses I received from ChatGPT here. I encourage you to copy-and-paste my example prompts into your LLM/GenAI of choice, such as ChatGPT, to see what is generated for you. Feel free to experiment as well.
 
@@ -58,7 +58,7 @@ Here's the start of a ChatGPT session:
 It asked about a half dozen follow up questions about my current lifestyle, what I wanted to focus on, medical conditions, time availability, gym access, etc. It also provided me with a preliminary write-up on the importance of a healthy lifestyle.
 
 I answered with one response with one word or short phrases, such as:
->1. Answer1, 2. A bit more for Answer 2, … 6. Final Answer for 6.
+>1. Answer 1, 2. A bit more for Answer 2, … 6. Finally an for Answer 6.
 
 It provided me with a writeup based upon my specific answers.
 
@@ -180,7 +180,7 @@ I’ve tried the examples below several times. They have always returned the cor
 >
 >If a test comes back positive, what's the probability that the patient has the condition?
 
-The answer is a bit surprising at only about 9%. It uses [Bayes’ Theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem) which can be a bit intimidating.
+The answer is a bit surprisingly low at only about 9%. It uses [Bayes’ Theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem) which can be a bit intimidating.
 
 To get an easier to understand explanation, follow up with:
 >Explain it to me without the detailed math.
@@ -194,7 +194,7 @@ Follow up with:
 >Is there an incentive to cooperate over multiple games?
 
 And finally:
->Give me some real-world examples of the Iterated Prisoner's Dilemma
+>Give me some real-world examples of the Iterated Prisoner's Dilemma.
 
 ### Algebra Word Problem
 >For this session, provide your step-by-step reasoning with your chain of thought, and show your work.
@@ -233,7 +233,7 @@ The prompts are long the lines of:
 >
 >This is the template: PATTERN with PLACEHOLDERS
 
-You will need to replace "X" with an appropriate placeholder, such as "CAPITALIZED WORDS" or "<PLACEHOLDER>". You will then need to specify a pattern to fill in, such as "Dear <FULL NAME>" or "NAME, TITLE, COMPANY".
+You will need to replace "X" with an appropriate placeholder, such as "CAPITALIZED WORDS" or "\<PLACEHOLDER\>". You will then need to specify a pattern to fill in, such as "Dear <FULL NAME>" or "NAME, TITLE, COMPANY".
 
 ### Thanksgiving Dinner
 This example won’t start with the Template Pattern, but it will get there soon.
@@ -250,7 +250,7 @@ And finally, after the grocery list has been generated:
 > I want to serve the meal at 3PM. Create a step-by-step schedule of what I should be doing so that the meal can be served at the desired time.
 
 ### Hexagonal Architecture Q&A
-This is an interesting example, since it will pull information from websites, and it suggests that ChatGPT understands Markdown Language.
+This is an interesting example, since it will pull information from websites, and it suggests that ChatGPT understands Markdown Language for formatting.
 > I am going to give you a template for your output. CAPITALIZED WORDS are my placeholders. Fill in my placeholders with your output. Please preserve the overall formatting of my template. My template is, with Topic, Question and Answer each listed separately. I.e., do not put the Answer on the same line as the Question:
 > 
 >##Topic: \<TOPIC NAME\>
@@ -351,9 +351,9 @@ Finally:
 >Skip to the last prompt.
 
 ## Ask for Input Pattern
-We often start prompting with a precursor prompt setting up the “rules” of the session. Sometimes, the LLM/GenAI gets a bit overly enthusiastic, and it starts generating responses to what it thinks we want from the precursor prompt set up.
+We often start prompting with a precursor prompt setting up the _rules_ of the session. Sometimes, the LLM/GenAI gets a bit overly enthusiastic, and it starts generating responses to what it thinks we want from the precursor prompt set up.
 
-We can ignore the preliminary response, or we can add a preemptive pattern in the precursor prompt set up that should make the LLM/GenAI pause by ending it with:
+We can ignore the preliminary response and continue, or we can add a preemptive pattern in the precursor prompt set up that should make the LLM/GenAI pause by ending it with:
 >Ask me for the first task.
 
 And _task_ can be specific to the context of your prompt too, such as _Ask me the first question_. I've used this several times already, so I won't provide additional examples.
@@ -367,7 +367,7 @@ Include the following to activate this pattern:
 > Whenever you output text, generate a set of facts that are contained in the output. The set of facts should be inserted at the end of the output. The set of facts should be the fundamental facts that could undermine the veracity of the output if any of them are incorrect.
 
 ### Constitutional Scholar with Fact Check List
-Returning to a previous example, let’s add fact check list to the Constitutional Scholar.
+Returning to a previous example, let’s add fact check list to the [Constitutional Scholar](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html#constitutional-scholar).
 > Act as a United States Constitutional scholar. Answer my questions about the US Constitution including the Amendments. Provide the sections of the Constitution and Amendments as references to your answers. Include the text as well as the section where that text resides. 
 >
 >Whenever you output text, generate a set of facts that are contained in the output. The set of facts should be inserted at the end of the output. The set of facts should be the fundamental facts that could undermine the veracity of the output if any of them are incorrect.
