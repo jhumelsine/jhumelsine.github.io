@@ -1,7 +1,6 @@
 ---
-title: DRAFT – Prompt Engineering Patterns Continued
+title: Prompt Engineering Patterns Continued
 description: More ways to have a productive conversation with a Large Language Model
-unlisted: true
 ---
 
 <img src="https://www.worldhistory.org/img/r/p/1500x1500/996.jpg.webp?v=1725505385" alt="Confucius presenting Gautama Buddha to the philosopher Lao-Tzu." title="Image Source: https://www.worldhistory.org/image/996/confucius-buddha-and-lao-tzu/" width = "50%" align="center" style="padding-right: 20px;">
@@ -58,7 +57,7 @@ Here's the start of a ChatGPT session:
 It asked about a half dozen follow up questions about my current lifestyle, what I wanted to focus on, medical conditions, time availability, gym access, etc. It also provided me with a preliminary write-up on the importance of a healthy lifestyle.
 
 I answered with one response with one word or short phrases, such as:
->1. Answer 1, 2. A bit more for Answer 2, … 6. Finally an for Answer 6.
+>1. Answer 1, 2. A bit more for Answer 2, … 6. Finally for Answer 6.
 
 It provided me with a writeup based upon my specific answers.
 
@@ -171,7 +170,7 @@ Recent updates in some LLMs, such as ChatGPT, may not require this pattern as fr
 Until reasoning is common in LLMs, we can still use it. This prompt can activate the pattern:
 >For this session, provide your step-by-step reasoning with your chain of thought, and show your work.
 
-I’ve tried the examples below several times. They have always returned the correct answers to me, even if the form of their answers has varied.
+I’ve tried the examples below several times. They always returned the correct answers to me, even if the form of their answers has varied.
 
 ### Medical Test Results
 >For this session, provide your step-by-step reasoning with your chain of thought, and show your work.
@@ -242,7 +241,7 @@ This example won’t start with the Template Pattern, but it will get there soon
 Adjust the menu as desired by adding or subtracting items.
 
 This is the prompt with formatting:
-> Please create a grocery list for me from this menu. I am going to provide a template for your output . \<placeholder\> are my placeholders for content. Try to fit the output into one or more of the placeholders that I list. Please preserve the formatting and overall template that I provide.
+> Please create a grocery list for me from this menu. I am going to provide a template for your output. \<placeholder\> are my placeholders for content. Try to fit the output into one or more of the placeholders that I list. Please preserve the formatting and overall template that I provide.
 >
 > This is the template: Aisle \<name of aisle\>: \<item needed from aisle\>, \<qty\> (\<dish(es) used in\>)
 
@@ -331,9 +330,9 @@ If you want more detail, then add:
 >I need more instructions, such as recipes and a more detailed preparation schedule.
 
 ### Computer Science Degree or Coding Boot Camp?
->When I ask you a question, I want you to generate several prompts could be used to obtain responses from ChatGPT. List the relative strengths and weaknesses of each prompt. Summarize the prompt strategies when done.
+>When I ask you a question, I want you to generate several prompts that could be used to obtain responses from ChatGPT. List the relative strengths and weaknesses of each prompt. Summarize the prompt strategies when done.
 >
->I would like a career in software engineering. Should I consider get a college degree in computer science or attend a coding boot camp? Consider education investment. Time investment. Long term earnings. Anything else.
+>I would like a career in software engineering. Should I consider getting a college degree in computer science or attend a coding boot camp? Consider education investment. Time investment. Long term earnings. Anything else.
 
 This should generate several prompts. Continue with:
 >Execute each prompt one at a time here. After each one, ask me whether I'd like to continue with that prompt or continue to the next one.
