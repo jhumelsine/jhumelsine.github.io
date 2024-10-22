@@ -316,6 +316,8 @@ _Hardware eventually fails. Software eventually works._ — Michael Hartung
 
 _Our end users are our best and most expensive testers._ — Jim Humelsine
 
+_The most effective debugging tool is still careful thought, coupled with judiciously placed print statements._ — Brian Kernighan
+
 _Test-driven development is double-entry bookkeeping._ — Bob Martin
 
 _The art of debugging is figuring out what you really told your program to do rather than what you thought you told it to do._ — Andrew Singer
