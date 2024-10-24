@@ -6,7 +6,7 @@ description: Spoiler Alert – It’s not really about testing the code
 # Introduction
 In previous [blog posts]( https://jhumelsine.github.io/2024/06/07/unit-test-convert.html#summary), I have described the testing process. I have mentioned some of the benefits and concerns in passing.
 
-This blog post will list some of those benefits here, and I’ll cover concerns in the next blog (TBD).
+This blog post will list some of those benefits here, and I’ll cover concerns in the [next blog](https://jhumelsine.github.io/2024/09/08/test-concerns.html).
 
 __Spoiler Alert: Testing the code isn’t the main benefit.__
 
