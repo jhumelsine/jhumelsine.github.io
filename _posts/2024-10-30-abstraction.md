@@ -58,7 +58,6 @@ However, one may notice that `Rectangle`, `Trapezoid` and `Rhombus` are four-sid
 
 If we choose to refactor or redesign the concrete classes below the red horizontal dashed line, we can do so without concern of breaking any behavior that resides in the abstraction above the red horizontal dashed line.
  
-
 # Abstraction Is Not Obvious
 Strategy is only one example of abstraction. Functions, procedures and methods with meaningful names that document __what__ the code does is probably the most common form of abstraction as championed by the [Extract Method](https://refactoring.guru/extract-method) refactoring technique.
 
@@ -72,19 +71,15 @@ As programming languages advanced, they became more abstract. Abstraction is not
 Real world abstractions abound around us. Once you see them, they’re easier to see and understand in code too.
 
 ## Cars
+<img src="https://live.staticflickr.com/2145/1557975479_5c89f5bd58_c.jpg" alt="Driver's side car interior" title="Image Source: https://www.flickr.com/photos/philiphubs/1557975479" width = "35%" align="right" style="padding-right: 20px;">
 
-https://www.flickr.com/photos/philiphubs/1557975479
-https://live.staticflickr.com/2145/1557975479_5c89f5bd58_c.jpg
- 
 Cars are complex machines, yet most adults can drive unfamiliar cars easily. Rental cars are often different from what we drive at home, but most people can hop in the car and drive off the rental lot.
 
 Most driving controls and the dashboard are an abstraction of what’s going on under the hood. The driver uses steering wheel, gas pedal and brake pedal to tell the car __what__ to do. The hidden mechanics is __how__ the car manifests the driver’s desires.
 
 The dashboard displays pertinent information to the driver, such as speed, miles, remaining fuel, warning lights, etc. This is mostly an abstraction as well.
 
-https://www.pexels.com/photo/speedometer-gauge-reading-at-zero-104836/
-https://images.pexels.com/photos/104836/speed-car-vehicle-drive-104836.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
-https://images.pexels.com/photos/104836/speed-car-vehicle-drive-104836.jpeg
+<img src="https://images.pexels.com/photos/104836/speed-car-vehicle-drive-104836.jpeg" alt="Tachometer" title="Image Source: https://www.pexels.com/photo/speedometer-gauge-reading-at-zero-104836/" width = "35%" align="left" style="padding-right: 20px;">
  
 There’s one dashboard instrument that I’ve never understood – the tachometer. I’m not a car enthusiast, so maybe there’s a reason to display the RPMs of the engine. My last three cars had tachometers, and they were automatic transmissions. My first car was standard transmission, and I rarely looked at the tachometer to decide when to shift gears.
 
@@ -95,8 +90,7 @@ Woe be it to the software project that leaks its database schema via an abstract
 ## Wikipedia
 Each Wikipedia page focuses upon one topic. The page’s title is its abstraction which briefly describes __what__ the page is about. The rest of the page contains topic details.
 
-https://commons.wikimedia.org/wiki/File:Down_the_Rabbit_Hole_(311526846).jpg
-https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Down_the_Rabbit_Hole_%28311526846%29.jpg/1200px-Down_the_Rabbit_Hole_%28311526846%29.jpg
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Down_the_Rabbit_Hole_%28311526846%29.jpg/1200px-Down_the_Rabbit_Hole_%28311526846%29.jpg?20220726070017" alt="Alice in Wonderland with the Rabbit" title="Image Source: https://commons.wikimedia.org/wiki/File:Down_the_Rabbit_Hole_(311526846).jpg" width = "35%" align="right" style="padding-right: 20px;">
  
 Most Wikipedia pages contain embedded hypertext links to other Wikipedia pages for additional information. Sometimes readers go so far down the [Wiki Rabbit Hole](https://en.wikipedia.org/wiki/Wiki_rabbit_hole) that they forget where they started.
 
@@ -118,8 +112,7 @@ Most visual editors can display at most about 50 lines of code. Any part of a me
 
 Methods tend to get long when the implementation jams multiple layers of abstraction into one method. Reading the method takes the reader on a nauseating roller coaster ride from high level business concepts to low level infrastructural details and back again. If segregated into separate methods or classes along abstraction boundaries, then readers would only need to examine those lower-level abstractions if necessary.
 
-https://www.flickr.com/photos/hahatango/2161518548
-https://live.staticflickr.com/2152/2161518548_eb13cddfe5.jpg
+<img src="https://live.staticflickr.com/2152/2161518548_eb13cddfe5.jpg" alt="Decomposed Car" title="Image Source: https://www.flickr.com/photos/hahatango/2161518548" width = "35%" align="right" style="padding-right: 20px;">
  
 Real world concrete abstractions, such as cars, have multiple layers of abstractions as well. A car is comprised of systems, such as the engine, transmission, drive train, breaking system, electrical system, etc. These systems have their own compositions. Eventually these systems decompose to a set of parts.
 
@@ -129,8 +122,7 @@ Software is the same. As the reader descends into method implementations, each m
 
 Layers of abstractions in Wikipedia and software are fractal. Regardless of where you reside in the layers of abstraction, it all tends to look the same.
 
-https://commons.wikimedia.org/wiki/File:Fractal_Julia.jpg
-https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Fractal_Julia.jpg/1199px-Fractal_Julia.jpg?
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Fractal_Julia.jpg/1199px-Fractal_Julia.jpg" alt="Fractal" title="Image Source: https://commons.wikimedia.org/wiki/File:Fractal_Julia.jpg" width = "35%" align="right" style="padding-right: 20px;">
  
 The fractal nature of software is a double-edged sword. On the positive side, our abstractions are not constrained by the physical world. On the negative side, our abstractions are not constrained by the physical world.
 
