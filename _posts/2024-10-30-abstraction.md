@@ -63,7 +63,7 @@ Strategy is only one example of abstraction. Functions, procedures and methods w
 
 The right abstraction may not be obvious. See: [Getting the Right Abstraction is Hard]( https://jhumelsine.github.io/2023/09/22/right-abstraction-is-hard.html)
 
-The ability to abstract wasn’t available in early programming languages. The first programming language I learned was [BASIC](https://en.wikipedia.org/wiki/BASIC#:~:text=BASIC%20(Beginners'%20All%2Dpurpose,at%20Dartmouth%20College%20in%201963.) in the 1970s. Each statement had a line number, and that’s how program flow was directed via `GOTO` and `GOSUB` statements. There were no subroutine names. Subroutines didn’t have arguments or return types. All variables were global. And from what I recall, variables could be no more than two letters long.
+The ability to abstract wasn’t available in early programming languages. The first programming language I learned was [BASIC](https://en.wikipedia.org/wiki/BASIC#:~:text=BASIC%20(Beginners'%20All%2Dpurpose,at%20Dartmouth%20College%20in%201963.)) in the 1970s. Each statement had a line number, and that’s how program flow was directed via `GOTO` and `GOSUB` statements. There were no subroutine names. Subroutines didn’t have arguments or return types. All variables were global. And from what I recall, variables could be no more than two letters long.
 
 As programming languages advanced, they became more abstract. Abstraction is not for the benefit of the computer. Abstraction is for the benefit of the software developer to better convey and understand the intent of the implementation.
 
@@ -81,7 +81,7 @@ The dashboard displays pertinent information to the driver, such as speed, miles
 
 <img src="https://images.pexels.com/photos/104836/speed-car-vehicle-drive-104836.jpeg" alt="Tachometer" title="Image Source: https://www.pexels.com/photo/speedometer-gauge-reading-at-zero-104836/" width = "35%" align="left" style="padding-right: 20px;">
  
-There’s one dashboard instrument that I’ve never understood – the tachometer. I’m not a car enthusiast, so maybe there’s a reason to display the RPMs of the engine. My last three cars had tachometers, and they were automatic transmissions. My first car was standard transmission, and I rarely looked at the tachometer to decide when to shift gears.
+There’s one dashboard instrument that I’ve never understood why it's presented to the driver – the tachometer. I’m not a car enthusiast, so maybe there’s a reason to display the RPMs of the engine. My last three cars had tachometers, and they were automatic transmissions. My first car was standard transmission, and I rarely looked at the tachometer to decide when to shift gears.
 
 The tachometer feels like a [Leaky Abstraction](https://en.wikipedia.org/wiki/Leaky_abstraction) to me. It’s telling me design details about the engine that I don’t need to know. We generally want to avoid leaky abstractions in our designs. We don’t want to expose implementation details to our users via the abstraction, but the tachometer is benign. Any concept that’s exposed to the user will be leveraged by a user. If a project leaks an implementation detail via an abstraction, then it’s part of the interface.
 
