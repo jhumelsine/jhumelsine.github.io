@@ -38,7 +38,9 @@ This is evident in the [Strategy Design Pattern](https://jhumelsine.github.io/20
 * `ComputerAidedDesign.render()` can `draw()` any `Shape` without having to know specific `Shape`s. It doesn’t know that a `Shape` could be a `Circle`, `Triangle` or a `Rectangle`.
 * `Shape` is the interface abstraction that declares __what__ it can do: `draw()`.
 * `Circle`, `Triangle`, and `Rectangle` are each a concrete class defining __how__ to implement `draw()` for each specific `Shape`.
- 
+
+<img src="/assets/AbstractionStrategy1.png" alt="Basic Strategy"  width = "80%" align="center" style="padding-right: 35px;">
+
 The Strategy Design Pattern generally does not indicate how references to `Shape` find their way into the `private List<Shape> shapes` attribute within `ComputerAidedDesign`. I introduced a way to address this in the [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) blog.
 
 The following diagram enhances the previous diagram with Dependency Injection and a few more diagram elements:
@@ -47,6 +49,8 @@ The following diagram enhances the previous diagram with Dependency Injection an
 * The red horizontal dashed line separates the abstract and the concrete elements within this scope. `ComputerAidedDesign` knows and depends upon `Shape`, but nothing else. The abstraction in this context is that `render()` knows how to draw a collection of `Shapes`.
 * The red vertical dashed line separates the configuration from the concrete implementation. `Circle`, `Triangle` and `Rectangle` implement `Shape` and define how each specific `Shape` is drawn. They only know and depend upon `Shape`.
 * `ComputerAidedDesignConfigurer` creates the instances and assembles them. It has knowledge of the rest of the design, but only to the extent that it knows the classes exist and it knows how to instantiate them and add them to `ComputerAidedDesign`. It does not access their functional methods. All arrowheads point away from the `Configurer`. It is essential invisible to the rest of the design.
+
+<img src="/assets/AbstractionStrategy2.png" alt="Strategy with Configurer and design boundaries"  width = "80%" align="center" style="padding-right: 35px;">
  
 Abstraction makes this design more maintainable. When new `Shape`s are desired, such as `Trapezoid` and `Rhombus`, no updates are required above the red horizontal dashed line.
 
@@ -57,6 +61,8 @@ Ease of maintenance continues in the Concrete region as well. The existing concr
 However, one may notice that `Rectangle`, `Trapezoid` and `Rhombus` are four-sided `Shape`s. What if more four-sided concrete classes were added, such as `Parallelogram`, `Square` and `Quadrangle`? We might observe common code among the four sided `Shape`s and decide to refactor them.
 
 If we choose to refactor or redesign the concrete classes below the red horizontal dashed line, we can do so without concern of breaking any behavior that resides in the abstraction above the red horizontal dashed line.
+
+<img src="/assets/AbstractionStrategy3.png" alt="Strategy with more concrete classes added"  width = "80%" align="center" style="padding-right: 35px;">
  
 # Abstraction Is Not Obvious
 Strategy is only one example of abstraction. Functions, procedures and methods with meaningful names that document __what__ the code does is probably the most common form of abstraction as championed by the [Extract Method](https://refactoring.guru/extract-method) refactoring technique.
