@@ -44,11 +44,11 @@ This is evident in the [Strategy Design Pattern](https://jhumelsine.github.io/20
 The Strategy Design Pattern generally does not indicate how references to `Shape` find their way into the `private List<Shape> shapes` attribute within `ComputerAidedDesign`. I introduced a way to address this in the [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) blog.
 
 The following diagram enhances the previous diagram with Dependency Injection and a few more diagram elements:
-* `ComputerAidedDesignConfigurer` is Dependency Injector. It creates instances of `Circle`, `Triangle` and `Rectangle` and adds them to `ComputerAidedDesign` via an API not shown in the design.
-* The red dashed lines are design boundaries. They do not represent implementation artifacts. I’ve added them to illustrate how the design space is organized in regions. I introduced this concept in [Hexagonal Architecture – Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html). Though introduced in the context of Hexagonal Architecture, these concepts do not depend upon Hexagonal Architecture. These concepts are about dependency and knowledge management. Each pair of connected elements have an implicit knowledge and dependency relationship, which is represented via the arrowheads.
+* `ComputerAidedDesignConfigurer` is a Dependency Injector. It creates instances of `Circle`, `Triangle` and `Rectangle` and adds them to `ComputerAidedDesign` via an API not shown in the design.
+* The red dashed lines are design boundaries. They do not represent implementation artifacts. I’ve added them to illustrate how the design space is organized in regions. I introduced this concept in [Hexagonal Architecture – Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html). Though introduced in the context of Hexagonal Architecture, these concepts do not depend upon Hexagonal Architecture. These concepts are about dependency and knowledge management. Each pair of connected elements have an implicit knowledge and dependency relationship, which is represented via the arrowheads. When A points to B, then A has knowledge of and depends upon B. B has no knowledge of or dependency upon A.
 * The red horizontal dashed line separates the abstract and the concrete elements within this scope. `ComputerAidedDesign` knows and depends upon `Shape`, but nothing else. The abstraction in this context is that `render()` knows how to draw a collection of `Shapes`.
 * The red vertical dashed line separates the configuration from the concrete implementation. `Circle`, `Triangle` and `Rectangle` implement `Shape` and define how each specific `Shape` is drawn. They only know and depend upon `Shape`.
-* `ComputerAidedDesignConfigurer` creates the instances and assembles them. It has knowledge of the rest of the design, but only to the extent that it knows the classes exist and it knows how to instantiate them and add them to `ComputerAidedDesign`. It does not access their functional methods. All arrowheads point away from the `Configurer`. It is essential invisible to the rest of the design.
+* `ComputerAidedDesignConfigurer` creates the instances and assembles them. It has knowledge of the rest of the design, but only to the extent that it knows the classes exist. It knows how to instantiate them and add them to `ComputerAidedDesign`, but it does not access their functional methods. All arrowheads point away from the `Configurer`. It is essential invisible to the rest of the design.
 
 <img src="/assets/AbstractionStrategy2.png" alt="Strategy with Configurer and design boundaries"  width = "80%" align="center" style="padding-right: 35px;">
  
@@ -81,17 +81,17 @@ Real world abstractions abound around us. Once you see them, they’re easier to
 
 Cars are complex machines, yet most adults can drive unfamiliar cars easily. Rental cars are often different from what we drive at home, but most people can hop in the car and drive off the rental lot.
 
-Most driving controls and the dashboard are an abstraction of what’s going on under the hood. The driver uses steering wheel, gas pedal and brake pedal to tell the car __what__ to do. The hidden mechanics is __how__ the car manifests the driver’s desires.
+Most driving controls and the dashboard are an abstraction of what’s going on under the hood. The driver uses the steering wheel, gas pedal and brake pedal to tell the car __what__ to do. The under-the-hood mechanics is __how__ the car manifests the driver’s desires.
 
 The dashboard displays pertinent information to the driver, such as speed, miles, remaining fuel, warning lights, etc. This is mostly an abstraction as well.
 
 <img src="https://images.pexels.com/photos/104836/speed-car-vehicle-drive-104836.jpeg" alt="Tachometer" title="Image Source: https://www.pexels.com/photo/speedometer-gauge-reading-at-zero-104836/" width = "35%" align="left" style="padding-right: 20px;">
  
-There’s one dashboard instrument that I’ve never understood why it's presented to the driver – the tachometer. I’m not a car enthusiast, so maybe there’s a reason to display the RPMs of the engine. My last three cars had tachometers, and they were automatic transmissions. My first car was standard transmission, and I rarely looked at the tachometer to decide when to shift gears.
+There’s one dashboard instrument that I’ve never understood why it's presented to the driver – the tachometer. I’m not a car enthusiast, so maybe there’s a reason to display the RPMs of the engine that I don't know. My last three cars had tachometers, and they were automatic transmissions. My first car was standard transmission, and I rarely looked at the tachometer to decide when to shift gears.
 
-The tachometer feels like a [Leaky Abstraction](https://en.wikipedia.org/wiki/Leaky_abstraction) to me. It’s telling me design details about the engine that I don’t need to know. We generally want to avoid leaky abstractions in our designs. We don’t want to expose implementation details to our users via the abstraction, but the tachometer is benign. Any concept that’s exposed to the user will be leveraged by a user. If a project leaks an implementation detail via an abstraction, then it’s part of the interface.
+The tachometer feels like a [Leaky Abstraction](https://en.wikipedia.org/wiki/Leaky_abstraction) to me. It’s telling me design details about the engine that I don’t need to know. We want to avoid leaky abstractions in our designs. We don’t want to expose implementation details to our users via the abstraction. In the case of the tachometer, its exposure is benign. Any concept that’s exposed to the user will be used by a user. If a project leaks an implementation detail via an abstraction, then it’s part of the interface.
 
-Woe be it to the software project that leaks its database schema via an abstraction. Its database schema will be part of its API. 
+Woe be the software project that leaks its database schema via an abstraction. Its database schema will be part of its API. 
 
 ## Wikipedia
 Each Wikipedia page focuses upon one topic. The page’s title is its abstraction which briefly describes __what__ the page is about. The rest of the page contains topic details.
@@ -100,27 +100,27 @@ Each Wikipedia page focuses upon one topic. The page’s title is its abstractio
  
 Most Wikipedia pages contain embedded hypertext links to other Wikipedia pages for additional information. Sometimes readers go so far down the [Wiki Rabbit Hole](https://en.wikipedia.org/wiki/Wiki_rabbit_hole) that they forget where they started.
 
-While there’s basically one layer of abstraction for each Wikipedia page, there are many layers of abstraction within the Wikipedia environment. As the reader follows the embedded links he/she dives deeper into details for additional context, but it’s the reader’s choice to do so.
+While there’s basically one layer of abstraction for each Wikipedia page, there are many layers of abstraction within the Wikipedia environment. As readers follows the embedded links they dive deeper into details for additional context, but it’s the readers' choice to do so.
 
 What if a Wikipedia editor didn’t want to create a new page and add an embedded link? What if they put the new content in the current page, even if that content is starting to stray from the page’s topic? And then another editor adds more content to that content further straying from the page’s original topic?
 
-This pattern continues. Soon, the page becomes bloated with lots of details. The reader is almost forced to read the entire page, but it may not be obvious which sections are part of the original topic and which sections contain supporting content.
+This pattern continues. Soon, the page becomes bloated with off-topic details. The reader is almost forced to read the entire page, but it may not be obvious which sections are part of the original topic and which sections contain supporting off-topic content.
 
-Fortunately, I think that Wikipedia editors tend to keep most pages focused upon topic and link to other pages as necessary. I can’t say that all software developers profess the same practice.
+Fortunately, I think that Wikipedia editors tend to keep most pages focused upon the topic and link to other pages as necessary. I can’t say that all software developers follow the same practice.
 
 In the same way that each Wikipedia page is about a core topic, I feel that each method, function and procedure should have one core responsibility, which is known as the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) (SRP).
 
 A method’s name is its abstraction declaring __what__ it does. The implementation contains the details of __how__ it does it. Rather than creating a new method or class and referencing it via the method name, all too often, developers will place the new code in the original method even if it strays from the method’s single responsibility. It’s a shortcut made for convenience.
 
-I’ve encountered methods that are hundreds of lines long, which obviously violate SRP. Each of these methods grew – one shortcut at a time.
+I’ve encountered methods that are hundreds of lines long, which obviously violate SRP. Each of these methods grew slowly – one shortcut at a time.
 
-Most visual editors can display at most about 50 lines of code. Any part of a method which I cannot see, I must retain in my head to understand. If a method is 500 lines, long, I can only see at most 10% of the method at any given time. I’m too old to hold the remaining 90% in my mind.
+Most visual editors can display at most about 50 lines of code on the screen. Any part of a method which I cannot see, I must retain in my head to understand the behavior implemented with a method. If a method is 500 lines, long, I can only see at most 10% of the method at any given time. I’m too old to hold the remaining 90% in my mind.
 
-Methods tend to get long when the implementation jams multiple layers of abstraction into one method. Reading the method takes the reader on a nauseating roller coaster ride from high level business concepts to low level infrastructural details and back again. If segregated into separate methods or classes along abstraction boundaries, then readers would only need to examine those lower-level abstractions if necessary.
+Methods tend to get long when an implementation jams multiple layers of abstraction into one method. Reading the method takes the reader on a nauseating roller coaster ride from high level business concepts to low level infrastructural details and back again. If segregated into separate methods or classes along abstraction boundaries, then readers would only need to examine those lower-level abstractions if necessary.
 
 <img src="https://live.staticflickr.com/2152/2161518548_eb13cddfe5.jpg" alt="Decomposed Car" title="Image Source: https://www.flickr.com/photos/hahatango/2161518548" width = "35%" align="right" style="padding-right: 20px;">
  
-Real world concrete abstractions, such as cars, have multiple layers of abstractions as well. A car is comprised of systems, such as the engine, transmission, drive train, breaking system, electrical system, etc. These systems have their own compositions. Eventually these systems decompose to a set of parts.
+Real world concrete abstractions, such as cars, have multiple layers of abstractions as well. A car is comprised of systems, such as the engine, transmission, drive train, breaking system, electrical system, etc. These systems have their own components. Eventually the entire car decomposes to a set of parts. Real world abstractions must resolve to their most basic parts.
 
 Wikipedia is different from cars. Follow the links of a Wikipedia page, and you end up at another Wikipedia page. No matter how many Wikipedia reference links you follow, you still end up at another Wikipedia page that mostly looks like the others. It’s a single topic page with words and links to other pages.
 
@@ -130,7 +130,7 @@ Layers of abstractions in Wikipedia and software are fractal. Regardless of wher
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Fractal_Julia.jpg/1199px-Fractal_Julia.jpg" alt="Fractal" title="Image Source: https://commons.wikimedia.org/wiki/File:Fractal_Julia.jpg" width = "35%" align="right" style="padding-right: 20px;">
  
-The fractal nature of software is a double-edged sword. On the positive side, our abstractions are not constrained by the physical world. On the negative side, our abstractions are not constrained by the physical world.
+The fractal nature of software is a double-edged sword. On the positive side, our abstractions are not constrained by the physical world. On the negative side, our abstractions are not constrained by the physical world. We can design our abstractions anyway we desire. We do not have any real world guardrails to keep our abstractions in check.
 
 Our abstractions, right or wrong, are our responsibility. Get the abstraction right and code will practically write itself. Get the abstraction wrong and it will cause you many headaches.
 
