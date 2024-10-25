@@ -114,6 +114,8 @@ A method’s name is its abstraction declaring __what__ it does. The implementat
 
 I’ve encountered methods that are hundreds of lines long, which obviously violate SRP. Each of these methods grew slowly – one shortcut at a time.
 
+_So much complexity in software comes from trying to make one thing do two things._ — Ryan Singer
+
 Most visual editors can display at most about 50 lines of code on the screen. Any part of a method which I cannot see, I must retain in my head to understand the behavior implemented with a method. If a method is 500 lines, long, I can only see at most 10% of the method at any given time. I’m too old to hold the remaining 90% in my mind.
 
 Methods tend to get long when an implementation jams multiple layers of abstraction into one method. Reading the method takes the reader on a nauseating roller coaster ride from high level business concepts to low level infrastructural details and back again. If segregated into separate methods or classes along abstraction boundaries, then readers would only need to examine those lower-level abstractions if necessary.
@@ -143,4 +145,13 @@ Abstraction is an important concept in software engineering separating __what__ 
 However, the right abstraction is not always easy or obvious. Don’t force abstractions too early. It may take a few examples before the abstractions emerge from the domain.
 
 # References
-TBD
+* [Wikipedia Abstraction In Computer Science](https://en.wikipedia.org/wiki/Abstraction#In_computer_science)
+* [Wikipedia Abstraction (Computer Science)](https://en.wikipedia.org/wiki/Abstraction_(computer_science))
+* [Wikipedia Abstraction Principle (Computer Programming)](https://en.wikipedia.org/wiki/Abstraction_principle_(computer_programming))
+* [What Are Abstractions in Software Engineering with Examples](https://thevaluable.dev/abstraction-type-software-example/) - The Valuable Dev
+* [What is Abstraction in Programming – And Why is it Useful?](https://www.freecodecamp.org/news/what-is-abstraction-in-programming/) - Tiago Capelo Monteiro
+* [abstraction definition](https://www.techtarget.com/whatis/definition/abstraction) - Ivy Wigmore
+* [Abstraction: Not What You Think It Is](https://www.pathsensitive.com/2022/03/abstraction-not-what-you-think-it-is.html) - Jimmy Koppel
+* [Software Engineering: It’s All About Abstraction](https://source.coveo.com/2022/03/30/software-engineering-it-s-all-about-abstraction/) - Kevin Lalumiere
+* [Abstraction](https://www.cs.cornell.edu/courses/cs211/2006sp/Lectures/L08-Abstraction/08_abstraction.html) - Cornell University: CS211
+* and for more, Google: [Abstraction in software](https://www.google.com/search?q=Abstraction+in+software)
