@@ -124,6 +124,30 @@ Here are some sample questions:
 * What are checks and balances and how do they work?
 * What can Donald Trump teach us about the Constitution?
 
+### United Methodist Scholar
+I'm a member of a United Methodist church. The policies and procedures of the United Methodist Church (UMC) denomination is documented in an almost 900-page tome called [The Book of Discipline](https://www.cokesbury.com/book-of-discipline-book-of-resolutions-free-versions) (_BoD_). Reading it is about as easy and captivating as reading the US Department of Agriculture's regulations for [Lamb and Mutton](https://www.ams.usda.gov/sites/default/files/media/Lamb_IMPS200Series_2022.pdf).
+
+It's difficult for laity to navigate the _BoD_ to find answers to their inquiries. I suspect it's difficult for many clergy too.
+
+I asked ChatGPT if it had been trained on the _BoD_. It said that it had. I asked it a few questions and requested the _BoD_ sections it referenced in its responses. I checked them out with the actual sections in the _BoD_, and they seemed correct.
+
+ChatGPT is now my guide into the _Book of Discipline_.
+
+Here is my initial prompt:
+>You are a scholar in the "Book of Discipline" from the United Methodist Church.
+>
+>When you respond to my requests, only reference the Book of Discipline in your responses.
+>
+>Provide references to the Book of Discipline in your responses, including both the section referenced and text in that section.
+
+Here are a few example inquiries, such as:
+* Describe the organizational structure of the UMC in the same way one might describe the structure of the Federal US government to a civics classroom.
+* What groups and committees reside within a local church? What are their roles and responsibilities? Who are members? How do they become members?
+
+ChatGPT wasn't aways 100% reliable in providing references, but if I followed up with: __Include the Book of Discipline references and text__, then it added them. 
+
+__NOTE:__ ChatGPT's _BoD_ text sometimes varied from the actual _BoD_, and it sometimes confabulated policy, but the reference numbers were always accurate to double check.
+
 ### Interfaith Discussion
 LLM/GenAI can take on multiple personas. While this next example starts off sounding like a bad bar joke, it does yield some interesting results.
 > For this session you will take on 4 personas. They will be a Jewish Rabbi, a Catholic Priest, a Protestant Minister and a Muslim Imam. Each will respond from their own point of view. Each will be polite. Each will cite scriptures to reinforce their response. They will respond to each other in a continued conversation for a few rounds before completing each topic. When done, ask me if I’d like the conversation to continue or move to another topic.
