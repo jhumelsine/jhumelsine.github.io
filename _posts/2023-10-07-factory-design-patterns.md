@@ -71,8 +71,7 @@ Abstract Factory is the first one you encounter in detail when reading the GoF b
 
 <img src="/assets/AbstractFactory.png" alt="Abstract Factory" width = "90%" align="center" style="padding-right: 20px;">
  
-NOTE: The above diagram is inspired by a diagram in Bob Martin’s Clean Architecture book. I’ve basically added a bit more detail:
-<img src="https://i.sstatic.net/RUJt2.png" alt="Bob Martin's Abstract Factory" title="Image Source: https://stackoverflow.com/questions/74775195/why-do-we-need-the-abstract-factory-pattern" width = "70%" align="center" style="padding-right: 20px;">
+__NOTE:__ The above diagram is inspired by a diagram in Bob Martin’s Clean Architecture book.
 
 # Gang Of Four Creational Design Pattern Inventory
 The GoF Creational Design Patterns used the techniques listed above. In some cases, their patterns are mostly identical to the above, but they often provide additional features or context. I’ll list them with brief descriptions. See the references section below for more resources for specific Creational Design Patterns.
