@@ -60,7 +60,7 @@ Ease of maintenance continues in the Concrete region as well. The existing concr
 
 <img src="/assets/AbstractionStrategy3.png" alt="Strategy with more concrete classes added"  width = "80%" align="center" style="padding-right: 35px;">
 
-One may notice that `Rectangle`, `Trapezoid` and `Rhombus` are four-sided `Shape`s. What if more four-sided concrete classes were added, such as `Parallelogram`, `Square` and `Quadrangle`? We might observe common code among the four sided `Shape`s and decide to refactor them to reduce duplication and consolidate related classes.
+One may notice that `Rectangle`, `Trapezoid` and `Rhombus` are four-sided `Shape`s. What if more four-sided concrete classes were added, such as `Parallelogram`, `Square` and `Quadrangle`? We might observe common code among the four-sided `Shape`s and decide to refactor them to reduce duplication and consolidate related classes.
 
 If we choose to refactor or redesign the concrete classes below the red horizontal dashed line, we can do so without concern of breaking any behavior that resides in the abstraction above the red horizontal dashed line.
  
@@ -74,7 +74,7 @@ The ability to abstract wasn’t available in early programming languages. The f
 As programming languages advanced, they supported more abstraction. Abstraction is not for the benefit of the computer. Abstraction is for the benefit of the software developer to better convey and understand the intent of the implementation.
 
 # Abstraction In the Real World
-Real world abstractions abound around us. Once you see them, they’re easier to see and understand in code too.
+Real-world abstractions abound around us. Once you see them, they’re easier to see and understand in code too.
 
 ## Cars
 <img src="https://live.staticflickr.com/2145/1557975479_5c89f5bd58_c.jpg" alt="Driver's side car interior" title="Image Source: https://www.flickr.com/photos/philiphubs/1557975479" width = "35%" align="right" style="padding-right: 20px;">
@@ -98,9 +98,9 @@ Each Wikipedia page focuses upon one topic. The page’s title is its abstractio
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Down_the_Rabbit_Hole_%28311526846%29.jpg/1200px-Down_the_Rabbit_Hole_%28311526846%29.jpg?20220726070017" alt="Alice in Wonderland with the Rabbit" title="Image Source: https://commons.wikimedia.org/wiki/File:Down_the_Rabbit_Hole_(311526846).jpg" width = "35%" align="right" style="padding-right: 20px;">
  
-Most Wikipedia pages contain embedded hypertext links to other Wikipedia pages for additional information. While there’s basically one layer of abstraction for each Wikipedia page, there are many layers of abstraction within the Wikipedia environment. As readers follows the embedded links they dive deeper into details for additional context, but it’s the readers' choice to do so. Sometimes readers go so far down the [Wiki Rabbit Hole](https://en.wikipedia.org/wiki/Wiki_rabbit_hole) that they forget where they started.
+Most Wikipedia pages contain embedded hypertext links to other Wikipedia pages for additional information. While there’s basically one layer of abstraction for each Wikipedia page, there are many layers of abstraction within the Wikipedia environment. As readers follow the embedded links they dive deeper into details for additional context, but it’s the readers' choice to do so. Sometimes readers go so far down the [Wiki Rabbit Hole](https://en.wikipedia.org/wiki/Wiki_rabbit_hole) that they forget where they started.
 
-What if a Wikipedia editor didn’t want to create a new page and reference it via an embedded link? What if they put the new content in the current page, even if that content strayed from the page’s original topic? And then another editor added more content to that content further straying from the page’s original topic?
+What if a Wikipedia editor didn’t want to create a new page and reference it via an embedded link? What if they put the new content in the current page, even if that content strayed from the page’s original topic? And then another editor added more content to that content further straying from the page’s original topic.
 
 If this pattern continues, the page will soon become bloated with off-topic details. The reader may have to read the entire page, but it may not be obvious which content is part of the original topic and which content contains supporting off-topic content.
 
@@ -114,7 +114,7 @@ A method’s name is its abstraction declaring __what__ it does. The implementat
 
 I’ve encountered methods that are hundreds of lines long, which obviously violate SRP. Each of these methods grew slowly – one shortcut convenience at a time.
 
-Most visual editors can display at most about 50 lines of code on the screen. Any part of a method which I cannot see, I must retain in my head to understand the behavior implemented with a method. If a method is 500 lines, long, I can only see at most 10% of the method at any given time. I’m too old to hold the remaining 90% in my mind.
+Most visual editors can display at most about 50 lines of code on the screen. Any part of a method which I cannot see, I must retain in my head to understand the behavior implemented with a method. If a method is 500 lines long, I can only see at most 10% of the method at any given time. I’m too old to hold the remaining 90% in my mind.
 
 <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzhpOHpjbDc3MDdjcG1lcGVrNGZmbmI3dWZvMG5taXR3dWo0dGxsayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/V8PO3o4IIPgCiIMnme/giphy.gif" alt="Rollercoaster" title="Image Source: https://www.flickr.com/photos/hahatango/2161518548" width = "35%" align="right" style="padding-right: 20px;">
 
@@ -122,7 +122,7 @@ Methods tend to get long when an implementation jams multiple layers of abstract
 
 <img src="https://live.staticflickr.com/2152/2161518548_eb13cddfe5.jpg" alt="Decomposed Car" title="Image Source: https://giphy.com/gifs/PortAventuraWorld-rollercoaster-portaventura-shambhala-V8PO3o4IIPgCiIMnme" width = "35%" align="left" style="padding-right: 20px;">
  
-Real world concrete abstractions, such as cars, have multiple layers of abstractions as well. A car is comprised of systems, such as the engine, transmission, drive train, breaking system, electrical system, etc. These systems have their own components. Eventually the entire car decomposes to a set of parts. Real world abstractions deconstruct to their most basic parts.
+Real-world concrete abstractions, such as cars, have multiple layers of abstractions as well. A car is comprised of systems, such as the engine, transmission, drive train, braking system, electrical system, etc. These systems have their own components. Eventually the entire car decomposes itself to a set of parts. Real-world abstractions deconstruct themselves to their most basic parts.
 
 Wikipedia is different from cars. Follow the links of a Wikipedia page, and you end up at another Wikipedia page. No matter how many Wikipedia reference links you follow, you still end up at another Wikipedia page that mostly looks like the others. It’s a single topic page with words and links to other pages.
 
@@ -132,7 +132,7 @@ Layers of abstractions in Wikipedia and software are fractal. Regardless of wher
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Fractal_Julia.jpg/1199px-Fractal_Julia.jpg" alt="Fractal" title="Image Source: https://commons.wikimedia.org/wiki/File:Fractal_Julia.jpg" width = "35%" align="right" style="padding-right: 20px;">
  
-The fractal nature of software is a double-edged sword. On the positive side, our abstractions are not constrained by the physical world. On the negative side, our abstractions are not constrained by the physical world. We can design our abstractions anyway we desire. We do not have any real world guardrails to keep our abstractions in check.
+The fractal nature of software is a double-edged sword. On the positive side, our abstractions are not constrained by the physical world. On the negative side, our abstractions are not constrained by the physical world. We can design our abstractions anyway we desire. We do not have any real-world guardrails to keep our abstractions in check.
 
 Our abstractions, right or wrong, are our responsibility. Get the abstraction right and code will practically write itself. Get the abstraction wrong and it will cause you a world of pain.
 
@@ -140,7 +140,7 @@ Our abstractions, right or wrong, are our responsibility. Get the abstraction ri
 Since this blog is getting long, I’ll postpone __Cohesive Abstractions__ to the next blog entry.
 
 # Summary
-Abstraction is an important concept in software engineering separating __what__ from __how__. Abstraction is one of the main concepts that allows us to create a modular design for easy of future maintenance. 
+Abstraction is an important concept in software engineering separating __what__ from __how__. Abstraction is one of the main concepts that allows us to create a modular design for ease of future maintenance. 
 
 However, the right abstraction is not always easy or obvious. Don’t force abstractions too early. It may take a few examples before the abstractions emerge from the domain, design or implementation.
 
