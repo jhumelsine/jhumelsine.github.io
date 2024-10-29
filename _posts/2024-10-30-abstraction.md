@@ -71,7 +71,7 @@ The right abstraction may not be obvious. See: [Getting the Right Abstraction is
 
 The ability to abstract wasn’t available in early programming languages. The first programming language I learned was [BASIC](https://en.wikipedia.org/wiki/BASIC#:~:text=BASIC%20(Beginners'%20All%2Dpurpose,at%20Dartmouth%20College%20in%201963.)) in the 1970s. Each statement had a line number, and that’s how program flow was directed via `GOTO` and `GOSUB` statements. There were no subroutine names. Subroutines didn’t have arguments or return types. All variables were global. And from what I recall, variables could be no more than two letters long.
 
-As programming languages advanced, they supported abstraction. Abstraction is not for the benefit of the computer. Abstraction is for the benefit of the software developer to better convey and understand the intent of the implementation.
+As programming languages advanced, they supported more abstraction. Abstraction is not for the benefit of the computer. Abstraction is for the benefit of the software developer to better convey and understand the intent of the implementation.
 
 # Abstraction In the Real World
 Real world abstractions abound around us. Once you see them, they’re easier to see and understand in code too.
@@ -81,7 +81,7 @@ Real world abstractions abound around us. Once you see them, they’re easier to
 
 Cars are complex machines, yet most adults can drive unfamiliar cars easily. Rental cars are often different from what we drive at home, but most people can hop into a car and drive it off the rental lot.
 
-Most driving controls and the dashboard are an abstraction of what the driver's intent. The driver uses the steering wheel, gas pedal and brake pedal to tell the car __what__ to do. The under-the-hood mechanics is __how__ the car manifests the driver’s desires.
+Most driving controls and the dashboard are an abstraction of the driver's intent. The driver uses the steering wheel, gas pedal and brake pedal to tell the car __what__ to do. The under-the-hood mechanics is __how__ the car satisfies the driver’s intent.
 
 The dashboard displays pertinent information to the driver, such as speed, miles, remaining fuel, warning lights, etc. This is mostly an abstraction as well.
 
@@ -89,22 +89,20 @@ The dashboard displays pertinent information to the driver, such as speed, miles
  
 There’s one dashboard instrument that I’ve never understood why it's presented to the driver – the tachometer. I’m not a car enthusiast, so maybe there’s a reason to display the RPMs of the engine that I don't know. My last three cars had tachometers, and they were automatic transmissions. My first car was standard transmission, and I rarely looked at the tachometer to decide when to shift gears.
 
-The tachometer feels like a [Leaky Abstraction](https://en.wikipedia.org/wiki/Leaky_abstraction) to me. It’s telling me design details about the engine that I don’t need to know. We want to avoid leaky abstractions in our designs. We don’t want to expose implementation details to our users via the abstraction. The tachometer is benign exposure. Any concept that’s exposed to users will become an operational dependency by a user. If a project leaks an implementation detail via an abstraction, then it’s part of the interface.
+The tachometer feels like a [Leaky Abstraction](https://en.wikipedia.org/wiki/Leaky_abstraction) to me. It’s telling me design details about the engine that I don’t need to know, but its benign exposure. We want to avoid leaky abstractions in our designs. We don’t want to expose implementation details to our users via the abstraction. Any concept that’s exposed to users will become an operational dependency by a user. If a project leaks an implementation detail via an abstraction, then it’s part of the interface.
 
-Woe be the software project that leaks its database schema via an abstraction. Its database schema will be part of its API. 
+Woe be the software project that leaks its database schema. It will become part of its API. 
 
 ## Wikipedia
 Each Wikipedia page focuses upon one topic. The page’s title is its abstraction which briefly describes __what__ the page is about. The rest of the page contains topic details.
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Down_the_Rabbit_Hole_%28311526846%29.jpg/1200px-Down_the_Rabbit_Hole_%28311526846%29.jpg?20220726070017" alt="Alice in Wonderland with the Rabbit" title="Image Source: https://commons.wikimedia.org/wiki/File:Down_the_Rabbit_Hole_(311526846).jpg" width = "35%" align="right" style="padding-right: 20px;">
  
-Most Wikipedia pages contain embedded hypertext links to other Wikipedia pages for additional information. Sometimes readers go so far down the [Wiki Rabbit Hole](https://en.wikipedia.org/wiki/Wiki_rabbit_hole) that they forget where they started.
+Most Wikipedia pages contain embedded hypertext links to other Wikipedia pages for additional information. While there’s basically one layer of abstraction for each Wikipedia page, there are many layers of abstraction within the Wikipedia environment. As readers follows the embedded links they dive deeper into details for additional context, but it’s the readers' choice to do so. Sometimes readers go so far down the [Wiki Rabbit Hole](https://en.wikipedia.org/wiki/Wiki_rabbit_hole) that they forget where they started.
 
-While there’s basically one layer of abstraction for each Wikipedia page, there are many layers of abstraction within the Wikipedia environment. As readers follows the embedded links they dive deeper into details for additional context, but it’s the readers' choice to do so.
+What if a Wikipedia editor didn’t want to create a new page and reference it via an embedded link? What if they put the new content in the current page, even if that content strayed from the page’s original topic? And then another editor added more content to that content further straying from the page’s original topic?
 
-What if a Wikipedia editor didn’t want to create a new page and add an embedded link? What if they put the new content in the current page, even if that content strayed from the page’s original topic? And then another editor adds more content to that content further straying from the page’s original topic?
-
-This pattern continues. Soon, the page becomes bloated with off-topic details. The reader must read the entire page, but it may not be obvious which content is part of the original topic and which content contains supporting off-topic content.
+If this pattern continues, the page will soon become bloated with off-topic details. The reader may have to read the entire page, but it may not be obvious which content is part of the original topic and which content contains supporting off-topic content.
 
 Fortunately, I think that Wikipedia editors tend to keep most pages focused upon the topic and link to other pages as necessary. I can’t say that all software developers follow the same practice.
 
@@ -114,13 +112,15 @@ _So much complexity in software comes from trying to make one thing do two thing
 
 A method’s name is its abstraction declaring __what__ it does. The implementation contains the details of __how__ it does it. Rather than creating a new method or class and referencing it via the method name, all too often, developers will place the new code in the original method even if it strays from the method’s single responsibility. It’s a shortcut made for convenience.
 
-I’ve encountered methods that are hundreds of lines long, which obviously violate SRP. Each of these methods grew slowly – one shortcut at a time.
+I’ve encountered methods that are hundreds of lines long, which obviously violate SRP. Each of these methods grew slowly – one shortcut convenience at a time.
 
 Most visual editors can display at most about 50 lines of code on the screen. Any part of a method which I cannot see, I must retain in my head to understand the behavior implemented with a method. If a method is 500 lines, long, I can only see at most 10% of the method at any given time. I’m too old to hold the remaining 90% in my mind.
 
+<img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzhpOHpjbDc3MDdjcG1lcGVrNGZmbmI3dWZvMG5taXR3dWo0dGxsayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/V8PO3o4IIPgCiIMnme/giphy.gif" alt="Rollercoaster" title="Image Source: https://www.flickr.com/photos/hahatango/2161518548" width = "35%" align="right" style="padding-right: 20px;">
+
 Methods tend to get long when an implementation jams multiple layers of abstraction into one method. Reading the method takes the reader on a nauseating roller coaster ride from high level business concepts to low level infrastructural details and back again. If segregated into separate methods or classes along abstraction boundaries, then readers would only need to examine those lower-level abstractions if necessary.
 
-<img src="https://live.staticflickr.com/2152/2161518548_eb13cddfe5.jpg" alt="Decomposed Car" title="Image Source: https://www.flickr.com/photos/hahatango/2161518548" width = "35%" align="right" style="padding-right: 20px;">
+<img src="https://live.staticflickr.com/2152/2161518548_eb13cddfe5.jpg" alt="Decomposed Car" title="Image Source: https://giphy.com/gifs/PortAventuraWorld-rollercoaster-portaventura-shambhala-V8PO3o4IIPgCiIMnme" width = "35%" align="left" style="padding-right: 20px;">
  
 Real world concrete abstractions, such as cars, have multiple layers of abstractions as well. A car is comprised of systems, such as the engine, transmission, drive train, breaking system, electrical system, etc. These systems have their own components. Eventually the entire car decomposes to a set of parts. Real world abstractions deconstruct to their most basic parts.
 
