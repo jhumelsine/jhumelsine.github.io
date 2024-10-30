@@ -10,8 +10,8 @@ I’m a volunteer mentor for computer science students at the university where I
 Scott and I grabbed a quick bite at an off-campus pizza shop directly across from one of the engineering buildings. I asked him about his summer experiences and how his final year before graduation was shaping up.
 
 Scott knows that I’m a fan of Design Patterns, but he wasn’t sure how the patterns fit into what he’s been studying. With only my words and waving hands for presentation I compared Data Structures to Design Patterns. Data Structures solve well defined fixed problems bounded by a limited scope, whereas Design Patterns define solution approaches to recurring flexible fuzzy problems not necessarily bounded by scope. I confessed that developers may need to experience real-world problems in industry before they appreciate Design Patterns. I used a few analogies such as:
-* Solving a problem with Data Structures is like being a cook following a recipe to the letter, whereas approaching a problem with Design Patterns is like being a [chef](https://jhumelsine.github.io/2023/08/21/knock-knock-whos-there.html) creating a new dish based upon years of experience. __NOTE:__ I first typed _tears of experience_ by accident. Though I changed it, _tears_ may be more accurate than _years_.
-* Learning a programming language's syntax is like learning the rules to a game, whereas learning implementation design is like learning the [strategy and tactics](https://jhumelsine.github.io/2023/08/24/its-your-move.html) of how to play the game well.
+* Solving a problem with Data Structures is like being a cook following a recipe to the letter, whereas approaching a problem with Design Patterns is like being a [chef](https://jhumelsine.github.io/2023/08/21/knock-knock-whos-there.html) creating a new dish based upon years of experience. __NOTE:__ I first typed _tears of experience_ by accident. Though I changed it, _tears_ may be more accurate than _years_, especially in the context of software development.
+* Learning a programming language's syntax is like learning the rules to a game, whereas learning software design is like learning the [strategy and tactics](https://jhumelsine.github.io/2023/08/24/its-your-move.html) of how to play the game well.
 * The [wheel](https://jhumelsine.github.io/2023/08/28/wheels.html) is a mechanical engineering design pattern. All wheels have the same basic design of a disk-shaped object that rotates upon an axis at its center. Each wheel must be designed specifically in the context in which it’s being used.
 
 Then Scott asked, “What is _Abstraction_?” What are they teaching kids in college these days?
@@ -21,7 +21,7 @@ I tried to give him a quick answer, but we were running out of time. I promised 
 # What vs How
 Though I chide academia for not explaining abstraction, the word ___abstract___ has appeared in 50% of my previous blog posts, and I haven’t defined it either.
 
-I dedicated the [Getting the Right Abstraction is Hard]( https://jhumelsine.github.io/2023/09/22/right-abstraction-is-hard.html) blog entry to abstraction over a year ago, and I assumed my readers knew what I meant.
+I devoted the [Getting the Right Abstraction is Hard]( https://jhumelsine.github.io/2023/09/22/right-abstraction-is-hard.html) blog entry to abstraction over a year ago, and I assumed my readers knew what I meant.
 
 I suspect that definitions for _abstraction_ vary. I included a few [Abstraction](https://jhumelsine.github.io/2023/12/15/bumper-sticker-computer-science-software-engineering.html#abstraction) quotes in [Bumper Sticker Computer Science and Software Engineering]( https://jhumelsine.github.io/2023/12/15/bumper-sticker-computer-science-software-engineering.html).
 
@@ -60,7 +60,7 @@ Ease of maintenance continues in the Concrete region as well. The existing concr
 
 <img src="/assets/AbstractionStrategy3.png" alt="Strategy with more concrete classes added"  width = "80%" align="center" style="padding-right: 35px;">
 
-One may notice that `Rectangle`, `Trapezoid` and `Rhombus` are four-sided `Shape`s. What if more four-sided concrete classes were added, such as `Parallelogram`, `Square` and `Quadrangle`? We might observe common code among the four-sided `Shape`s and decide to refactor them to reduce duplication and consolidate related classes.
+One may realize that `Rectangle`, `Trapezoid` and `Rhombus` are four-sided `Shape`s. What if more four-sided concrete classes were added, such as `Parallelogram`, `Square` and `Quadrangle`? We might observe common code among the concrete four-sided `Shape` classes and decide to refactor them to reduce duplication and consolidate related classes.
 
 If we choose to refactor or redesign the concrete classes below the red horizontal dashed line, we can do so without concern of breaking any behavior that resides in the abstraction above the red horizontal dashed line.
  
@@ -89,7 +89,7 @@ The dashboard displays pertinent information to the driver, such as speed, miles
  
 There’s one dashboard instrument that I’ve never understood why it's presented to the driver – the tachometer. I’m not a car enthusiast, so maybe there’s a reason to display the RPMs of the engine that I don't know. My last three cars had tachometers, and they were automatic transmissions. My first car was standard transmission, and I rarely looked at the tachometer to decide when to shift gears.
 
-The tachometer feels like a [Leaky Abstraction](https://en.wikipedia.org/wiki/Leaky_abstraction) to me. It’s telling me design details about the engine that I don’t need to know, but its benign exposure. We want to avoid leaky abstractions in our designs. We don’t want to expose implementation details to our users via the abstraction. Any concept that’s exposed to users will become an operational dependency by a user. If a project leaks an implementation detail via an abstraction, then it’s part of the interface.
+The tachometer feels like a [Leaky Abstraction](https://en.wikipedia.org/wiki/Leaky_abstraction) to me. It’s telling me design details about the engine that I don’t need to know even if its benign exposure. We want to avoid leaky abstractions in our designs. We don’t want to expose implementation details to our users via the abstraction. Any concept that’s exposed to users will become an operational dependency by a user. If a project leaks an implementation detail via an abstraction, then it’s part of the interface.
 
 Woe be the software project that leaks its database schema. It will become part of its API. 
 
@@ -116,7 +116,7 @@ I’ve encountered methods that are hundreds of lines long, which obviously viol
 
 Most visual editors can display at most about 50 lines of code on the screen. Any part of a method which I cannot see, I must retain in my head to understand the behavior implemented with a method. If a method is 500 lines long, I can only see at most 10% of the method at any given time. I’m too old to hold the remaining 90% in my mind.
 
-<img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzhpOHpjbDc3MDdjcG1lcGVrNGZmbmI3dWZvMG5taXR3dWo0dGxsayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/V8PO3o4IIPgCiIMnme/giphy.gif" alt="Rollercoaster" title="Image Source: https://www.flickr.com/photos/hahatango/2161518548" width = "35%" align="right" style="padding-right: 20px;">
+<img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzhpOHpjbDc3MDdjcG1lcGVrNGZmbmI3dWZvMG5taXR3dWo0dGxsayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/V8PO3o4IIPgCiIMnme/giphy.gif" alt="Rollercoaster" title="Image Source: https://www.flickr.com/photos/hahatango/2161518548" width = "25%" align="right" style="padding-right: 20px;">
 
 Methods tend to get long when an implementation jams multiple layers of abstraction into one method. Reading the method takes the reader on a nauseating roller coaster ride from high level business concepts to low level infrastructural details and back again. If segregated into separate methods or classes along abstraction boundaries, then readers would only need to examine those lower-level abstractions if necessary.
 
