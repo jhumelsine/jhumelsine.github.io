@@ -153,4 +153,5 @@ However, the right abstraction is not always easy or obvious. Don’t force abst
 * [Abstraction: Not What You Think It Is](https://www.pathsensitive.com/2022/03/abstraction-not-what-you-think-it-is.html) - Jimmy Koppel
 * [Software Engineering: It’s All About Abstraction](https://source.coveo.com/2022/03/30/software-engineering-it-s-all-about-abstraction/) - Kevin Lalumiere
 * [Abstraction](https://www.cs.cornell.edu/courses/cs211/2006sp/Lectures/L08-Abstraction/08_abstraction.html) - Cornell University: CS211
+* [Abstraction, Encapsulation, and Information Hiding](https://web.archive.org/web/20071214085409/http://www.itmweb.com/essay550.htm) - Edward V. Berard
 * and for more, Google: [Abstraction in software](https://www.google.com/search?q=Abstraction+in+software)
