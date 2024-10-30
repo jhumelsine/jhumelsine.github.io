@@ -1,7 +1,6 @@
 ---
-title: DRAFT – What Is Abstraction?
+title: What Is Abstraction?
 description: Abstraction is separating the WHAT from the HOW in the design and implementation.
-unlisted: true
 ---
 
 # Introduction
@@ -69,7 +68,7 @@ Strategy is only one example of abstraction. Functions, procedures and methods w
 
 The right abstraction may not be obvious. See: [Getting the Right Abstraction is Hard]( https://jhumelsine.github.io/2023/09/22/right-abstraction-is-hard.html)
 
-The ability to abstract wasn’t available in early programming languages. The first programming language I learned was [BASIC](https://en.wikipedia.org/wiki/BASIC#:~:text=BASIC%20(Beginners'%20All%2Dpurpose,at%20Dartmouth%20College%20in%201963.)) in the 1970s. Each statement had a line number, and that’s how program flow was directed via `GOTO` and `GOSUB` statements. There were no subroutine names. Subroutines didn’t have arguments or return types. All variables were global. And from what I recall, variables could be no more than two letters long.
+The ability to abstract wasn’t available in early programming languages. The first programming language I learned was [BASIC](https://en.wikipedia.org/wiki/BASIC#:~:text=BASIC%20(Beginners'%20All%2Dpurpose,at%20Dartmouth%20College%20in%201963.)) in the 1970s. Each statement had a line number, and that’s how program flow was directed via `GOTO` and `GOSUB` statements. There were no subroutine names. Subroutines didn’t have arguments or return types. All variables were global. And from what I recall, variables could be no more than two characters long.
 
 As programming languages advanced, they supported more abstraction. Abstraction is not for the benefit of the computer. Abstraction is for the benefit of the software developer to better convey and understand the intent of the implementation.
 
@@ -134,7 +133,7 @@ Layers of abstractions in Wikipedia and software are fractal. Regardless of wher
  
 The fractal nature of software is a double-edged sword. On the positive side, our abstractions are not constrained by the physical world. On the negative side, our abstractions are not constrained by the physical world. We can design our abstractions anyway we desire. We do not have any real-world guardrails to keep our abstractions in check.
 
-Our abstractions, right or wrong, are our responsibility. Get the abstraction right and code will practically write itself. Get the abstraction wrong and it will cause you a world of pain.
+Our abstractions, right or wrong, are our responsibility. Get the abstraction right, and code will practically write itself. Get the abstraction wrong, and it will cause you a world of pain.
 
 # Cohesive Abstractions
 Since this blog is getting long, I’ll postpone __Cohesive Abstractions__ to the next blog entry.
