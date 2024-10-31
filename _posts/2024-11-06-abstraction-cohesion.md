@@ -15,14 +15,13 @@ It took me a while before I had a solid understanding of [Cohesion](https://en.w
 
 Elements are cohesive when there’s an intrinsic relationship among them. The relationship may be gestalt in that the elements only have value when combined, but not individually. And when there’s a change in their form or function all elements in the cohesive relationship change.
 
-https://www.wannapik.com/vectors/9442
-https://www.wannapik.com/media/W1siZiIsIjIwMTYvMDgvMjIvMzkzN3FhdjY0ZV8zMm82MjNxYmNzX2luZHUwNDA1LnBuZyJdXQ/c42e7dcef9856369/32o623qbcs_indu0405.png
+<img src="https://www.wannapik.com/media/W1siZiIsIjIwMTYvMDgvMjIvMzkzN3FhdjY0ZV8zMm82MjNxYmNzX2luZHUwNDA1LnBuZyJdXQ/c42e7dcef9856369/32o623qbcs_indu0405.png" alt="Screw and Screwdriver" title="Image Source: https://www.wannapik.com/vectors/9442" width = "25%" align="right" style="padding-right: 20px;">
  
 The intrinsic relationship between __screw__ and __screwdriver__ is an example of this. Neither is functional without the other. The screwdriver must also match the screw. A flathead screwdriver won’t work on a Phillips head screw.
-https://www.flickr.com/photos/tudedude/4780764147
-https://live.staticflickr.com/4102/4780764147_ca8650f6c4_b.jpg
+
+<img src="https://live.staticflickr.com/4102/4780764147_ca8650f6c4_b.jpg" alt="Nuts and Bolts" title="Image Source: https://www.flickr.com/photos/tudedude/4780764147" width = "25%" align="left" style="padding-right: 20px;">
  
-Nuts and bolts are cohesive. They only function when screwed together, and their sizes must match.
+___Nuts___ and ___bolts___ are cohesive. They only function when screwed together, and their sizes must match.
 
 We want our designs to have high cohesion. That is, software elements with intrinsic relationships should be near one another in the design.
 
@@ -47,9 +46,7 @@ A cohesive interface tends to follow the [Interface Segregation Principle](https
 
 Coupling is also about connected concepts that cannot be easily disconnected, but they do not contain an intrinsic relationship.
 
-https://commons.wikimedia.org/wiki/File:2021-05-15_14_56_22_A_Reese%27s_Peanut_Butter_Cup_broken_into_two_pieces_in_the_Franklin_Farm_section_of_Oak_Hill,_Fairfax_County,_Virginia.jpg
-
-https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/2021-05-15_14_56_22_A_Reese%27s_Peanut_Butter_Cup_broken_into_two_pieces_in_the_Franklin_Farm_section_of_Oak_Hill%2C_Fairfax_County%2C_Virginia.jpg/1200px-2021-05-15_14_56_22_A_Reese%27s_Peanut_Butter_Cup_broken_into_two_pieces_in_the_Franklin_Farm_section_of_Oak_Hill%2C_Fairfax_County%2C_Virginia.jpg?20210515225457 
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/2021-05-15_14_56_22_A_Reese%27s_Peanut_Butter_Cup_broken_into_two_pieces_in_the_Franklin_Farm_section_of_Oak_Hill%2C_Fairfax_County%2C_Virginia.jpg/1200px-2021-05-15_14_56_22_A_Reese%27s_Peanut_Butter_Cup_broken_into_two_pieces_in_the_Franklin_Farm_section_of_Oak_Hill%2C_Fairfax_County%2C_Virginia.jpg?20210515225457" alt="Reece's Cup" title="Image Source: https://commons.wikimedia.org/wiki/File:2021-05-15_14_56_22_A_Reese%27s_Peanut_Butter_Cup_broken_into_two_pieces_in_the_Franklin_Farm_section_of_Oak_Hill,_Fairfax_County,_Virginia.jpg" width = "35%" align="right" style="padding-right: 20px;">
  
 Reece’s Peanut Butter Cups couple chocolate and peanut butter.
 
