@@ -75,8 +75,7 @@ Let’s assume that you’re a developer on a military game, such as [Call to Du
 
 You’ll want to design a gun that supports behaviors, such as: load, aim and fire.
 
-https://www.deviantart.com/nikarlux/art/Military-Game-Assets-Guns-968647587
-https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/757ae6c4-085d-4a02-8eda-8c9b097c414a/dg0ph9f-476ed86e-b6c6-4c8f-9b6f-cf02ed84dcdb.jpg/v1/fit/w_600,h_337,q_70,strp/military_game_assets___guns_by_nikarlux_dg0ph9f-375w-2x.jpg
+<img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/757ae6c4-085d-4a02-8eda-8c9b097c414a/dg0ph9f-476ed86e-b6c6-4c8f-9b6f-cf02ed84dcdb.jpg/v1/fit/w_600,h_337,q_70,strp/military_game_assets___guns_by_nikarlux_dg0ph9f-375w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MzM3IiwicGF0aCI6IlwvZlwvNzU3YWU2YzQtMDg1ZC00YTAyLThlZGEtOGM5YjA5N2M0MTRhXC9kZzBwaDlmLTQ3NmVkODZlLWI2YzYtNGM4Zi05YjZmLWNmMDJlZDg0ZGNkYi5qcGciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.SaiA8q2khJIA3MeigEC-X9PrV4qCpPCNJlr9QDW5aJw" alt="Military Guns" title="Image Source: https://www.deviantart.com/nikarlux/art/Military-Game-Assets-Guns-968647587" width = "35%" align="right" style="padding-right: 20px;">
  
 You realize there can be multiple guns, so you want some degree of abstraction.
 
@@ -89,7 +88,7 @@ Load, aim and fire don’t quite work for some of these, so let’s generalize t
 * The `Launcher` declares the `load(Projectile projectile)`, `aim()` and `launch()` methods. 
 * The `Launcher` interface has dependency knowledge upon the `Projectile` interface.
  
-IMAGE 1
+<img src="/assets/AbstractCohesion1.png" alt="Launcher/Projectile Abstract Cohesion"  width = "70%" align="center" style="padding-right: 35px;">
 
 I think this is the first time in any of my blogs where I show one interface referencing another interface. `Launcher` has dependency knowledge of `Projectile`.
 `Launcher` and `Projectile` have are cohesive. A `Launcher` isn’t much use with a `Projectile` and `Projectile` isn’t much use with a `Launcher`. And they must be consistent. While a `Bazooka` is a `Launcher`, it would be of much use if the `Projectile` were a `Bullet`.
@@ -223,7 +222,7 @@ I’m still not convinced that the `fire()` method works in all concrete occurre
 IMAGE 10
 
 # Summary
-__Cohesive Abstraction__ occurs when multiple __Abstraction__s have relationships that need to remain consistent. The __Abstract Factory Design Pattern__ is one mechanism that helps maintain consistency.
+__Cohesive Abstraction__ occurs when multiple **Abstraction**s have relationships that need to remain consistent. The __Abstract Factory Design Pattern__ is one mechanism that helps maintain consistency.
 
 One could argue that my designs are overengineered. That’s possible, but the design is modular with good dependency management. It can be modified without a complete redesign as has been shown throughout this blog.
 
