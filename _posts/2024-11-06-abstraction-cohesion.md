@@ -15,11 +15,11 @@ It took me a while before I had a solid understanding of [Cohesion](https://en.w
 
 Elements are cohesive when there’s an intrinsic relationship among them. The relationship may be gestalt in that the elements only have value when combined, but not individually. And when there’s a change in their form or function all elements in the cohesive relationship change.
 
-<img src="https://www.wannapik.com/media/W1siZiIsIjIwMTYvMDgvMjIvMzkzN3FhdjY0ZV8zMm82MjNxYmNzX2luZHUwNDA1LnBuZyJdXQ/c42e7dcef9856369/32o623qbcs_indu0405.png" alt="Screw and Screwdriver" title="Image Source: https://www.wannapik.com/vectors/9442" width = "25%" align="right" style="padding-right: 20px;">
+<img src="https://i0.pickpik.com/photos/475/455/659/screwdrivers-screws-red-black-preview.jpg" alt="Screw and Screwdriver" title="Image Source: https://www.pickpik.com/screwdrivers-screws-red-black-tools-work-6612" width = "35%" align="right" style="padding-right: 20px;">
  
 The intrinsic relationship between __screw__ and __screwdriver__ is an example of this. Neither is functional without the other. The screwdriver must also match the screw. A flathead screwdriver won’t work on a Phillips head screw.
 
-<img src="https://live.staticflickr.com/4102/4780764147_ca8650f6c4_b.jpg" alt="Nuts and Bolts" title="Image Source: https://www.flickr.com/photos/tudedude/4780764147" width = "25%" align="left" style="padding-right: 20px;">
+<img src="https://live.staticflickr.com/4102/4780764147_ca8650f6c4_b.jpg" alt="Nuts and Bolts" title="Image Source: https://www.flickr.com/photos/tudedude/4780764147" width = "35%" align="left" style="padding-right: 20px;">
  
 ___Nuts___ and ___bolts___ are cohesive. They only function when screwed together, and their sizes must match.
 
