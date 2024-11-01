@@ -7,7 +7,7 @@ unlisted: true
 # Introduction
 This blog is a continuation of the previous [Abstract](https://jhumelsine.github.io/2024/10/30/abstraction.html) blog where I follow up with _Cohesive Abstractions_. 
 
-Abstractions may reference, depend upon and have knowledge of other Abstractions. We want to ensure that when this occurs, we want to ensure that the concrete implementations for these Abstracts are resolved consistently.
+Abstractions may reference, depend upon and have knowledge of other Abstractions. We want to ensure that when this occurs that the concrete implementations for these Abstracts are resolved consistently.
 
 # Cohesion and Coupling
 Before I get into consistent management of _Cohesive Abstractions_, I need to explain _Cohesion_ and _Coupling_.
@@ -15,7 +15,7 @@ Before I get into consistent management of _Cohesive Abstractions_, I need to ex
 ## Cohesion
 It took me a while before I had a solid understanding of [Cohesion](https://en.wikipedia.org/wiki/Cohesion_(computer_science)).
 
-Elements are cohesive when there’s an intrinsic relationship that connects them. The relationship is often gestalt in that the elements only have value when combined as a whole. When an update is required most if not all the elements in the cohesive relationship will need to be updated.
+Elements are cohesive when there’s an intrinsic relationship that connects them. The relationship is often gestalt in that the elements only have value when combined as a whole. When an update is required, most if not all the elements in the cohesive relationship will need to be updated.
 
 <img src="https://i0.pickpik.com/photos/475/455/659/screwdrivers-screws-red-black-preview.jpg" alt="Screw and Screwdriver" title="Image Source: https://www.pickpik.com/screwdrivers-screws-red-black-tools-work-6612" width = "35%" align="left" style="padding-right: 20px;">
  
