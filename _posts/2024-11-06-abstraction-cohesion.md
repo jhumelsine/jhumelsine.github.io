@@ -109,7 +109,7 @@ A __Factory__ is a concrete class that returns a concrete instance to resolve an
 
 Let’s start with the __Abstract Factory__ interface that would be needed for the `Launcher`/`Projectile` pair. `WeaponsSystem` has been added. It is the Abstract Factory, which declares two methods that virtually create a `Launcher` and a `Projectile`.
  
-IMAGE 2
+<img src="/assets/AbstractCohesion2.png" alt="Abstract of Abstract Factory"  width = "70%" align="center" style="padding-right: 35px;">
 
 ## Complete Abstract Factory Design with Concrete Factories
 The above only shows the abstraction. This diagram adds the concrete __Factories__ that define the instantiate the concrete instances for `Launcher` and `Projectile`:
@@ -119,19 +119,19 @@ The above only shows the abstraction. This diagram adds the concrete __Factories
 * `RifleWeaponSystemConfigurer` isn’t technical part of the Abstract Factory Pattern. It’s the Configurer, missing in most GoF patterns. It creates the `RifleWeaponSystem` instance and injects it into the `Warrior`.
 * This design adds the red dashed lines used to designate __ABSTRACT__, __CONCRETE__ and __CONFIGURE__ architecture boundaries, as were introduced in [What vs How](https://jhumelsine.github.io/2024/10/30/abstraction.html#what-vs-how) in the previous blog.
  
-IMAGE 3
+<img src="/assets/AbstractCohesion3.png" alt="Full Design with Rifle"  width = "70%" align="center" style="padding-right: 35px;">
 
 ## Another WeaponSystem Abstract Factory
 The Abstract Factory requires more design elements. It’s an investment. Here is part of the return on that investment. When we want to add a Bazooka, we update design as follows:
  
-IMAGE 4
+<img src="/assets/AbstractCohesion4.png" alt="Full Design with Bazooka"  width = "70%" align="center" style="padding-right: 35px;">
 
 The `Rifle` and `Bazooka` designs are identical in their Abstraction regions above the red dashed horizontal line. The distinctions below the line are almost boilerplate.
 
 ## And Testing Too
 We can easily test the code in the Abstract regions with the same design. The distinction is that it uses Test specific concrete classes:
  
-IMAGE 5
+<img src="/assets/AbstractCohesion5.png" alt="Full Testing Design"  width = "70%" align="center" style="padding-right: 35px;">
 
 ## Warrior with Multiple WeaponSystems
 Rarely would a `Warrior` have only one `WeaponSystem`. Different `WeaponSystem`s will have different attributes, such as:
@@ -148,12 +148,12 @@ The following design shows how with a few updates, the previous designs can be e
 * I don’t have enough space to list the `WeaponSystem`, `Launcher` and `Projectile` concrete classes, but they follow the previous designs.
 * Except for the `List` of `WeaponSystem`s, `getBestWeapon(Target target)` method and the `WarrierConfigurer` updates, the rest of this design is the same as the previous designs.
  
-IMAGE 6
+<img src="/assets/AbstractCohesion6.png" alt="Multiple Weapon Design"  width = "70%" align="center" style="padding-right: 35px;">
 
 ## Bigger Boom
 I’m going to stay with the same design structure, but I’ll modify the context slightly. Instead of a `Warrior` with a hand weapon, this design features a `CombatVehicle`, a `tank`, with a `TankGun`. The same design can be used for `Warrior`s and `CombatVehicle`s.
  
-IMAGE 7
+<img src="/assets/AbstractCohesion7.png" alt="Tank Design"  width = "70%" align="center" style="padding-right: 35px;">
 
 ## Safety Critical
 I moved from `Warrior` to `CombatVehicle` to feature a real-world example.
@@ -166,7 +166,8 @@ I didn’t work on these features directly. Code like this would be considered _
 
 Since I didn’t work directly on this code, I don’t know how they planned to implement this, but given other code I experienced on the project, I feared it might look something like the design below, where an `if` statement checks the `mode` and it only fires the `TankGun` when `mode` is not `TRAINING`.
  
-IMAGE 8
+<img src="/assets/AbstractCohesion8.png" alt="Safety Critical Tank Design"  width = "70%" align="center" style="padding-right: 35px;">
+
 I have several issues with this design:
 * `Mode` feels like behavior associated with the `TankGun`, but it resides in the `CombatVehicle`. It will work, but what if other code interacts with the `TankGun` as well. It will need to have the same logic. `TRAINING` logic will be distributed across the codebase with low cohesion. How confident will we be that all the `TRAINING` cases have been covered?
 * There’s no behavior when in `TRAINING` mode. While we don’t want to fire the gun while in `TRAINING` mode, we want code to behave as if we had fired it for a more accurate scenario.
@@ -175,7 +176,8 @@ I have several issues with this design:
 ## Concrete Training Classes
 We can think of `TRAINING` mode almost like [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html). They are different versions of `Launcher` and `Projectile`. Here’s how they would appear in the design:
  
-IMAGE 9
+<img src="/assets/AbstractCohesion9.png" alt="Safety Critical TankTraining Design"  width = "70%" align="center" style="padding-right: 35px;">
+
 This design is more cohesive. The `if` logic has been removed from the `CombatVehicle`.
 
 However, there are still a few items that bug me:
@@ -216,10 +218,7 @@ Briefly, I’d consider an __Observer__, probably in the __CONFIGURE__ region, w
 
 I’m still not convinced that the `fire()` method works in all concrete occurrences of the abstraction. Does `fire()` accurately model a __bow and arrow__ as well as an `assault weapon machine gun`?
 
-
-
- 
-IMAGE 10
+<img src="/assets/AbstractCohesion10.png" alt="Overall Safety Critical Design"  width = "70%" align="center" style="padding-right: 35px;">
 
 # Summary
 __Cohesive Abstraction__ occurs when multiple **Abstraction**s have relationships that need to remain consistent. The __Abstract Factory Design Pattern__ is one mechanism that helps maintain consistency.
