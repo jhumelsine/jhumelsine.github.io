@@ -15,7 +15,7 @@ Before I get into consistent management of _Cohesive Abstractions_, I need to ex
 ## Cohesion
 It took me a while before I had a solid understanding of [Cohesion](https://en.wikipedia.org/wiki/Cohesion_(computer_science)).
 
-Elements are cohesive when there’s an intrinsic relationship that connects them. The relationship is often gestalt in that the elements only have value when combined as a whole. When an update is required, most if not all the elements in the cohesive relationship will need to be updated.
+Elements are cohesive when there’s an intrinsic relationship that connects them. The relationship is often gestalt in that the elements only have value when combined as a whole. When an update is needed, most or all elements in the cohesive relationship will require updating.
 
 <img src="https://i0.pickpik.com/photos/475/455/659/screwdrivers-screws-red-black-preview.jpg" alt="Screw and Screwdriver" title="Image Source: https://www.pickpik.com/screwdrivers-screws-red-black-tools-work-6612" width = "35%" align="left" style="padding-right: 20px;">
  
@@ -35,14 +35,16 @@ Low cohesion has at least two concerns:
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/State_Machine.jpg?20090820151828" alt="State Machine Diagram" title="Image Source: https://commons.wikimedia.org/wiki/File:State_Machine.jpg" width = "35%" align="left" style="padding-right: 20px;">
 
-Another egregious example of low cohesion, which I've seen all too often, is __state machine__ behavior (blog TBD) that has been distributed across the implementation. This tends to occur when a class has a `private` attribute often with the name similar to `status` or `state`. Its type is often an `enum`, but I've also seen it as a `boolean` and even a `String`. Its implied privacy is violated with `get` and `set` accessors, which provide direct access to the `private` attribute.
+Another common example of low cohesion I’ve seen is __state machine__ behavior (blog TBD) spread across the implementation.
+This usually happens when a class has a private attribute named something like `status` or `state.`
+Its type is often an `enum`, but I've also seen it as a `boolean` and even a `String`. Its implied privacy is violated with `get` and `set` accessors, which provide direct access to the `private` attribute.
 
 Rather than keep the state machine behavior encapsulated within the class, the class is mainly the place were `state` or `status` resides. Other classes will `get` the `state`, make business logic decisions and `set` the `state` with a new value. Not only does this low cohesive design distribute the __state machine__ implementation across far flung areas of the design, it distributes the knowedge. It makes it more difficult to know the __known state__ of the __state machine__.
 
 With cohesion software elements, a change to one element may require a change to the other related cohesive elements, like how a change in screw head causing a change in the screwdriver. With highly cohesive software elements, they are close enough to one another, such as in the same package, making it more likely that all required updates will occur consistently.
 
 I consider the methods of an `interface` cohesive when:
-* The methods are functionally related to and support one another.
+* The methods are functionally related and support each other.
 * The removal of one of the methods diminishes the whole.
 
 The traditional [Create, Read, Update and Delete](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) (CRUD) operations are cohesive in my mind. Remove anyone of them, and the remaining operations are incomplete. Once, the requirements for my featured contained Create, Update and Delete requirements for a set of domain elements, but there were no Read requirements. I asked my requirements creator why I was implementing these features for data for which there were no requirements to read the data. _Oops._
@@ -112,7 +114,10 @@ The __Abstract Factory Design Pattern__ is the first pattern presented by the Ga
 ## The Abstraction of the Abstract Factory Pattern
 An Abstract Factory Pattern is an extension of the [Factory Pattern]( https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#factories) concept.
 
-A __Factory__ is a concrete class that returns a concrete instance to resolve an abstract reference. An __Abstract Factory__ is an interface that declares a set of __Factory__ methods each of which return concrete instances for those __Factory__ methods such that the set of returned references are consistent. It’s abstract so that different sets of consistent concrete instances can be resolved. See what I mean about this being a difficult pattern as the first one in the GoF.
+A  __Factory__ is a class that returns a concrete instance for an abstract reference.
+An __Abstract Factory__ is an interface that declares a set of __Factory__ methods each of which return concrete instances for those __Factory__ methods such that the set of returned references are consistent. 
+It’s abstract to allow different sets of consistent instances.
+See what I mean about this being a difficult pattern as the first one in the GoF.
 
 It's not quite as confusing as it sounds in its summary. I'll layer it in a few concepts at a time.
 
