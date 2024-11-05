@@ -38,7 +38,7 @@ This usually happens when a class has a `private` attribute named something like
 <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/State_Machine.jpg?20090820151828" alt="State Machine Diagram" title="Image Source: https://commons.wikimedia.org/wiki/File:State_Machine.jpg" width = "35%" align="left" style="padding-right: 20px;">
 Its type is often an `enum`, but I've also seen it as a `boolean` and even a `String`. Its implied privacy is violated with `get` and `set` accessors, which provide direct access to the `private` attribute.
 
-Rather than keep the state machine behavior encapsulated within the class, the class becomes the place where `state` or `status` reside. Other classes will access `status`/`state` via the `get` accessor, update `status`/`state` with a new value via the `set` accessor based upon their own business logic code. Not only does this low cohesive design distribute the __state machine__ implementation across far flung regions of the design, it distributes behavior. This makes it more difficult to know what the __state machine__ will do as a whole when the `status`/`state` is updated from any place in the implementation.
+Rather than keeping the state machine behavior encapsulated within the class, the class becomes the place where `state` or `status` reside. Other classes will access `status`/`state` via the `get` accessor, update `status`/`state` with a new value via the `set` accessor based upon their own business logic code. Not only does this low cohesive design distribute the __state machine__ implementation across far flung regions of the design, it distributes behavior. This makes it more difficult to know what the __state machine__ will do as a whole when the `status`/`state` is updated from any place in the implementation.
 
 With cohesion software elements, a change to one element may require a change to the other related cohesive elements, like how a change in screw head causing a change in the screwdriver. Highly cohesive software elements are close to one another, such as in the same package, making it more likely that all required updates will occur consistently.
 
@@ -120,7 +120,7 @@ An __Abstract Factory__ is an interface that declares a set of __Factory__ metho
 Its abstraction supports different sets of instances consistently.
 See what I mean about this being a difficult pattern as the first one in the GoF.
 
-It's not quite as confusing as it sounds at first blush, but it requires some thought before one reaches clarity. I'll layer in the concepts a few at a time.
+It's not quite as confusing as it sounds at first blush, but it requires some thought before one reaches understanding. I'll layer in the concepts a few at a time.
 
 Let’s start with the __Abstract Factory__ interface that's needed for the `Launcher`/`Projectile` pair. `WeaponsSystem` is the __Abstract Factory__ in this example. It declares two methods that virtually create a `Launcher` and a `Projectile`. That is, these two methods declare an abstract contract to create references for these abstractions, but they don't create the concrete instances themselves.
  
@@ -176,7 +176,7 @@ I’m going to stay with the same design structure, but I’ll modify the contex
 ## Safety Critical
 I moved from `Warrior` to `CombatVehicle` to feature a real-world example.
 
-I worked on a military project where the goal was to move combat vehicles, such as tanks, with their crew via large cargo planes. The crew could train by running simulations within their vehicles to familiarize themselves with terrain, landmark features, etc. of their destination during the hours in transit.
+I worked on a military project where the goal was to move combat vehicles, such as tanks, with their crew via large military cargo planes. The crew could train by running simulations within their vehicles to familiarize themselves with terrain, landmark features, etc. of their destination during the hours in transit.
 
 The simulations could involve spotting targets and firing their weapons. It would be very bad to fire a tank shell from inside the cargo plane. Our software would include a __TRAINER__ mode so that the guns would not actually fire the shells. I didn’t work on these features directly.
 
@@ -217,9 +217,9 @@ I wanted to address the complete separation of `TankGun` and `TankGunTrainer` in
 
 The previous design only used the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) for `TankGun` and `TankGunTrainer`. This updated design adds two more design patterns: [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html) and [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html).
 
-`TankGun` has been modified from a concrete class to an abstract class. Any previous `TankGun` implementation that accessed the Tank Gun hardware would be extracted as an abstract protected method declared in the abstract `TankGun` and defined and implemented in the new `TankGunAdapter`. `TankGunAdapter` would delegate to the ___Tank Gun hardware___ directly. `TankGunTrainer` would also have to define and implement the same abstract protected methods in `TankGun`, but `TankGunTrainer` would have no access the ___Tank Gun hardware___. Its implementations could be empty __NO-OP__ methods, or it could record the ___Tank Gun hardware___ request, much like a [Spy](https://jhumelsine.github.io/2024/07/02/test-doubles.html#spy) would.
+`TankGun` has been modified from a concrete class to an abstract class. Any previous `TankGun` implementation that accessed the ___Actual Tank Gun___ would be extracted as an abstract protected method declared in the abstract `TankGun` and defined and implemented in the new `TankGunAdapter`. `TankGunAdapter` would delegate to the ___Actual Tank Gun___ directly. `TankGunTrainer` would also have to define and implement the same abstract protected methods in `TankGun`, but `TankGunTrainer` would have no access the ___Actual Tank Gun___. Its implementations could be empty __NO-OP__ methods, or it could record the ___Actual Tank Gun___ request, much like a [Spy](https://jhumelsine.github.io/2024/07/02/test-doubles.html#spy) would.
 
-This design retains the bulk of the Tank Gun behavior implementation in `TankGun`. `TankGunAdapter` would fulfill the behavior with the ___Tank Gun hardware___, whereas `TankGunTrainer` would not. This segregation will help ensure that the ___Tank Gun hardware___ will not be engaged while in __TRAINER__ mode.
+This design retains the bulk of the Tank Gun behavior implementation in `TankGun`. `TankGunAdapter` would fulfill the behavior with the ___Actual Tank Gun___, whereas `TankGunTrainer` would not. This segregation will help ensure that the ___Actual Tank Gun___ will not be engaged while in __TRAINER__ mode.
 
 ### CONFIGURE
 `Mode` resides within the `TankGunWeaponSystem` concrete factory. `TankGunConfigurer` has no concern about `mode`. Its single responsibility is to create the `TankGunWeaponSystem` and inject it into the `tank` instance of the `CombatVehicle`.
