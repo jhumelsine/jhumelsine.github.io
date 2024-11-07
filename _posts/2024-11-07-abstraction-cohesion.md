@@ -7,7 +7,7 @@ unlisted: true
 # Introduction
 This blog is a continuation of the previous [Abstract](https://jhumelsine.github.io/2024/10/30/abstraction.html) blog where I follow up with _Cohesive Abstractions_. 
 
-Abstractions may reference other Abstractions, depend upon other Abstractions or have knowledge of them. We want to ensure that when this occurs that the concrete implementations for these Abstracts are resolved consistently.
+Abstractions may reference other Abstractions, depend upon other Abstractions or have knowledge of other Abstractions. We want to ensure that when this occurs that the concrete implementations for these Abstracts are resolved consistently.
 
 # Cohesion and Coupling
 Before I describe the consistent management of _Cohesive Abstractions_, I need to explain _Cohesion_ and _Coupling_.
@@ -40,7 +40,7 @@ Its type is often an `enum`, but I've also seen it as a `boolean` and even a `St
 
 Rather than keeping the state machine behavior encapsulated within the class, the class becomes the place where `state` or `status` reside. Other classes will access `status`/`state` via the `get` accessor, update `status`/`state` with a new value via the `set` accessor based upon their own business logic code. Not only does this low cohesive design distribute the __state machine__ implementation across far flung regions of the design, it distributes behavior. This makes it more difficult to know what the __state machine__ will do as a whole when the `status`/`state` is updated from any place in the implementation.
 
-With cohesion software elements, a change to one element may require a change to the other related cohesive elements, like how a change in screw head causing a change in the screwdriver. Highly cohesive software elements are close to one another, such as in the same package, making it more likely that all required updates will occur consistently.
+With cohesive software elements, a change to one element may require a change to the other related cohesive elements, like how a change in screw head causing a change in the screwdriver. Highly cohesive software elements are close to one another, such as in the same package, making it more likely that all required updates will occur consistently.
 
 I consider the methods of an `interface` cohesive when:
 * The methods are functionally related and support each other.
@@ -53,7 +53,7 @@ A cohesive interface tends to follow the [Interface Segregation Principle](https
 ## Coupling
 [Coupling](https://en.wikipedia.org/wiki/Coupling_(computer_programming)) is often uttered in the same breath with _cohesion_. It took me a while to gain a solid understanding of coupling, especially when used with cohesion. They seemed similar yet different, and I wasn’t sure how to distinguish them.
 
-Coupling is also about connected elements as well. However, unlike cohesive elements, coupled elements do not intrinsic relationships.
+Coupling is also about connected elements. However, unlike cohesive elements, coupled elements do not have intrinsic relationships.
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/2021-05-15_14_56_22_A_Reese%27s_Peanut_Butter_Cup_broken_into_two_pieces_in_the_Franklin_Farm_section_of_Oak_Hill%2C_Fairfax_County%2C_Virginia.jpg/1200px-2021-05-15_14_56_22_A_Reese%27s_Peanut_Butter_Cup_broken_into_two_pieces_in_the_Franklin_Farm_section_of_Oak_Hill%2C_Fairfax_County%2C_Virginia.jpg?20210515225457" alt="Reece's Cup" title="Image Source: https://commons.wikimedia.org/wiki/File:2021-05-15_14_56_22_A_Reese%27s_Peanut_Butter_Cup_broken_into_two_pieces_in_the_Franklin_Farm_section_of_Oak_Hill,_Fairfax_County,_Virginia.jpg" width = "40%" align="right" style="padding-right: 20px;">
  
@@ -63,7 +63,7 @@ We want our designs to have loose coupling. That is, we don’t want unrelated e
 
 A Reese’s Cup would be tightly coupled if it were the only form from which we could get chocolate or peanut butter. Imagine scraping the insides from a Reese’s Cup as the only means to make a peanut butter sandwich.
 
-Tight coupling occurs when disparate software concepts are stuck together. For example, the communication framework, business logic and persistence implementations are intertwined in the same method. A change to the communication framework may affect the business logic. A change in the persistence my affect the communication framework, etc. Reusing the business logic in another context becomes impossible.
+Tight coupling occurs when disparate software concepts are stuck together. For example, the communication framework, business logic and persistence implementations are intertwined in the same method. A change to one of these elements runs a risk of affecting or breaking one of the other non-related coupled elements. A tightly coupled method is often a violation of the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle), since there's more than reason for it to change. Reusing the business logic in another context becomes impossible with it's tightly couplied with other elements.
 
 Many modern software practices, such as [Design Patterns](https://jhumelsine.github.io/2023/08/24/its-your-move.html), [Hexagonal Architecture/Ports & Adapters](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html), and others address tight coupling. They promote loose coupling. The first [Design Pattern Principle](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html) addresses this, even if it doesn’t mention coupling directly: __Program to an interface, not an implementation__.
 
@@ -99,7 +99,7 @@ Ready, aim and fire don’t quite work for some of these, so let’s generalize 
 
 I think this is the first time in any of my blogs where I show one interface referencing another interface. `Launcher` has dependency knowledge of `Projectile`.
 
-`Launcher` and `Projectile` are cohesive. A `Launcher` isn’t much use with a `Projectile`, and `Projectile` isn’t much use with a `Launcher`. They must be consistent. A  `Bazooka` would not be of much use if its `Projectile` were a `Bullet` or `Arrow`.
+`Launcher` and `Projectile` are cohesive. A `Launcher` isn’t much use with a `Projectile`, and `Projectile` isn’t much use with a `Launcher`. They must be consistent. A  `Bazooka` would not be of much use if its loaded `Projectile` were a `Bullet` or `Arrow`.
 
 The concrete implementations for `Launcher` and `Projectile` must be matching pairs.
 
@@ -116,9 +116,9 @@ Here are two good Abstract Factory Design Pattern online resources:
 An Abstract Factory Pattern is an extension of the [Factory Pattern]( https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#factories) concept.
 
 A  __Factory__ is a class that returns a concrete instance for an abstract reference.
-An __Abstract Factory__ is an interface that declares a set of __Factory__ methods each of which return concrete instances for those __Factory__ methods such that the set of returned references are consistent. 
-Its abstraction supports different sets of instances consistently.
-See what I mean about this being a difficult pattern as the first one in the GoF.
+An __Abstract Factory__ is an interface that declares a set of __Factory__ methods each of which returns a declared abstract reference.
+The concrete classes that implement the __Abstract Factory__ must implement each of those __Factory__ methods and return concrete references for each, such that those concrete references are consistent.
+Do you see what I mean about __Abstract Factory__ being challenging as the first pattern presented in the GoF?
 
 It's not quite as confusing as it sounds at first blush, but it requires some thought before one reaches understanding. I'll layer in the concepts a few at a time.
 
@@ -143,7 +143,7 @@ The Abstract Factory requires more design elements. It’s an investment. Here i
 
 The `Rifle` and `Bazooka` designs are identical in their Abstraction regions above the red dashed horizontal line. The distinctions below the line are almost boilerplate.
 
-The addition of `Bazooka` system does not replace or invalidate the `Rifle` system. I did not show the previous `Rifle` related classes due to space concerns. This design can support as many `Launcher`/`Projectile` weapon system as the team imagines.
+The addition of `Bazooka` as a weapon system does not replace or invalidate the `Rifle` weapon system. I did not show the previous `Rifle` related classes due to space concerns. This design can support as many `Launcher`/`Projectile` weapon system as the team imagines.
 
 ## And Testing Too
 We can easily test the code in the Abstract regions with the same design. The distinction is that it uses Test specific concrete classes:
@@ -180,7 +180,7 @@ I worked on a military project where the goal was to move combat vehicles, such 
 
 The simulations could involve spotting targets and firing their weapons. It would be very bad to fire a tank shell from inside the cargo plane. Our software would include a __TRAINER__ mode so that the guns would not actually fire the shells. I didn’t work on these features directly.
 
-Code like this would be considered ___Safety Critical___, meaning that if there’s a bug in the code, it could seriously harm or kill people. Blowing a hole in the side of the plane during transit would definitely qualify as a ___Safety Critical___ concern.
+Code like this would be considered [___Safety Critical___](https://en.wikipedia.org/wiki/Safety-critical_system), meaning that if there’s a bug in the code, it could seriously harm or kill people. Blowing a hole in the side of the plane during transit would definitely qualify as a ___Safety Critical___ concern.
 
 Since I didn’t work directly on this code, I don’t know how they planned to implement this, but given other code I experienced on the project, I feared it might look something like the design below, where an `if` statement checks the `mode` and it only fires the `TankGun` when `mode` is not `TRAINER`.
  
@@ -260,9 +260,9 @@ Is consistency and all this effort really worth the effort? Let me close with th
 >
 >Database backups restored most of the missing user/video connections; however, the backups were either two weeks or two months old. This was years ago, and I don’t remember which. Regardless, the most recent and relevant user/video connections were still missing.
 >
->After some more investigation, we found a command in the video vendor’s API that returned the URL of our entire set of videos. Part of their URL contained our user ID that we had submitted when uploading the video. Because our vendor provided that really important nugget of information, only by chance, we were able to extract the user ID and reconstruct most of the user/video connections information. It wasn’t a complete restoration, since the table had additional context information. That information was completely gone and unrecoverable, but we were happy to give our customers the ability to view their user videos once more.
+>After some more investigation, we found a command in the video vendor’s API that returned the URL of our entire set of videos. Part of their URL contained our user ID that we had submitted when uploading the video. Because our vendor provided that really important nugget of information, only by chance, we were able to extract the user ID and reconstruct most of the user/video connections information. It wasn’t a complete restoration, since the table had additional context information that was presisted only in the user/video table. That information was completely gone and unrecoverable, but we were happy to give our customers the ability to view their user videos once more.
 >
->How did this happen? We never found the root cause. We think it was a _comedy of errors_. This is mostly speculation, but we think that it involved one of our user/video automated tests. The test manipulated the database. The test designer didn’t want to leave any test-created artifacts in the database after completion, since they could affect the next execution of the test. The test created a clean slate for each execution by deleting the user/video table upon completion. We think the automated test was executed against the production environment. When the test cleaned the _test_ environment, it deleted the __production__ table.
+>How did this happen? We never found the root cause. We think it was a _comedy of errors_. This is mostly speculation, but we think that it involved one of our user/video automated tests. The test manipulated the database. The test designer didn’t want to leave any test-created artifacts in the database after completion, since they could affect the next execution of the test. The test created a clean slate by deleting the user/video table upon completion. We think the automated test was executed against the production environment. When the test cleaned the _test_ environment, it deleted the __production__ table.
 >
 >I thought I was going to lose my job. I had been recently repremanded for another vendor issue that affected customers. However, we were commended for finding the issue and resolving it well enough in a few hours. We took additional steps to prevent future disasters, such as removing developer and tester write-access to the production database.
 >
