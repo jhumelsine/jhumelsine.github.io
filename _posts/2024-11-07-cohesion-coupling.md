@@ -69,13 +69,12 @@ Tight coupling occurs when disparate software concepts are stuck together. For e
 
 Many modern software practices, such as [Design Patterns](https://jhumelsine.github.io/2023/08/24/its-your-move.html), [Hexagonal Architecture/Ports & Adapters](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html), and others address tight coupling. They promote loose coupling. The first [Design Pattern Principle](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html) addresses this, even if it doesn’t mention coupling directly: __Program to an interface, not an implementation__.
 
-## Coupling and Cohesion
-Tight coupling and low cohesion, as described above, are undesirable design traits.
-
+# Summary
 A good design features __loose coupling__ of software elements that don’t change together and __high cohesion__ for those software elements that do change together.
 
-# Summary
-TBD
+Without care and consideration a design can easily degrade into tight coupling and low cohesion, as described above, are undesirable design traits.
+
+The two pairs tend to be cohesive.
 
 # References
 TBD
