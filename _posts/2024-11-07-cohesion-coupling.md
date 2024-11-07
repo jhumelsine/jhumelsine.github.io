@@ -10,7 +10,7 @@ This blog was originally going to be a continuation of the previous [Abstract](h
 I was close to publishing it, but I realized that I was devoting almost 1,000 words to _Cohesion_ and _Coupling_, which started to feel like its own separate blog. I'm making a last minute decision to blog exclusively on _Cohesion_ and _Coupling_ first, and then follow up with _Cohesive Abstractions_ shortly thereafter.
 
 # Cohesion and Coupling
-_Cohesion_ and _Coupling_ both deal with the nature of how software elements are connected together. These aren't always the easiest concepts to understand especially when considered together.
+_Cohesion_ and _Coupling_ both deal with the nature of how software elements are connected. These aren't always the easiest concepts to understand, especially when considered together.
 
 The former is about elements that should be connected but often aren't connected. The latter is about elements that should not be connected but often are connected.
 
