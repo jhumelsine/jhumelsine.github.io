@@ -10,7 +10,7 @@ This blog is a continuation of the previous [Abstract](https://jhumelsine.github
 Abstractions may reference other Abstractions, depend upon other Abstractions or have knowledge of other Abstractions. We want to ensure that when this occurs that the concrete implementations for these Abstracts are resolved consistently.
 
 # Cohesion and Coupling
-Before I describe the consistent management of _Cohesive Abstractions_, I need to explain _Cohesion_ and _Coupling_.
+Before I describe the consistent management of _Cohesive Abstractions_, I need to explain _Cohesion_ and _Coupling_, which I suspect I'll extract into their own blog in the future (TBD).
 
 ## Cohesion
 It took me a while before I had a solid understanding of [Cohesion](https://en.wikipedia.org/wiki/Cohesion_(computer_science)).
@@ -38,7 +38,9 @@ This usually happens when a class has a `private` attribute named something like
 <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/State_Machine.jpg?20090820151828" alt="State Machine Diagram" title="Image Source: https://commons.wikimedia.org/wiki/File:State_Machine.jpg" width = "35%" align="left" style="padding-right: 20px;">
 Its type is often an `enum`, but I've also seen it as a `boolean` and even a `String`. Its implied privacy is violated with `get` and `set` accessors, which provide direct access to the `private` attribute.
 
-Rather than keeping the state machine behavior encapsulated within the class, the class becomes the place where `state` or `status` reside. Other classes will access `status`/`state` via the `get` accessor, update `status`/`state` with a new value via the `set` accessor based upon their own business logic code. Not only does this low cohesive design distribute the __state machine__ implementation across far flung regions of the design, it distributes behavior. This makes it more difficult to know what the __state machine__ will do as a whole when the `status`/`state` is updated from any place in the implementation.
+<img src="https://live.staticflickr.com/2605/3937095282_ab2e98471d_b.jpg" alt="The Lost Symbol by Dan Brown" title="Image Source: https://www.flickr.com/photos/billstrain/3937095282" width = "25%" align="right" style="padding-right: 20px;">
+
+Rather than keeping the state machine behavior encapsulated within the class, the class becomes the place where `state` or `status` reside. Other classes will access `status`/`state` via the `get` accessor, update `status`/`state` with a new value via the `set` accessor based upon their own business logic code. Not only does this low cohesive design distribute the __state machine__ implementation across far flung regions of the design, it distributes the ability to understand the behavior. It's like being Robert Langdon in one of Dan Brown's novels running around despirately looking for clues to see the bigger picture. This makes it more difficult to know what the __state machine__ will do as a whole when the `status`/`state` is updated from any place in the implementation.
 
 With cohesive software elements, a change to one element may require a change to the other related cohesive elements, like how a change in screw head causing a change in the screwdriver. Highly cohesive software elements are close to one another, such as in the same package, making it more likely that all required updates will occur consistently.
 
