@@ -85,4 +85,7 @@ The two pairs tend to be cohesive.
 * [Difference Between Coupling and Cohesion](https://www.shiksha.com/online-courses/articles/difference-between-coupling-and-cohesion/) by Anshuman Singh
 * [Coupling and Cohesion Explained](https://www.youtube.com/watch?v=7pdrZDqEPIw) video by Gui Ferreira
 * [SOLID Principles? Nope, just Coupling and Cohesion](https://www.youtube.com/watch?v=YDNR_gfBk0Q) video by CodeOpinion
+* [Highly COHESIVE Software Design to tame Complexity](https://www.youtube.com/watch?v=r0-GC3Y_OME) video by CodeOpinion
+* [Loose vs Tight Coupling](https://www.youtube.com/watch?v=uWseUdUqM5U) video by Scott Bailey
+* [Loose & Tight Coupling: Why Code is Hard to Change](https://www.youtube.com/watch?v=PtF__ayCg6c) video by Bran van der Meer
 * and for more, Google: [cohesion vs coupling in software engineering](https://www.google.com/search?q=cohesion+vs+coupling+in+software+engineering)
