@@ -5,9 +5,9 @@ unlisted: true
 ---
 
 # Introduction
-This blog was originalling going to be a continuation of the previous [Abstract](https://jhumelsine.github.io/2024/10/30/abstraction.html) blog where I planned to follow up with _Cohesive Abstractions_. 
+This blog was originally going to be a continuation of the previous [Abstract](https://jhumelsine.github.io/2024/10/30/abstraction.html) blog where I planned to follow up with _Cohesive Abstractions_. 
 
-I was so close to publishing it, but I realized that I was devoting almost 1,000 words to _Cohesion_ and _Coupling_, which started to feel like its own separate blog. So I'm making a last minute change. I'm going to blog exclusively on _Cohesion_ and _Coupling_ first, and then follow up with _Cohesive Abstractions_ shortely thereafter.
+I was close to publishing it, but I realized that I was devoting almost 1,000 words to _Cohesion_ and _Coupling_, which started to feel like its own separate blog. I'm making a last minute decision to blog exclusively on _Cohesion_ and _Coupling_ first, and then follow up with _Cohesive Abstractions_ shortly thereafter.
 
 # Cohesion and Coupling
 Before I describe the consistent management of _Cohesive Abstractions_, I need to explain _Cohesion_ and _Coupling_, which I suspect I'll extract into their own blog in the future (TBD).
