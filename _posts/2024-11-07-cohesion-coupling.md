@@ -1,13 +1,12 @@
 ---
-title: DRAFT – What Are Cohesion and Coupling?
+title: What Are Cohesion and Coupling?
 description: Cohesion and coupling address when things should and should not be too sticky with one another
-unlisted: true
 ---
 
 # Introduction
 This blog was originally going to be a continuation of the previous [Abstract](https://jhumelsine.github.io/2024/10/30/abstraction.html) blog where I planned to follow up with _Cohesive Abstractions_. 
 
-I was close to publishing it, but I realized that I was devoting almost 1,000 words to _Cohesion_ and _Coupling_, which started to feel like its own separate blog. I'm making a last minute decision to blog exclusively on _Cohesion_ and _Coupling_ first, and then follow up with _Cohesive Abstractions_ shortly thereafter.
+I was close to publishing it, but I realized that I was devoting almost 1,000 words to _Cohesion_ and _Coupling_, which started to feel like its own separate blog. I'm making a last-minute decision to blog exclusively on _Cohesion_ and _Coupling_ first, and then follow up with _Cohesive Abstractions_ shortly thereafter.
 
 # Cohesion and Coupling
 _Cohesion_ and _Coupling_ both deal with the nature of how software elements are connected. These aren't always the easiest concepts to understand, especially when considered together.
