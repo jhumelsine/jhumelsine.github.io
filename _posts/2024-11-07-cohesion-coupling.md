@@ -77,4 +77,12 @@ Without care and consideration a design can easily degrade into tight coupling a
 The two pairs tend to be cohesive.
 
 # References
-TBD
+* [Cohesion](https://en.wikipedia.org/wiki/Cohesion_(computer_science)) via Wikipedia
+* [Coupling](https://en.wikipedia.org/wiki/Coupling_(computer_programming)) via Wikipedia
+* [Difference Between Cohesion and Coupling](https://www.tutorialspoint.com/difference-between-cohesion-and-coupling) via Tutorialspoint
+* [Difference Between Cohesion And Coupling Explained (With Examples)](https://unstop.com/blog/difference-between-cohesion-and-coupling-in-software-engineering) via Unstop
+* [Coupling and Cohesion in Software Engineering](https://www.scaler.com/topics/cohesion-and-coupling-in-software-engineering/) by Mitali Varatiya
+* [Difference Between Coupling and Cohesion](https://www.shiksha.com/online-courses/articles/difference-between-coupling-and-cohesion/) by Anshuman Singh
+* [Coupling and Cohesion Explained](https://www.youtube.com/watch?v=7pdrZDqEPIw) video by Gui Ferreira
+* [SOLID Principles? Nope, just Coupling and Cohesion](https://www.youtube.com/watch?v=YDNR_gfBk0Q) video by CodeOpinion
+* and for more, Google: [cohesion vs coupling in software engineering](https://www.google.com/search?q=cohesion+vs+coupling+in+software+engineering)
