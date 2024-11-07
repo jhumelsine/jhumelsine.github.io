@@ -46,7 +46,7 @@ Its type is often an `enum`, but I've also seen it as a `boolean` and even a `St
 
 <img src="https://live.staticflickr.com/2605/3937095282_ab2e98471d_b.jpg" alt="The Lost Symbol by Dan Brown" title="Image Source: https://www.flickr.com/photos/billstrain/3937095282" width = "25%" align="right" style="padding-right: 20px;">
 
-Rather than keeping the state machine behavior encapsulated within the class, the class becomes the place where `state` or `status` reside. Other classes will access `status`/`state` via the `get` accessor, update `status`/`state` with a new value via the `set` accessor based upon their own business logic code. Not only does this low cohesive design distribute the __state machine__ implementation across far flung regions of the design, it distributes the ability to understand the behavior. It's like being Robert Langdon in one of Dan Brown's novels running around despirately looking for clues to see the bigger picture. This makes it more difficult to know what the __state machine__ will do as a whole when the `status`/`state` is updated from any place in the implementation.
+Rather than keeping the state machine behavior encapsulated within the class, the class becomes the place where `state` or `status` reside. Other classes will access `status`/`state` via the `get` accessor, update `status`/`state` with a new value via the `set` accessor based upon their own business logic code. Not only does this low cohesive design distribute the __state machine__ implementation across far flung regions of the design, it distributes the ability to understand the behavior. It's like being Robert Langdon in one of Dan Brown's novels running around desperately looking for clues to see the bigger picture. This makes it more difficult to know what the __state machine__ will do as a whole when the `status`/`state` is updated from any place in the implementation.
 
 With cohesive software elements, a change to one element may require a change to the other related cohesive elements, like how a change in screw head causing a change in the screwdriver. Highly cohesive software elements are close to one another, such as in the same package, making it more likely that all required updates will occur consistently.
 
@@ -75,7 +75,7 @@ A Reese’s Cup would be tightly coupled if it were the only form from which we 
 
 ### Tight Coupling
 
-Tight coupling occurs when disparate software concepts are stuck together. For example, the communication framework, business logic and persistence implementations are intertwined in the same method. A change to one of these elements runs a risk of affecting or breaking one of the other non-related coupled elements. A tightly coupled method is often a violation of the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle), since there's more than reason for it to change. Reusing the business logic in another context becomes impossible with it's tightly couplied with other elements.
+Tight coupling occurs when disparate software concepts are stuck together. For example, the communication framework, business logic and persistence implementations are intertwined in the same method. A change to one of these elements runs a risk of affecting or breaking one of the other non-related coupled elements. A tightly coupled method is often a violation of the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle), since there's more than reason for it to change. Reusing the business logic in another context becomes impossible when it's tightly coupled with other elements.
 
 ### Loose Coupling
 
@@ -84,9 +84,9 @@ Many modern software practices, such as [Design Patterns](https://jhumelsine.git
 # Summary
 A good design features __high cohesion__ for those software elements that do change together and  __loose coupling__ of software elements that don’t change together.
 
-Without care and consideration a design can easily degrade into __low cohesion__ and __tight coupling__, as described above, which are undesirable design traits.
+Without care and consideration, a design can easily degrade into __low cohesion__ and __tight coupling__, as described above, which are undesirable design traits.
 
-The two pairs pairs of __high/loose__ and __low/tight__ tend to go together. If a design has __high cohesion__, then it tends to have __loose coupling__ and vice versa. The same applies to the __low cohesion/tight coupling__ pair.
+The two pairs of __high/loose__ and __low/tight__ tend to go together. If a design has __high cohesion__, then it tends to have __loose coupling__ and vice versa. The same applies to the __low cohesion/tight coupling__ pair.
 
 # References
 * [Cohesion](https://en.wikipedia.org/wiki/Cohesion_(computer_science)) via Wikipedia
