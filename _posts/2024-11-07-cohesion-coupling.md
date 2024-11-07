@@ -1,6 +1,6 @@
 ---
 title: DRAFT – What Are Cohesion and Coupling?
-description: Cohesion and coupling are about when things should and should not be too sticky with one another.
+description: Cohesion and coupling address when things should and should not be too sticky with one another
 unlisted: true
 ---
 
@@ -10,12 +10,16 @@ This blog was originally going to be a continuation of the previous [Abstract](h
 I was close to publishing it, but I realized that I was devoting almost 1,000 words to _Cohesion_ and _Coupling_, which started to feel like its own separate blog. I'm making a last minute decision to blog exclusively on _Cohesion_ and _Coupling_ first, and then follow up with _Cohesive Abstractions_ shortly thereafter.
 
 # Cohesion and Coupling
-_Cohesion_ and _Coupling_ both deal with how software elements are connected together. The former case is about elements that should be connected but often aren't connected. The latter case is about elements that should not be connected but often are connected.
+_Cohesion_ and _Coupling_ both deal with the nature of how software elements are connected together. These aren't always the easiest concepts to understand especially when considered together.
+
+The former is about elements that should be connected but often aren't connected. The latter is about elements that should not be connected but often are connected.
 
 ## Cohesion
 It took me a while before I had a solid understanding of [Cohesion](https://en.wikipedia.org/wiki/Cohesion_(computer_science)).
 
 Elements are cohesive when there’s an intrinsic relationship that connects them. The relationship is often gestalt in that the elements only have meaningful utility when combined as a whole. When an update is needed, most or all elements in the cohesive relationship will require updating.
+
+### High Cohesion
 
 <img src="https://i0.pickpik.com/photos/475/455/659/screwdrivers-screws-red-black-preview.jpg" alt="Screw and Screwdriver" title="Image Source: https://www.pickpik.com/screwdrivers-screws-red-black-tools-work-6612" width = "35%" align="left" style="padding-right: 20px;">
  
@@ -27,13 +31,15 @@ __Nuts__ and __bolts__ are cohesive. They only function when screwed together, a
 
 We want our designs to have high cohesion. That is, software elements with intrinsic relationships should be near one another in the design.
 
+### Low Cohesion
+
 Low cohesion occurs when related software elements have been distributed across the design. For example, you’re enhancing an existing behavior, and it requires changes to a dozen files distributed throughout the design. Additionally, the files being updated also contain code that’s not directly related to the behavior that you’re updating.
 
 Low cohesion has at least two concerns:
 * Did you update all the files that need to be updated?
 * What if your update breaks the other content that’s not directly related to the behavior you’re updating?
 
-Another common example of low cohesion I’ve seen is __state machine__ behavior (blog TBD) spread across the implementation.
+A common example of low cohesion I’ve seen is __state machine__ behavior (blog TBD) spread across the implementation.
 This usually happens when a class has a `private` attribute named something like `status` or `state`.
 <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/State_Machine.jpg?20090820151828" alt="State Machine Diagram" title="Image Source: https://commons.wikimedia.org/wiki/File:State_Machine.jpg" width = "35%" align="left" style="padding-right: 20px;">
 Its type is often an `enum`, but I've also seen it as a `boolean` and even a `String`. Its implied privacy is violated with `get` and `set` accessors, which provide direct access to the `private` attribute.
@@ -43,6 +49,8 @@ Its type is often an `enum`, but I've also seen it as a `boolean` and even a `St
 Rather than keeping the state machine behavior encapsulated within the class, the class becomes the place where `state` or `status` reside. Other classes will access `status`/`state` via the `get` accessor, update `status`/`state` with a new value via the `set` accessor based upon their own business logic code. Not only does this low cohesive design distribute the __state machine__ implementation across far flung regions of the design, it distributes the ability to understand the behavior. It's like being Robert Langdon in one of Dan Brown's novels running around despirately looking for clues to see the bigger picture. This makes it more difficult to know what the __state machine__ will do as a whole when the `status`/`state` is updated from any place in the implementation.
 
 With cohesive software elements, a change to one element may require a change to the other related cohesive elements, like how a change in screw head causing a change in the screwdriver. Highly cohesive software elements are close to one another, such as in the same package, making it more likely that all required updates will occur consistently.
+
+### Interface Cohesion
 
 I consider the methods of an `interface` cohesive when:
 * The methods are functionally related and support each other.
@@ -65,16 +73,20 @@ We want our designs to have loose coupling. That is, we don’t want unrelated e
 
 A Reese’s Cup would be tightly coupled if it were the only form from which we could get chocolate or peanut butter. Imagine scraping the insides from a Reese’s Cup as the only means to make a peanut butter sandwich.
 
+### Tight Coupling
+
 Tight coupling occurs when disparate software concepts are stuck together. For example, the communication framework, business logic and persistence implementations are intertwined in the same method. A change to one of these elements runs a risk of affecting or breaking one of the other non-related coupled elements. A tightly coupled method is often a violation of the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle), since there's more than reason for it to change. Reusing the business logic in another context becomes impossible with it's tightly couplied with other elements.
+
+### Loose Coupling
 
 Many modern software practices, such as [Design Patterns](https://jhumelsine.github.io/2023/08/24/its-your-move.html), [Hexagonal Architecture/Ports & Adapters](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html), and others address tight coupling. They promote loose coupling. The first [Design Pattern Principle](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html) addresses this, even if it doesn’t mention coupling directly: __Program to an interface, not an implementation__.
 
 # Summary
-A good design features __loose coupling__ of software elements that don’t change together and __high cohesion__ for those software elements that do change together.
+A good design features __high cohesion__ for those software elements that do change together and  __loose coupling__ of software elements that don’t change together.
 
-Without care and consideration a design can easily degrade into tight coupling and low cohesion, as described above, are undesirable design traits.
+Without care and consideration a design can easily degrade into __low cohesion__ and __tight coupling__, as described above, which are undesirable design traits.
 
-The two pairs tend to be cohesive.
+The two pairs pairs of __high/loose__ and __low/tight__ tend to go together. If a design has __high cohesion__, then it tends to have __loose coupling__ and vice versa. The same applies to the __low cohesion/tight coupling__ pair.
 
 # References
 * [Cohesion](https://en.wikipedia.org/wiki/Cohesion_(computer_science)) via Wikipedia
