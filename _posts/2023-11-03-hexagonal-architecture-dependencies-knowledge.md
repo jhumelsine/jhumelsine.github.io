@@ -144,9 +144,9 @@ External Dependencies mostly don't know that the behavior within the Purple Hexa
 ### Zone Between the Purple and Red Hexagons
 The elements between the Red and Purple Hexagons contain Adapters/Façades and Configurers. They are Unstable/Flexible. They can be changed easily, which allows the Business Logic within the Red Hexagon to operate in just about any environment of External Dependencies imaginable.
 
-This zone is like the DMZ as shown by J. B. Rainsberger in this Universal Architecture [Tweet](https://twitter.com/jbrains/status/1312375356284952576).
+This zone is like the DMZ as shown by J. B. Rainsberger in this Universal Architecture [Tweet](https://x.com/jbrains/status/1312375356284952576).
 
-<img src="https://pbs.twimg.com/media/EjZ-blIWkAAOacw?format=jpg" alt="Universal Architecture" title="Image Source: https://twitter.com/jbrains/status/1312375356284952576" width = "45%" align="center" style="padding-right: 35px;">
+<img src="https://pbs.twimg.com/media/EjZ-blIWkAA-o-y?format=jpg&name=900x900" alt="Universal Architecture" title="Image Source: https://x.com/jbrains/status/1312375356284952576" width = "45%" align="center" style="padding-right: 35px;">
 
 ## Event Horizons
 
