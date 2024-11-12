@@ -14,7 +14,7 @@ I'm branching away from Alistair Cockburn and Bob Martin, who created and popula
 Their presentations tend to be more bounded and focused upon the _architecture_ whereas I am more interested in the _design_.
 Architecture is a subset of design, but I think that good design should be applied to any layer of abstraction.
 
-Alistair Cockburn posted [this](https://twitter.com/TotherAlistair/status/1704531058023141490) on X/Twitter in September 2023:
+Alistair Cockburn posted [this](https://x.com/TotherAlistair/status/1704531058023141490) on X/Twitter in September 2023:
 > For those who keep asking about #hexagonalarchitecture layers, here it is:
 > There are only 2 layers: inside. outside.
 > No relation to layers in Clean, Onion, DDD, Modular Monolith, nothing.
@@ -142,7 +142,7 @@ The other Configurer would be for the Android Framework, and its name would prob
 
 Multiple Frameworks and External Dependencies is why Alistair Cockburn chose a hexagon in his initial diagrams. When he presented the design with hand drawn images, each framework/dependency port/adapter pair had its own facet, which he represented as a side of the hexagon. He wanted to convey that notion of pluggable ports around a polygon, and he wanted more sides, or facets, than the more traditional rectangle. Here's an example:
 
-<img src="https://blog.allegro.tech/img/articles/2020-05-21-hexagonal-architecture-by-example/ha_example.png" alt="Hexagonal Architecture with Facets" width = "55%" align="center" title="Image Source: https://blog.allegro.tech/2020/05/hexagonal-architecture-by-example.html" style="padding-right: 35px;">
+<img src="https://blog.allegro.tech/assets/img/articles/2020-05-21-hexagonal-architecture-by-example/ha_example.png" alt="Hexagonal Architecture with Facets" width = "55%" align="center" title="Image Source: https://blog.allegro.tech/2020/05/hexagonal-architecture-by-example.html" style="padding-right: 35px;">
 
 ## Behavior and Depth
 Many Hexagonal Architectures represent, or give the impression, that external frameworks and dependencies must be resources outside of the system, such as external vendor products, open source, etc.
@@ -411,12 +411,12 @@ Nowhere in this design transition did we need to touch the Framework Adapter or 
 # Nested Hexagons
 We've gone deep and wide. Now we're going to dive inward. Can Hexagons be nested?
 
-Let's return to Alistair Cockburn, who posted [this](https://twitter.com/TotherAlistair/status/1726618384614535624) on X/Twitter in November 2023:
+Let's return to Alistair Cockburn, who posted [this](https://x.com/TotherAlistair/status/1726618384614535624) on X/Twitter in November 2023:
 > someone asked me today: "If you were to define what hexagonal architecture is not from the observations you've made of implementation variations over the years, what would you say?"
 >
 > Here are the pages from the draft book that say as well as I can in just a few pages:
 
-Ah! He's working on a book, and he posted images of a few pages. On [Page 4](https://twitter.com/TotherAlistair/status/1726618384614535624/photo/4) he writes:
+Ah! He's working on a book, and he posted images of a few pages. On __Page 4__ of his [post](https://x.com/TotherAlistair/status/1726618384614535624) he writes:
 > **What about nested hexagons?**
 >
 > As described in paper _"Component + Strategy"_  in Chapter 1, you can nest the Component + Strategy pattern, assuming you really write the tests.
