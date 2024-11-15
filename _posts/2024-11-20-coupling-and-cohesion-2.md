@@ -19,9 +19,9 @@ Therefore, I decided to create a new blog entry. Plus a new blog ensures that ev
 [Meilir Page-Jones](https://www.dorsethouse.com/authors/page-jones.html) also contributed to the Coupling and Cohesion literature within [What Every Programmer Should Know About Object-Oriented Design](https://www.amazon.com/Every-Programmer-Should-Object-Oriented-Design/dp/0932633315), but I haven’t found many online references with details.
 
 # Coupling and Cohesion Word Salad
-Coupling is dependency. Cohesion is dependency as well, but more completely so. Coupling is an attribute of a bad design. Cohesion is even more coupling, which one would think would be a bad thing, but no, cohesion is a good thing. 
+__Coupling__ is dependency. __Cohesion__ is dependency as well, but more completely so. Coupling is an attribute of a bad design. Cohesion is even more coupling, which one would think would be a bad thing, but no, cohesion is a good thing. 
 
-Throwing in adjectives, such as loose/tight coupling and low/high cohesion, adds more confusion. Grouping loose-coupling/high-cohesion together and tight-coupling/low-cohesion together as paired opposites adds more fuel to the fire. Continue the befuddlement by throwing in multiple [types]( https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Types_of_coupling) and [dimensions](https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Types_of_coupling) of coupling along with several [types]( https://en.wikipedia.org/wiki/Cohesion_(computer_science)#Types_of_cohesion) of cohesion. And then Meilir Page-Jones came up with a whole new term, [Connascence](https://en.wikipedia.org/wiki/Connascence), which is coupling in the context of Object-Oriented design.
+Throwing in adjectives, such as __loose/tight coupling__ and __low/high cohesion__, adds more confusion. Grouping __loose-coupling/high-cohesion__ together and __tight-coupling/low-cohesion__ together as paired opposites adds more fuel to the fire. Continue the befuddlement by throwing in multiple [__types__]( https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Types_of_coupling) and [__dimensions__](https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Types_of_coupling) of coupling along with several [__types__]( https://en.wikipedia.org/wiki/Cohesion_(computer_science)#Types_of_cohesion) of cohesion. And then Meilir Page-Jones came up with a whole new term, [__Connascence__](https://en.wikipedia.org/wiki/Connascence), which is coupling in the context of Object-Oriented design.
 
 __It’s no wonder developers get confused.__
 
@@ -32,7 +32,7 @@ According to the [Glossary](https://wstomv.win.tue.nl/quotes/structured-design.h
 * __Coupling__ is a measure of the strength of interconnection between one module and another.
 * __Cohesion__ is the degree of functional relatedness of processing elements within a single module.
 
-The cubes in the diagram define a _module, but I prefer _boundary_, which could be a method, class, package, service, etc. It depends upon context. The dots are elements within each boundary. The _Good_ illustration shows high cohesion among the elements in each boundary and relatively little, i.e., loose, coupling between the boundaries. The _Bad_ illustration also shows the low cohesion among elements within the boundaries and high coupling among the elements in the other boundary.
+The cubes in the diagram define a _module_, but I prefer _boundary_, which could be a method, class, package, service, etc. It depends upon context. The dots are elements within each boundary. The _Good_ illustration shows high cohesion among the elements in each boundary and relatively little, i.e., loose, coupling between the boundaries. The _Bad_ illustration also shows the low cohesion among elements within the boundaries and high coupling among the elements in the other boundary.
 
 Coupling represents dependency and knowledge between boundaries. Cohesion represents dependency and knowledge within a boundary.
 
