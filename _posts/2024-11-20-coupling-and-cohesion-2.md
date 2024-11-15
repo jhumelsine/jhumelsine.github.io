@@ -68,7 +68,7 @@ Kent Beck mentioned Vlad Khononov’s presentation, [Balancing Coupling in Softw
 
 He included a [graph](https://www.youtube.com/watch?v=KTy4rqgPOjg&t=2217s), which I’ve used as my own inspiration to summarize coupling, cohesion, cost and boundaries:
  
-__IMAGE HERE__
+<img src="/assets/CouplingAndCohesionCost.png" alt="Coupling and Cohesion Cost" width = "80%" align="center" style="padding-right: 35px;">
 
 This graph illustrates how more resources are needed as dependency scope expands. Modifications scoped to a few statements only require the resources of one or two developers. Modifications scoped to systems require multiple teams and possibly multiple companies.
 
