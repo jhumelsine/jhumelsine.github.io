@@ -79,13 +79,6 @@ A __contract__ declares behavior without defining how that behavior will be impl
 
 Many modern software practices, such as [Design Patterns](https://jhumelsine.github.io/2023/08/24/its-your-move.html), [Hexagonal Architecture/Ports & Adapters](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html), focus upon contracts. The first [Design Pattern Principle](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html) addresses this with: __Program to an interface, not an implementation__.
 
-The more I considered this blog addendum, the more I kept thinking about my previous blog from last year, [Hexagonal Architecture – Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html), which is about dependency and knowledge management.
-
-More pieces of the puzzle may be fitting into place. Several months ago, I mentioned an elusive grand unified theory of software engineering in [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html):
->I feel there may be a grand unified theory of software engineering that’s still just a bit beyond my grasp. If there is such a grand unified theory, I’d be willing to bet that Dependency and Knowledge Management is part of it.
-
-I think that Coupling, Cohesion and Dependency/Knowledge Management are different facets of the same basic principle.
-
 # Context Coupling
 We can still have coupling with a good design with good contracts. Contracts may be [Leaky Abstractions](https://en.wikipedia.org/wiki/Leaky_abstraction). [Joel Spolsky](https://en.wikipedia.org/wiki/Joel_Spolsky) pointed this out in his blog post, [The Law of Leaky Abstractions](https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/) when he wrote: __All non-trivial abstractions, to some degree, are leaky.__
 
@@ -98,7 +91,12 @@ As an example, a contract may include the definition of Person, who has a name, 
 Person was probably a concept that was incorporated in many parts of the system. It had the business invariant that the Person only had a landline and one email address. Many parts of the system have probably already made decisions based upon this definition of a Person. Adding a cell phone or additional email address will have an impact upon all of them.
 
 # Summary
-TBD
+The more I considered this blog addendum, the more I kept thinking about my previous blog from last year, [Hexagonal Architecture – Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html), which is about dependency and knowledge management.
+
+More pieces of the puzzle may be fitting into place. Several months ago, I mentioned an elusive grand unified theory of software engineering in [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html):
+>I feel there may be a grand unified theory of software engineering that’s still just a bit beyond my grasp. If there is such a grand unified theory, I’d be willing to bet that Dependency and Knowledge Management is part of it.
+
+I think that Coupling, Cohesion and Dependency/Knowledge Management are different facets of the same basic principle.
 
 # References
 [Previous References]( https://jhumelsine.github.io/2024/10/30/abstraction.html#references)
