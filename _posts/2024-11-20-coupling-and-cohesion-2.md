@@ -91,14 +91,21 @@ As an example, a contract may include the definition of Person, who has a name, 
 Person was probably a concept that was incorporated in many parts of the system. It had the business invariant that the Person only had a landline and one email address. Many parts of the system have probably already made decisions based upon this definition of a Person. Adding a cell phone or additional email address will have an impact upon all of them.
 
 # Summary
-The more I considered this blog addendum, the more I kept thinking about my previous blog from last year, [Hexagonal Architecture – Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html), which is about dependency and knowledge management.
+Hopefully this second take at _Coupling_ and _Cohesion_ has provided a bit more clarity and definitely not introduced any confusion by me.
 
-More pieces of the puzzle may be fitting into place. Several months ago, I mentioned an elusive grand unified theory of software engineering in [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html):
+The more I considered this addendum, the more I kept thinking about a previous blog from last year, [Hexagonal Architecture – Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html), which is about dependency and knowledge management.
+
+_Coupling_ and _Cohesion_ are inverse measures of _Dependency_. _Coupling_ is _Dependency_ at great distances forcing components in a system and possibly systems to maintain lock-step coordination during modifications. _Cohesion_ is _Dependency_ at near distances allowing differnt components and systems to be modified independently.
+
+Several months ago, I mentioned an elusive grand unified theory of software engineering in [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html):
 >I feel there may be a grand unified theory of software engineering that’s still just a bit beyond my grasp. If there is such a grand unified theory, I’d be willing to bet that Dependency and Knowledge Management is part of it.
 
-I think that Coupling, Cohesion and Dependency/Knowledge Management are different facets of the same basic principle.
+I now feel that _Coupling_, _Cohesion_ and _Dependency_/_Knowledge_ Management are different facets of the same basic principle.
 
 # References
 [Previous References]( https://jhumelsine.github.io/2024/10/30/abstraction.html#references)
 
-TBD
+* [A Daily Practice of Empirical Software Design ](https://www.youtube.com/watch?v=yBEcq23OgB4) - Presentation by Kent Beck at DDD Europe 2023
+* [Balancing Coupling in Software Design](https://www.youtube.com/watch?v=KTy4rqgPOjg) - Presentation by Vlad Khononov at DDD Europe 2023
+* [Coupling Is The Biggest Challenge In Software Engineering](https://www.youtube.com/watch?v=plMttQWztRM) - Video by Dave Farley
+* [Uncoupling](https://www.youtube.com/watch?v=esm-1QXtA2Q) = Presentation by Michael Nygard at GOTO 2018
