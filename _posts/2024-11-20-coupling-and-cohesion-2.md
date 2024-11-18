@@ -26,7 +26,7 @@ Throwing in more terms, such as __loose/tight coupling__ and __low/high cohesion
 __It’s no wonder developers get confused.__
 
 # Coupling and Cohesion Definitions
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/CouplingVsCohesion.svg/800px-CouplingVsCohesion.svg.png" alt="Coupling vs Cohesion" title="Image Source: https://en.wikipedia.org/wiki/Coupling_(computer_programming)#/media/File:CouplingVsCohesion.svg " width = "45%" align="right" style="padding-right: 20px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/CouplingVsCohesion.svg/800px-CouplingVsCohesion.svg.png" alt="Coupling vs Cohesion" title="Image Source: https://en.wikipedia.org/wiki/Coupling_(computer_programming)#/media/File:CouplingVsCohesion.svg" width = "45%" align="right" style="padding-right: 20px;">
  
 According to the [Glossary](https://wstomv.win.tue.nl/quotes/structured-design.html#Glossary) provided by Constantine and Yourdon:
 * __Coupling__ is a measure of the strength of interconnection between one module and another.
@@ -36,13 +36,25 @@ The cubes in the diagram define a _module_, but I prefer _boundary_, which could
 
 Coupling represents dependency and knowledge between boundaries. Cohesion represents dependency and knowledge within a boundary.
 
-High cohesion means that all elements that are responsible for a behavior (or feature) reside within the boundary. Additionally, elements not responsible for a behavior do not reside within the boundary. Behavior modifications may cause updates in all cohesive elements, but those updates should be confined within the boundary.
+High cohesion means that all elements that are responsible for a behavior (or feature) reside within the boundary. Additionally, elements not responsible for a behavior do not reside within the boundary. Behavior modifications may cause updates in all cohesive elements, but those updates should be confined within the boundary, and it's possibly a boundary for which you or your team have reponsibility and control.
 
 Loose coupling means that dependency and knowledge among boundaries is limited. Abstractions, such as interfaces and APIs are boundary access ports that encapsulate internal elements within the boundary. Interfaces and APIs provide external access to behavior without requiring external coupling to internal elements.
 
-Low cohesion and tight coupling render the boundaries meaningless. Elements have dependency upon and have knowledge of other elements anywhere. A modification anywhere can have an impact everywhere.
+Low cohesion and tight coupling render the boundaries meaningless. Elements have dependency upon and have knowledge of other elements anywhere. A modification anywhere can have an impact everywhere, which could involve elements that you or your team do not have responsibility and control requiring more coordination.
 
 Tight coupling also leads to daisy chaining. An update to one element may require an update to a tightly coupled element, which may require an update to another tightly coupled element, etc. This daisy chained dependency can cause what at first appears to be a simple update to spread like wildfire as cascading updates throughout the system.
+
+# Coupling and Cohesion - Two Sides of the Same Coin
+Constantine and Yourdon also wrote 
+>Clearly, cohesion and coupling are interrelated. The greater the cohesion of individual modules in the system, the lowering the coupling between modules will be. In practice, these measures are correlated; that is, on the average, as one increases, the other decreases, but the correlation is not perfect. Maximizing the sum of module cohesion over all modules in a system should closely approximate the results one would obtain in trying to minimize coupling. However, it turns out to be easier both mathematically and practically to focus on cohesion.
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/%E0%B8%A5%E0%B8%B9%E0%B8%81%E0%B8%95%E0%B8%B8%E0%B9%89%E0%B8%A1%E0%B8%98%E0%B8%A3%E0%B8%A3%E0%B8%A1%E0%B8%8A%E0%B8%B2%E0%B8%95%E0%B8%B4.gif" alt="Swinging Pendulum" title="Image Source: https://en.wikipedia.org/wiki/File:%E0%B8%A5%E0%B8%B9%E0%B8%81%E0%B8%95%E0%B8%B8%E0%B9%89%E0%B8%A1%E0%B8%98%E0%B8%A3%E0%B8%A3%E0%B8%A1%E0%B8%8A%E0%B8%B2%E0%B8%95%E0%B8%B4.gif" width = "25%" align="right" style="padding-right: 20px;">
+
+I think it's more than Coupling and Cohesion being interrelated. Rather than being two related concepts, I think they are two measurements of the same concept. Coupling and Cohesion are about dependency and knowledge at distances. Coupling would be dependency at greater distances. Cohesion would be dependency at lesser distances. Coupling and Cohesion could be thought of as inverses describing the same thing but in two different terms.
+
+It's like [wavelength](https://en.wikipedia.org/wiki/Wavelength) and [frequency](https://en.wikipedia.org/wiki/Frequency) are inverse measurements of the same wave concept. Coupling and Cohesion are not binary distinctions. They are on a spectrum. That's why 
+
+It's sort of like wavelength and frequency being two representations of the same concept. Except that coupling and cohesion are not binary distinctions. They are on a spectrum. That's why __loose-coupling/high-cohesion__ and __tight-coupling/low-cohesion__ tend to be paired together. They are representing the same basic concept of dependency and knowledge at a distance but doing so with different measurements.
 
 # Economics of Coupling and Cohesion
 Why should we care about coupling and cohesion? If we never have to modify our code again, then we don’t care. But as we all know, code is rarely frozen. We almost always need to modify code as business needs change. The degree of coupling and cohesion will determine how complex the modification will be and how long it will take.
@@ -66,7 +78,7 @@ He included a [graph](https://www.youtube.com/watch?v=KTy4rqgPOjg&t=2217s), whic
 This graph illustrates how coupling increases and cohesion decreases as the distance between elements expands. An update with a larger footprint will require more time, coordiation, buy-in and cost, than an update with a smaller footprint. For example, modifications scoped to a few statements only require the resources of one or two developers. Modifications scoped to systems require multiple teams and possibly multiple companies.
 
 # Coupling and Cohesion Examples
-I struggled to describe coupling and cohesion in my previous [blog](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html). I used the [screw/screwdriver](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html#cohesion) example to describe high cohesion, but it’s coupling too. I guess it depends upon how easily you can find a matching screwdriver when you need it. And while I initially liked my [Reese’s Peanut Butter Cup](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html#coupling) example, I’m not sure what I was trying to convey. Chocolate and peanut butter definitely have separate identities, which implies coupling, but darn it, when combined in a Reese’s Cup, they sure feel like a cohesive unit.
+I struggled to describe coupling and cohesion examples in my previous [blog](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html). I used the [screw/screwdriver](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html#cohesion) example to describe high cohesion, but it’s coupling too. I guess it depends upon how easily you can find a matching screwdriver when you need it. And while I initially liked my [Reese’s Peanut Butter Cup](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html#coupling) example, I’m not sure what I was trying to convey. Chocolate and peanut butter definitely have separate identities, which implies coupling, but darn it, when combined in a Reese’s Cup, they sure feel like a cohesive unit.
 
 <img src="https://media.freemalaysiatoday.com/wp-content/uploads/2024/03/4d813c58-box.jpg" alt="Meal Kit" title="Image Source: https://www.freemalaysiatoday.com/category/leisure/2024/03/02/meals-in-minutes-cooking-made-simple-for-the-busy-malaysian/" width = "35%" align="right" style="padding-right: 20px;">
  
@@ -108,4 +120,4 @@ I now feel that _Coupling_, _Cohesion_ and _Dependency_/_Knowledge_ Management a
 * [A Daily Practice of Empirical Software Design ](https://www.youtube.com/watch?v=yBEcq23OgB4) - Presentation by Kent Beck at DDD Europe 2023
 * [Balancing Coupling in Software Design](https://www.youtube.com/watch?v=KTy4rqgPOjg) - Presentation by Vlad Khononov at DDD Europe 2023
 * [Coupling Is The Biggest Challenge In Software Engineering](https://www.youtube.com/watch?v=plMttQWztRM) - Video by Dave Farley
-* [Uncoupling](https://www.youtube.com/watch?v=esm-1QXtA2Q) = Presentation by Michael Nygard at GOTO 2018
+* [Uncoupling](https://www.youtube.com/watch?v=esm-1QXtA2Q) - Presentation by Michael Nygard at GOTO 2018
