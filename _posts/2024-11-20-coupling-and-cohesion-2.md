@@ -9,7 +9,7 @@ I received feedback on my most recent blog, [What Are Cohesion and Coupling?](ht
 
 I consumed the references provided by the those who had made comments and realized that I do need to make some updates. I don’t think my original blog is wrong, but it’s missing some nuance and context.
 
-I originally planned to update the previous blog and call it a day. I will often update a published blog with minor updates, such as fixing a typo or adding a new sentence or paragraph. But I realized that these updates to the previous blog might change it too much. For example, I should have started with _Coupling_ first and then followed up with _Cohesion_. Flipping them would drastically change the original blog.
+I originally planned to update the previous blog and call it a day, but I realized that these updates to the previous blog might change it too much. For example, I should have introduced _Coupling_ before _Cohesion_. Flipping them would too drastically change the original blog.
 
 Therefore, I decided to create a new blog entry. Plus a new blog ensures that everyone knows about the updates.
 
@@ -19,9 +19,9 @@ Therefore, I decided to create a new blog entry. Plus a new blog ensures that ev
 [Meilir Page-Jones](https://www.dorsethouse.com/authors/page-jones.html) also contributed to the Coupling and Cohesion literature within [What Every Programmer Should Know About Object-Oriented Design](https://www.amazon.com/Every-Programmer-Should-Object-Oriented-Design/dp/0932633315), but I haven’t found many online references with details.
 
 # Coupling and Cohesion Word Salad
-__Coupling__ is dependency. __Cohesion__ is dependency as well, but more completely so. Coupling is an attribute of a bad design. Cohesion is even more coupling, which one would think would be a bad thing, but no, cohesion is a good thing. 
+__Coupling__ is dependency. __Cohesion__ is dependency as well, but more aggressively so. Coupling is an attribute of a bad design. Given that cohesion is even more aggressive coupling,  one would think that it's a bad thing, but no, cohesion is a good thing. 
 
-Throwing in adjectives, such as __loose/tight coupling__ and __low/high cohesion__, adds more confusion. Grouping __loose-coupling/high-cohesion__ together and __tight-coupling/low-cohesion__ together as paired opposites adds more fuel to the fire. Continue the befuddlement by throwing in multiple [__types__]( https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Types_of_coupling) and [__dimensions__](https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Types_of_coupling) of coupling along with several [__types__]( https://en.wikipedia.org/wiki/Cohesion_(computer_science)#Types_of_cohesion) of cohesion. And then Meilir Page-Jones came up with a whole new term, [__Connascence__](https://en.wikipedia.org/wiki/Connascence), which is coupling in the context of Object-Oriented design.
+Throwing in more terms, such as __loose/tight coupling__ and __low/high cohesion__, adds more confusion. Grouping __loose-coupling/high-cohesion__ together and __tight-coupling/low-cohesion__ together as paired opposites adds more fuel to the fire. Continue the befuddlement by throwing in multiple [__types__]( https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Types_of_coupling) and [__dimensions__](https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Types_of_coupling) of coupling along with several [__types__]( https://en.wikipedia.org/wiki/Cohesion_(computer_science)#Types_of_cohesion) of cohesion. Wrap it up with Meilir Page-Jones, who came up with a whole new term, [__Connascence__](https://en.wikipedia.org/wiki/Connascence), which is coupling in the context of Object-Oriented design.
 
 __It’s no wonder developers get confused.__
 
