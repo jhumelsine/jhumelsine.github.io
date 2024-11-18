@@ -76,7 +76,7 @@ He included a [graph](https://www.youtube.com/watch?v=KTy4rqgPOjg&t=2217s), whic
 This graph illustrates how coupling increases and cohesion decreases as the distance between elements expands. An update with a larger footprint will require more time, coordiation, buy-in and cost, than an update with a smaller footprint. For example, modifications scoped to a few statements only require the resources of one or two developers. Modifications scoped to systems require multiple teams and possibly multiple companies.
 
 # Coupling and Cohesion Examples
-I struggled to describe coupling and cohesion examples in my previous [blog](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html).
+I struggled to provide good coupling and cohesion examples in my previous [blog](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html).
 
 ## Real World Examples
 I used the [screw/screwdriver](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html#cohesion) example to describe high cohesion, but it’s coupling too. I guess it depends upon how easily you can find a matching screwdriver when you need it. And while I initially liked my [Reese’s Peanut Butter Cup](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html#coupling) example, I’m not sure what I was trying to convey. Chocolate and peanut butter definitely have separate identities, which implies coupling, but darn it, when combined in a Reese’s Cup, they sure feel like a cohesive unit.
@@ -86,9 +86,25 @@ I used the [screw/screwdriver](https://jhumelsine.github.io/2024/11/07/cohesion-
 I think I have another real-world example high cohesion and low coupling: meal kits. Each meal kit has all the ingredients required to make the meal without any extraneous ingredients. You don’t have to purchase different meal kits to make a meal either. If a meal is updated, it only affects that meal’s kit.
 
 ## Software Design Examples
-State Machine
+Let's consider coupling and cohesion with some real software design examples.
 
-Strategy/Template Method
+### State Machine
+I briefly mentioned __State Machines__ in the previous blog in the [Low Coupling](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html#low-cohesion) section.
+
+My concern was the distribution of state machine behavior in an application. I've seen way too many cases of state machine behavior where `state` is a private attribute accessible via public `get` and `set` accessors. State machine behavior was implemented throughout the application by any code that acquired, changed and saved `state` via the accessors.
+
+Though this isn't obvious at first, this is a highly coupled design. All code that references the accessors indirectly depend upon one another since they are all taking some responsibility for state machine behavior. A behavior change in one section of the code could change an assumption about the state machine in another section of code. Almost as bad, if not worse, no one knows what the actual state machine behavior is, since it's distributed in so many different places.
+
+I would prefer an implemenation that keeps state machine behavior cohesive, possibly via the [State Design Pattern](https://refactoring.guru/design-patterns/state). This consolidates the state machine behavior. The state machine could still provide a `get` accessor for its state, but it should not provide a `get` accessor. The state machine would define public methods for each `event` that would trigger an internal transition and the implemenation to determine the new `state` would occur in that method. The `state` implementation could be enhanced with the [Observer Design Pattern](https://refactoring.guru/design-patterns/observer) so that the applications could subscribe to future state change notifications.
+
+I suspect that the coupled design occurs when developers don't realize that there's state machine behavior lurking in their class. If they don't design for a cohesive state machine, the design will have a tendence to be distributed.
+
+### Wrong Abstraction
+My [Getting the Right Abstraction is Hard](https://jhumelsine.github.io/2023/09/22/right-abstraction-is-hard.html) is also about coupling and cohesion. In this blog, I described an implementation and design I inherited. The implementation featured a base class with several extending classes. As I examined the code to understand it, I realized that some behavior implementation were in the wrong places. Some behavior implemented in the base class needed to be distributed into the extended classes and some behavior implemented in the extended classes needed to be consolidated in the base class.
+
+As I received it, a change to behavior associated with the extended class could impact the base class as well, which could impact the other extended classes.
+
+Once I redesigned the code, using the [Template Method Design Pattern](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html), the design was less coupled. A change to an extended class would not affect the base class or the other extended classes.
 
 # Contracts
 We cannot avoid coupling, but we want to keep it limited and loose. How can we manage that?
