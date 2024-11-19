@@ -141,5 +141,6 @@ I now feel that _Coupling_, _Cohesion_ and _Dependency_/_Knowledge_ Management a
 
 * [A Daily Practice of Empirical Software Design ](https://www.youtube.com/watch?v=yBEcq23OgB4) - Presentation by Kent Beck at DDD Europe 2023
 * [Balancing Coupling in Software Design](https://www.youtube.com/watch?v=KTy4rqgPOjg) - Presentation by Vlad Khononov at DDD Europe 2023
-* [Coupling Is The Biggest Challenge In Software Engineering](https://www.youtube.com/watch?v=plMttQWztRM) - Video by Dave Farley
+* [Coupling Is The Biggest Challenge In Software Engineering](https://www.youtube.com/watch?v=plMttQWztRM) - Video by Dave Farley in 2024
 * [Uncoupling](https://www.youtube.com/watch?v=esm-1QXtA2Q) - Presentation by Michael Nygard at GOTO 2018
+* [Good Coupling, Bad Coupling, Coupling For The Win](https://www.youtube.com/watch?v=ZffqJxLULx8) - Video by Vaughn Vernon in 2024.
