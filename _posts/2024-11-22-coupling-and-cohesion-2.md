@@ -32,30 +32,36 @@ According to the [Glossary](https://wstomv.win.tue.nl/quotes/structured-design.h
 * __Coupling__ is a measure of the strength of interconnection between one module and another.
 * __Cohesion__ is the degree of functional relatedness of processing elements within a single module.
 
-The cubes in the diagram to the right define a _module_, but I prefer the term _boundary_, which could be a method, class, package, service, etc. It depends upon context. The dots are elements within each boundary. The _Good_ illustration shows high cohesion among the elements in each boundary and relatively little, i.e., loose, coupling between the boundaries. The _Bad_ illustration also shows low cohesion among elements within the boundaries and high coupling among elements in the other boundary.
+Their definition and the corresponding diagram to the right represent _Coupling_ and _Cohesion_ between two sets of modules. _Coupling_ represents the number of connections between elements between two modules. _Cohesion_ refers to the connections within a module.
 
-Coupling represents dependency and knowledge between boundaries. Cohesion represents dependency and knowledge within a boundary.
+These two concepts are not mutually exclusive. Constantine and Yourdon also wrote 
+>Clearly, cohesion and coupling are interrelated. The greater the cohesion of individual modules in the system, the lowering the coupling between modules will be. In practice, these measures are correlated; that is, on the average, as one increases, the other decreases, but the correlation is not perfect. Maximizing the sum of module cohesion over all modules in a system should closely approximate the results one would obtain in trying to minimize coupling. However, it turns out to be easier both mathematically and practically to focus on cohesion.
 
-High cohesion means that most elements that are responsible for a behavior (or feature) reside within the boundary. Additionally, elements not responsible for a behavior do not reside within the boundary. Behavior modifications may cause updates to all cohesive elements, but those updates should be confined within the boundary, and it's possibly a boundary for which you or your team have reponsibility and control.
+# Coupling and Cohesion - Possibly Two Sides of the Same Coin
+I think there's more to Coupling and Cohesion than being interrelated. __Coupling and Cohesion represent dependency and knowledge at a distance.__ Coupling represents dependency at greater distances, i.e., dependency and knowledge beyond the module. Cohesion represents dependency at lesser distances, i.e., dependency and knowledge within the module. Coupling and Cohesion could be thought of describing the same concept but with two opposing terms.
+
+The original definition of Coupling and Cohesion applied to connectivity being inside or outside a module, but I think the principle expands on a spectrum beyond connectivity relative to a module.
+
+Thinking more abstractly, the cubes in the diagram above define a _boundary_, which can represent expanding borders, such as: a statement block, method, class, package, service, etc. It depends upon context. That is, boundaries can be nested.
+
+The dots are elements within each boundary. The _Good_ illustration shows high cohesion among the elements in each boundary and relatively little, i.e., loose, coupling between the boundaries. The _Bad_ illustration also shows low cohesion among elements within the boundaries and high coupling among elements in the other boundary.
+
+__Coupling represents dependency and knowledge between border defined boundaries. Cohesion represents dependency and knowledge within a border defined boundary.__
+
+Coupling and Cohesion are on a boundary spectrum. That's why __loose-coupling/high-cohesion__ and __tight-coupling/low-cohesion__ tend to be paired together. They are representing the same basic concept of dependency and knowledge at a distance relative to a boundary.
+
+High cohesion means that most elements that are responsible for a behavior (or feature) reside within the boundary. Additionally, elements not responsible for a behavior do not reside within the boundary. Behavior modifications may cause updates to all cohesive elements within the boundary. You or your team should have complete responsibility of the boundary meaning there's little to no coordination with others.
 
 Loose coupling means that dependency and knowledge among boundaries is limited. Abstractions, such as interfaces and APIs are boundary access ports that encapsulate internal elements within the other boundary. Interfaces and APIs provide access to behavior provided by other boundaries without requiring external coupling to internal elements of those other boundaries.
 
-Low cohesion and tight coupling render the boundaries meaningless. Elements have dependency upon and knowledge of other elements anywhere. A modification anywhere can have an impact everywhere. Tight coupling could involve elements for which you or your team do not have responsibility or control and requiring more coordination.
+Low cohesion and tight coupling render the boundaries meaningless. Elements have dependency upon and knowledge of other elements anywhere. A modification anywhere can have an impact everywhere. You and and your team may have limited responsibility for many of the impacted elements requiring coordination with others. Additionally, updates made by others may impact your team's elements as well.
 
 Tight coupling also leads to daisy chaining. An update to one element may require an update to a tightly coupled element, which may require an update to another tightly coupled element, etc. This daisy chained dependency can trigger what at first appears to be a simple update to spread like wildfire as cascading updates spread throughout the system.
 
-# Coupling and Cohesion - Two Sides of the Same Coin
-Constantine and Yourdon also wrote 
->Clearly, cohesion and coupling are interrelated. The greater the cohesion of individual modules in the system, the lowering the coupling between modules will be. In practice, these measures are correlated; that is, on the average, as one increases, the other decreases, but the correlation is not perfect. Maximizing the sum of module cohesion over all modules in a system should closely approximate the results one would obtain in trying to minimize coupling. However, it turns out to be easier both mathematically and practically to focus on cohesion.
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/%E0%B8%A5%E0%B8%B9%E0%B8%81%E0%B8%95%E0%B8%B8%E0%B9%89%E0%B8%A1%E0%B8%98%E0%B8%A3%E0%B8%A3%E0%B8%A1%E0%B8%8A%E0%B8%B2%E0%B8%95%E0%B8%B4.gif" alt="Swinging Pendulum" title="Image Source: https://en.wikipedia.org/wiki/File:%E0%B8%A5%E0%B8%B9%E0%B8%81%E0%B8%95%E0%B8%B8%E0%B9%89%E0%B8%A1%E0%B8%98%E0%B8%A3%E0%B8%A3%E0%B8%A1%E0%B8%8A%E0%B8%B2%E0%B8%95%E0%B8%B4.gif" width = "25%" align="right" style="padding-right: 20px;">
-
-I think it's more than Coupling and Cohesion being interrelated. Rather than being two related concepts, I think they are two measurements of the same concept. Coupling and Cohesion are about dependency and knowledge at a distance. Coupling would be dependency at greater distances. Cohesion would be dependency at lesser distances. Coupling and Cohesion could be thought of as inverses describing the same thing but in two different terms.
-
-It's like how [wavelength](https://en.wikipedia.org/wiki/Wavelength) and [frequency](https://en.wikipedia.org/wiki/Frequency) are inverse measurements of the same wave concept. Coupling and Cohesion are not binary distinctions. They are on a spectrum. That's why __loose-coupling/high-cohesion__ and __tight-coupling/low-cohesion__ tend to be paired together. They are representing the same basic concept of dependency and knowledge at a distance but doing so with different measurements.
+With this more fluid interpretation of Coupling and Cohesion, we could have a system with __loose-coupling/high-cohesion__ on the macro design level and __tight-coupling/low-cohesion__ on the micro design level. That is, there may be low coupling between packages and high cohesion within a package, but the design inside the package could have tight coupling and low cohesion almong the classes within the package.
 
 # Economics of Coupling and Cohesion
-Why should we care about coupling and cohesion? If we never have to modify our code again, then we don’t care. But as we all know, code is rarely frozen. We almost always need to modify code as business needs change. The degree of coupling and cohesion will determine how complex the modification will be and how long it will take.
+Why should we care about Coupling and Cohesion? If we never have to modify our code again, then we don’t care. But as we all know, code is rarely frozen. We almost always need to modify code as business needs change. The degree of Coupling and Cohesion will determine how complex the modification will be and how long it will take.
 
 Kent Beck provides a great review of how coupling and cohesion affect the cost of modification in his [A Daily Practice of Empirical Software Design](https://www.youtube.com/watch?v=yBEcq23OgB4&t=901s) presentation at DDD Europe 2023.
 
@@ -86,16 +92,16 @@ I used the [screw/screwdriver](https://jhumelsine.github.io/2024/11/07/cohesion-
 I think I have another real-world example high cohesion and low coupling: meal kits. Each meal kit has all the ingredients required to make the meal without any extraneous ingredients. You don’t have to purchase different meal kits to make a meal either. If a meal is updated, it only affects that meal’s kit.
 
 ## Software Design Examples
-Let's consider coupling and cohesion with some real software design examples.
+Let's consider coupling and cohesion with some real software design examples. I shall return to some examples from previous blogs.
 
 ### State Machine
 I briefly mentioned __State Machines__ in the previous blog in the [Low Coupling](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html#low-cohesion) section.
 
-My concern was the distribution of state machine behavior in an application. I've seen way too many cases of state machine behavior where `state` is a private attribute accessible via public `get` and `set` accessors. State machine behavior was implemented throughout the application by any code that acquired, changed and saved `state` via the accessors.
+My concern was the distribution of state machine behavior in an application. I've seen too many cases of state machine implementations where `state` is a private attribute accessible via public `get` and `set` accessors. State machine behavior was implemented throughout the application by any code that acquired, changed and saved `state` via the accessors.
 
 Though this isn't obvious at first, this is a highly coupled design. All code that references the accessors indirectly depend upon one another since they are all taking some responsibility for state machine behavior. A behavior change in one section of the code could change an assumption about the state machine in another section of code. Almost as bad, if not worse, no one knows what the actual state machine behavior is, since it's distributed in so many different places.
 
-I would prefer an implemenation that keeps state machine behavior cohesive, possibly via the [State Design Pattern](https://refactoring.guru/design-patterns/state). This consolidates the state machine behavior. The state machine could still provide a `get` accessor for its state, but it should not provide a `get` accessor. The state machine would define public methods for each `event` that would trigger an internal transition and the implemenation to determine the new `state` would occur in that method. The `state` implementation could be enhanced with the [Observer Design Pattern](https://refactoring.guru/design-patterns/observer) so that the applications could subscribe to future state change notifications.
+I would prefer an implemenation that keeps state machine behavior cohesive, possibly via the [State Design Pattern](https://refactoring.guru/design-patterns/state). This consolidates the state machine behavior. The state machine could still provide a `get` accessor for its state, but it should not provide a `set` accessor. The state machine would define public methods for each `event` that would trigger an internal transition and the implemenation to determine the new `state` would occur in the `event` method within the state machine class. The `state` implementation could be enhanced with the [Observer Design Pattern](https://refactoring.guru/design-patterns/observer) so that the applications could subscribe to future `state` change notifications.
 
 I suspect that the coupled design occurs when developers don't realize that there's state machine behavior lurking in their class. If they don't design for a cohesive state machine, the design will have a tendence to be distributed.
 
@@ -107,7 +113,7 @@ As I received it, a change to behavior associated with the extended class could 
 Once I redesigned the code, using the [Template Method Design Pattern](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html), the design was less coupled. A change to an extended class would not affect the base class or the other extended classes.
 
 # Contracts
-We cannot avoid coupling, but we want to keep it limited and loose. How can we manage that?
+We cannot avoid coupling, in fact we need it. But we want to keep coupling loose. How can we manage that?
 
 A __contract__ declares behavior without defining how that behavior will be implemented. It should also declare the expectations and obligations of both the supplier and consumer of that behavior. Interfaces and APIs are types of contracts.
 
@@ -129,7 +135,7 @@ Hopefully this second take at _Coupling_ and _Cohesion_ has provided a bit more 
 
 The more I considered this addendum, the more I kept thinking about a previous blog from last year, [Hexagonal Architecture – Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html), which is about dependency and knowledge management.
 
-_Coupling_ and _Cohesion_ are inverse measures of _Dependency_. _Coupling_ is _Dependency_ at great distances forcing components in a system and possibly systems to maintain lock-step coordination during modifications. _Cohesion_ is _Dependency_ at near distances allowing differnt components and systems to be modified independently.
+_Coupling_ and _Cohesion_ are inverse measures of _Dependency_. _Coupling_ is _Dependency_ at great distances forcing components in a system and possibly systems to maintain lock-step coordination during modifications. _Cohesion_ is _Dependency_ at near distances allowing different components and systems to be modified independently.
 
 Several months ago, I mentioned an elusive grand unified theory of software engineering in [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html):
 >I feel there may be a grand unified theory of software engineering that’s still just a bit beyond my grasp. If there is such a grand unified theory, I’d be willing to bet that Dependency and Knowledge Management is part of it.
@@ -137,10 +143,9 @@ Several months ago, I mentioned an elusive grand unified theory of software engi
 I now feel that _Coupling_, _Cohesion_ and _Dependency_/_Knowledge_ Management are different facets of the same basic principle.
 
 # References
-[Previous References]( https://jhumelsine.github.io/2024/10/30/abstraction.html#references)
-
-* [A Daily Practice of Empirical Software Design ](https://www.youtube.com/watch?v=yBEcq23OgB4) - Presentation by Kent Beck at DDD Europe 2023
-* [Balancing Coupling in Software Design](https://www.youtube.com/watch?v=KTy4rqgPOjg) - Presentation by Vlad Khononov at DDD Europe 2023
+* [Previous References]( https://jhumelsine.github.io/2024/10/30/abstraction.html#references)
+* [A Daily Practice of Empirical Software Design ](https://www.youtube.com/watch?v=yBEcq23OgB4) - Video presentation by Kent Beck at DDD Europe 2023
+* [Balancing Coupling in Software Design](https://www.youtube.com/watch?v=KTy4rqgPOjg) - Video presentation by Vlad Khononov at DDD Europe 2023
+* [Uncoupling](https://www.youtube.com/watch?v=esm-1QXtA2Q) - Video presentation by Michael Nygard at GOTO 2018
 * [Coupling Is The Biggest Challenge In Software Engineering](https://www.youtube.com/watch?v=plMttQWztRM) - Video by Dave Farley in 2024
-* [Uncoupling](https://www.youtube.com/watch?v=esm-1QXtA2Q) - Presentation by Michael Nygard at GOTO 2018
 * [Good Coupling, Bad Coupling, Coupling For The Win](https://www.youtube.com/watch?v=ZffqJxLULx8) - Video by Vaughn Vernon in 2024.
