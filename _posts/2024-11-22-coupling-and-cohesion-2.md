@@ -42,11 +42,11 @@ I think there's more to Coupling and Cohesion than being interrelated. __Couplin
 
 The original definition of Coupling and Cohesion applied to connectivity being inside or outside a module, but I think the principle expands on a spectrum beyond connectivity relative to a module.
 
-Thinking more abstractly, the cubes in the diagram above define a _boundary_, which can represent expanding borders, such as: a statement block, method, class, package, service, etc. It depends upon context. That is, boundaries can be nested.
+Thinking more abstractly, the cubes in the diagram above define a _boundary_, which can represent expanding borders, such as: a statement block, method, class, package, service, etc. It depends upon context. Boundaries can be nested.
 
 The dots are elements within each boundary. The _Good_ illustration shows high cohesion among the elements in each boundary and relatively little, i.e., loose, coupling between the boundaries. The _Bad_ illustration also shows low cohesion among elements within the boundaries and high coupling among elements in the other boundary.
 
-__Coupling represents dependency and knowledge between border defined boundaries. Cohesion represents dependency and knowledge within a border defined boundary.__
+__Coupling represents dependency and knowledge between boundaries. Cohesion represents dependency and knowledge within a boundary.__
 
 Coupling and Cohesion are on a boundary spectrum. That's why __loose-coupling/high-cohesion__ and __tight-coupling/low-cohesion__ tend to be paired together. They are representing the same basic concept of dependency and knowledge at a distance relative to a boundary.
 
@@ -58,7 +58,7 @@ Low cohesion and tight coupling render the boundaries meaningless. Elements have
 
 Tight coupling also leads to daisy chaining. An update to one element may require an update to a tightly coupled element, which may require an update to another tightly coupled element, etc. This daisy chained dependency can trigger what at first appears to be a simple update to spread like wildfire as cascading updates spread throughout the system.
 
-With this more fluid interpretation of Coupling and Cohesion, we could have a system with __loose-coupling/high-cohesion__ on the macro design level and __tight-coupling/low-cohesion__ on the micro design level. That is, there may be low coupling between packages and high cohesion within a package, but the design inside the package could have tight coupling and low cohesion almong the classes within the package.
+With this more fluid interpretation of Coupling and Cohesion, we could have a system with __loose-coupling/high-cohesion__ on the macro design level and __tight-coupling/low-cohesion__ on the micro design level. That is, there may be low coupling between packages and high cohesion within a package, but the design inside the package could have tight coupling and low cohesion almong the classes and methods within the package.
 
 # Economics of Coupling and Cohesion
 Why should we care about Coupling and Cohesion? If we never have to modify our code again, then we don’t care. But as we all know, code is rarely frozen. We almost always need to modify code as business needs change. The degree of Coupling and Cohesion will determine how complex the modification will be and how long it will take.
