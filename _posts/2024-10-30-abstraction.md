@@ -136,13 +136,15 @@ The fractal nature of software is a double-edged sword. On the positive side, ou
 
 Our abstractions, right or wrong, are our responsibility. Get the abstraction right, and code will practically write itself. Get the abstraction wrong, and it will cause you a world of pain.
 
-# Cohesive Abstractions
-Since this blog is getting long, I’ll postpone __Cohesive Abstractions__ to the next blog entry.
-
 # Summary
 Abstraction is an important concept in software engineering separating __what__ from __how__. Abstraction is one of the main concepts that allows us to create a modular design for ease of future maintenance. 
 
 However, the right abstraction is not always easy or obvious. Don’t force abstractions too early. It may take a few examples before the abstractions emerge from the domain, design or implementation.
+
+This __Abstraction__ series contines with:
+* [What Are Cohesion and Coupling?](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html) - Cohesion and coupling address when things should and should not be too sticky with one another
+* [Coupling and Cohesion – Take 2](https://jhumelsine.github.io/2024/11/22/coupling-and-cohesion-2.html) - Let’s revisit these concepts one more time
+* [What Is Cohesive Abstraction?](https://jhumelsine.github.io/2024/11/25/abstraction-cohesion.html) - How to manage cohesion among abstractions consistently
 
 # References
 * [Wikipedia Abstraction In Computer Science](https://en.wikipedia.org/wiki/Abstraction#In_computer_science)
