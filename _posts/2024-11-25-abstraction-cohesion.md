@@ -10,12 +10,12 @@ This blog is a continuation of the previous [Abstract](https://jhumelsine.github
 Abstractions may reference other Abstractions, depend upon other Abstractions or have knowledge of other Abstractions. We want to ensure that when this occurs that the concrete implementations for these Abstracts are resolved consistently.
 
 # Cohesion and Coupling
-Before I describe the consistent management of _Cohesive Abstractions_, I need to explain _Cohesion_ and _Coupling_, which I suspect I'll extract into their own blog in the future (TBD).
-
-__MORE NEEDED HERE__
+Before I describe the consistent management of _Cohesive Abstractions_, I need to explain _Cohesion_ and _Coupling_:
+* [What Are Cohesion and Coupling?](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html) - Cohesion and coupling address when things should and should not be too sticky with one another
+* [Coupling and Cohesion – Take 2](https://jhumelsine.github.io/2024/11/22/coupling-and-cohesion-2.html) - Let’s revisit these concepts one more time
 
 # Cohesive Abstractions
-__Cohesive Abstractions__ are when the coupled elements are abstractions, such as interfaces. I’ll continue with an example to demonstrate these concepts.
+__Cohesive Abstractions__ are when coupled elements are abstractions, such as interfaces. I’ll continue with an example to demonstrate these concepts.
 
 ## Call To Duty
 Let’s assume that you’re a developer on a military game, such as [Call to Duty](https://www.callofduty.com/), and you’re in the _Weapons_ development team.
