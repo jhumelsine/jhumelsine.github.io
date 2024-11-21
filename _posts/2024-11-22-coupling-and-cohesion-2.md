@@ -21,7 +21,7 @@ Therefore, I decided to create a new blog entry. Plus a new blog ensures that ev
 # Coupling and Cohesion Word Salad
 __Coupling__ is dependency. __Cohesion__ is dependency as well, but more aggressively so when all the elements depend upon one another. Coupling is an attribute of a bad design. Given that cohesion is even more aggressive coupling,  one would think that it's a bad design, but no, cohesion is a good design. 
 
-There's more confusing when throwing in more terms, such as __loose/tight coupling__ and __low/high cohesion__. Grouping __loose-coupling/high-cohesion__ together and __tight-coupling/low-cohesion__ together as paired opposites adds more fuel to the fire. Continue the befuddlement by throwing in multiple [__types__]( https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Types_of_coupling) and [__dimensions__](https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Types_of_coupling) of coupling along with several [__types__]( https://en.wikipedia.org/wiki/Cohesion_(computer_science)#Types_of_cohesion) of cohesion. Meilir Page-Jones put a bow on the confusion package when he defined  a whole new term, [__Connascence__](https://en.wikipedia.org/wiki/Connascence), which is coupling in the context of Object-Oriented design.
+There's more confusing when throwing in more terms, such as __loose/tight coupling__ and __low/high cohesion__. Grouping __loose-coupling/high-cohesion__ together and __tight-coupling/low-cohesion__ together as paired opposites adds more fuel to the fire. Continue the befuddlement by throwing in multiple [__types__](https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Types_of_coupling) and [__dimensions__](https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Types_of_coupling) of coupling along with several [__types__]( https://en.wikipedia.org/wiki/Cohesion_(computer_science)#Types_of_cohesion) of cohesion. Meilir Page-Jones put a bow on the confusion package when he defined  a whole new term, [__Connascence__](https://en.wikipedia.org/wiki/Connascence), which is coupling in the context of Object-Oriented design.
 
 __It’s no wonder developers get confused.__
 
@@ -122,20 +122,31 @@ A __contract__ declares behavior without defining how that behavior will be impl
 Many modern software practices, such as [Design Patterns](https://jhumelsine.github.io/2023/08/24/its-your-move.html), [Hexagonal Architecture/Ports & Adapters](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html), focus upon contracts. The first [Design Pattern Principle](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html) addresses this with: __Program to an interface, not an implementation__.
 
 # Context Coupling
+There are multiple [__types__](https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Types_of_coupling) and [__dimensions__](https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Types_of_coupling) of coupling along with several [__types__]( https://en.wikipedia.org/wiki/Cohesion_(computer_science)#Types_of_cohesion) of cohesion. Follow the links for details or watch some of the presentations in the [References](#references) below which describe some of them as well.
+
+I'll provide a scenario of one, which I think is technically __External Coupling__, based upon the Wikipedia definition:
+>External coupling occurs when two modules share an externally imposed data format, communication protocol, or device interface. This is basically related to the communication to external tools and devices.
+
+My scenario fits the spirit of external coupling, but it's not one of the listed cases. In my scenario elements may be coupled to the schema of another element, and then that schema changes. That is, the coupling could be based upon context.
+
 We can still have coupling with a good design with good contracts. Contracts may be [Leaky Abstractions](https://en.wikipedia.org/wiki/Leaky_abstraction). [Joel Spolsky](https://en.wikipedia.org/wiki/Joel_Spolsky) pointed this out in his blog post, [The Law of Leaky Abstractions](https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/) when he wrote: __All non-trivial abstractions, to some degree, are leaky.__
 
-I didn’t fully appreciate leaky abstractions until considering this blog addendum. I had only considered leaking abstracts in the context that it leaked implementation details.
+I didn’t fully appreciate leaky abstractions until writing this blog entry. I had only considered leaking abstracts in the context that implementation details could be leaked in a contract.
 
-We don’t want to leak any implementation details in a contract, but most contracts will contain context, and both the consumer and supplier of the contract depend upon and have knowledge of that context. If that context changes, and it may need to for business reasons, then the consumer and supplier may both need to change as well.
+We don’t want to leak implementation details in a contract, but most contracts will contain context, and both the consumer and supplier of the contract depend upon and have knowledge of that context. If that context changes, and it may need to for business reasons, then the consumer and supplier may both need to change as well.
 
-As an example, a contract may include the definition of Person, who has a name, address, phone number, email address, etc. Later, possibly much later, there’s a business need to update a Person to include a cellphone number or an additional email address.
+As an example, a contract may include the definition of Person, with a name, address, landline phone number, email address, etc. Later, possibly much later, there’s a business need to update a Person to include a cellphone number or an additional email address.
 
-By then, Person with the original attributes may be a concept that's incorporated in many parts of the system. The business invariant, that the Person only had a landline and one email address, may be hardcoded in many parts of the system. Adding a cell phone or additional email address will have an impact upon all of them.
+The original Person attributes, landline phone and only one email, may be a domain invariant that's been incorporated in many parts of the system. Adding a cell phone or additional email address will have an impact upon all of them since the domain invariant has been updated.
+
+Context coupling relates to the [Stable or Fixed Design Elements](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#stable-or-fixed-design-elements) section in my [Hexagonal Architecture – Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html) blog entry from last year. Stable elements, such as interfaces, don't tend to have dependencies upon other elements. However other elements have dependencies upon them. This is visually apparent with a design rendered in a UML class diagram. Stable elements will tend to have the arrowheads on relationship lines point into them and very view pointing out of them.
+
+In the example, other elements depend upon Person by referencing it, but Person doesn't depend upon them. Therefore, when Person is updated, this can have a significant impact upon the elements that reference it.
 
 # Summary
 Hopefully this second take at _Coupling_ and _Cohesion_ has provided a bit more clarity and definitely not introduced any confusion by me.
 
-The more I considered this addendum, the more I kept thinking about a previous blog from last year, [Hexagonal Architecture – Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html), which is about dependency and knowledge management.
+The more I considered this addendum, the more I kept thinking about a previous blog, as mentioned above: [Hexagonal Architecture – Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html), which is about dependency and knowledge management.
 
 _Coupling_ and _Cohesion_ are inverse measures of _Dependency_. _Coupling_ is _Dependency_ at great distances that forces components in a system and possibly external systems to maintain lock-step coordination during modifications. _Cohesion_ is _Dependency_ at near distances that allows different components and systems to be modified independently.
 
