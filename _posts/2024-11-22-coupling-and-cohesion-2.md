@@ -7,11 +7,11 @@ unlisted: true
 # Introduction
 I received feedback on my most recent blog, [What Are Cohesion and Coupling?](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html) The comments mentioned historical references I had missed and questioned some of my content and examples.
 
-I consumed the references provided by the those who had made comments and realized that I do need to make some updates. I don’t think my original blog is wrong, but it’s missing some nuance and context.
+I consumed the references provided by those who had made comments and realized that I do need to make some updates. I don’t think my original blog is wrong, but it’s missing some nuance and context.
 
-I originally planned to update the previous blog and call it a day, but I realized that these updates to the previous blog might change it too much. For example, I should have introduced _Coupling_ before _Cohesion_. Flipping them would too drastically change the original blog.
+I originally planned to update the previous blog and call it a day, but I realized that these updates to the previous blog might change too much. For example, I should have introduced _Coupling_ before _Cohesion_. Flipping them would too drastically change the original blog.
 
-Therefore, I decided to create a new blog entry. Plus a new blog ensures that everyone knows about the updates.
+Therefore, I decided to create a new blog entry. Plus, a new blog ensures that everyone knows about the updates.
 
 # Coupling and Cohesion History
 [Coupling](https://en.wikipedia.org/wiki/Coupling_(computer_programming)) and [Cohesion](https://en.wikipedia.org/wiki/Cohesion_(computer_science)) were invented by [Larry Constantine](https://en.wikipedia.org/wiki/Larry_Constantine) as part of [Structured Design](https://en.wikipedia.org/wiki/Structured_analysis#Structured_design). The terms gained popularity in [__Structured Design__](https://wstomv.win.tue.nl/quotes/structured-design.html) co-authored with [Ed Yourdon](https://en.wikipedia.org/wiki/Edward_Yourdon). [Chapter 6]( https://wstomv.win.tue.nl/quotes/structured-design.html#6) is devoted to _Coupling_ and [Chapter 7](https://wstomv.win.tue.nl/quotes/structured-design.html#7) is devoted to _Cohesion_.
@@ -21,7 +21,7 @@ Therefore, I decided to create a new blog entry. Plus a new blog ensures that ev
 # Coupling and Cohesion Word Salad
 __Coupling__ is dependency. __Cohesion__ is dependency as well, but more aggressively so when all the elements depend upon one another. Coupling is an attribute of a bad design. Given that cohesion is even more aggressive coupling,  one would think that it's a bad design, but no, cohesion is a good design. 
 
-There's more confusing when throwing in more terms, such as __loose/tight coupling__ and __low/high cohesion__. Grouping __loose-coupling/high-cohesion__ together and __tight-coupling/low-cohesion__ together as paired opposites adds more fuel to the fire. Continue the befuddlement by throwing in multiple [__types__](https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Types_of_coupling) and [__dimensions__](https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Types_of_coupling) of coupling along with several [__types__]( https://en.wikipedia.org/wiki/Cohesion_(computer_science)#Types_of_cohesion) of cohesion. Meilir Page-Jones put a bow on the confusion package when he defined  a whole new term, [__Connascence__](https://en.wikipedia.org/wiki/Connascence), which is coupling in the context of Object-Oriented design.
+There's more confusion when throwing in more terms, such as __loose/tight coupling__ and __low/high cohesion__. Grouping __loose-coupling/high-cohesion__ together and __tight-coupling/low-cohesion__ together as paired opposites adds more fuel to the fire. Continue the befuddlement by throwing in multiple [__types__](https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Types_of_coupling) and [__dimensions__](https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Types_of_coupling) of coupling along with several [__types__]( https://en.wikipedia.org/wiki/Cohesion_(computer_science)#Types_of_cohesion) of cohesion. Meilir Page-Jones put a bow on the confusion package when he defined  a whole new term, [__Connascence__](https://en.wikipedia.org/wiki/Connascence), which is coupling in the context of Object-Oriented design.
 
 __It’s no wonder developers get confused.__
 
@@ -35,7 +35,7 @@ According to the [Glossary](https://wstomv.win.tue.nl/quotes/structured-design.h
 Their definition and the corresponding diagram to the right represent _Coupling_ and _Cohesion_ between two sets of modules. _Coupling_ represents the number of connections between elements between two modules. _Cohesion_ refers to the connections within a module.
 
 These two concepts are not mutually exclusive. Constantine and Yourdon also wrote 
->Clearly, cohesion and coupling are interrelated. The greater the cohesion of individual modules in the system, the lowering the coupling between modules will be. In practice, these measures are correlated; that is, on the average, as one increases, the other decreases, but the correlation is not perfect. Maximizing the sum of module cohesion over all modules in a system should closely approximate the results one would obtain in trying to minimize coupling. However, it turns out to be easier both mathematically and practically to focus on cohesion.
+>Clearly, cohesion and coupling are interrelated. The greater the cohesion of individual modules in the system, the lowering the coupling between modules will be. In practice, these measures are correlated; that is, on average, as one increases, the other decreases, but the correlation is not perfect. Maximizing the sum of module cohesion over all modules in a system should closely approximate the results one would obtain in trying to minimize coupling. However, it turns out to be easier both mathematically and practically to focus on cohesion.
 
 # Coupling and Cohesion - Possibly Two Sides of the Same Coin
 I think there's more to Coupling and Cohesion than their interrelatedness. __Coupling and Cohesion represent dependency and knowledge at a distance.__ Coupling represents dependency upon and knowledge of elements at greater distances, i.e., dependency and knowledge beyond the module. Cohesion represents dependency of and knowledge of elements at lesser distances, i.e., dependency and knowledge within the module. Coupling and Cohesion could be thought of describing the same concept but with two opposing terms.
@@ -48,15 +48,15 @@ The dots are elements within each boundary. The _Good_ illustration shows high c
 
 __Coupling represents dependency and knowledge between boundaries. Cohesion represents dependency and knowledge within a boundary.__
 
-Coupling and Cohesion are on a boundary spectrum. That's why __loose-coupling/high-cohesion__ and __tight-coupling/low-cohesion__ tend to be paired together. They are representing the same basic concept of dependency and knowledge at a distance relative to a boundary.
+Coupling and Cohesion are on a boundary spectrum. That's why __loose-coupling/high-cohesion__ and __tight-coupling/low-cohesion__ tend to be paired together. They represent the same basic concept of dependency and knowledge at a distance relative to a boundary.
 
-High cohesion means that most elements that are responsible for a behavior (or feature) reside within a boundary. Elements not responsible for a behavior do not reside within the boundary. Behavior modifications may cause updates to all cohesive elements within the boundary. You or your team should have complete responsibility of the boundary meaning there's little to no coordination with others.
+High cohesion means that most elements that are responsible for a behavior (or feature) reside within a boundary. Elements not responsible for a behavior do not reside within the boundary. Behavior modifications may cause updates to all cohesive elements within the boundary. You or your team should have complete responsibility for the boundary meaning there's little to no coordination with others.
 
-Loose coupling means that dependency and knowledge among boundaries is limited. Abstractions, such as interfaces and APIs are boundary access ports that encapsulate internal elements within the other boundary. Interfaces and APIs provide access to behavior provided by other boundaries without requiring external coupling to internal elements of those other boundaries.
+Loose coupling means that dependency and knowledge among boundaries is limited. Abstractions, such as interfaces and APIs are boundary access ports that encapsulate internal elements within the other boundaries. Interfaces and APIs provide access to behavior provided by other boundaries without requiring external coupling to internal elements of those other boundaries.
 
 <img src="https://codeopinion.com/wp-content/uploads/2021/12/2-1-768x655.png" alt="Big Ball of Mud" title="Image Source: https://codeopinion.com/long-live-the-monolith-monolithic-architecture-big-ball-of-mud/" width = "35%" align="right" style="padding-right: 20px;">
 
-Low cohesion and tight coupling render the boundaries meaningless. Elements have dependency upon and knowledge of other elements anywhere. A modification anywhere can have an impact everywhere. You and and your team may have limited responsibility for many of the impacted elements requiring coordination with others. Additionally, updates made by others may impact your team's elements as well. A design like this is often called a [Big Ball of Mud](https://blog.codinghorror.com/the-big-ball-of-mud-and-other-architectural-disasters/).
+Low cohesion and tight coupling render the boundaries meaningless. Elements have dependency upon and knowledge of other elements anywhere. A modification anywhere can have an impact everywhere. You and your team may have limited responsibility for many of the impacted elements requiring coordination with others. Additionally, updates made by others may impact your team's elements as well. A design like this is often called a [Big Ball of Mud](https://blog.codinghorror.com/the-big-ball-of-mud-and-other-architectural-disasters/).
 
 Tight coupling also leads to daisy chaining. An update to one element may require an update to a tightly coupled element, which may require an update to another tightly coupled element, etc. This daisy chained dependency can trigger what at first appears to be a simple update to spread like wildfire as cascading updates spread throughout the system.
 
@@ -81,7 +81,7 @@ He included a [graph](https://www.youtube.com/watch?v=KTy4rqgPOjg&t=2217s), whic
  
 <img src="/assets/CouplingAndCohesionCost.png" alt="Coupling and Cohesion Cost" width = "80%" align="center" style="padding-right: 35px;">
 
-This graph illustrates how coupling increases and cohesion decreases as the distance between elements expands. An update with a larger boundry footprint will require more time, coordiation, buy-in and cost, than an update with a smaller footprint. For example, modifications scoped to a few statements only require the resources of one or two developers. Modifications scoped to systems require multiple teams and possibly multiple companies.
+This graph illustrates how coupling increases and cohesion decreases as the distance between elements expands. An update with a larger boundary footprint will require more time, coordination, buy-in and cost, than an update with a smaller footprint. For example, modifications scoped to a few statements only require the resources of one or two developers. Modifications scoped to systems require multiple teams and possibly multiple companies.
 
 # Coupling and Cohesion Examples
 I struggled to provide good coupling and cohesion examples in my previous [blog](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html).
@@ -103,9 +103,9 @@ My concern was the distribution of state machine behavior in an application. I'v
 
 Though not obvious at first, this is a highly coupled design. All code that references the accessors indirectly depend upon one another since they are all taking some responsibility for state machine behavior. A behavior change in one section of the code could change an assumption about the state machine in another section of code. Almost as bad, if not worse, no one knows what the actual state machine behavior is, since it's distributed in so many different places.
 
-I would prefer an implemenation that keeps state machine behavior cohesive, possibly via the [State Design Pattern](https://refactoring.guru/design-patterns/state). This consolidates the state machine behavior. The state machine could still provide a `get` accessor for its `state`, but it should not provide a `set` accessor. The state machine would define public methods for each `event` that would trigger an internal transition and the implemenation to determine the new `state` would occur in the `event` method within the state machine class. The `state` implementation could be enhanced with the [Observer Design Pattern](https://refactoring.guru/design-patterns/observer) so that the applications could subscribe to future `state` change notifications.
+I would prefer an implementation that keeps state machine behavior cohesive, possibly via the [State Design Pattern](https://refactoring.guru/design-patterns/state). This consolidates the state machine behavior. The state machine could still provide a `get` accessor for its `state`, but it should not provide a `set` accessor. The state machine would define public methods for each `event` that would trigger an internal transition and the implementation to determine the new `state` would occur in the `event` method within the state machine class. The `state` implementation could be enhanced with the [Observer Design Pattern](https://refactoring.guru/design-patterns/observer) so that the applications could subscribe to future `state` change notifications.
 
-I suspect that the coupled design occurs when developers don't realize that there's state machine behavior lurking in their class. If they don't design for a cohesive state machine, the design will have a tendence to be distributed.
+I suspect that the coupled design occurs when developers don't realize that there's state machine behavior lurking in their class. If they don't design a cohesive state machine, the design will have a tendence to be distributed.
 
 ### Wrong Abstraction
 My [Getting the Right Abstraction is Hard](https://jhumelsine.github.io/2023/09/22/right-abstraction-is-hard.html) is also about coupling and cohesion. In this blog, I described an implementation and design I inherited. The implementation featured a base class with several extending classes. As I examined the code to understand it, I realized that some behavior implementations were in the wrong places. Some behavior implemented in the base class needed to be distributed into the extended classes and some behavior implemented in the extended classes needed to be consolidated in the base class.
@@ -139,12 +139,12 @@ As an example, a contract may include the definition of Person, with a name, add
 
 The original Person attributes, landline phone and only one email, may be a domain invariant that's been incorporated in many parts of the system. Adding a cell phone or additional email address will have an impact upon all of them since the domain invariant has been updated.
 
-Context coupling relates to the [Stable or Fixed Design Elements](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#stable-or-fixed-design-elements) section in my [Hexagonal Architecture – Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html) blog entry from last year. Stable elements, such as interfaces, don't tend to have dependencies upon other elements. However other elements have dependencies upon them. This is visually apparent with a design rendered in a UML class diagram. Stable elements will tend to have the arrowheads on relationship lines point into them and very view pointing out of them.
+Context coupling relates to the [Stable or Fixed Design Elements](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#stable-or-fixed-design-elements) section in my [Hexagonal Architecture – Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html) blog entry from last year. Stable elements, such as interfaces, don't tend to have dependencies upon other elements. However other elements have dependencies upon them. This is visually apparent with a design rendered in a UML class diagram. Stable elements will tend to have the arrowheads on relationship lines pointing into them and very view pointing out of them.
 
 In the example, other elements depend upon Person by referencing it, but Person doesn't depend upon them. Therefore, when Person is updated, this can have a significant impact upon the elements that reference it.
 
 # Summary
-Hopefully this second take at _Coupling_ and _Cohesion_ has provided a bit more clarity and definitely not introduced any confusion by me.
+Hopefully this second take at _Coupling_ and _Cohesion_ has provided a bit more clarity and not introduced any confusion by me.
 
 The more I considered this addendum, the more I kept thinking about a previous blog, as mentioned above: [Hexagonal Architecture – Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html), which is about dependency and knowledge management.
 
