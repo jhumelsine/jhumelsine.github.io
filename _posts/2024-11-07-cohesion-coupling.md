@@ -8,6 +8,8 @@ This blog was originally going to be a continuation of the previous [Abstract](h
 
 I was close to publishing it, but I realized that I was devoting almost 1,000 words to _Cohesion_ and _Coupling_, which started to feel like its own separate blog. I'm making a last-minute decision to blog exclusively on _Cohesion_ and _Coupling_ first, and then follow up with _Cohesive Abstractions_ shortly thereafter.
 
+___ADDENDUM:__ I received comments from several readers after publishing this blog entry. After reading their comments and following their references, I realized that I needed to write more about Cohesion and Coupling. So while reading this, know that there's more to come in [Coupling and Cohesion - Take 2](https://jhumelsine.github.io/2024/11/22/coupling-and-cohesion-2.html)._
+
 # Cohesion and Coupling
 _Cohesion_ and _Coupling_ both deal with the nature of how software elements are connected. These aren't always the easiest concepts to understand, especially when considered together.
 
@@ -86,6 +88,8 @@ A good design features __high cohesion__ for those software elements that do cha
 Without care and consideration, a design can easily degrade into __low cohesion__ and __tight coupling__, as described above, which are undesirable design traits.
 
 The two pairs of __high/loose__ and __low/tight__ tend to go together. If a design has __high cohesion__, then it tends to have __loose coupling__ and vice versa. The same applies to the __low cohesion/tight coupling__ pair.
+
+To be continued in [Coupling and Cohesion - Take 2](https://jhumelsine.github.io/2024/11/22/coupling-and-cohesion-2.html).
 
 # References
 * [Cohesion](https://en.wikipedia.org/wiki/Cohesion_(computer_science)) via Wikipedia
