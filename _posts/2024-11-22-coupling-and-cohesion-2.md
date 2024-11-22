@@ -1,7 +1,6 @@
 ---
-title: DRAFT – Coupling and Cohesion – Take 2
+title: Coupling and Cohesion – Take 2
 description: Let’s revisit these concepts one more time
-unlisted: true
 ---
 
 # Introduction
@@ -60,7 +59,7 @@ __Low Cohesion__ and __Tight Coupling__ render the boundaries meaningless. Eleme
 
 __Tight Coupling__ also leads to daisy chained dependencies. An update to one element may require an update to a tightly coupled element, which may require an update to another tightly coupled element, etc. This daisy chained dependency can trigger what at first appears to be a simple update to spread like wildfire as cascading updates spread throughout the system.
 
-With this more fluid interpretation of Coupling and Cohesion, we could have a system with __loose-coupling/high-cohesion__ on the macro design level and __tight-coupling/low-cohesion__ on the micro design level. That is, there may be low coupling between packages and high cohesion within a package, but the design inside the package could have tight coupling and low cohesion almong the classes and methods within the package.
+With this more fluid interpretation of Coupling and Cohesion, we could have a system with __loose-coupling/high-cohesion__ on the macro design level and __tight-coupling/low-cohesion__ on the micro design level. That is, there may be low coupling between packages and high cohesion within a package, but the design inside the package could have tight coupling and low cohesion among the classes and methods within the package.
 
 # Economics of Coupling and Cohesion
 Why should we care about Coupling and Cohesion? If we never have to modify our code again, then we don’t care. But as we all know, code is rarely frozen. We almost always need to modify code as business needs change. The degree of Coupling and Cohesion will determine how complex the modification will be and how long it will take.
