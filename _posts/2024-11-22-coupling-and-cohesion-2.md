@@ -11,15 +11,15 @@ I consumed the references provided by those who had made comments and realized t
 
 I originally planned to update the previous blog and call it a day, but I realized that these updates to the previous blog might change too much. For example, I should have introduced _Coupling_ before _Cohesion_. Flipping them would too drastically change the original blog.
 
-Therefore, I decided to create a new blog entry. Plus, a new blog ensures that everyone knows about the updates.
+Therefore, I decided to create a new blog entry. Plus, a new blog ensures that everyone knows about the follow up.
 
 # Coupling and Cohesion History
-[Coupling](https://en.wikipedia.org/wiki/Coupling_(computer_programming)) and [Cohesion](https://en.wikipedia.org/wiki/Cohesion_(computer_science)) were invented by [Larry Constantine](https://en.wikipedia.org/wiki/Larry_Constantine) as part of [Structured Design](https://en.wikipedia.org/wiki/Structured_analysis#Structured_design). The terms gained popularity in [__Structured Design__](https://wstomv.win.tue.nl/quotes/structured-design.html) co-authored with [Ed Yourdon](https://en.wikipedia.org/wiki/Edward_Yourdon). [Chapter 6]( https://wstomv.win.tue.nl/quotes/structured-design.html#6) is devoted to _Coupling_ and [Chapter 7](https://wstomv.win.tue.nl/quotes/structured-design.html#7) is devoted to _Cohesion_.
+[Coupling](https://en.wikipedia.org/wiki/Coupling_(computer_programming)) and [Cohesion](https://en.wikipedia.org/wiki/Cohesion_(computer_science)) were invented by [Larry Constantine](https://en.wikipedia.org/wiki/Larry_Constantine) as part of [Structured Design](https://en.wikipedia.org/wiki/Structured_analysis#Structured_design). The terms gained popularity in the [__Structured Design__](https://wstomv.win.tue.nl/quotes/structured-design.html) book co-authored with [Ed Yourdon](https://en.wikipedia.org/wiki/Edward_Yourdon). [Chapter 6]( https://wstomv.win.tue.nl/quotes/structured-design.html#6) is devoted to _Coupling_ and [Chapter 7](https://wstomv.win.tue.nl/quotes/structured-design.html#7) is devoted to _Cohesion_.
 
-[Meilir Page-Jones](https://www.dorsethouse.com/authors/page-jones.html) also contributed to the Coupling and Cohesion literature within [What Every Programmer Should Know About Object-Oriented Design](https://www.amazon.com/Every-Programmer-Should-Object-Oriented-Design/dp/0932633315), but I haven’t found many online references with details.
+[Meilir Page-Jones](https://www.dorsethouse.com/authors/page-jones.html) also contributed to the Coupling and Cohesion literature in [What Every Programmer Should Know About Object-Oriented Design](https://www.amazon.com/Every-Programmer-Should-Object-Oriented-Design/dp/0932633315), but I haven’t found many online references with details.
 
 # Coupling and Cohesion Word Salad
-__Coupling__ is dependency. __Cohesion__ is dependency as well, but more aggressively so when all the elements depend upon one another. Coupling is an attribute of a bad design. Given that cohesion is even more aggressive coupling,  one would think that it's a bad design, but no, cohesion is a good design. 
+__Coupling__ is dependency. __Cohesion__ is dependency as well, but more aggressively so when all the elements depend upon one another like a team. Coupling is an attribute of a bad design. Given that cohesion is even more aggressive coupling,  one would think that it's an attribute of a bad design, but no, cohesion is an attribute of a good design. 
 
 There's more confusion when throwing in more terms, such as __loose/tight coupling__ and __low/high cohesion__. Grouping __loose-coupling/high-cohesion__ together and __tight-coupling/low-cohesion__ together as paired opposites adds more fuel to the fire. Continue the befuddlement by throwing in multiple [__types__](https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Types_of_coupling) and [__dimensions__](https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Types_of_coupling) of coupling along with several [__types__]( https://en.wikipedia.org/wiki/Cohesion_(computer_science)#Types_of_cohesion) of cohesion. Meilir Page-Jones put a bow on the confusion package when he defined  a whole new term, [__Connascence__](https://en.wikipedia.org/wiki/Connascence), which is coupling in the context of Object-Oriented design.
 
@@ -40,9 +40,9 @@ These two concepts are not mutually exclusive. Constantine and Yourdon also wrot
 # Coupling and Cohesion - Possibly Two Sides of the Same Coin
 I think there's more to Coupling and Cohesion than their interrelatedness. __Coupling and Cohesion represent dependency and knowledge at a distance.__ Coupling represents dependency upon and knowledge of elements at greater distances, i.e., dependency and knowledge beyond the module. Cohesion represents dependency of and knowledge of elements at lesser distances, i.e., dependency and knowledge within the module. Coupling and Cohesion could be thought of describing the same concept but with two opposing terms.
 
-The original definition of Coupling and Cohesion applied to connectivity being inside or outside a module, but I think the principle expands on a spectrum beyond connectivity more granular than the module.
+The original definition of Coupling and Cohesion applied to connectivity being inside or outside a module, but I think the principle expands on a spectrum beyond connectivity that is more granular than the module.
 
-Thinking more abstractly, the cubes in the diagram above can be thought of as any _boundary_, which can represent expanding borders, such as: a statement block, method, class, package, service, etc. It depends upon context. Boundaries can be nested.
+Thinking more abstractly, the cubes in the diagram above can be thought of as any _boundary_, which can represent expanding borders, such as: a statement block, method, class, package, service, etc. It depends upon context. Boundaries representing different layers of borders can be nested.
 
 The dots are elements within each boundary. The _Good_ illustration shows high cohesion among the elements in each boundary and relatively little, i.e., loose, coupling between the boundaries. The _Bad_ illustration also shows low cohesion among elements within the boundaries and high coupling among elements in the other boundary.
 
@@ -50,15 +50,15 @@ __Coupling represents dependency and knowledge between boundaries. Cohesion repr
 
 Coupling and Cohesion are on a boundary spectrum. That's why __loose-coupling/high-cohesion__ and __tight-coupling/low-cohesion__ tend to be paired together. They represent the same basic concept of dependency and knowledge at a distance relative to a boundary.
 
-High cohesion means that most elements that are responsible for a behavior (or feature) reside within a boundary. Elements not responsible for a behavior do not reside within the boundary. Behavior modifications may cause updates to all cohesive elements within the boundary. You or your team should have complete responsibility for the boundary meaning there's little to no coordination with others.
+__High Cohesion__ means that most elements that are responsible for a behavior (or feature) reside within a boundary. Elements not responsible for a behavior do not reside within the boundary. Behavior modifications may cause updates to all cohesive elements within the boundary. You or your team should have complete responsibility for the boundary meaning there's little to no coordination with others.
 
-Loose coupling means that dependency and knowledge among boundaries is limited. Abstractions, such as interfaces and APIs are boundary access ports that encapsulate internal elements within the other boundaries. Interfaces and APIs provide access to behavior provided by other boundaries without requiring external coupling to internal elements of those other boundaries.
+__Loose Coupling__ means that dependency and knowledge among boundaries is limited. Abstractions, such as interfaces and APIs are boundary access ports that encapsulate internal elements within the other boundaries. Interfaces and APIs provide access to behavior provided by other boundaries without requiring external coupling to internal elements of those other boundaries.
 
 <img src="https://codeopinion.com/wp-content/uploads/2021/12/2-1-768x655.png" alt="Big Ball of Mud" title="Image Source: https://codeopinion.com/long-live-the-monolith-monolithic-architecture-big-ball-of-mud/" width = "35%" align="right" style="padding-right: 20px;">
 
-Low cohesion and tight coupling render the boundaries meaningless. Elements have dependency upon and knowledge of other elements anywhere. A modification anywhere can have an impact everywhere. You and your team may have limited responsibility for many of the impacted elements requiring coordination with others. Additionally, updates made by others may impact your team's elements as well. A design like this is often called a [Big Ball of Mud](https://blog.codinghorror.com/the-big-ball-of-mud-and-other-architectural-disasters/).
+__Low Cohesion__ and __Tight Coupling__ render the boundaries meaningless. Elements have dependency upon and knowledge of other elements anywhere. A modification anywhere can have an impact everywhere. You and your team may have limited responsibility for many of the impacted elements requiring coordination with others. Additionally, updates made by others may impact your team's elements as well. A design like this is often called a [Big Ball of Mud](https://blog.codinghorror.com/the-big-ball-of-mud-and-other-architectural-disasters/).
 
-Tight coupling also leads to daisy chaining. An update to one element may require an update to a tightly coupled element, which may require an update to another tightly coupled element, etc. This daisy chained dependency can trigger what at first appears to be a simple update to spread like wildfire as cascading updates spread throughout the system.
+__Tight Coupling__ also leads to daisy chained dependencies. An update to one element may require an update to a tightly coupled element, which may require an update to another tightly coupled element, etc. This daisy chained dependency can trigger what at first appears to be a simple update to spread like wildfire as cascading updates spread throughout the system.
 
 With this more fluid interpretation of Coupling and Cohesion, we could have a system with __loose-coupling/high-cohesion__ on the macro design level and __tight-coupling/low-cohesion__ on the micro design level. That is, there may be low coupling between packages and high cohesion within a package, but the design inside the package could have tight coupling and low cohesion almong the classes and methods within the package.
 
@@ -84,7 +84,7 @@ He included a [graph](https://www.youtube.com/watch?v=KTy4rqgPOjg&t=2217s), whic
 This graph illustrates how coupling increases and cohesion decreases as the distance between elements expands. An update with a larger boundary footprint will require more time, coordination, buy-in and cost, than an update with a smaller footprint. For example, modifications scoped to a few statements only require the resources of one or two developers. Modifications scoped to systems require multiple teams and possibly multiple companies.
 
 # Coupling and Cohesion Examples
-I struggled to provide good coupling and cohesion examples in my previous [blog](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html).
+I struggled to provide good coupling and cohesion examples in my previous [blog](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html). I'll make another attempt here.
 
 ## Real World Examples
 I used the [screw/screwdriver](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html#cohesion) example to describe high cohesion, but it’s coupling too. I guess it depends upon how easily you can find a matching screwdriver when you need it. And while I initially liked my [Reese’s Peanut Butter Cup](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html#coupling) example, I’m not sure what I was trying to convey. Chocolate and peanut butter definitely have separate identities, which implies coupling, but darn it, when combined in a Reese’s Cup, they sure feel like a cohesive unit.
@@ -105,12 +105,12 @@ Though not obvious at first, this is a highly coupled design. All code that refe
 
 I would prefer an implementation that keeps state machine behavior cohesive, possibly via the [State Design Pattern](https://refactoring.guru/design-patterns/state). This consolidates the state machine behavior. The state machine could still provide a `get` accessor for its `state`, but it should not provide a `set` accessor. The state machine would define public methods for each `event` that would trigger an internal transition and the implementation to determine the new `state` would occur in the `event` method within the state machine class. The `state` implementation could be enhanced with the [Observer Design Pattern](https://refactoring.guru/design-patterns/observer) so that the applications could subscribe to future `state` change notifications.
 
-I suspect that the coupled design occurs when developers don't realize that there's state machine behavior lurking in their class. If they don't design a cohesive state machine, the design will have a tendence to be distributed.
+I suspect that the coupled design occurs when developers don't realize that there's state machine behavior lurking in their application. If they don't design a cohesive state machine, the design will have a tendence to be distributed.
 
 ### Wrong Abstraction
-My [Getting the Right Abstraction is Hard](https://jhumelsine.github.io/2023/09/22/right-abstraction-is-hard.html) is also about coupling and cohesion. In this blog, I described an implementation and design I inherited. The implementation featured a base class with several extending classes. As I examined the code to understand it, I realized that some behavior implementations were in the wrong places. Some behavior implemented in the base class needed to be distributed into the extended classes and some behavior implemented in the extended classes needed to be consolidated in the base class.
+My [Getting the Right Abstraction is Hard](https://jhumelsine.github.io/2023/09/22/right-abstraction-is-hard.html) blog entry is also about coupling and cohesion. In this blog, I described an implementation I inherited. The implementation featured a base class with several extending classes. As I examined the code to understand it, I realized that some behavior implementations were in the wrong places. Some behavior implemented in the base class needed to be moved into the extending classes and some behavior implemented in the extended classes needed to be consolidated in the base class.
 
-In its original design, a change to behavior associated with the extended class could impact the base class as well, which could impact the other extended classes.
+In its original design, a change to behavior associated with an extended class, but placed in the base class, could impact the base class as well, which could impact the other extended classes.
 
 Once I redesigned the code, using the [Template Method Design Pattern](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html), the design was less coupled. A change to an extended class would not affect the base class or the other extended classes.
 
@@ -122,7 +122,7 @@ A __contract__ declares behavior without defining how that behavior will be impl
 Many modern software practices, such as [Design Patterns](https://jhumelsine.github.io/2023/08/24/its-your-move.html), [Hexagonal Architecture/Ports & Adapters](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html), focus upon contracts. The first [Design Pattern Principle](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html) addresses this with: __Program to an interface, not an implementation__.
 
 # Context Coupling
-There are multiple [__types__](https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Types_of_coupling) and [__dimensions__](https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Types_of_coupling) of coupling along with several [__types__]( https://en.wikipedia.org/wiki/Cohesion_(computer_science)#Types_of_cohesion) of cohesion. Follow the links for details or watch some of the presentations in the [References](#references) below which describe some of them as well.
+There are multiple [__types__](https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Types_of_coupling) and [__dimensions__](https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Types_of_coupling) of coupling along with several [__types__]( https://en.wikipedia.org/wiki/Cohesion_(computer_science)#Types_of_cohesion) of cohesion. Follow the links for definitions or watch some of the presentations in the [References](#references) below which describe some of them as well.
 
 I'll provide a scenario of one, which I think is technically __External Coupling__, based upon the Wikipedia definition:
 >External coupling occurs when two modules share an externally imposed data format, communication protocol, or device interface. This is basically related to the communication to external tools and devices.
@@ -133,7 +133,7 @@ We can still have coupling with a good design with good contracts. Contracts may
 
 I didn’t fully appreciate leaky abstractions until writing this blog entry. I had only considered leaking abstracts in the context that implementation details could be leaked in a contract.
 
-We don’t want to leak implementation details in a contract, but most contracts will contain context, and both the consumer and supplier of the contract depend upon and have knowledge of that context. If that context changes, and it may need to for business reasons, then the consumer and supplier may both need to change as well.
+We don’t want to leak implementation details in a contract, but most contracts will contain context, and both the consumer and supplier of the contract depend upon and have knowledge of that context. If that context changes, and it may need to change for business reasons, then the consumer and supplier may both need to change as well.
 
 As an example, a contract may include the definition of Person, with a name, address, landline phone number, email address, etc. Later, possibly much later, there’s a business need to update a Person to include a cellphone number or an additional email address.
 
