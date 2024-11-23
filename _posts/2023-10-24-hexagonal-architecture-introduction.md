@@ -113,6 +113,7 @@ Here are some free online video resources:
 * [Hexagonal Architecture: What You Need To Know - Simple Explanation](https://www.youtube.com/watch?v=bDWApqAUjEI)
 * [Hexagonal Architecture and Clean Architecture (with examples)](https://www.youtube.com/watch?v=bRl-sTvLbsI)
 * [Hexagonal Architecture (Ports and Adapters) with Alistair Cockburn](https://www.youtube.com/watch?v=AOIWUPjal60)
+* [Hexagonal Architecture (Alistair Cockburn)](https://www.youtube.com/live/k0ykTxw7s0Y)
 * [Structure your microservice using a hexagonal architecture by Fredrik Lindgren](https://www.youtube.com/watch?v=QCOMeiMYb6I)
 * [The Principles of Clean Architecture by Uncle Bob Martin](https://www.youtube.com/watch?v=o_TH-Y78tt4)
 * [ITkonekt 2019 Robert C. Martin (Uncle Bob), Clean Architecture and Design](https://www.youtube.com/watch?v=2dKZ-dWaCiU)
