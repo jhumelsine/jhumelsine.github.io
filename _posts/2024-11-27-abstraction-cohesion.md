@@ -7,10 +7,10 @@ unlisted: true
 # Introduction
 This blog is a continuation of the previous [Abstract](https://jhumelsine.github.io/2024/10/30/abstraction.html) blog where I follow up with _Cohesive Abstractions_. 
 
-Abstractions may reference other Abstractions. In doing so, they depend upon and have knowledge of those other Abstractions. We want to ensure that when this occurs that the concrete implementations for these Abstracts are resolved consistently.
+Abstractions may reference other Abstractions. In doing so, they depend upon and have knowledge of those other Abstractions. We want to ensure that that the concrete implementations for these Abstractions are resolved consistently.
 
 # Cohesion and Coupling
-_Cohesion_ and _Coupling_ are related and somewhat confusing concepts. Before I describe the consistent management of _Cohesive Abstractions_, make sure you understand _Cohesion_ and _Coupling_. The two previous blogs focus upon them:
+_Cohesion_ and _Coupling_ are related and somewhat confusing terms. Before I describe the consistent management of _Cohesive Abstractions_, make sure you understand _Cohesion_ and _Coupling_. The two previous blogs focus upon them:
 * [What Are Cohesion and Coupling?](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html) - Cohesion and coupling address when things should and should not be too sticky with one another
 * [Coupling and Cohesion – Take 2](https://jhumelsine.github.io/2024/11/22/coupling-and-cohesion-2.html) - Let’s revisit these concepts one more time
 
@@ -26,7 +26,7 @@ You’ll want to design a gun that supports behaviors, such as: ready, aim and f
  
 You realize there can be multiple guns, so you want some degree of abstraction.
 
-But not everything is a rifle. What about bazookas? Or what about previous weapon technology, such as the musket, or even the bow and arrow?
+But not everything is a gun. What about bazookas? Or what about previous weapon technology, such as the musket, or even the bow and arrow?
 
 These can all be concrete examples of paired cohesive abstractions of a __Launcher__ and __Projectile__. Some concrete pairs could be: __Gun/Bullet__, __Bazooka/Shell__, __Musket/Ball__, __Bow/Arrow__, __Sling/Shot__, etc.
 
@@ -56,7 +56,7 @@ Here are two good Abstract Factory Design Pattern online resources:
 An Abstract Factory Pattern is an extension of the [Factory Pattern]( https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#factories) concept.
 
 A  __Factory__ is a class that returns a concrete instance for an abstract reference.
-An __Abstract Factory__ is an interface that declares a set of __Factory__ methods each of which returns a declared abstract reference.
+An __Abstract Factory__ is an interface that declares a set of __Factory__ methods each of which returns concrete reference to an abstract definition.
 The concrete classes that implement the __Abstract Factory__ must implement each of those __Factory__ methods and return concrete references for each, such that those concrete references are consistent.
 Do you see what I mean about __Abstract Factory__ being challenging as the first pattern presented in the GoF?
 
@@ -72,7 +72,7 @@ The above only declares the abstractions. This diagram adds the concrete __Facto
 * `Projectile` is implemented by `Bullet`, since this is the only type of `Projectile` that's consistent with a `Rifle`.
 * `RifleWeaponsSystem` implements `WeaponsSystem`. Its methods instantiate a `Launcher`/`Rifle` and `Projectile`/`Bullet` respectively. The two are ensured to be consistent.
 * `RifleWeaponSystemConfigurer` isn’t technical part of the Abstract Factory Pattern. It’s the [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer), which is a missing concept in most GoF patterns. It creates the `RifleWeaponSystem` instance and injects it into the `Warrior`.
-* This design adds the red dashed lines used to designate __ABSTRACT__, __CONCRETE__ and __CONFIGURE__ architecture boundaries, which were introduced in [What vs How](https://jhumelsine.github.io/2024/10/30/abstraction.html#what-vs-how) in the previous blog.
+* This design adds the red dashed lines used to designate __ABSTRACT__, __CONCRETE__ and __CONFIGURE__ architecture boundaries, which were introduced in [What vs How](https://jhumelsine.github.io/2024/10/30/abstraction.html#what-vs-how) in a previous blog.
  
 <img src="/assets/AbstractCohesion3.png" alt="Full Design with Rifle"  width = "100%" align="center" style="padding-right: 35px;">
 
@@ -83,7 +83,7 @@ The Abstract Factory requires more design elements. It’s an investment. Here i
 
 The `Rifle` and `Bazooka` designs are identical in their Abstraction regions above the red dashed horizontal line. The distinctions below the line are almost boilerplate.
 
-The addition of `Bazooka` as a weapon system does not replace or invalidate the `Rifle` weapon system. I did not show the previous `Rifle` related classes due to space concerns. This design can support as many `Launcher`/`Projectile` weapon system as the team imagines.
+The addition of `Bazooka` as a weapon system does not replace or invalidate the `Rifle` weapon system. I did not show the previous `Rifle` related classes due to space constraints. This design can support as many `Launcher`/`Projectile` weapon system as the team imagines.
 
 ## And Testing Too
 We can easily test the code in the Abstract regions with the same design. The distinction is that it uses Test specific concrete classes:
@@ -116,20 +116,21 @@ I’m going to stay with the same design structure, but I’ll modify the contex
 ## Safety Critical
 I moved from `Warrior` to `CombatVehicle` to feature a real-world example.
 
-I worked on a military project where the goal was to move combat vehicles, such as tanks, with their crew via large military cargo planes. The crew could train by running simulations within their vehicles to familiarize themselves with terrain, landmark features, etc. of their destination during the hours in transit.
+I worked on a military project where the goal was to move combat vehicles, such as tanks, with their crew via large military cargo planes. 
+The crew could train by running simulations within their vehicles to familiarize themselves with terrain, landmark features, etc. of their destination during the hours while flying to their destination.
 
-The simulations could involve spotting targets and firing their weapons. It would be very bad to fire a tank shell from inside the cargo plane. Our software would include a __TRAINER__ mode so that the guns would not actually fire the shells. I didn’t work on these features directly.
+The simulations could involve spotting targets and firing their weapons. It would be very bad to fire a tank shell from inside the cargo plane. The system included a __TRAINER__ mode so that the guns would not actually fire the shells. I didn’t work on the __TRAINER__ feature directly; therefore, what I describe is mostly hypothetical.
 
-Code like this would be considered [___Safety Critical___](https://en.wikipedia.org/wiki/Safety-critical_system), meaning that if there’s a bug in the code, it could seriously harm or kill people. Blowing a hole in the side of the plane during transit would definitely qualify as a ___Safety Critical___ concern.
+Code like this was considered [___Safety Critical___](https://en.wikipedia.org/wiki/Safety-critical_system), meaning that if there’s a bug in the code, it could seriously harm or kill people. Blowing a hole in the side of the plane during transit would definitely qualify as a ___Safety Critical___ concern.
 
-Since I didn’t work directly on this code, I don’t know how they planned to implement this, but given other code I experienced on the project, I feared it might look something like the design below, where an `if` statement checks the `mode` and it only fires the `TankGun` when `mode` is not `TRAINER`.
+Since I didn’t work directly on this code, I don’t know how they planned to implement this behavior, but given other code I experienced on the project, I feared it might look something like the design below, where an `if` statement would check the `mode` and then only fire the `TankGun` when `mode` is not `TRAINER`.
  
 <img src="/assets/AbstractCohesion8.png" alt="Safety Critical Tank Design"  width = "100%" align="center" style="padding-right: 35px;">
 
 I have several issues with this design:
-* `Mode` feels like behavior associated with the `TankGun`, but it resides in the `CombatVehicle`. It will work, but what if other code interacts with the `TankGun` as well. It will need to have the same logic. `TRAINER` logic will be distributed across the codebase with low cohesion. How confident will we be that all the `TRAINER` cases have been covered? __NOTE:__ In case you haven't realized it, `mode` is starting to describe a __state machine__.
-* There’s no behavior when in `TRAINER` mode. While we don’t want to fire the gun while in `TRAINER` mode, we want code to behave as if we had fired it for a more realistic training simulation for the crew.
-* The `if` statement only checks for `TRAINER`. What if there’s another mode, such as `MAINTENANCE`, for which we don’t want to fire the gun as well. This design will fire the gun in any non `TRAINER` mode whether desired or not. We can always enhance the implementation with `else if` or `else` statements for other `mode` values, but given the distributed low cohesive design, it would clutter the applications and the maintenance will be more difficult.
+* `Mode` feels like behavior associated with the `TankGun`, but it resides in the `CombatVehicle`. It will work, but what if other code interacts with the `TankGun` as well. It will need to have the same logic. `TRAINER` logic will be distributed across the codebase with low cohesion. How confident will we be that all the `TRAINER` cases have been covered? __NOTE:__ In case you haven't realized it, `mode` is starting to describe a [__state machine__](https://jhumelsine.github.io/2024/11/22/coupling-and-cohesion-2.html#state-machine).
+* There’s no behavior when in `TRAINER` mode. While we don’t want to fire the gun while in `TRAINER` mode, we want code to behave as if we had fired it for a more realistic training simulation for the crew. An `else` statement could handle the non `TRAINER` mode, but there's an issue with that as described in the next bullet.
+* The `if` statement only checks for `TRAINER`. What if there’s another mode, such as `MAINTENANCE`, for which we don’t want to fire the gun as well. This design will fire the gun in any non `TRAINER` mode whether desired or not. We can always enhance the implementation with `else if` or `else` statements for other `mode` values, but given the distributed low cohesive design, it would clutter the applications and the maintenance will be more difficult. And inevitably one of those checks will be omitted somehwere critical. 
 
 ## Concrete Trainer Classes
 We can think of `TRAINER` mode like [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html). They are different versions of `Launcher` and `Projectile`. Here’s how they would appear in the design:
