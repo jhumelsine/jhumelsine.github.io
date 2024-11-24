@@ -7,15 +7,15 @@ unlisted: true
 # Introduction
 This blog is a continuation of the previous [Abstract](https://jhumelsine.github.io/2024/10/30/abstraction.html) blog where I follow up with _Cohesive Abstractions_. 
 
-Abstractions may reference other Abstractions, depend upon other Abstractions or have knowledge of other Abstractions. We want to ensure that when this occurs that the concrete implementations for these Abstracts are resolved consistently.
+Abstractions may reference other Abstractions. In doing so, they depend upon and have knowledge of those other Abstractions. We want to ensure that when this occurs that the concrete implementations for these Abstracts are resolved consistently.
 
 # Cohesion and Coupling
-Before I describe the consistent management of _Cohesive Abstractions_, I need to explain _Cohesion_ and _Coupling_:
+_Cohesion_ and _Coupling_ are related and somewhat confusing concepts. Before I describe the consistent management of _Cohesive Abstractions_, make sure you understand _Cohesion_ and _Coupling_. The two previous blogs focus upon them:
 * [What Are Cohesion and Coupling?](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html) - Cohesion and coupling address when things should and should not be too sticky with one another
 * [Coupling and Cohesion – Take 2](https://jhumelsine.github.io/2024/11/22/coupling-and-cohesion-2.html) - Let’s revisit these concepts one more time
 
 # Cohesive Abstractions
-__Cohesive Abstractions__ are when coupled elements are abstractions, such as interfaces. I’ll continue with an example to demonstrate these concepts.
+__Cohesive Abstractions__ are when coupled elements are abstractions, such as interfaces. Our goal is to ensure that the concrete classes implementing the abstractions are consistent in their given context. I’ll continue with an example to demonstrate these concepts.
 
 ## Call To Duty
 Let’s assume that you’re a developer on a military game, such as [Call to Duty](https://www.callofduty.com/), and you’re in the _Weapons_ development team.
@@ -26,12 +26,12 @@ You’ll want to design a gun that supports behaviors, such as: ready, aim and f
  
 You realize there can be multiple guns, so you want some degree of abstraction.
 
-But not everything is a traditional gun. What about bazookas? Or what about previous weapon technology, such as the musket, or even the bow and arrow?
+But not everything is a rifle. What about bazookas? Or what about previous weapon technology, such as the musket, or even the bow and arrow?
 
-These can all be concrete examples of cohesive abstractions of a __Launcher__ and __Projectile__. Some concrete pairs could be: __Gun/Bullet__, __Bazooka/Shell__, __Musket/Ball__, __Bow/Arrow__, __Sling/Shot__, etc.
+These can all be concrete examples of paired cohesive abstractions of a __Launcher__ and __Projectile__. Some concrete pairs could be: __Gun/Bullet__, __Bazooka/Shell__, __Musket/Ball__, __Bow/Arrow__, __Sling/Shot__, etc.
 
 Ready, aim and fire don’t quite work for some of these, so let’s generalize them with: load, aim and launch. This first design describes the cohesive abstractions:
-* The `Warrior` represents the player, and we’re going to only focus upon the `Warrior`’s ability to launch a `Projectile` via a `Launcher`.
+* The `Warrior` represents the player, and we’re going to only focus upon the `Warrior`’s ability to interact with a `Projectile` and its `Launcher`.
 * The `Launcher` declares the `load(Projectile projectile)`, `aim()` and `launch()` methods. 
 * The `Launcher` interface has dependency upon and knowledge of the `Projectile` interface. `Projectile` does not have dependency or knowledge of `Launcher`.
  
@@ -41,10 +41,10 @@ I think this is the first time in any of my blogs where I show one interface ref
 
 `Launcher` and `Projectile` are cohesive. A `Launcher` isn’t much use with a `Projectile`, and `Projectile` isn’t much use with a `Launcher`. They must be consistent. A  `Bazooka` would not be of much use if its loaded `Projectile` were a `Bullet` or `Arrow`.
 
-The concrete implementations for `Launcher` and `Projectile` must be matching pairs.
+The concrete implementations for `Launcher` and `Projectile` must be consistent matching pairs.
 
 ## Abstract Factory Design Pattern
-One way to ensure matching pairs is via the __Abstract Factory Design Pattern__. I wrote about this pattern briefly in the [Abstract Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#abstract-factory) section of the [Factory Design Patterns blog](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html).
+One way to ensure consistent matching pairs is via the __Abstract Factory Design Pattern__. I wrote about this pattern briefly in the [Abstract Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#abstract-factory) section of the [Factory Design Patterns blog](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html).
 
 The __Abstract Factory Design Pattern__ is the first pattern presented by the Gang of Four (GoF) in their Design Pattern book, because it’s alphabetically first. It’s a tough pattern to understand, which is one reason why I think the GoF’s book is difficult to learn design patterns.
 
