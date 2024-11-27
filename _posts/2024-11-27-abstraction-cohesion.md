@@ -1,7 +1,6 @@
 ---
-title: DRAFT – What Is Cohesive Abstraction?
+title: What Is Cohesive Abstraction?
 description: How to manage cohesion among abstractions consistently
-unlisted: true
 ---
 
 # Introduction
@@ -127,7 +126,7 @@ Since I didn’t work directly on this code, I don’t know how they planned to 
  
 <img src="/assets/AbstractCohesion8.png" alt="Safety Critical Tank Design"  width = "100%" align="center" style="padding-right: 35px;">
 
-I have several issues with this design:
+This looks like a reasonable choice, but I have several issues with this design:
 * `Mode` feels like behavior associated with the `TankGun`, but it resides in the `CombatVehicle`. It will work, but what if other code interacts with the `TankGun` as well. It will need to have the same logic. `TRAINER` logic will be distributed across the codebase with low cohesion. How confident will we be that all the `TRAINER` cases have been covered? __NOTE:__ In case you haven't realized it, `mode` is starting to describe a [__state machine__](https://jhumelsine.github.io/2024/11/22/coupling-and-cohesion-2.html#state-machine).
 * There’s no behavior when in `TRAINER` mode. While we don’t want to fire the gun while in `TRAINER` mode, we want code to behave as if we had fired it for a more realistic training simulation for the crew. An `else` statement could handle the non `TRAINER` mode, but there's an issue with that as described in the next bullet.
 * The `if` statement only checks for `TRAINER`. What if there’s another mode, such as `MAINTENANCE`, for which we don’t want to fire the gun as well. This design will fire the gun in any non `TRAINER` mode whether desired or not. We can always enhance the implementation with `else if` or `else` statements for other `mode` values, but given the distributed low cohesive design, it would clutter the applications and the maintenance will be more difficult. And inevitably one of those checks will be omitted somehwere critical. 
