@@ -26,6 +26,7 @@ It may take me a whole to find my own style, but here are some guidelines that I
 
 # Contact
 * X/Twitter: **@jhumelsine**
+* Bluesky: **jhumelsine.bsky.social**
 * [Coding Blocks Slack](https://www.codingblocks.net/slack/): **Design Pattern Evangelist (Jim)**
 * [Legacy Code Rocks! Slack](http://slack.legacycode.rocks/): **Jim Humelsine**
 * [We Do TDD Slack](http://wedotdd.slack.com): **Design Pattern Evangelist (Jim)**
