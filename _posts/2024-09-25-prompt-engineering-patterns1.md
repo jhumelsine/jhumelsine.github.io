@@ -291,6 +291,7 @@ Other Prompt Engineering Pattern content:
 * [Prompt engineering patterns](https://community.openai.com/t/prompt-engineering-patterns/121040) – OpenAI Prompt Engineering Pattern Forum
 * [What Is a Prompt Pattern?](https://www.coursera.org/articles/prompt-pattern) – by Coursera staff
 * [A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT](https://www.dre.vanderbilt.edu/~schmidt/PDF/prompt-patterns.pdf) – by Jules White, et al. White is the presenter in the Vanderbilt Coursera course
+* [Unlocking ChatGPT’s Potential with “Scope It, Shape It, Size It”](https://jdmeier.com/3s-for-chatgpt/) - by J.D. Meier
 * [33 Rules to Better ChatGPT Prompt Engineering](https://www.ssw.com.au/rules/rules-to-better-chatgpt-prompt-engineering/) - by [SSW Rules](https://www.ssw.com.au/rules/)
 * [Prompt Engineering Guide](https://www.promptingguide.ai/) - by [Democratizing Artificial Intelligence Research, Education, and Technologies](https://github.com/dair-ai)
 * [Prompt Patterns: What They Are and 16 You Should Know](https://www.prompthub.us/blog/prompt-patterns-what-they-are-and-16-you-should-know) – by PromptHub
