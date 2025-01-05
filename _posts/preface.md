@@ -58,8 +58,8 @@ However, there's no overall Preface, Primer or Table of Contents for the Blog as
 # Statistics
 | **Year** | **Blogs** | **Words** | **Comments** |
 |---|---:|---:|---|
-| **2021** | 1 | 1,278 | Prototype blog to set up the environment on GitHub | 
+| **2021** | 1 | 1,278 | First prototype blog about UML to set up the environment on GitHub | 
 | **2022** | 0 | 0 | Still working. Did not start blogging yet | 
-| **2023** | 21 | 38,229 | Blogged for about four months | 
-| **2024** | 35 | 109,944 |  | 
-| **Totals** | **57** | **149,451** |  | 
+| **2023** | 21 | 38,229 | Topics covered were Design Pattern Introduction, Essential Design Patterns and Hexagonal Architecture | 
+| **2024** | 35 | 109,944 | Topics overed were Composable Design Patterns, Interpreter Design Pattern, Automated Testing, LLMs/GenAIs and Abstraction | 
+| **Totals** | **57** | **149,451** | | 
