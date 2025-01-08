@@ -3,7 +3,7 @@ title: Strategy Design Pattern
 description: When there’s more than one way to get the job done.
 ---
 
-<img src="https://i0.wp.com/s802022855.onlinehome.us/wp-content/uploads/2014/12/settlers_settled.jpg" alt="Settlers of Catan" title="Image Source: https://islaythedragon.com/featured/we-live-in-catan-we-die-in-catan-a-review-of-settlers-of-catan/" width = "75%" style="padding-right: 20px;">
+<img src="https://i0.wp.com/islaythedragon.com/wp-content/uploads/2014/12/settlers_settled.jpg" alt="Settlers of Catan" title="Image Source: https://islaythedragon.com/featured/we-live-in-catan-we-die-in-catan-a-review-of-settlers-of-catan/" width = "75%" style="padding-right: 20px;">
 
 # Settlers of Catan Victory
 Victory is achieved in Settlers of Catan by acquiring Victory Points received via different criteria in the game. Players may use different strategies to receive these points. There are multiple ways to win this game.
