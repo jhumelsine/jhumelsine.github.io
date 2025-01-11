@@ -106,3 +106,6 @@ Unemployment won’t last forever, even if it feels like it at the time.
 Establish a financial plan. Work on your job search a bit almost every day. Find purpose and meaning in your life with the gift of time that’s been given to you.
 
 Best luck and wishes to all those currently searching for their next opportunity.
+
+# References
+* [Future-proofing your Software Engineering career](https://addyo.substack.com/p/future-proofing-your-software-engineering) - Blog by Addy Osmani
