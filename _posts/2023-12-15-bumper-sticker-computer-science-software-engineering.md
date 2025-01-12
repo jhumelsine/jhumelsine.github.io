@@ -122,6 +122,8 @@ _[Rule of Credibility] The first 90 percent of the code accounts for the first 9
 
 _It always takes longer than you expect, even when you take into account Hofstadter's Law._ — Hofstadter's Law
 
+_The first step of any project is to grossly underestimate its complexity and difficulty._ ― Nicoll Hunt
+
 _... crucial discoveries always emerge during the design/implementation effort._ ― Eric Evans
 
 _Some folks think that Agile is about going fast. It’s not. It’s never been about going fast. Agile is about knowing, as early as possible, just how screwed we are._ ― Robert C. Martin
