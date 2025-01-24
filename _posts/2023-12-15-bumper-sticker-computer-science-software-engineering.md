@@ -36,6 +36,8 @@ _I’m not a great programmer. I’m just a good programmer with great habits._ 
 
 _Learning to program teaches you how to think. Computer science is a liberal art._ — Steve Jobs
 
+_[A] computer science education cannot make anybody an expert programmer any more than studying brushes and pigment can make somebody an expert painter._ — Eric Raymond
+
 _Just because you've implemented something doesn't mean you understand it._ — Brian Cantwell Smit
 
 _You see, programmers tend to be arrogant, self-absorbed introverts. We didn’t get into this business because we like people._ ― Robert C. Martin
