@@ -116,6 +116,8 @@ _Furious activity is no substitute for understanding._ — H. H. Williams
 
 _Weeks of coding can save you hours of planning._ — Unknown
 
+_Think twice before you start programming or you will program twice before you start thinking._ — Unknown
+
 _Good, Fast, Cheap: Pick any two (you can't have all three)._ — Ross Callon
 
 _How does a project get to be a year late? . . . . One day at a time._ ― Frederick P. Brooks Jr.
