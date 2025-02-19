@@ -124,7 +124,7 @@ A new software engineering executive joined the company a few months after I sta
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Hammer-1629587.jpg/1200px-Hammer-1629587.jpg" alt="Hammer and Nails" title="Image Source: https://commons.wikimedia.org/wiki/File:Hammer-1629587.jpg" width = "40%" align="right" style="padding-right: 35px;">
 
-I pitched the DSL idea to him, and he shot my suggestion down faster than the Red Barron in an aerial dogfight with a pilot fresh out of flight school. I never mentioned DSLs to him again. 
+I pitched the DSL idea to him, and he shot my suggestion down faster than the Red Baron in an aerial dogfight with a pilot fresh out of flight school. I never mentioned DSLs to him again. 
 
 _The nail that sticks out will get hammered down. – Japanese Proverb_.
 
