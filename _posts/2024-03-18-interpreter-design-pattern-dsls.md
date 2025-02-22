@@ -47,7 +47,7 @@ The above is a nice summary of the process but it only makes sense once you unde
 
 They added ___domain___, which I think is a critical concept for understanding Interpreter. Domain is the business environment of an industry. eBay’s domain is auctions. Amazon’s domain is selling books, or at least it started that way. Facebook, LinkedIn and Twitter/X’s domains are social networks.
 
-Domain is an ecosystem. Domain is an economy. Domain is a mathematical system. Domain is often closed system. A domain is a set of rules that define a bounded conceptual space specifying what can and cannot happen to the domain elements within that bounded space. A Domain-Specific Language is a representation of those rules.
+Domain is an ecosystem. Domain is an economy. Domain is a mathematical system. Domain is often a closed system. A domain is a set of rules that define a bounded conceptual space specifying what can and cannot happen to the domain elements within that bounded space. A Domain-Specific Language is a representation of those rules.
 
 DSLs are domain specific where the domain is embedded in the constructs of the language itself. A domain-based language is narrowly scoped since it’s designed to support a specific domain. A problem scenario within a domain can be expressed or modeled in a DSL based specification. Then a DSL Interpreter can compute/execute/interpret the specification to produce a result.
 
@@ -124,7 +124,7 @@ A new software engineering executive joined the company a few months after I sta
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Hammer-1629587.jpg/1200px-Hammer-1629587.jpg" alt="Hammer and Nails" title="Image Source: https://commons.wikimedia.org/wiki/File:Hammer-1629587.jpg" width = "40%" align="right" style="padding-right: 35px;">
 
-I pitched the DSL idea to him, and he shot my suggestion down faster than the Red Baron in an aerial dogfight with a pilot fresh out of flight school. I never mentioned DSLs to him again. 
+I pitched the DSL idea to him, and he shot my suggestion down faster than the Red Baron in an aerial dogfight against a pilot fresh out of flight school. I never mentioned DSLs to him again. 
 
 _The nail that sticks out will get hammered down. – Japanese Proverb_.
 
