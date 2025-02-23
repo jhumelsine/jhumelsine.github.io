@@ -3,7 +3,7 @@ title: Knock, Knock ... Who's There?
 description: Are you a software cook or software chef?
 ---
 
-![Doorknocker](https://www.oldwestiron.com/cdn/shop/articles/loadimage_1100x.jpg "Image Source: https://www.oldwestiron.com/blogs/news/a-home-owners-guide-to-the-different-types-of-door-knockers")
+![Doorknocker](https://www.oldwestiron.com/cdn/shop/articles/loadimage_9a4b97de-cf83-4cb8-9769-c9f32e69c92e_1100x.jpg "Image Source: https://www.oldwestiron.com/blogs/news/a-home-owners-guide-to-the-different-types-of-door-knockers")
 
 [Gordon Elliot](https://en.wikipedia.org/wiki/Gordon_Elliott_(journalist)) hosted a TV show on the Food Network in the 1990s called [Gordon Elliot’s Door Knock Dinner](https://en.wikipedia.org/wiki/Door_Knock_Dinners). Most episodes followed the same pattern:
 
