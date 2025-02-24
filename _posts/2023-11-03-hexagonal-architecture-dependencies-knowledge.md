@@ -3,7 +3,7 @@ title: Hexagonal Architecture – Why it works
 description: It’s all about dependency and knowledge management
 ---
 
-![One-Way Sign](https://www.trafficsign.com/images/source/large-images/X4555.jpg "https://www.trafficsign.com/products/8446/one-way-right-sign-r6-1r")
+![One-Way Sign](https://www.stopsignsandmore.com/images/product/medium/5446.gif "https://www.stopsignsandmore.com/p-5446-r6-1r-one-way-right-arrow-sign-dg3-36x12.aspx")
 
 # Introduction
 This continues the [Hexagonal Architecture series](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html) with the structure of Hexagonal Architectures, and why I feel that the Hexagonal Architecture design works so well.
