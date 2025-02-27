@@ -29,7 +29,7 @@ _You haven’t mastered a tool until you understand when it should not be used._
 
 I don’t think design or TDD is an either-or choice. I think it mostly depends upon the context and scope of the problem being addressed.
 
-## It’s not Either-Or; it’s Yes-And
+## It’s Yes-And
 I think that both practices are effective. I think it depends upon the scope of the problem being addressed.
 
 ## Design
