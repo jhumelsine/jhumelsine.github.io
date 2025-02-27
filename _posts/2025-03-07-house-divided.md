@@ -94,7 +94,7 @@ AA
 
 This is a garden with six fence segments and an area of two, as seen graphically:
 ```
-+-+=+
++-+-+
 |A A|
 +-+-+
 ```
@@ -140,7 +140,7 @@ The second part of the Garden Groups, __Part 2 Spoiler Alert__, updated the beha
 
 The update for the `AA` garden can be seen graphically via:
 ```
-+--=+
++---+
 |A A|
 +---+
 ```
