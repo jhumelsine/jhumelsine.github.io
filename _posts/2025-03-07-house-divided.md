@@ -33,14 +33,14 @@ I don’t think design or TDD is an either-or choice. I think it mostly depends 
 I think that both practices are effective. I think it depends upon the scope of the problem being addressed.
 
 ## Design
-[My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html) first focuses upon domain elements and their relationships. This tends to map to a class design, but I’m not trying to implement a solution or even solve the problem. I’m trying to understand it by decomposing it into its domain elements. I’m trying to understand the different domain elements, their relationships and interactions.
+[My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html) first focuses upon domain elements and their relationships. This tends to result in a class design, but I’m not trying to implement a solution or even solve the problem. I’m trying to understand it by decomposing and understand its domain elements, their relationships and interactions.
 
 ## TDD
 TDD works well when developers know enough to define behavior specifications that can be confirmed in the implementation. The list of behaviors doesn’t need to be complete. New behaviors may emerge while working through the TDD process as the domain is better understood. This is still a discovery process, and it may result in updates to the design as well.
 
 Behavior specifying tests can be written directly prior to implementation as described in [Test-Driven Development]( https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development). Or they can be written in conjunction with the implementation, as described in [The Three Laws (Rules) of TDD](https://jhumelsine.github.io/2024/07/15/tdd.html#the-three-laws-rules-of-tdd).
 
-The scope of the implementation being specified via tests tends to be a class with the API being its public methods.
+The scope of the implementation being specified via tests tends to be a class with the API being its public methods and any of its dependencies.
 
 # Advent of Code
 Since retirement, I haven’t had many opportunities to compare design and TDD practices professionally. However, I try to stay somewhat active with coding challenges, such as [Advent of Code]( https://adventofcode.com/).
@@ -103,7 +103,7 @@ I converged to the correct answer fairly quickly, from what I recall, as the tes
 
 However, I violated a major part of TDD. I didn’t refactor too much. I cleaned the code a bit, but for the most part I just worked toward getting the right answer. _Mea culpa. Mea culpa. Mea maxima culpa._
 
-Here’s the code that calculates the perimeter and area. I should have known I was going to have issues when the parameter type is `Map<String, List<Set<Position>>> crops`:
+Here’s the code that calculates the perimeter and area. I should have known I was going to have issues when the parameter type is `Map<String, List<Set<Position>>>`:
 ```java
     private int getResources(Map<String, List<Set<Position>>> crops) {
         int resources = 0;
@@ -134,9 +134,9 @@ One of my issues with the Advent of Code format is that there’s a new problem 
 
 Each day’s challenge is in two parts. Solving the first part opens access to the follow-up part of the challenge. The second part is a continuation of the first problem, so there is some continuity, but for the most part continuity is only for that day. Sometimes the second part can be solved with a single line update to the first part’s solution. Sometimes it requires a whole new approach.
 
-If we knew the second part while working on the first part, we might be able to design and implement the first part so that it can more easily accommodate the second part. But we neither see nor predict the future in the Advent of Code just like we cannot for most software projects.
+If we knew the second part while working on the first part, we might be able to design and implement the first part so that it can more easily accommodate the second part. But we can neither see nor predict the future in the Advent of Code just as we cannot for most software projects.
 
-The second part of the Garden Groups, __Part 2 Spoiler Alert__, updated the behavior such that a straight row of fencing would be one segment of fencing regardless of its length. The `A` garden would still have a perimeter of four segments, and the `AA` garden would have a perimeter of four segments as well. The fencing across the top and bottom would each be one segment that’s two units long rather than the two segments of one unit in length from Part 1.
+The second part of the Garden Groups, __Part 2 Spoiler Alert__, updated the requirements such that a straight row of fencing would be one segment of fencing regardless of its length. The `A` garden would still have a perimeter of four segments, but now the `AA` garden would have a perimeter of four segments as well. The fencing across the top and bottom would each be one segment that’s two units long rather than the two segments of one unit in length from Part 1.
 
 The update for the `AA` garden can be seen graphically via:
 ```
@@ -145,7 +145,7 @@ The update for the `AA` garden can be seen graphically via:
 +---+
 ```
 
-I could easily add new tests for Part 2. However, I struggled quite a bit to get the Part 2 solution. I doubled down on the Part 1 solution and forced it to solve Part 2 via:
+I could easily add new tests for Part 2. However, I struggled quite a bit to get the Part 2 solution. I doubled down on the Part 1 solution and forced it to solve Part 2 without attempting to refactor or redesign:
 ```java
     private int getSideResources(Map<String, List<Set<Position>>> crops) throws Exception {
         int resources = 0;
@@ -236,18 +236,18 @@ I could easily add new tests for Part 2. However, I struggled quite a bit to get
     }
 ```
 
-I am fully aware of how horrible this code is. I wrote this about two months ago, and I have no idea how it works anymore. There’s too much implementation detail and not enough design. The implementation is too tightly coupled with data structure concepts. It’s a micro version of a [Big Ball of Mud](https://en.wikipedia.org/wiki/Anti-pattern#Big_ball_of_mud). Even with coverage, I’d consider this poor legacy code.
+I am fully aware of how horrible this code is. I wrote this about two months ago, and I have no idea how it works anymore. There’s too much implementation detail and not enough design. The implementation is too tightly coupled with data structure concepts. I did not take some time to think about the design before I jumped into an implementation using TDD. It’s a microversion of a [Big Ball of Mud](https://en.wikipedia.org/wiki/Anti-pattern#Big_ball_of_mud). Even with coverage, I’d consider this poor legacy code.
 
-If anyone were to try to refactor this code, at least they’d know immediately if they broke any behavior, but I doubt that the tests would assist them in understanding the implementation or what they had done wrong. Consider how challenging and frightening it would be to refactor this code without any test coverage?
+If anyone were to try to refactor this code, at least they’d know immediately if they broke any behavior via the test coverage, but I doubt that the tests would assist them in understanding the implementation or what they had done wrong. Consider how challenging and frightening it would be to refactor this code without any test coverage?
 
-Advent of Code’s daily challenge is an artificial deadline. Deadlines are self-imposed by developers they’re trying to keep up with others or just themselves.
+Advent of Code’s daily challenge is an artificial deadline. Deadlines are self-imposed by developers either trying to keep up with others or just stay on schedule with the artificial deadline.
 
 Advent of Code is a microcosm of software development. There is always deadline pressure. Developers are often pressured to get the code working and deliver without refactoring.
 
 ## Design First
-I decided to go with a Design-First approach with Day 15, [Warehouse Woes](https://adventofcode.com/2024/day/15). This challenge defines a rectangular warehouse space enclosed by walls with a few wall barriers inside the space. There are boxes distributed around the warehouse floor as well. A robot is given instructions to move up, down, left and right. If the robot encounters a box in front of it on its move, it also moves the box. If there are several boxes in a row in its path, then the robot will nudge all of them when it moves.
+I decided to go with a Design-First approach with Day 15, [Warehouse Woes](https://adventofcode.com/2024/day/15). This challenge defines a rectangular warehouse space enclosed by walls with a few wall barriers inside the space. There are boxes distributed around the warehouse floor as well. A robot is given instructions to move up, down, left and right. If the robot encounters a box in front of it on its move, it also moves the box forward. If there are several boxes in a row in its path, then the robot will nudge all of them when it moves.
 
-If a wall is directly in front of the robot, it will block the robot for that move and proceed to the next unblocked move. If the box in front of a robot’s path is also blocked by the wall or another blocked box, then the robot and boxes are blocked for that move as well.
+If a wall is directly in front of the robot, it will block the robot for that move and proceed and remain blocked until it's given a non-blocked move. If the box in front of a robot’s path is also blocked by the wall or another blocked box, then the robot and boxes are blocked for that move as well.
 
 I could envision the progression of tests starting with simple Warehouse layouts and moving toward more complex ones; however, I restrained myself. I didn’t start with TDD immediately.
 
