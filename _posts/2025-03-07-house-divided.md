@@ -1,6 +1,6 @@
 ---
 title: DRAFT – A House Divided Against Itself Will Not Stand
-description: How I resolve a possible inconsistency in the processes I profess
+description: Resolving a potential inconsistency in the processes I profess
 unlisted: true
 ---
 
