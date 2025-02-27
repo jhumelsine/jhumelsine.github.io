@@ -313,7 +313,7 @@ It handles a more sophisticated domain model, and I think it’s a less data str
 # Bob Martin and John Osterhout Debate
 I had still been procrastinating this blog entry, even if I felt I had resolved my contradictions. However, I wasn’t sure if I could justify my resolutions to an audience even if they felt right to me. Was I resolving the conflict or rationalizing it?
 
-Recently I noticed a post on Twitter/X that featured a link to a [Debate](https://github.com/johnousterhout/aposd-vs-clean-code/blob/main/README.md) between [Robert “Uncle Bob” Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) and [John Ousterhout](https://en.wikipedia.org/wiki/John_Ousterhout) regarding the differences in their software design philosophies. Their debate focused upon three topics:
+Recently I noticed a [post](https://x.com/unclebobmartin/status/1893659113525023115) on Twitter/X that featured a link to a [Debate](https://github.com/johnousterhout/aposd-vs-clean-code/blob/main/README.md) between [Robert “Uncle Bob” Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) and [John Ousterhout](https://en.wikipedia.org/wiki/John_Ousterhout) regarding the differences in their software design philosophies. Their debate focused upon three topics:
 * Method/function length
 * Comments
 * Test-Driven Development
