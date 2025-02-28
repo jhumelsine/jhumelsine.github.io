@@ -8,28 +8,28 @@ unlisted: true
 " width = "60%" align="center" style="padding-right: 20px;">
 
 # Introduction
-I can’t begin to convey how much thought, and how much I’ve struggled over this blog entry. I’ve been thinking about it for months. I’ve started and discarded several versions.
+I can’t begin to convey how much thought and how much I’ve struggled over this blog entry. I’ve been thinking about it for months. I’ve started and discarded several versions.
 
 I realized I introduced a potential process inconsistency in previous blog entries. 
 In [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html), I described how my design process starts with pen and paper and my brain. My designs often include code snippets, which are implementation details I introduce before I’ve even touched a computer.
-In [Writing Tests Before the Implementation](https://jhumelsine.github.io/2024/07/15/tdd.html), I described [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) (TDD), which encourages developers to write tests before any coding and let the implemenation evolve.
+In [Writing Tests Before the Implementation](https://jhumelsine.github.io/2024/07/15/tdd.html), I described [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) (TDD), where I encouraged developers to write tests before any coding and let the implemenation evolve.
 
 This realization came to light last year in July when I had an extended Slack conversation with an online friend about my [Writing Tests Before the Implementation](https://jhumelsine.github.io/2024/07/15/tdd.html) blog. He often provides comments on my blog drafts, which I always appreciate. His comments often make my writing better, and even if I don’t necessarily agree with his comments, he forces me to think more deeply about what I have written.
 
 He and I had a few differences of opinions about the TDD process. He thinks the process is a bit too restrictive, whereas I think the process constraints is what defines TDD and makes it valuable.
 
-As I was championing the benefits of TDD to shape the implementation on Slack, I felt a twinge of insincerity, since this isn't quite what I use in my design process. In the design post, I described adding code snippets to the design before considering any automated tests. In the TDD post, I advocated for specification tests before writing any code. Do I truly believe in TDD? Have I been shouting the praises of the TDD process without practicing them myself? Have I been a false prophet?
+As I was championing the benefits of TDD to shape the implementation, I felt a twinge of insincerity, since this isn't quite what I use in my design process. Do I truly believe in TDD? Have I been shouting the praises of the TDD process without practicing them myself? Have I been a false prophet?
 
 So, which is it? Should we start with a design, or should we start with TDD?
 
 Like most interesting questions in software engineering, I believe the answer is: ___It depends.___
 
 # Depends Upon What?
+I don’t think design or TDD is an either-or choice. It mostly depends upon the context and scope of the problem being addressed.
+
 My design process and TDD are [Tools in the Toolbox](https://jhumelsine.github.io/2023/08/29/toolbox.html). The challenge is knowing when to use them and when not to use them.
 
 _You haven’t mastered a tool until you understand when it should not be used._ – [Kelsey Hightower](https://x.com/CodeWisdom/status/1354478025228873731)
-
-I don’t think design or TDD is an either-or choice. It mostly depends upon the context and scope of the problem being addressed.
 
 ## It’s Yes-And
 I think that both practices are effective. I think it depends upon the scope of the problem being addressed.
@@ -39,7 +39,7 @@ I think that both practices are effective. I think it depends upon the scope of 
 
 As the design matures, I find that the domain elements start to scream which behaviors they are responsible for. It's like writers who say that the characters in their novels take control and tell them where the story is going while they write it.
 
-Sometimes the screaming domain elements are aligned with [design patterns](https://jhumelsine.github.io/3000/01/01/preface.html#design-patterns). The code snippets I mentioned previously are associated with the tried and true code of the design patterns I'm using.
+Sometimes the screaming domain elements are aligned with [design patterns](https://jhumelsine.github.io/3000/01/01/preface.html#design-patterns). The code snippets I mentioned previously are usually associated with the tried and true code of the design patterns I'm using.
 
 ## TDD
 TDD works well when developers know enough to define behavior specifications that can be confirmed in the implementation. I have found that this knowledge is often a result of the design process. The list of behaviors doesn’t need to be complete. New behaviors may emerge while working through the TDD process as the domain is better understood. This is still a discovery process, and it may result in updates to the design as well.
