@@ -10,15 +10,15 @@ unlisted: true
 # Introduction
 I can’t begin to convey how much thought, and how much I’ve struggled over this blog entry. I’ve been thinking about it for months. I’ve started and discarded several versions.
 
-I realized I introduced a potential process inconsistency in my blogs. This realization occurred last year in July when I had an extended Slack conversation with an online friend about my [Writing Tests Before the Implementation](https://jhumelsine.github.io/2024/07/15/tdd.html) blog, where I described [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) (TDD). He often provides comments on my blog drafts, which I always appreciate. His comments often make my writing better, and even if I don’t necessarily agree with his comments, he forces me to think more deeply about what I have written.
+I realized I introduced a potential process inconsistency in previous blog entries. My [Writing Tests Before the Implementation](https://jhumelsine.github.io/2024/07/15/tdd.html) blog, where I described [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) (TDD), encourages developers to write tests before coding the implementation. [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html), which I posted right before starting my [Automated Testing](https://jhumelsine.github.io/3000/01/01/preface.html#automated-testing) series, describes how my design process starts with pen and paper and my brain. My designs often include code snippets, which are implementation details before I’ve even touched a computer. That’s code that has not been created using the TDD process.
+
+This realization came to light last year in July when I had an extended Slack conversation with an online friend about my [Writing Tests Before the Implementation](https://jhumelsine.github.io/2024/07/15/tdd.html) blog. He often provides comments on my blog drafts, which I always appreciate. His comments often make my writing better, and even if I don’t necessarily agree with his comments, he forces me to think more deeply about what I have written.
 
 He and I had a few differences of opinions about the TDD process. He thinks the process is a bit too restrictive, whereas I think the process constraints is what defines TDD and makes if valuable.
 
-As I was championing the benefits of TDD to shape the implementation with my friend on Slack, I felt a twinge of insincerity. Did I truly believe this? Have I been shouting the praises of the TDD process without practicing them myself? Have I been a false prophet?
+As I was championing the benefits of TDD to shape the implementation with my friend on Slack, I felt a twinge of insincerity, since this isn't quite what I use in my design process. Did I truly believe in TDD? Have I been shouting the praises of the TDD process without practicing them myself? Have I been a false prophet?
 
-Right before I started my [Automated Testing](https://jhumelsine.github.io/3000/01/01/preface.html#automated-testing) series, I had posted [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html) where I describe how my design process starts with pen and paper and my brain. My designs often include code snippets, which are implementation details before I’ve even touched a computer. That’s code that has not been created using the TDD process.
-
-So, which is it? Should we start a design, or should we start with TDD?
+So, which is it? Should we start with a design, or should we start with TDD?
 
 Like most interesting questions in software engineering, I believe the answer is: ___It depends.___
 
@@ -35,19 +35,23 @@ I think that both practices are effective. I think it depends upon the scope of 
 ## Design
 [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html) first focuses upon domain elements and their relationships. This tends to result in a class design, but I’m not trying to implement a solution or even solve the problem. I’m trying to understand it by decomposing and understand its domain elements, their relationships and interactions.
 
-## TDD
-TDD works well when developers know enough to define behavior specifications that can be confirmed in the implementation. The list of behaviors doesn’t need to be complete. New behaviors may emerge while working through the TDD process as the domain is better understood. This is still a discovery process, and it may result in updates to the design as well.
+I find that the domain elements start to scream which behaviors they are responsible for. It's like writers who say that the characters in their novels start to tell them where the story is going while they write it.
 
-Behavior specifying tests can be written directly prior to implementation as described in [Test-Driven Development]( https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development). Or they can be written in conjunction with the implementation, as described in [The Three Laws (Rules) of TDD](https://jhumelsine.github.io/2024/07/15/tdd.html#the-three-laws-rules-of-tdd).
+Sometimes the screaming behaviors are aligned with [design patterns](https://jhumelsine.github.io/3000/01/01/preface.html#design-patterns). The code snippets I mentioned previously tend to be associated with the tried and true coding infrastructure associated with the design patterns I'm using.
+
+## TDD
+TDD works well when developers know enough to define behavior specifications that can be confirmed in the implementation. I have found that this knowledge is often a result of the design process. The list of behaviors doesn’t need to be complete. New behaviors may emerge while working through the TDD process as the domain is better understood. This is still a discovery process, and it may result in updates to the design as well.
+
+Behavior specifying tests can be written directly prior to implementation as described in [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development). Or they can be written in conjunction with the implementation, as described in [The Three Laws (Rules) of TDD](https://jhumelsine.github.io/2024/07/15/tdd.html#the-three-laws-rules-of-tdd).
 
 The scope of the implementation being specified via tests tends to be a class with the API being its public methods and any of its dependencies.
 
 # Advent of Code
 Since retirement, I haven’t had many opportunities to compare design and TDD practices professionally. However, I try to stay somewhat active with coding challenges, such as [Advent of Code]( https://adventofcode.com/).
 
-I’d like to describe two Advent of Code challenges where I used a TDD-First approach in one and a Design-First approach in the other.
+I’d like to describe two Advent of Code challenges where I used a TDD-First approach in one and a Design-First approach in the other and compare the results.
 
-## TDD-First
+## TDD First
 Day 12’s challenge from 2024 was [Garden Groups](https://adventofcode.com/2024/day/12). In this challenge, we are given a garden layout with different regions of plant types, identified only by capital letters. Here’s their example of five regions:
 ```
 AAAA
@@ -101,9 +105,9 @@ This is a garden with six fence segments and an area of two, as seen graphically
 
 I converged to the correct answer fairly quickly, from what I recall, as the tests got more sophisticated.
 
-However, I violated a major part of TDD. I didn’t refactor too much. I cleaned the code a bit, but for the most part I just worked toward getting the right answer. _Mea culpa. Mea culpa. Mea maxima culpa._
+However, I violated a major part of TDD. I didn’t refactor rigorously. I cleaned the code a bit, but for the most part I just worked toward getting the right answer. _Mea culpa. Mea culpa. Mea maxima culpa._ I'll pay the price for this shortly.
 
-Here’s the code that calculates the perimeter and area. I should have known I was going to have issues when the parameter type is `Map<String, List<Set<Position>>>`:
+Here’s the code that calculates the perimeter and area. I should have known I was going to have issues when the parameter type is `Map<String, List<Set<Position>>>`. This method is only provided as an illustration. I don't expect anyone to understand it in the context of solving the challenge:
 ```java
     private int getResources(Map<String, List<Set<Position>>> crops) {
         int resources = 0;
@@ -130,13 +134,13 @@ Here’s the code that calculates the perimeter and area. I should have known I 
     }
 ```
 
-One of my issues with the Advent of Code format is that there’s a new problem each day. It’s easy to fall behind. There’s not much incentive to keep code clean. Solve it and move on.
+One of my issues with the Advent of Code format is that there’s a new challenge each day. It’s easy to fall behind. Solve it and move on. There’s not much incentive to keep code clean, except for Part 2 of each day's challenge.
 
-Each day’s challenge is in two parts. Solving the first part opens access to the follow-up part of the challenge. The second part is a continuation of the first problem, so there is some continuity, but for the most part continuity is only for that day. Sometimes the second part can be solved with a single line update to the first part’s solution. Sometimes it requires a whole new approach.
+Solving the Part 1 for each day's clannenge releases Part 2 for that day. The Part 2 is a continuation of the first problem, so there is some continuity, but only for that day. Sometimes Part 2 can be solved with a single line update to the first part’s solution. Sometimes it requires a whole new approach.
 
-If we knew the second part while working on the first part, we might be able to design and implement the first part so that it can more easily accommodate the second part. But we can neither see nor predict the future in the Advent of Code just as we cannot for most software projects.
+If we knew Part 2 while working on the Part 1, we might be able to design and implement the Part 1 so that it can more easily accommodate Part 2. But we can neither see nor predict the future in Advent of Code just as we cannot for most software projects.
 
-The second part of the Garden Groups, __Part 2 Spoiler Alert__, updated the requirements such that a straight row of fencing would be one segment of fencing regardless of its length. The `A` garden would still have a perimeter of four segments, but now the `AA` garden would have a perimeter of four segments as well. The fencing across the top and bottom would each be one segment that’s two units long rather than the two segments of one unit in length from Part 1.
+The Part 2 of the Garden Groups, __Spoiler Alert__, updated the requirements such that a straight row of fencing would be one segment of fencing regardless of its length. The `A` garden would still have a perimeter of four segments, but now the `AA` garden would have a perimeter of four segments as well. The fencing across the top and bottom would each be one segment that’s two units long rather than the two segments of one unit in length from Part 1.
 
 The update for the `AA` garden can be seen graphically via:
 ```
@@ -145,7 +149,13 @@ The update for the `AA` garden can be seen graphically via:
 +---+
 ```
 
-I could easily add new tests for Part 2. However, I struggled quite a bit to get the Part 2 solution. I doubled down on the Part 1 solution and forced it to solve Part 2 without attempting to refactor or redesign:
+I could easily add new tests for Part 2. However, I struggled quite a bit to get the Part 2 solution, since I didn't have a design for Part 1. I only had an implementation powered by TDD minus the refactoring step. I doubled down on the Part 1 solution and forced it to solve Part 2 without attempting to refactor or redesign. 
+
+I am fully aware of how horrible this code is. I wrote it about two months ago, and I have no idea how it works anymore. There’s too much implementation detail and not enough design. The implementation is too tightly coupled with data structure concepts. I did not take any time to think about the design before I jumped into an implementation using TDD. It’s a microversion of a [Big Ball of Mud](https://en.wikipedia.org/wiki/Anti-pattern#Big_ball_of_mud). Even with coverage, I’d consider this poor legacy code.
+
+If anyone were to try to refactor this code, at least they’d know immediately if they broke any behavior via the test coverage, but I doubt that the tests would assist them in understanding the implementation or what they had done wrong. Consider how challenging and frightening it would be to refactor this code without any test coverage?
+
+Once more, this code is provided only to illustrate a point:
 ```java
     private int getSideResources(Map<String, List<Set<Position>>> crops) throws Exception {
         int resources = 0;
@@ -236,24 +246,20 @@ I could easily add new tests for Part 2. However, I struggled quite a bit to get
     }
 ```
 
-I am fully aware of how horrible this code is. I wrote this about two months ago, and I have no idea how it works anymore. There’s too much implementation detail and not enough design. The implementation is too tightly coupled with data structure concepts. I did not take some time to think about the design before I jumped into an implementation using TDD. It’s a microversion of a [Big Ball of Mud](https://en.wikipedia.org/wiki/Anti-pattern#Big_ball_of_mud). Even with coverage, I’d consider this poor legacy code.
+I rushed to stay on schedule. I didn't consider a design and I did not refactor. Advent of Code’s daily schedule is an artificial deadline. Deadlines are self-imposed by developers either trying to keep up with others or just stay on schedule with the artificial deadline.
 
-If anyone were to try to refactor this code, at least they’d know immediately if they broke any behavior via the test coverage, but I doubt that the tests would assist them in understanding the implementation or what they had done wrong. Consider how challenging and frightening it would be to refactor this code without any test coverage?
-
-Advent of Code’s daily challenge is an artificial deadline. Deadlines are self-imposed by developers either trying to keep up with others or just stay on schedule with the artificial deadline.
-
-Advent of Code is a microcosm of software development. There is always deadline pressure. Developers are often pressured to get the code working and deliver without refactoring.
+Advent of Code is a microcosm of software development. There is always deadline pressure. Developers are often pressured to get the code working and deliver without considering a design or refactoring. TDD can only be effective when the code is refactored as part of the process.
 
 ## Design First
 I decided to go with a Design-First approach with Day 15, [Warehouse Woes](https://adventofcode.com/2024/day/15). This challenge defines a rectangular warehouse space enclosed by walls with a few wall barriers inside the space. There are boxes distributed around the warehouse floor as well. A robot is given instructions to move up, down, left and right. If the robot encounters a box in front of it on its move, it also moves the box forward. If there are several boxes in a row in its path, then the robot will nudge all of them when it moves.
 
-If a wall is directly in front of the robot, it will block the robot for that move and proceed and remain blocked until it's given a non-blocked move. If the box in front of a robot’s path is also blocked by the wall or another blocked box, then the robot and boxes are blocked for that move as well.
+If a wall is directly in front of the robot, it will block the robot for that move and interate through moves until it encounters a non-blocked move. If the box in front of a robot’s path is also blocked by the wall or another blocked box, then the robot and boxes are blocked for that move as well.
 
 I could envision the progression of tests starting with simple Warehouse layouts and moving toward more complex ones; however, I restrained myself. I didn’t start with TDD immediately.
 
-I thought about a design, which was simple enough to keep it in my head. My design included several classes: __Warehouse__, __WarehouseElement__, __Movable__, __Wall__, __Box__, __Robot__, __Position__ and __MoveDirection:__
+I thought about a design, which was simple enough to keep it in my head. My design included several classes: __Warehouse__, __WarehouseElement__, __Movable__, __Wall__, __Box__, __Robot__, __Position__ and __MoveDirection__ with relationships, such as:
 * __Warehouse__ contains __WarehouseElements__
-* A __WarehouseElement__ maintain a __Position__
+* A __WarehouseElement__ maintain its __Position__ within the __Warehouse__
 * __Movable__ and __Wall__ are __WarehouseElements__
 * __Movable__ is a __WarehouseElement__ that can move in a __MoveDirection__ and thus change its __Position__
 * __Box__ and __Robot__ are __Movable__ __WarehouseElements__
@@ -277,7 +283,9 @@ The core movement behavior resided in this recursive method:
 
 The method is more domain rich than the Garden Groups code.
 
-The second part of the Warehouse Woes, __Part 2 Spoiler Alert__, added the stipulation that everything, except the robot, is twice as wide. That’s not too bad until you consider that two-width boxes could be arranged in a pyramid pattern where one box is atop a row of two, which are atop a row of three, etc. When the robot moves the top box down, it will move the entire pyramid box pattern down as well. If just one of those boxes is blocked by a wall, then the entire pyramid of boxes and the robot are blocked.
+<img src="https://media.istockphoto.com/id/1388022879/photo/small-brick-pyramid-on-white-background.jpg?s=612x612&w=0&k=20&c=Oj5PImbfH1mlKmxXJ8fdZb5KV9CD_IATZyipWwHfJZ8=" alt="Pyramid of Bricks" title="Image Source: https://www.istockphoto.com/photos/brick-pyramid" width = "30%" align="right" style="padding-right: 20px;">
+
+The second part of the Warehouse Woes, __Spoiler Alert__, added the stipulation that everything, except the robot, is twice as wide. That’s not too bad until you consider that two-width boxes could be arranged in a pyramid pattern where one box is atop a row of two, which are atop a row of three, etc. When the robot moves the top box down, it will move the entire pyramid box pattern down as well. If just one of those boxes is blocked by a wall, then the entire pyramid of boxes and the robot are blocked.
 
 The `move` method for Part 1 only worked for single width WarehouseElements. It wasn’t obvious to me during the Part 1 design and implementation that the Part 1 solution had an implicit dependency upon single width WarehouseElements. This dependency became obvious once I learned that the domain model needed to support wider WarehouseElements.
 
@@ -318,7 +326,7 @@ Recently I noticed a [post](https://x.com/unclebobmartin/status/1893659113525023
 * Comments
 * Test-Driven Development
 
-I read their debate where I stumbled upon one of Bob’s comments in the TDD section:
+I stumbled upon one of Bob’s comments in the TDD section of their debate:
 
 >My own experience is that design comes from strategic thought, which is independent of the tactical behavior of either TDD or Bundling. Design is taking one step back from the code and envisioning structures that address a larger set of constraints and needs.
 >
@@ -328,7 +336,7 @@ Aha! That was it! Design is thinking strategically about the problem. TDD is thi
 
 Bob’s comment gave me the final piece of the puzzle to tie it all together and finally complete this blog entry.
 
-__Side Note:__ Following-up with the debate, where it was like John wasn’t listening to Bob, when John said:
+__Side Note:__ Following-up with the debate, it seemed like John wasn’t listening to Bob, when John said:
 >It's hard to design something well if you don't think about the whole design problem at once. TDD explicitly prohibits developers from writing more code than is needed to pass the current test; this discourages the kind of strategic thinking needed for good design.
 
 But that’s not what Bob is saying about TDD. You can step back and think about the overall design.
@@ -341,12 +349,10 @@ In the same paragraph, he claims to have no personal experience with TDD, and ye
 
 # Summary
 
-<img src="https://thumbs.dreamstime.com/b/arch-titus-rome-28381536.jpg" alt="A Roman Arch" title="Image Source: https://www.dreamstime.com/photos-images/arch-titus-menorah.html" width = "15%" align="right" style="padding-right: 20px;">
+<img src="https://media.istockphoto.com/id/186421041/photo/the-gateway-arch-of-st-louis-missouri-taken-from-the-sky.jpg?s=612x612&w=0&k=20&c=Uc0L0xt7WQ80dHnsU8DkH8KTSU2MzhaVKuoloG26HcI=" alt="St. Louis Arch" title="Image Source: https://www.istockphoto.com/photos/st-louis-arch-fall" width = "30%" align="right" style="padding-right: 20px;">
 
 I was quite conflicted at the start of this blog. Jesus said in Matthew 12:25, “A house divided against itself will not stand.” I was concerned that my design and TDD approaches were like a divided house.
 
-Writing this blog entry was a bit of therapy. I worked through the conflict. Design is strategic thinking, and TDD is tactical thinking. We need both.
+Writing this blog entry was a bit of therapy. I worked through my inner conflict. Design is strategic thinking, and TDD is tactical thinking. We need both.
 
 These two approaches are not opposing forces that will collapse upon themselves. They are the two reinforcing like the sides of an arch pressing against and supporting one another making the whole stronger.
-
-# References
