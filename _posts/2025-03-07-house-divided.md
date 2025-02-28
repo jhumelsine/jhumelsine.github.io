@@ -10,13 +10,15 @@ unlisted: true
 # Introduction
 I can’t begin to convey how much thought, and how much I’ve struggled over this blog entry. I’ve been thinking about it for months. I’ve started and discarded several versions.
 
-I realized I introduced a potential process inconsistency in previous blog entries. My [Writing Tests Before the Implementation](https://jhumelsine.github.io/2024/07/15/tdd.html) blog, where I described [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) (TDD), encourages developers to write tests before coding the implementation. [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html), which I posted right before starting my [Automated Testing](https://jhumelsine.github.io/3000/01/01/preface.html#automated-testing) series, describes how my design process starts with pen and paper and my brain. My designs often include code snippets, which are implementation details before I’ve even touched a computer. That’s code that has not been created using the TDD process.
+I realized I introduced a potential process inconsistency in previous blog entries. 
+In [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html), I described how my design process starts with pen and paper and my brain. My designs often include code snippets, which are implementation details I introduce before I’ve even touched a computer.
+In [Writing Tests Before the Implementation](https://jhumelsine.github.io/2024/07/15/tdd.html), I described [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) (TDD), which encourages developers to write tests before any coding.
 
 This realization came to light last year in July when I had an extended Slack conversation with an online friend about my [Writing Tests Before the Implementation](https://jhumelsine.github.io/2024/07/15/tdd.html) blog. He often provides comments on my blog drafts, which I always appreciate. His comments often make my writing better, and even if I don’t necessarily agree with his comments, he forces me to think more deeply about what I have written.
 
-He and I had a few differences of opinions about the TDD process. He thinks the process is a bit too restrictive, whereas I think the process constraints is what defines TDD and makes if valuable.
+He and I had a few differences of opinions about the TDD process. He thinks the process is a bit too restrictive, whereas I think the process constraints is what defines TDD and makes it valuable.
 
-As I was championing the benefits of TDD to shape the implementation with my friend on Slack, I felt a twinge of insincerity, since this isn't quite what I use in my design process. Did I truly believe in TDD? Have I been shouting the praises of the TDD process without practicing them myself? Have I been a false prophet?
+As I was championing the benefits of TDD to shape the implementation on Slack, I felt a twinge of insincerity, since this isn't quite what I use in my design process. In the former post, I'm adding code snippets to the design before considering any automated tests. In the latter post, I'm advocating for specification tests before writing any code. Did I truly believe in TDD? Have I been shouting the praises of the TDD process without practicing them myself? Have I been a false prophet?
 
 So, which is it? Should we start with a design, or should we start with TDD?
 
@@ -35,9 +37,9 @@ I think that both practices are effective. I think it depends upon the scope of 
 ## Design
 [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html) first focuses upon domain elements and their relationships. This tends to result in a class design, but I’m not trying to implement a solution or even solve the problem. I’m trying to understand it by decomposing and understand its domain elements, their relationships and interactions.
 
-I find that the domain elements start to scream which behaviors they are responsible for. It's like writers who say that the characters in their novels start to tell them where the story is going while they write it.
+I find that the domain elements start to scream which behaviors they are responsible for as the design matures. It's like writers who say that the characters in their novels take control and tell them where the story is going while they write it.
 
-Sometimes the screaming behaviors are aligned with [design patterns](https://jhumelsine.github.io/3000/01/01/preface.html#design-patterns). The code snippets I mentioned previously tend to be associated with the tried and true coding infrastructure associated with the design patterns I'm using.
+Sometimes the screaming domain elements are aligned with [design patterns](https://jhumelsine.github.io/3000/01/01/preface.html#design-patterns). The code snippets I mentioned previously tend to be associated with the tried and true coding infrastructure associated with the design patterns I'm using.
 
 ## TDD
 TDD works well when developers know enough to define behavior specifications that can be confirmed in the implementation. I have found that this knowledge is often a result of the design process. The list of behaviors doesn’t need to be complete. New behaviors may emerge while working through the TDD process as the domain is better understood. This is still a discovery process, and it may result in updates to the design as well.
@@ -49,7 +51,7 @@ The scope of the implementation being specified via tests tends to be a class wi
 # Advent of Code
 Since retirement, I haven’t had many opportunities to compare design and TDD practices professionally. However, I try to stay somewhat active with coding challenges, such as [Advent of Code]( https://adventofcode.com/).
 
-I’d like to describe two Advent of Code challenges where I used a TDD-First approach in one and a Design-First approach in the other and compare the results.
+I’d like to describe two Advent of Code challenges where I used a TDD-First approach in one and a Design-First approach in the other and then compare the results.
 
 ## TDD First
 Day 12’s challenge from 2024 was [Garden Groups](https://adventofcode.com/2024/day/12). In this challenge, we are given a garden layout with different regions of plant types, identified only by capital letters. Here’s their example of five regions:
@@ -136,13 +138,13 @@ Here’s the code that calculates the perimeter and area. I should have known I 
 
 One of my issues with the Advent of Code format is that there’s a new challenge each day. It’s easy to fall behind. Solve it and move on. There’s not much incentive to keep code clean, except for Part 2 of each day's challenge.
 
-Solving the Part 1 for each day's clannenge releases Part 2 for that day. The Part 2 is a continuation of the first problem, so there is some continuity, but only for that day. Sometimes Part 2 can be solved with a single line update to the first part’s solution. Sometimes it requires a whole new approach.
+Solving the Part 1 for each day's challenge releases Part 2 for that day. The Part 2 is a continuation of Part 1, so there is some continuity, but only for that day. Sometimes Part 2 can be solved with a single line update to the first part’s solution. Sometimes it requires a whole new approach.
 
 If we knew Part 2 while working on the Part 1, we might be able to design and implement the Part 1 so that it can more easily accommodate Part 2. But we can neither see nor predict the future in Advent of Code just as we cannot for most software projects.
 
-The Part 2 of the Garden Groups, __Spoiler Alert__, updated the requirements such that a straight row of fencing would be one segment of fencing regardless of its length. The `A` garden would still have a perimeter of four segments, but now the `AA` garden would have a perimeter of four segments as well. The fencing across the top and bottom would each be one segment that’s two units long rather than the two segments of one unit in length from Part 1.
+The Part 2 of the Garden Groups, __Spoiler Alert__, updated the requirements such that a straight row of fencing would be one segment of fencing regardless of its length. The `A` garden would still have a perimeter of four segments, but now the `AA` garden would have a perimeter of four segments rather than the previous six. The fencing across the top and bottom would each be one segment that’s two units long rather than the two segments of one unit in length from Part 1.
 
-The update for the `AA` garden can be seen graphically via:
+The update for the `AA` garden is, as seen graphically::
 ```
 +---+
 |A A|
@@ -246,7 +248,7 @@ Once more, this code is provided only to illustrate a point:
     }
 ```
 
-I rushed to stay on schedule. I didn't consider a design and I did not refactor. Advent of Code’s daily schedule is an artificial deadline. Deadlines are self-imposed by developers either trying to keep up with others or just stay on schedule with the artificial deadline.
+I rushed to stay on schedule. I didn't consider a design, and I did not refactor. Advent of Code’s daily schedule is an artificial deadline. Deadlines are self-imposed by developers either trying to keep up with others or just stay on schedule with the artificial deadline.
 
 Advent of Code is a microcosm of software development. There is always deadline pressure. Developers are often pressured to get the code working and deliver without considering a design or refactoring. TDD can only be effective when the code is refactored as part of the process.
 
@@ -355,4 +357,4 @@ I was quite conflicted at the start of this blog. Jesus said in Matthew 12:25, �
 
 Writing this blog entry was a bit of therapy. I worked through my inner conflict. Design is strategic thinking, and TDD is tactical thinking. We need both.
 
-These two approaches are not opposing forces that will collapse upon themselves. They are the two reinforcing like the sides of an arch pressing against and supporting one another making the whole stronger.
+These two approaches are not opposing forces that will collapse upon themselves. They are two reinforcing forces like the sides of an arch pressing against and supporting one another making the whole stronger.
