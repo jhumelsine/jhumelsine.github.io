@@ -346,6 +346,14 @@ John has a few more discouraging things to say about TDD, and then he drops this
 
 In the same paragraph, he claims to have no personal experience with TDD, and yet it’s still one of the most extreme forms of tactical programming he’s encountered. I would respect his opinion more if he had said that he had tried TDD himself and found it lacking. His TDD opinion reeks of dogma.
 
+# It Depends - Revisited
+At the start of this blog, I said that choosing whether to start with design or TDD depends upon the context and scope of the problem being addressed. I think that is still true. Here are a few of my guidelines:
+* Start with __TDD__ when the problem is well defined with narrow scope. I suspect that most data structures and algorithms studied in academia would fall into this category.
+* Start with __Design__ when the problem's definition is a bit fuzzy with a more broad scope bring the problem more sharply into focus. Then use __TDD__ to drive the implementation. __NOTE:__ Depending upon the problem's fuzziness, you may not even be able to begin with __Design__. The problem may require a [Use Case Diagram](https://en.wikipedia.org/wiki/Use_case_diagram) or other architectural analysis, until the components are understood well enough and their __Design__ may begin.
+* Start with __Design__ if the problem is being implemented by a team. This will help identify the boundaries and API contracts, which will more clearly identify what's expected of each component in the design and how it communicates its expectations and obligations.
+
+Great software engineering isn’t about rigidly following one methodology but knowing when to switch tools. Whether you start with TDD or design first, the goal is the same: writing maintainable, reliable code.
+
 # Summary
 
 <img src="https://media.istockphoto.com/id/186421041/photo/the-gateway-arch-of-st-louis-missouri-taken-from-the-sky.jpg?s=612x612&w=0&k=20&c=Uc0L0xt7WQ80dHnsU8DkH8KTSU2MzhaVKuoloG26HcI=" alt="St. Louis Arch" title="Image Source: https://www.istockphoto.com/photos/st-louis-arch-fall" width = "30%" align="right" style="padding-right: 20px;">
