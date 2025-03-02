@@ -151,7 +151,7 @@ The update for the `AA` garden is:
 
 I could easily add new tests for Part 2. However, I struggled quite a bit to get the Part 2 solution, since I didn't have a design for Part 1. I only had an implementation powered by TDD minus the refactoring step. I doubled down on the Part 1 solution and forced it to solve Part 2 without attempting to refactor or redesign. 
 
-I am fully aware of how horrible this code is. I wrote it about two months ago, and I have no idea how it works anymore. There’s too much implementation detail and not enough design. The implementation is too tightly coupled with data structure concepts. I did not take any time to think about the design before I jumped into an implementation using TDD. It’s a microversion of a [Big Ball of Mud](https://en.wikipedia.org/wiki/Anti-pattern#Big_ball_of_mud). Even with coverage, I’d consider this poor legacy code.
+I am fully aware of how horrible this Part 2 code is. I wrote it about two months ago, and I have no idea how it works anymore. There’s too much implementation detail and not enough design. The implementation is too tightly coupled with data structure concepts. I did not take any time to think about the design before I jumped into an implementation using TDD. It’s a microversion of a [Big Ball of Mud](https://en.wikipedia.org/wiki/Anti-pattern#Big_ball_of_mud). Even with coverage, I’d consider this poor legacy code.
 
 If anyone were to try to refactor this code, at least they’d know immediately if they broke any behavior via the test coverage, but I doubt that the tests would assist them in understanding the implementation or what they had done wrong. Consider how challenging and frightening it would be to refactor this code without any test coverage?
 
@@ -292,7 +292,7 @@ I needed to think about my design a bit more. I added a width factor to Warehous
 
 My first tests restricted width to one so that all my previous Part 1 tests would work for Part 2 as well. Once the width-one tests passed, I added width-two tests.
 
-The refactored `move` method, which supported a set of movables, became:
+The refactored `move` method, which is mostly an extension of the Part 1 method but expanded supported a set of movables. It also replaced some data structure implementaiton details with more domain model oriented methods, such as the `Intersecting` methods:
 ```java
     private void move(Set<Movable> movables, MoveDirection direction) {
         Set<Movable> newMovables = getNewMovables(movables, direction);
@@ -315,12 +315,12 @@ The refactored `move` method, which supported a set of movables, became:
     }
 ```
 
-It handles a more sophisticated domain model, and I think it’s a less data structure dependent implementation. It took time to get this code working, but I had a clear path in mind as I made every adjustment with TDD keeping my on track. I didn’t spend much time debugging or figuring out the next step.
+It took a little time to get this code working, but I had a clear path in mind as I made every adjustment with TDD keeping me on track. I didn’t spend much time debugging or figuring out the next step, since each update progressed logically.
 
 # Bob Martin and John Osterhout Debate
-I had still been procrastinating this blog entry, even if I felt I had resolved my contradictions. However, I wasn’t sure if I could justify my resolutions to an audience even if they felt right to me. Was I resolving the conflict or rationalizing it?
+I was still procrastinating this blog entry, even if I felt I had resolved my contradictions. I wasn’t sure if I could justify my resolutions to an audience even if they felt right to me. Was I resolving the conflict or rationalizing it?
 
-Recently I noticed a [post](https://x.com/unclebobmartin/status/1893659113525023115) on Twitter/X that featured a link to a [Debate](https://github.com/johnousterhout/aposd-vs-clean-code/blob/main/README.md) between [Robert “Uncle Bob” Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) and [John Ousterhout](https://en.wikipedia.org/wiki/John_Ousterhout) regarding the differences in their software design philosophies. Their debate focused upon three topics:
+While procrastinating, I noticed a [post](https://x.com/unclebobmartin/status/1893659113525023115) on Twitter/X that featured a link to an online [Debate](https://github.com/johnousterhout/aposd-vs-clean-code/blob/main/README.md) between [Robert “Uncle Bob” Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) and [John Ousterhout](https://en.wikipedia.org/wiki/John_Ousterhout) regarding the differences in their software design philosophies. Their debate focused upon three topics:
 * Method/function length
 * Comments
 * Test-Driven Development
@@ -338,7 +338,7 @@ Bob’s comment gave me the final piece of the puzzle to tie it all together and
 __Side Note:__ Following-up with the debate, it seemed like John wasn’t listening to Bob, when John said:
 >It's hard to design something well if you don't think about the whole design problem at once. TDD explicitly prohibits developers from writing more code than is needed to pass the current test; this discourages the kind of strategic thinking needed for good design.
 
-But that’s not what Bob is saying about TDD. You can step back and think about the overall design.
+But that’s not what Bob is saying about TDD. You can step back and think about the overall design strategically.
 
 John has a few more discouraging things to say about TDD, and then he drops this:
 
@@ -347,9 +347,9 @@ John has a few more discouraging things to say about TDD, and then he drops this
 In the same paragraph, he claims to have no personal experience with TDD, and yet it’s still one of the most extreme forms of tactical programming he’s encountered. I would respect his opinion more if he had said that he had tried TDD himself and found it lacking. His TDD opinion reeks of dogma.
 
 # It Depends - Revisited
-At the start of this blog, I said that choosing whether to start with design or TDD depends upon the context and scope of the problem being addressed. I think that is still true. Here are a few of my guidelines:
-* Start with __TDD__ when the problem is well defined with narrow scope. I suspect that most data structures and algorithms studied in academia would fall into this category.
-* Start with __Design__ when the problem's definition is a bit fuzzy with a more broad scope bring the problem more sharply into focus. Then use __TDD__ to drive the implementation. __NOTE:__ Depending upon the problem's fuzziness, you may not even be able to begin with __Design__. The problem may require a [Use Case Diagram](https://en.wikipedia.org/wiki/Use_case_diagram) or other architectural analysis, until the components are understood well enough and their __Design__ may begin.
+At the start of this blog, I said that choosing whether to start with design or TDD depends upon the context and scope of the problem being addressed. Here are a few of my guidelines:
+* Start with __TDD__ when the problem is well defined with a narrow scope. I suspect that most data structures and algorithms studied in academia would fall into this category.
+* Start with __Design__ when the problem's definition is a bit fuzzy with a more broad scope. Design will bring the problem more sharply into focus by better understaind the domain. Then use __TDD__ to drive the implementation. __NOTE:__ Depending upon the problem's fuzziness, you may not even be able to begin with __Design__. The problem may require a [Use Case Diagram](https://en.wikipedia.org/wiki/Use_case_diagram) or other architectural analysis, until the components are understood well enough and their __Design__ may begin.
 * Start with __Design__ if the problem is being implemented by a team. This will help identify the boundaries and API contracts, which will more clearly identify what's expected of each component in the design and how it communicates its expectations and obligations.
 
 Great software engineering isn’t about rigidly following one methodology but knowing when to switch tools. Whether you start with TDD or design first, the goal is the same: writing maintainable, reliable code.
