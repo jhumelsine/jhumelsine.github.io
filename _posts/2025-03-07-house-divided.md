@@ -1,6 +1,6 @@
 ---
 title: DRAFT – A House Divided Against Itself Will Not Stand
-description: Resolving an inconsistency between two previous blog entries
+description: Resolving an inconsistency between two previous blog entries - Design vs TDD
 unlisted: true
 ---
 
@@ -292,7 +292,7 @@ I needed to think about my design a bit more. I added a width factor to Warehous
 
 My first tests restricted width to one so that all my previous Part 1 tests would work for Part 2 as well. Once the width-one tests passed, I added width-two tests.
 
-The refactored `move` method, which is mostly an extension of the Part 1 method but expanded supported a set of movables. It also replaced some data structure implementaiton details with more domain model oriented methods, such as the `Intersecting` methods:
+The refactored `move` method, which is mostly an extension of the Part 1 method but expanded to support a set of movables. It also replaced some data structure implementaiton details with more domain rich methods, such as the `Intersecting` methods:
 ```java
     private void move(Set<Movable> movables, MoveDirection direction) {
         Set<Movable> newMovables = getNewMovables(movables, direction);
@@ -335,7 +335,7 @@ Aha! That was it! Design is thinking strategically about the problem. TDD is thi
 
 Bob’s comment gave me the final piece of the puzzle to tie it all together and finally complete this blog entry.
 
-__Side Note:__ Following-up with the debate, it seemed like John wasn’t listening to Bob, when John said:
+__Side Note:__ Returning to the debate, it seemed like John wasn’t listening to Bob, when John said:
 >It's hard to design something well if you don't think about the whole design problem at once. TDD explicitly prohibits developers from writing more code than is needed to pass the current test; this discourages the kind of strategic thinking needed for good design.
 
 But that’s not what Bob is saying about TDD. You can step back and think about the overall design strategically.
