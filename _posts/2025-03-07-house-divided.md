@@ -12,7 +12,7 @@ I can’t begin to convey how much thought and how much I’ve struggled over th
 
 I realized I introduced a potential process inconsistency in previous blog entries. 
 In [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html), I described how my design process starts with pen and paper and my brain. My designs often include code snippets, which are implementation details I introduce before I’ve even touched a computer.
-In [Writing Tests Before the Implementation](https://jhumelsine.github.io/2024/07/15/tdd.html), I described [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) (TDD), where I encouraged developers to write tests before any coding and let the implemenation evolve.
+In [Writing Tests Before the Implementation](https://jhumelsine.github.io/2024/07/15/tdd.html), I described [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) (TDD), where I encouraged developers to write tests before any coding and let the implementation evolve.
 
 This realization came to light last year in July when I had an extended Slack conversation with an online friend about my [Writing Tests Before the Implementation](https://jhumelsine.github.io/2024/07/15/tdd.html) blog. He often provides comments on my blog drafts, which I always appreciate. His comments often make my writing better, and even if I don’t necessarily agree with his comments, he forces me to think more deeply about what I have written.
 
@@ -35,11 +35,11 @@ _You haven’t mastered a tool until you understand when it should not be used._
 I think that both practices are effective. I think it depends upon the scope of the problem being addressed.
 
 ## Design
-[My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html) focuses upon domain elements and their relationships. This tends to result in a class design, but I’m not trying to implement a solution or even solve the problem. I’m trying to understand it by decomposing and understand its domain elements, their relationships and interactions.
+[My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html) focuses upon domain elements and their relationships. This tends to result in a class design, but I’m not trying to implement a solution or even solve the problem. I’m trying to understand it by decomposing and understanding its domain elements, their relationships and interactions.
 
 As the design matures, I find that the domain elements start to scream which behaviors they are responsible for. It's like writers who say that the characters in their novels take control and tell them where the story is going while they write it.
 
-Sometimes the screaming domain elements are aligned with [design patterns](https://jhumelsine.github.io/3000/01/01/preface.html#design-patterns). The code snippets I mentioned previously are usually associated with the tried and true code of the design patterns I'm using.
+Sometimes the screaming domain elements are aligned with [design patterns](https://jhumelsine.github.io/3000/01/01/preface.html#design-patterns). The code snippets I mentioned previously are usually associated with the tried-and-true code of the design patterns I'm using.
 
 ## TDD
 TDD works well when developers know enough to define behavior specifications that can be confirmed in the implementation. I have found that this knowledge is often a result of the design process. The list of behaviors doesn’t need to be complete. New behaviors may emerge while working through the TDD process as the domain is better understood. This is still a discovery process, and it may result in updates to the design as well.
@@ -105,7 +105,7 @@ This is a garden with six fence segments and an area of two:
 +-+-+
 ```
 
-I converged to the correct answer fairly quickly, from what I recall, as the tests specified more complex garden configurations.
+I converged to the correct answer quickly, from what I recall, as the tests specified more complex garden configurations.
 
 However, I violated a major part of TDD. I didn’t refactor rigorously. I cleaned the code a bit, but for the most part I just worked toward getting the right answer. _Mea culpa. Mea culpa. Mea maxima culpa._ I'll pay the price for this shortly.
 
@@ -151,7 +151,7 @@ The update for the `AA` garden is:
 
 I could easily add new tests for Part 2. However, I struggled quite a bit to get the Part 2 solution, since I didn't have a design for Part 1. I only had an implementation powered by TDD minus the refactoring step. I doubled down on the Part 1 solution and forced it to solve Part 2 without attempting to refactor or redesign. 
 
-I am fully aware of how horrible this Part 2 code is. I wrote it about two months ago, and I have no idea how it works anymore. There’s too much implementation detail and not enough design. The implementation is too tightly coupled with data structure concepts. I did not take any time to think about the design before I jumped into an implementation using TDD. It’s a microversion of a [Big Ball of Mud](https://en.wikipedia.org/wiki/Anti-pattern#Big_ball_of_mud). Even with coverage, I’d consider this poor legacy code.
+I am fully aware of how horrible this Part 2 code is. I wrote it about two months ago, and I have no idea how it works anymore. There’s too much implementation detail and not enough design. The implementation is too tightly coupled with data structure concepts. I did not take any time to think about the design before I jumped into an implementation using TDD. It’s a micro version of a [Big Ball of Mud](https://en.wikipedia.org/wiki/Anti-pattern#Big_ball_of_mud). Even with coverage, I’d consider this poor legacy code.
 
 If anyone were to try to refactor this code, at least they’d know immediately if they broke any behavior via the test coverage, but I doubt that the tests would assist them in understanding the implementation or what they had done wrong. Consider how challenging and frightening it would be to refactor this code without any test coverage?
 
@@ -292,7 +292,7 @@ I needed to think about my design a bit more. I added a width factor to Warehous
 
 My first tests restricted width to one so that all my previous Part 1 tests would work for Part 2 as well. Once the width-one tests passed, I added width-two tests.
 
-The refactored `move` method, which is mostly an extension of the Part 1 method but expanded to support a set of movables. It also replaced some data structure implementaiton details with more domain rich methods, such as the `Intersecting` methods:
+The refactored `move` method, which is mostly an extension of the Part 1 method but expanded to support a set of movables. It also replaced some data structure implementation details with more domain rich methods, such as the `Intersecting` methods:
 ```java
     private void move(Set<Movable> movables, MoveDirection direction) {
         Set<Movable> newMovables = getNewMovables(movables, direction);
@@ -318,7 +318,7 @@ The refactored `move` method, which is mostly an extension of the Part 1 method 
 It took a little time to get this code working, but I had a clear path in mind as I made every adjustment with TDD keeping me on track. I didn’t spend much time debugging or figuring out the next step, since each update progressed logically.
 
 # Bob Martin and John Osterhout Debate
-I was still procrastinating this blog entry, even if I felt I had resolved my contradictions. I wasn’t sure if I could justify my resolutions to an audience even if they felt right to me. Was I resolving the conflict or rationalizing it?
+I was still procrastinating on this blog entry, even if I felt I had resolved my contradictions. I wasn’t sure if I could justify my resolutions to an audience even if they felt right to me. Was I resolving the conflict or rationalizing it?
 
 While procrastinating, I noticed a [post](https://x.com/unclebobmartin/status/1893659113525023115) on Twitter/X that featured a link to an online [Debate](https://github.com/johnousterhout/aposd-vs-clean-code/blob/main/README.md) between [Robert “Uncle Bob” Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) and [John Ousterhout](https://en.wikipedia.org/wiki/John_Ousterhout) regarding the differences in their software design philosophies. Their debate focused upon three topics:
 * Method/function length
@@ -349,7 +349,7 @@ In the same paragraph, he claims to have no personal experience with TDD, and ye
 # It Depends - Revisited
 At the start of this blog, I said that choosing whether to start with design or TDD depends upon the context and scope of the problem being addressed. Here are a few of my guidelines:
 * Start with __TDD__ when the problem is well defined with a narrow scope. I suspect that most data structures and algorithms studied in academia would fall into this category.
-* Start with __Design__ when the problem's definition is a bit fuzzy with a more broad scope. Design will bring the problem more sharply into focus by better understaind the domain. Then use __TDD__ to drive the implementation. __NOTE:__ Depending upon the problem's fuzziness, you may not even be able to begin with __Design__. The problem may require a [Use Case Diagram](https://en.wikipedia.org/wiki/Use_case_diagram) or other architectural analysis, until the components are understood well enough and their __Design__ may begin.
+* Start with __Design__ when the problem's definition is a bit fuzzy with a more broad scope. Design will bring the problem more sharply into focus by better understand the domain. Then use __TDD__ to drive the implementation. __NOTE:__ Depending upon the problem's fuzziness, you may not even be able to begin with __Design__. The problem may require a [Use Case Diagram](https://en.wikipedia.org/wiki/Use_case_diagram) or other architectural analysis, until the components are understood well enough and their __Design__ may begin.
 * Start with __Design__ if the problem is being implemented by a team. This will help identify the boundaries and API contracts, which will more clearly identify what's expected of each component in the design and how it communicates its expectations and obligations.
 
 Great software engineering isn’t about rigidly following one methodology but knowing when to switch tools. Whether you start with TDD or design first, the goal is the same: writing maintainable, reliable code.
