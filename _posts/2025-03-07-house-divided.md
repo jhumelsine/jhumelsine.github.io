@@ -1,6 +1,6 @@
 ---
 title: DRAFT – A House Divided Against Itself Will Not Stand
-description: Resolving an inconsistency between two previous blog entries - Design vs TDD
+description: Resolving an inconsistency between my Design Process and TDD blog entries
 unlisted: true
 ---
 
@@ -105,7 +105,7 @@ This is a garden with six fence segments and an area of two:
 +-+-+
 ```
 
-I converged to the correct answer quickly, from what I recall, as the tests specified more complex garden configurations.
+I converged to the correct answer quickly in my implementation, from what I recall, as the tests specified more complex garden configurations.
 
 However, I violated a major part of TDD. I didn’t refactor rigorously. I cleaned the code a bit, but for the most part I just worked toward getting the right answer. _Mea culpa. Mea culpa. Mea maxima culpa._ I'll pay the price for this shortly.
 
@@ -151,7 +151,7 @@ The update for the `AA` garden is:
 
 I could easily add new tests for Part 2. However, I struggled quite a bit to get the Part 2 solution, since I didn't have a design for Part 1. I only had an implementation powered by TDD minus the refactoring step. I doubled down on the Part 1 solution and forced it to solve Part 2 without attempting to refactor or redesign. 
 
-I am fully aware of how horrible this Part 2 code is. I wrote it about two months ago, and I have no idea how it works anymore. There’s too much implementation detail and not enough design. The implementation is too tightly coupled with data structure concepts. I did not take any time to think about the design before I jumped into an implementation using TDD. It’s a micro version of a [Big Ball of Mud](https://en.wikipedia.org/wiki/Anti-pattern#Big_ball_of_mud). Even with coverage, I’d consider this poor legacy code.
+I am fully aware of how horrible this Part 2 code is that's listed below. I wrote it about three months ago, and I have no idea how it works anymore. There’s too much implementation detail and not enough design. The implementation is too tightly coupled with data structure concepts. I did not take any time to think about the design before I jumped into an implementation using TDD. It’s a micro version of a [Big Ball of Mud](https://en.wikipedia.org/wiki/Anti-pattern#Big_ball_of_mud). Even with coverage, I’d consider this poor legacy code.
 
 If anyone were to try to refactor this code, at least they’d know immediately if they broke any behavior via the test coverage, but I doubt that the tests would assist them in understanding the implementation or what they had done wrong. Consider how challenging and frightening it would be to refactor this code without any test coverage?
 
@@ -256,7 +256,7 @@ If a wall is directly in front of the robot, it will block the robot for that mo
 
 I could envision the progression of tests starting with simple Warehouse layouts and moving toward more complex ones; however, I restrained myself. I didn’t start with TDD immediately.
 
-I thought about a design, which was simple enough to keep it in my head. My design included several domain elements: __Warehouse__, __WarehouseElement__, __Movable__, __Wall__, __Box__, __Robot__, __Position__ and __MoveDirection__ with relationships, such as:
+I thought about a design, which was simple enough to keep it in my head without having to sketch out a design on paper. My design included several domain elements: __Warehouse__, __WarehouseElement__, __Movable__, __Wall__, __Box__, __Robot__, __Position__ and __MoveDirection__ with relationships, such as:
 * __Warehouse__ contains __WarehouseElements__
 * A __WarehouseElement__ maintain its __Position__ within the __Warehouse__
 * __Movable__ and __Wall__ are __WarehouseElements__
@@ -288,11 +288,11 @@ The second part of the Warehouse Woes, __Spoiler Alert__, added the stipulation 
 
 The `move` method for Part 1 only worked for single width WarehouseElements. It wasn’t obvious to me during the Part 1 design and implementation that the Part 1 solution had an implicit dependency upon single width WarehouseElements. This dependency became obvious once I learned that the domain model needed to support wider WarehouseElements.
 
-I needed to think about my design a bit more. I added a width factor to WarehouseElement. The requirement was only for a width of two, but my design could support any width. The robot could support varying width, but its width was always set to one.
+I needed to think about my design a bit more. I added a width factor to WarehouseElement. The requirement was only for a width of two, but my design could support any width. The Robot could support varying width, since it was a WarehouseElement, but its width was always set to one, since that was a requirement constraint.
 
-My first tests restricted width to one so that all my previous Part 1 tests would work for Part 2 as well. Once the width-one tests passed, I added width-two tests.
+My first tests restricted width to one so that all my previous Part 1 tests would work in a Part 2 implementation as well. Once the width-one tests passed, I added width-two tests.
 
-The refactored `move` method, which is mostly an extension of the Part 1 method but expanded to support a set of movables. It also replaced some data structure implementation details with more domain rich methods, such as the `Intersecting` methods:
+The refactored `move` method is mostly an extension of the Part 1 method but expanded to support a set of Movables. It also replaced some data structure implementation details with more domain rich methods, such as the `Intersecting` methods:
 ```java
     private void move(Set<Movable> movables, MoveDirection direction) {
         Set<Movable> newMovables = getNewMovables(movables, direction);
@@ -321,7 +321,7 @@ It took a little time to get this code working, but I had a clear path in mind a
 I was still procrastinating on this blog entry, even if I felt I had resolved my contradictions. I wasn’t sure if I could justify my resolutions to an audience even if they felt right to me. Was I resolving the conflict or rationalizing it?
 
 While procrastinating, I noticed a [post](https://x.com/unclebobmartin/status/1893659113525023115) on Twitter/X that featured a link to an online [Debate](https://github.com/johnousterhout/aposd-vs-clean-code/blob/main/README.md) between [Robert “Uncle Bob” Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) and [John Ousterhout](https://en.wikipedia.org/wiki/John_Ousterhout) regarding the differences in their software design philosophies. Their debate focused upon three topics:
-* Method/function length
+* Method/Function Length
 * Comments
 * Test-Driven Development
 
@@ -344,7 +344,7 @@ John has a few more discouraging things to say about TDD, and then he drops this
 
 >You ask me to trust your extensive experience with TDD, and I admit that I have no personal experience with TDD. On the other hand, I have a lot of experience with tactical programming, and I know that it rarely ends well. TDD is one of the most extreme forms of tactical programming I've encountered.
 
-In the same paragraph, he claims to have no personal experience with TDD, and yet it’s still one of the most extreme forms of tactical programming he’s encountered. I would respect his opinion more if he had said that he had tried TDD himself and found it lacking. His TDD opinion reeks of dogma.
+In the same paragraph, he claims to have no personal experience with TDD, and yet it’s still one of the most extreme forms of tactical programming he’s encountered. I feel like John has is own inconsistency to resolve. I would respect his opinion more if he had said that he had tried TDD himself and found it lacking. His TDD opinion reeks of dogma.
 
 # It Depends - Revisited
 At the start of this blog, I said that choosing whether to start with design or TDD depends upon the context and scope of the problem being addressed. Here are a few of my guidelines:
