@@ -1,6 +1,6 @@
 ---
 title: DRAFT – Working Effectively with Legacy Code
-description: … with all due respect to Michael Feathers in my stealing his book title and a lot of his ideas for this blog
+description: … with all due respect to Michael Feathers in stealing his book title and a lot of his ideas for this blog
 unlisted: true
 ---
 
@@ -12,8 +12,8 @@ BDD and TDD are great practices to drive and shape a new implementation. However
 However, we can use concepts from BDD and TDD to help us maintain legacy code.
 
 # What is a Legacy?
-Lin Manuel-Miranda had Alexander Hamilton ponder the meaning of [legacy](https://www.goodreads.com/quotes/7882391-legacy-what-is-a-legacy-it-s-planting-seeds-in-a) in _Hamilton: The Musical_ with:
-> Legacy. What is a legacy? It’s planting seeds in a garden you never get to see.
+Lin Manuel-Miranda had Alexander Hamilton ponder the meaning of legacy in _Hamilton: The Musical_ with:
+> [Legacy. What is a legacy? It’s planting seeds in a garden you never get to see.](https://www.goodreads.com/quotes/7882391-legacy-what-is-a-legacy-it-s-planting-seeds-in-a)
 
 Legacy tends to have positive connotations. It’s passing something valuable to the next generation. However, legacy code tends to have negative connotations.
 
@@ -70,9 +70,7 @@ I'm not going to sugar coat this. Adding tests to legacy code is hard work. Some
 
 __TIP:__ _If your unit tests are nasty and/or difficult to implement, the issue is probably not the test. It is an indication that code those tests confirm is nasty and in need of refactoring and/or redesign._
 
-That previous __TIP__ is going to haunt you. Legacy code wasn't created using TDD. It is probably nasty and in need of refactoring and/or redesign. The unit tests will be nasty and difficult to implement, at least at the start. You may not be able to refactor and/or redesign these tests until the code they cover is refactored and/or cleaned.
-
-Well designed and implemented code tends to have straightforward test cases. Therefore, test cases that are messy, confusing, complicated, etc. may be an indication that the code they confirm is messy, confusing, complicated, etc. This could be an indication of a redesign opportunity, but I’m getting a bit ahead of myself.
+That previous __TIP__ is going to haunt you. Legacy code wasn't created using TDD. It is probably nasty and in need of refactoring and/or redesign. The unit tests will be nasty and difficult to implement, at least at the start. Well designed and implemented code tends to have straightforward test cases. Therefore, test cases that are messy, confusing, complicated, etc. may be an indication that the code they confirm is messy, confusing, complicated, etc. This could be an indication of a redesign opportunity, but I’m getting a bit ahead of myself.
 
 ## Seams
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Skr%C3%A4ddare_-_Tailor_-_Malm%C3%B6_1993.jpg" alt="Tailor" title="Image Source: https://commons.wikimedia.org/wiki/File:Skr%C3%A4ddare_-_Tailor_-_Malm%C3%B6_1993.jpg " width = "35%" align="right" style="padding-right: 20px;">
@@ -127,14 +125,14 @@ Here are some suggestions when writing Characterization Tests:
 * While the Characterization Test documents revealed behavior, we may still not understand what is being revealed. You may not be able to provide a test name that indicates behavior specification or intent. Don’t be concerned about this. Choose a name that describes what the test is doing instead.
 * Repeat with a new test until you the tests cover as much of the scoped legacy code as possible.
 
-Characterization Tests are more of an exploratory tool. We use them to reveal behavior, not define it. We never know when all of the behaviors have been revealed. Creating enough Characterization Tests is a judgement call. Code coverage is probably our greatest tool in determining if we have enough Characterization Tests. When statements have no coverage, then we know that there is more work to do. Complete coverage does not guarantee that all behaviors have been covered, but uncovered code is a clear indication that there's uncovered behavior.
+Characterization Tests are an exploratory tool. We use them to reveal behavior, not define it. We never know when all of the behaviors have been revealed. Creating enough Characterization Tests is a judgement call. Code coverage is probably our greatest tool in determining if we have enough Characterization Tests. When statements have no coverage, then we know that there is more work to do. Complete coverage does not guarantee that all behaviors have been covered, but uncovered code is a clear indication that there's uncovered behavior.
 
 Characterization tests are a behavior exploration, discovery and revealing technique.
 
 ## Iterate All Combinations
-Most legacy code I’ve encountered was a [Big Ball of Mud](https://blog.codinghorror.com/the-big-ball-of-mud-and-other-architectural-disasters/). Methods contained too many paths of execution through the code to create individual Characterization Tests. I would design a Characterization Test that would iterate through all possible configuration combinations in the method being tested.
+Most legacy code I’ve encountered was a [Big Ball of Mud](https://blog.codinghorror.com/the-big-ball-of-mud-and-other-architectural-disasters/). Methods contained too many paths of execution through the code to create individual Characterization Tests. In these cases, I would design a Characterization Test that would iterate through all possible configuration combinations in the method being tested.
 
-Consider this contrived method, which I’ll use as an example of iterating all combinations. While this is a small example, consider code with a similar lack of context, except it’s 100 lines long with nesting depth in some places up to five levels deep, and up to ten independent variables.
+Consider this contrived method, which I’ll use as an example of iterating all combinations. While this is a small example, consider code with a similar lack of context, except it’s 100 lines long with nesting depth up to five levels deep, and up to ten independent variables.
 ```java
     public static String doThis(boolean a, boolean b, boolean c) {
         String returnValue = "";
@@ -153,7 +151,7 @@ Consider this contrived method, which I’ll use as an example of iterating all 
 
 Configurable entities would usually include Test Double behaviors and arguments with multiple behaviors and parameter values for each coving as many [equivalence partitions](https://jhumelsine.github.io/2024/08/08/bdd.html#equivalence-partitioning) as I could. The test would consist of nested `for` loops for each configurable entity, and then at the deepest nesting the configurable entities would be passed as arguments to a driver method which contained the test in __Given/When/Then__ format. The driver method would initialize the Test Doubles in the Given section with the passed parameter values and call the public method being tested with passed parameter values as well.
 
-It doesn’t take too many nested configurable entities iterating through their behaviors for the number of calls to the test driver becomes huge. It was not uncommon for the number of test driver calls to reach hundreds or thousands of potential configurations. Rather than the desired unit test runtime of a seconds, these tests could take minutes – many minutes. It was the price I was willing to pay.
+It doesn’t take too many nested configurable entities iterating through their behaviors for the number of calls to the test driver becomes huge. It was not uncommon for the number of test driver calls to reach hundreds or thousands of potential configurations. Rather than completing in seconds, these tests could take minutes – many minutes. It was the price I was willing to pay.
 
 While the test driver method was organized in the __Given/When/Then__ structure, it didn’t tend to look like the traditional unit tests. Traditional unit tests tend to be straight to the point. Test driver code included more nuance and logic to cover all possible combinations.
 
@@ -297,11 +295,11 @@ class BatchResults {
 
 This didn’t look right to me. I spun my chair around to address my teammate who sat behind me and asked, “Hey, Ron. Can you look at this? It doesn’t look right to me. The failed and interrupted ids are being added to the passed List.”
 
-“Oh, that’s not right,” Ron replied, “Gee, I wonder how many failed and interrupted ids were incorrected recorded as passed.”
+“Oh, that’s not right,” Ron replied, “Gee, I wonder how many failed and interrupted ids were incorrectly recorded as passed.”
 
 `BatchResults` didn’t have any unit tests. I added failing tests for the failed and interrupted scenarios and then fixed the code.
 
-This was an obvious error, and Ron confirmed it. But sometimes the legacy code may reveal behavior and intent that looks questionable, and it’s not as obvious as the error in `BatchResults`. Do not ___fix___ this code, since it may not be broken. Many of us don’t have the domain knowledge to make that call within legacy code. Remember the old adage: ___That’s not a bug. It’s a feature.___ You may ___fix___ something that a customer is depending upon.
+This was an obvious error, and Ron had confirmed it. But sometimes the legacy code may reveal behavior and intent that looks questionable, and it’s not as obvious as the error in `BatchResults`. Do not ___fix___ this code, since it may not be broken. Many of us don’t have the domain knowledge to make that call within legacy code. Remember the old adage: ___That’s not a bug. It’s a feature.___ You may ___fix___ something that a customer is depending upon.
 
 However, we don’t just ignore it either. Here’s my recommendation:
 * Create a passing test that demonstrates the questionable behavior, but give it a name that questions that behavior. For example, if Ron didn’t confirm the `BatchResults` error, I would have created a test with the name: `getPassed_ReturnsIdsAddedViaAddFailedAndAddInterrupted_SHOULD_IT`. Adding `SHOULD_IT` change the indicative form of the test name into a question.
@@ -342,3 +340,86 @@ https://refactoring.guru/extract-method
 https://blog.codinghorror.com/the-big-ball-of-mud-and-other-architectural-disasters/
 https://refactoring.guru/refactoring
 https://x.com/KentBeck/status/250733358307500032?lang=en
+
+# Complete Code Example
+Here's the complete Java code for the iterating tests. I haven't used a test framework. You should be able to copy-and-paste the entire Java program into any Java environment and run it:
+```java
+import java.util.*;
+
+public class LegacyCode {
+    public static void main(String[] args) throws Exception {
+        Test.test();
+    }
+}
+
+class LegacySoftwareUnderTest {
+    public static String doThisOriginal(boolean a, boolean b, boolean c) {
+        String returnValue = "";
+        if (a && !b) {
+            returnValue += "Fizz";
+            if (c) returnValue += "Buzz";
+        } else if (b || c) {
+            returnValue = "Beep";
+            if (a || b) returnValue += "Boop";
+        } else {
+            returnValue += "Splat";
+        }
+        return returnValue;
+    }
+
+    public static String doThis(boolean a, boolean b, boolean c) {
+        if (b) return "BeepBoop";
+        if (a) return c ? "FizzBuzz" : "Fizz";
+        if (c) return "Beep";
+        return "Splat";
+    }
+}
+
+class Test {
+    public static void test() throws Exception {
+        testSpecificCombination();
+
+        testDoThisInAllPossibleCombinations();
+    }
+
+    private static void testDriverForDoThisInAllPossibleCombinations(boolean a, boolean b, boolean c) throws Exception {
+        System.out.format("doThis(a=%b, b=%b, c=%b)\n", a, b, c);
+
+        // Given-When
+        String result = LegacySoftwareUnderTest.doThis(a, b, c);
+
+        // Then
+        assertEquals(getExpectedReturnValue(a, b, c), result);
+    }
+
+    private static String getExpectedReturnValue(boolean a, boolean b, boolean c) {
+        if (a && !b && !c) return "Fizz";
+        if (!a && !b && !c) return "Splat";
+        if (!a && !b) return "Beep";
+        if (!b) return "FizzBuzz";
+        return "BeepBoop";
+    }
+
+    public static void testDoThisInAllPossibleCombinations() throws Exception {
+        for (Boolean a : Arrays.asList(true, false)) {
+            for (Boolean b : Arrays.asList(true, false)) {
+                for (Boolean c : Arrays.asList(true, false)) {
+                    testDriverForDoThisInAllPossibleCombinations(a, b, c);
+                }
+            }
+        }
+    }
+
+    public static void testSpecificCombination() throws Exception {
+        testDriverForDoThisInAllPossibleCombinations(true, false, false);
+    }
+    
+    private static void assertEquals(String expected, String actual) throws Exception {
+        if (!expected.equals(actual)) {
+            System.out.format("expected=%s, actual=%s\n", expected, actual);
+            throw new Exception();
+        }
+    }
+
+}
+```
