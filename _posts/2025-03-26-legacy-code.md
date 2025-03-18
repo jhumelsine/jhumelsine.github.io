@@ -35,7 +35,7 @@ I do not wish to overly malign legacy code. We do not know what pressures the de
 Regardless of the state of legacy code, it has one critical characteristic: __Legacy code is the reason why many developers receive a regular paycheck.__
 
 # Legacy Code’s Legacy
-<img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d04a19a7-6e8c-4647-a3c4-e852a1ee59f1/d8vndh6-aa7fdb32-d041-4a5a-bc28-1b3cc4623fbf.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2QwNGExOWE3LTZlOGMtNDY0Ny1hM2M0LWU4NTJhMWVlNTlmMVwvZDh2bmRoNi1hYTdmZGIzMi1kMDQxLTRhNWEtYmMyOC0xYjNjYzQ2MjNmYmYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.n7VgHxcdZFB87NwW9XNKTTO9V5KOxlfRRUFQ5YMr2YI" alt="Here Be Dragons" title="Image Source: https://www.deviantart.com/bluebottleflyer/art/Art-Jam-Here-Be-Dragons-logo-536888058" width = "25%" align="left" style="padding-right: 20px;">
+<img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d04a19a7-6e8c-4647-a3c4-e852a1ee59f1/d8vndh6-aa7fdb32-d041-4a5a-bc28-1b3cc4623fbf.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2QwNGExOWE3LTZlOGMtNDY0Ny1hM2M0LWU4NTJhMWVlNTlmMVwvZDh2bmRoNi1hYTdmZGIzMi1kMDQxLTRhNWEtYmMyOC0xYjNjYzQ2MjNmYmYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.n7VgHxcdZFB87NwW9XNKTTO9V5KOxlfRRUFQ5YMr2YI" alt="Here Be Dragons" title="Image Source: https://www.deviantart.com/bluebottleflyer/art/Art-Jam-Here-Be-Dragons-logo-536888058" width = "25%" align="right" style="padding-right: 20px;">
 
 For all its maintenance issues, legacy code tends to work. It’s tested everyday by our best and most expensive testers – our users. If a serious problem is encountered by users, they tend to report it.
 
@@ -47,7 +47,7 @@ Few things strike fear in the hearts of developers more than being assigned a ti
 
 # Working Effectively with Legacy Code
 <img src="https://cdn2.picryl.com/photo/2012/02/16/an-explosive-ordnance-disposal-specialist-with-56th-464bc7-1024.jpg" alt="Bomb Squad" title="Image Source: https://nara.getarchive.net/media/an-explosive-ordnance-disposal-specialist-with-56th-464bc7
-" width = "35%" align="right" style="padding-right: 20px;">
+" width = "35%" align="left" style="padding-right: 20px;">
 
 Working with legacy code is challenging. The implementation may be opaque. Many behaviors may not be well understood or documented. The challenge isn’t so much in updating legacy code to support new or updated behaviors. The challenge is in doing so without breaking any existing behaviors that the user depends upon. Updating legacy code can feel like the software equivalent of being on the bomb squad and hoping that you don’t cut the wrong wire.
 
