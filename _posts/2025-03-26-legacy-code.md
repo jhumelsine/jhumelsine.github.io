@@ -35,8 +35,7 @@ I do not wish to overly malign legacy code. We do not know what pressures the de
 Regardless of the state of legacy code, it has one critical characteristic: __Legacy code is the reason why many developers receive a regular paycheck.__
 
 # Legacy Code’s Legacy
-<img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d04a19a7-6e8c-4647-a3c4-e852a1ee59f1/d8vndh6-aa7fdb32-d041-4a5a-bc28-1b3cc4623fbf.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2QwNGExOWE3LTZlOGMtNDY0Ny1hM2M0LWU4NTJhMWVlNTlmMVwvZDh2bmRoNi1hYTdmZGIzMi1kMDQxLTRhNWEtYmMyOC0xYjNjYzQ2MjNmYmYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.n7VgHxcdZFB87NwW9XNKTTO9V5KOxlfRRUFQ5YMr2YI" alt="Here Be Dragons" title="Image Source: [https://www.flickr.com/photos/gandalfsgallery/7608126362](https://www.deviantart.com/bluebottleflyer/art/Art-Jam-Here-Be-Dragons-logo-536888058
-)" width = "15%" align="right" style="padding-right: 20px;">
+<img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d04a19a7-6e8c-4647-a3c4-e852a1ee59f1/d8vndh6-aa7fdb32-d041-4a5a-bc28-1b3cc4623fbf.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2QwNGExOWE3LTZlOGMtNDY0Ny1hM2M0LWU4NTJhMWVlNTlmMVwvZDh2bmRoNi1hYTdmZGIzMi1kMDQxLTRhNWEtYmMyOC0xYjNjYzQ2MjNmYmYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.n7VgHxcdZFB87NwW9XNKTTO9V5KOxlfRRUFQ5YMr2YI" alt="Here Be Dragons" title="Image Source: https://www.deviantart.com/bluebottleflyer/art/Art-Jam-Here-Be-Dragons-logo-536888058" width = "15%" align="right" style="padding-right: 20px;">
 
 For all its maintenance issues, legacy code tends to work. It’s tested everyday by our best and most expensive testers – our users. If a serious problem is encountered by users, they tend to report it.
 
@@ -47,14 +46,14 @@ We don’t always have the luxury of letting sleep dogs lie when it comes to leg
 Few things strike fear in the hearts of developers more than being assigned a ticket that forces them to descend into the bowels of unfamiliar legacy code.
 
 # Working Effectively with Legacy Code
-https://cdn2.picryl.com/photo/2012/02/16/an-explosive-ordnance-disposal-specialist-with-56th-464bc7-1024.jpg
-https://nara.getarchive.net/media/an-explosive-ordnance-disposal-specialist-with-56th-464bc7
+<img src="https://cdn2.picryl.com/photo/2012/02/16/an-explosive-ordnance-disposal-specialist-with-56th-464bc7-1024.jpg" alt="Bomb Squad" title="Image Source: https://nara.getarchive.net/media/an-explosive-ordnance-disposal-specialist-with-56th-464bc7
+" width = "25%" align="right" style="padding-right: 20px;">
 
 Working with legacy code is challenging. The implementation may be opaque. Many behaviors may not be well understood or documented. The challenge isn’t so much in updating legacy code to support new or updated behaviors. The challenge is in doing so without breaking any existing behaviors that the user depends upon. Updating legacy code can feel like the software equivalent of being on the bomb squad and hoping that you don’t cut the wrong wire.
 
 [Michael Feathers](https://michaelfeathers.silvrback.com/bio) provided a hope of salvation with: ___Working Effectively with Legacy Code___. I briefly referenced [his book](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html#working-effectively-with-legacy-code) in [The Conversion of a Unit Test Denier or … How I Learned to Stop Worrying and Love Unit Testing](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html). Here’s an excellent [summary](https://understandlegacycode.com/blog/key-points-of-working-effectively-with-legacy-code/) of the key points of book by [Nicolas Carlo](https://bsky.app/profile/nicoespeon.com).
 
-Feathers contends that all too often developers rely upon the __edit and pray__ process when updating legacy code. Modify legacy without understanding the dependencies, and how likely are you to break it? Though a bit dated, this 2012 paper, [SOFTWARE DEFECT ORIGINS AND REMOVAL METHODS](https://insights.cermacademy.com/6-software-defect-origins-and-removal-methods-c-capers-jones-technologyrisk/) by [Capers Jones](https://insights.cermacademy.com/6-software-defect-origins-and-removal-methods-c-capers-jones-technologyrisk/) states that the odds of a modification introducing a new bug can be as high as 25%. He calls these _bad fixes_:
+Feathers contends that all too often developers rely upon the __edit and pray__ process when updating legacy code. Modify legacy without understanding the dependencies, and how likely are you to break it? Though a bit dated, this 2012 paper, [SOFTWARE DEFECT ORIGINS AND REMOVAL METHODS](https://insights.cermacademy.com/6-software-defect-origins-and-removal-methods-c-capers-jones-technologyrisk/) by [Capers Jones](https://en.wikipedia.org/wiki/Capers_Jones) states that the odds of a modification introducing a new bug can be as high as 25%. He calls these _bad fixes_:
 >_Bad fixes are inversely proportional to cyclomatic complexity, and also inversely proportional to experience. Bad fixes by a top-gun software engineer working with software with low cyclomatic complexity can be only a fraction of 1%._
 >
 >_At the other end of the spectrum, bad fixes by a novice trying to fix a bug in an error-prone module with high cyclomatic complexity can top 25%._
@@ -76,8 +75,7 @@ That previous __TIP__ is going to haunt you. Legacy code wasn't created using TD
 Well designed and implemented code tends to have straightforward test cases. Therefore, test cases that are messy, confusing, complicated, etc. may be an indication that the code they confirm is messy, confusing, complicated, etc. This could be an indication of a redesign opportunity, but I’m getting a bit ahead of myself.
 
 ## Seams
-https://upload.wikimedia.org/wikipedia/commons/9/97/Skr%C3%A4ddare_-_Tailor_-_Malm%C3%B6_1993.jpg?20121104131359
-https://commons.wikimedia.org/wiki/File:Skr%C3%A4ddare_-_Tailor_-_Malm%C3%B6_1993.jpg 
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Skr%C3%A4ddare_-_Tailor_-_Malm%C3%B6_1993.jpg" alt="Tailor" title="Image Source: https://commons.wikimedia.org/wiki/File:Skr%C3%A4ddare_-_Tailor_-_Malm%C3%B6_1993.jpg " width = "25%" align="right" style="padding-right: 20px;">
 
 One of my previous officemate’s father was an old-school tailor. He could deconstruct a suit into its individual parts and reassemble them into a customed fit for his clients. He didn’t disassemble the suit by cutting randomly into the cloth. He deconstructed the suit at its seams.
 
