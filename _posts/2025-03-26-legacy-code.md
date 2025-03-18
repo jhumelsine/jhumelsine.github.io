@@ -35,9 +35,9 @@ I do not wish to overly malign legacy code. We do not know what pressures the de
 Regardless of the state of legacy code, it has one critical characteristic: __Legacy code is the reason why many developers receive a regular paycheck.__
 
 # Legacy Code’s Legacy
-<img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d04a19a7-6e8c-4647-a3c4-e852a1ee59f1/d8vndh6-aa7fdb32-d041-4a5a-bc28-1b3cc4623fbf.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2QwNGExOWE3LTZlOGMtNDY0Ny1hM2M0LWU4NTJhMWVlNTlmMVwvZDh2bmRoNi1hYTdmZGIzMi1kMDQxLTRhNWEtYmMyOC0xYjNjYzQ2MjNmYmYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.n7VgHxcdZFB87NwW9XNKTTO9V5KOxlfRRUFQ5YMr2YI" alt="Here Be Dragons" title="Image Source: https://www.deviantart.com/bluebottleflyer/art/Art-Jam-Here-Be-Dragons-logo-536888058" width = "25%" align="right" style="padding-right: 20px;">
-
 For all its maintenance issues, legacy code tends to work. It’s tested everyday by our best and most expensive testers – our users. If a serious problem is encountered by users, they tend to report it.
+
+<img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d04a19a7-6e8c-4647-a3c4-e852a1ee59f1/d8vndh6-aa7fdb32-d041-4a5a-bc28-1b3cc4623fbf.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2QwNGExOWE3LTZlOGMtNDY0Ny1hM2M0LWU4NTJhMWVlNTlmMVwvZDh2bmRoNi1hYTdmZGIzMi1kMDQxLTRhNWEtYmMyOC0xYjNjYzQ2MjNmYmYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.n7VgHxcdZFB87NwW9XNKTTO9V5KOxlfRRUFQ5YMr2YI" alt="Here Be Dragons" title="Image Source: https://www.deviantart.com/bluebottleflyer/art/Art-Jam-Here-Be-Dragons-logo-536888058" width = "25%" align="right" style="padding-right: 20px;">
 
 Given that our paying customers depend upon working legacy code regardless of its maintainability, we mostly want to leave working code well enough alone. If it ain’t broke, don’t fix it.
 
@@ -51,7 +51,7 @@ Few things strike fear in the hearts of developers more than being assigned a ti
 
 Working with legacy code is challenging. The implementation may be opaque. Many behaviors may not be well understood or documented. The challenge isn’t so much in updating legacy code to support new or updated behaviors. The challenge is in doing so without breaking any existing behaviors that the user depends upon. Updating legacy code can feel like the software equivalent of being on the bomb squad and hoping that you don’t cut the wrong wire.
 
-[Michael Feathers](https://michaelfeathers.silvrback.com/bio) provided a hope of salvation with: ___Working Effectively with Legacy Code___. I briefly referenced [his book](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html#working-effectively-with-legacy-code) in [The Conversion of a Unit Test Denier or … How I Learned to Stop Worrying and Love Unit Testing](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html). Here’s an excellent [summary](https://understandlegacycode.com/blog/key-points-of-working-effectively-with-legacy-code/) of the key points of book by [Nicolas Carlo](https://bsky.app/profile/nicoespeon.com).
+[Michael Feathers](https://michaelfeathers.silvrback.com/bio) provided a glimmer of hope with: ___Working Effectively with Legacy Code___. I briefly referenced [his book](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html#working-effectively-with-legacy-code) in [The Conversion of a Unit Test Denier or … How I Learned to Stop Worrying and Love Unit Testing](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html). Here’s an excellent [summary](https://understandlegacycode.com/blog/key-points-of-working-effectively-with-legacy-code/) of the key points of book by [Nicolas Carlo](https://bsky.app/profile/nicoespeon.com).
 
 Feathers contends that all too often developers rely upon the __edit and pray__ process when updating legacy code. Modify legacy without understanding the dependencies, and how likely are you to break it? Though a bit dated, this 2012 paper, [SOFTWARE DEFECT ORIGINS AND REMOVAL METHODS](https://insights.cermacademy.com/6-software-defect-origins-and-removal-methods-c-capers-jones-technologyrisk/) by [Capers Jones](https://en.wikipedia.org/wiki/Capers_Jones) states that the odds of a modification introducing a new bug can be as high as 25%. He calls these _bad fixes_:
 >_Bad fixes are inversely proportional to cyclomatic complexity, and also inversely proportional to experience. Bad fixes by a top-gun software engineer working with software with low cyclomatic complexity can be only a fraction of 1%._
@@ -98,25 +98,25 @@ Extract Method is a refactoring tool in most IDEs. These refactoring tools manag
 
 IDE tools usually declare extracted methods as `private` by default. This is usually what we want when refactoring code that already has test coverage. However, in the case of introducing seams to legacy code for testing, we will probably need to declare the extracted method as __package-private__. I’m using this Java term to convey that the method has scope to code within the same namespace, and test code is often in the same namespace as the implementation being tested, without exposing the method as `public`.
 
-A `package-private` declaration allows us to:
+A __package-private__ declaration allows us to:
 * Override the extracted method with a [Test Double](https://jhumelsine.github.io/2024/07/02/test-doubles.html)
 * Test extracted methods separately in isolation
 
 Though a __package-private__ declaration couples the tests with the implementation making the tests a bit more brittle, we may need to do this until we have added sufficient test coverage.
 
-I described how Suril and I [introduced a `package-private` seam](https://jhumelsine.github.io/2024/07/08/suril-semaphore.html#a-minor-refactoring-to-introduce-a-test-seam) to code via Extract Method to make testing easier.
+I described how Suril and I [introduced a __package-private__ seam](https://jhumelsine.github.io/2024/07/08/suril-semaphore.html#a-minor-refactoring-to-introduce-a-test-seam) to code via Extract Method to make testing easier.
 
 ## Characterization Tests
 Introducing seams allows us to isolate pieces of the legacy code so that they can be tested. But what are we testing? TDD and BDD start with the assumption that you know the expected behavior, but that may not be the case for legacy code. We may have a notion of some of the behavior, but there’s a good chance we don’t know all the behavior that’s lurking in legacy code.
 
-Feathers describes [Characterization Tests](https://michaelfeathers.silvrback.com/characterization-testing) in his book. Characterization Tests look like TDD/BDD tests since they still maintain the [__Give/When/Then__](https://en.wikipedia.org/wiki/Given-When-Then) format.
+Feathers describes [Characterization Tests](https://michaelfeathers.silvrback.com/characterization-testing) in his book. Characterization Tests look like TDD/BDD tests since they still maintain the [__Give/When/Then__](https://en.wikipedia.org/wiki/Given-When-Then) format, but that's pretty much where the resemblence ends.
 
-Characterization Tests differ from TDD/BDD tests in that TDD/BDD tests specify behavior, whereas __Characterization Tests reveal existing behavior__. Since users execute legacy code regularly, any Characterization Test revealed behaviors will be correct, dead code or unobservable by the user. The goal of Characterization Tests is to lock down existing behavior so that additional refactoring can be done to clean up the code making it maintainable without breaking any existing behavior.
+Characterization Tests differ from TDD/BDD tests in that TDD/BDD tests specify behavior, whereas __Characterization Tests reveal existing behavior__. Since users execute legacy code regularly, any behaviors revealed through Characterization Test will be correct, dead code or unobservable by the user. The goal of Characterization Tests is to lock down existing behavior so that additional refactoring can be done to clean up the code making it maintainable without breaking any existing behavior.
 
 Characterization Tests reveal behavior after the implementation. How do we create a test to reveal behavior when we don’t know what behavior is being revealed? We will need to reference the implementation.
 
 Here are some suggestions when writing Characterization Tests:
-* Focus upon a public method at a time.
+* Focus upon one public method at a time.
 * Write a test that calls the public method in the __When__ section of the test.
 * The test will probably throw an exception because a dependency has not been initialized. __NOTE:__ This could be a complete test as is since it reveals that the code throws an exception with uninitialized dependencies, but that’s probably not the main concern yet.
 * Declare and inject __Test Doubles__ in the __Given__ section of the tests to resolve dependencies. This may require more seams via method extraction.
@@ -130,9 +130,9 @@ Characterization Tests are an exploratory tool. We use them to reveal behavior, 
 Characterization tests are a behavior exploration, discovery and revealing technique.
 
 ## Iterate All Combinations
-Most legacy code I’ve encountered was a [Big Ball of Mud](https://blog.codinghorror.com/the-big-ball-of-mud-and-other-architectural-disasters/). Methods contained too many paths of execution through the code to create individual Characterization Tests. In these cases, I would design a Characterization Test that would iterate through all possible configuration combinations in the method being tested.
+Most legacy code I’ve encountered was a [Big Ball of Mud](https://blog.codinghorror.com/the-big-ball-of-mud-and-other-architectural-disasters/). Methods contained too many paths of execution through the code to create individual Characterization Tests for each combination. In these cases, I would design a Characterization Test that would iterate through all possible configuration combinations in the method being tested.
 
-Consider this contrived method, which I’ll use as an example of iterating all combinations. While this is a small example, consider code with a similar lack of context, except it’s 100 lines long with nesting depth up to five levels deep, and up to ten independent variables.
+Consider this contrived method, which I’ll use as an example of how to iterate all combinations. While this is a small example, consider code with a similar lack of context, except it’s 100 lines long with nesting depth up to five levels deep, and up to ten independent variables.
 ```java
     public static String doThis(boolean a, boolean b, boolean c) {
         String returnValue = "";
@@ -149,13 +149,13 @@ Consider this contrived method, which I’ll use as an example of iterating all 
     }
 ```
 
-Configurable entities would usually include Test Double behaviors and arguments with multiple behaviors and parameter values for each coving as many [equivalence partitions](https://jhumelsine.github.io/2024/08/08/bdd.html#equivalence-partitioning) as I could. The test would consist of nested `for` loops for each configurable entity, and then at the deepest nesting the configurable entities would be passed as arguments to a driver method which contained the test in __Given/When/Then__ format. The driver method would initialize the Test Doubles in the Given section with the passed parameter values and call the public method being tested with passed parameter values as well.
+Configurable entities would usually include Test Double behaviors and arguments with multiple behaviors and parameter values with each iterating through as as many [equivalence partitions](https://jhumelsine.github.io/2024/08/08/bdd.html#equivalence-partitioning) as I could. The test would consist of nested `for` loops for each configurable entity, and then at the deepest nesting the configurable entities would be passed as arguments to a driver method which contained the test in __Given/When/Then__ format. The driver method would initialize the Test Doubles in the __Given__ section with the passed parameter values and call the public method being tested with passed parameter values as well.
 
-It doesn’t take too many nested configurable entities iterating through their behaviors for the number of calls to the test driver becomes huge. It was not uncommon for the number of test driver calls to reach hundreds or thousands of potential configurations. Rather than completing in seconds, these tests could take minutes – many minutes. It was the price I was willing to pay.
+It doesn’t take too many nested configurable entities iterating through their equivalence behavior partitions before the number of calls to the test driver becomes huge. It was not uncommon for the number of test driver calls to reach hundreds or thousands of potential configuration iterations. Rather than completing in seconds, these tests could take minutes – many minutes. It was the price I was willing to pay to ensure that every possible path was being executed, even if I knew that many configurations were redundant.
 
 While the test driver method was organized in the __Given/When/Then__ structure, it didn’t tend to look like the traditional unit tests. Traditional unit tests tend to be straight to the point. Test driver code included more nuance and logic to cover all possible combinations.
 
-I would usually start the test driver without parameters where the configuration resided in the test driver itself, like it does in traditional unit tests. Then I’d declare a configurable element in the test driver method signature and iterate through a few possible values in the test that delegated to it. One of the configuration argument values would cause the test to fail on one of its iterations. I would have to include logic by assertions and verifications in the __Then__ portion of my tests to consider different possible configuration values.
+I would usually start the test driver without parameters where the configuration resided in the test driver itself, like it does in traditional unit tests. Then I’d declare a configurable element in the test driver method signature and iterate through the possible values in the test that delegated to it. One of the configuration argument values would cause the test to fail on one of its iterations. I would have to modify the assertion and verification logic in the __Then__ portion of my tests to accommodate different configuration values.
 
 I would add one more configurable entity at a time until I had all possible configuration combinations were covered. This often required more sophisticated logic in the assertions and verifications.
 
@@ -163,7 +163,7 @@ The test driver may have to accommodate thousands of configuration combinations.
 
 I often added a print statement at the top of the test that logged the parameter values to the console. If a combination failed, then its parameter values would be the last ones on the log.
 
-Here’s an example of a test and test driver that iterates through all possible combinations of `doThis`. __NOTE:__ There is no need for Test Doubles for this test, since `doThis` has not external dependencies:
+Here’s an example of a test and test driver that iterates through all possible combinations of `doThis`. __NOTE:__ There is no need for Test Doubles for this test, since `doThis` has no external dependencies:
 ```java
     private static void testDriverForDoThisInAllPossibleCombinations(boolean a, boolean b, boolean c) throws Exception {
         System.out.format("doThis(a=%b, b=%b, c=%b)\n", a, b, c);
@@ -196,7 +196,7 @@ Here’s an example of a test and test driver that iterates through all possible
 
 ```
 
-When there were thousands of iterations, it might also take a long time to reach the failing combination. When that occurred, I would create a separate method that called the test driver using the failed combination so I could more easily isolate it and focus upon getting it to pass.
+When there were thousands of iterations, it might also take a long time to reach the failing combination. When that occurred, I would create a separate method that called the test driver with the failed combination so I could more easily isolate it and focus upon getting it to pass.
 
 Here’s an example of running the test driver for one specific iteration, which would allow me to focus upon this single scenario in isolation:
 ```java
@@ -210,7 +210,7 @@ These iterating tests tended to replicate the implementation to some degree, but
 Iterating tests are brittle. I often felt a little _dirty_ in creating them, but they provided peace of mind that I had all possible paths covered when I didn’t understand the code.
 
 # Updating Legacy Code
-Before working on the desired modification, i.e., the bug or the new feature, you may want to consider [refactoring](https://refactoring.guru/refactoring) the current code first.
+Before working on the desired modification, that is, the bug or the new feature, you may want to consider [refactoring](https://refactoring.guru/refactoring) the current legacy code first.
 
 ## Refactoring
 Refactoring is changing the structure of the code without changing its behavior. We may want to refactor legacy code before making updates to make it easier to accommodate the updates.
@@ -219,7 +219,7 @@ _For each desired change, make the change easy (warning: this may be hard), then
 
 Since `doThis` has coverage, I refactored it with the confidence that if my refactoring was incorrect, then one of the iterating tests would catch it.
 
-No intent has emerged during refactoring, since there wasn’t any original intent. However the refactored code is less complex. If there had been intent in the original code, it may have emerged:
+No intent has emerged during refactoring, since there wasn’t any original intent. However the refactored code is less complex. If there had been intent in the original code, I suspect it would have emerged:
 ```java
     public static String doThis(boolean a, boolean b, boolean c) {
         if (b) return "BeepBoop";
@@ -233,7 +233,7 @@ Adding tests and refactoring legacy code align with these two practices:
 * __The Method Use Rule__ - This rule helps you figure out which legacy code requires test coverage. _Before you use a method in a legacy system, check to see if there are tests for it. If there aren’t, write them._ - Michael Feathers
 * [__The Camping Rule__](https://deviq.com/principles/boy-scout-rule) - This rule helps you determine what to do in that legacy code. _Always leave the code cleaner than you found it._ - Uncle Bob Martin
 
-Legacy code won't fix itself. A code base with years or decades of legacy code may require additional effort for code rot abatement. You cannot make the system perfect. You cannot make it good. What you can do is make it less bad. Focus upon steering it into the right direction, applying _The Camping Rule_ when we can. Eventually as we steer in the right direction, the existing code base will become less brittle.
+Legacy code won't fix itself. A code base with years or decades of legacy code may require additional effort for code rot abatement. You cannot make the system perfect. You cannot make it good. What you can do is make it less bad. Focus upon steering it into the right direction, applying _The Camping Rule_ when we can. Eventually as we steer in the right direction, the existing code base will become cleaner and less brittle.
 
 Refactoring can be rewarding. You will find bugs lurking in the code that no one spotted before. You will bring order to chaos. You may even take a tangled mess of code and convert it into something beautiful and elegant.
 
@@ -305,7 +305,7 @@ However, we don’t just ignore it either. Here’s my recommendation:
 * Create a passing test that demonstrates the questionable behavior, but give it a name that questions that behavior. For example, if Ron didn’t confirm the `BatchResults` error, I would have created a test with the name: `getPassed_ReturnsIdsAddedViaAddFailedAndAddInterrupted_SHOULD_IT`. Adding `SHOULD_IT` change the indicative form of the test name into a question.
 * Create a ticket just that describes the questionable behavior, why you question it, and reference the `SHOULD_IT` test.
 
-Hopefully the ticket will be assigned to someone who has more domain knowledge than you. If the behavior is correct as-is, then the only update needed is to remove `SHOULD_IT` from the test name, and now we have a test that declares that the behavior is correct, even if it might look a bit shady.
+Hopefully the ticket will be assigned to someone who has more domain knowledge than you. If the behavior is correct as-is, then the only update needed is to remove `SHOULD_IT` from the test name, and now we have a test that declares that the behavior is correct, even if it might still look a little questionable.
 
 If the behavior is incorrect, then a new failing test that defines the correct behavior should be created. The implementation can then be modified to pass the new test, which will cause the previous passing `SHOULD_IT` test to fail. The `SHOULD_IT` test can then be removed.
 
@@ -313,11 +313,11 @@ Let’s return to `BatchResults` briefly. It didn’t have any unit tests, but s
 
 I’m of the opinion that any code that’s created by hand should be tested. While `BatchResults` is not complex, its error lurked there for months. While I don’t know how the error was introduced, I’d be willing to bet that `addPassed(int id)` was copied-and-pasted as `addFailed(int id)` and `addInterrupted(int id)` and only the method name was updated.
 
-“It doesn’t need to be unit tested,” I can here the developer say, “It’s obviously correct.” It only _looked_ correct, because previous code reviewers saw what they thought should be there rather than what was actually there. My fresh eyes spotted the obvious error.
+“It doesn’t need to be unit tested,” I can here the developer say, “It's so simple, that it’s obviously correct.” It only _looked_ correct, because previous code reviewers saw what they thought should be there rather than what was actually there. My fresh eyes spotted the obvious error.
 
-“If there had been unit tests for the Batch Processor, then it would have found the bug for sure.” Probably true. However, there were no unit tests for the Batch Processor either. And had there been unit tests for the Batch Processor when those tests failed, how long would it have taken anyone to think to look at the `BatchResults` class as the source of the error?
+“If there had been unit tests for the Batch Processor, then it would have found the bug for sure.” That's probably true ;however, there were no unit tests for the Batch Processor either. And had there been unit tests for the Batch Processor, which would have failed, how long would it have taken anyone to think to look at the `BatchResults` class as the source of the error? How much time would have been spent searching for the error in the Batch Processor that was never there?
 
-I wrote unit tests for `BatchResults` in about five to ten minutes. Would that have been less than the time it would have taken to debug any Batch Processor tests? Would it have been worth the time as compared to having missed failed and interrupted ids several months?
+I wrote unit tests for `BatchResults` in about five to ten minutes. Would that have been less than the time it would have taken to debug any Batch Processor tests? Would it have been worth the investment as compared to having missed failed and interrupted ids several months?
 
 I feel that an ounce of prevention is worth a pound of cure.
 
