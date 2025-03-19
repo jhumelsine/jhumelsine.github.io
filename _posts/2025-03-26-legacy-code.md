@@ -232,8 +232,8 @@ No intent has emerged during refactoring, since there wasn’t any original inte
 ```
 
 Adding tests and refactoring legacy code align with these two practices:
-* __The Method Use Rule__ - This rule helps you figure out which legacy code requires test coverage. _Before you use a method in a legacy system, check to see if there are tests for it. If there aren’t, write them._ - Michael Feathers
-* [__The Camping Rule__](https://deviq.com/principles/boy-scout-rule) - This rule helps you determine what to do in that legacy code. _Always leave the code cleaner than you found it._ - Uncle Bob Martin
+* __The Method Use Rule__ - This rule helps you figure out which legacy code requires test coverage. [_Before you use a method in a legacy system, check to see if there are tests for it. If there aren’t, write them._](https://www.linkedin.com/pulse/software-engineering-great-quotes-maximiliano-contieri/) - Michael Feathers
+* [__The Camping Rule__](https://deviq.com/principles/boy-scout-rule) - This rule helps you determine what to do in that legacy code. [_Always leave the code cleaner than you found it._](https://www.bookey.app/quote-book/clean-code) - Uncle Bob Martin
 
 Legacy code won't fix itself. A code base with years or decades of legacy code may require additional effort for code rot abatement. You cannot make the system perfect. You cannot make it good. What you can do is make it less bad. Focus upon steering it into the right direction, applying _The Camping Rule_ when we can. Eventually as we steer in the right direction, the existing code base will become cleaner and less brittle.
 
