@@ -5,6 +5,8 @@ unlisted: true
 ---
 
 # Introduction
+Have you ever hesitated before touching a piece of code, fearing it might break everything? That’s the reality of working with legacy code.
+
 I wrapped up the first part of my [Automated Testing](https://jhumelsine.github.io/3000/01/01/preface.html#automated-testing) series primarily focused upon [Test-Driven Development]( https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) and [Behavior-Driven Development](https://jhumelsine.github.io/2024/08/08/bdd.html) (BDD).
 
 BDD and TDD are great practices to drive and shape a new implementation. However, many software developers maintain existing legacy code more often than they write new code. Since BDD and TDD practices focus upon writing tests before implementing the code, and legacy code has already been implemented, these practices, by definition, cannot support legacy code.
@@ -322,8 +324,12 @@ I wrote unit tests for `BatchResults` in about five to ten minutes. Would that h
 I feel that an ounce of prevention is worth a pound of cure.
 
 # Summary
+Legacy code may seem daunting, but with the right strategies—automated testing, refactoring for testability, and leveraging seams—it becomes manageable. By taking a disciplined, incremental approach, developers can modernize code while preserving its reliability and reducing technical debt.
+
+While time constraints and business priorities often make teams hesitant to refactor, small improvements—like writing tests before making changes—can significantly lower risk. Instead of viewing legacy code as a burden, treating it as an opportunity for steady enhancement ensures it remains a stable foundation for future development.
 
 # References
+__NEEDS WORK MOSTLY REMOVING REDUNDANT REFERENCES__
 https://understandlegacycode.com/ - This is a landing page created by Nicolas Carlo dedicated to legacy code.
 https://www.legacycode.rocks/ - This is a landing page for Legacy Code Rocks!, which features a Slack group, podcast, newsletter, and more.
 https://understandlegacycode.com/blog/key-points-of-working-effectively-with-legacy-code/
