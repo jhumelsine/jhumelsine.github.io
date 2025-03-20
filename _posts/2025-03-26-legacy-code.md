@@ -332,21 +332,17 @@ While time constraints and business priorities often make teams hesitant to refa
 Here are some free resources:
 * [Wikipedia Legacy Systems](https://en.wikipedia.org/wiki/Legacy_system)
 * [Wikipedia Characterization Test](https://en.wikipedia.org/wiki/Characterization_test)
+* [Characterization Tests](https://michaelfeathers.silvrback.com/characterization-testing) by [Michael Feathers](https://michaelfeathers.silvrback.com/bio)
 * [Refactoring.guru on Refactoring](https://refactoring.guru/refactoring)
+* [Extract Method](https://refactoring.guru/extract-method) by Refactoring.guru
 * [The key points of Working Effectively with Legacy Code](https://understandlegacycode.com/blog/key-points-of-working-effectively-with-legacy-code/)_ by [Nicolas Carlo](https://bsky.app/profile/nicoespeon.com)
+* [Understanding Legacy Code: Change Messy Software Without Breaking It](https://understandlegacycode.com/) by [Nicolas Carlo](https://bsky.app/profile/nicoespeon.com)
+* [Legacy Code Rocks!](https://www.legacycode.rocks/) - Landing page for a podcast and community devoted to Legacy Code concerns
+* and for more, Google: [Legacy Code](https://www.google.com/search?q=Legacy+code)
+* and: [Characterization Tests](https://www.google.com/search?q=characterization+tests)
   
-__NEEDS WORK MOSTLY REMOVING REDUNDANT REFERENCES__
-https://understandlegacycode.com/ - This is a landing page created by Nicolas Carlo dedicated to legacy code.
-https://www.legacycode.rocks/ - This is a landing page for Legacy Code Rocks!, which features a Slack group, podcast, newsletter, and more.
-https://understandlegacycode.com/blog/key-points-of-working-effectively-with-legacy-code/
-https://bsky.app/profile/nicoespeon.com
-https://www.google.com/search?q=Legacy+code
-https://www.google.com/search?q=characterization+tests
-https://michaelfeathers.silvrback.com/characterization-testing
-https://michaelfeathers.silvrback.com/bio
-https://refactoring.guru/extract-method
-https://blog.codinghorror.com/the-big-ball-of-mud-and-other-architectural-disasters/
-https://x.com/KentBeck/status/250733358307500032?lang=en
+Here are some resources that can be purchased or are included in a subscription service:
+* Working Effectively with Legacy Code ([O'Reilly](https://learning.oreilly.com/library/view/working-effectively-with/0131177052/) and [Amazon](https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052))
 
 # Complete Code Example
 Here's the complete Java code for the iterating tests. I haven't used a test framework. You should be able to copy-and-paste the entire Java program into any Java environment and run it:
