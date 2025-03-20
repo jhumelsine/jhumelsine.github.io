@@ -53,7 +53,7 @@ Few things strike fear in the hearts of developers more than being assigned a ti
 
 Working with legacy code is challenging. The implementation may be opaque. Many behaviors may not be well understood or documented. The challenge isn’t so much in updating legacy code to support new or updated behaviors. The challenge is in doing so without breaking any existing behaviors that the user depends upon. Updating legacy code can feel like the software equivalent of being on the bomb squad and hoping that you don’t cut the wrong wire.
 
-[Michael Feathers](https://michaelfeathers.silvrback.com/bio) provided a glimmer of hope with: ___Working Effectively with Legacy Code___. I briefly referenced [his book](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html#working-effectively-with-legacy-code) in [The Conversion of a Unit Test Denier or … How I Learned to Stop Worrying and Love Unit Testing](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html). Here’s an excellent [summary](https://understandlegacycode.com/blog/key-points-of-working-effectively-with-legacy-code/) of the key points of book by [Nicolas Carlo](https://bsky.app/profile/nicoespeon.com).
+[Michael Feathers](https://michaelfeathers.silvrback.com/bio) provided a glimmer of hope with his book: ___Working Effectively with Legacy Code___. I briefly referenced [his book](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html#working-effectively-with-legacy-code) in [The Conversion of a Unit Test Denier](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html). Here’s an excellent [summary](https://understandlegacycode.com/blog/key-points-of-working-effectively-with-legacy-code/) of the key points of book by [Nicolas Carlo](https://bsky.app/profile/nicoespeon.com).
 
 Feathers contends that all too often developers rely upon the __edit and pray__ process when updating legacy code. Modify legacy without understanding the dependencies, and how likely are you to break it? Though a bit dated, this 2012 paper, [SOFTWARE DEFECT ORIGINS AND REMOVAL METHODS](https://insights.cermacademy.com/6-software-defect-origins-and-removal-methods-c-capers-jones-technologyrisk/) by [Capers Jones](https://en.wikipedia.org/wiki/Capers_Jones) states that the odds of a modification introducing a new bug can be as high as 25%. He calls these _bad fixes_:
 >_Bad fixes are inversely proportional to cyclomatic complexity, and also inversely proportional to experience. Bad fixes by a top-gun software engineer working with software with low cyclomatic complexity can be only a fraction of 1%._
@@ -62,9 +62,9 @@ Feathers contends that all too often developers rely upon the __edit and pray__ 
 
 Feathers advocates __cover and modify__, where developers cover the legacy code with tests, and then modify it with the confidence that existing behavior hasn’t broken unintentionally.
 
-Legacy code doesn’t tend to have tests. Feathers defines legacy code as code without tests. Unfortunately, code that was implemented without tests tends to be obdurate to having tests added to it later.
+Legacy code doesn’t tend to have tests. Feathers even defines legacy code as code without tests. Unfortunately, code that was implemented without tests tends to be obdurate to having tests added to it later.
 
-We can’t easily add tests to obdurate code, until we’ve updated the code to make it more accommodating to test. But we can’t modify legacy code confidently unless we have tests to ensure we haven’t broken something. We’re in a Catch-22 situation.
+We can’t easily add tests to obdurate code, until we’ve updated the code to make it more accommodating to being tested. But we can’t modify legacy code confidently unless we have tests to ensure we haven’t broken something. We’re in a Catch-22 situation.
 
 Feathers devotes the first 20% of his book to convincing developers to add tests to legacy code. He devotes the remaining 80% to relatively safe refactoring techniques one can apply to obdurate non-tested code safely making it more accommodating to tests.
 
@@ -113,7 +113,7 @@ Introducing seams allows us to isolate pieces of the legacy code so that they ca
 
 Feathers describes [Characterization Tests](https://michaelfeathers.silvrback.com/characterization-testing) in his book. Characterization Tests look like TDD/BDD tests since they still maintain the [__Give/When/Then__](https://en.wikipedia.org/wiki/Given-When-Then) format, but that's pretty much where the resemblence ends.
 
-Characterization Tests differ from TDD/BDD tests in that TDD/BDD tests specify behavior, whereas __Characterization Tests reveal existing behavior__. Since users execute legacy code regularly, any behaviors revealed through Characterization Test will be correct, dead code or unobservable by the user. The goal of Characterization Tests is to lock down existing behavior so that additional refactoring can be done to clean up the code making it maintainable without breaking any existing behavior.
+Characterization Tests differ from TDD/BDD tests in that TDD/BDD tests specify behavior, whereas __Characterization Tests reveal existing behavior__. Since users execute legacy code regularly, any behaviors revealed through Characterization Test will be correct, dead code or unobservable by the user. The goal of Characterization Tests is to lock down existing behavior so that additional refactoring can be done to clean up the code making it maintainable without breaking any of the existing behavior.
 
 Characterization Tests reveal behavior after the implementation. How do we create a test to reveal behavior when we don’t know what behavior is being revealed? We will need to reference the implementation.
 
@@ -151,7 +151,7 @@ Consider this contrived method, which I’ll use as an example of how to iterate
     }
 ```
 
-Configurable entities would usually include Test Double behaviors and arguments with multiple behaviors and parameter values with each iterating through as as many [equivalence partitions](https://jhumelsine.github.io/2024/08/08/bdd.html#equivalence-partitioning) as I could. The test would consist of nested `for` loops for each configurable entity, and then at the deepest nesting the configurable entities would be passed as arguments to a driver method which contained the test in __Given/When/Then__ format. The driver method would initialize the Test Doubles in the __Given__ section with the passed parameter values and call the public method being tested with passed parameter values as well.
+Configurable entities would usually include Test Double behaviors and arguments with multiple behaviors and parameter values with each iterating through as as many [equivalence partitions](https://jhumelsine.github.io/2024/08/08/bdd.html#equivalence-partitioning) as I could think of. The test would consist of nested `for` loops for each configurable entity, and then at the deepest nesting, the configurable entities would be passed as arguments to a driver method which contained the test in __Given/When/Then__ format. The driver method would initialize the Test Doubles in the __Given__ section with the passed parameter values and call the public method being tested with passed parameter values as well.
 
 It doesn’t take too many nested configurable entities iterating through their equivalence behavior partitions before the number of calls to the test driver becomes huge. It was not uncommon for the number of test driver calls to reach hundreds or thousands of potential configuration iterations. Rather than completing in seconds, these tests could take minutes – many minutes. It was the price I was willing to pay to ensure that every possible path was being executed, even if I knew that many configurations were redundant.
 
@@ -195,7 +195,6 @@ Here’s an example of a test and test driver that iterates through all possible
             }
         }
     }
-
 ```
 
 When there were thousands of iterations, it might also take a long time to reach the failing combination. When that occurred, I would create a separate method that called the test driver with the failed combination so I could more easily isolate it and focus upon getting it to pass.
@@ -221,7 +220,7 @@ Refactoring is changing the structure of the code without changing its behavior.
 
 Since `doThis` has coverage, I refactored it with the confidence that if my refactoring was incorrect, then one of the iterating tests would catch it.
 
-No intent has emerged during refactoring, since there wasn’t any original intent. However the refactored code is less complex. If there had been intent in the original code, I suspect it would have emerged:
+No intent emerged during refactoring, since there wasn’t any original intent. However the refactored code is less complex. If there had been intent in the original code, I suspect it would have emerged:
 ```java
     public static String doThis(boolean a, boolean b, boolean c) {
         if (b) return "BeepBoop";
@@ -235,7 +234,7 @@ Adding tests and refactoring legacy code align with these two practices:
 * __The Method Use Rule__ - This rule helps you figure out which legacy code requires test coverage. [_Before you use a method in a legacy system, check to see if there are tests for it. If there aren’t, write them._](https://www.linkedin.com/pulse/software-engineering-great-quotes-maximiliano-contieri/) - Michael Feathers
 * [__The Camping Rule__](https://deviq.com/principles/boy-scout-rule) - This rule helps you determine what to do in that legacy code. [_Always leave the code cleaner than you found it._](https://www.bookey.app/quote-book/clean-code) - Uncle Bob Martin
 
-Legacy code won't fix itself. A code base with years or decades of legacy code may require additional effort for code rot abatement. You cannot make the system perfect. You cannot make it good. What you can do is make it less bad. Focus upon steering it into the right direction, applying _The Camping Rule_ when we can. Eventually as we steer in the right direction, the existing code base will become cleaner and less brittle.
+Legacy code won't fix itself. A code base with years or decades of legacy code may require additional effort to address code rot abatement. You cannot make the system perfect. You cannot make it good. What you can do is make it less bad. Focus upon steering it into the right direction, applying _The Camping Rule_ when we can. Eventually as we steer in the right direction, the existing code base will become cleaner and less brittle.
 
 Refactoring can be rewarding. You will find bugs lurking in the code that no one spotted before. You will bring order to chaos. You may even take a tangled mess of code and convert it into something beautiful and elegant.
 
@@ -297,7 +296,7 @@ class BatchResults {
 
 This didn’t look right to me. I spun my chair around to address my teammate who sat behind me and asked, “Hey, Ron. Can you look at this? It doesn’t look right to me. The failed and interrupted ids are being added to the passed List.”
 
-“Oh, that’s not right,” Ron replied, “Gee, I wonder how many failed and interrupted ids were incorrectly recorded as passed.”
+“Oh, that’s not right,” Ron replied, “Gee, I wonder how many failed and interrupted ids have been incorrectly recorded as passed.”
 
 `BatchResults` didn’t have any unit tests. I added failing tests for the failed and interrupted scenarios and then fixed the code.
 
@@ -313,7 +312,7 @@ If the behavior is incorrect, then a new failing test that defines the correct b
 
 Let’s return to `BatchResults` briefly. It didn’t have any unit tests, but should it? There’s a unit testing community that believes that it’s a waste of time to test simple code. Devote your efforts toward covering more complex code. Accessors are a prime example where you often don’t see test coverage. Accessors will be tested indirectly as they are invoked in code that is unit tested.
 
-I’m of the opinion that any code that’s created by hand should be tested. While `BatchResults` is not complex, its error lurked there for months. While I don’t know how the error was introduced, I’d be willing to bet that `addPassed(int id)` was copied-and-pasted as `addFailed(int id)` and `addInterrupted(int id)` and only the method name was updated.
+I’m of the opinion that any code that’s created by hand should be tested. While `BatchResults` is not complex, its error lurked there for months. While I don’t know how the error was introduced, I’d be willing to bet that `addPassed(int id)` was copied-and-pasted as `addFailed(int id)` and `addInterrupted(int id)` and only the method name was updated. The copied implementations were not updated and failed and interrupted ids were being recorded as having passed.
 
 “It doesn’t need to be unit tested,” I can here the developer say, “It's so simple, that it’s obviously correct.” It only _looked_ correct, because previous code reviewers saw what they thought should be there rather than what was actually there. My fresh eyes spotted the _obvious_ error.
 
@@ -335,7 +334,7 @@ Here are some free resources:
 * [Characterization Tests](https://michaelfeathers.silvrback.com/characterization-testing) by [Michael Feathers](https://michaelfeathers.silvrback.com/bio)
 * [Refactoring.guru on Refactoring](https://refactoring.guru/refactoring)
 * [Extract Method](https://refactoring.guru/extract-method) by Refactoring.guru
-* [The key points of Working Effectively with Legacy Code](https://understandlegacycode.com/blog/key-points-of-working-effectively-with-legacy-code/)_ by [Nicolas Carlo](https://bsky.app/profile/nicoespeon.com)
+* [The key points of Working Effectively with Legacy Code](https://understandlegacycode.com/blog/key-points-of-working-effectively-with-legacy-code/) by [Nicolas Carlo](https://bsky.app/profile/nicoespeon.com)
 * [Understanding Legacy Code: Change Messy Software Without Breaking It](https://understandlegacycode.com/) by [Nicolas Carlo](https://bsky.app/profile/nicoespeon.com)
 * [Legacy Code Rocks!](https://www.legacycode.rocks/) - Landing page for a podcast and community devoted to Legacy Code concerns
 * and for more, Google: [Legacy Code](https://www.google.com/search?q=Legacy+code)
