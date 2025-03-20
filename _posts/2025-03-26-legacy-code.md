@@ -329,22 +329,23 @@ Legacy code may seem daunting, but with the right strategies—automated testing
 While time constraints and business priorities often make teams hesitant to refactor, small improvements—like writing tests before making changes—can significantly lower risk. Instead of viewing legacy code as a burden, treating it as an opportunity for steady enhancement ensures it remains a stable foundation for future development.
 
 # References
+Here are some free resources:
+* [Wikipedia Legacy Systems](https://en.wikipedia.org/wiki/Legacy_system)
+* [Wikipedia Characterization Test](https://en.wikipedia.org/wiki/Characterization_test)
+* [Refactoring.guru on Refactoring](https://refactoring.guru/refactoring)
+* [The key points of Working Effectively with Legacy Code](https://understandlegacycode.com/blog/key-points-of-working-effectively-with-legacy-code/)_ by [Nicolas Carlo](https://bsky.app/profile/nicoespeon.com)
+  
 __NEEDS WORK MOSTLY REMOVING REDUNDANT REFERENCES__
 https://understandlegacycode.com/ - This is a landing page created by Nicolas Carlo dedicated to legacy code.
 https://www.legacycode.rocks/ - This is a landing page for Legacy Code Rocks!, which features a Slack group, podcast, newsletter, and more.
 https://understandlegacycode.com/blog/key-points-of-working-effectively-with-legacy-code/
-https://x.com/nicoespeon
 https://bsky.app/profile/nicoespeon.com
 https://www.google.com/search?q=Legacy+code
 https://www.google.com/search?q=characterization+tests
-https://en.wikipedia.org/wiki/Characterization_test
-https://en.wikipedia.org/wiki/Legacy_system
 https://michaelfeathers.silvrback.com/characterization-testing
 https://michaelfeathers.silvrback.com/bio
-https://en.wikipedia.org/wiki/Given-When-Then
 https://refactoring.guru/extract-method
 https://blog.codinghorror.com/the-big-ball-of-mud-and-other-architectural-disasters/
-https://refactoring.guru/refactoring
 https://x.com/KentBeck/status/250733358307500032?lang=en
 
 # Complete Code Example
