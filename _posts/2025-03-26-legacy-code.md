@@ -22,7 +22,7 @@ Lin Manuel-Miranda had Alexander Hamilton ponder the meaning of legacy in _Hamil
 
 Legacy tends to have positive connotations. It’s passing something valuable to the next generation. However, legacy code tends to have negative connotations.
 
-Planting a seed in a garden isn’t enough to ensure a valuable legacy. One must nurture and maintain the garden by watering it and keeping it free of weed and pests. All too often, legacy code isn’t well maintained.
+Planting a seed in a garden isn’t enough to ensure a valuable legacy. One must nurture and maintain the garden by watering it and keeping it free of weeds and pests. All too often, legacy code isn’t well maintained.
 
 I’m generalizing a bit, but legacy code tends to:
 * Have large classes
@@ -75,7 +75,7 @@ I'm not going to sugar coat this. Adding tests to legacy code is hard work. Some
 
 __TIP:__ _If your unit tests are nasty and/or difficult to implement, the issue is probably not the test. It is an indication that code those tests confirm is nasty and in need of refactoring and/or redesign._
 
-That previous __TIP__ is going to haunt you. Legacy code wasn't created using TDD. It is probably nasty and in need of refactoring and/or redesign. The unit tests will be nasty and difficult to implement, at least at the start. Well designed and implemented code tends to have straightforward test cases. Therefore, test cases that are messy, confusing, complicated, etc. may be an indication that the code they confirm is messy, confusing, complicated, etc. This could be an indication of a redesign opportunity, but I’m getting a bit ahead of myself.
+That previous __TIP__ is going to haunt you. Legacy code wasn't created using TDD. It is probably nasty and in need of refactoring and/or redesign. The unit tests will be nasty and difficult to implement, at least at the start. Well designed and implemented code tends to have straightforward test cases. Therefore, test cases that are messy, confusing, complicated, etc. may be an indication that the code they confirm is messy, confusing, complicated, etc. This could be an indication of a redesigning opportunity, but I’m getting a bit ahead of myself.
 
 ## Seams
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Skr%C3%A4ddare_-_Tailor_-_Malm%C3%B6_1993.jpg" alt="Tailor" title="Image Source: https://commons.wikimedia.org/wiki/File:Skr%C3%A4ddare_-_Tailor_-_Malm%C3%B6_1993.jpg " width = "35%" align="right" style="padding-right: 20px;">
@@ -114,7 +114,7 @@ I described how Suril and I [introduced a __package-private__ seam](https://jhum
 ## Characterization Tests
 Introducing seams allows us to isolate pieces of the legacy code so that they can be tested. But what are we testing? TDD and BDD start with the assumption that you know the expected behavior, but that may not be the case for legacy code. We may have a notion of some of the behavior, but there’s a good chance we don’t know all the behavior that’s lurking in legacy code.
 
-Feathers describes [Characterization Tests](https://michaelfeathers.silvrback.com/characterization-testing) in his book. Characterization Tests look like TDD/BDD tests since they still maintain the [__Give/When/Then__](https://en.wikipedia.org/wiki/Given-When-Then) format, but that's pretty much where the resemblence ends.
+Feathers describes [Characterization Tests](https://michaelfeathers.silvrback.com/characterization-testing) in his book. Characterization Tests look like TDD/BDD tests since they still maintain the [__Give/When/Then__](https://en.wikipedia.org/wiki/Given-When-Then) format, but that's pretty much where the resemblance ends.
 
 Characterization Tests differ from TDD/BDD tests in that TDD/BDD tests specify behavior, whereas __Characterization Tests reveal existing behavior__. Since users execute legacy code regularly, any behaviors revealed through Characterization Test will be correct, dead code or unobservable by the user. The goal of Characterization Tests is to lock down existing behavior so that additional refactoring can be done to clean up the code making it maintainable without breaking any of the existing behavior.
 
@@ -130,7 +130,7 @@ Here are some suggestions when writing Characterization Tests:
 * While the Characterization Test documents revealed behavior, you may still not understand what is being revealed. You may not be able to provide a test name that indicates behavior specification or intent. Don’t be concerned about this. Choose a name that describes what the test is doing instead.
 * Repeat with a new test until you the tests cover as much of the scoped legacy code as possible.
 
-Characterization Tests are an exploratory tool. We use them to reveal behavior, not define it. We never know when all of the behaviors have been revealed. Creating enough Characterization Tests is a judgement call. Code coverage is probably our greatest tool in determining if we have enough Characterization Tests. When statements have no coverage, then we know that there is more work to do. Complete coverage does not guarantee that all behaviors have been covered, but uncovered code is a clear indication that there's uncovered behavior. Mutation Testing is another tool that can aid in knowing when you have sufficient tests. I'll cover Mutation Testing in my next blog entry (TBD).
+Characterization Tests are an exploratory tool. We use them to reveal behavior, not define it. We never know when all the behaviors have been revealed. Creating enough Characterization Tests is a judgement call. Code coverage is probably our greatest tool in determining if we have enough Characterization Tests. When statements have no coverage, then we know that there is more work to do. Complete coverage does not guarantee that all behaviors have been covered, but uncovered code is a clear indication that there's uncovered behavior. Mutation Testing is another tool that can aid in knowing when you have sufficient tests. I'll cover Mutation Testing in my next blog entry (TBD).
 
 Characterization tests are a behavior exploration, discovery and revealing technique.
 
@@ -154,7 +154,7 @@ Consider this contrived method, which I’ll use as an example of how to iterate
     }
 ```
 
-Configurable entities usually include Test Double behaviors and arguments with multiple behaviors and parameter values with each iterating through as as many [equivalence partitions](https://jhumelsine.github.io/2024/08/08/bdd.html#equivalence-partitioning) as I can think of. The test consists of nested `for` loops for each configurable entity, and then at the deepest nesting, the configurable entities are passed as arguments to a driver method which contains the test in __Given/When/Then__ format. The driver method initializes the Test Doubles in the __Given__ section with the passed parameter values and calls the public method being tested with passed parameter values as well.
+Configurable entities usually include Test Double behaviors and arguments with multiple behaviors and parameter values with each iterating through as many [equivalence partitions](https://jhumelsine.github.io/2024/08/08/bdd.html#equivalence-partitioning) as I can think of. The test consists of nested `for` loops for each configurable entity, and then at the deepest nesting, the configurable entities are passed as arguments to a driver method which contains the test in __Given/When/Then__ format. The driver method initializes the Test Doubles in the __Given__ section with the passed parameter values and calls the public method being tested with passed parameter values as well.
 
 It doesn’t take too many nested configurable entities iterating through their equivalence behavior partitions before the number of calls to the test driver becomes huge. It was not uncommon for the number of test driver calls to reach hundreds or thousands of potential configuration iterations. Rather than completing in seconds, these tests could take minutes – many minutes. It was the price I was willing to pay to ensure that every possible path was being executed, even if I knew that many configurations were redundant.
 
@@ -200,7 +200,7 @@ Here’s an example of a test and test driver that iterates through all possible
     }
 ```
 
-When there were thousands of iterations, it might also take a long time to reach the failing combination. When that occurred, I would create a separate method that called the test driver with the failed combination so I could more easily isolate it. run the failing combination immediately, and focus upon getting it to pass.
+When there were thousands of iterations, it might also take a long time to reach the failing combination. When that occurred, I would create a separate method that called the test driver with the failed combination so I could more easily isolate it. run the failing combination immediately and focus upon getting it to pass.
 
 Here’s an example of running the test driver for one specific iteration, which isolates the _failing_ combination when __a=true, b=false, c=false__:
 ```java
@@ -223,7 +223,7 @@ Before working on the desired modification, that is, the bug or the new feature,
 
 Since `doThis` has coverage, I refactored it with the confidence that if my refactoring was incorrect, then one of the iterating tests would catch it.
 
-No intent emerged during refactoring, since there wasn’t any original intent. However the refactored code is less complex. If there had been intent in the original code, I suspect it would have emerged:
+No intent emerged during refactoring, since there wasn’t any original intent. However, the refactored code is less complex. If there had been intent in the original code, I suspect it would have emerged:
 ```java
     public static String doThis(boolean a, boolean b, boolean c) {
         if (b) return "BeepBoop";
@@ -308,7 +308,7 @@ I spun my chair around to address my teammate who sat behind me and asked, “He
 This was an obvious error, and Ron had confirmed it. But sometimes the legacy code may reveal behavior and intent that looks questionable, and it’s not as obvious as the error in `BatchResults`. Do not ___fix___ this code, since it may not be broken. Many of us don’t have the domain knowledge to make that call within legacy code. Remember the old adage: ___That’s not a bug. It’s a feature.___ You may ___fix___ something that a customer is depending upon.
 
 However, we don’t just ignore it either. Here’s my recommendation:
-* Create a passing test that demonstrates the questionable behavior, but give it a name that questions that behavior. For example, if Ron didn’t confirm the `BatchResults` error, I would have created a test with the name: `getPassed_ReturnsIdsAddedViaAddFailedAndAddInterrupted_SHOULD_IT`. Adding `SHOULD_IT` change the indicative form of the test name into a question.
+* Create a passing test that demonstrates the questionable behavior but give it a name that questions that behavior. For example, if Ron didn’t confirm the `BatchResults` error, I would have created a test with the name: `getPassed_ReturnsIdsAddedViaAddFailedAndAddInterrupted_SHOULD_IT`. Adding `SHOULD_IT` change the indicative form of the test name into a question.
 * Create a ticket just that describes the questionable behavior, why you question it, and reference the `SHOULD_IT` test.
 
 Hopefully the ticket will be assigned to someone who has more domain knowledge than you. If the behavior is correct as-is, then the only update needed is to remove `SHOULD_IT` from the test name, and now we have a test that declares that the behavior is correct, even if it might still look a little questionable.
