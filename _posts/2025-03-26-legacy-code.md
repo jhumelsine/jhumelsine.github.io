@@ -319,7 +319,7 @@ Let’s return to `BatchResults` briefly. It didn’t have any unit tests, but s
 
 I’m of the opinion that any code that’s created by hand should be tested. While `BatchResults` is not complex, its error lurked there for months. While I don’t know how the error was introduced, I’d be willing to bet that `addPassed(int id)` was copied-and-pasted as `addFailed(int id)` and `addInterrupted(int id)` and only the method name was updated. The copied implementations were not updated and failed and interrupted ids were being recorded as having passed.
 
-“It doesn’t need to be unit tested,” I can here the developer say, “It's so simple, that it’s obviously correct.” It only _looked_ correct, because previous code reviewers saw what they thought should be there rather than what was actually there. My fresh eyes spotted the _obvious_ error.
+“It doesn’t need to be unit tested,” I can hear the developer say, “It's so simple, that it’s obviously correct.” It only _looked_ correct, because previous code reviewers saw what they thought should be there rather than what was actually there. My fresh eyes spotted the _obvious_ error.
 
 “If there had been unit tests for the Batch Processor, then it would have found the bug for sure,” some might argue. That's probably true; however, there were no unit tests for the Batch Processor either. And had there been unit tests for the Batch Processor, which would have failed, how long would it have taken anyone to think to look at the `BatchResults` class as the source of the error? How much time would have been spent searching for the error in the Batch Processor that was not there?
 
