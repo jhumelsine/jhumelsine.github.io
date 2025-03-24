@@ -87,7 +87,7 @@ Code is most easily tested along its seams. Seams allow us to disassemble and is
 Seams reside along boundaries and tend to be [Stable or Fixed Elements](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#stable-or-fixed-design-elements) within the code, such as interfaces and method signatures. Ideally, seams lie along [Natural Boundaries](https://jhumelsine.github.io/2024/05/28/design-process.html#natural-boundaries).
 
 ## Legacy Code Lacks Seams
-Legacy code tends to bloat as it ages, one small modification at a time, without much concern toward maintaining natural boundary seams. It’s the lack of seams in legacy code that makes it obdurate to tests. To make legacy code more test accommodating, we may need to add seams so that we can isolate pieces of code making them more manageable for testing.
+Over time, legacy code accumulates small, incremental changes, gradually expanding without regard for maintaining clear boundary seams. It’s the lack of seams in legacy code that makes it obdurate to tests. To make legacy code more test accommodating, we may need to add seams so that we can isolate pieces of code making them more manageable for testing.
 
 [Extract Method](https://refactoring.guru/extract-method) is one of the most valuable refactoring tool to safely introduce seams to legacy code. The steps of extract method are basically:
 * Select a block of statements in the code that ideally encapsulates a single intent or responsibility.
@@ -137,7 +137,7 @@ Characterization tests are a behavior exploration, discovery and revealing techn
 ## Iterate All Combinations
 Most legacy code I’ve encountered was a [Big Ball of Mud](https://blog.codinghorror.com/the-big-ball-of-mud-and-other-architectural-disasters/). Methods contained too many paths of execution through the code to create individual Characterization Tests for each combination. In these cases, I would design a Characterization Test that would iterate through all possible configuration combinations in the method being tested.
 
-Consider this contrived method, which I’ll use as an example of how to iterate all combinations. While this is a small example, consider code with a similar lack of context, except it’s 100 lines long with nesting depth up to five levels deep, and up to ten independent variables.
+Take this simple method as an example of iterating through all combinations. While this is a small, controlled case, imagine a similar piece of code—only 100 lines long, deeply nested up to five levels, and juggling ten independent variables, all without clear context.
 ```java
     public static String doThis(boolean a, boolean b, boolean c) {
         String returnValue = "";
@@ -156,9 +156,9 @@ Consider this contrived method, which I’ll use as an example of how to iterate
 
 Configurable entities usually include Test Double behaviors and arguments with multiple behaviors and parameter values with each iterating through as many [equivalence partitions](https://jhumelsine.github.io/2024/08/08/bdd.html#equivalence-partitioning) as I can think of. The test consists of nested `for` loops for each configurable entity, and then at the deepest nesting, the configurable entities are passed as arguments to a driver method which contains the test in __Given/When/Then__ format. The driver method initializes the Test Doubles in the __Given__ section with the passed parameter values and calls the public method being tested with passed parameter values as well.
 
-It doesn’t take too many nested configurable entities iterating through their equivalence behavior partitions before the number of calls to the test driver becomes huge. It was not uncommon for the number of test driver calls to reach hundreds or thousands of potential configuration iterations. Rather than completing in seconds, these tests could take minutes – many minutes. It was the price I was willing to pay to ensure that every possible path was being executed, even if I knew that many configurations were redundant.
+It doesn’t take too many nested configurable entities iterating through their equivalence behavior partitions before the number of calls to the test driver becomes huge. It was common for the number of test driver calls to reach hundreds or thousands of potential configuration iterations. Rather than completing in seconds, these tests could take minutes — many minutes. It was the price I was willing to pay to ensure that every possible path was being executed, even if I knew that many configurations were redundant.
 
-While the test driver method is organized in the __Given/When/Then__ structure, it doesn’t tend to look like the traditional unit tests. Traditional unit tests tend to be straight to the point. Test driver methods are closer to a template for for all possible configuration combinations. Test driver code includes more nuance and logic to cover all possible combinations.
+While the test driver method is organized in the __Given/When/Then__ structure, it doesn’t tend to look like the traditional unit tests. Traditional unit tests tend to be straight to the point. Test driver methods are closer to a template for all possible configuration combinations. Test driver code includes more nuance and logic to cover all possible combinations.
 
 I usually started the test driver without parameters where the configuration resided in the test driver itself, like it does in traditional unit tests. Then I’d declare a configurable element in the test driver method signature and iterate through the possible values in the test that delegated to it. One of the configuration argument values would cause the test to fail on one of its iterations. I would modify the assertion and verification logic in the __Then__ portion of my tests to accommodate different configuration values.
 
@@ -166,7 +166,7 @@ I added one more configurable entity at a time until all possible configuration 
 
 The test driver may have to accommodate thousands of configuration combinations. It may take minutes before they’re all handled correctly. The test driver may iterate hundreds of combinations before failing on one of the configurations, but which one failed?
 
-I often added a print statement at the top of the test that logged the parameter values to the console. If a combination failed, then its parameter values would be the last ones on the log.
+I often added a print statement at the top of the test that logged the parameter values to the console. If a combination failed, then its parameter values would be the last ones in the log.
 
 Here’s an example of a test and test driver that iterates through all possible combinations of `doThis`. __NOTE:__ There is no need for Test Doubles for this test, since `doThis` has no external dependencies:
 ```java
@@ -202,7 +202,7 @@ Here’s an example of a test and test driver that iterates through all possible
 
 When there were thousands of iterations, it might also take a long time to reach the failing combination. When that occurred, I would create a separate method that called the test driver with the failed combination so I could more easily isolate it. run the failing combination immediately and focus upon getting it to pass.
 
-Here’s an example of running the test driver for one specific iteration, which isolates the _failing_ combination when __a=true, b=false, c=false__:
+Here’s an example of running the test driver for one specific iteration, which isolates the combination, __a=true, b=false, c=false__, if it were failing:
 ```java
     public static void testSpecificCombination() throws Exception {
         testDriverForDoThisInAllPossibleCombinations(true, false, false);
@@ -211,7 +211,7 @@ Here’s an example of running the test driver for one specific iteration, which
 
 Test drivers tend to replicate the implementation to some degree. I always tried to keep the test driver’s implementation different from the tested code. In a way, the test driver was rewriting the code being tested without having to touch the code being tested. Hidden behaviors would sometimes emerge within the test driver.
 
-Iterating tests are brittle. I often felt a little _dirty_ in creating them, but they provided peace of mind that I had all possible paths covered when I didn’t understand the code.
+Iterating tests are brittle. I often felt a little _dirty_ in creating them. They provided peace of mind that I had all possible paths covered when I didn’t understand the code, but they could easily break as I refactored the code, which I'll address shortly.
 
 # Updating Legacy Code
 Before working on the desired modification, that is, the bug or the new feature, you may want to consider refactoring the current legacy code first.
@@ -271,7 +271,7 @@ Sometimes the behaviors revealed may not look correct. A hidden bug may have bee
 
 Here’s a situation that I encountered while working on some legacy code.
 
-The feature managed a set backend batch tasks. A background manager processed a set of tasks each with a unique integer identifier. The batch manager identified tasks that passed, failed and were interrupted while being processed. It recorded this information and returned it in a `BatchResults` object, which was a straightforward class that looked something like this:
+The feature managed a set backend batch tasks. A background manager processed a set of tasks each with a unique integer identifier. The batch manager identified the tasks that passed, failed and were interrupted while being processed. It recorded this information and returned it in a `BatchResults` object, which was a straightforward class that looked something like this:
 ```java
 class BatchResults {
     private List<Integer> passed = new LinkedList<>();
@@ -308,22 +308,22 @@ I spun my chair around to address my teammate who sat behind me and asked, “He
 This was an obvious error, and Ron had confirmed it. But sometimes the legacy code may reveal behavior and intent that looks questionable, and it’s not as obvious as the error in `BatchResults`. Do not ___fix___ this code, since it may not be broken. Many of us don’t have the domain knowledge to make that call within legacy code. Remember the old adage: ___That’s not a bug. It’s a feature.___ You may ___fix___ something that a customer is depending upon.
 
 However, we don’t just ignore it either. Here’s my recommendation:
-* Create a passing test that demonstrates the questionable behavior but give it a name that questions that behavior. For example, if Ron didn’t confirm the `BatchResults` error, I would have created a test with the name: `getPassed_ReturnsIdsAddedViaAddFailedAndAddInterrupted_SHOULD_IT`. Adding `SHOULD_IT` change the indicative form of the test name into a question.
+* Create a passing test that demonstrates the questionable behavior but give it a name that questions that behavior. For example, if Ron didn’t confirm the `BatchResults` error, I would have created a test with the name: `getPassed_ReturnsIdsAddedViaAddFailedAndAddInterrupted_SHOULD_IT`. Adding `SHOULD_IT` change the indicative form of the test name into a question. I would have also added some comments in the test declaring why I questioned the revealed behavior.
 * Create a ticket just that describes the questionable behavior, why you question it, and reference the `SHOULD_IT` test.
 
-Hopefully the ticket will be assigned to someone who has more domain knowledge than you. If the behavior is correct as-is, then the only update needed is to remove `SHOULD_IT` from the test name, and now we have a test that declares that the behavior is correct, even if it might still look a little questionable.
+Hopefully the ticket will be assigned to someone who has more domain knowledge than you. If the behavior is correct as-is, then the only update needed is to remove `SHOULD_IT` from the test name as well as any questioning comments, and now we have a test that declares that the behavior is correct, even if it might still look a little questionable.
 
 If the behavior is incorrect, then a new failing test that defines the correct behavior should be created. The implementation can then be modified to pass the new test, which will cause the previous passing `SHOULD_IT` test to fail. The `SHOULD_IT` test can then be removed.
 
 Let’s return to `BatchResults` briefly. It didn’t have any unit tests, but should it? Was this an oversight by the developer who wrote `BatchResults`? There’s a unit testing community that believes that it’s a waste of resources to test simple code. Devote your efforts toward covering more complex code. Accessors are a prime example where you often don’t see test coverage. Accessors will be tested indirectly as they are invoked in code that is unit tested.
 
-I’m of the opinion that any code that’s created by hand should be tested. While `BatchResults` is not complex, its error lurked there for months. While I don’t know how the error was introduced, I’d be willing to bet that `addPassed(int id)` was copied-and-pasted as `addFailed(int id)` and `addInterrupted(int id)` and only the method name was updated. The copied implementations were not updated and failed and interrupted ids were being recorded as having passed.
+I’m of the opinion that any code that’s created by hand should be tested. While `BatchResults` is not complex, its error lurked there for months. While I don’t know how the error was introduced, I’d be willing to bet that `addPassed(int id)` was copied-and-pasted as `addFailed(int id)` and `addInterrupted(int id)` and only the method name was updated. The copied implementations were not updated and failed and interrupted ids were being recorded as having passed incorrectly.
 
 “It doesn’t need to be unit tested,” I can hear the developer say, “It's so simple, that it’s obviously correct.” It only _looked_ correct, because previous code reviewers saw what they thought should be there rather than what was actually there. My fresh eyes spotted the _obvious_ error.
 
-“If there had been unit tests for the Batch Processor, then it would have found the bug for sure,” some might argue. That's probably true; however, there were no unit tests for the Batch Processor either. And had there been unit tests for the Batch Processor, which would have failed, how long would it have taken anyone to think to look at the `BatchResults` class as the source of the error? How much time would have been spent searching for the error in the Batch Processor that was not there?
+“If there had been unit tests for the Batch Processor, then it would have found the bug for sure,” some might argue. That's probably true; however, there were no unit tests for the Batch Processor either. And had there been unit tests for the Batch Processor, which would have failed due to the error in `BatchResults`, how long would it have taken anyone to think to look at the `BatchResults` class as the source of the error? How much time would have been spent searching for the error in the Batch Processor that was not there?
 
-I wrote unit tests for `BatchResults` in about five to ten minutes. Was that have been less than the time it would have taken to debug any Batch Processor tests? Would it have been worth the investment as compared to having missed failed and interrupted ids several months?
+I wrote unit tests for `BatchResults` in about five to ten minutes. Would that have been less than the time it would have taken to debug any Batch Processor tests? Would it have been worth the investment as compared to having missed failed and interrupted ids several months?
 
 I feel that an ounce of prevention is worth a pound of cure.
 
@@ -397,7 +397,7 @@ class Test {
         System.out.format("doThis(a=%b, b=%b, c=%b)\n", a, b, c);
 
         // Given-When
-        String result = LegacySoftwareUnderTest.doThis(a, b, c);
+        String result = LegacySoftwareUnderTest.doThis(a, b, c); // And also call doThisOriginal(a, b, c)
 
         // Then
         assertEquals(getExpectedReturnValue(a, b, c), result);
