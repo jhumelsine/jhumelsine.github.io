@@ -1,7 +1,6 @@
 ---
-title: DRAFT – Working Effectively with Legacy Code
+title: Working Effectively with Legacy Code
 description: … with all due respect to Michael Feathers in stealing his book title and a lot of his ideas for this blog
-unlisted: true
 ---
 
 <img src="https://images.pexels.com/photos/21357685/pexels-photo-21357685/free-photo-of-electrician-repairing-power-lines-in-city.jpeg" alt="Working on tangle of wires" title="Image Source: https://www.pexels.com/photo/electrician-repairing-power-lines-in-city-21357685/" width = "35%" align="center" style="padding-right: 35px;">
