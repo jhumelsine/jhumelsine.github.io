@@ -30,7 +30,7 @@ Automated testing is grand topic. Whole books have been devoted to it. I can't f
 * [Testing Benefits](https://jhumelsine.github.io/2024/08/30/test-benefits.html) - Spoiler Alert – It’s not really about testing the code
 * [Testing Concerns](https://jhumelsine.github.io/2024/09/08/test-concerns.html) - Test concerns may be a result of previous bad test experiences; there are ways to accommodate them
 * [A House Divided Against Itself Will Not Stand](https://jhumelsine.github.io/2025/03/07/house-divided.html) - Resolving the conflict between [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html) and [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) blog entries
-
+* [Working Effectively with Legacy Code](https://jhumelsine.github.io/2025/03/24/legacy-code.html) - How to leverage automated test techniques when working with Legacy Code
 
 # Formal Proofs
 Unit testing was not presented in my academic career. I suspect this was because modern unit testing practices were still a decade or two in the future, and the technology didn’t support it.
