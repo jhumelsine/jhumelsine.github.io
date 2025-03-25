@@ -21,23 +21,23 @@ Practicing [Test-Driven Design](https://jhumelsine.github.io/2024/07/15/tdd.html
 ## Tests the Tests
 With TDD, we start with a failing test before implementing the feature. This ensures that we don’t create a false-positive test by accident that passes regardless of the implementation.
 
-Then we provide an implementation, with a quick possibly hardcoded known solution, that passes the test. This ensures that the test passes when it should.
+Then we provide an implementation, with a quick possibly hardcoded known correct implementation, that passes the test. This ensures that the test passes when it should.
 
-The first two steps of TDD focus upon a correct and accurate test.
+The first two steps of TDD focus upon a correct and accurate test. We can then safely refactor the code making it cleaner knowing that any accidental diversions in behavior will be caught by the tests.
 
 ## Double-Entry Bookkeeping
 <img src="https://www.financestrategists.com/uploads/Dual-Aspect-Concept-of-Accounting-Example-2.png" alt="Double-Entry Bookkeeping" title="Image Source: https://www.financestrategists.com/accounting/accounting-concepts-and-principles/dual-aspect-concept-of-accounting/" width = "35%" align="right" style="padding-right: 20px;">
 
-Test and implementation confirm each other. Behavior resides in two places. The test defines the behavior specification, and the code implements the behavior. Both test and implementation are executable, and any test/implementation behavior inconsistencies should be identified when tests are executed in CI/CD pipeline builds. A change to one without a corresponding change to the other is likely to cause a failure.
+Test and implementation confirm each other. Behavior resides in two independent places. The test defines the behavior specification, and the code implements the behavior. Both test and implementation are executable, and any test/implementation behavior inconsistencies should be identified when tests are executed in CI/CD pipeline builds. A change to one without a corresponding change to the other is likely to cause a failure.
 
 This is a form of [double-entry bookkeeping](https://blog.cleancoder.com/uncle-bob/2017/12/18/Excuses.html) where a mistake on one side of the ledger is caught by the other side of the ledger.
 
 ## Alas, it’s not perfect
 [Testing can show the presence of bugs, but not their absence!](https://www.goodreads.com/quotes/506689-program-testing-can-be-used-to-show-the-presence-of) — Edsger W. Dijkstra
 
-The test/implementation partnership only works when tests accurately define the behaviors that the code implements. Tests pass unless an assertion or verification inconsistency catches the problem. A test might be missing an invariant assertion or verification that allows undesired behavior to appear correct.
+The test/implementation partnership only works when tests accurately define the behaviors that the code implements. Tests pass unless an assertion or verification violation catches the problem. A test might be missing an invariant assertion or verification that allows undesired behavior to appear correct.
 
-It’s possible to achieve 100% code coverage without a single assertion or verification. This can happen when there’s pressure from upper management for more code coverage. Haphazard false-positive tests are created to provide code coverage, but all they provide is a false sense of security.
+It’s possible to achieve 100% code coverage without a single assertion or verification. This can happen when there’s pressure from upper management for more code coverage, or an unexperienced developer gets a test to pass by removing a failing assertion or verification. Haphazard false-positive tests provide code coverage, but all they provide is a false sense of security.
 
 It would be better for these false-positive tests if they had never been created. Not only do they test nothing, but they make it more difficult to find code that’s actually not being tested.
 
@@ -59,12 +59,12 @@ I commented out the line and reran my unit test cases ... and they all passed. W
 
 I had fixed my test case, but this exercise left me with a queasy feeling in the pit of my stomach. What else had I missed? I had thought that I had sufficient code coverage and assertions. Was this my only behavior test specification hole? I had a couple thousand lines of design pattern code. What were the odds that I found the _only line_ that didn't have sufficient testing?
 
-How do I know whether my test cases are correct and complete? Tests are code too after all. Do I write test cases for my test cases? And what about the validity of those test case confirming test cases? I had been retrofitting test cases into design pattern examples that had been previously implemented. Had I used TDD, I suspect I would not hit this problem. When test and implementation code is written together, the two tend to reinforce each other. How could I be sure?
+How do I know whether my test cases are correct and complete? Tests are code too after all. Do I write test cases for my test cases? And what about the validity of those test case confirming test cases? I had been retrofitting test cases into design pattern examples that had been previously implemented. Had I used TDD, I suspect I would not hit this problem. When test and implementation code is written together, the two tend to reinforce each other. But how could I be sure?
 
 ## Pure Serendipity
 The software gods may have filled me with dread that day, but the next day they smiled down upon me. I was working my way through some of Bob Martin's Clean Coder videos on O’Reilly, and the day after this unsettling testing doubt, I watched: ___Life, The Universe, and Everything: Part 2___.
 
-Here's a short snippet from the beginning of the transcript (Uncle Bob portrays himself as well as all the _Humorous Characters_ including:__Space General__ a generic military general, __Danny__ the flighty Microsoft developer, __Ruby__ the hippy-dippy Ruby developer, a guy stuck in a __Minecraft__ application and several Star Trek characters including: __Data__ and __Mr. Spock__. Bob really likes to play pretend dress-up in his videos):
+Here's a short snippet from the beginning of the transcript. (Uncle Bob portrays himself as well as all the _Humorous Characters_ including:__Space General__ a generic military general, __Danny__ the flighty Microsoft developer, __Ruby__ the hippy-dippy Ruby developer, a guy stuck in a __Minecraft__ application and several _Star Trek_ characters including: __Mr. Data__ and __Mr. Spock__. Bob really likes to pretend dress-up in his videos.)
 >__Uncle Bob:__ _Welcome, welcome, to part two of Life, the Universe and Everything, episode 42._
 >
 >__Space General:__  _... you will fearlessly and relentlessly improve your code! You will never allow it to degrade!_
@@ -81,9 +81,9 @@ Here's a short snippet from the beginning of the transcript (Uncle Bob portrays 
 >
 >__Uncle Bob:__ _And that should worry you, because it implies something pretty frightening._
 >
->__Spock:__ _The fact that the unit tests pass even when coverage is high does not mean that the code is tested._
+>__Mr. Spock:__ _The fact that the unit tests pass even when coverage is high does not mean that the code is tested._
 >
->__Data:__ _In fact, it only proves that the code was executed._
+>__Mr. Data:__ _In fact, it only proves that the code was executed._
 >
 >__Uncle Bob:__ _And that's a really big problem._
 >
