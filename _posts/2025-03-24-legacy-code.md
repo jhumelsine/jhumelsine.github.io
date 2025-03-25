@@ -5,7 +5,6 @@ description: … with all due respect to Michael Feathers in stealing his book t
 
 <img src="https://images.pexels.com/photos/21357685/pexels-photo-21357685/free-photo-of-electrician-repairing-power-lines-in-city.jpeg" alt="Working on tangle of wires" title="Image Source: https://www.pexels.com/photo/electrician-repairing-power-lines-in-city-21357685/" width = "35%" align="center" style="padding-right: 35px;">
 
-
 # Introduction
 Have you ever hesitated before touching a piece of code, fearing it might break everything? That’s the reality of working with legacy code.
 
@@ -84,6 +83,22 @@ One of my previous officemate’s father was an old-school tailor. He could deco
 Code is most easily tested along its seams. Seams allow us to disassemble and isolate pieces of code much like my officemate’s father was able to disassemble and isolate the pieces of a suit. Once code is isolated from its dependencies, then it can be more easily tested.
 
 Seams reside along boundaries and tend to be [Stable or Fixed Elements](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#stable-or-fixed-design-elements) within the code, such as interfaces and method signatures. Ideally, seams lie along [Natural Boundaries](https://jhumelsine.github.io/2024/05/28/design-process.html#natural-boundaries).
+
+## Mocking Frameworks
+___Working Effectively with Legacy Code___ was published in 2004, and to the best of my knowledge there have not been follow up editions. Most of Feathers' refactoring techniques require manual intervention to add seams. However, in the subsequent two decades, different test frameworks have arisen. [Mockito](https://site.mockito.org/) is a popular one for Java.
+
+I advocate understanding the underlying mechanisms before using mocking frameworks as I described in [Write Your Own Test Doubles Or Use A Framework?](https://jhumelsine.github.io/2024/07/02/test-doubles.html#write-your-own-test-doubles-or-use-a-framework).
+
+However, I have used Mockito to introduce seams. My last project provided wrappers for MongoDB calls, which worked nicely, except that the wrappers were static methods, which tightly coupled the application code to MongoDB. Making matters worse, static methods are very obdurate to seams. An [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) design would have made testing much easier.
+
+Mockito 3.4.0 provided the ability to inject Test Double behaviors into static methods without having to touch the implemenation as described in this [Mockito Static Method Tutorial](https://www.baeldung.com/mockito-mock-static-methods). I was able to break the tight static method coupling with this technique, even if it is a bit clunky to set up.
+
+Even though Mockito provided this ability, the tutorial adds this [caveat](https://www.baeldung.com/mockito-mock-static-methods#a-quick-word-on-testing-static-methods):
+>Generally speaking, some might say that when writing clean object-orientated code, we shouldn’t need to mock static classes. __This could typically hint at a design issue or code smell in our application.__
+>
+>Why? First, a class depending on a static method has tight coupling, and second, it nearly always leads to code that is difficult to test. Ideally, a class should not be responsible for obtaining its dependencies, and if possible, they should be externally injected.
+>
+>__So, it’s always worth investigating if we can refactor our code to make it more testable.__ Of course, this is not always possible, and sometimes we need to mock static methods.
 
 ## Legacy Code Lacks Seams
 Over time, legacy code accumulates small, incremental changes, gradually expanding without regard for maintaining clear boundary seams. It’s the lack of seams in legacy code that makes it obdurate to tests. To make legacy code more test accommodating, we may need to add seams so that we can isolate pieces of code making them more manageable for testing.
