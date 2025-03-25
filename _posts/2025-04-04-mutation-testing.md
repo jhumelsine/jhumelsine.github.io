@@ -9,7 +9,11 @@ unlisted: true
 # Introduction
 [_Quis custodiet Ipsos custodes?_](https://en.wikipedia.org/wiki/Quis_custodiet_ipsos_custodes%3F) – [Juvenal](https://en.wikipedia.org/wiki/Juvenal)
 
-Who watches the watchers? Tests are code as well. How do we know that our tests provide accurate results? What if our test code has errors? How do we test our test code? How do we test the code that tests the test code?
+___Who watches the watchers?___
+
+Tests are code as well. How do we know that our tests provide accurate results? What if our test code has errors? How do we test our test code? How do we test the code that tests the test code?
+
+<img src="/assets/SkepticalFry.jpg" alt="Skeptical Fry" title="Image Source: [https://www.flickr.com/photos/snarfel/19402967595](https://imgflip.com/memegenerator/11327935/skeptical-fry)" width = "35%" align="center" style="padding-right: 35px;">
  
 # TDD
 Practicing [Test-Driven Design](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) should minimize these concerns.
