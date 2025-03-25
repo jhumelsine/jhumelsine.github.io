@@ -3,9 +3,8 @@ title: DRAFT – How do you know if you test code is really testing your code?
 description: Mutation testing tests your tests
 unlisted: true
 ---
-https://commons.wikimedia.org/wiki/File:Netherlands-4167_-_The_Night_Watch_(11715123333).jpg
-https://upload.wikimedia.org/wikipedia/commons/3/35/Netherlands-4167_-_The_Night_Watch_%2811715123333%29.jpg
-Dennis G. Jarvis, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons 
+
+<img src="https://live.staticflickr.com/538/19402967595_48500c3be5_b.jpg" alt="The Night Watch" title="Image Source: https://www.flickr.com/photos/snarfel/19402967595" width = "50%" align="center" style="padding-right: 35px;">
 
 # Introduction
 [_Quis custodiet Ipsos custodes?_](https://en.wikipedia.org/wiki/Quis_custodiet_ipsos_custodes%3F) – [Juvenal](https://en.wikipedia.org/wiki/Juvenal)
@@ -21,8 +20,7 @@ With TDD, we start with a failing test before implementing the feature. This ens
 Then we provide an implementation, with a quick possibly hardcoded known solution, that passes the test. This ensures that the test passes when it should.
 
 ## Double-Entry Bookkeeping
-https://www.financestrategists.com/uploads/Dual-Aspect-Concept-of-Accounting-Example-2.png 
-https://www.financestrategists.com/accounting/accounting-concepts-and-principles/dual-aspect-concept-of-accounting/
+<img src="https://www.financestrategists.com/uploads/Dual-Aspect-Concept-of-Accounting-Example-2.png" alt="Double-Entry Bookkeeping" title="Image Source: https://www.financestrategists.com/accounting/accounting-concepts-and-principles/dual-aspect-concept-of-accounting/" width = "35%" align="right" style="padding-right: 20px;">
 
 Test and implementation confirm each other. Behavior resides in two places. The test defines the behavior specification, and the code implements the behavior. Both test and implementation are executable, and any test/implementation inconsistencies should be identified when behaviors are confirmed via CI/CD pipeline builds. A change to one without a corresponding change to the other is likely to cause a failure.
 
@@ -89,8 +87,7 @@ Let's return to the video transcript:
 >__Uncle Bob:__ _Oh no, I'm not telling you [that] you should do that manually. Heavens, that would be a nightmare. There are tools that will do this for you. They're called mutation test tools. Here's one called __Pitest__, and you can get it at Pitest.org, it works with Java. What it does is it runs your test suite over and over again, and every time it runs it, it makes another semantic change to the byte code of your application, not the source code. And then it remembers which semantic changes caused the tests to fail, and which caused them to pass._
 
 ## Mutation Test Frameworks
-https://www.deviantart.com/claytonbarton/art/Mutant-Chiwawa-Rabbit-Detail-94944827
-https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/38cb0567-1f6d-4e22-ac04-42f48ee60ba0/d1kizwb-f628e672-700b-4b2f-ad85-648b6c12f9fc.jpg/v1/fit/w_423,h_600,q_70,strp/mutant_chiwawa_rabbit___detail_by_claytonbarton_d1kizwb-375w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvMzhjYjA1NjctMWY2ZC00ZTIyLWFjMDQtNDJmNDhlZTYwYmEwXC9kMWtpendiLWY2MjhlNjcyLTcwMGItNGIyZi1hZDg1LTY0OGI2YzEyZjlmYy5qcGciLCJ3aWR0aCI6Ijw9NDIzIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.jmw1WixGZ3szua9o5CxQnxZvMgQBTIILqaOYx2FxhAg
+<img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/38cb0567-1f6d-4e22-ac04-42f48ee60ba0/d1kizwb-f628e672-700b-4b2f-ad85-648b6c12f9fc.jpg/v1/fit/w_423,h_600,q_70,strp/mutant_chiwawa_rabbit___detail_by_claytonbarton_d1kizwb-375w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvMzhjYjA1NjctMWY2ZC00ZTIyLWFjMDQtNDJmNDhlZTYwYmEwXC9kMWtpendiLWY2MjhlNjcyLTcwMGItNGIyZi1hZDg1LTY0OGI2YzEyZjlmYy5qcGciLCJ3aWR0aCI6Ijw9NDIzIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.jmw1WixGZ3szua9o5CxQnxZvMgQBTIILqaOYx2FxhAg" alt="Mutant" title="Image Source: https://www.deviantart.com/claytonbarton/art/Mutant-Chiwawa-Rabbit-Detail-94944827" width = "25%" align="right" style="padding-right: 20px;">
 
 The timing for Bob’s video could not have been more perfect. Pitest is a free plug-in on Eclipse and other IDEs (look for PIT in the marketplace). Pitest is for Java. Other languages may have their own mutation test frameworks.
 
