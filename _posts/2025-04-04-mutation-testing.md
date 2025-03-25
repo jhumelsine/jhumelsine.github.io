@@ -11,29 +11,31 @@ unlisted: true
 
 ___Who watches the watchers?___
 
-Tests are code as well. How do we know that our tests provide accurate results? What if our test code has errors? How do we test our test code? How do we test the code that tests the test code?
+Tests are code. How do we know that our tests provide accurate results? What if our test code has errors? How do we test our test code? How do we test the code that tests the test code?
 
 <img src="/assets/SkepticalFry.jpg" alt="Skeptical Fry" title="Image Source: [https://www.flickr.com/photos/snarfel/19402967595](https://imgflip.com/memegenerator/11327935/skeptical-fry)" width = "35%" align="center" style="padding-right: 35px;">
  
 # TDD
 Practicing [Test-Driven Design](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) should minimize these concerns.
 
-# Tests the Tests
+## Tests the Tests
 With TDD, we start with a failing test before implementing the feature. This ensures that we don’t create a false-positive test by accident that passes regardless of the implementation.
 
 Then we provide an implementation, with a quick possibly hardcoded known solution, that passes the test. This ensures that the test passes when it should.
 
+The first two steps of TDD focus upon a correct and accurate test.
+
 ## Double-Entry Bookkeeping
 <img src="https://www.financestrategists.com/uploads/Dual-Aspect-Concept-of-Accounting-Example-2.png" alt="Double-Entry Bookkeeping" title="Image Source: https://www.financestrategists.com/accounting/accounting-concepts-and-principles/dual-aspect-concept-of-accounting/" width = "35%" align="right" style="padding-right: 20px;">
 
-Test and implementation confirm each other. Behavior resides in two places. The test defines the behavior specification, and the code implements the behavior. Both test and implementation are executable, and any test/implementation inconsistencies should be identified when behaviors are confirmed via CI/CD pipeline builds. A change to one without a corresponding change to the other is likely to cause a failure.
+Test and implementation confirm each other. Behavior resides in two places. The test defines the behavior specification, and the code implements the behavior. Both test and implementation are executable, and any test/implementation behavior inconsistencies should be identified when tests are executed in CI/CD pipeline builds. A change to one without a corresponding change to the other is likely to cause a failure.
 
 This is a form of [double-entry bookkeeping](https://blog.cleancoder.com/uncle-bob/2017/12/18/Excuses.html) where a mistake on one side of the ledger is caught by the other side of the ledger.
 
 ## Alas, it’s not perfect
 [Testing can show the presence of bugs, but not their absence!](https://www.goodreads.com/quotes/506689-program-testing-can-be-used-to-show-the-presence-of) — Edsger W. Dijkstra
 
-The test/implementation partnership only works when tests accurately define the behaviors that the code implements. Tests pass unless an assertion or verification inconsistency catches the problem. A test might be missing an invariant assertion or verification that allows undesired behavior appear correct.
+The test/implementation partnership only works when tests accurately define the behaviors that the code implements. Tests pass unless an assertion or verification inconsistency catches the problem. A test might be missing an invariant assertion or verification that allows undesired behavior to appear correct.
 
 It’s possible to achieve 100% code coverage without a single assertion or verification. This can happen when there’s pressure from upper management for more code coverage. Haphazard false-positive tests are created to provide code coverage, but all they provide is a false sense of security.
 
@@ -53,19 +55,23 @@ I tried the following before showing this to them:
 * I randomly chose a method
 * I randomly chose a functional line, which had code coverage
 
-I commented out the line and reran my unit test cases ... and they all passed. What?! I went back to the file I had modified. Why had removing that line allowed the test cases to still pass? I thought through the code, and I realized that I was missing an assertion invariant. I added the missing assertion, which failed. I put the randomly selected line back in, and the new assertion passed.
+I commented out the line and reran my unit test cases ... and they all passed. What?! I went back to the file I had modified. Why had removing that line allowed the test cases to still pass? I thought through the code, and I realized that I was missing an assertion invariant. I added the missing assertion, which failed the test. I put the randomly selected line back in, and the new assertion passed, which confirmed that the randomly commented out line was important.
 
-I had fixed my test case, but this exercise left me with a queasy feeling in the pit of my stomach. What else had I missed? I had thought that I had sufficient code coverage and assertions. Was this my only behavior test specification hole? I had a couple thousand lines of design pattern code. What were the odds that I found the __only line__ that didn't have sufficient testing?How do I know whether my test cases are correct and complete? Tests are code too after all. Do I write test cases for my test cases? And what about the validity of those test case confirming test cases? I had been retrofitting test cases into design pattern examples that had been previously implemented. Had I used TDD, I suspect I would not hit this problem. When test and implementation code is written together, the two tend to reinforce each other. How could I be sure?
+I had fixed my test case, but this exercise left me with a queasy feeling in the pit of my stomach. What else had I missed? I had thought that I had sufficient code coverage and assertions. Was this my only behavior test specification hole? I had a couple thousand lines of design pattern code. What were the odds that I found the _only line_ that didn't have sufficient testing?
+
+How do I know whether my test cases are correct and complete? Tests are code too after all. Do I write test cases for my test cases? And what about the validity of those test case confirming test cases? I had been retrofitting test cases into design pattern examples that had been previously implemented. Had I used TDD, I suspect I would not hit this problem. When test and implementation code is written together, the two tend to reinforce each other. How could I be sure?
 
 ## Pure Serendipity
-The software gods may have filled me with dread that day, but the next day they smiled down upon me. I was working my way through some of Bob Martin's Clean Coder videos on O’Reilly, and the day after this unsettling testing doubt, I watched: ___Life, The Universe, and Everything: Part 2___ (I suspect the title was influenced by the fact that this was ___Episode: 42___.)Here's a short snippet from the beginning of the transcript (Uncle Bob portrays himself as well as all the _Humorous Characters_ including: __Danny__ the flighty Microsoft developer, __Ruby__ the hippy-dippy Ruby developer, A guy stuck in a __Minecraft__ application and several Star Trek characters including: __Data__ and __Mr. Spock__. Bob really likes to play pretend dress-up in his videos):
+The software gods may have filled me with dread that day, but the next day they smiled down upon me. I was working my way through some of Bob Martin's Clean Coder videos on O’Reilly, and the day after this unsettling testing doubt, I watched: ___Life, The Universe, and Everything: Part 2___.
+
+Here's a short snippet from the beginning of the transcript (Uncle Bob portrays himself as well as all the _Humorous Characters_ including:__Space General__ a generic military general, __Danny__ the flighty Microsoft developer, __Ruby__ the hippy-dippy Ruby developer, a guy stuck in a __Minecraft__ application and several Star Trek characters including: __Data__ and __Mr. Spock__. Bob really likes to play pretend dress-up in his videos):
 >__Uncle Bob:__ _Welcome, welcome, to part two of Life, the Universe and Everything, episode 42._
 >
 >__Space General:__  _... you will fearlessly and relentlessly improve your code! You will never allow it to degrade!_
 >
 >__Danny:__ _Oh gosh, Uncle Bob, I don't understand why you think [modifying this code] is risky. After all, you got the coverage up to 100% of methods, and 96% of lines, and 100% of branches. I mean, what else could you have done? That module is covered._
 >
->__Uncle Bob: __ _Slow down, guys. Cool your jets. Just what do you think those high coverage numbers actually prove? _
+>__Uncle Bob:__ _Slow down, guys. Cool your jets. Just what do you think those high coverage numbers actually prove?_
 >
 >__Minecraft Guy:__ _They prove you tested everything._
 >
@@ -75,20 +81,24 @@ The software gods may have filled me with dread that day, but the next day they 
 >
 >__Uncle Bob:__ _And that should worry you, because it implies something pretty frightening._
 >
->__Spock__ followed by __Data:__ _The fact that the unit tests pass even when coverage is high does not mean that the code is tested. In fact, it only proves that the code was executed._
+>__Spock:__ _The fact that the unit tests pass even when coverage is high does not mean that the code is tested._
+>
+>__Data:__ _In fact, it only proves that the code was executed._
 >
 >__Uncle Bob:__ _And that's a really big problem._
 >
 >__Minecraft Guy:__ _Big problem, so like, what do we do?_
 
-Bob was describing my scenario from the previous day. I had passing test cases. I had high code coverage. But I was missing an assertion. But how would I know that I was missing it? Test drivers assume that tests pass until a violated assertion reports otherwise. What if your test case contains two assertions that confirm two invariants, but the scenario really involves three invariants? You could break the third invariant without knowing it. What if a naïve developer got a unit test case to pass by removing an assertion that always fails?I had found my missing assertion only by dumb luck, and even then, the test cases always passed whether that line in question was present or not. I only realized I had a problem when I expected to see a failed test case, but they had all passed. Randomly touching source code hoping to find a failure isn't scalable, and it's not very safe either. What if I forget to change it back?
+Bob was describing my scenario from the previous day. I had passing test cases. I had high code coverage. But I was missing an assertion. But how would I know that I was missing it? Test drivers assume that tests pass until a violated assertion reports otherwise. What if your test case contains two assertions that confirm two invariants, but the scenario really involves three invariants? You could break the third invariant without knowing it. What if a naïve developer got a unit test case to pass by removing an assertion that always fails?
+
+I had found my missing assertion only by dumb luck, and even then, the test cases always passed whether that line in question was present or not. I only realized I had a problem when I expected to see a failed test case, but they had all passed. Randomly touching source code hoping to find a failure isn't scalable, and it's not very safe either. What if I forget to change it back?
 
 Let's return to the video transcript:
 >__Uncle Bob:__ _So given that the asserts are all in place, our contention is that this code is tested. Now to prove that, what we ought to do is modify the code and see if it still passes the test. So let's just get rid of that little bit of code and see if the tests still pass. Oh heavens, the test fails! Well alright then, that means that that code must be tested, let's put it back. Let's take this part of the test out, or that part of the code out, and run our tests again. Nah, they still fail, excellent. So now we know that this code is necessary. Let's comment out another block of code. No, that fails too, heavens! Alright, well, I guess this code here must be necessary. So let's make sure our tests all pass now. So, what I'm doing there, is I'm changing the code, and every time I make a change to the code, the tests fail. This shows that the code, is being tested. This kind of testing is called __mutation testing. If the unit tests really cover everything, then any semantic change to the code should cause those tests to fail.___
 >
 >__Ruby:__ _Wait, wait wait wait, are you trying to tell us, that you want us to walk through the code, changing each line of code and then running all the tests to make sure they fail?! I mean, that's just getting a bit nuts._
 >
->__Uncle Bob:__ _Oh no, I'm not telling you [that] you should do that manually. Heavens, that would be a nightmare. There are tools that will do this for you. They're called mutation test tools. Here's one called __Pitest__, and you can get it at Pitest.org, it works with Java. What it does is it runs your test suite over and over again, and every time it runs it, it makes another semantic change to the byte code of your application, not the source code. And then it remembers which semantic changes caused the tests to fail, and which caused them to pass._
+>__Uncle Bob:__ _Oh no, I'm not telling you [that] you should do that manually. Heavens, that would be a nightmare. There are tools that will do this for you. They're called mutation test tools. Here's one called __Pitest__, and you can get it at [Pitest.org](https://pitest.org/), it works with Java. What it does is it runs your test suite over and over again, and every time it runs it, it makes another semantic change to the byte code of your application, not the source code. And then it remembers which semantic changes caused the tests to fail, and which caused them to pass._
 
 ## Mutation Test Frameworks
 <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/38cb0567-1f6d-4e22-ac04-42f48ee60ba0/d1kizwb-f628e672-700b-4b2f-ad85-648b6c12f9fc.jpg/v1/fit/w_423,h_600,q_70,strp/mutant_chiwawa_rabbit___detail_by_claytonbarton_d1kizwb-375w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvMzhjYjA1NjctMWY2ZC00ZTIyLWFjMDQtNDJmNDhlZTYwYmEwXC9kMWtpendiLWY2MjhlNjcyLTcwMGItNGIyZi1hZDg1LTY0OGI2YzEyZjlmYy5qcGciLCJ3aWR0aCI6Ijw9NDIzIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.jmw1WixGZ3szua9o5CxQnxZvMgQBTIILqaOYx2FxhAg" alt="Mutant" title="Image Source: https://www.deviantart.com/claytonbarton/art/Mutant-Chiwawa-Rabbit-Detail-94944827" width = "25%" align="right" style="padding-right: 20px;">
