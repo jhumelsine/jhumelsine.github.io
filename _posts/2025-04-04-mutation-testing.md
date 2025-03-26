@@ -11,9 +11,11 @@ unlisted: true
 
 ___Who watches the watchers?___
 
-Tests are code. How do we know that our tests provide accurate results? What if our test code has errors? How do we test our test code? How do we test the code that tests the test code?
+Tests are code. How do we know that our tests provide accurate results? What if our test code has errors? 
 
 <img src="/assets/SkepticalFry.jpg" alt="Skeptical Fry" title="Image Source: [https://www.flickr.com/photos/snarfel/19402967595](https://imgflip.com/memegenerator/11327935/skeptical-fry)" width = "35%" align="center" style="padding-right: 35px;">
+
+How do we test our test code? How do we test the tests that our test code? How do we test the tests that test the tests that our test code?
  
 # TDD
 Practicing [Test-Driven Design](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) should minimize these concerns.
@@ -28,26 +30,26 @@ The first two steps of TDD focus upon a correct and accurate test. We can then s
 ## Double-Entry Bookkeeping
 <img src="https://www.financestrategists.com/uploads/Dual-Aspect-Concept-of-Accounting-Example-2.png" alt="Double-Entry Bookkeeping" title="Image Source: https://www.financestrategists.com/accounting/accounting-concepts-and-principles/dual-aspect-concept-of-accounting/" width = "35%" align="right" style="padding-right: 20px;">
 
-Test and implementation confirm each other. Behavior resides in two independent places. The test defines the behavior specification, and the code implements the behavior. Both test and implementation are executable, and any test/implementation behavior inconsistencies should be identified when tests are executed in CI/CD pipeline builds. A change to one without a corresponding change to the other is likely to cause a failure.
+Test and implementation confirm each other. Behavior resides in two independent places. The test defines the behavior specification, and the code implements the behavior. Both test and implementation are executable, and any test/implementation behavior inconsistencies should be identified when tests are executed in CI/CD pipeline builds. A change of behavior to one without a corresponding change to the other is likely to cause a failure.
 
 This is a form of [double-entry bookkeeping](https://blog.cleancoder.com/uncle-bob/2017/12/18/Excuses.html) where a mistake on one side of the ledger is caught by the other side of the ledger.
 
 ## Alas, it’s not perfect
 [Testing can show the presence of bugs, but not their absence!](https://www.goodreads.com/quotes/506689-program-testing-can-be-used-to-show-the-presence-of) — Edsger W. Dijkstra
 
-The test/implementation partnership only works when tests accurately define the behaviors that the code implements. Tests pass unless an assertion or verification violation catches the problem. A test might be missing an invariant assertion or verification that allows undesired behavior to appear correct.
+The test/implementation partnership only works when tests accurately define the behaviors that the code implements. Tests pass by default unless an assertion or verification violation catches the problem. A test might be missing an invariant assertion or verification that allows undesired behavior to pass through undetected.
 
-It’s possible to achieve 100% code coverage without a single assertion or verification. This can happen when there’s pressure from upper management for more code coverage, or an unexperienced developer gets a test to pass by removing a failing assertion or verification. Haphazard false-positive tests provide code coverage, but all they provide is a false sense of security.
+It’s possible to achieve 100% code coverage without a single assertion or verification. This can happen when there’s pressure from upper management reach a code coverage goal, or an unexperienced developer fudges a blocking test by removing a failing assertion or verification. Haphazard false-positive tests provide code coverage, but all they provide is a false sense of security.
 
-It would be better for these false-positive tests if they had never been created. Not only do they test nothing, but they make it more difficult to find code that’s actually not being tested.
+It would be better for these false-positive tests if they had never been created. Not only do they test nothing, but they make it more difficult to ascertain which parts of the codebase are actually being tested.
 
 # Mutation Testing
-Mutation Testing is a tool in helping us test our test code.
+Mutation Testing is a tool in helping us identify false-postive tests and untested code.
 
 ## Prepping for a Demo
-When I was first learning about TDD in the summer of 2018, I added unit test cases to my Design Pattern Examples, like a code kata. It was a way for me to become familiar with TDD practices with a domain in which I already had familiarity and comfort.
+When I was first learning about TDD, I added unit test cases to my Design Pattern Examples, like a code kata. It was a way for me to become familiar with TDD practices with a domain in which I already had familiarity and comfort.
 
-I presented a design pattern seminar to our summer interns. I was pleased with my recent unit test results, and I wanted to share my newfound unit test knowledge with them. I thought I'd demonstrate the power of unit testing with my recent design pattern tests by introducing an error manually and watch one of my unit tests fail.
+I presented a design pattern seminar to our summer interns at around the same time. I was pleased with my recent unit test results, and I wanted to share my newfound unit test knowledge with them. I thought I'd demonstrate the power of unit testing with my recent design pattern tests by introducing an error manually and watch one of my unit tests fail.
 
 I tried the following before showing this to them:
 * I randomly chose a design pattern
@@ -57,14 +59,14 @@ I tried the following before showing this to them:
 
 I commented out the line and reran my unit test cases ... and they all passed. What?! I went back to the file I had modified. Why had removing that line allowed the test cases to still pass? I thought through the code, and I realized that I was missing an assertion invariant. I added the missing assertion, which failed the test. I put the randomly selected line back in, and the new assertion passed, which confirmed that the randomly commented out line was important.
 
-I had fixed my test case, but this exercise left me with a queasy feeling in the pit of my stomach. What else had I missed? I had thought that I had sufficient code coverage and assertions. Was this my only behavior test specification hole? I had a couple thousand lines of design pattern code. What were the odds that I found the _only line_ that didn't have sufficient testing?
+I had fixed my test case, but this exercise left me with a queasy feeling in the pit of my stomach. What else had I missed? I had thought that I had sufficient code coverage and assertions. Was this my only missing behavior test specification? I had a couple thousand lines of design pattern code. What were the odds that I found the _only line_ that didn't have sufficient testing?
 
 How do I know whether my test cases are correct and complete? Tests are code too after all. Do I write test cases for my test cases? And what about the validity of those test case confirming test cases? I had been retrofitting test cases into design pattern examples that had been previously implemented. Had I used TDD, I suspect I would not hit this problem. When test and implementation code is written together, the two tend to reinforce each other. But how could I be sure?
 
 ## Pure Serendipity
-The software gods may have filled me with dread that day, but the next day they smiled down upon me. I was working my way through some of Bob Martin's Clean Coder videos on O’Reilly, and the day after this unsettling testing doubt, I watched: ___Life, The Universe, and Everything: Part 2___.
+The software gods may have filled me with dread that day, but the next day they smiled down upon me. I was working my way through some of Bob Martin's [Clean Coders](https://cleancoders.com/) videos on O’Reilly, and the day after my unsettling testing doubt, I watched: ___Life, The Universe, and Everything: Part 2___.
 
-Here's a short snippet from the beginning of the transcript. (Uncle Bob portrays himself as well as all the _Humorous Characters_ including:__Space General__ a generic military general, __Danny__ the flighty Microsoft developer, __Ruby__ the hippy-dippy Ruby developer, a guy stuck in a __Minecraft__ application and several _Star Trek_ characters including: __Mr. Data__ and __Mr. Spock__. Bob really likes to pretend dress-up in his videos.)
+Here's a short snippet from the beginning of the transcript. (Uncle Bob portrays himself as well as all the _Humorous Characters_ including: __Space General__ a generic military general barking orders, __Danny__ the flighty Microsoft developer, __Ruby__ the hippy-dippy Ruby developer, __Minecraft Guy__ stuck in the pixelated application and several _Star Trek_ characters including: __Mr. Data__ and __Mr. Spock__. Bob really likes to pretend dress-up in his videos.)
 >__Uncle Bob:__ _Welcome, welcome, to part two of Life, the Universe and Everything, episode 42._
 >
 >__Space General:__  _... you will fearlessly and relentlessly improve your code! You will never allow it to degrade!_
@@ -103,26 +105,26 @@ Let's return to the video transcript:
 ## Mutation Test Frameworks
 <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/38cb0567-1f6d-4e22-ac04-42f48ee60ba0/d1kizwb-f628e672-700b-4b2f-ad85-648b6c12f9fc.jpg/v1/fit/w_423,h_600,q_70,strp/mutant_chiwawa_rabbit___detail_by_claytonbarton_d1kizwb-375w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvMzhjYjA1NjctMWY2ZC00ZTIyLWFjMDQtNDJmNDhlZTYwYmEwXC9kMWtpendiLWY2MjhlNjcyLTcwMGItNGIyZi1hZDg1LTY0OGI2YzEyZjlmYy5qcGciLCJ3aWR0aCI6Ijw9NDIzIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.jmw1WixGZ3szua9o5CxQnxZvMgQBTIILqaOYx2FxhAg" alt="Mutant" title="Image Source: https://www.deviantart.com/claytonbarton/art/Mutant-Chiwawa-Rabbit-Detail-94944827" width = "25%" align="right" style="padding-right: 20px;">
 
-The timing for Bob’s video could not have been more perfect. Pitest is a free plug-in on Eclipse and other IDEs (look for PIT in the marketplace). Pitest is for Java. Other languages may have their own mutation test frameworks.
+The timing for Bob’s video could not have been more perfect to soothe my testing angst. Pitest is a free plug-in on Eclipse and other IDEs (look for PIT in the marketplace). Pitest is for Java. Other languages may have their own mutation test frameworks.
 
 Here’s a summary of what Pitest does. I’m sure other mutation testing frameworks work similarly:
 * It "mutates" your byte-code by flipping logic, skipping lines, altering return values, etc. By changing the byte-code, it changes behavior and therefore injects a bug, known as a mutation.
 * It runs your unit tests on the mutated byte-code. If a test fails, then your unit test has found that mutation and _killed_ it. This is what you want. A behavior change in your code was intercepted by your current unit test code.
-* If an assertion does not fail, then your unit test suite has failed to kill the mutation. This is not what you want. A change in your code was completely ignored by your current unit tests. Pitest only informs you of a potential problem. You'll need to do a little analysis:
+* If an assertion does not fail, then your unit test suite has failed to kill the mutation. This is not what you want. A change in your code was completely ignored by your current unit tests. Pitest only informs you of a potential problem. You'll need to do a little analysis to address it:
     * Are you missing a unit test case or just an assertion in an existing unit test case?
     * Is a test case incorrect with its Given/When/Then paradigm?
     * Do you have redundant code that accommodates the mutated line?
     * Was the mutated line dead code that's never executed or is not covered by the unit tests?
 
-This does not mean that your implementation is incorrect. It only means that the behavior that emerges from that implementation does not have test coverage.
+A uncaught mutation does not mean that your implementation is incorrect. It only means that the behavior within your implementation does not have a test specification.
 
 The correction that allows the mutation to be found could be in your test code, your implementation or both.
 
 ## Double-Entry Bookkeeping Revisited
 Previously I wrote:
-> The test/implementation partnership only works when tests accurately define the behaviors that the code implements. Tests pass unless an assertion or verification catches the problem. A test might be missing an assertion or verification that allows undesired behavior to be untested and appear correct.
+> The test/implementation partnership only works when tests accurately define the behaviors that the code implements. Tests pass by default unless an assertion or verification violation catches the problem. A test might be missing an invariant assertion or verification that allows undesired behavior to pass through undetected.
 >
->It’s possible to achieve 100% code coverage without a single assertion or verification. This can happen when there’s pressure from upper management for more code coverage. Haphazard false-positive tests are created to provide code coverage, but all they provide is a false sense of security.
+>IIt’s possible to achieve 100% code coverage without a single assertion or verification. This can happen when there’s pressure from upper management reach a code coverage goal, or an unexperienced developer fudges a blocking test by removing a failing assertion or verification. Haphazard false-positive tests provide code coverage, but all they provide is a false sense of security.
 
 Mutation testing helps to address this. If the test/implementation partnership is out of alignment because of missing assertions or verifications, then there’s a good chance that mutation testing will identify the test/implementation misalignment.
 
