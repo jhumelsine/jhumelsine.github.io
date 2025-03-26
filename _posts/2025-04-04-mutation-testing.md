@@ -109,7 +109,7 @@ Let's return to the video transcript:
 ## Mutation Test Frameworks
 <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/38cb0567-1f6d-4e22-ac04-42f48ee60ba0/d1kizwb-f628e672-700b-4b2f-ad85-648b6c12f9fc.jpg/v1/fit/w_423,h_600,q_70,strp/mutant_chiwawa_rabbit___detail_by_claytonbarton_d1kizwb-375w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvMzhjYjA1NjctMWY2ZC00ZTIyLWFjMDQtNDJmNDhlZTYwYmEwXC9kMWtpendiLWY2MjhlNjcyLTcwMGItNGIyZi1hZDg1LTY0OGI2YzEyZjlmYy5qcGciLCJ3aWR0aCI6Ijw9NDIzIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.jmw1WixGZ3szua9o5CxQnxZvMgQBTIILqaOYx2FxhAg" alt="Mutant" title="Image Source: https://www.deviantart.com/claytonbarton/art/Mutant-Chiwawa-Rabbit-Detail-94944827" width = "25%" align="right" style="padding-right: 20px;">
 
-The timing for Bob’s video could not have been more perfect to soothe my testing angst. Pitest is a free plug-in on Eclipse and other IDEs (look for PIT in the marketplace). Pitest is for Java. Other languages may have their own mutation test frameworks, such as [Stryker Mutator](https://stryker-mutator.io/) for JavaScript, C# and Scala.
+The timing for Bob’s video could not have been more perfect to soothe my testing malaise. Pitest is a free plug-in on Eclipse and other IDEs (look for PIT in the marketplace). Pitest is for Java. Other languages may have their own mutation test frameworks, such as [Stryker Mutator](https://stryker-mutator.io/) for JavaScript, C# and Scala.
 
 Here’s a summary of what Pitest does. I’m sure other mutation testing frameworks work similarly:
 * It "mutates" your byte-code by flipping logic, skipping lines, altering return values, etc. By changing the byte-code, it changes behavior and therefore injects a bug, known as a mutation.
@@ -153,6 +153,14 @@ Mutation testing isn't just about breaking your code—it's about strengthening 
 # References
 Here are some free resources:
 * [Wikipedia Mutation Testing](https://en.wikipedia.org/wiki/Mutation_testing)
+* [Awesome Mutation Testing](https://github.com/theofidry/awesome-mutation-testing) - GitHub repo with Mutation Test resources
+* [A Comprehensive Guide to Mutation Testing in Java](https://bell-sw.com/blog/a-comprehensive-guide-to-mutation-testing-in-java/) - blog by Pasha Finkelshteyn
+* [State of Mutation Testing at Google](https://research.google/pubs/state-of-mutation-testing-at-google/) - by Marko Ivankovic for
+Proceedings of the 40th International Conference on Software Engineering 2017
+* [mutation testing](https://www.techtarget.com/searchitoperations/definition/mutation-testing) - blog definition by Alexander S. Gillis
+* [Mutation Testing: Automate the Search for Imperfect Tests](https://www.oracle.com/corporate/features/mutation-testing.html) - Oracle article by Henry Coles
+* [Better testing through mutations](https://www.thoughtworks.com/en-us/insights/podcasts/technology-podcasts/better-testing-through-mutations) - Thoughtworks Technical Podcast
+* [5 Best Mutation Testing Tools](https://www.youtube.com/watch?v=c8hBoc3akLU) - Video by ZAPTEST
 * [PITest](https://pitest.org/) - Mutation Test Tool for Java
 * [Stryker Mutator](https://stryker-mutator.io/) - Mutation Test Tool for JavaScript, C# and Scala
 * and for more, Google: [Mutation Testing](https://www.google.com/search?q=mutation+testing)
@@ -160,6 +168,3 @@ Here are some free resources:
   
 Here are some resources that can be purchased or are included in a subscription service:
 * ___Life, The Universe, and Everything: Part 2___ ([O'Reilly](https://learning.oreilly.com/videos/clean-coder-clean/9780134843803/9780134843803-CODR_E42_P2/) and [Clean Coders](https://cleancoders.com/episode/clean-code-episode-42-p2))
-__TBD__
-
-See: Thoughworks Technical Podcast - Better testing through mutations. 25m:48s
