@@ -36,7 +36,7 @@ The first two steps of TDD focus upon a correct and accurate test. We can then s
 
 Test and implementation confirm each other. Behavior resides in two independent places. The test defines the behavior specification, and the code implements the behavior. Both test and implementation are executable, and any test/implementation behavior inconsistencies should be identified when tests are executed in CI/CD pipeline builds. A change of behavior to one without a corresponding change to the other is likely to cause a failure.
 
-This is a form of [double-entry bookkeeping](https://blog.cleancoder.com/uncle-bob/2017/12/18/Excuses.html) where a mistake on one side of the ledger is caught by the other side of the ledger.
+This is a form of [double-entry bookkeeping](https://en.wikipedia.org/wiki/Double-entry_bookkeeping) where a mistake on one side of the ledger is caught by the other side of the ledger. Bob Martin points out the similarities between double-entry bookkeeping and TDD in his [Excuses](https://blog.cleancoder.com/uncle-bob/2017/12/18/Excuses.html) blog entry.
 
 ## Alas, it’s not perfect
 [Testing can show the presence of bugs, but not their absence!](https://www.goodreads.com/quotes/506689-program-testing-can-be-used-to-show-the-presence-of) — Edsger W. Dijkstra
@@ -145,7 +145,7 @@ Pitest won't guarantee that your unit test assertions are 100% complete, but it 
 Having found this new exciting test tool, I ran Pitest on my project, and I learned:
 * I could only execute Pitest on the entire project repo. I could not scope the test to an individual folder or class as I could do with my unit test framework. There may have been a way to do this, and I couldn’t find it on the GUI, or maybe it’s been added since.
 * Since it executed against the entire repo, it took an extraordinary amount of time to complete.
-* The project did not have good code coverage at the time. Any non-covered mutated lines would not be killed. Since coverage was so low, Pitest reported a huge number of surviving mutants. It was impossible to identify useful mutations. Therefore, I feel that mutation testing is only useful when the repo already has good test coverage.
+* The project did not have good code coverage at the time. Any non-covered mutated lines would not be killed. Since coverage was so low, Pitest reported a huge number of surviving mutants. It was impossible to identify useful mutations. Therefore, I feel that mutation testing is only useful when the repo already has good test coverage. Once you have decent coverage, then mutation testing will evaluate how effective it is.
 
 # Summary
 Mutation testing isn't just about breaking your code—it's about strengthening your tests. By identifying gaps in your test coverage and ensuring your tests are truly effective, this technique helps developers build more robust, maintainable, and resilient software. Incorporating mutation testing into your workflow can lead to higher-quality code and greater confidence in your test suite.
