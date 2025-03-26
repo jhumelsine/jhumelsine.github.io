@@ -151,6 +151,15 @@ Having found this new exciting test tool, I ran Pitest on my project, and I lear
 Mutation testing isn't just about breaking your code—it's about strengthening your tests. By identifying gaps in your test coverage and ensuring your tests are truly effective, this technique helps developers build more robust, maintainable, and resilient software. Incorporating mutation testing into your workflow can lead to higher-quality code and greater confidence in your test suite.
 
 # References
+Here are some free resources:
+* [Wikipedia Mutation Testing](https://en.wikipedia.org/wiki/Mutation_testing)
+* [PITest](https://pitest.org/) - Mutation Test Tool for Java
+* [Stryker Mutator](https://stryker-mutator.io/) - Mutation Test Tool for JavaScript, C# and Scala
+* and for more, Google: [Mutation Testing](https://www.google.com/search?q=mutation+testing)
+* and: [Mutation Test Tools](https://www.google.com/search?q=mutation+testing+tools)
+  
+Here are some resources that can be purchased or are included in a subscription service:
+* ___Life, The Universe, and Everything: Part 2___ ([O'Reilly](https://learning.oreilly.com/videos/clean-coder-clean/9780134843803/9780134843803-CODR_E42_P2/) and [Clean Coders](https://cleancoders.com/episode/clean-code-episode-42-p2))
 __TBD__
 
 See: Thoughworks Technical Podcast - Better testing through mutations. 25m:48s
