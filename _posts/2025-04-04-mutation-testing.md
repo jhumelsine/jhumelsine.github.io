@@ -128,7 +128,7 @@ The correction that allows the mutation to be found could be in your test code, 
 Previously I wrote:
 > The test/implementation partnership only works when tests accurately define the behaviors that the code implements. Tests pass by default unless an assertion or verification violation catches the problem. A test might be missing an invariant assertion or verification that allows undesired behavior to pass through undetected.
 >
->IIt’s possible to achieve 100% code coverage without a single assertion or verification. This can happen when there’s pressure from upper management reach a code coverage goal, or an unexperienced developer fudges a blocking test by removing a failing assertion or verification. Haphazard false-positive tests provide code coverage, but all they provide is a false sense of security.
+>It’s possible to achieve 100% code coverage without a single assertion or verification. This can happen when there’s pressure from upper management reach a code coverage goal, or an unexperienced developer fudges a blocking test by removing a failing assertion or verification. Haphazard false-positive tests provide code coverage, but all they provide is a false sense of security.
 
 Mutation testing helps to address this. If the test/implementation partnership is out of alignment because of missing assertions or verifications, then there’s a good chance that mutation testing will identify the test/implementation misalignment.
 
@@ -136,7 +136,7 @@ __Mutation testing doesn’t test your implementation. Mutation tests your tests
 
 I installed Pitest. It found a memory/threading problem in my unit test code immediately. It would not even complete until I fixed it. Once that was fixed, it only reported uncaught mutations in code that tended to be at the edges of the implementation, such as [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html), which don’t tend to have much code coverage, since they tend to be coupled to external dependencies.
 
-Pitest takes longer to execute than the unit tests. But it still wasn't bad. I think it took about 3 or 4 minutes to test several thousand lines of code. Kick off Pitest, and then take a coffee break.
+Pitest takes longer to execute than the unit tests. But it still wasn't bad. I think it took about 3 or 4 minutes to test several thousand lines of code. Kick off Pitest and then take a coffee break.
 
 Pitest won't guarantee that your unit test assertions are 100% complete, but it will help you identify any that may be missing and maybe a few other problems.
 
