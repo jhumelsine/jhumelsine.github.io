@@ -11,11 +11,15 @@ unlisted: true
 
 ___Who watches the watchers?___
 
+Imagine you deploy a new feature, and despite a fully passing test suite, a critical bug makes it into production. How did this happen? The answer might lie in how your tests are written, not just how many you have.
+
 Tests are code. How do we know that our tests provide accurate results? What if our test code has errors? 
 
 <img src="/assets/SkepticalFry.jpg" alt="Skeptical Fry" title="Image Source: [https://www.flickr.com/photos/snarfel/19402967595](https://imgflip.com/memegenerator/11327935/skeptical-fry)" width = "35%" align="center" style="padding-right: 35px;">
 
 How do we test our test code? How do we test the tests that our test code? How do we test the tests that test the tests that our test code?
+
+Mutation testing helps ensure that your test suite is actually doing its job—by trying to break it.
  
 # TDD
 Practicing [Test-Driven Design](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) should minimize these concerns.
@@ -105,7 +109,7 @@ Let's return to the video transcript:
 ## Mutation Test Frameworks
 <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/38cb0567-1f6d-4e22-ac04-42f48ee60ba0/d1kizwb-f628e672-700b-4b2f-ad85-648b6c12f9fc.jpg/v1/fit/w_423,h_600,q_70,strp/mutant_chiwawa_rabbit___detail_by_claytonbarton_d1kizwb-375w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvMzhjYjA1NjctMWY2ZC00ZTIyLWFjMDQtNDJmNDhlZTYwYmEwXC9kMWtpendiLWY2MjhlNjcyLTcwMGItNGIyZi1hZDg1LTY0OGI2YzEyZjlmYy5qcGciLCJ3aWR0aCI6Ijw9NDIzIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.jmw1WixGZ3szua9o5CxQnxZvMgQBTIILqaOYx2FxhAg" alt="Mutant" title="Image Source: https://www.deviantart.com/claytonbarton/art/Mutant-Chiwawa-Rabbit-Detail-94944827" width = "25%" align="right" style="padding-right: 20px;">
 
-The timing for Bob’s video could not have been more perfect to soothe my testing angst. Pitest is a free plug-in on Eclipse and other IDEs (look for PIT in the marketplace). Pitest is for Java. Other languages may have their own mutation test frameworks.
+The timing for Bob’s video could not have been more perfect to soothe my testing angst. Pitest is a free plug-in on Eclipse and other IDEs (look for PIT in the marketplace). Pitest is for Java. Other languages may have their own mutation test frameworks, such as [Stryker Mutator](https://stryker-mutator.io/) for JavaScript, C# and Scala.
 
 Here’s a summary of what Pitest does. I’m sure other mutation testing frameworks work similarly:
 * It "mutates" your byte-code by flipping logic, skipping lines, altering return values, etc. By changing the byte-code, it changes behavior and therefore injects a bug, known as a mutation.
@@ -144,6 +148,9 @@ Having found this new exciting test tool, I ran Pitest on my project, and I lear
 * The project did not have good code coverage at the time. Any non-covered mutated lines would not be killed. Since coverage was so low, Pitest reported a huge number of surviving mutants. It was impossible to identify useful mutations. Therefore, I feel that mutation testing is only useful when the repo already has good test coverage.
 
 # Summary
+Mutation testing isn't just about breaking your code—it's about strengthening your tests. By identifying gaps in your test coverage and ensuring your tests are truly effective, this technique helps developers build more robust, maintainable, and resilient software. Incorporating mutation testing into your workflow can lead to higher-quality code and greater confidence in your test suite.
 
 # References
+__TBD__
+
 See: Thoughworks Technical Podcast - Better testing through mutations. 25m:48s
