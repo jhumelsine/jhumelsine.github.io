@@ -22,7 +22,7 @@ How do we test our test code? How do we test the tests that our test code? How d
 Mutation testing helps ensure that your test suite is actually doing its job—by trying to break it.
  
 # TDD
-Practicing [Test-Driven Design](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) should minimize these concerns.
+Practicing [Test-Driven Design](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) should minimize concerns about your test suite.
 
 ## Tests the Tests
 With TDD, we start with a failing test before implementing the feature. This ensures that we don’t create a false-positive test by accident that passes regardless of the implementation.
@@ -41,7 +41,7 @@ This is a form of [double-entry bookkeeping](https://en.wikipedia.org/wiki/Doubl
 ## Alas, it’s not perfect
 [Testing can show the presence of bugs, but not their absence!](https://www.goodreads.com/quotes/506689-program-testing-can-be-used-to-show-the-presence-of) — Edsger W. Dijkstra
 
-The test/implementation partnership only works when tests accurately define the behaviors that the code implements. Tests pass by default unless an assertion or verification violation catches the problem. A test might be missing an invariant assertion or verification that allows undesired behavior to pass through undetected.
+The test/implementation partnership only works when tests accurately define the behaviors that the code implements. Tests pass by default unless a behavior enforcing assertion or verification violation catches the problem. A test might be missing an invariant assertion or verification that allows undesired or unexpected behavior to pass through undetected.
 
 It’s possible to achieve 100% code coverage without a single assertion or verification. This can happen when there’s pressure from upper management reach a code coverage goal, or an unexperienced developer fudges a blocking test by removing a failing assertion or verification. Haphazard false-positive tests provide code coverage, but all they provide is a false sense of security.
 
@@ -61,16 +61,16 @@ I tried the following before showing this to them:
 * I randomly chose a method
 * I randomly chose a functional line, which had code coverage
 
-I commented out the line and reran my unit test cases ... and they all passed. What?! I went back to the file I had modified. Why had removing that line allowed the test cases to still pass? I thought through the code, and I realized that I was missing an assertion invariant. I added the missing assertion, which failed the test. I put the randomly selected line back in, and the new assertion passed, which confirmed that the randomly commented out line was important.
+I commented out the line and reran my unit test cases ... and they all passed. What?! I went back to the file I had modified. Why had removing that line allowed the test cases to still pass? I thought through the code, and I realized that I was missing an assertion invariant. I added the missing assertion, which failed the test. I put the randomly commented out line back in, and the new assertion passed, which confirmed that the randomly selectied line was important.
 
 I had fixed my test case, but this exercise left me with a queasy feeling in the pit of my stomach. What else had I missed? I had thought that I had sufficient code coverage and assertions. Was this my only missing behavior test specification? I had a couple thousand lines of design pattern code. What were the odds that I found the _only line_ that didn't have sufficient testing?
 
 How do I know whether my test cases are correct and complete? Tests are code too after all. Do I write test cases for my test cases? And what about the validity of those test case confirming test cases? I had been retrofitting test cases into design pattern examples that had been previously implemented. Had I used TDD, I suspect I would not hit this problem. When test and implementation code is written together, the two tend to reinforce each other. But how could I be sure?
 
 ## Pure Serendipity
-The software gods may have filled me with dread that day, but the next day they smiled down upon me. I was working my way through some of Bob Martin's [Clean Coders](https://cleancoders.com/) videos on O’Reilly, and the day after my unsettling testing doubt, I watched: ___Life, The Universe, and Everything: Part 2___.
+The software gods may have filled me with dread that day, but the next day they smiled down upon me. I was working my way through some of Bob Martin's [Clean Coders](https://cleancoders.com/) videos on [O’Reilly](https://www.oreilly.com/), and the day after my unsettling testing doubt, I watched: ___Life, The Universe, and Everything: Part 2___.
 
-Here's a short snippet from the beginning of the transcript. (Uncle Bob portrays himself as well as all the _Humorous Characters_ including: __Space General__ a generic military general barking orders, __Danny__ the flighty Microsoft developer, __Ruby__ the hippy-dippy Ruby developer, __Minecraft Guy__ stuck in the pixelated application and several _Star Trek_ characters including: __Mr. Data__ and __Mr. Spock__. Bob really likes to pretend dress-up in his videos.)
+Here's a short snippet from the beginning of the transcript. (Uncle Bob portrays himself as well as all the _Humorous Characters_ including: a __Space General__  barking out orders, __Danny__ the flighty Microsoft developer, __Ruby__ the hippy-dippy Ruby developer, __Minecraft Guy__ stuck in the pixelated application and several _Star Trek_ characters including: __Mr. Data__ and __Mr. Spock__. Bob really likes to dress-up as other characters in his videos.)
 >__Uncle Bob:__ _Welcome, welcome, to part two of Life, the Universe and Everything, episode 42._
 >
 >__Space General:__  _... you will fearlessly and relentlessly improve your code! You will never allow it to degrade!_
@@ -113,8 +113,8 @@ The timing for Bob’s video could not have been more perfect to soothe my testi
 
 Here’s a summary of what Pitest does. I’m sure other mutation testing frameworks work similarly:
 * It "mutates" your byte-code by flipping logic, skipping lines, altering return values, etc. By changing the byte-code, it changes behavior and therefore injects a bug, known as a mutation.
-* It runs your unit tests on the mutated byte-code. If a test fails, then your unit test has found that mutation and _killed_ it. This is what you want. A behavior change in your code was intercepted by your current unit test code.
-* If an assertion does not fail, then your unit test suite has failed to kill the mutation. This is not what you want. A change in your code was completely ignored by your current unit tests. Pitest only informs you of a potential problem. You'll need to do a little analysis to address it:
+* It runs your unit tests on the mutated byte-code. If a test fails, then your unit test has found that mutation and _killed_ it. This is what you want. A behavior change in your code was intercepted by your test suite. Therefore, if Mutation Testing can only be performed upon the entire repo, it may make more sense add Mutation Testing to the pipeline builds.
+* If an assertion does not fail, then your test suite has failed to kill the mutation. This is not what you want. A change in your code was completely ignored by your current unit tests. Pitest only informs you of a potential problem, but not how to resolve it. You'll need to do a little analysis to address it:
     * Are you missing a unit test case or just an assertion in an existing unit test case?
     * Is a test case incorrect with its Given/When/Then paradigm?
     * Do you have redundant code that accommodates the mutated line?
@@ -145,7 +145,7 @@ Pitest won't guarantee that your unit test assertions are 100% complete, but it 
 Having found this new exciting test tool, I ran Pitest on my project, and I learned:
 * I could only execute Pitest on the entire project repo. I could not scope the test to an individual folder or class as I could do with my unit test framework. There may have been a way to do this, and I couldn’t find it on the GUI, or maybe it’s been added since.
 * Since it executed against the entire repo, it took an extraordinary amount of time to complete.
-* The project did not have good code coverage at the time. Any non-covered mutated lines would not be killed. Since coverage was so low, Pitest reported a huge number of surviving mutants. It was impossible to identify useful mutations. Therefore, I feel that mutation testing is only useful when the repo already has good test coverage. Once you have decent coverage, then mutation testing will evaluate how effective it is.
+* The project did not have good code coverage at the time. Any non-covered mutated lines would not be killed, since there are no unit tests that would find those mutations. Since coverage was so low, Pitest reported a huge number of surviving mutants. It was impossible to identify useful mutations, unless the Mutation Testing Framework provides reports that distinguished uncaught covered mutations from uncovered mutations. I feel that mutation testing is only useful when the repo already has good test coverage. Once you have decent coverage, then mutation testing will evaluate how effective it is.
 
 # Summary
 Mutation testing isn't just about breaking your code—it's about strengthening your tests. By identifying gaps in your test coverage and ensuring your tests are truly effective, this technique helps developers build more robust, maintainable, and resilient software. Incorporating mutation testing into your workflow can lead to higher-quality code and greater confidence in your test suite.
