@@ -36,7 +36,7 @@ The first two steps of TDD focus upon a correct and accurate test. We can then s
 
 Test and implementation confirm each other. Behavior resides in two independent places. The test defines the behavior specification, and the code implements the behavior. Both test and implementation are executable, and any test/implementation behavior inconsistencies should be identified when tests are executed in CI/CD pipeline builds. A change of behavior to one without a corresponding change to the other is likely to cause a failure.
 
-This is a form of [double-entry bookkeeping](https://en.wikipedia.org/wiki/Double-entry_bookkeeping) where a mistake on one side of the ledger is caught by the other side of the ledger. Bob Martin points out the similarities between double-entry bookkeeping and TDD in his [Excuses](https://blog.cleancoder.com/uncle-bob/2017/12/18/Excuses.html) blog entry.
+This is a form of [double-entry bookkeeping](https://en.wikipedia.org/wiki/Double-entry_bookkeeping) where a mistake on one side of the ledger is caught by the inconsistency with the other side of the ledger. Bob Martin points out the similarities between double-entry bookkeeping and TDD in his [Excuses](https://blog.cleancoder.com/uncle-bob/2017/12/18/Excuses.html) blog entry.
 
 ## Alas, it’s not perfect
 [Testing can show the presence of bugs, but not their absence!](https://www.goodreads.com/quotes/506689-program-testing-can-be-used-to-show-the-presence-of) — Edsger W. Dijkstra
@@ -53,7 +53,7 @@ Mutation Testing is a tool in helping us identify false-postive tests and untest
 ## Prepping for a Demo
 When I was first learning about TDD, I added unit tests to my Design Pattern Examples, like a code kata. It was a way for me to become familiar with TDD practices with a domain in which I already had familiarity and comfort.
 
-I presented design pattern lunch-and-learn sessions to our summer interns at around the same time. I was pleased with my recent unit test results, and I wanted to share my newfound unit test knowledge with them. I thought I'd demonstrate the power of unit testing with my recent design pattern tests by introducing an error manually and watch one of my unit tests fail.
+I was presentimg design pattern lunch-and-learn sessions to our summer interns at around the same time. I was pleased with my recent unit test results, and I wanted to share my newfound unit test knowledge with them. I thought I'd demonstrate the power of unit testing with my recent design pattern tests by introducing an error manually and watch one of my unit tests fail.
 
 I tried the following before showing this to them:
 * I randomly chose a design pattern
@@ -112,8 +112,8 @@ Let's return to the video transcript:
 The timing for Bob’s video could not have been more perfect to soothe my testing malaise. Pitest is a free plug-in on Eclipse and other IDEs (look for PIT in the marketplace). Pitest is for Java. Other languages may have their own mutation test frameworks, such as [Stryker Mutator](https://stryker-mutator.io/) for JavaScript, C# and Scala.
 
 Here’s a summary of what Pitest does. I’m sure other mutation testing frameworks work similarly:
-* It "mutates" your byte-code by flipping logic, skipping lines, altering return values, etc. By changing the byte-code, it changes behavior and therefore injects a bug, known as a mutation.
-* It runs your unit tests on the mutated byte-code. If a test fails, then your unit test has found that mutation and _killed_ it. This is what you want. A behavior change in your code was intercepted by your test suite. Therefore, if Mutation Testing can only be performed upon the entire repo, it may make more sense add Mutation Testing to the pipeline builds.
+* It _mutates_ your byte-code by flipping logic, skipping lines, altering return values, etc. By changing the byte-code, it changes behavior and therefore injects a bug, known as a mutation.
+* It runs your unit tests on the mutated byte-code. If a test fails, then your unit test has found that mutation and _killed_ it. This is what you want. A behavior change in your code was detected by your test suite.
 * If an assertion does not fail, then your test suite has failed to kill the mutation. This is not what you want. A change in your code was completely ignored by your current unit tests. Pitest only informs you of a potential problem, but not how to resolve it. You'll need to do a little analysis to address it:
     * Are you missing a unit test case or just an assertion in an existing unit test case?
     * Is a test case incorrect with its Given/When/Then paradigm?
@@ -126,9 +126,9 @@ The correction that allows the mutation to be found could be in your test code, 
 
 ## Double-Entry Bookkeeping Revisited
 Previously I wrote:
-> The test/implementation partnership only works when tests accurately define the behaviors that the code implements. Tests pass by default unless an assertion or verification violation catches the problem. A test might be missing an invariant assertion or verification that allows undesired behavior to pass through undetected.
+> The test/implementation partnership only works when tests accurately define the behaviors that the code implements. Tests pass by default unless a behavior enforcing assertion or verification violation catches the problem. A test might be missing an invariant assertion or verification that allows undesired or unexpected behavior to pass through undetected.
 >
->It’s possible to achieve 100% code coverage without a single assertion or verification. This can happen when there’s pressure from upper management reach a code coverage goal, or an unexperienced developer fudges a blocking test by removing a failing assertion or verification. Haphazard false-positive tests provide code coverage, but all they provide is a false sense of security.
+>It’s possible to achieve 100% code coverage without a single assertion or verification. This can happen when there’s pressure from upper management reach a code coverage goal, or an unexperienced developer resolves a blocking failing test by removing the failing assertion or verification. Haphazard false-positive tests provide code coverage, but all they provide is a false sense of security.
 
 Mutation testing helps to address this. If the test/implementation partnership is out of alignment because of missing assertions or verifications, then there’s a good chance that mutation testing will identify the test/implementation misalignment.
 
@@ -144,7 +144,7 @@ Pitest won't guarantee that your unit test assertions are 100% complete, but it 
 
 Having found this new exciting test tool, I ran Pitest on my project, and I learned:
 * I could only execute Pitest on the entire project repo. I could not scope the test to an individual folder or class as I could do with my unit test framework. There may have been a way to do this, and I couldn’t find it on the GUI, or maybe it’s been added since.
-* Since it executed against the entire repo, it took an extraordinary amount of time to complete.
+* Since it executed against the entire repo, it took an extraordinary amount of time to complete. Therefore, if Mutation Testing can only be performed upon the entire repo, it may make more sense add Mutation Testing to the pipeline builds.
 * The project did not have good code coverage at the time. Any non-covered mutated lines would not be killed, since there are no unit tests that would find those mutations. Since coverage was so low, Pitest reported a huge number of surviving mutants. It was impossible to identify useful mutations, unless the Mutation Testing Framework provides reports that distinguished uncaught covered mutations from uncovered mutations. I feel that mutation testing is only useful when the repo already has good test coverage. Once you have decent coverage, then mutation testing will evaluate how effective it is.
 
 # Summary
