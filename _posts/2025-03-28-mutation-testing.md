@@ -1,7 +1,6 @@
 ---
-title: DRAFT – How do you know if your test code is really testing your code?
+title: How do you know if your test code is really testing your code?
 description: Mutation testing tests your tests
-unlisted: true
 ---
 
 <img src="https://live.staticflickr.com/538/19402967595_48500c3be5_b.jpg" alt="The Night Watch" title="Image Source: https://www.flickr.com/photos/snarfel/19402967595" width = "50%" align="center" style="padding-right: 35px;">
@@ -11,7 +10,7 @@ unlisted: true
 
 ___Who watches the watchers?___
 
-Imagine you deploy a new feature, and despite a fully passing test suite, a critical bug makes it into production. How did this happen? The answer might lie in how your tests are written, not just how many you have.
+Imagine you deploy a new feature, and despite a fully passing test suite, a critical bug makes it into production. How did this happen? The answer might lie in how your tests are written; not just how many you have.
 
 Tests are code. How do we know that our tests provide accurate results? What if our test code has errors? 
 
@@ -43,17 +42,17 @@ This is a form of [double-entry bookkeeping](https://en.wikipedia.org/wiki/Doubl
 
 The test/implementation partnership only works when tests accurately define the behaviors that the code implements. Tests pass by default unless a behavior enforcing assertion or verification violation catches the problem. A test might be missing an invariant assertion or verification that allows undesired or unexpected behavior to pass through undetected.
 
-It’s possible to achieve 100% code coverage without a single assertion or verification. This can happen when there’s pressure from upper management reach a code coverage goal, or an unexperienced developer resolves a blocking failing test by removing the failing assertion or verification. Haphazard false-positive tests provide code coverage, but all they provide is a false sense of security.
+It’s possible to achieve 100% code coverage without a single assertion or verification. This can happen when there’s pressure from upper management to reach a code coverage goal, or an unexperienced developer resolves a blocking failing test by removing the failing assertion or verification. Haphazard false-positive tests provide code coverage, but all they provide is a false sense of security.
 
 It would be better for these false-positive tests if they had never been created. Not only do they test nothing, but they make it more difficult to ascertain which parts of the codebase are actually being tested.
 
 # Mutation Testing
-Mutation Testing is a tool in helping us identify false-postive tests and untested code.
+Mutation Testing is a tool in helping us identify false-positive tests and untested code.
 
 ## Prepping for a Demo
 When I was first learning about TDD, I added unit tests to my Design Pattern Examples, like a code kata. It was a way for me to become familiar with TDD practices with a domain in which I already had familiarity and comfort.
 
-I was presentimg design pattern lunch-and-learn sessions to our summer interns at around the same time. I was pleased with my recent unit test results, and I wanted to share my newfound unit test knowledge with them. I thought I'd demonstrate the power of unit testing with my recent design pattern tests by introducing an error manually and watch one of my unit tests fail.
+I was presenting design pattern lunch-and-learn sessions to our summer interns at around the same time. I was pleased with my recent unit test results, and I wanted to share my newfound unit test knowledge with them. I thought I'd demonstrate the power of unit testing with my recent design pattern tests by introducing an error manually and watch one of my unit tests fail.
 
 I tried the following before showing this to them:
 * I randomly chose a design pattern
@@ -61,7 +60,7 @@ I tried the following before showing this to them:
 * I randomly chose a method
 * I randomly chose a functional line, which had code coverage
 
-I commented out the line and reran my unit test cases ... and they all passed. What?! I went back to the file I had modified. Why had removing that line allowed the test cases to still pass? I thought through the code, and I realized that I was missing an assertion invariant. I added the missing assertion, which failed the test. I put the randomly commented out line back in, and the new assertion passed, which confirmed that the randomly selectied line was important.
+I commented out the line and reran my unit test cases ... and they all passed. What?! I went back to the file I had modified. Why had removing that line allowed the test cases to still pass? I thought through the code, and I realized that I was missing an assertion invariant. I added the missing assertion, which failed the test. I put the randomly commented out line back in, and the new assertion passed, which confirmed that the randomly selected line was important.
 
 I had fixed my test case, but this exercise left me with a queasy feeling in the pit of my stomach. What else had I missed? I had thought that I had sufficient code coverage and assertions. Was this my only missing behavior test specification? I had a couple thousand lines of design pattern code. What were the odds that I found the _only line_ that didn't have sufficient testing?
 
@@ -70,7 +69,7 @@ How do I know whether my test cases are correct and complete? Tests are code too
 ## Pure Serendipity
 The software gods may have filled me with dread that day, but the next day they smiled down upon me. I was working my way through some of Bob Martin's [Clean Coders](https://cleancoders.com/) videos on [O’Reilly](https://www.oreilly.com/), and the day after my unsettling testing doubt, I watched: [___Life, The Universe, and Everything: Part 2___](https://learning.oreilly.com/videos/clean-coder-clean/9780134843803/9780134843803-CODR_E42_P2/).
 
-Here's a short snippet from the beginning of the transcript. (Uncle Bob portrays himself as well as all the _Humorous Characters_ including: a __Space General__  barking out orders, __Danny__ the flighty Microsoft developer, __Ruby__ the hippy-dippy Ruby developer, __Minecraft Guy__ living in the pixelated application and several _Star Trek_ characters including: __Lieutenant Commander Data__ and __Mr. Spock__. Bob really likes to dress-up as other characters in his videos.)
+Here's a short snippet from the beginning of the transcript. (Uncle Bob portrays himself as well as all the _Humorous Characters_ including: a __Space General__  barking out orders, __Danny__ the flighty Microsoft developer, __Ruby__ the hippy-dippy Ruby developer, __Minecraft Guy__ living in the pixelated application and several _Star Trek_ characters including: __Lieutenant Commander Data__ and __Mr. Spock__. Bob really likes to dress up as other characters in his videos.)
 >__Uncle Bob:__ _Welcome, welcome, to part two of Life, the Universe and Everything, episode 42._
 >
 >__Space General:__  _... you will fearlessly and relentlessly improve your code! You will never allow it to degrade!_
@@ -134,7 +133,7 @@ Mutation testing helps to address this. If the test/implementation partnership i
 
 __Mutation testing doesn’t test your implementation. Mutation tests your tests.__
 
-I installed Pitest. It found a memory/threading problem in my unit test code immediately. It would not even complete until I fixed it. Once that was fixed, it only reported uncaught mutations in code that tended to be at the edges of the implementation, such as [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html), which don’t tend to have much code coverage, since they tend to be coupled to external dependencies.
+I installed Pitest. It found a memory/threading problem in my unit test code immediately. It would not even execute until I fixed it. Once that was fixed, it only reported uncaught mutations in code that tended to be at the edges of the implementation, such as [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html), which don’t tend to have much code coverage, since they tend to be coupled to external dependencies.
 
 Pitest takes longer to execute than the unit tests. But it still wasn't bad. I think it took about 3 or 4 minutes to test several thousand lines of code. Kick off Pitest and then take a coffee break.
 
