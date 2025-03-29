@@ -15,13 +15,15 @@ unlisted: true
 
 All three types of tests look similar, since they feature the [Given/When/Then](https://en.wikipedia.org/wiki/Given-When-Then) format. The distinction among the three practices resides in how the __Then__ portion of each test is created. This is why I specifically used the term _Testing_, a process, rather than _Test_, an artifact.
 
+<img src="/assets/ApprovalTestingVennDiagram.png" alt="Approval Testing Venn Diagram" title="Rectangles were wasier to work with than ovals" width = "35%" align="right" style="padding-right: 35px;">
+
 The processes among the three mainly differ as follows:
 * For _Unit Testing_, the __Then__ section specifies ___desired behavior___.
-* For _Characterization Testing, the _Then_ section documents ___existing behavior___.
-* For _Approval Testing, the _Then_ section documents ___emerging behavior___.
+* For _Characterization Testing_, the __Then__ section documents ___existing behavior___.
+* For _Approval Testing_, the __Then__ section documents ___emerging behavior___.
 
 I’ve written blog entries about [Unit Testing](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) and [Characterization Testing](https://jhumelsine.github.io/2025/03/24/legacy-code.html#characterization-tests) previously.
-Approval Testing can be thought of as the intersection of Unit and Characterization Testing in that __approved__ behavior is ___desired__ in its __existing__ form as it __emerges__.
+Approval Testing can be thought of as the intersection of Unit and Characterization Testing in that __approved__ behavior is __desired__ in its __existing__ form as it __emerges__.
 I’ll focus upon Approval Testing for the rest of this blog entry.
 
 # I know it when I see it
