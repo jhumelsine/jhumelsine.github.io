@@ -1,13 +1,13 @@
 ---
 title: DRAFT – Approval Testing - It’s what you get when you cross Unit Testing with Characterization Testing
-description: I’m the Design Pattern Evangelist, and I approve of this blog post
+description: I’m the Design Pattern Evangelist, and I APPROVE this blog post
 unlisted: true
 ---
 
 <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExamR2MHU4MThldzR0Ym5pMzhpb3B2bXo3N252azE0aTlpZGRqd3VvdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7lyvQ60pEKBmE/giphy.gif" alt="The Flintstones" title="Image Source: https://giphy.com/gifs/party-7lyvQ60pEKBmE" width = "60%" align="center" style="padding-right: 20px;">
 
 # Introduction
-Some developers just cannot make that adjustment to [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) (TDD). They have to write the code first. Maybe there's another way to introduce with __Approval Testing__.
+Some developers, often senior ones, just cannot make that adjustment to [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) (TDD). They have to write the code first. Maybe there's another way to accomodate testing for those _dinosaurs_ with __Approval Testing__.
 
 [Unit Testing](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) declares behavior specifications. 
 
@@ -29,7 +29,7 @@ Approval Testing can be thought of as the intersection of Unit and Characterizat
 I’ll focus upon Approval Testing for the rest of this blog entry.
 
 # I know it when I see it
-[_I [can’t] … define … pornography…, but I know it when I see it._]( https://en.wikipedia.org/wiki/I_know_it_when_I_see_it) — [__United States Supreme Court Justice Potter Stewart__](https://en.wikipedia.org/wiki/Potter_Stewart)
+[_I can’t define pornography, but I know it when I see it._]( https://en.wikipedia.org/wiki/I_know_it_when_I_see_it) — Paraphrasing [__United States Supreme Court Justice Potter Stewart__](https://en.wikipedia.org/wiki/Potter_Stewart)
 
 Much like Justice Steward, many developers are not comfortable defining behavior specifications via Unit Tests via the TDD process, but they know it when they see it.
 
@@ -48,21 +48,21 @@ You putter around a bit and observe that the code is returned _Fred Flintstone_,
 
 __STOP!__ Don’t proceed with more code until you’ve documented this observation in a test. Create a __Given/When/Then__ test that asserts that _Fred Flintstone_ is returned. You may need to create the test from scratch, or maybe you’ve already been working on the __Given/When__ sections, and you only need to complete the test with the __Then__ section that asserts _Fred Flintstone_.
 
-You can then proceed with the code making sure to always stop and document what we’re observing via tests. You should also refactor as we go to keep the code clean.
+You can then proceed with the code making sure to always stop and document what we’re observing via tests. You should also refactor as you proceed to keep the code clean.
 
-As you prototype with Approval Testing, you may start to become more familiar with the domain. We you may become familiar enough to move from Approval Testing to TDD.
+As you prototype with Approval Testing, you may become more familiar with the domain. We you may become familiar enough to move from Approval Testing to TDD.
 
 ## Distinction between Approval and Characterization Tests
-When I first saw presentations about Approval Tests, I thought the presenters were using an alternative name for Characterization Tests. Based upon blog entries and videos I continue to, this seems to be a common assumption. I think many view Approval and Characterization Tests as two names for the same process.
+When I first saw presentations about Approval Tests, I thought the presenters were using an alternative name for Characterization Tests. Based upon blog entries and videos by others, this seems to be a common interpretation. I think many view Approval and Characterization Tests as two names for the same process.
 
 After having thought about Approval and Characterization Tests over the years, I think the two processes are different with a subtle distinction.
 
 Existing behaviors are recorded in Characterization Tests as-is. They reveal and document existing behavior, usually in legacy code, whether it’s right or wrong. Any questionable behavior should be codified in a Characterization Test as-is and flagged by adding `SHOULD_IT` in its name as described in [Hey. This doesn’t look right.](https://jhumelsine.github.io/2025/03/24/legacy-code.html#hey-this-doesnt-look-right)
 
-Observable behaviors are recorded in Approval Tests only when the developer has approved the observed behaviors, which emerge as the code matures.
+Observable behaviors are recorded in Approval Tests only when the developer has approved the observed behaviors as desired as they emerge as the code matures.
 
 ## Find Gaps with Mutation Testing
-Approval Testing is reactionary testing. It doesn't drive the implementation. The implementation drives it. Therefore, if practicing Approval Testing, it may also be a good idea to implement [Mutation Testing](https://jhumelsine.github.io/2025/03/28/mutation-testing.html) to help find any behavior gaps that the Approval Tests may have missed.
+Approval Testing is reactionary testing. It doesn't drive the implementation. The implementation drives it. Therefore, if practicing Approval Testing, it may also be a good idea to include [Mutation Testing](https://jhumelsine.github.io/2025/03/28/mutation-testing.html) to help find any behavior gaps that the Approval Tests may have missed.
 
 # Some Behaviors Require Observation
 Some behaviors are difficult to specify. They must first be observed, and then they can be codified in an automated test. Graphical User Interfaces (GUIs) would be in this category.
@@ -81,7 +81,7 @@ Let’s return to our __Hanna-Barbera__ project. Given that the customer’s dom
 
 You can easily launch the GUI and see an image of Fred when we expect to see him, where you expect to see him, how large you expect him to be, but this isn’t easily automated as a test. What we can do is confirm the ASCII that will render this image via the GUI.
 
-For example, Fred’s rendering for this page is defined as … Here’s the __HTML__ code that renders it. You could easily create a test that confirms that any code that generates specifications for how Fred should be rendered with match this specification:
+For example, Fred’s rendering for this page is defined as padded on the right and being 25% of the width of the window. Here’s the __HTML__ code that renders it. You could easily create a test that confirms that any code that generates specifications for how Fred should be rendered by comparing it to this specification:
 ```md
 <img src="https://live.staticflickr.com/3145/2970400508_dbf3ef8861_b.jpg" alt="Fred Flintstone" title="Image Source: https://www.flickr.com/photos/andertoons-cartoons/2970400508" width = "25%" align="right" style="padding-right: 20px;">
 ```
@@ -90,9 +90,6 @@ For example, Fred’s rendering for this page is defined as … Here’s the __H
 Testing the source of the GUI rather than the GUI itself is one example of the Humble Object Pattern. There are more. I will blog about this soon in an upcoming blog (TBD).
 
 # Summary
-Approval Testing is reactionary testing. It doesn't drive the implementation. The implementation drives it. Therefore, if practicing Approval Testing, it may also be a good idea to implement [Mutation Testing](https://jhumelsine.github.io/2025/03/28/mutation-testing.html) to help find any behavior gaps that the Approval Tests may have missed.
-
-
 __TBD__
 
 # References
