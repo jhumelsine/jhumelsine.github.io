@@ -4,7 +4,7 @@ description: I’m the Design Pattern Evangelist, and I approve of this blog pos
 unlisted: true
 ---
 
-<img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExamR2MHU4MThldzR0Ym5pMzhpb3B2bXo3N252azE0aTlpZGRqd3VvdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7lyvQ60pEKBmE/giphy.gif" alt="The Flintstones" title="Image Source: https://giphy.com/gifs/party-7lyvQ60pEKBmE" width = "50%" align="center" style="padding-right: 20px;">
+<img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExamR2MHU4MThldzR0Ym5pMzhpb3B2bXo3N252azE0aTlpZGRqd3VvdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7lyvQ60pEKBmE/giphy.gif" alt="The Flintstones" title="Image Source: https://giphy.com/gifs/party-7lyvQ60pEKBmE" width = "60%" align="center" style="padding-right: 20px;">
 
 # Introduction
 [Unit Testing](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) declares behavior specifications. 
@@ -20,16 +20,18 @@ The processes among the three mainly differ as follows:
 * For _Characterization Testing, the _Then_ section documents ___existing behavior___.
 * For _Approval Testing, the _Then_ section documents ___emerging behavior___.
 
-I’ve written blog entries about [Unit Testing](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development)  and [Characterization Testing](https://jhumelsine.github.io/2025/03/24/legacy-code.html#characterization-tests)  previously. I’ll focus upon Approval Testing for the rest of this blog entry.
+I’ve written blog entries about [Unit Testing](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) and [Characterization Testing](https://jhumelsine.github.io/2025/03/24/legacy-code.html#characterization-tests) previously.
+Approval Testing can be thought of as the intersection of Unit and Characterization Testing in that __approved__ behavior is ___desired__ in its __existing__ form as it __emerges__.
+I’ll focus upon Approval Testing for the rest of this blog entry.
 
 # I know it when I see it
-[_I [can’t] … define … pornography…., But I know it when I see it._]( https://en.wikipedia.org/wiki/I_know_it_when_I_see_it) — United States Supreme Court Justice [Potter Stewart](https://en.wikipedia.org/wiki/Potter_Stewart)
+[_I [can’t] … define … pornography…, but I know it when I see it._]( https://en.wikipedia.org/wiki/I_know_it_when_I_see_it) — [United States Supreme Court Justice Potter Stewart](https://en.wikipedia.org/wiki/Potter_Stewart)
 
-Much like Justice Potter Steward, many developers are not comfortable with defining behavior specifications via Unit Tests created through the [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) (TDD) process, but they know it when they see it.
+Much like Justice Steward, many developers are not comfortable defining behavior specifications via Unit Tests via the [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) (TDD) process, but they know it when they see it.
 
 Approval Testing allows developers to write their code, validate it via their own observation and then document that validated behavior observation in a __Given/When/Then__ test.
 
-If an Approval Test fails subsequently due to an implementation update, then the developer must observe the new _failing_ behavior and decide whether it violates the previous observed behavior or whether it’s demonstrating new desired behavior that’s emerging. If the new emerging behavior is correct, then a new behavior assertion replaces the previous one.
+If a subsequent implementation update causes an Approval Test to fail, then the developer must observe the new _failing_ behavior and decide whether it violates the previous approved behavior or whether it’s demonstrating new desired behavior that’s emerging. If the new emerging behavior is correct, then a new behavior assertion replaces the previous approved one.
 
 ## Yabba Dabba Doo
 I described [Characterization Testing](https://jhumelsine.github.io/2025/03/24/legacy-code.html#characterization-testing) as a technique to add tests to existing legacy code. In my brief description, I described setting up an assert declaring that an obviously invalid String, such as _Fred Flintstone_, would be the return value for a method. Then when the legacy code returned its actual String value, we could replace _Fred Flintstone_ with the actual value.
@@ -66,7 +68,7 @@ While not a requirement for Approval Testing, Approval Tests often has one asser
 
 ## Yabba Dabba Doo Once More
 
-<img src="https://live.staticflickr.com/3145/2970400508_dbf3ef8861_b.jpg" alt="Fred Flintstone" title="Image Source: https://www.flickr.com/photos/andertoons-cartoons/2970400508" width = "20%" align="right" style="padding-right: 20px;">
+<img src="https://live.staticflickr.com/3145/2970400508_dbf3ef8861_b.jpg" alt="Fred Flintstone" title="Image Source: https://www.flickr.com/photos/andertoons-cartoons/2970400508" width = "25%" align="right" style="padding-right: 20px;">
 
 Let’s return to our __Hanna-Barbera__ project. Given that the customer’s domain is cartoons, they are going to want to feature them in their GUI. So rather than just return _Fred Flintstone’s_ name, the customer will want to see his image.
 
