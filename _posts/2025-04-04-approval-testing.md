@@ -4,7 +4,7 @@ description: I’m the Design Pattern Evangelist, and I approve of this blog pos
 unlisted: true
 ---
 
-https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExamR2MHU4MThldzR0Ym5pMzhpb3B2bXo3N252azE0aTlpZGRqd3VvdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7lyvQ60pEKBmE/giphy.gif
+<img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExamR2MHU4MThldzR0Ym5pMzhpb3B2bXo3N252azE0aTlpZGRqd3VvdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7lyvQ60pEKBmE/giphy.gif" alt="The Flintstones" title="Image Source: https://giphy.com/gifs/party-7lyvQ60pEKBmE" width = "50%" align="center" style="padding-right: 20px;">
 
 # Introduction
 [Unit Testing](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) declares behavior specifications. 
@@ -65,16 +65,16 @@ The Approval Test doesn’t approve the GUI directly. It approves the content th
 While not a requirement for Approval Testing, Approval Tests often has one assertion, which may be based upon asserting the `toString()` result of a complex object against a known value. For example, the GUI assert could be a comparison of the entire `HTML` file ASCII content as one long String.
 
 ## Yabba Dabba Doo Once More
-https://live.staticflickr.com/3145/2970400508_dbf3ef8861_b.jpg
-https://www.flickr.com/photos/andertoons-cartoons/2970400508
- 
+
+<img src="https://live.staticflickr.com/3145/2970400508_dbf3ef8861_b.jpg" alt="Fred Flintstone" title="Image Source: https://www.flickr.com/photos/andertoons-cartoons/2970400508" width = "20%" align="right" style="padding-right: 20px;">
+
 Let’s return to our __Hanna-Barbera__ project. Given that the customer’s domain is cartoons, they are going to want to feature them in their GUI. So rather than just return _Fred Flintstone’s_ name, the customer will want to see his image.
 
 You can easily launch the GUI and see an image of Fred when we expect to see him, where you expect to see him, how large you expect him to be, but this isn’t easily automated as a test. What we can do is confirm the ASCII that will render this image via the GUI.
 
 For example, Fred’s rendering for this page is defined as … Here’s the __HTML__ code that renders it. You could easily create a test that confirms that any code that generates specifications for how Fred should be rendered with match this specification:
 ```md
-Add content here.
+<img src="https://live.staticflickr.com/3145/2970400508_dbf3ef8861_b.jpg" alt="Fred Flintstone" title="Image Source: https://www.flickr.com/photos/andertoons-cartoons/2970400508" width = "25%" align="right" style="padding-right: 20px;">
 ```
 
 ## Humble Object Teaser
