@@ -1,5 +1,5 @@
 ---
-title: DRAFT – Approval Testing - A Test Strategy for those who reluctant to try TDD
+title: DRAFT – Approval Testing - A Test Strategy for those who are reluctant to try TDD
 description: I’m the Design Pattern Evangelist, and I APPROVE this blog post
 unlisted: true
 ---
@@ -7,13 +7,13 @@ unlisted: true
 <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExamR2MHU4MThldzR0Ym5pMzhpb3B2bXo3N252azE0aTlpZGRqd3VvdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7lyvQ60pEKBmE/giphy.gif" alt="The Flintstones" title="Image Source: https://giphy.com/gifs/party-7lyvQ60pEKBmE" width = "60%" align="center" style="padding-right: 20px;">
 
 # Introduction
-Some developers, often seniors, just cannot make that adjustment to [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) (TDD). They have to write the code first. Maybe there's another way to accomodate testing for those _dinosaurs_ with __Approval Testing__.
+Some developers, often seniors, just cannot make that adjustment to [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) (TDD). They have to write the code first. Maybe there's another way to accomodate a testing strategy for those _dinosaurs_ who need to see the code working first through __Approval Testing__.
 
-[Unit Testing](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) declares behavior specifications. 
+__[Unit Testing](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development), via TDD, declares behavior specifications.__ 
 
-[Characterization Testing](https://jhumelsine.github.io/2025/03/24/legacy-code.html#characterization-tests) reveals existing behavior. 
+__[Characterization Testing](https://jhumelsine.github.io/2025/03/24/legacy-code.html#characterization-tests) reveals existing behavior.__ 
 
-[Approval Testing](https://approvaltests.com/) approves emerging behavior as it’s being implemented.
+__[Approval Testing](https://approvaltests.com/) approves emerging behavior as it’s being implemented.__
 
 All three types of tests look similar, since they feature the [Given/When/Then](https://en.wikipedia.org/wiki/Given-When-Then) format. The distinction among the three practices resides in how the __Then__ portion of each test is created. This is why I specifically used the term _Testing_, a process, rather than _Test_, an artifact.
 
@@ -25,13 +25,13 @@ The processes among the three mainly differ as follows:
 * For _Approval Testing_, the __Then__ section documents ___emerging behavior___.
 
 I’ve written blog entries about [Unit Testing](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) and [Characterization Testing](https://jhumelsine.github.io/2025/03/24/legacy-code.html#characterization-tests) previously.
-Approval Testing can be thought of as the intersection of Unit and Characterization Testing in that __approved__ behavior is __desired__ in its __existing__ form as it __emerges__.
+Approval Testing can be thought of as the intersection of Unit and Characterization Testing in that __desired__ behavior is __approved__ in its __existing__ form as it __emerges__.
 I’ll focus upon Approval Testing for the rest of this blog entry.
 
-# I know it when I see it
+# ..., but I know it when I see it
 [_I can’t define pornography, but I know it when I see it._]( https://en.wikipedia.org/wiki/I_know_it_when_I_see_it) — Paraphrasing [__United States Supreme Court Justice Potter Stewart__](https://en.wikipedia.org/wiki/Potter_Stewart)
 
-Much like Justice Steward, many developers are not comfortable defining behavior specifications via Unit Tests via the TDD process, but they know it when they see it.
+Much like Justice Stewart, many developers are not comfortable defining behavior specifications via Unit Tests via the TDD process, but they know it when they see it.
 
 Approval Testing allows developers to write their code, validate it via their own observation and then document that validated behavior observation in a __Given/When/Then__ test.
 
@@ -46,9 +46,9 @@ You’re still prototyping YDD, so you may not have quite enough domain knowledg
 
 You putter around a bit and observe that the code is returned _Fred Flintstone_, which looks it’s doing what you’d expect it to do.
 
-__STOP!__ Don’t proceed with more code until you’ve documented this observation in a test. Create a __Given/When/Then__ test that asserts that _Fred Flintstone_ is returned. You may need to create the test from scratch, or maybe you’ve already been working on the __Given/When__ sections, and you only need to complete the test with the __Then__ section that asserts _Fred Flintstone_.
+__STOP!__ Don’t proceed with more code until you’ve documented this observation in a test. Create a __Given/When/Then__ test that asserts that _Fred Flintstone_ is returned. You may need to create the test from scratch, or maybe you’ve already been working on the __Given/When__ sections of a test, and you only need to complete the it with the __Then__ section that asserts _Fred Flintstone_.
 
-You can then proceed with the code making sure to always stop and document what we’re observing via tests. You should also refactor as you proceed to keep the code clean.
+You can then proceed with coding making sure to always stop and document what we’re observing via tests. You should also refactor as you proceed to keep the code clean.
 
 As you prototype with Approval Testing, you may become more familiar with the domain. We you may become familiar enough to move from Approval Testing to TDD.
 
@@ -62,15 +62,34 @@ Existing behaviors are recorded in Characterization Tests as-is. They reveal and
 Observable behaviors are recorded in Approval Tests only when the developer has approved the observed behaviors as desired as they emerge as the code matures.
 
 ## Find Gaps with Mutation Testing
-Approval Testing is reactionary testing. It doesn't drive the implementation. The implementation drives it. Therefore, if practicing Approval Testing, it may also be a good idea to include [Mutation Testing](https://jhumelsine.github.io/2025/03/28/mutation-testing.html) to help find any behavior gaps that the Approval Tests may have missed.
+Approval Testing is reactionary testing. It doesn't drive the implementation. The implementation drives it. Therefore, if practicing Approval Testing, it may also be a good idea to include [Mutation Testing](https://jhumelsine.github.io/2025f/03/28/mutation-testing.html) to help find any behavior that the Approval Tests may have missed.
 
 # Some Behaviors Require Observation
 Some behaviors are difficult to specify. They must first be observed, and then they can be codified in an automated test. Graphical User Interfaces (GUIs) would be in this category.
 
 GUIs are notoriously difficult to test. Using Approval Testing, the developer would execute the code and visually confirm the GUI adjusting the code until the GUI looks correct. It can be approved in an Approval Test, but how do we test something visual?
 
-The Approval Test doesn’t approve the GUI directly. It approves the content that is rendered to produce the GUI. For example, if the GUI’s form factor is a web browser, the content that’s rendered  by the browser could be the ASCII that’s in an `HTML` file. The ASCII content `HTML` file could be validated in one large String comparison assert.
+The Approval Test doesn’t approve the GUI directly. It approves the content being rendered to produce the GUI. For example, if the GUI’s form factor is a web browser, the content that’s rendered  by the browser could be the ASCII that’s in an `HTML` file. The ASCII content `HTML` file could be validated in one large String comparison assert.
 
+## Yabba Dabba Doo Once More
+
+<img src="https://live.staticflickr.com/3145/2970400508_dbf3ef8861_b.jpg" alt="Fred Flintstone" title="Image Source: https://www.flickr.com/photos/andertoons-cartoons/2970400508" width = "25%" align="right" style="padding-right: 20px;">
+
+Let’s return to our __Hanna-Barbera__ project. Given that the customer’s domain is cartoons, they are going to want to feature them in their GUI. So rather than just return _Fred Flintstone’s_ name, the customer will want to see his image.
+
+You can easily launch the GUI and see an image of Fred when we expect to see him, where you expect to see him, how large you expect him to be, but this isn’t easily automated as a test. What we can do is confirm the ASCII that will render this image via the GUI.
+
+For example, Fred’s rendering for this page is defined as padded on the right and being 25% of the width of the window. Here’s the __HTML__ code that renders it. You could easily create a test that confirms that any code that generates specifications for how Fred should be rendered by comparing it to this specification:
+```md
+<img src="https://live.staticflickr.com/3145/2970400508_dbf3ef8861_b.jpg" alt="Fred Flintstone"
+    title="Image Source: https://www.flickr.com/photos/andertoons-cartoons/2970400508"
+        width = "25%" align="right" style="padding-right: 20px;">
+```
+
+## Humble Object Teaser
+Testing the source of the GUI rather than the GUI itself is one example of the Humble Object Pattern. There are more. I will blog about this soon in an upcoming blog (TBD).
+
+# Often a String Compare
 While not a requirement for Approval Testing, Approval Tests often has one assertion, which may be based upon asserting the `toString()` result of a complex object against a known value. For example, the GUI assert could be a comparison of the entire `HTML` file ASCII content as one long String.
 
 I use this techninque fairly often I'm still following what I'd consider TDD, but it's probably closer to Approval Testing. I'll start with the test first and write all three __Given/When/Then__ sections. However, parts of the __Then__ section are still left undefined. Here's an example from one of my [Advent of Code](https://adventofcode.com/) tests from [2024 Day 14 - Warehouse Woes](https://adventofcode.com/2024/day/15), which I previously described in [A House Divided - Advent of Code](https://jhumelsine.github.io/2025/03/07/house-divided.html#advent-of-code).
@@ -129,24 +148,6 @@ public moveRobotUpMovesOtherBoxesUp() {
     assertEquals("[##.., .Bb., BbBb, .Bb., .@.., ....]", warehouse.getRendering().toString());
 }
 ```
-
-## Yabba Dabba Doo Once More
-
-<img src="https://live.staticflickr.com/3145/2970400508_dbf3ef8861_b.jpg" alt="Fred Flintstone" title="Image Source: https://www.flickr.com/photos/andertoons-cartoons/2970400508" width = "25%" align="right" style="padding-right: 20px;">
-
-Let’s return to our __Hanna-Barbera__ project. Given that the customer’s domain is cartoons, they are going to want to feature them in their GUI. So rather than just return _Fred Flintstone’s_ name, the customer will want to see his image.
-
-You can easily launch the GUI and see an image of Fred when we expect to see him, where you expect to see him, how large you expect him to be, but this isn’t easily automated as a test. What we can do is confirm the ASCII that will render this image via the GUI.
-
-For example, Fred’s rendering for this page is defined as padded on the right and being 25% of the width of the window. Here’s the __HTML__ code that renders it. You could easily create a test that confirms that any code that generates specifications for how Fred should be rendered by comparing it to this specification:
-```md
-<img src="https://live.staticflickr.com/3145/2970400508_dbf3ef8861_b.jpg" alt="Fred Flintstone"
-    title="Image Source: https://www.flickr.com/photos/andertoons-cartoons/2970400508"
-        width = "25%" align="right" style="padding-right: 20px;">
-```
-
-## Humble Object Teaser
-Testing the source of the GUI rather than the GUI itself is one example of the Humble Object Pattern. There are more. I will blog about this soon in an upcoming blog (TBD).
 
 # Summary
 __TBD__
