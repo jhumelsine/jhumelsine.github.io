@@ -1,13 +1,13 @@
 ---
 title: DRAFT – Approval Testing - A Test Strategy for those who are reluctant to try TDD
-description: I’m the Design Pattern Evangelist, and I APPROVE this blog post
+description: I’m the Design Pattern Evangelist, and I APPROVE this message
 unlisted: true
 ---
 
 <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExamR2MHU4MThldzR0Ym5pMzhpb3B2bXo3N252azE0aTlpZGRqd3VvdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7lyvQ60pEKBmE/giphy.gif" alt="The Flintstones" title="Image Source: https://giphy.com/gifs/party-7lyvQ60pEKBmE" width = "60%" align="center" style="padding-right: 20px;">
 
 # Introduction
-Some developers, often seniors, just cannot make that adjustment to [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) (TDD). They have to write the code first. Maybe there's another way to accomodate a testing strategy for those _dinosaurs_ who need to see the code working first through __Approval Testing__.
+Some developers, often seniors, just cannot make the adjustment to [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) (TDD). They have to write the code first. Maybe there's another way to provide a testing strategy for those _dinosaurs_ who need to see the working code first through __Approval Testing__.
 
 __[Unit Testing](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development), via TDD, declares behavior specifications.__ 
 
@@ -44,16 +44,16 @@ Let’s tweak that scenario a bit. Let’s assume that you’re working for [__H
 
 You’re still prototyping YDD, so you may not have quite enough domain knowledge to feel confident enough to specify behavior using TDD. However, you can prototype some code, and when you observe emerging behavior you like, then you can document it in a test.
 
-You putter around a bit and observe that the code is returned _Fred Flintstone_, which looks it’s doing what you’d expect it to do.
+You putter around a bit and observe that the code is returned _Fred Flintstone_, which looks it’s doing what you’d expect it to do for that scenario.
 
 __STOP!__ Don’t proceed with more code until you’ve documented this observation in a test. Create a __Given/When/Then__ test that asserts that _Fred Flintstone_ is returned. You may need to create the test from scratch, or maybe you’ve already been working on the __Given/When__ sections of a test, and you only need to complete the it with the __Then__ section that asserts _Fred Flintstone_.
 
-You can then proceed with coding making sure to always stop and document what we’re observing via tests. You should also refactor as you proceed to keep the code clean.
+You can then proceed with additional coding making sure to always stop and document what we’re observing via tests. You should also refactor as you proceed to keep the code clean.
 
-As you prototype with Approval Testing, you may become more familiar with the domain. We you may become familiar enough to move from Approval Testing to TDD.
+As you prototype with Approval Testing, you may become more familiar with the domain. You may become familiar enough to move from Approval Testing to TDD.
 
 ## Distinction between Approval and Characterization Tests
-When I first saw presentations about Approval Tests, I thought the presenters were using an alternative name for Characterization Tests. Based upon blog entries and videos by others, this seems to be a common interpretation. I think many view Approval and Characterization Tests as two names for the same process.
+When I first saw presentations about Approval Tests, I thought the presenters were using an alternative name for Characterization Tests. This seems to be a common interpretation based upon blog entries and videos by others. I think many view Approval and Characterization Tests as two names for the same process.
 
 After having thought about Approval and Characterization Tests over the years, I think the two processes are different with a subtle distinction.
 
@@ -75,9 +75,9 @@ The Approval Test doesn’t approve the GUI directly. It approves the content be
 
 <img src="https://live.staticflickr.com/3145/2970400508_dbf3ef8861_b.jpg" alt="Fred Flintstone" title="Image Source: https://www.flickr.com/photos/andertoons-cartoons/2970400508" width = "25%" align="right" style="padding-right: 20px;">
 
-Let’s return to our __Hanna-Barbera__ project. Given that the customer’s domain is cartoons, they are going to want to feature them in their GUI. So rather than just return _Fred Flintstone’s_ name, the customer will want to see his image.
+Let’s return to our __Hanna-Barbera__ project. Given that the customer’s domain is cartoons, they are going to want to feature cartoon images in their GUI. So rather than just return _Fred Flintstone’s_ name, the customer will want to see his image.
 
-You can easily launch the GUI and see an image of Fred when we expect to see him, where you expect to see him, how large you expect him to be, but this isn’t easily automated as a test. What we can do is confirm the ASCII that will render this image via the GUI.
+You can easily launch the GUI and see an image of Fred: when we expect to see him, where you expect to see him, and how large you expect him to be. But this isn’t easily automated as a test. We can do is confirm the ASCII that will render this image via the GUI.
 
 For example, Fred’s rendering for this page is defined as padded on the right and being 25% of the width of the window. Here’s the __HTML__ code that renders it. You could easily create a test that confirms that any code that generates specifications for how Fred should be rendered by comparing it to this specification:
 ```md
@@ -87,12 +87,12 @@ For example, Fred’s rendering for this page is defined as padded on the right 
 ```
 
 ## Humble Object Teaser
-Testing the source of the GUI rather than the GUI itself is one example of the Humble Object Pattern. There are more. I will blog about this soon in an upcoming blog (TBD).
+Testing the source of the GUI rather than the GUI itself is one example of the Humble Object Pattern. There are more. I will describe this soon in an upcoming blog (TBD).
 
 # Often a String Compare
-While not a requirement for Approval Testing, Approval Tests often has one assertion, which may be based upon asserting the `toString()` result of a complex object against a known value. For example, the GUI assert could be a comparison of the entire `HTML` file ASCII content as one long String.
+While not a requirement for Approval Testing, Approval Tests often have one assertion, which may be based upon asserting the `toString()` result of a complex object against an expected value. For example, the GUI assert could be a comparison of the entire `HTML` file ASCII content as one long String.
 
-I use this techninque fairly often I'm still following what I'd consider TDD, but it's probably closer to Approval Testing. I'll start with the test first and write all three __Given/When/Then__ sections. However, parts of the __Then__ section are still left undefined. Here's an example from one of my [Advent of Code](https://adventofcode.com/) tests from [2024 Day 14 - Warehouse Woes](https://adventofcode.com/2024/day/15), which I previously described in [A House Divided - Advent of Code](https://jhumelsine.github.io/2025/03/07/house-divided.html#advent-of-code).
+I use this techninque fairly often I'm still practicing what I'd consider TDD, but it's probably closer to Approval Testing. I'd start with the test first and populate all three __Given/When/Then__ sections. However, parts of the __Then__ section are still left undefined. Here's an example from one of my [Advent of Code](https://adventofcode.com/) tests from [2024 Day 14 - Warehouse Woes](https://adventofcode.com/2024/day/15), which I previously described in [A House Divided - Advent of Code](https://jhumelsine.github.io/2025/03/07/house-divided.html#advent-of-code).
 
 This is some code for Part 1:
 ```java
@@ -112,7 +112,7 @@ public moveRobotToLeftAlsoMovesBoxes() {
 }
 ```
 
-`Warehouse.toString()` returns a string value of its configuration. When I ran the test, it failed, stating that `TBD` was not the expected value. The actual value was `Robot:(3,0), {(2,0)=Box:(2,0), (1,0)=Box:(1,0)}, {(0,0)=Wall:(0,0)}`. I visually confirmed that that was the expected value, and I updated the test as follows:
+`Warehouse.toString()` returns a string value of its configuration. When I ran the test, it failed, stating that `TBD` was not the actual value. The actual value was `Robot:(3,0), {(2,0)=Box:(2,0), (1,0)=Box:(1,0)}, {(0,0)=Wall:(0,0)}`. I visually confirmed that that was the expected value, and I updated the test as follows:
 
 ```java
 public moveRobotToLeftAlsoMovesBoxes() {
@@ -131,7 +131,7 @@ public moveRobotToLeftAlsoMovesBoxes() {
 }
 ```
 
-When it came to Part 2, I used a more visual representation for the `Warehouse`. The return value is the String representation List of String rows with `#` for a `Wall`, `Bb` for a `Box` and `@` for the `Robot`, which mostly matches the graphics in the problem. From what I remember, I used TDD when creating this test by typing in the graphical List String first, but I used Approval Testing to compare my expected String against the actual String.
+When it came to Part 2, I used a more visual representation for the `Warehouse`. The return value is the String representation List of String rows with `#` for a `Wall`, `Bb` for a `Box` and `@` for the `Robot`, which mostly matches the graphic description of the problem from Advent of Code. From what I remember, I used TDD when creating this test by typing in the graphical List String first, but I used Approval Testing to compare my expected String against the actual String.
 ```java
 public moveRobotUpMovesOtherBoxesUp() {
     int widthFactor = 2;
