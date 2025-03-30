@@ -150,7 +150,7 @@ public moveRobotUpMovesOtherBoxesUp() {
 ```
 
 # Summary
-__TBD__
+Approval Testing offers an alternative to traditional Test-Driven Development by allowing developers to validate and document behavior as it emerges. Positioned between Unit and Characterization Testing, this method is particularly useful for developers who prefer to write code first and approve expected outcomes after observation. By approving behavior iteratively, developers can maintain confidence in their code while gradually transitioning to more structured testing approaches.
 
 # References
 __TBD__
