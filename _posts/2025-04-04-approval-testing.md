@@ -1,5 +1,5 @@
 ---
-title: DRAFT – Approval Testing - It’s what you get when you cross Unit Testing with Characterization Testing
+title: DRAFT – Approval Testing - A Test Strategy for those who reluctant to try TDD
 description: I’m the Design Pattern Evangelist, and I APPROVE this blog post
 unlisted: true
 ---
@@ -7,7 +7,7 @@ unlisted: true
 <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExamR2MHU4MThldzR0Ym5pMzhpb3B2bXo3N252azE0aTlpZGRqd3VvdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7lyvQ60pEKBmE/giphy.gif" alt="The Flintstones" title="Image Source: https://giphy.com/gifs/party-7lyvQ60pEKBmE" width = "60%" align="center" style="padding-right: 20px;">
 
 # Introduction
-Some developers, often senior ones, just cannot make that adjustment to [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) (TDD). They have to write the code first. Maybe there's another way to accomodate testing for those _dinosaurs_ with __Approval Testing__.
+Some developers, often seniors, just cannot make that adjustment to [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) (TDD). They have to write the code first. Maybe there's another way to accomodate testing for those _dinosaurs_ with __Approval Testing__.
 
 [Unit Testing](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) declares behavior specifications. 
 
@@ -73,10 +73,46 @@ The Approval Test doesn’t approve the GUI directly. It approves the content th
 
 While not a requirement for Approval Testing, Approval Tests often has one assertion, which may be based upon asserting the `toString()` result of a complex object against a known value. For example, the GUI assert could be a comparison of the entire `HTML` file ASCII content as one long String.
 
+I use this techninque fairly often I'm still following what I'd consider TDD, but it's probably closer to Approval Testing. I'll start with the test first and write all three __Given/When/Then__ sections. However, parts of the __Then__ section are still left undefined. Here's an example from one of my [Advent of Code](TBD) tests from [2024 Day 14 - Warehouse](TBD):
+```java
+public moveRobotToLeftAlsoMovesBoxes() {
+    // Given
+    Warehouse warehouse = new Warehouse();
+    warehouse.add(new Wall(new Position(0, 0)));
+    warehouse.add(new Box(new Position(2, 0)));
+    warehouse.add(new Box(new Position(3, 0)));
+    warehouse.add(new Robot(new Position(4,0)));
+
+    // When
+    warehouse.move(MoveDirection.LEFT);
+
+    // Then
+    assertEquals("TBD", warehouse.toString());
+}
+```
+
+`Warehouse.toString()` returns a string value of its configuration. When I ran the test, it failed, stating that `TBD` was not the expected value. The actual value was `Robot:(3,0), {(2,0)=Box:(2,0), (1,0)=Box:(1,0)}, {(0,0)=Wall:(0,0)}`. I visually confirmed that that was the expected value, and I updated the test as follows:
+
+```java
+public moveRobotToLeftAlsoMovesBoxes() {
+    // Given
+    Warehouse warehouse = new Warehouse();
+    warehouse.add(new Wall(new Position(0, 0)));
+    warehouse.add(new Box(new Position(2, 0)));
+    warehouse.add(new Box(new Position(3, 0)));
+    warehouse.add(new Robot(new Position(4,0)));
+
+    // When
+    warehouse.move(MoveDirection.LEFT);
+
+    // Then
+    assertEquals("Robot:(3,0), {(2,0)=Box:(2,0), (1,0)=Box:(1,0)}, {(0,0)=Wall:(0,0)}", warehouse.toString());
+}
+```
+
 ## Yabba Dabba Doo Once More
 
-<img src="https://live.staticflickr.com/3145/2970400508_dbf3ef8861_b.jpg" alt="Fred Flintstone" 
-  title="Image Source: https://www.flickr.com/photos/andertoons-cartoons/2970400508" width = "25%" align="right" style="padding-right: 20px;">
+<img src="https://live.staticflickr.com/3145/2970400508_dbf3ef8861_b.jpg" alt="Fred Flintstone" title="Image Source: https://www.flickr.com/photos/andertoons-cartoons/2970400508" width = "25%" align="right" style="padding-right: 20px;">
 
 Let’s return to our __Hanna-Barbera__ project. Given that the customer’s domain is cartoons, they are going to want to feature them in their GUI. So rather than just return _Fred Flintstone’s_ name, the customer will want to see his image.
 
@@ -84,7 +120,8 @@ You can easily launch the GUI and see an image of Fred when we expect to see him
 
 For example, Fred’s rendering for this page is defined as padded on the right and being 25% of the width of the window. Here’s the __HTML__ code that renders it. You could easily create a test that confirms that any code that generates specifications for how Fred should be rendered by comparing it to this specification:
 ```md
-<img src="https://live.staticflickr.com/3145/2970400508_dbf3ef8861_b.jpg" alt="Fred Flintstone" title="Image Source: https://www.flickr.com/photos/andertoons-cartoons/2970400508" width = "25%" align="right" style="padding-right: 20px;">
+<img src="https://live.staticflickr.com/3145/2970400508_dbf3ef8861_b.jpg" alt="Fred Flintstone"
+    title="Image Source: https://www.flickr.com/photos/andertoons-cartoons/2970400508" width = "25%" align="right" style="padding-right: 20px;">
 ```
 
 ## Humble Object Teaser
