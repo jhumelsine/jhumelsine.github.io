@@ -75,7 +75,8 @@ While not a requirement for Approval Testing, Approval Tests often has one asser
 
 ## Yabba Dabba Doo Once More
 
-<img src="https://live.staticflickr.com/3145/2970400508_dbf3ef8861_b.jpg" alt="Fred Flintstone" title="Image Source: https://www.flickr.com/photos/andertoons-cartoons/2970400508" width = "25%" align="right" style="padding-right: 20px;">
+<img src="https://live.staticflickr.com/3145/2970400508_dbf3ef8861_b.jpg" alt="Fred Flintstone" 
+  title="Image Source: https://www.flickr.com/photos/andertoons-cartoons/2970400508" width = "25%" align="right" style="padding-right: 20px;">
 
 Let’s return to our __Hanna-Barbera__ project. Given that the customer’s domain is cartoons, they are going to want to feature them in their GUI. So rather than just return _Fred Flintstone’s_ name, the customer will want to see his image.
 
