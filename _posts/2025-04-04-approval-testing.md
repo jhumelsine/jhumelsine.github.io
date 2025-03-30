@@ -73,7 +73,9 @@ The Approval Test doesn’t approve the GUI directly. It approves the content th
 
 While not a requirement for Approval Testing, Approval Tests often has one assertion, which may be based upon asserting the `toString()` result of a complex object against a known value. For example, the GUI assert could be a comparison of the entire `HTML` file ASCII content as one long String.
 
-I use this techninque fairly often I'm still following what I'd consider TDD, but it's probably closer to Approval Testing. I'll start with the test first and write all three __Given/When/Then__ sections. However, parts of the __Then__ section are still left undefined. Here's an example from one of my [Advent of Code](TBD) tests from [2024 Day 14 - Warehouse](TBD):
+I use this techninque fairly often I'm still following what I'd consider TDD, but it's probably closer to Approval Testing. I'll start with the test first and write all three __Given/When/Then__ sections. However, parts of the __Then__ section are still left undefined. Here's an example from one of my [Advent of Code](https://adventofcode.com/) tests from [2024 Day 14 - Warehouse Woes](https://adventofcode.com/2024/day/15), which I previously described in [A House Divided - Advent of Code](https://jhumelsine.github.io/2025/03/07/house-divided.html#advent-of-code).
+
+This is some code for Part 1:
 ```java
 public moveRobotToLeftAlsoMovesBoxes() {
     // Given
@@ -110,6 +112,24 @@ public moveRobotToLeftAlsoMovesBoxes() {
 }
 ```
 
+When it came to Part 2, I used a more visual representation for the `Warehouse`. The return value is the String representation List of String rows with `#` for a `Wall`, `Bb` for a `Box` and `@` for the `Robot`, which mostly matches the graphics in the problem. From what I remember, I used TDD when creating this test by typing in the graphical List String first, but I used Approval Testing to compare my expected String against the actual String.
+```java
+public moveRobotUpMovesOtherBoxesUp() {
+    int widthFactor = 2;
+    Warehouse warehouse = new Warehouse(widthFactor);
+    warehouse.add(new Wall(new Position(0, 0), widthFactor));
+    warehouse.add(new Box(new Position(1, 2), widthFactor));
+    warehouse.add(new Box(new Position(0, 3), widthFactor));
+    warehouse.add(new Box(new Position(2, 3), widthFactor));
+    warehouse.add(new Box(new Position(1, 4), widthFactor));
+    warehouse.add(new Robot(new Position(1,5)));
+    assertEquals("[##.., ...., .Bb., BbBb, .Bb., .@..]", warehouse.getRendering().toString());
+
+    warehouse.move(MoveDirection.UP);
+    assertEquals("[##.., .Bb., BbBb, .Bb., .@.., ....]", warehouse.getRendering().toString());
+}
+```
+
 ## Yabba Dabba Doo Once More
 
 <img src="https://live.staticflickr.com/3145/2970400508_dbf3ef8861_b.jpg" alt="Fred Flintstone" title="Image Source: https://www.flickr.com/photos/andertoons-cartoons/2970400508" width = "25%" align="right" style="padding-right: 20px;">
@@ -121,7 +141,8 @@ You can easily launch the GUI and see an image of Fred when we expect to see him
 For example, Fred’s rendering for this page is defined as padded on the right and being 25% of the width of the window. Here’s the __HTML__ code that renders it. You could easily create a test that confirms that any code that generates specifications for how Fred should be rendered by comparing it to this specification:
 ```md
 <img src="https://live.staticflickr.com/3145/2970400508_dbf3ef8861_b.jpg" alt="Fred Flintstone"
-    title="Image Source: https://www.flickr.com/photos/andertoons-cartoons/2970400508" width = "25%" align="right" style="padding-right: 20px;">
+    title="Image Source: https://www.flickr.com/photos/andertoons-cartoons/2970400508"
+        width = "25%" align="right" style="padding-right: 20px;">
 ```
 
 ## Humble Object Teaser
