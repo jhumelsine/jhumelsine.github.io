@@ -166,11 +166,11 @@ Here are some resources:
 * [Approval Tests](https://approvaltests.com/) - Website dedicated to Approval Tests with their own set of [Resources](https://approvaltests.com/resources/)
 * [What's the difference between Regression Tests, Characterization Tests, and Approval Tests?](https://understandlegacycode.com/blog/characterization-tests-or-approval-tests/) - Nicolas Carlos states that Characterization and Approval Tests are the same, but I feel there's a distinction
 * [Unlocking the Power of Approval Testing](https://dev.to/sergiomarcial/unlocking-the-power-of-approval-testing-a-comprehensive-guide-for-software-engineers-3o6f) - Blog by Sergio Marcial
-* [Approval Testing | Benefits, How to Perform & Tools](https://testsigma.com/blog/approval-testing/) - Blog from Testsigma Engineering Team
+* [Approval Testing: Benefits, How to Perform & Tools](https://testsigma.com/blog/approval-testing/) - Blog from Testsigma Engineering Team
 * [Automate Approval Testing What It Is and How to Use It](https://www.qodo.ai/blog/automate-approval-testing/) - Blog by Talia Parnel
 * [What is Approval Testing?](https://www.linkedin.com/pulse/what-approval-testing-john-ferguson-smart/) - Blog by John Ferguson Smart
 * [How Approval Tests Measure Up Against Kent Beck’s Desiderata](https://www.youtube.com/watch?v=S71ku1VSik8) - Video by Emily Bache
-* [The BEST way to find BUGS in an API | Contract vs Approval Testing](https://www.youtube.com/watch?v=Q1m01D8eMaU) - Video by Emily Bache
+* [The BEST way to find BUGS in an API: Contract vs Approval Testing](https://www.youtube.com/watch?v=Q1m01D8eMaU) - Video by Emily Bache
 * ["Approval Testing" by Emily Bache (@emilybache)](https://www.youtube.com/watch?v=0ZVKcFsEp-4) - Presentation at The Legacy of SoCraTes
 * [Gain CONFIDENCE With Approval ](https://www.youtube.com/watch?v=5H2s1knHUlA) - Video conversation between Dave Farley and Emily Bache
 * [Add APPROVAL TESTING To Your Bag Of Tricks](https://www.youtube.com/watch?v=jAMVtMesHqk) - Video by Dave Farley
