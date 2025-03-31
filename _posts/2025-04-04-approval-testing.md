@@ -42,9 +42,9 @@ I featured [Characterization Testing](https://jhumelsine.github.io/2025/03/24/le
 
 Let’s tweak that scenario a bit. Let’s assume that you’re working for [__Hanna-Barbera__](https://en.wikipedia.org/wiki/Hanna-Barbera), the cartoon production company, and you’ve been assigned to the [__YabbaDabbaDoo__](https://en.wikipedia.org/wiki/Yabba_Dabba_Doo) feature.
 
-You’re still prototyping, so you may not have quite enough domain knowledge to feel confident enough to specify behavior using TDD. However, when you observe emerging behavior you like while prototyping some code, then you can document that behavior in a test.
+You’re still prototyping, so you may not have quite enough domain knowledge to feel confident enough to specify behavior using TDD. However, when you observe emerging behavior, you like while prototyping some code, then you can document that behavior in a test.
 
-You putter around a bit and observe that the code is returned _Fred Flintstone_, which looks it’s doing what you’d expect it to do for that scenario.
+You putter around a bit and observe that the code is returned _Fred Flintstone_, which looks like it’s doing what you’d expect it to do for that scenario.
 
 __STOP!__ Don’t proceed with more code until you’ve documented this observation in a test. Create a __Given/When/Then__ test that asserts that _Fred Flintstone_ is returned. You may need to create the test from scratch, or maybe you’ve already been working on the __Given/When__ sections of a test, and you only need to complete the it with the __Then__ section that asserts _Fred Flintstone_.
 
@@ -69,7 +69,7 @@ Approval Testing is reactionary testing. It doesn't drive the implementation. Th
 # Some Behaviors Require Observation
 Some behaviors are difficult to specify. They must first be observed, and then they can be codified in an automated test. Graphical User Interfaces (GUIs) would be in this category.
 
-GUIs are notoriously difficult to test. Using Approval Testing, the developer would execute the code and visually confirm the GUI and adjusting the code until the GUI looks correct. It can be approved in an Approval Test, but how do we test something visual?
+GUIs are notoriously difficult to test. Using Approval Testing, the developer would execute the code and visually confirm the GUI and adjust the code until the GUI looks correct. It can be approved in an Approval Test, but how do we test something visual?
 
 The Approval Test doesn’t approve the GUI directly. It approves the content being rendered to produce the GUI. For example, if the GUI’s form factor is a web browser, the content that’s rendered  by the browser could be the ASCII that’s in an `HTML` file. The ASCII content `HTML` file could be validated in one large String comparison assert.
 
@@ -77,16 +77,16 @@ The Approval Test doesn’t approve the GUI directly. It approves the content be
 
 <img src="https://live.staticflickr.com/3145/2970400508_dbf3ef8861_b.jpg" alt="Fred Flintstone" title="Image Source: https://www.flickr.com/photos/andertoons-cartoons/2970400508" width = "25%" align="right" style="padding-right: 20px;">
 
-Let’s return to our __Hanna-Barbera__ project. Given that the customer’s domain is cartoons, they are going to want to feature cartoon images in their GUI. So rather than just return _Fred Flintstone’s_ name, the customer will want to see his image.
+Let’s return to our __Hanna-Barbera__ project. Given that the customer’s domain is cartoons, they are going to want to feature cartoon images in their GUI. So rather than just returning _Fred Flintstone’s_ name, the customer will want to see his image.
 
 You can easily launch the GUI and see an image of Fred and verify:
-* When we expect to see him
+* When you expect to see him
 * Where you expect to see him
-* How large you expect him to be
+* What size you expect him to be
 
 But this isn’t easily automated as a test. We can automate is the ASCII that will render Fred's image via the GUI.
 
-For example, Fred’s rendering for this page is defined as padded on the right and being 25% of the width of the window. Here’s the __HTML__ code that renders it. You could  create a test that confirms the the generated __HTML__ for how Fred should be rendered matches the following:
+For example, Fred’s rendering for this page is defined as padded on the right and being 25% of the width of the window. Here’s the __HTML__ code that renders it. You could  create a test that confirms the generated __HTML__ for how Fred should be rendered matches the following:
 ```html
 <img src="https://live.staticflickr.com/3145/2970400508_dbf3ef8861_b.jpg" alt="Fred Flintstone"
     title="Image Source: https://www.flickr.com/photos/andertoons-cartoons/2970400508"
@@ -99,7 +99,7 @@ Testing the source of the GUI rather than the GUI itself is one example of the H
 # Approval Testing via String Comparisons
 While not a requirement for Approval Testing, Approval Tests often have one assertion, which may be based upon asserting the `toString()` result of a complex object against an expected value. For example, the GUI assert could be a comparison of the entire `HTML` file ASCII content as one long String as described previously.
 
-I use this techninque fairly often I'm still practicing what I'd consider TDD, but it's probably closer to Approval Testing. I start with the test first and populate all three __Given/When/Then__ sections. However, parts of the __Then__ section are still left undefined. Here's an example from one of my [Advent of Code](https://adventofcode.com/) tests from [2024 Day 14 - Warehouse Woes](https://adventofcode.com/2024/day/15), which I previously described in [A House Divided - Advent of Code](https://jhumelsine.github.io/2025/03/07/house-divided.html#advent-of-code).
+I use this technique fairly often I'm still practicing what I'd consider TDD, but it's probably closer to Approval Testing. I start with the test first and populate all three __Given/When/Then__ sections. However, parts of the __Then__ section are still left undefined. Here's an example from one of my [Advent of Code](https://adventofcode.com/) tests from [2024 Day 14 - Warehouse Woes](https://adventofcode.com/2024/day/15), which I previously described in [A House Divided - Advent of Code](https://jhumelsine.github.io/2025/03/07/house-divided.html#advent-of-code).
 
 This is one of my tests for Part 1:
 ```java
