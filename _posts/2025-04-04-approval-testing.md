@@ -38,7 +38,7 @@ Approval Testing allows developers to write their code, validate it via their ow
 If a subsequent implementation update causes an Approval Test to fail, then the developer must observe the new _failing_ behavior and decide whether it violates the previous approved behavior or whether it’s demonstrating new desired behavior that’s emerging. If the new emerging behavior is correct, then a new behavior assertion replaces the previous approved one.
 
 ## Yabba Dabba Doo
-I featured [Characterization Testing](https://jhumelsine.github.io/2025/03/24/legacy-code.html#characterization-testing) as a technique to add tests to existing legacy code. In my brief description, I described setting up an assert declaring that an obviously invalid String, such as _Fred Flintstone_, would be the return value from a method. Then when the legacy code returned its actual String value, we could replace _Fred Flintstone_ with the actual value.
+I featured [Characterization Testing](https://jhumelsine.github.io/2025/03/24/legacy-code.html#characterization-tests) as a technique to add tests to existing legacy code. In my brief description, I described setting up an assert declaring that an obviously invalid String, such as _Fred Flintstone_, would be the return value from a method. Then when the legacy code returned its actual String value, we could replace _Fred Flintstone_ with the actual value.
 
 Let’s tweak that scenario a bit. Let’s assume that you’re working for [__Hanna-Barbera__](https://en.wikipedia.org/wiki/Hanna-Barbera), the cartoon production company, and you’ve been assigned to the [__YabbaDabbaDoo__](https://en.wikipedia.org/wiki/Yabba_Dabba_Doo) feature.
 
@@ -64,7 +64,7 @@ Observable behaviors are recorded in Approval Tests only when the developer has 
 Both practices are similar in procedures, in that they both document behavior emerging from the implementation. The main difference is in how log that behavior has be within the code. For Characterization Testing the behavior has been there for days, months or years. For Approval Testing the behavior has been there for only seconds or minutes.
 
 ## Find Gaps with Mutation Testing
-Approval Testing is reactionary testing. It doesn't drive the implementation. The implementation drives it. Therefore, if practicing Approval Testing, it may also be a good idea to include [Mutation Testing](https://jhumelsine.github.io/2025f/03/28/mutation-testing.html) to help find any behavior that the Approval Tests may have missed.
+Approval Testing is reactionary testing. It doesn't drive the implementation. The implementation drives it. Therefore, if practicing Approval Testing, it may also be a good idea to include [Mutation Testing](https://jhumelsine.github.io/2025/03/28/mutation-testing.html) to help find any behavior that the Approval Tests may have missed.
 
 # Some Behaviors Require Observation
 Some behaviors are difficult to specify. They must first be observed, and then they can be codified in an automated test. Graphical User Interfaces (GUIs) would be in this category.
