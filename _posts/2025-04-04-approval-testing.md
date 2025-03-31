@@ -162,4 +162,11 @@ public moveRobotUpMovesOtherBoxesUp() {
 Approval Testing offers an alternative to traditional Test-Driven Development by allowing developers to validate and document behavior as it emerges. Positioned between Unit and Characterization Testing, this method is particularly useful for developers who prefer to write code first and approve expected outcomes after observation. By approving behavior iteratively, developers can maintain confidence in their code while gradually transitioning to more structured testing approaches.
 
 # References
-__TBD__
+Here are some free resources:
+* [Approval Tests](https://approvaltests.com/) - Website dedicated to Approval Tests with their own set of [Resources](https://approvaltests.com/resources/)
+* [What's the difference between Regression Tests, Characterization Tests, and Approval Tests?](https://understandlegacycode.com/blog/characterization-tests-or-approval-tests/) - Nicolas Carlos states that Characterization and Approval Tests are the same, but I feel there's a distinction
+* [Unlocking the Power of Approval Testing](https://dev.to/sergiomarcial/unlocking-the-power-of-approval-testing-a-comprehensive-guide-for-software-engineers-3o6f) - Blog by Sergio Marcial
+* and for more, Google: [Approval Testing](https://www.google.com/search?q=approval+testing)
+  
+Here are some resources that can be purchased or are included in a subscription service:
+* ___Life, The Universe, and Everything: Part 2___ ([O'Reilly](https://learning.oreilly.com/videos/clean-coder-clean/9780134843803/9780134843803-CODR_E42_P2/) and [Clean Coders](https://cleancoders.com/episode/clean-code-episode-42-p2))
