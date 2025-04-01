@@ -42,9 +42,9 @@ I featured [Characterization Testing](https://jhumelsine.github.io/2025/03/24/le
 
 Let’s tweak that scenario a bit. Let’s assume that you’re working for [__Hanna-Barbera__](https://en.wikipedia.org/wiki/Hanna-Barbera), the cartoon production company, and you’ve been assigned to the [__YabbaDabbaDoo__](https://en.wikipedia.org/wiki/Yabba_Dabba_Doo) feature.
 
-You’re still prototyping, so you may not have quite enough domain knowledge to feel confident enough to specify behavior using TDD. However, when you observe emerging behavior, you like while prototyping some code, then you can document that behavior in a test.
+You’re still prototyping, so you may not have quite enough domain knowledge to feel confident enough to specify behavior using TDD. However, when you observe emerging behavior while prototyping, then you can document that behavior in a test.
 
-You putter around a bit and observe that the code is returned _Fred Flintstone_, which looks like it’s doing what you’d expect it to do for that scenario.
+You putter around a bit and observe that one of the methods returns _Fred Flintstone_, which looks like it’s doing what you’d expect it to do for that scenario.
 
 __STOP!__ Don’t proceed with more code until you’ve documented this observation in a test. Create a __Given/When/Then__ test that asserts that _Fred Flintstone_ is returned. You may need to create the test from scratch, or maybe you’ve already been working on the __Given/When__ sections of a test, and you only need to complete the it with the __Then__ section that asserts _Fred Flintstone_.
 
