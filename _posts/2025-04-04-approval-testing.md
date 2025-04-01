@@ -42,7 +42,7 @@ I featured [Characterization Testing](https://jhumelsine.github.io/2025/03/24/le
 
 Let’s tweak that scenario a bit. Let’s assume that you’re working for [__Hanna-Barbera__](https://en.wikipedia.org/wiki/Hanna-Barbera), the cartoon production company, and you’ve been assigned to the [__YabbaDabbaDoo__](https://en.wikipedia.org/wiki/Yabba_Dabba_Doo) feature.
 
-You’re still prototyping, so you may not have quite enough domain knowledge to feel confident enough to specify behavior using TDD. However, when you observe emerging behavior while prototyping, then you can document that behavior in a test.
+Given that you’re still prototyping, you may not have quite enough domain knowledge to feel confident enough to specify behavior using TDD. However, when you observe emerging behavior while prototyping, then you can document that behavior in a test.
 
 You putter around a bit and observe that one of the methods returns _Fred Flintstone_, which looks like it’s doing what you’d expect it to do for that scenario.
 
