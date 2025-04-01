@@ -396,3 +396,142 @@ And if I were to continue with the assignment and add subtraction and division, 
 
 # References
 * Previous [blog references](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html#references)
+
+## The Complete Implementation
+Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Add more tests. Play with the implementation. Refactor some of the code.
+
+```java
+import java.util.*;
+
+public class Assignment {
+    public static void main(String []args) throws Exception {
+        Test.test();
+    }
+}
+
+class Evaluator {
+
+    public static int evaluate(String expression, Map<String, Integer> variables) throws Exception {
+        expression = expression.trim();
+
+        int openParenIndex = expression.indexOf("(");
+        if (openParenIndex >= 0) {
+            int closeParenIndex = openParenIndex + getClosingParen(expression.substring(openParenIndex));
+            return evaluate(
+                    expression.substring(0, openParenIndex) +
+                    evaluate(expression.substring(openParenIndex+1, closeParenIndex), variables) +
+                    expression.substring(closeParenIndex+1, expression.length()),
+                variables);
+        }
+
+        int plusIndex = expression.indexOf("+");
+        if (plusIndex > 0) {
+            return evaluate(expression.substring(0, plusIndex), variables) + evaluate(expression.substring(plusIndex+1), variables);
+        }
+
+        int timesIndex = expression.indexOf("*");
+        if (timesIndex > 0) {
+            return evaluate(expression.substring(0, timesIndex), variables) * evaluate(expression.substring(timesIndex+1), variables);
+        }
+
+        try {
+            return Integer.valueOf(expression);
+        } catch (NumberFormatException e) {
+            return variables.get(expression);
+        }
+    }
+
+    private static int getClosingParen(String expression) {
+        int counter = 0;
+        for (int i = 0; i < expression.length(); i++) {
+            if ("(".equals(expression.substring(i, i+1))) counter++;
+            if (")".equals(expression.substring(i, i+1))) counter--;
+            if (counter == 0) return i;
+        }
+        return -1;
+    }
+}
+
+class Test {
+
+    public static void test() throws Exception {
+        evaluate_Returns3_WhenEvaluating3();
+        evaluate_Returns4_WhenEvaluating4();
+        evaluate_Returns5_WhenEvaluatingVariableAassignedTo5();
+        evaluate_Returns7_WhenEvaluating3Plus4();
+        retest_evaluate_with_whitespaces();
+        evaluate_Returns12_WhenEvaluating3Times4();
+        evaluate_Returns23_WhenEvaluating3Plus4Times5();
+        evaluate_handlesParentheses();
+        evaluate_handlesMultipleAdditionAndMultiplications();
+
+        System.out.print("Tests Completed Successfully");
+    }
+
+
+    public static void evaluate_Returns3_WhenEvaluating3() throws Exception {
+        assertEquals(3, Evaluator.evaluate("3", null));
+    }
+
+    public static void evaluate_Returns4_WhenEvaluating4() throws Exception {
+        assertEquals(4, Evaluator.evaluate("4", null));
+    }
+
+    public static void evaluate_Returns5_WhenEvaluatingVariableAassignedTo5() throws Exception {
+        Map<String, Integer> variables = new HashMap<>();
+        variables.put("A", 5);
+        assertEquals(5, Evaluator.evaluate("A", variables));
+    }
+
+    public static void evaluate_Returns7_WhenEvaluating3Plus4() throws Exception {
+        assertEquals(7, Evaluator.evaluate("3+4", null));
+    }
+
+    public static void retest_evaluate_with_whitespaces() throws Exception {
+        assertEquals(3, Evaluator.evaluate("          3               ", null));
+        assertEquals(4, Evaluator.evaluate("  4       ", null));
+        assertEquals(7, Evaluator.evaluate("  3   +   4 ", null));
+        Map<String, Integer> variables = new HashMap<>();
+        variables.put("A", 5);
+        assertEquals(5, Evaluator.evaluate("  A       ", variables));
+    }
+
+    public static void evaluate_Returns12_WhenEvaluating3Times4() throws Exception {
+        assertEquals(12, Evaluator.evaluate("3*4", null));
+    }
+
+    public static void evaluate_Returns23_WhenEvaluating3Plus4Times5() throws Exception {
+        assertEquals(23, Evaluator.evaluate("3 + 4 * 5", null));
+        assertEquals(23, Evaluator.evaluate("5 * 4 + 3", null));
+    }
+
+    public static void evaluate_handlesParentheses() throws Exception {
+        assertEquals(4, Evaluator.evaluate("(4)", null));
+        assertEquals(4, Evaluator.evaluate("((4))", null));
+        assertEquals(7, Evaluator.evaluate("((3+4))", null));
+        assertEquals(14, Evaluator.evaluate("(3 + 4) * 2", null));
+        assertEquals(14, Evaluator.evaluate("(3+4)*2", null));
+        assertEquals(18, Evaluator.evaluate("3 * (2 + 4)", null));
+        assertEquals(6, Evaluator.evaluate("(2+4)", null));
+        assertEquals(18, Evaluator.evaluate("3*(2+4)", null));
+        assertEquals(42, Evaluator.evaluate("3 * (2 + (4 * (1 + 2)))", null));
+        assertEquals(42, Evaluator.evaluate("3*(2+(4*(1+2)))", null));
+        assertEquals(21, Evaluator.evaluate("(1+2)*(3+4)", null));
+        assertEquals(21, Evaluator.evaluate("  (   1 +    2   ) * (  3   + 4)     ", null));
+        assertEquals(1626, Evaluator.evaluate("3 * (2+(4*(1+2) * (2 + 3)) * (4 + 5))", null));
+    }
+
+    public static void evaluate_handlesMultipleAdditionAndMultiplications() throws Exception {
+        assertEquals(10, Evaluator.evaluate("1+2+3+4", null));
+        assertEquals(10, Evaluator.evaluate("4+3+2+1", null));
+        assertEquals(24, Evaluator.evaluate("1*2*3*4", null));
+        assertEquals(24, Evaluator.evaluate("4*3*2*1", null));
+    }
+
+    public static void assertEquals(int expected, int actual) throws Exception {
+        if (expected != actual) throw new Exception(String.format("expected=%d, actual=%d", expected, actual));
+    }
+    
+}
+```
+
