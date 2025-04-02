@@ -53,18 +53,18 @@ You can then proceed with additional development making sure to always stop and 
 As you prototype with Approval Testing, you may become more familiar with the domain. You may become familiar enough to move from Approval Testing to TDD.
 
 ## Distinction between Approval and Characterization Testing
-When I first saw presentations about Approval Testing, I thought the presenters were describing the Characterization Testing process by a different name. Using two terms for the same testing process seems to be a common practice based upon blog entries and videos by others. I think many view Approval and Characterization Tests as two names for the same process.
+When I first saw presentations about Approval Testing, I thought the presenters were describing the Characterization Testing process by a different name. Using two terms for the same testing process seems to be a common practice based upon blog entries and videos by others. I think many view Approval and Characterization Tests as two names for the same process. I initially thought this too myself.
 
-After having thought about Approval and Characterization Tests over the years, I think the two processes are different with a subtle distinction.
+After having thought about Approval and Characterization Tests over the years, I feel that the two processes, while very similar, are different in a subtle way.
 
 Existing behaviors are recorded in Characterization Tests as-is. They reveal and document existing behavior, usually in legacy code, whether it’s right or wrong. Any questionable behavior should be codified in a Characterization Test as-is and flagged by adding `SHOULD_IT` in its name as described in [Hey. This doesn’t look right.](https://jhumelsine.github.io/2025/03/24/legacy-code.html#hey-this-doesnt-look-right)
 
-Observable behaviors are recorded in Approval Tests only when the developer has approved the observed behaviors as desired as they emerge as the code matures.
+Observable behaviors are recorded in Approval Tests only when the developer has approved the observed behaviors as desired behaviors as they emerge from maturing code.
 
-Both practices are similar in procedures, in that they both document behavior emerging from the implementation. The main difference is in how log that behavior has be within the code. For Characterization Testing the behavior has been there for days, months or years. For Approval Testing the behavior has been there for only seconds or minutes.
+Both practices are similar in procedures, in that they both document behavior emerging from the implementation. The main difference is in how long that behavior has been within the code. For Characterization Testing the behavior has been there for days, months or years. For Approval Testing the behavior has been there for only seconds or minutes.
 
 ## Find Gaps with Mutation Testing
-Approval Testing is reactionary testing. It doesn't drive the implementation. The implementation drives it. Therefore, if practicing Approval Testing, it may also be a good idea to include [Mutation Testing](https://jhumelsine.github.io/2025/03/28/mutation-testing.html) to help find any behavior that the Approval Tests may have missed.
+Approval Testing is reactionary testing. It doesn't drive the implementation. The implementation drives it. Therefore, if practicing Approval Testing, it may also be a good idea to include [Mutation Testing](https://jhumelsine.github.io/2025/03/28/mutation-testing.html) to help identify any behavior that the Approval Tests may have missed.
 
 # Some Behaviors Require Observation
 Some behaviors are difficult to specify. They must first be observed, and then they can be codified in an automated test. Graphical User Interfaces (GUIs) would be in this category.
@@ -79,14 +79,14 @@ The Approval Test doesn’t approve the GUI directly. It approves the content be
 
 Let’s return to our __Hanna-Barbera__ project. Given that the customer’s domain is cartoons, they are going to want to feature cartoon images in their GUI. So rather than just returning _Fred Flintstone’s_ name, the customer will want to see his image.
 
-You can easily launch the GUI and see an image of Fred and verify:
+You can easily launch the GUI and verify that you're seeing an image of Fred:
 * When you expect to see him
 * Where you expect to see him
-* What size you expect him to be
+* And in the size in which you expect to see him
 
-But this isn’t easily automated as a test. We can automate is the ASCII that will render Fred's image via the GUI.
+This isn’t easily automated as a test. But we can automate the ASCII that will render Fred's image via the GUI.
 
-For example, Fred’s rendering for this page is defined as padded on the right and being 25% of the width of the window. Here’s the __HTML__ code that renders it. You could  create a test that confirms the generated __HTML__ for how Fred should be rendered matches the following:
+For example, Fred’s rendering to the right is defined as padded on the right and being 25% of the width of the window. Here’s the __HTML__ code that renders it. You could  create a test that confirms the generated __HTML__ for how Fred should be rendered matches the following:
 ```html
 <img src="https://live.staticflickr.com/3145/2970400508_dbf3ef8861_b.jpg" alt="Fred Flintstone"
     title="Image Source: https://www.flickr.com/photos/andertoons-cartoons/2970400508"
@@ -138,9 +138,9 @@ public moveRobotToLeftAlsoMovesBoxes() {
 }
 ```
 
-When it came to Part 2, I used a more visual representation for the `Warehouse`. The return value is the String representation List of rows, each of which is a String that identifies the elements on that row with `#` for a `Wall`, `Bb` for a `Box` and `@` for the `Robot`. These mostly matches the graphics description of the problem from Advent of Code. 
+When it came to Part 2, I used a more visual representation for the `Warehouse`. The return value is the String representation List of rows, each of which is a String that identifies the elements on that row with __#__ for a `Wall`, __Bb__ for a `Box` and __@__ for the `Robot`, which mostly match the graphics used in the description of the problem from Advent of Code. 
 
-From what I remember, I used TDD when creating this test by providing what I thought the String representation of the `warehouse` rendering would be, but I used Approval Testing to compare my expected String against the actual String.
+From what I remember, I used TDD when creating this test by providing what I thought the String representation of the `warehouse` rendering would be, but I used Approval Testing to compare my expected String against the actual String. That is, when the test failed, I didn't assume the code was incorrect. I double checked my original expected String with the actual returned String, since I could have easily made a mental typo when typing in the expected value manually.
 ```java
 public moveRobotUpMovesOtherBoxesUp() {
     int widthFactor = 2;
