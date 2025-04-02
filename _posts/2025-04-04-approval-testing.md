@@ -1,7 +1,6 @@
 ---
-title: DRAFT – Approval Testing - A Test Strategy for those who are reluctant to try Test-Driven Development
+title: Approval Testing - A Test Strategy for those who are reluctant to try Test-Driven Development
 description: I’m the Design Pattern Evangelist, and I APPROVE this message
-unlisted: true
 ---
 
 <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExamR2MHU4MThldzR0Ym5pMzhpb3B2bXo3N252azE0aTlpZGRqd3VvdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7lyvQ60pEKBmE/giphy.gif" alt="The Flintstones" title="Image Source: https://giphy.com/gifs/party-7lyvQ60pEKBmE" width = "70%" align="center" style="padding-right: 20px;">
