@@ -46,7 +46,9 @@ Given that you’re still prototyping, you may not have quite enough domain know
 
 You putter around a bit and observe that one of the methods returns _Fred Flintstone_, which looks like it’s doing what you’d expect it to do for that scenario.
 
-__STOP!__ Don’t proceed with more code until you’ve documented this observation in a test. Create a __Given/When/Then__ test that asserts that _Fred Flintstone_ is returned. You may need to create the test from scratch, or maybe you’ve already been working on the __Given/When__ sections of a test, and you only need to complete the it with the __Then__ section that asserts _Fred Flintstone_.
+__STOP!__ 
+
+Don’t proceed with more code until you’ve documented this observation in a test. Create a __Given/When/Then__ test that asserts that _Fred Flintstone_ is returned. You may need to create the test from scratch, or maybe you’ve already been working on the __Given/When__ sections of a test, and you only need to complete the it with the __Then__ section that asserts _Fred Flintstone_.
 
 You can then proceed with additional development making sure to always stop and document what we’re observing via tests. You should also refactor as you proceed to keep the code clean.
 
@@ -59,9 +61,9 @@ After having thought about Approval and Characterization Tests over the years, I
 
 Existing behaviors are recorded in Characterization Tests as-is. They reveal and document existing behavior, usually in legacy code, whether it’s right or wrong. Any questionable behavior should be codified in a Characterization Test as-is and flagged by adding `SHOULD_IT` in its name as described in [Hey. This doesn’t look right.](https://jhumelsine.github.io/2025/03/24/legacy-code.html#hey-this-doesnt-look-right)
 
-Observable behaviors are recorded in Approval Tests only when the developer has approved the observed behaviors as desired behaviors as they emerge from maturing code.
+Observable behaviors are recorded in Approval Tests only when the developer has approved the observed behaviors as desired as they emerge from the maturing code.
 
-Both practices are similar in procedures, in that they both document behavior emerging from the implementation. The main difference is in how long that behavior has been within the code. For Characterization Testing the behavior has been there for days, months or years. For Approval Testing the behavior has been there for only seconds or minutes.
+Both practices are similar procedures, in that they both document behavior emerging from the implementation. The main difference is in how long that behavior has been within the code. For Characterization Testing the behavior has been there for days, months or years. For Approval Testing the behavior has been there for only seconds or minutes.
 
 ## Find Gaps with Mutation Testing
 Approval Testing is reactionary testing. It doesn't drive the implementation. The implementation drives it. Therefore, if practicing Approval Testing, it may also be a good idea to include [Mutation Testing](https://jhumelsine.github.io/2025/03/28/mutation-testing.html) to help identify any behavior that the Approval Tests may have missed.
@@ -119,7 +121,7 @@ public moveRobotToLeftAlsoMovesBoxes() {
 }
 ```
 
-`Warehouse.toString()` returns a string value of its configuration. When I ran the test, it failed, stating that `TBD` was not the actual value. The actual value was `Robot:(3,0), {(2,0)=Box:(2,0), (1,0)=Box:(1,0)}, {(0,0)=Wall:(0,0)}`. I visually confirmed that that was the expected value, and I updated the test as follows:
+`Warehouse.toString()` returns a String value of its configuration. When I ran the test, it failed, stating that `TBD` was not the actual value. The actual value was `Robot:(3,0), {(2,0)=Box:(2,0), (1,0)=Box:(1,0)}, {(0,0)=Wall:(0,0)}`. I visually confirmed that that was the expected value, and I updated the test as follows:
 
 ```java
 public moveRobotToLeftAlsoMovesBoxes() {
@@ -138,7 +140,7 @@ public moveRobotToLeftAlsoMovesBoxes() {
 }
 ```
 
-When it came to Part 2, I used a more visual representation for the `Warehouse`. The return value is the String representation List of rows, each of which is a String that identifies the elements on that row with __#__ for a `Wall`, __Bb__ for a `Box` and __@__ for the `Robot`, which mostly match the graphics used in the description of the problem from Advent of Code. 
+When it came to Part 2, I used a more visual representation for the `Warehouse`. The return value is the String representation of a List of rows, each of which is a String that identifies the elements on that row with __#__ for a `Wall`, __Bb__ for a `Box` and __@__ for the `Robot`, which mostly match the graphics used in the description of the problem from Advent of Code. 
 
 From what I remember, I used TDD when creating this test by providing what I thought the String representation of the `warehouse` rendering would be, but I used Approval Testing to compare my expected String against the actual String. That is, when the test failed, I didn't assume the code was incorrect. I double checked my original expected String with the actual returned String, since I could have easily made a mental typo when typing in the expected value manually.
 ```java
