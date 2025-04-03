@@ -302,6 +302,8 @@ _If your code needs comments, consider refactoring it so it doesn’t._ ― Kevl
 
 _Every time you write a comment, you should grimace and feel the failure of your ability of expression._ ― Robert C. Martin
 
+_Comments are like apologies to the next programmer._ ― Unknown
+
 # Testing and Debugging
 
 _Testing can show the presence of bugs, but not their absence!_ — Edsger W. Dijkstra
