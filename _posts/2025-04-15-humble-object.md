@@ -5,7 +5,7 @@ unlisted: true
 ---
 
 # Introduction
-[_Oh Lord, it’s hard to be humble when you’re perfect in every way._](https://www.youtube.com/watch?v=0WTrMuZOZvM) – [__Mac Davis__](https://en.wikipedia.org/wiki/Mac_Davis): American songwriter, singer, performer, and actor
+[_Oh Lord, it’s hard to be humble when you’re perfect in every way._](https://www.youtube.com/watch?v=0WTrMuZOZvM) — [__Mac Davis__](https://en.wikipedia.org/wiki/Mac_Davis): American songwriter, singer, performer, and actor
 
 I first encountered the Humble Object Pattern in Bob Martin’s _Clean Architecture_ book in [Chapter 23 - Presenters and Humble Objects](https://learning.oreilly.com/library/view/clean-architecture-a/9780134494272/ch23.xhtml#ch23), which starts with:
 >The _Humble Object_ pattern is a design pattern that was originally identified as a way to help unit testers to separate behaviors that are hard to test from behaviors that are easy to test. The idea is very simple: Split the behaviors into two modules or classes. One of those modules is humble; it contains all the hard-to-test behaviors stripped down to their barest essence. The other module contains all the testable behaviors that were stripped out of the humble object.
@@ -20,7 +20,7 @@ Most patterns I’ve presented have featured structure or behavior. They have fe
 This pattern is about making code easier to test especially when coupled to a software element, often an external dependency, that makes testing challenging in its original form. Unlike most of my previous pattern blog entries, this one will not include a UML class diagram or code examples. 
 
 ## The Humble Object Process
-[_I use the Humble Object pattern. Push as much intelligence as possible out into a testable component. Humiliate the [remaining small, humble and] dirty component to the point that it is obviously correct and requires no tests._]( https://x.com/unclebobmartin/status/1122722265651720198) - __Bob Martin__ on X/Twitter
+[_I use the Humble Object pattern. Push as much intelligence as possible out into a testable component. Humiliate the [remaining small, humble and] dirty component to the point that it is obviously correct and requires no tests._]( https://x.com/unclebobmartin/status/1122722265651720198) — __Bob Martin__ on X/Twitter
 
 Introducing the Humble Object Pattern to an implementation consists of these basic steps:
 1. Recognize that a section of code is difficult to test because of a tight dependency that cannot be easily be emulated via a [test double](https://jhumelsine.github.io/2024/07/02/test-doubles.html).
@@ -76,7 +76,8 @@ Here are some free resources:
 * [TDD Patterns: Humble Object](https://ieftimov.com/posts/tdd-humble-object/) - Blog by Ilija Eftimov
 * [Humble Object](http://xunitpatterns.com/Humble%20Object.html) - Article by xUnit Patterns
 * [Testing multithreaded code](https://elecodev.wordpress.com/2015/08/10/testing-multithreaded-code/) - Blog by elecodev, java fanboy, featuring the Humble Object Pattern when testing multithreaded code
-* [Clean Architecture - Robert (Uncle Bob) Martin](https://www.youtube.com/watch?v=G08FxxwPjXE&t=2042s) - DevTernity Conference queued to where Bob makes a passing mention of the Humble Object Pattern technique, but doesn't name it as such.
+* [Why Are My Test Flakey?](https://www.industriallogic.com/blog/why-are-my-tests-flakey/) - Blog by Tim Ottinger
+* [Clean Architecture - Robert (Uncle Bob) Martin](https://www.youtube.com/watch?v=G08FxxwPjXE&t=2042s) - Video presentation at DevTernity Conference queued to where Bob makes a passing mention of the Humble Object Pattern technique, but doesn't name it as such.
 * _Coding Blocks Episode 76: Clean Architecture – What is the Humble Object Pattern?_ ([Landing Page](https://www.codingblocks.net/podcast/clean-architecture-what-is-the-humble-object-pattern/) and [Video](https://www.youtube.com/watch?v=-M0301nxE4Q))
 * and for more, Google: [Humble Object Pattern](https://www.google.com/search?q=Humble+Object+Pattern )
 
