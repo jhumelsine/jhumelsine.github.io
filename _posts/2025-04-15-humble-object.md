@@ -1,16 +1,18 @@
 ---
-title: DRAFT – Humble Object Pattern
-description: A pattern to test code that's difficult to test
+title: DRAFT – Humble Objects - Designing Code You Don’t Hate Testing
+description: A pattern to help test code that's difficult to test
 unlisted: true
 ---
 
 # Introduction
 [_Oh Lord, it’s hard to be humble when you’re perfect in every way._](https://www.youtube.com/watch?v=0WTrMuZOZvM) — [__Mac Davis__](https://en.wikipedia.org/wiki/Mac_Davis): American songwriter, singer, performer, and actor
 
+When tests are painful, it's often because our code wasn’t built for testing. That’s where [seams](https://jhumelsine.github.io/2025/03/24/legacy-code.html#seams) come in — and sometimes, the best seam is a __Humble Object__.
+
 I first encountered the Humble Object Pattern in Bob Martin’s _Clean Architecture_ book in [Chapter 23 - Presenters and Humble Objects](https://learning.oreilly.com/library/view/clean-architecture-a/9780134494272/ch23.xhtml#ch23), which starts with:
 >The _Humble Object_ pattern is a design pattern that was originally identified as a way to help unit testers to separate behaviors that are hard to test from behaviors that are easy to test. The idea is very simple: Split the behaviors into two modules or classes. One of those modules is humble; it contains all the hard-to-test behaviors stripped down to their barest essence. The other module contains all the testable behaviors that were stripped out of the humble object.
 
-In hindsight it makes perfect sense to me now, but it left me a bit baffled at the time. Bob moves immediately in the next paragraph showing how the Humble Object can be used to help test GUIs. Not being a front-end developer, I didn’t quite grasp the broad applicability of the Humble Object Pattern at the time.
+In hindsight it makes perfect sense to me now, but it left me a bit baffled at the time. Bob moves immediately in showing how the Humble Object can be used to help test GUIs. Not being a front-end developer, I didn’t quite grasp the broad applicability of the Humble Object Pattern at the time.
 
 In the spirit of this pattern's humble nature, I’m going to try to keep this blog entry humble and concise.
 
@@ -24,12 +26,12 @@ This pattern is about making code easier to test especially when coupled to a so
 
 Introducing the Humble Object Pattern to an implementation consists of these basic steps:
 1. Recognize that a section of code is difficult to test because of a tight dependency that cannot be easily be emulated via a [test double](https://jhumelsine.github.io/2024/07/02/test-doubles.html).
-2. Isolate the smallest portion as possible of the dependency via [extract method](https://jhumelsine.github.io/2025/03/24/legacy-code.html#legacy-code-lacks-seams). Since the extracted method cannot be easily unit tested, even after extraction, keep it as small as possible, i.e., ___humble___. Correctness usually depends upon visual inspection of the humble code and how it functions when integrated with other parts of the system.
-3. Declare the extracted method as __package-private__ or possibly extract it as an implementation to an interface so that it can be replaced with a [test double](https://jhumelsine.github.io/2024/07/02/test-doubles.html) in a unit test.
+2. Isolate the smallest portion as possible of the dependency via [extract method](https://jhumelsine.github.io/2025/03/24/legacy-code.html#legacy-code-lacks-seams). Since the extracted method cannot be easily unit tested, even after extraction, keep it as small as possible, i.e., ___humble___. Correctness usually depends upon visual inspection of the humble code and how it functions when integrated with other parts of the system. This is fine — because humble objects deliberately avoid logic worth unit testing.
+3. Declare the extracted method as __package-private__ or possibly extract it as an implementation to an interface so that it can be replaced with a test double in a unit test.
 
 The original code can be unit tested with test doubles emulating the Humble Object's behavior.
 
-The Humble Object Pattern is introducing a [seam](https://jhumelsine.github.io/2025/03/24/legacy-code.html#seams), but in the context of isolating the code that cannot be unit tested and keeping it as small and humble as possible.
+The Humble Object Pattern is introducing a seam, but in the context of isolating the code that cannot be unit tested and keeping it as small and humble as possible.
 
 ## Humble Object Examples
 Previous blog entries have already illustrated the Humble Object Pattern even though I had not introduced the term yet. I won’t repeat details here, since they can be obtained in the original referenced posts.
@@ -64,7 +66,9 @@ If the implementation is flaky enough exhibit inconsistent behaviors in our test
 While the Humble Object Pattern won’t be a panacea curing all flaky tests, it can probably provide quite a bit of relieve. In the [Semaphore with Suril](https://jhumelsine.github.io/2024/07/08/suril-semaphore.html#the-semaphore), I mused several possibly approaches before stumbling upon the Humble Object Pattern. I was contemplating multiple Threads, forced Timeouts, etc. I can almost guarantee that a non-Humble Object Pattern test would have been flaky.
 
 # Summary
-__TBD__
+Most code is testable — until it isn’t. GUIs, APIs, random numbers, clock time: they fight back. The Humble Object pattern is a reminder that good design cares about your tests too.
+
+Try to write a system you don’t hate testing.
 
 # References
 Here are some free resources:
@@ -76,12 +80,12 @@ Here are some free resources:
 * [TDD Patterns: Humble Object](https://ieftimov.com/posts/tdd-humble-object/) - Blog by Ilija Eftimov
 * [Humble Object](http://xunitpatterns.com/Humble%20Object.html) - Article by xUnit Patterns
 * [Testing multithreaded code](https://elecodev.wordpress.com/2015/08/10/testing-multithreaded-code/) - Blog by elecodev, java fanboy, featuring the Humble Object Pattern when testing multithreaded code
-* [Why Are My Test Flakey?](https://www.industriallogic.com/blog/why-are-my-tests-flakey/) - Blog by Tim Ottinger
 * [Clean Architecture - Robert (Uncle Bob) Martin](https://www.youtube.com/watch?v=G08FxxwPjXE&t=2042s) - Video presentation at DevTernity Conference queued to where Bob makes a passing mention of the Humble Object Pattern technique, but doesn't name it as such.
 * _Coding Blocks Episode 76: Clean Architecture – What is the Humble Object Pattern?_ ([Landing Page](https://www.codingblocks.net/podcast/clean-architecture-what-is-the-humble-object-pattern/) and [Video](https://www.youtube.com/watch?v=-M0301nxE4Q))
 * and for more, Google: [Humble Object Pattern](https://www.google.com/search?q=Humble+Object+Pattern )
 
 Flaky Tests:
+* [Why Are My Test Flakey?](https://www.industriallogic.com/blog/why-are-my-tests-flakey/) - Blog by Tim Ottinger
 * [Your Tests Are Failing YOU!](https://www.youtube.com/watch?v=bI2HQ2N_gwY) - Video by Trisha Gee
 * [5 Reasons Your Automated Tests Fail](https://www.youtube.com/watch?v=vHBzZHE4tJ0) - Video by Dave Farley
 * and for more, Google: [Flaky Tests](https://www.google.com/search?q=flaky+tests)
