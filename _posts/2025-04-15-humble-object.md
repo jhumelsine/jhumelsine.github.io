@@ -67,23 +67,23 @@ While the Humble Object Pattern won’t be a panacea curing all flaky tests, it 
 __TBD__
 
 # References
-* https://learning.oreilly.com/library/view/clean-architecture-a/9780134494272/ch23.xhtml#ch23
-* https://learning.oreilly.com/videos/clean-code-fundamentals/9780134661742/9780134661742-code_02_23_02/
+Here are some free resources:
+* [Humble Object](https://martinfowler.com/bliki/HumbleObject.html) - Blog by Martin Fowler
+* [Humble View](https://martinfowler.com/eaaDev/uiArchs.html#HumbleView) - Blog by Martin Fowler using the Humble Object Pattern with a GUI.
+* [Humble Object Pattern](https://mercury-leo.github.io/teaching/HumbleObjectPattern/) - Blog by Mercury Finnegan
+* [Humble Object pattern](https://github.com/mistermicheels/learning-notes/blob/master/architecture-design/Humble-Object-pattern.md) - GitHub page by mistermicheels
+* [Unit testing part 2 - Unit testing MonoBehaviours](https://unity.com/blog/technology/unit-testing-part-2-unit-testing-monobehaviours) - Blog by TOMEK PASZEK featuring the Humble Object Pattern
+* [TDD Patterns: Humble Object](https://ieftimov.com/posts/tdd-humble-object/) - Blog by Ilija Eftimov
+* [Humble Object](http://xunitpatterns.com/Humble%20Object.html) - Article by xUnit Patterns
+* and for more, Google: [Humble Object Pattern](https://www.google.com/search?q=Humble+Object+Pattern )
+* and: [Flaky Tests](https://www.google.com/search?q=flaky+tests)
+  
+Here are some resources that can be purchased or are included in a subscription service:
+* _Clean Architecture: A Craftsman's Guide to Software Structure and Design_ ([O'Reilly](https://learning.oreilly.com/library/view/clean-architecture-a/9780134494272/) and [Amazon](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164/))
+* _Clean Code: Advanced TDD, Episode 23, Part 2, Mocking_ ([O'Reilly](https://learning.oreilly.com/videos/clean-code-fundamentals/9780134661742/9780134661742-code_02_23_02/) and [Clean Coders](https://cleancoders.com/episode/clean-code-episode-23-p2)) - This video includes The Humble Object Pattern
+
 * https://www.youtube.com/watch?v=G08FxxwPjXE&t=2042s
 * https://www.youtube.com/watch?v=-M0301nxE4Q
-* https://martinfowler.com/bliki/HumbleObject.html
 * https://www.codingblocks.net/podcast/clean-architecture-what-is-the-humble-object-pattern/
-* https://mercury-leo.github.io/teaching/HumbleObjectPattern/
-* https://feedback.refactoring.guru/communities/3/topics/4949-add-the-humble-object-design-pattern
-* https://blog.cleancoder.com/uncle-bob/2016/03/19/GivingUpOnTDD.html
-* https://github.com/mistermicheels/learning-notes/blob/master/architecture-design/Humble-Object-pattern.md
-* https://cleancoders.com/episode/clean-code-episode-23-p1
 * https://www.youtube.com/watch?v=bI2HQ2N_gwY
 * https://www.youtube.com/watch?v=vHBzZHE4tJ0
-* https://unity.com/blog/technology/unit-testing-part-2-unit-testing-monobehaviours
-* https://ieftimov.com/posts/tdd-humble-object/
-* http://xunitpatterns.com/Humble%20Object.html
-* https://martinfowler.com/eaaDev/uiArchs.html#HumbleView
-* https://elecodev.wordpress.com/2015/08/10/testing-multithreaded-code/
-* https://www.google.com/search?q=flaky+tests
-* https://www.google.com/search?q=Humble+Object+Pattern 
