@@ -68,7 +68,7 @@ While the Humble Object Pattern won’t be a panacea curing all flaky tests, it 
 # Summary
 Most code is testable — until it isn’t. GUIs, APIs, random numbers, clock time: they fight back. The Humble Object pattern is a reminder that good design cares about your tests too.
 
-Try to write a system you don’t hate testing.
+Try to write code you don’t hate testing.
 
 # References
 Here are some free resources:
