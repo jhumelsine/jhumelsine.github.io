@@ -75,15 +75,16 @@ Here are some free resources:
 * [Unit testing part 2 - Unit testing MonoBehaviours](https://unity.com/blog/technology/unit-testing-part-2-unit-testing-monobehaviours) - Blog by TOMEK PASZEK featuring the Humble Object Pattern
 * [TDD Patterns: Humble Object](https://ieftimov.com/posts/tdd-humble-object/) - Blog by Ilija Eftimov
 * [Humble Object](http://xunitpatterns.com/Humble%20Object.html) - Article by xUnit Patterns
+* [Testing multithreaded code](https://elecodev.wordpress.com/2015/08/10/testing-multithreaded-code/) - Blog by elecodev, java fanboy, featuring the Humble Object Pattern when testing multithreaded code
+* [Clean Architecture - Robert (Uncle Bob) Martin](https://www.youtube.com/watch?v=G08FxxwPjXE&t=2042s) - DevTernity Conference queued to where Bob makes a passing mention of the Humble Object Pattern technique, but doesn't name it as such.
+* _Coding Blocks Episode 76: Clean Architecture – What is the Humble Object Pattern?_ ([Landing Page](https://www.codingblocks.net/podcast/clean-architecture-what-is-the-humble-object-pattern/) and [Video](https://www.youtube.com/watch?v=-M0301nxE4Q))
 * and for more, Google: [Humble Object Pattern](https://www.google.com/search?q=Humble+Object+Pattern )
-* and: [Flaky Tests](https://www.google.com/search?q=flaky+tests)
+
+Flaky Tests:
+* [Your Tests Are Failing YOU!](https://www.youtube.com/watch?v=bI2HQ2N_gwY) - Video by Trisha Gee
+* [5 Reasons Your Automated Tests Fail](https://www.youtube.com/watch?v=vHBzZHE4tJ0) - Video by Dave Farley
+* and for more, Google: [Flaky Tests](https://www.google.com/search?q=flaky+tests)
   
 Here are some resources that can be purchased or are included in a subscription service:
 * _Clean Architecture: A Craftsman's Guide to Software Structure and Design_ ([O'Reilly](https://learning.oreilly.com/library/view/clean-architecture-a/9780134494272/) and [Amazon](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164/))
 * _Clean Code: Advanced TDD, Episode 23, Part 2, Mocking_ ([O'Reilly](https://learning.oreilly.com/videos/clean-code-fundamentals/9780134661742/9780134661742-code_02_23_02/) and [Clean Coders](https://cleancoders.com/episode/clean-code-episode-23-p2)) - This video includes The Humble Object Pattern
-
-* https://www.youtube.com/watch?v=G08FxxwPjXE&t=2042s
-* https://www.youtube.com/watch?v=-M0301nxE4Q
-* https://www.codingblocks.net/podcast/clean-architecture-what-is-the-humble-object-pattern/
-* https://www.youtube.com/watch?v=bI2HQ2N_gwY
-* https://www.youtube.com/watch?v=vHBzZHE4tJ0
