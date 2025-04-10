@@ -17,7 +17,7 @@ In hindsight it makes perfect sense to me now, but it left me a bit baffled at t
 In the spirit of this pattern's humble nature, I’m going to try to keep this blog entry humble and concise.
 
 # The Humble Object Pattern
-Most patterns I’ve presented have featured structure or behavior. They have featured UML class diagrams and/or code examples. The Humble Object Pattern tends to be more procedural and conceptual than structural or behavioral patterns making it somewhat similar to the [Façade Design Pattern](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html) in that aspect.
+Most patterns I’ve presented have featured structure or behavior. They have included UML class diagrams and/or code examples. The Humble Object Pattern tends to be more procedural and conceptual than structural or behavioral patterns making it somewhat similar to the [Façade Design Pattern](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html) in that aspect.
 
 This pattern is about making code easier to test especially when coupled to a software element, often an external dependency, that makes testing challenging in its original form. Unlike most of my previous pattern blog entries, this one will not include a UML class diagram or code examples. 
 
@@ -59,11 +59,11 @@ Flaky tests are the worst. A flaky test is a unit test that sometimes passes and
 
 What’s the true nature of a flaky test? When it passes, is it representing the true nature of the software being tested or is it a false positive? When it fails, does the code really have an error or is it a false negative?
 
-A failing flaky test can abort a CI/CD pipeline build delaying delivery. When that happens, we often start the pipeline again, hoping that all of the flaky tests will pass. I’ve done this myself.
+A failing flaky test can abort a CI/CD pipeline build delaying delivery. When that happens, we often start the pipeline again, hoping that all of the flaky tests will pass. I’ve done this myself. Have we really confirmed that the code works, or are we just trying to find a workaround for something that's preventing us from delivering our code?
 
 If the implementation is flaky enough exhibit inconsistent behaviors in our tests, what’s to prevent the same code from exhibiting inconsistent behaviors in production?
 
-While the Humble Object Pattern won’t be a panacea curing all flaky tests, it can probably provide quite a bit of relieve. In the [Semaphore with Suril](https://jhumelsine.github.io/2024/07/08/suril-semaphore.html#the-semaphore), I mused several possibly approaches before stumbling upon the Humble Object Pattern. I was contemplating multiple Threads, forced Timeouts, etc. I can almost guarantee that a non-Humble Object Pattern test would have been flaky.
+While the Humble Object Pattern won’t be a panacea curing all flaky tests, it can probably provide quite a bit of relieve. In the [Semaphore with Suril](https://jhumelsine.github.io/2024/07/08/suril-semaphore.html#the-semaphore), I had mused several possibly approaches before stumbling upon the Humble Object Pattern. I was contemplating multiple Threads, forced Timeouts, etc. I can almost guarantee that a non-Humble Object Pattern test would have been flaky.
 
 # Summary
 Most code is testable — until it isn’t. GUIs, APIs, random numbers, clock time: they fight back. The Humble Object pattern is a reminder that good design cares about your tests too.
