@@ -63,7 +63,9 @@ A failing flaky test can abort a CI/CD pipeline build delaying delivery. When th
 
 If the implementation is flaky enough exhibit inconsistent behaviors in our tests, what’s to prevent the same code from exhibiting inconsistent behaviors in production?
 
-While the Humble Object Pattern won’t be a panacea curing all flaky tests, it can probably provide quite a bit of relieve. In the [Semaphore with Suril](https://jhumelsine.github.io/2024/07/08/suril-semaphore.html#the-semaphore), I had mused several possibly approaches before stumbling upon the Humble Object Pattern. I was contemplating multiple Threads, forced Timeouts, etc. I can almost guarantee that a non-Humble Object Pattern test would have been flaky.
+Any form of non-deterministic dependency can cause tests to be flaky. Race conditions are a common culprit. In [Semaphore with Suril](https://jhumelsine.github.io/2024/07/08/suril-semaphore.html#the-semaphore), I had been contemplating tests with multiple Threads, Sleeps, Timeouts and more before considering the Humble Object Pattern. I can almost guarantee that any non-Humble Object tests would have been flaky, slow or both.
+
+While the Humble Object Pattern won’t be a panacea for curing all flaky tests, it can provide quite a bit of relieve. Isolate the non-determinist elements of the implementation into a Humble Object and replace them with a deterministic Test Double in the tests.
 
 # Summary
 Most code is testable — until it isn’t. GUIs, APIs, random numbers, clock time: they fight back. The Humble Object pattern is a reminder that good design cares about your tests too.
