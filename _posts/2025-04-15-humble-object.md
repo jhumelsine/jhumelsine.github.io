@@ -5,7 +5,7 @@ unlisted: true
 ---
 
 # Introduction
-[_Oh Lord, it’s hard to be humble when you’re perfect in every way._](https://www.youtube.com/watch?v=0WTrMuZOZvM) — [__Mac Davis__](https://en.wikipedia.org/wiki/Mac_Davis): American songwriter, singer, performer, and actor
+[_Oh Lord, it’s hard to be ___humble___ when you’re perfect in every way._](https://www.youtube.com/watch?v=0WTrMuZOZvM) — [__Mac Davis__](https://en.wikipedia.org/wiki/Mac_Davis): American songwriter, singer, performer, and actor
 
 When tests are painful, it's often because our code wasn’t built for testing. That’s where [seams](https://jhumelsine.github.io/2025/03/24/legacy-code.html#seams) come in — and sometimes, the best seam is a __Humble Object__.
 
@@ -26,7 +26,7 @@ This pattern is about making code easier to test especially when coupled to a so
 
 Introducing the Humble Object Pattern to an implementation consists of these basic steps:
 1. Recognize that a section of code is difficult to test because of a tight dependency that cannot be easily be emulated via a [test double](https://jhumelsine.github.io/2024/07/02/test-doubles.html).
-2. Isolate the smallest portion as possible of the dependency via [extract method](https://jhumelsine.github.io/2025/03/24/legacy-code.html#legacy-code-lacks-seams). Since the extracted method cannot be easily unit tested, even after extraction, keep it as small as possible, i.e., ___humble___. Correctness usually depends upon visual inspection of the humble code and how it functions when integrated with other parts of the system. This is fine — because humble objects deliberately avoid logic worth unit testing.
+2. Isolate the smallest portion as possible of the dependency via [extract method](https://jhumelsine.github.io/2025/03/24/legacy-code.html#legacy-code-lacks-seams). Since the extracted method cannot be easily unit tested, even after extraction, keep it as small as possible, i.e., ___humble___. Correctness is usually verified upon visual inspection of the humble code and how it functions when integrated with other parts of the system. This is fine — because humble objects deliberately avoid logic worth unit testing.
 3. Declare the extracted method as __package-private__ or possibly extract it as an implementation to an interface so that it can be replaced with a test double in a unit test.
 
 The original code can be unit tested with test doubles emulating the Humble Object's behavior.
@@ -57,9 +57,9 @@ In [Time Lord Clock](https://jhumelsine.github.io/2025/04/08/time-lord.html#time
 # Flaky Tests
 Flaky tests are the worst. A flaky test is a non-deterministic unit test that sometimes passes and sometimes fails. We want our tests to be deterministic. They should always render consistent results.
 
-What’s the true nature of a flaky test? When it passes, is it representing the true nature of the software being tested or is it a false positive? When it fails, does the code really have an error or is it a false negative?
+We can't trust flaky tests. What’s the true nature of a flaky test? When it passes, is it representing the true nature of the software being tested or is it a false positive? When it fails, does the code really have an error or is it a false negative?
 
-A failing flaky test can abort a CI/CD pipeline build, delaying delivery. When that happens, we often start the pipeline again, hoping that all of the flaky tests will pass. I’ve done this myself. Have we really confirmed that the code works, or are we just trying to find a workaround for something that's preventing us from delivering our code?
+A failing flaky test can abort a CI/CD pipeline build, delaying delivery. When that happens, we often start the pipeline again, hoping that all of the flaky tests will pass. I’ve done this myself. Are we really confirming that the code works, or are we just using the retry as a workaround to detour an inconvenience that's preventing us from delivering our changes?
 
 If the implementation is flaky enough to exhibit inconsistent behaviors in our tests, what’s to prevent the same code from exhibiting inconsistent behaviors in production?
 
