@@ -95,7 +95,7 @@ For example, Fred’s rendering to the right is defined as padded on the right a
 ```
 
 ## Humble Object Teaser
-Testing the source of the GUI rather than the GUI itself is one example of the Humble Object Pattern. There are more. I will describe this soon in an upcoming blog (TBD).
+Testing the source of the GUI rather than the GUI itself is one example of the [Humble Object Pattern](https://jhumelsine.github.io/2025/04/14/humble-object.html). There are more.
 
 # Approval Testing via String Comparisons
 While not a requirement for Approval Testing, Approval Tests often have one assertion, which may be based upon asserting the `toString()` result of a complex object against an expected value. For example, the GUI assert could be a comparison of the entire `HTML` file ASCII content as one long String as described previously.
