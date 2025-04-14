@@ -44,7 +44,7 @@ In [Some Behaviors Require Observation](https://jhumelsine.github.io/2025/04/02/
 
 The element that renders the GUI, which could be a browser, is the Humble Object. We want to test the ASCII content that’s rendered by the browser, but not the browser itself.
 
-In one of Bob Martin’s videos, he provides another version of this where he tests the rendering itself. His demo features Java Swing code that contains just enough code to render a small window with a few elements on it. All functional behavior is delegated to an interface. In his GUI test, he provides a [Test Double Fake](https://jhumelsine.github.io/2024/07/02/test-doubles.html#fake) that provides just enough behavior to render the GUI realistically.
+In one of Bob Martin’s videos, _Clean Code: Advanced TDD, Episode 23, Part 2, Mocking_ (See [References](#references)), he provides another version of this where he tests the rendering itself. His demo features Java Swing code that contains just enough code to render a small window with a few elements on it. All functional behavior is delegated to an interface. In his GUI test, he provides a [Test Double Fake](https://jhumelsine.github.io/2024/07/02/test-doubles.html#fake) that provides just enough behavior to render the GUI realistically.
 
 Then Bob confirms via his own visual inspection that the Test Double Fake supported GUI displays the faked behavior as desired.
 
