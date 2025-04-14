@@ -5,7 +5,7 @@ unlisted: true
 ---
 
 # Introduction
-[_Oh Lord, it’s hard to be ___humble___ when you’re perfect in every way._](https://www.youtube.com/watch?v=0WTrMuZOZvM) — [__Mac Davis__](https://en.wikipedia.org/wiki/Mac_Davis): American songwriter, singer, performer, and actor
+[_Oh Lord, it’s hard to be __humble__ when you’re perfect in every way._](https://www.youtube.com/watch?v=0WTrMuZOZvM) — [__Mac Davis__](https://en.wikipedia.org/wiki/Mac_Davis): American songwriter, singer, performer, and actor
 
 When tests are painful, it's often because our code wasn’t built for testing. That’s where [seams](https://jhumelsine.github.io/2025/03/24/legacy-code.html#seams) come in — and sometimes, the best seam is a __Humble Object__.
 
