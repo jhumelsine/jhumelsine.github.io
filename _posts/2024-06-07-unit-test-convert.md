@@ -34,6 +34,7 @@ Automated testing is grand topic. Whole books have been devoted to it. I can't f
 * [How do you know if your test code is really testing your code?](https://jhumelsine.github.io/2025/03/28/mutation-testing.html) - How Mutation Testing can help test your test suite
 * [Approval Testing - A Test Strategy for those who are reluctant to try Test-Driven Development](https://jhumelsine.github.io/2025/04/02/approval-testing.html) - A testint strategy that's in the intersection of Unit Testing and Characterization Testing
 * [Mastering Time in Software Testing - Strategies for Temporal Behavior Verification](https://jhumelsine.github.io/2025/04/08/time-lord.html) - Become a Time Lord and control time in your tests
+* [Humble Objects - Designing Code You Don’t Hate Testing](https://jhumelsine.github.io/2025/04/14/humble-object.html) - A pattern to help test code that's difficult to test
 
 # Formal Proofs
 Unit testing was not presented in my academic career. I suspect this was because modern unit testing practices were still a decade or two in the future, and the technology didn’t support it.
