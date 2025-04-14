@@ -1,7 +1,6 @@
 ---
-title: DRAFT – Humble Objects - Designing Code You Don’t Hate Testing
+title: Humble Objects - Designing Code You Don’t Hate Testing
 description: A pattern to help test code that's difficult to test
-unlisted: true
 ---
 
 # Introduction
