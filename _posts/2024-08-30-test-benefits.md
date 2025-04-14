@@ -101,7 +101,7 @@ If behavior is inconsistent in testing, it will be inconsistent in production.
 
 I don’t think most flaky tests are a result of the test being flaky. I think it’s a result of the implementation being flaky. Therefore, a flaky test may be an indication of issues in the implementation.
 
-I suspect that most flaky issues are due to concurrency issues in the implementation such as non-deterministic race conditions, which are difficult to resolve in deterministic tests. When tests are flaky reexamine the implementation to understand why they are flaky and make adjustment. This may not be easy. It may take some time to figure out. It may require some redesign, possibly with the [Humble Object](https://jhumelsine.github.io/2024/07/15/tdd.html) pattern.
+I suspect that most flaky issues are due to concurrency issues in the implementation such as non-deterministic race conditions, which are difficult to resolve in deterministic tests. When tests are flaky reexamine the implementation to understand why they are flaky and make adjustment. This may not be easy. It may take some time to figure out. It may require some redesign, possibly with the [Humble Object](https://jhumelsine.github.io/2025/04/14/humble-object.html) pattern.
 
 # Tests Reduce Debugging
 I don’t know how to use the debugger on my IDE.
@@ -166,7 +166,7 @@ Dead code would remain only when the tests that cover it are not realistic scena
 
 While I’m not a fan of minimum code coverage quality gates, developers should strive toward 100% code coverage for their own aspirations. Code that’s not covered is code that has no automated confirmation. It may work now, but should it be changed, there’s no guarantee that a bug might slip through.
 
-Code created via TDD/BDD will tend to have high code coverage by default via the process. There will be exceptions. For example, [Humble Object](https://jhumelsine.github.io/2024/07/15/tdd.html) code doesn’t tend to have coverage, since that code has been quarantined due to its testing difficulties.
+Code created via TDD/BDD will tend to have high code coverage by default via the process. There will be exceptions. For example, [Humble Object](https://jhumelsine.github.io/2025/04/14/humble-object.html) code doesn’t tend to have coverage, since that code has been quarantined due to its testing difficulties.
 
 # Tests Lead Toward Better Public APIs
 Have you ever encountered an interface or class API and been absolutely baffled by it? What were the API developers thinking? I suspect that many bad APIs happen when the initial focus is upon __how__ the software is implemented rather than __what__ it does or __what__ the customer needs. It’s an API designed from the inside out. That is, the API indicates __what__ the software does rather than __how__ it is to be used.
