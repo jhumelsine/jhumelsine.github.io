@@ -232,6 +232,28 @@ There are several options, mostly along the same theme:
 * Split the content into smaller prompts. For example, rather than pasting your entire Terms of Service agreement into the prompt, copy and paste one section that is small enough. Seek advice section by section. The risk of this approach is that context split among separated sections may be lost.
 * Split the content into smaller sections and summarize each. Do this manually or ask the LLM/GenAI to summarize it. Then combine the summarized parts into one prompt. For example, have the LLM/GenAI summarize each section of the Terms and Service agreement, and save all the sections into one document that will hopefully fit within one prompt. Now you can seek advice on the summarized version of the agreement. The risk of this approach is that important information may be excluded from the summary.
 
+#### ADDENDUM added on April 18, 2025
+Since the original publication last year in September, I've found other techniques to help manage a large prompt in ChatGPT. I don't know how long ChatGPT has been supporting these. It's possible this technique has been there for months. I also don't know of the limitations, but so far I haven't encountered any.
+
+You don't have to put all content into the prompt. You can reference it, and ChatGPT will use it. Here are somethings I've done.
+
+##### Provide the URL to additional information
+In the Terms of Service example above, I copied the text for the ToS of Youtube into the prompt. If there were too much text for the prompt, I would not be able to get a complete analysis of the ToS, even with the options I listed above. However, if the ToS has its own page, then we can change the prompt to this:
+>I will ask you questions about a Terms of Service agreement, which resides in: https://www.youtube.com/static?template=terms
+>
+>Base your answers upon the content provided. 
+
+This is much more convenient and not as likely to run into prompt space restrictions. I also tried this technique with the online PDF version of a several hundred page book I had previously read. I provided the link and asked ChatGPT to take on the persona of the author. I asked ChatGPT a few things about the book, and it responded as expected.
+
+__NOTE:__ I didn't realize it at the time, but I had used this technique in my subsequent blog entry in [Hexagonal Architecture Q&A](https://jhumelsine.github.io/2024/10/18/prompt-engineering-patterns2.html#hexagonal-architecture-qa) where I prompted ChatGPT with URLs to my Hexagonal Architecture blog entries and had a conversation based upon that content.
+
+##### Drag-and-Drop Files
+I tried the URL technique with some of my Google Drive documents with mixed results. In one scenario, ChatGPT could reference my Google Doc. In another ChatCPT refused to. It told me to make the reference publically viewable, which I did, and then it said it still wasn't able to access files on a Google Drive. The URL that worked was a Google Document and the URL that did not work was a Slideshow. Maybe that was the distinction.
+
+However, there's another option. I was able to drag-and-drop my original Powerpoint file into the ChatGPT, and I was able to converse with ChatGPT about content on the PPT slides. I only tried this with the PPT file, but suspect it will work for almost any type of file.
+
+Therefore, if you really want analysis of something large, and it doesn't exist in a URL form that ChatGPT will accept, then try this. Copy-and-paste the content from its original form into a Word document, and then drag-and-drop the word document into ChatGPT. It's a bit manual, but it may work.
+
 ## Question Refinement Pattern
 Good prompts should contain clarity and context. We often forgo those in casual conversation. Our friends and family tend to know context based upon their previous experiences with us. LLMs don’t have that knowledge.
 
