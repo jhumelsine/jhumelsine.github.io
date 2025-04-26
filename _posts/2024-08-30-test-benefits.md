@@ -192,9 +192,9 @@ But what about legacy code? There’s a good chance that legacy code:
 * Is full of cruft and technical debt obscuring its behaviors and invariants
 * Is critical for the business and responsible for our paychecks
 
-Most developers shutter when plunged into legacy code for the reasons listed above. I will address legacy code soon (future blog TBD). While we can’t practice TDD as defined with legacy code that’s missing tests, we can use automated tests to explore, discover and document the behavior that lies within the legacy code.
+Most developers shutter when plunged into legacy code for the reasons listed above. While we can’t practice TDD as defined with legacy code that’s missing tests, we can use automated tests to explore, discover and document the behavior that lies within the legacy code. See: [Working Effectively with Legacy Code](https://jhumelsine.github.io/2025/03/24/legacy-code.html).
 
-Automated tests created after the code has been implemented are characterization tests (TBD). They define and lock down current behavior in legacy code without too much concern as to whether the current behavior is correct or not. It's probably correct, else we'd hear about it from users.
+Automated tests created after the code has been implemented are [Characterization Tests](https://jhumelsine.github.io/2025/03/24/legacy-code.html#characterization-tests). They define and lock down current behavior in legacy code without too much concern as to whether the current behavior is correct or not. It's probably correct, else we'd hear about it from users.
 
 Characterization tests still follow the __Give-When-Then__ structure. We assume the legacy code works for non-error reporting scenarios in the legacy code. We start with the __Given-When__ portion of the tests that access the legacy SUT. Then we observe and codify what the legacy code does via the test. For example, if the SUT’s method returns a `boolean` then we assert in the __Then__ portion of the test based upon which `boolean` value is actually returned.
 
