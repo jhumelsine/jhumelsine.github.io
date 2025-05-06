@@ -88,6 +88,10 @@ _The computing scientist’s main challenge is not to get confused by the comple
 
 _Good judgement comes from experience, and experience comes from bad judgement._ ― Attributed to many
 
+_Experience is a cruel teacher because she gives you the test first, the lesson afterwards._ ― Vernon Law
+
+_You haven’t mastered a tool until you understand when it should not be used._ ― Kelsey Hightower
+
 _In software development, “perfect” is a verb, not an adjective. There is no perfect process. There is no perfect design. There are no perfect stories. You can, however, perfect your process, your design, and your stories._ ― Kent Beck
 
 _All programmers are optimists._ ― Frederick P. Brooks Jr.
