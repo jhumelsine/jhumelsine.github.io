@@ -117,6 +117,8 @@ When failing, either the implementation or the test must be updated to resolve t
 
 Regardless, the failing test cannot be ignored. This automated inconsistency verification is something our volumes of tree-killing analysis and design documents could never do.
 
+For more details about this, see: [Working Effectively with Legacy Code … with all due respect to Michael Feathers in stealing his book title and a lot of his ideas for this blog](https://jhumelsine.github.io/2025/03/24/legacy-code.html).
+
 # Clean Coder Videos
 Soon after reading ___Working Effectively …___ I watched [Bob Martin’s](https://en.wikipedia.org/wiki/Robert_C._Martin) [Clean Coder Video Series](https://cleancoders.com/) on O’Reilly. Bob devotes several videos to unit testing where he provides more arguments for Unit Testing and details on how to create unit tests.
 
