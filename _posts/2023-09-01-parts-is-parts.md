@@ -3,14 +3,14 @@ title: Parts is Parts
 description: Design patterns are comprised of different configurations of the same repeating Object-Oriented constructs. 
 ---
 
-![Taco Bell Menu](https://www.nrn.com/sites/nrn.com/files/styles/article_featured_retina/public/NEW_TacoBellMenuBoards_Sept2019.png?itok=FMsGqWRz "Image Source: https://www.nrn.com/quick-service/taco-bell-eliminating-9-menu-items")
+<img src="https://live.staticflickr.com/3377/3432530375_74eea3ea1a_c.jpg" alt="Taco Bell Menu" title="Image Source: https://www.wallpaperuse.com/wallp/42-424153_m.png" width = "50%" align="center" style="padding-right: 20px;">
 
 # Parts is Parts
 Many cuisines are comprised of different combinations of the same basic ingredients. Fast food businesses, such as Taco Bell, come to mind. These kitchens have vats of meat, cheese, rice, beans, and other basic ingredients. Wrap them in a tortilla, and it’s a burrito. Put them in a corn shell, and it’s a taco. Put some on a bed of chips, and it’s a nacho platter.
 
 Design patterns are much the same. The Gang of Four’s (GoF) [Design Patterns](https://en.wikipedia.org/wiki/Design_Patterns) address repeating problems in an Object-Oriented (OO) paradigm. Most of their design patterns are comprised of different configurations of the same repeating OO constructs. Developers who understand these constructs will be able to learn design patterns a bit quicker than those who don’t.
 
-<img src="https://www.wallpaperuse.com/wallp/42-424153_m.png" alt="Harry Potter Spells" title="Image Source: https://www.wallpaperuse.com/vien/hmwJhx/" width = "35%" align="right" style="padding-right: 20px;">
+<img src="https://live.staticflickr.com/3761/32764082670_a83b6da827_b.jpg" alt="Harry Potter Spells" title="Image Source: https://www.flickr.com/photos/javcon117/32764082670" width = "35%" align="right" style="padding-right: 20px;">
 
 There are no magic incantations. Design patterns are about intent and the problem being addressed than they are the constructs. In some cases, the OO construct configuration may feel so obvious, that’s not even worth the effort to have cataloged it as a design pattern.
 
@@ -55,3 +55,5 @@ Here are typical method invocations in the **IS-A** relationships:
 The last method invocation is not a relationship between objects. It is a **Static Method Invocation**. A statically declared method is accessible from the class itself without the need for an object reference. Static method invocation usually occurs with creational design patterns. That is, it allows clients to acquire a reference to a class without having to invoke the constructor directly.
 # Conclusion
 Understanding these basic Object-Oriented building block components will help developers understand how the GoF used them to design most of their design patterns. These basic components won’t cover all the details, but they will cover most.
+
+For more of my take on Design Patterns, See: [Index of my Design Patterns Blogs](https://jhumelsine.github.io/3000/01/01/preface.html#design-patterns).
