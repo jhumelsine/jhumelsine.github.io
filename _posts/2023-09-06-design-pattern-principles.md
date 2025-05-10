@@ -59,3 +59,5 @@ This principle wasn’t obvious to me. It took me a while to understand it. It t
 # Conclusion
 
 Keep these two principles in mind while learning design patterns. It may help in understanding the choices that are made in their designs. I’ll try to point out the principles when presenting patterns in more detail.
+
+For more of my take on Design Patterns, See: [Index of my Design Patterns Blogs](https://jhumelsine.github.io/3000/01/01/preface.html#design-patterns).
