@@ -50,3 +50,5 @@ Here are my favorite online design pattern resources:
 * [https://en.wikipedia.org/wiki/Software_design_pattern](https://en.wikipedia.org/wiki/Software_design_pattern)
 
 The first two sites are related, so there’s some duplication. Both sites also have great resources on Refactoring and Code Smells.
+
+For more of my take on Design Patterns, See: [Index of my Design Patterns Blogs](https://jhumelsine.github.io/3000/01/01/preface.html#design-patterns).
