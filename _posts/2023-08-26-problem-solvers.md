@@ -22,3 +22,5 @@ This is a double-edged sword. While there is usually no off-the-shelf design pat
 Developers who know design patterns have options. When considering the design for a new feature, they don’t have to stare at a blank page for too long. Something in the feature will be familiar enough to start a design based upon their design pattern knowledge.
 
 Designs based upon design patterns tend to be modular. The implementation tends to be easier to unit test. The implementation tends to be easier to maintain. And when customers see software that doesn’t align with their expectations, it tends to be easier to modify the implementation or design to satisfy the customers.
+
+For more of my take on Design Patterns, See: [Index of my Design Patterns Blogs](https://jhumelsine.github.io/3000/01/01/preface.html#design-patterns).
