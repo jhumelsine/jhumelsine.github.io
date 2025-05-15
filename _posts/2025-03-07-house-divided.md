@@ -345,6 +345,8 @@ John has a few more discouraging things to say about TDD, and then he drops this
 
 In the same paragraph, he claims to have no personal experience with TDD, and yet it’s still one of the most extreme forms of tactical programming he’s encountered. I feel like John has his own inconsistency to resolve. I would respect his opinion more if he had said that he had tried TDD himself and found it lacking. His TDD opinion reeks of dogma.
 
+Martin and Ousterhout reunited to continue their debate in a [group video](https://www.youtube.com/watch?v=3Vlk6hCWBw0) format.
+
 # It Depends - Revisited
 At the start of this blog, I said that choosing whether to start with design or TDD depends upon the context and scope of the problem being addressed. Here are a few of my guidelines:
 * Start with __TDD__ when the problem is well defined with a narrow scope. I suspect that most data structures and algorithms studied in academia would fall into this category.
