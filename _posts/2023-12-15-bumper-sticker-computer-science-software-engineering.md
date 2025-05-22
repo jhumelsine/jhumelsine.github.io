@@ -364,6 +364,8 @@ _The fastest algorithm can frequently be replaced by one that is almost as fast 
 
 _Fancy algorithms are slow when n is small, and n is usually small._ — Rob Pike
 
+_The cleaner and nicer the program, the faster it's going to run. And if it doesn't, it'll be easy to make it fast._ — Joshua Bloch
+
 # References
 * Original [Bumper Sticker Computer Science](https://moss.cs.iit.edu/cs100/Bentley_BumperSticker.pdf) by Jon Bentley
 * A collection of blog quotes by Henrik Warne:
@@ -398,3 +400,4 @@ _Fancy algorithms are slow when n is small, and n is usually small._ — Rob Pik
   * [Dennis Ritchie](https://www.goodreads.com/author/quotes/153349.Dennis_M_Ritchie)
   * [Ken Thompson](https://www.goodreads.com/author/quotes/167720.Ken_Thompson)
   * [Brian Kernighan](https://www.goodreads.com/author/quotes/153350.Brian_W_Kernighan)
+  * [Joshua Bloch](https://www.goodreads.com/author/quotes/60805.Joshua_Bloch)
