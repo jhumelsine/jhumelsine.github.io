@@ -66,7 +66,7 @@ Regardless of scope, the principles of a good contract specify the contract’s 
 As mentioned above, the contract specifies the __what__ of the contract, while __how__ it is implemented is encapsulated within the code. It’s possible for multiple implementations to satisfy the same contract in different ways. This is the essence of the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html)
 
 # Client Point of View
-<img src="https://i.thriftbooks.com/api/imagehandler/m/B326C820FF54B9E2A477B457FEAB08BF30C18D18.jpeg" alt="The Design of Everyday Things" title="Image Source: https://www.thriftbooks.com/w/the-design-of-everyday-things_donald-a-norman/246934/item/3437580/#edition=2402022&idiq=4046535" width = "30%" align="right" style="padding: 35px;">
+<img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386924139i/16867.jpg" alt="The Design of Everyday Things" title="Image Source: https://www.goodreads.com/book/show/16867" width = "30%" align="right" style="padding: 35px;">
 
 Cognitive scientist, [Donald Norman](https://en.wikipedia.org/wiki/Don_Norman), is one of the pioneers of User Centric Design. He developed a theory that focuses upon the user’s experience. He applied this to everyday objects, in his book, [_The Design of Everyday Things_](https://en.wikipedia.org/wiki/The_Design_of_Everyday_Things), but the concepts for contract interfaces too. Doors are one of his primary examples, which have been coined [Norman Doors](https://99percentinvisible.org/article/norman-doors-dont-know-whether-push-pull-blame-design/).
 
@@ -75,7 +75,7 @@ Opening a door should be obvious, but that’s not always the case:
 
 Norman described situations where the door designer hid all visible clues for aesthetic purposes. Users would stand in front of these doors bewildered by how to enter.
 
-I can identify with this to some degree. My last office, [Bellworks](https://bell.works/new-jersey/explore/), which interestingly enough is the stand in for [Lumon Industries](https://lumon.industries/) in the TV show [Severance](https://en.wikipedia.org/wiki/Severance_(TV_series)), had funky doors. All doors were glass with a meter long vertical bar. All doors basically looked alike, but some were push, some where pull and some where slide. I eventually memorized through trial and error which door did what. But sometimes I’d get it work. I’d push, then I’ll pull and finally I’d slide.
+I can identify with this to some degree. My last office, [Bellworks](https://bell.works/new-jersey/explore/), which interestingly enough is the exterior location for [Lumon Industries](https://lumon.industries/) in the TV show [_Severance_](https://en.wikipedia.org/wiki/Severance_(TV_series)), had funky doors. All doors were glass with a meter long vertical bar. All doors basically looked alike, but some were push, some where pull and some where slide. I eventually memorized through trial and error which door did what. But sometimes I’d get it work. I’d push, then I’ll pull and finally I’d slide.
 
 Well-designed things scream how they are intended to be used. Contracts should be designed from the client’s point of view. Ideally the names chosen will reflect how the client interacts with the contract and not necessarily what the provider provides.
 
