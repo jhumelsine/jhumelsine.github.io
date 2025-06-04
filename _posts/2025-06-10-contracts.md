@@ -123,15 +123,4 @@ __TBD__
 
 # References
  __TBD__
-•	https://en.wikipedia.org/wiki/Contract
-•	https://xkcd.com/1172/
-•	https://imgs.xkcd.com/comics/workflow_2x.png
-•	https://99percentinvisible.org/article/norman-doors-dont-know-whether-push-pull-blame-design/
-•	https://www.azquotes.com/quote/802024#google_vignette
-•	https://www.google.com/search?sca_esv=0c50508b885de737&rlz=1C1EKKP_enUS733US733&sxsrf=AHTn8zp-_URf1GHV0CL15YVjt1LHSHEUJA:1744402744991&q=norman+doors&udm=2&fbs=ABzOT_CWdhQLP1FcmU5B0fn3xuWpA-dk4wpBWOGsoR7DG5zJBtmuEdhfywyzhendkLDnhcrUz6wxBwARHD96EKWkSbZoQZGasaHPJ9csj0AVVVUDNHqfR7gd1arUfaOpw1v5Icccwayh65rdsqdiyPvxAA9gXK95YqHnUzfZ5jo9jiMl2Q8DaMUR4I1U0kl1-ho1NSBjy_chexdcGuJmvrFewYJaqjljog&sa=X&sqi=2&ved=2ahUKEwiIh9fP5tCMAxXgFVkFHbcAElkQtKgLegQIExAB&biw=1438&bih=598&dpr=1.25
-•	https://www.google.com/search?sca_esv=43140f9f49dcfdc2&rlz=1C1EKKP_enUS733US733&sxsrf=AHTn8zqdwx2uFTv6am26G3WUjR0dmp6tew:1744461759205&q=norman+doors&udm=2&fbs=ABzOT_CWdhQLP1FcmU5B0fn3xuWpA-dk4wpBWOGsoR7DG5zJBtmuEdhfywyzhendkLDnhcrUz6wxBwARHD96EKWkSbZoQZGasaHPJ9csj0AVVVUDNHqfR7gd1arUfaOpw1v5Icccwayh65rdsqdiyPvxAA9gXK95YqHnUzfZ5jo9jiMl2Q8DaMUR4I1U0kl1-ho1NSBjy_chexdcGuJmvrFewYJaqjljog&sa=X&sqi=2&ved=2ahUKEwif9-y7wtKMAxWtMmIAHaMyFnQQtKgLegQIFRAB&biw=1536&bih=738&dpr=1.25
-•	https://www.google.com/search?q=the+design+of+everyday+things&rlz=1C1EKKP_enUS733US733&oq=The+Design+of+Everyday+Things&gs_lcrp=EgZjaHJvbWUqEggAEAAYQxjjAhixAxiABBiKBTISCAAQABhDGOMCGLEDGIAEGIoFMg8IARAuGEMYsQMYgAQYigUyBwgCEAAYgAQyBwgDEAAYgAQyBwgEEAAYgAQyBwgFEAAYgAQyBwgGEAAYgAQyBwgHEAAYgAQyBwgIEAAYgAQyBwgJEAAYgATSAQg5NTg4ajBqN6gCCLACAfEF_5d_ye_zH5Q&sourceid=chrome&ie=UTF-8
-•	https://en.wikipedia.org/wiki/The_Design_of_Everyday_Things
-•	https://www.goodreads.com/work/quotes/18518-the-psychology-of-everyday-things
-•	https://en.wikipedia.org/wiki/REST
-•	https://en.wikipedia.org/wiki/Garbage_in,_garbage_out
+
