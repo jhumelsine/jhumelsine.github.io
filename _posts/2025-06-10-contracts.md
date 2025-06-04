@@ -16,7 +16,7 @@ ___Software Contracts___ allow provider developers of a software component to co
 Software Contracts specify the __Obligations__  and  __Expectations__ of behaviors provided by software components. Software Contracts document the context of __what__ the service provider has to offer and its use without conveying the means of __how__ it implements that offer.
 
 ## Contract by Design
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Design_by_contract.svg/768px-Design_by_contract.svg.png" alt="Contract by Design" title="Image Source: https://en.wikipedia.org/wiki/File:Design_by_contract.svg" width = "30%" align="right" style="padding: 35px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Design_by_contract.svg/768px-Design_by_contract.svg.png" alt="Contract by Design" title="Image Source: https://en.wikipedia.org/wiki/File:Design_by_contract.svg" width = "40%" align="right" style="padding: 35px;">
  
 [Bertrand Meyer](https://en.wikipedia.org/wiki/Bertrand_Meyer) created [Contract by Design](https://en.wikipedia.org/wiki/Design_by_contract) (DbC) in conjunction with the [Eiffel Programming Language](https://en.wikipedia.org/wiki/Eiffel_(programming_language)).
 
@@ -66,7 +66,7 @@ Regardless of scope, the principles of a good contract specify the contract’s 
 As mentioned above, the contract specifies the __what__ of the contract, while __how__ it is implemented is encapsulated within the code. It’s possible for multiple implementations to satisfy the same contract in different ways. This is the essence of the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html)
 
 # Client Point of View
-<img src="https://i.thriftbooks.com/api/imagehandler/m/B326C820FF54B9E2A477B457FEAB08BF30C18D18.jpeg" alt="The Design of Everyday Things" title="Image Source: https://www.thriftbooks.com/w/the-design-of-everyday-things_donald-a-norman/246934/item/3437580/#edition=2402022&idiq=4046535" width = "20%" align="right" style="padding: 35px;">
+<img src="https://i.thriftbooks.com/api/imagehandler/m/B326C820FF54B9E2A477B457FEAB08BF30C18D18.jpeg" alt="The Design of Everyday Things" title="Image Source: https://www.thriftbooks.com/w/the-design-of-everyday-things_donald-a-norman/246934/item/3437580/#edition=2402022&idiq=4046535" width = "30%" align="right" style="padding: 35px;">
 
 Cognitive scientist, [Donald Norman](https://en.wikipedia.org/wiki/Don_Norman), is one of the pioneers of User Centric Design. He developed a theory that focuses upon the user’s experience. He applied this to everyday objects, in his book, [_The Design of Everyday Things_](https://en.wikipedia.org/wiki/The_Design_of_Everyday_Things), but the concepts for contract interfaces too. Doors are one of his primary examples, which have been coined [Norman Doors](https://99percentinvisible.org/article/norman-doors-dont-know-whether-push-pull-blame-design/).
 
@@ -91,7 +91,7 @@ What are some elements of a good contract:
 * [Primitive Obsession](https://sourcemaking.com/refactoring/smells/primitive-obsession}
 * [Value Object](https://en.wikipedia.org/wiki/Value_object)
 
-<img src="https://imgs.xkcd.com/comics/workflow_2x.png" alt="Heating Spacebar xkcd Comic" title="Image Source: https://xkcd.com/1172/" width = "30%" align="right" style="padding: 35px;">
+<img src="https://imgs.xkcd.com/comics/workflow_2x.png" alt="Heating Spacebar xkcd Comic" title="Image Source: https://xkcd.com/1172/" width = "35%" align="right" style="padding: 35px;">
 
 Keep contracts lean. Less is more. You can always add more later without breaking existing users. But once you remove something or change its behavior, then this will affect users. Sometimes we may want to deprecate parts of contracts too.
 
