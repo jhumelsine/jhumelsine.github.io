@@ -35,9 +35,9 @@ Accepting inaccurate or invalid information and attempting to honor the contract
 Client Obligations align with Preconditions in the DbC above.
 
 ## Expectations
-If accurate and valid information has been provided, then the Client has the __expectation__ that the Service Provider will fulfill/honor the contract. That is, the Service Provider will do __what__ has been documented in the contract. For example, if the Client has provided a valid phone number, then the Client expects the query Service Provider to return information corresponding to that valid phone number or an indication that there is no information corresponding to that phone number.
+If accurate and valid information has been provided, then the Client has the __expectation__ that the contract will be fulfilled/honored. That is, the software component will do __what__ has been documented in the contract. For example, if the Client has provided a valid phone number, then the Client expects the query to return information corresponding to that valid phone number or an indication that there is no information corresponding to that phone number.
 
-The contract does not define the means that the Service Provider will use to fulfill that expectation.
+The contract does not define the means that will fulfill that expectation.
 
 Client Expectations align with output values returned, postconditions and side effects in the DbC above.
 
@@ -63,58 +63,56 @@ The scope of software contracts can be broad or narrow. Software contracts conne
 Regardless of scope, the principles of a good contract specify the contract’s obligations and expectations in a meaningful way.
 
 ## What vs How
-As mentioned above, the contract specifies the __what__ of the contract, while __how__ it is implemented is encapsulated within the code. It’s possible for multiple implementations to satisfy the same contract in different ways. This is the essence of the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html)
+As mentioned above, the contract specifies __what__ it expects and provides, while __how__ it provides it is not part of the contract. The __how__ within an implementation that honors the contract. It’s possible for multiple implementations to satisfy the same contract in different ways. This is the essence of the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html)
 
 # Client Point of View
 <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386924139i/16867.jpg" alt="The Design of Everyday Things" title="Image Source: https://www.goodreads.com/book/show/16867" width = "30%" align="right" style="padding: 35px;">
 
-Cognitive scientist, [Donald Norman](https://en.wikipedia.org/wiki/Don_Norman), is one of the pioneers of User Centric Design. He developed a theory that focuses upon the user’s experience. He applied this to everyday objects, in his book, [_The Design of Everyday Things_](https://en.wikipedia.org/wiki/The_Design_of_Everyday_Things), but the concepts for contract interfaces too. Doors are one of his primary examples, which have been coined [Norman Doors](https://99percentinvisible.org/article/norman-doors-dont-know-whether-push-pull-blame-design/).
+Cognitive scientist, [Donald Norman](https://en.wikipedia.org/wiki/Don_Norman), is one of the pioneers of User Centric Design. He developed a theory that focuses upon the user’s experience. He applied this to everyday objects, in his book, [_The Design of Everyday Things_](https://en.wikipedia.org/wiki/The_Design_of_Everyday_Things), but the concepts apply to contract interfaces too. Doors are one of his primary examples, which have been coined [Norman Doors](https://99percentinvisible.org/article/norman-doors-dont-know-whether-push-pull-blame-design/).
 
 Opening a door should be obvious, but that’s not always the case:
 >_When a device as simple as a door has to come with an instruction manual—even a one-word manual—then it is a failure, poorly designed._ — [Donald Norman](https://www.azquotes.com/quote/802024)
 
-Norman described situations where the door designer hid all visible clues for aesthetic purposes. Users would stand in front of these doors bewildered by how to enter.
+Norman described situations where the door designer hid all visible clues to operate a door for aesthetic purposes. Users would stand in front of these doors bewildered by how to open them.
 
-I can identify with this to some degree. My last office, [Bellworks](https://bell.works/new-jersey/explore/), which interestingly enough is the exterior location for [Lumon Industries](https://lumon.industries/) in the TV show [_Severance_](https://en.wikipedia.org/wiki/Severance_(TV_series)), had funky doors. All doors were glass with a meter long vertical bar. All doors basically looked alike, but some were push, some where pull and some where slide. I eventually memorized through trial and error which door did what. But sometimes I’d get it work. I’d push, then I’ll pull and finally I’d slide.
+I can identify with this to some degree. My last office location, [Bellworks](https://bell.works/new-jersey/explore/), which interestingly enough is the filming location for exteriors for [Lumon Industries](https://lumon.industries/) in the TV show [_Severance_](https://en.wikipedia.org/wiki/Severance_(TV_series)), had funky doors. All doors were glass with a meter long vertical bar near one side. All doors looked alike, but some were push, some where pull and some where slide. I eventually memorized through trial and error which door did what. But sometimes I’d absent mindedly forget. I’d push, then I’ll pull and finally I’d slide.
 
-Well-designed things scream how they are intended to be used. Contracts should be designed from the client’s point of view. Ideally the names chosen will reflect how the client interacts with the contract and not necessarily what the provider provides.
+Well-designed things scream how they are intended to be used. Contracts should be designed from the client’s point of view. Ideally their chosen names will reflect how the client interacts with the contract and not necessarily what the provider provides.
 
-If contracts contain a good naming design, then their use within the client code should feel natural. That is, it should feel like the contract was designed specifically for the client’s domain. The class, methods and parameters of a contract should be self-explanatory. Ideally you user should not need to read your documentation or comments to use your contract. See Donald Norman’s quote above. That documentation and those comments won’t appear in client code that references your contract. Ideally, anyone reading the client code should not have to pause and look up your documentation or comments when encountering your contract elements when embedded within production code.
+If contracts contain a good naming design, then their use within the client code should feel natural. That is, it should feel like the contract was designed specifically for the client’s domain. The class, methods and parameters of a contract should be self-explanatory. Ideally your user should not need to read your documentation or comments to use your contract. Your documentation and comments won’t appear in client code that references your contract. Ideally, anyone reading the client code should not have to pause and look up your documentation or comments when encountering your contract elements when embedded within production code.
 
-Without care, a contract tends to reflect what was implemented rather than what the client wants or needs. Contracts feel like an afterthought, and that’s why so many of them are difficult to use. Worse yet they leak implementation details, known as a [Leaky Abstraction](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html#leaky-abstraction).
+Without care, a contract tends to reflect what was implemented rather than what the client wants or needs. Contracts feel like an afterthought, and that’s one reason why so many of them are difficult to use. Worse yet they leak implementation details, known as a [Leaky Abstraction](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html#leaky-abstraction).
 
-What are some elements of a good contract:
-* Designed from the user’s point of view to support their intent
-* The elements of the contract fit together as a cohesive whole. Add something, and it’s out of place. Remove something, and the remaining elements fall apart.
-* Observes the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment). The elements of the contract should behave in a way that most users will expect it to behave, and therefore it will not astonish or surprise users.
-* Prefers Value Objects over Primitives:
-* [Primitive Obsession](https://sourcemaking.com/refactoring/smells/primitive-obsession}
-* [Value Object](https://en.wikipedia.org/wiki/Value_object)
+Here are some elements of a good contract:
+* It is designed from the user’s point of view to support their intent
+* Its elements form a cohesive whole. Add something, and it’s out of place. Remove something, and the remaining elements fall apart.
+* It observes the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment). The elements of the contract should behave in a way that most users will expect it to behave. That is, its behaviors will not astonish or surprise users.
+* It prefers Value Objects over Primitives:
+    * [Primitive Obsession](https://sourcemaking.com/refactoring/smells/primitive-obsession)
+    * [Value Object](https://en.wikipedia.org/wiki/Value_object)
 
 <img src="https://imgs.xkcd.com/comics/workflow_2x.png" alt="Heating Spacebar xkcd Comic" title="Image Source: https://xkcd.com/1172/" width = "35%" align="right" style="padding: 35px;">
 
-Keep contracts lean. Less is more. You can always add more later without breaking existing users. But once you remove something or change its behavior, then this will affect users. Sometimes we may want to deprecate parts of contracts too.
-
-Once a contract is in general use, you can’t remove elements or change behaviors. [Hyrum’s Law](https://www.hyrumslaw.com/) predicts that with a sufficient number of API users, all observable behaviors of your system will become a dependency for somebody regardless of your intent.
+Keep contracts lean. Less is more. You can always add more later without breaking existing users. But once you remove something or change its behavior, then this will affect users. Sometimes we may want to deprecate parts of contracts, but do this cautiously. Once a contract is in general use, you can’t remove elements or change behaviors. [Hyrum’s Law](https://www.hyrumslaw.com/) predicts that with a sufficient number of API users, all observable behaviors of your system will become a dependency for somebody regardless of your intent.
  
-Contracts may need versions, which is common with RESTful APIs.
+Contracts may need versions to support updates or changes. This is common with RESTful APIs.
 
 # Behavior-Driven/Test-Driven Development
 How do we know that our contracts meet our users’ needs? We become the first users of our contracts using [BDD](https://jhumelsine.github.io/2024/08/08/bdd.html) and [TDD](https://jhumelsine.github.io/2024/07/15/tdd.html) techniques.
 
-We want our contracts to make sense to our users. BDD and TDD techniques allow us to specify contract expectations and obligations in a confirmable executable form. If it’s difficult to write tests interacting with your contract, then it will be difficult for your user to. Adjust the contract so that it is easier for your tests and for your users.
+We want our contracts to make sense to our users. BDD and TDD techniques allow us to specify contract expectations and obligations in a confirmable executable form. If it’s difficult for you to write tests interacting with your contract, then it will be difficult for your user to. Adjust the contract so that it is easier for your tests and for your users.
 
-Traditionally BDD and TDD confirm behavior within code, but this case is a bit different. There is no code associated with a contract. 
+Traditionally BDD and TDD confirm behavior within code, but this case is a bit different. There is no code associated with a contract. A contract only specifies Obligations and Expectations. It doesn't implemen them.
 
-Since contracts do not depend upon their implementations, contract specification tests will tend to be _higher_ test possibly an Acceptance Test (AT) (AT Blog TBD). While ATs still follow the principles of BDD and TDD, they may feel more like complete user scenarios. This can be useful to get a better understanding of how the user may interact with the contract rather than being concerned about the implementation of the contract.
+Since contracts do not depend upon their implementations, contract specification tests will tend to be _higher_ tests, possibly an Acceptance Test (AT) (Blog TBD). While ATs still follow the principles of BDD and TDD, they may feel more like complete user scenarios. This can be useful to get a better understanding of how the user may interact with the contract rather than being concerned about the implementation of the contract.
 
 Contracts are [Fixed or Stable Elements](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#stable-or-fixed-design-elements) in most designs. In UML class diagrams other design elements, such as client classes and implementation classes, depend upon the contracts rather than the contracts depending upon those classes. When contracts have their own dependencies, they tend to be other contracts.
 
-What code is being executed in a test that confirms the expectations and obligations? This is going to sound counter intuitive, but there is no code that’s being executed. There is no implementation for the contract. The _code_ being executed will be [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html).
+What code is being executed in a contract test that confirms its expectations and obligations? This is going to sound counter intuitive, but there is no code that’s being executed. There is no implementation for the contract. The _code_ being executed will be [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html).
 
 This is not a case of testing test doubles. This is a case of emulating the contract’s expectation and obligation behaviors via test doubles so that the tests not only specify contract behaviors but demonstrate them in an executable form.
 
-These contract tests may serve an additional function. They can be the basis for tests against the implementation. Rather than providing test double references for the contracts, provide the actual implementations. Some of the set up in the _Given_ portion of the test and confirmation in the _Then_ portion of the test may need to be updated for the implementation, but the overall scenario should be the same.
+These contract tests may serve an additional function. They can be the basis for future tests against the implementation. Rather than providing test double references for the contracts, provide an actual implementations. Some of the set up in the _Given_ portion of the test and confirmation in the _Then_ portion of the test may need to be updated for the implementation, but the overall scenario should be the same.
 
 __True Confessions:__ I have not written executable tests against my contracts as I advocated above. However, before I learned TDD and BDD I wrote non-executable operational scenarios against my contracts to visualize how they would be used. They became the basis of my tests once I started to implement the code.
 
