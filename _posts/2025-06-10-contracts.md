@@ -63,7 +63,9 @@ The scope of software contracts can be broad or narrow. Software contracts conne
 Regardless of scope, the principles of a good contract specify the contract’s obligations and expectations in a meaningful way.
 
 ## What vs How
-As mentioned above, the contract specifies __what__ it expects and provides, while __how__ it provides it is not part of the contract. The __how__ resides within an implementation that honors the contract. It’s possible for multiple implementations to satisfy the same contract in different ways. This is the essence of the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html)
+As mentioned above, the contract specifies __what__ it expects and provides, while __how__ it provides it is not part of the contract. The __how__ resides within an implementation that honors the contract. It’s possible for multiple implementations to satisfy the same contract in different ways. For example, different sorting algorithms (quick sort, merge sort, bubble sort) fulfill the contract of sorting a list, each with varying performance characteristics. 
+
+This separation is the essence of the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html)
 
 # Client Point of View
 <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386924139i/16867.jpg" alt="The Design of Everyday Things" title="Image Source: https://www.goodreads.com/book/show/16867" width = "30%" align="right" style="padding: 35px;">
@@ -121,7 +123,9 @@ These contract tests may serve an additional function. They can be the basis for
 __True Confessions:__ I have not written executable tests against my contracts as I advocated above. However, before I learned TDD and BDD I wrote non-executable operational scenarios against my contracts to visualize how they would be used. They became the basis of my tests once I started to implement the code.
 
 # Summary
-__TBD__
+Software development is, at its best, a discipline of communication—between people, between components, and across time. By thinking in terms of contracts, we make that communication explicit. We name what we expect and what we offer in return.
+
+Software contracts define the boundaries between components, clarify behavior, and reduce ambiguity. Contracts lead to more intentional, testable, and maintainable code. Every function becomes a promise; every call, a handshake. Embracing contracts invites more resilient systems.
 
 # References
  * [Donald Norman Quotations](https://www.goodreads.com/author/quotes/552.Donald_A_Norman)
