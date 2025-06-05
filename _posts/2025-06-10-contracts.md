@@ -46,11 +46,11 @@ Taxes are complicated in the United States. Many Americans seek assistance from 
 * Obligation from Clients – Provide your tax paperwork and payment
 * Expectation to Clients – Return completed tax forms for client signature and filing
 
-Tax professionals come in many forms with different degrees of sophistication, such as: Tax Attorneys, Certified Public Accountants, Tax Preparation Companies ([H&R Block](https://www.hrblock.com/)), Tax Preparation Software ([Intuit](https://www.intuit.com/)), or a trusted friend or family member. Each might employ different means to complete the forms, such as: Proprietary Software, Deferring to a commercial Tax Software Package or filling the forms out by hand. Regardless of their means, they honor the contract.
+Tax professionals come in many forms with different degrees of sophistication, such as: Tax Attorneys, Certified Public Accountants, Tax Preparation Companies ([H&R Block](https://www.hrblock.com/)), Tax Preparation Software ([Intuit](https://www.intuit.com/)), or a trusted friend or family member. Each might employ different means to complete the forms, such as: Proprietary Software, deferring to a commercial Tax Software Package or filling the forms out by hand. Regardless of their means, they honor the contract.
 
 ## Software Contract Scope
 Real world contracts vary in scope, such as the contracts for:
-* The merger of multi-billion-dollar corporations
+* Mergers of multi-billion-dollar corporations
 * Buying or selling a house
 * Terms of Service for an online service
 * A personal I.O.U.
@@ -75,13 +75,13 @@ Opening a door should be obvious, but that’s not always the case:
 
 Norman described situations where the door designer hid all visible clues to operate doors for aesthetic purposes. Users would stand in front of these doors bewildered by how to open them.
 
-I can identify with this to some degree. My last office location, [Bellworks](https://bell.works/new-jersey/explore/), which interestingly enough is the filming location for the exteriors for [Lumon Industries](https://lumon.industries/) in the TV show [_Severance_](https://en.wikipedia.org/wiki/Severance_(TV_series)), had Norman doors. All doors were glass with a meter long vertical bar attached on one side. All doors looked alike, but some were push, some where pull and some where slide. I eventually memorized through trial and error which door did what. But sometimes I’d absent mindedly forget. I’d push, then I’ll pull and finally I’d slide.
+I can identify with this to some degree. My last office location, [Bellworks](https://bell.works/new-jersey/explore/), which interestingly enough is the filming location for the exteriors for [Lumon Industries](https://lumon.industries/) in the TV show [_Severance_](https://en.wikipedia.org/wiki/Severance_(TV_series)), had Norman doors. All doors were glass with a meter long vertical bar attached on one side. All doors looked alike, but some were push, some were pull and some were slide. I eventually memorized through trial and error which door did what. But sometimes I’d absent mindedly forget. I’d push, then I’ll pull and finally I’d slide.
 
 Well-designed things scream how they are intended to be used. Contracts should be designed from the client’s point of view. Ideally their chosen names will reflect how the client interacts with the contract and not necessarily what the provider provides.
 
 If contracts contain a good naming design, then their use within the client code should feel natural. That is, it should feel like the contract was designed specifically for the client’s domain. The class, methods and parameters of a contract should be self-explanatory.
 
-Ideally your user should not need to read the documentation or comments to use your contract. This won't always be the case, but hopefully your contract names are expressive enough that someone reading code that accesses your contract can understand it in how its being used. Your documentation and comments won’t appear in client code that references your contract. Ideally, anyone reading the client code should not have to pause and look up your documentation or comments when encountering your contract elements when embedded within production code to understand it.
+Ideally your user should not need to read the documentation or comments to use your contract. This won't always be the case, but hopefully your contract names are expressive enough that someone reading code that accesses your contract can understand it in how it's being used. Your documentation and comments won’t appear in client code that references your contract. Ideally, anyone reading the client code should not have to pause and look up your documentation or comments when encountering your contract elements when embedded within the production code to understand it.
 
 Without care, a contract tends to reflect what was implemented rather than what the client wants or needs. Contracts feel like an afterthought, and that’s one reason why so many of them are difficult to use. Worse yet they leak implementation details, known as a [Leaky Abstraction](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html#leaky-abstraction).
 
@@ -95,7 +95,7 @@ Here are some elements of a good contract:
 
 <img src="https://imgs.xkcd.com/comics/workflow_2x.png" alt="Heating Spacebar xkcd Comic" title="Image Source: https://xkcd.com/1172/" width = "35%" align="right" style="padding: 35px;">
 
-Keep contracts lean. Less is more. You can always add more later without breaking existing users. But once you remove something or change its behavior, then this will affect existing users. Sometimes we may want to deprecate parts of contracts, but do this cautiously. Once a contract is in general use, you can’t remove elements or change behaviors. [Hyrum’s Law](https://www.hyrumslaw.com/) predicts that with a sufficient number of API users, all observable behaviors of your system will become a dependency for somebody regardless of your intent.
+Keep contracts lean. Less is more. You can always add more later without breaking existing users. But once you remove something or change its behavior, then this will affect existing users. Sometimes we may want to deprecate parts of contracts but do this cautiously. Once a contract is in general use, you can’t remove elements or change behaviors. [Hyrum’s Law](https://www.hyrumslaw.com/) predicts that with enough API users, all observable behaviors of your system will become a dependency for somebody regardless of your intent.
  
 Contracts may need versions to support updates or changes. This is common with RESTful APIs.
 
@@ -116,7 +116,7 @@ What code is being executed in contract tests that confirm expectations and obli
 
 This is not a case of testing test doubles. This is a case of emulating the contract’s expectation and obligation behaviors via test doubles so that the tests not only specify contract behaviors but demonstrate them in an executable form.
 
-These contract tests may serve an additional function. They can be the basis for future tests against the implementation. Rather than providing test double references for the contracts, provide an actual implementations. Some of the set up in the _Given_ portion of the test and confirmation in the _Then_ portion of the test may need to be updated for the implementation, but the overall scenario should be the same.
+These contract tests may serve an additional function. They can be the basis for future tests against the implementation. Rather than providing test double references for the contracts, provide an actual implementation. Some of the set up in the _Given_ portion of the test and confirmation in the _Then_ portion of the test may need to be updated for the implementation, but the overall scenario should be the same.
 
 __True Confessions:__ I have not written executable tests against my contracts as I advocated above. However, before I learned TDD and BDD I wrote non-executable operational scenarios against my contracts to visualize how they would be used. They became the basis of my tests once I started to implement the code.
 
