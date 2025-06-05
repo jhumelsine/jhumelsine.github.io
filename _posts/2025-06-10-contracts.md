@@ -8,29 +8,29 @@ unlisted: true
 # Introduction
 [Contracts](https://en.wikipedia.org/wiki/Contract) have been around for a long time. The image above is a Sumerian contract circa 2600 BCE specifying the terms of selling a field and house.
 
-Real world contracts, such as the one above, specify the legally binding __Obligations__  and __Expectations__ for a specified time between client and provider. Lawyers are often involved.
+Real world contracts, such as the one above, specify the legally binding __Obligations__  and __Expectations__ for a specified time between client and provider.
 
 # Software Contracts
-___Software Contracts___ allow provider developers of a software component to communicate component behaviors effectively to the client developers who will invoke the providers’ software components. Good communication among developers through their code is core to Software Engineering.
+___Software Contracts___ allow developers of a software component to communicate component behaviors effectively to developers who will invoke the software components. Good communication among developers through their code is core to Software Engineering.
 
-Software Contracts specify the __Obligations__  and  __Expectations__ of behaviors provided by software components. Software Contracts document the context of __what__ the service provider has to offer and its use without conveying the means of __how__ it implements that offer.
+Software Contracts specify the __Obligations__  and  __Expectations__ of behaviors provided by software components. Software Contracts document the context of __what__ the software component has to offer and its use without conveying the means of __how__ it implements that offer.
 
 ## Contract by Design
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Design_by_contract.svg/768px-Design_by_contract.svg.png" alt="Contract by Design" title="Image Source: https://en.wikipedia.org/wiki/File:Design_by_contract.svg" width = "40%" align="right" style="padding: 35px;">
  
-[Bertrand Meyer](https://en.wikipedia.org/wiki/Bertrand_Meyer) created [Contract by Design](https://en.wikipedia.org/wiki/Design_by_contract) (DbC) in conjunction with the [Eiffel Programming Language](https://en.wikipedia.org/wiki/Eiffel_(programming_language)).
+[Bertrand Meyer](https://en.wikipedia.org/wiki/Bertrand_Meyer) created [Contract by Design](https://en.wikipedia.org/wiki/Design_by_contract) (DbC) as a concept for the [Eiffel Programming Language](https://en.wikipedia.org/wiki/Eiffel_(programming_language)).
 
 Contract by Design includes:
-* Preconditions
-* Postconditions
-* Side effects
+* Preconditions - Valid Input
+* Postconditions - Output
+* Side Effects - State Changes
 
 ## Obligations
 Clients bear some responsibility in the relationship. To fulfill a contract, the Client is _obligated_ to provide accurate and valid information to the Service Provider. The contract should define what qualifies as accurate and valid.
 
 If the Client does not provide accurate and valid information, then the Service Provider can refuse to honor the contract request. For example, if the Service Provider provides a query feature where a phone number is the query key, then if the Client does not provide a valid phone number, then the Service Provider can reject the query, possibly by throwing an exception.
 
-Accepting inaccurate or invalid information and attempting to honor the contract produces [Garbage In, Garbage Out](https://en.wikipedia.org/wiki/Garbage_in,_garbage_out) (GIGO) results.
+Accepting inaccurate or invalid information and attempting to honor the contract produces [Garbage In, Garbage Out](https://en.wikipedia.org/wiki/Garbage_in,_garbage_out) results.
 
 Client Obligations align with Preconditions in the DbC above.
 
