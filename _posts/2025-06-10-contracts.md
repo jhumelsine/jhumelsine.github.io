@@ -3,17 +3,17 @@ title: DRAFT – Software Contracts
 description: Specifying the obligations and expectations between client and provider
 unlisted: true
 ---
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Sales_contract_Shuruppak_Louvre_AO3766.jpg/953px-Sales_contract_Shuruppak_Louvre_AO3766.jpg" alt="Sumarian Cuniform Contract" title="Image Source: https://en.wikipedia.org/wiki/File:Sales_contract_Shuruppak_Louvre_AO3766.jpg" width = "50%" align="center" style="padding: 35px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Sales_contract_Shuruppak_Louvre_AO3766.jpg/953px-Sales_contract_Shuruppak_Louvre_AO3766.jpg" alt="Sumerian Cuneiform Contract" title="Image Source: https://en.wikipedia.org/wiki/File:Sales_contract_Shuruppak_Louvre_AO3766.jpg" width = "50%" align="center" style="padding: 35px;">
 
 # Introduction
-[Contracts](https://en.wikipedia.org/wiki/Contract) have been around for a long time. The image above is a Sumerian contract circa 2600 BCE specifying the terms of selling a field and house.
+[Contracts](https://en.wikipedia.org/wiki/Contract) have existed for millennia, shaping agreements across civilizations. The image above is a Sumerian contract circa 2600 BCE specifying the terms of selling a field and house.
 
 Real world contracts, such as the one above, specify the legally binding __Obligations__  and __Expectations__ for a specified time between Client and Provider.
 
 # Software Contracts
 ___Software Contracts___ allow developers of a software component to communicate component behaviors effectively to other developers who will invoke their software components. Good communication among developers through their code is core to Software Engineering.
 
-Software Contracts specify the __Obligations__  and  __Expectations__ of behaviors provided by software components. Software Contracts document the context of __what__ the software component has to offer and its use without conveying the means of __how__ it implements those behaviors.
+Software Contracts specify the __Obligations__  and  __Expectations__ of behaviors of software components independent of the implementation.
 
 ## Contract by Design
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Design_by_contract.svg/768px-Design_by_contract.svg.png" alt="Contract by Design" title="Image Source: https://en.wikipedia.org/wiki/File:Design_by_contract.svg" width = "40%" align="right" style="padding: 35px;">
@@ -21,21 +21,21 @@ Software Contracts specify the __Obligations__  and  __Expectations__ of behavio
 [Bertrand Meyer](https://en.wikipedia.org/wiki/Bertrand_Meyer) created [Contract by Design](https://en.wikipedia.org/wiki/Design_by_contract) (DbC) as a concept for the [Eiffel Programming Language](https://en.wikipedia.org/wiki/Eiffel_(programming_language)).
 
 Contract by Design includes:
-* Preconditions - Valid Input
-* Postconditions - Output
-* Side Effects - State Changes
+* Preconditions: Valid Input
+* Postconditions: Expected Output
+* Side Effects: State Changes
 
 ## Obligations
 Clients bear some responsibility in the relationship. To fulfill a contract, the Client is _obligated_ to provide accurate and valid information to the Service Provider. The contract should define what qualifies as accurate and valid so that Clients know their obligations.
 
-If the Client does not provide accurate and valid information, then the Service Provider can refuse to honor the contract request. For example, if the Service Provider provides a query feature where a phone number is the query key, then if the Client does not provide a valid phone number, the Service Provider can reject the query, possibly by throwing an exception.
+If the Client fails to provide valid input (e.g., an invalid phone number), the Service Provider is not required to fulfill the request. Instead, the request can be rejected—possibly by throwing an exception.
 
 Accepting inaccurate or invalid information and attempting to honor the contract produces [Garbage In, Garbage Out](https://en.wikipedia.org/wiki/Garbage_in,_garbage_out) results.
 
 Client Obligations align with Preconditions in the DbC above.
 
 ## Expectations
-If accurate and valid information has been provided, then the Client has the __expectation__ that the contract will be fulfilled/honored. That is, the software component will do __what__ has been documented in the contract. For example, if the Client has provided a valid phone number, then the Client expects the query to return information corresponding to that valid phone number or an indication that there is no information corresponding to that phone number.
+If accurate and valid information has been provided, then the Client has the __expectation__ that the contract will be fulfilled/honored. That is, the software component will do what has been documented in the contract. For example, if the Client has provided a valid phone number, then the Client expects either the corresponding result or a clear indication that no data exists.
 
 The contract does not define the means that will fulfill that expectation.
 
@@ -43,8 +43,8 @@ Client Expectations align with output values returned, postconditions and side e
 
 ## Real World Contract Example
 Taxes are complicated in the United States. Many Americans seek assistance from tax professionals. All tax professionals support the same basic contract:
-* Obligation from Clients – Provide your tax paperwork and payment
-* Expectation to Clients – Return completed tax forms for client signature and filing
+* Client Obligation: Provide tax documents and payment
+* Client Expectation: Receive completed tax forms, ready for signature and filing
 
 Tax professionals come in many forms with different degrees of sophistication, such as: Tax Attorneys, Certified Public Accountants, Tax Preparation Companies ([H&R Block](https://www.hrblock.com/)), Tax Preparation Software ([Intuit](https://www.intuit.com/)), or a trusted friend or family member. Each might employ different means to complete the forms, such as: Proprietary Software, deferring to a commercial Tax Software Package or filling the forms out by hand. Regardless of their means, they honor the contract.
 
@@ -63,7 +63,7 @@ The scope of software contracts can be broad or narrow. Software contracts conne
 Regardless of scope, the principles of a good contract specify the contract’s obligations and expectations in a meaningful way.
 
 ## What vs How
-As mentioned above, the contract specifies __what__ it expects and provides, while __how__ it provides it is not part of the contract. The __how__ resides within an implementation that honors the contract. It’s possible for multiple implementations to satisfy the same contract in different ways. For example, different sorting algorithms (quick sort, merge sort, bubble sort) fulfill the contract of sorting a list, each with varying performance characteristics. 
+A well-crafted software contract defines __what__ a component does, not __how__ it does it. This distinction is critical: the contract outlines the expected behavior—inputs, outputs, and side effects—while deliberately hiding implementation details. By decoupling the _interface_ from the _implementation_, contracts enable flexibility, testability, and the possibility of multiple solutions that fulfill the same promises. Whether sorting data or retrieving a user record, the contract ensures consistency of outcome, allowing the underlying logic to evolve without breaking client expectations.
 
 This separation is the essence of the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html)
 
@@ -77,7 +77,7 @@ Opening a door should be obvious, but that’s not always the case:
 
 Norman described situations where the door designer hid all visible clues to operate doors for aesthetic purposes. Users would stand in front of these doors bewildered by how to open them.
 
-I can identify with this to some degree. My last office location, [Bellworks](https://bell.works/new-jersey/explore/), which interestingly enough is the filming location for the exteriors for [Lumon Industries](https://lumon.industries/) in the TV show [_Severance_](https://en.wikipedia.org/wiki/Severance_(TV_series)), had Norman doors. All doors were glass with a meter long vertical bar attached on one side. All doors looked alike, but some were push, some were pull and some were slide. I eventually memorized through trial and error which door did what. But sometimes I’d absent mindedly forget. I’d push, then I’ll pull and finally I’d slide.
+I can identify with this to some degree. My last office location, [Bellworks](https://bell.works/new-jersey/explore/), which interestingly enough is the filming location for the exteriors for [Lumon Industries](https://lumon.industries/) in the TV show [_Severance_](https://en.wikipedia.org/wiki/Severance_(TV_series)), had Norman doors. All doors were glass with a meter long vertical bar attached on one side. All doors looked alike, but some were push, some were pull and some were slide. I eventually memorized through trial and error which door did what. But sometimes I’d absent mindedly forget. I’d push, then pull, and finally slide.
 
 Well-designed things scream how they are intended to be used. Contracts should be designed from the client’s point of view. Ideally their chosen names will reflect how the client interacts with the contract and not necessarily what the provider provides.
 
@@ -90,19 +90,19 @@ Without care, a contract tends to reflect what was implemented rather than what 
 Here are some elements of a good contract:
 * It is designed from the user’s point of view to support their intent.
 * Its elements form a cohesive whole. Add something, and it’s out of place. Remove something, and the remaining elements fall apart.
-* It observes the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment). The elements of the contract should behave in a way that most users will expect it to behave. That is, its behaviors will not astonish or surprise users.
+* It observes the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment), a principle stating that software should behave in a way users intuitively expect. That is, no surprises or astonishment when its actual behavior is understood.
 * It prefers Value Objects over Primitives:
     * [Primitive Obsession](https://sourcemaking.com/refactoring/smells/primitive-obsession)
     * [Value Object](https://en.wikipedia.org/wiki/Value_object)
 
 <img src="https://imgs.xkcd.com/comics/workflow_2x.png" alt="Heating Spacebar xkcd Comic" title="Image Source: https://xkcd.com/1172/" width = "35%" align="right" style="padding: 35px;">
 
-Keep contracts lean. Less is more. You can always add more later without breaking existing users. But once you remove something or change its behavior, then this will affect existing users. Sometimes we may want to deprecate parts of contracts but do this cautiously. Once a contract is in general use, you can’t remove elements or change behaviors. [Hyrum’s Law](https://www.hyrumslaw.com/) predicts that with enough API users, all observable behaviors of your system will become a dependency for somebody regardless of your intent.
+Keep contracts lean. Less is more. You can always add more later without breaking existing users. But once you remove something or change its behavior, then this will affect existing users. Sometimes we may want to deprecate parts of contracts but do this cautiously. Once a contract is in general use, you can’t remove elements or change behaviors. [Hyrum’s Law](https://www.hyrumslaw.com/) predicts that with enough API users, all observable behaviors of your system will become a dependency for somebody regardless of the developer’s intent.
  
 Contracts may need versions to support updates or changes. This is common with RESTful APIs.
 
 # Behavior-Driven/Test-Driven Development
-How do we know that our contracts meet our users’ needs? We become the first users of our contracts using [BDD](https://jhumelsine.github.io/2024/08/08/bdd.html) and [TDD](https://jhumelsine.github.io/2024/07/15/tdd.html) techniques.
+How do we know that our contracts meet our users’ needs? Using [BDD](https://jhumelsine.github.io/2024/08/08/bdd.html) and [TDD](https://jhumelsine.github.io/2024/07/15/tdd.html) techniques, we act as the first users of our contracts.
 
 We want our contracts to make sense to our users. BDD and TDD techniques allow us to specify contract expectations and obligations in a confirmable executable form. If it’s difficult for you to write tests interacting with your contract, then it will be more difficult for your users. Adjust the contract so that it is easier for your tests and for your users.
 
@@ -120,7 +120,7 @@ This is not a case of testing test doubles. This is a case of emulating the cont
 
 These contract tests may serve an additional function. They can be the basis for future tests against the implementation. Rather than providing test double references for the contracts, provide an actual implementation. Some of the set up in the _Given_ portion of the test and confirmation in the _Then_ portion of the test may need to be updated for the implementation, but the overall scenario should be the same.
 
-__True Confessions:__ I have not written executable tests against my contracts as I advocated above. However, before I learned TDD and BDD I wrote non-executable operational scenarios against my contracts to visualize how they would be used. They became the basis of my tests once I started to implement the code.
+__Personal Note:__ I have not written executable tests against my contracts as I advocated above. However, before I learned TDD and BDD I wrote non-executable operational scenarios against my contracts to visualize how they would be used. They became the basis of my tests once I started to implement the code.
 
 # Summary
 Software development is, at its best, a discipline of communication—between people, between components, and across time. By thinking in terms of contracts, we make that communication explicit. We name what we expect and what we offer in return.
