@@ -65,7 +65,7 @@ Regardless of scope, the principles of a good contract specify the contract’s 
 ## What vs How
 A well-crafted software contract defines __what__ a component does, not __how__ it does it. This distinction is critical: the contract outlines the expected behavior—inputs, outputs, and side effects—while deliberately hiding implementation details. By decoupling the _interface_ from the _implementation_, contracts enable flexibility, testability, and the possibility of multiple solutions that fulfill the same promises. Whether sorting data or retrieving a user record, the contract ensures consistency of outcome, allowing the underlying logic to evolve without breaking client expectations.
 
-This separation is the essence of the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html)
+This separation is the essence of the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html).
 
 # Client Point of View
 <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386924139i/16867.jpg" alt="The Design of Everyday Things" title="Image Source: https://www.goodreads.com/book/show/16867" width = "30%" align="right" style="padding: 35px;">
@@ -85,12 +85,12 @@ If contracts contain a good naming design, then their use within the client code
 
 Ideally your user should not need to read the documentation or comments to use your contract. This won't always be the case, but hopefully your contract names are expressive enough that someone reading code that accesses your contract can understand it in how it's being used. Your documentation and comments won’t appear in client code that references your contract. Ideally, anyone reading the client code should not have to pause and look up your documentation or comments when encountering your contract elements when embedded within the production code to understand it.
 
-Without care, a contract tends to reflect what was implemented rather than what the client wants or needs. Contracts feel like an afterthought, and that’s one reason why so many of them are difficult to use. Worse yet they leak implementation details, known as a [Leaky Abstraction](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html#leaky-abstraction).
+Without care, a contract tends to reflect what was implemented rather than what the client wants or needs. Contracts feel like an afterthought, and that’s one reason why so many of them are difficult to use. Worse yet they may leak implementation details, known as a [Leaky Abstraction](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html#leaky-abstraction).
 
 Here are some elements of a good contract:
 * It is designed from the user’s point of view to support their intent.
 * Its elements form a cohesive whole. Add something, and it’s out of place. Remove something, and the remaining elements fall apart.
-* It observes the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment), a principle stating that software should behave in a way users intuitively expect. That is, no surprises or astonishment when its actual behavior is understood.
+* It observes the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment), a principle stating that software should behave in a way users intuitively expect. That is, no surprises or _astonishment_ when its actual behavior is understood.
 * It prefers Value Objects over Primitives:
     * [Primitive Obsession](https://sourcemaking.com/refactoring/smells/primitive-obsession)
     * [Value Object](https://en.wikipedia.org/wiki/Value_object)
@@ -106,7 +106,7 @@ How do we know that our contracts meet our users’ needs? Using [BDD](https://j
 
 We want our contracts to make sense to our users. BDD and TDD techniques allow us to specify contract expectations and obligations in a confirmable executable form. If it’s difficult for you to write tests interacting with your contract, then it will be more difficult for your users. Adjust the contract so that it is easier for your tests and for your users.
 
-Traditionally BDD and TDD confirm behavior within code, but this case is a bit different. There is no code associated with a contract. A contract only specifies Obligations and Expectations. It doesn't implement them. This also allows you to define the contract before implementation details influence it.
+Traditionally BDD and TDD confirm behavior within code, but this case is a bit different. There is no code associated with a contract. A contract only specifies Obligations and Expectations. It doesn't implement them. This also allows you to define the contract before implementation details may influence it.
 
 Since contracts do not depend upon their implementations, contract specification tests will tend to be _higher_ tests, possibly Acceptance Tests (AT) (Blog TBD). While ATs still follow the principles of BDD and TDD, they may feel more like complete user scenarios. This can be useful to get a better understanding of how the user may interact with the contract rather than being concerned about the implementation of the contract.
 
