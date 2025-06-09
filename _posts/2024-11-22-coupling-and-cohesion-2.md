@@ -116,7 +116,7 @@ Once I redesigned the code, using the [Template Method Design Pattern](https://j
 # Contracts
 We cannot avoid coupling, in fact we need it. But we want to keep coupling loose. How can we manage that?
 
-A __contract__ declares behavior without defining how that behavior will be implemented. It should also declare the expectations and obligations of both the supplier and consumer of that behavior. Interfaces and APIs are types of contracts.
+A [__contract__](https://jhumelsine.github.io/2025/06/10/contracts.html) declares behavior without defining how that behavior will be implemented. It should also declare the expectations and obligations of both the supplier and consumer of that behavior. Interfaces and APIs are types of contracts.
 
 Many modern software practices, such as [Design Patterns](https://jhumelsine.github.io/2023/08/24/its-your-move.html), [Hexagonal Architecture/Ports & Adapters](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html), focus upon contracts. The first [Design Pattern Principle](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html) addresses this with: __Program to an interface, not an implementation__.
 
