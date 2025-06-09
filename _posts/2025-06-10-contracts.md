@@ -1,7 +1,6 @@
 ---
-title: DRAFT – Software Contracts
+title: Software Contracts
 description: Specifying the obligations and expectations between client and provider
-unlisted: true
 ---
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Sales_contract_Shuruppak_Louvre_AO3766.jpg/953px-Sales_contract_Shuruppak_Louvre_AO3766.jpg" alt="Sumerian Cuneiform Contract" title="Image Source: https://en.wikipedia.org/wiki/File:Sales_contract_Shuruppak_Louvre_AO3766.jpg" width = "50%" align="center" style="padding: 35px;">
 
@@ -70,12 +69,12 @@ This separation is the essence of the [Strategy Design Pattern](https://jhumelsi
 # Client Point of View
 <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386924139i/16867.jpg" alt="The Design of Everyday Things" title="Image Source: https://www.goodreads.com/book/show/16867" width = "30%" align="right" style="padding: 35px;">
 
-Cognitive scientist [Donald Norman](https://en.wikipedia.org/wiki/Don_Norman) is one of the pioneers of [User Centered Design](https://en.wikipedia.org/wiki/User-centered_design). He developed a theory that focuses upon the user’s experience. He applied this to everyday objects, in his book, [_The Design of Everyday Things_](https://en.wikipedia.org/wiki/The_Design_of_Everyday_Things), but the concepts apply to software contract too. Doors are one of his primary examples, which have been coined [Norman Doors](https://99percentinvisible.org/article/norman-doors-dont-know-whether-push-pull-blame-design/).
+Cognitive scientist [Donald Norman](https://en.wikipedia.org/wiki/Don_Norman) is one of the pioneers of [User Centered Design](https://en.wikipedia.org/wiki/User-centered_design). He developed a theory that focuses upon the user’s experience. He applied this to everyday objects in his book, [_The Design of Everyday Things_](https://en.wikipedia.org/wiki/The_Design_of_Everyday_Things), but the concepts apply to software contract too. Doors are one of his primary examples, which have been coined [Norman Doors](https://99percentinvisible.org/article/norman-doors-dont-know-whether-push-pull-blame-design/).
 
 Opening a door should be obvious, but that’s not always the case:
 >_When a device as simple as a door has to come with an instruction manual—even a one-word manual—then it is a failure, poorly designed._ — [Donald Norman](https://www.azquotes.com/quote/802024)
 
-Norman described situations where the door designer hid all visible clues to operate doors for aesthetic purposes. Users would stand in front of these doors bewildered by how to open them.
+Norman described scenarios where the door designer hid all visible clues to operate doors for aesthetic purposes. Users would stand in front of these doors bewildered by how to open them.
 
 I can identify with this to some degree. My last office location, [Bellworks](https://bell.works/new-jersey/explore/), which interestingly enough is the filming location for the exteriors for [Lumon Industries](https://lumon.industries/) in the TV show [_Severance_](https://en.wikipedia.org/wiki/Severance_(TV_series)), had Norman doors. All doors were glass with a meter long vertical bar attached on one side. All doors looked alike; some were push, some were pull and some were slide. I eventually memorized which door did what through trial and error. But sometimes I’d absent mindedly forget. I’d push, then pull, and finally slide.
 
@@ -83,9 +82,9 @@ Well-designed things scream how they are intended to be used. Contracts should b
 
 If contracts contain a good naming design, then their use within the client code should feel natural. That is, it should feel like the contract was designed specifically for the client’s domain. The class, methods and parameters of a contract should be self-explanatory.
 
-Ideally your user should not need to read the documentation or comments to use your contract. This won't always be the case, but hopefully your contract names are expressive enough that someone reading code that accesses your contract can understand it in how it's being used. Documentation and comments won’t appear in client code that references your contract. Ideally, anyone reading the client code should not have to pause and look up your documentation or comments when encountering your referended contract elements within the production code to understand it.
+Ideally your user should not need to read the documentation or comments to use your contract. This won't always be the case, but hopefully your contract names are expressive enough that someone reading code that accesses your contract can understand it in how it's being used. Contract documentation and comments won’t appear in client code that references the contract. Ideally, anyone reading the client code should not have to pause and look up contract documentation or comments when encountering contract elements in how it's being referenced.
 
-Without care, a contract tends to reflect what was implemented rather than what the client wants or needs. Contracts feel like an afterthought, and that’s one reason why so many of them are difficult to use. Worse yet they may leak implementation details, known as a [Leaky Abstraction](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html#leaky-abstraction).
+Without care, a contract tends to reflect what was implemented rather than what the client wants or needs. Contracts like these feel like an afterthought, and that’s one reason why so many of them are difficult to use. Worse yet they may leak implementation details, known as a [Leaky Abstraction](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html#leaky-abstraction).
 
 Here are some elements of a good contract:
 * It is designed from the user’s point of view to support their intent.
