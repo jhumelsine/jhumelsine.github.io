@@ -56,7 +56,7 @@ Each design requires a different level of detail. Each designer will use their o
 
 I often start with pen and paper to jot down domain elements and their __IS-A__/__HAS-A__ relationships. I tend to create several hand drawn diagrams. Quite often I’ll spot issues in the current diagram before I’ve even finished it. I’ll complete the diagram and then I’ll grab a blank sheet of paper and start a fresh one making any necessary adjustments.
 
-Each iteration gives me time to think. I’ll add more detail in each iteration. I’ll add contract methods to interfaces. I may add implementation ideas and even code snippets for a few classes.
+Each iteration gives me time to think. I’ll add more detail in each iteration. I’ll add [contract](https://jhumelsine.github.io/2025/06/10/contracts.html) methods to interfaces. I may add implementation ideas and even code snippets for a few classes.
 
 I usually don’t include administrative details, such as constructors or accessor methods. I usually don’t include attributes, since UML relationship lines tend to indicate the important ones. I usually don’t include private methods, mostly because I consider them implementation details more than design details.
 
