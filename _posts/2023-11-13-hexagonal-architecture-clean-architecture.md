@@ -142,7 +142,7 @@ The OrderPlacementDetails is a response data class, which could contain informat
 * TrackingInformation
 * EstimatedDeliveryDate
 
-These bulleted items would probably be Entities. I prefer a name more along the lines of _Domain Business Objects_, since these tend to be domain concepts. I prefer domain element types over primitive types, such as `int`, `String`, etc. This is a topic for another blog entry (TBD), so I won’t go into full detail here. But here's a quick summary. I prefer to keep primitive types out of interface contracts unless the contract element is truly a primitive type within the domain. I’ve seen too many methods that use primitive types when they should have considered the domain concept. There’s even a code smell using too many primitive types: _Primitive Obsession_:
+These bulleted items would probably be Entities. I prefer a name more along the lines of _Domain Business Objects_, since these tend to be domain concepts. I prefer domain element types over primitive types, such as `int`, `String`, etc. This is a topic for another blog entry (TBD), so I won’t go into full detail here. But here's a quick summary. I prefer to keep primitive types out of interface [contracts](https://jhumelsine.github.io/2025/06/10/contracts.html) unless the contract element is truly a primitive type within the domain. I’ve seen too many methods that use primitive types when they should have considered the domain concept. There’s even a code smell using too many primitive types: _Primitive Obsession_:
 * [Primitive Obsession on SourceMaking](https://sourcemaking.com/refactoring/smells/primitive-obsession)
 * [Primitive Obsession on Refactoring.guru](https://refactoring.guru/smells/primitive-obsession)
 
