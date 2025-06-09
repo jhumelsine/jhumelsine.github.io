@@ -109,7 +109,7 @@ And here’s how I could test the Exception case. I would not have needed to cha
  
 There’s a lot in both diagrams. I need to clarify some details.
 ## `MyInterface` and `ClientApplication`
-`MyInterface` is the same in all these diagrams in this blog. It's an interface contract. It has no external knowledge of how it's used or how it's implemented.
+`MyInterface` is the same in all these diagrams in this blog. It's an interface [contract](https://jhumelsine.github.io/2025/06/10/contracts.html). It has no external knowledge of how it's used or how it's implemented.
 
 `ClientApplication` is almost the same. The only difference is that the object reference to `MyInterface` is injected into it via a constructor argument/parameter. This breaks the dependency that `ClientApplication` had upon `MyClass` and `MyTestDouble` in the previous diagrams. Now, it only depends upon `MyInterface`. `ClientApplication` will rarely change in subsequent diagrams.
 
