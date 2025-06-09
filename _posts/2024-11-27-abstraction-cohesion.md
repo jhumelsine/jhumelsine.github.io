@@ -61,7 +61,7 @@ Do you see what I mean about __Abstract Factory__ being challenging as the first
 
 It's not quite as confusing as it sounds at first blush, but it requires some thought before one reaches understanding. I'll layer in the concepts a few at a time.
 
-Let’s start with the __Abstract Factory__ interface that's needed for the `Launcher`/`Projectile` pair. `WeaponsSystem` is the __Abstract Factory__ in this example. It declares two methods that virtually create a `Launcher` and a `Projectile`. That is, these two methods declare an abstract contract to create references for these abstractions, but they don't create the concrete instances themselves.
+Let’s start with the __Abstract Factory__ interface that's needed for the `Launcher`/`Projectile` pair. `WeaponsSystem` is the __Abstract Factory__ in this example. It declares two methods that virtually create a `Launcher` and a `Projectile`. That is, these two methods declare an abstract [contract](https://jhumelsine.github.io/2025/06/10/contracts.html) to create references for these abstractions, but they don't create the concrete instances themselves.
  
 <img src="/assets/AbstractCohesion2.png" alt="Abstract of Abstract Factory"  width = "80%" align="center" style="padding-right: 35px;">
 
