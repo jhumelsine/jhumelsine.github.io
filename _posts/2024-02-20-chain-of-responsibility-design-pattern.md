@@ -96,7 +96,7 @@ It’s also possible that no object in the linked list can complete the request.
 
 ## GoF Chain of Responsibility
 Here’s a summary of the GoF’s CoR design:
-* I added a `RequestHandler` interface, which the GoF does not include in their diagram. I prefer an interface contract at the top of the design. In the GoF, their abstract `DelegatingRequestHandler`’s delegating reference is back itself.
+* I added a `RequestHandler` interface, which the GoF does not include in their diagram. I prefer an interface [contract](https://jhumelsine.github.io/2025/06/10/contracts.html) at the top of the design. In the GoF, their abstract `DelegatingRequestHandler`’s delegating reference is back itself.
 * `DelegatingRequestHandler` implements `RequestHandler`’s `handleRequest()` by delegating to its handler reference.
 * The real work resides in the concrete classes that extend `DelegatingRequestHandler`. I’ve provided two as an example. One uses __A__ and the other uses __B__. These are placeholder names for specific request handler mechanisms, which could be caches, databases, etc.
 * Each concrete class determines whether it can handle the request and if so, it handles it. Otherwise, it delegates to the base class `handleRequest()`, which delegates to the next handler in the linked list.
