@@ -8,7 +8,7 @@ description: For when your algorithm is only a skeleton, and you need to put som
 # Strategy and Template Method are the Same, Except When They’re Not
 The Template Method Design pattern continues the themes also found in the [Command](https://jhumelsine.github.io/2023/09/18/command-design-pattern.html) and [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) design patterns. **The primary Object-Oriented (OO) mechanism in all three patterns is polymorphism.** Of the three, Template Method and Strategy are the most closely related. 
 
-Strategy declares a contract, often via an interface, which is wholly implemented within extending classes. Each extending class has complete freedom in how its implementation honors the contract.
+Strategy declares a [contract](https://jhumelsine.github.io/2025/06/10/contracts.html), often via an interface, which is wholly implemented within extending classes. Each extending class has complete freedom in how its implementation honors the contract.
 
 Whereas, Template Method declares a contract, via an abstract base class, which retains some if not most of the implementation that honors the contract. However, it may not have enough specific information for its implementation to complete the contract. Specific information is implemented in extending classes within protected methods declared in the base class as abstract methods. The implementation in the abstract base class accesses the specific extending protected methods via polymorphism by delegating to their abstract protected methods. Different extending classes allow for different behaviors.
 
