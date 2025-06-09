@@ -128,4 +128,4 @@ Software contracts define the boundaries between components, clarify behavior, a
 
 # References
  * [Donald Norman Quotations](https://www.goodreads.com/author/quotes/552.Donald_A_Norman)
-
+ * [The End of Software Versions](https://web.archive.org/web/20230329055636/http://hintjens.com/blog:85) blog post by Pieter Hintjens
