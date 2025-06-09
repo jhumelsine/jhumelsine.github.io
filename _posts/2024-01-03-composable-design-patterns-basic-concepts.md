@@ -28,7 +28,7 @@ The first principle was featured in the [Essential Design Patterns](https://jhum
 I'm sure the GoF chose "favor" for a reason. Do not eschew inheritance but compare it against object composition. Favor object composition, but inheritance is still an option.
 
 ## E Pluribus Unum
-An interface defines contract behavior. We often implement it with a class, which might delegate to other classes as well.
+An interface defines [contract](https://jhumelsine.github.io/2025/06/10/contracts.html) behavior. We often implement it with a class, which might delegate to other classes as well.
 
 But we have another design approach that may be a bit more modular. Consider that we can implement the contract behavior using a group of cohesive objects instantiated from low-level classes where the desired behavior emerges from the interaction of these cohesive objects. No individual object is responsible for the entire behavior and yet all of them are responsible for it collectively.
 
