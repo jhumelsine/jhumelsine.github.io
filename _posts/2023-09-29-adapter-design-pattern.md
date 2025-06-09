@@ -12,7 +12,7 @@ The Adapter Design Pattern is much the same. It tends to be a relatively simple 
 
 Adapter continues the main theme of the [Command](https://jhumelsine.github.io/2023/09/18/command-design-pattern.html), [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) and [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html) design patterns – polymorphism. But Adapter sometimes adds another trick, delegation, or inheritance. Other design patterns use these, but Adapter uses them in a special way.
 
-Adapter is about a change in the contract interface but not a change in behavior.
+Adapter is about a change in the [contract](https://jhumelsine.github.io/2025/06/10/contracts.html) interface but not a change in behavior.
 
 # Structure
 The previous design patterns, mentioned above, contain extending classes but for the most part, they aren’t the main features of those designs. Adapter features the extending classes showing how they use delegation or inheritance to bridge the communication gap.
