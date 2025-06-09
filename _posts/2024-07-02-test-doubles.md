@@ -291,7 +291,7 @@ How do we know that the emulated Test Double behavior accurately represents the 
 
 This feels like a legitimate concern, but I’m going to argue that within the realm of unit testing, it’s not that much of a concern.
 
-The dependency’s behavior should be well a defined contract defined via its interface or public methods. Test Doubles emulating dependency behavior defined via clear and well-defined contracts should not be a major challenge. However, if dependency contracts aren’t clear or well defined, then we have some options:
+The dependency’s behavior should be well a defined [contract](https://jhumelsine.github.io/2025/06/10/contracts.html) defined via its interface or public methods. Test Doubles emulating dependency behavior defined via clear and well-defined contracts should not be a major challenge. However, if dependency contracts aren’t clear or well defined, then we have some options:
 * Contact the dependency provider for clarification
 * Create tests that interact with the dependencies to observe and confirm their behaviors, which we can then emulate in the Test Doubles.
 
