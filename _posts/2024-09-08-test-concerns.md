@@ -19,7 +19,7 @@ Don’t try to tackle too many test cases at the same time. Practice [Test-Drive
 Learning to define behavior via a test before implementing it can take some practice. It may feel awkward at first. Practice the techniques using [Code Katas](https://jhumelsine.github.io/2024/07/15/tdd.html#coding-katas).
 
 # Tests Are Too Hard To Write
-I suspect this is based upon bad experiences of having to write tests for existing code. This can be hard. I’ve experienced it myself when writing tests for legacy code (blog TBD) with which I was not intimately familiar.
+I suspect this is based upon bad experiences of having to write tests for existing code. This can be hard. I’ve experienced it myself when writing tests for [legacy code](https://jhumelsine.github.io/2025/03/24/legacy-code.html) with which I was not intimately familiar.
 
 A test reflects the implementation. If the implementation is complex, ugly, nasty, etc., then the test will be complex, ugly, nasty, etc. Legacy code tends to be complex, ugly, and nasty. If the implementation is clean, then the test will be clean.
 
@@ -91,7 +91,7 @@ Preferring manual testing over automated testing reminds me of this Neal Ford qu
 _Creating tests slow me down, especially when I’m in the flow._
 
 Flow state is definitely fun. I don’t deny that. But I feel there’s more than one way to achieve flow. Once you get comfortable with TDD, then you start to get into the flow once more. The __Red-Green-Refactor__ TDD cycle is constantly adding new code for specified behavior that’s confirmed at the touch of a button.
-And once legacy code (blog TBD) has enough test scaffolding confirming its behavior, then you can fly through refactoring confidently.
+And once [legacy code](https://jhumelsine.github.io/2025/03/24/legacy-code.html) has enough test scaffolding confirming its behavior, then you can fly through refactoring confidently.
 
 I think automated tests made me faster. I didn’t have to pause and contemplate every change to convince myself that it worked. My test suite would do that for me in seconds rather than me having to spend minutes thinking about what I had just updated.
 
@@ -115,7 +115,7 @@ Cooper's presentation is worth watching, but to save you some time, here are his
 * Avoid testing implementation details, test behaviors
 * The trigger to implement a new test is when one implements a new requirement, not an implementation detail
 * Implementation based tests are brittle
-* Test the stable contract public API; it is the first user of that API. Does the API make sense?
+* Test the stable [contract](https://jhumelsine.github.io/2025/06/10/contracts.html) public API; it is the first user of that API. Does the API make sense?
     * Don’t test internals
     * Don’t make everything public to test it
     * Don’t use test doubles to _confirm_ implementation details
