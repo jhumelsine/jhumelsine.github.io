@@ -75,7 +75,7 @@ I think we can. I’m going to add two new types of _tiles_. I’m adding what A
 ## The Port
 Advice to address tight coupling resides in the first design pattern principle: [Program to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation).
 
-The Port is an Interface. I’m going to introduce a third term here too, **Contract**.
+The Port is an Interface. I’m going to introduce a third term here too, [**Contract**](https://jhumelsine.github.io/2025/06/10/contracts.html).
 It’s not just that the Business Logic depends upon an Interface, which is mostly an implementation detail. I’m more interested in the context in which the Business Logic depends upon the Port/Interface.
  
 A Port is a design element with Hexagonal Architecture. An Interface is an implementation detail. The methods declared within it are a Contract. A Contract declares the expectations and obligations of both the user and provider of the methods without indicating implementation details. The Contract should honor the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) and the [Interface Segregation Principle](https://en.wikipedia.org/wiki/Interface_segregation_principle) by being a cohesive set of methods.
