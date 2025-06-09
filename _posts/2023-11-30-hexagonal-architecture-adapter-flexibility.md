@@ -154,7 +154,7 @@ In my view, it should not matter to the Red Hexagon whether its Adapters are con
 
 <img src="/assets/HexArchBehaviorDepth.png" alt="Hexagonal Architecture delegating to another service" width = "90%" align="center" style="padding-right: 35px;">
 
-This diagram features two Red Hexagons for two sets of interface contracts:
+This diagram features two Red Hexagons for two sets of interface [contracts](https://jhumelsine.github.io/2025/06/10/contracts.html):
 * `IPlaceOrders`
 * `IManageInventory`
 
