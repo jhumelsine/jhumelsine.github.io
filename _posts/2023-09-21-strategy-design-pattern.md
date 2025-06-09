@@ -17,7 +17,7 @@ Command’s intent is the objectification of a function so that we can treat it 
 
 Strategy’s intent is a more narrowly scoped contract focused upon what the client application wishes to accomplish. Strategy’s primary concern is to provide a means for the client application to accomplish its goal.
 
-The contract, which is usually implemented as an interface, may consist of multiple cohesive methods. For example, if the contract’s single responsibility is persistence, then there may be four methods to Create, Read, Update and Delete business entities.
+The [contract](https://jhumelsine.github.io/2025/06/10/contracts.html), which is usually implemented as an interface, may consist of multiple cohesive methods. For example, if the contract’s single responsibility is persistence, then there may be four methods to Create, Read, Update and Delete business entities.
 
 # Separation of Concerns and Modularity
 Strategy leverages [Separation of Concerns](https://en.wikipedia.org/wiki/Separation_of_concerns) and [Modularity](https://en.wikipedia.org/wiki/Modular_programming). It separates **what** the client application wishes to accomplish from **how** it will be accomplished.
