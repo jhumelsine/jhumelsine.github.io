@@ -58,7 +58,7 @@ Here’s an example of Factory Method. The Client Application calls the static `
 Factory Class is like Factory Method. The main difference is that the `MyInterfaceFactory` is not part of the `MyInterface` hierarchy. Notice that nothing changes from the Client Application’s point of view.
 The GoF tend to feature the Factory Method technique, but I prefer the Factory Class technique. While it’s still a matter of personal choice, I prefer Factory Class over Factory Method, because:
 * Java doesn’t support multiple inheritance; I don’t want to introduce a base class solely for the purpose of instantiating descendant objects.
-* I prefer the separation of concerns with this design. The interface contract and its concrete implementations are separate from the mechanism that creates the object instances.
+* I prefer the separation of concerns with this design. The interface [contract](https://jhumelsine.github.io/2025/06/10/contracts.html) and its concrete implementations are separate from the mechanism that creates the object instances.
 
 <img src="/assets/FactoryClass.png" alt="Factory Class" width = "90%" align="center" style="padding-right: 20px;">
  
