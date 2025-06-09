@@ -201,7 +201,7 @@ Characterization tests still follow the __Give-When-Then__ structure. We assume 
 Characterization tests tend to depend more upon the implementation than behavior specification tests, since we may not know behavior when we’re writing them. They tend to be more brittle than the behavior specifying characterization tests. However, characterization test coverage provides a safety net providing us confidence to refactor the legacy code. Hopefully the embedded true nature of the code will begin to emerge through refactoring. As more behavior emerges, we can continue to refactor and redesign the legacy code so that it’s more aligned with its behaviors as specified in new or updated tests that will be created during the refactor and redesign phase as well.
 
 # Tests Provide Working Reference Model Documentation for External Dependencies
-APIs for external dependencies can be confusing. The contract behavior of the external dependency may not be obvious in the documentation. There might not even be any documentation.
+APIs for external dependencies can be confusing. The [contract](https://jhumelsine.github.io/2025/06/10/contracts.html) behavior of the external dependency may not be obvious in the documentation. There might not even be any documentation.
 
 Just as we can explore and document legacy code with tests, we can do the same with external dependency APIs in a variation of Consumer-Driven Contract (CDC) Testing (future blog TBD).
 
