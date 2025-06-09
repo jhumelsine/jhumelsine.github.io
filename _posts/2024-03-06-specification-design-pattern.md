@@ -99,7 +99,7 @@ Here’s a UML class diagram for this behavior:
 * The `Client` has a reference to `ContextManager`, which was probably injected into it. If I had more space, I’d have shown an interface for the `ContextManager` and `Client` would have had a reference to the interface probably resolved by a `Configurer`.
 * The `Client` acquires a `Specification` reference. Details coming soon.
 * The `Client` calls `ContextManager`’s `getContextsBy(Specification specification)`, which will return the list of `Context` objects that satisfy the `Specification`. We can view `specification` as an argument being passed in, but I like to think of it as a form of [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html). `ContextManager` depends upon a `Specification` for each method call.
-* `ContextManager` contains a List of `Context` objects. Its method iterates that List and adds a `Context` to the list of `satisfiedContexts` when a `Context` object satisfies the injected `Specification`. The `ContextManager` has no knowledge of or dependency upon the `Specification` implementation. Its only concern is interacting with the contract interface.
+* `ContextManager` contains a List of `Context` objects. Its method iterates that List and adds a `Context` to the list of `satisfiedContexts` when a `Context` object satisfies the injected `Specification`. The `ContextManager` has no knowledge of or dependency upon the `Specification` implementation. Its only concern is interacting with the [contract](https://jhumelsine.github.io/2025/06/10/contracts.html) interface.
 
 <img src="/assets/SpecificationOverview.png" alt="Specification Overview"  width = "90%" align="center" style="padding-right: 35px;">
  
