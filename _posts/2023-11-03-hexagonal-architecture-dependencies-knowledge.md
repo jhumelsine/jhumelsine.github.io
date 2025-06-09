@@ -116,7 +116,7 @@ The Port/Interface/Contract elements are pure Stable/Fixed elements. All arrows 
 ## Adapters and Façades
 [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) and [Façades](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html) are Unstable/Flexible. Their only inward relationship is their creation. Adapters and Façades can be swapped out with ease.
 
-Adapter responsibility is limited to implementing their Contract dependency and delegating it to an External Dependency API. While it may require developer  blood, sweat and tears to understand the External Dependency API, the Adapter implementation is only concerned with the translation between the Contract and the External Dependency API. The implementation should be relatively straightforward once the External Dependency APIs are understood.
+Adapter responsibility is limited to implementing their [Contract](https://jhumelsine.github.io/2025/06/10/contracts.html) dependency and delegating it to an External Dependency API. While it may require developer  blood, sweat and tears to understand the External Dependency API, the Adapter implementation is only concerned with the translation between the Contract and the External Dependency API. The implementation should be relatively straightforward once the External Dependency APIs are understood.
 
 The Contract may require behavior that’s not provided by a single External Dependency API. A Façade manages the transition to multiple External Dependency APIs. Since it has more External Dependencies, Façades will be more likely to change than an Adapter. It will have a larger implementation, but Façades should still not contain any business logic implementations.
 
