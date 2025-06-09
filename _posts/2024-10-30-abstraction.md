@@ -29,7 +29,7 @@ Google’s AI generated this definition for me:
 
 Other online references also focus upon _removing details_. I don’t view ___abstraction___ as _removing details_ as much as I view it as ___moving details___. Those details still exist. Abstraction is about the management of those details.
 
-An _Abstraction_, such as an `interface` in Java, declares __WHAT__ behaviors are provided. That is, an interface is a set of methods that declare __WHAT__ those methods are and do without defining __HOW__ those methods will do them. It’s a contract.
+An _Abstraction_, such as an `interface` in Java, declares __WHAT__ behaviors are provided. That is, an interface is a set of methods that declare __WHAT__ those methods are and do without defining __HOW__ those methods will do them. It’s a [contract](https://jhumelsine.github.io/2025/06/10/contracts.html).
 
 The details, which define __HOW__ the interfaces will be implemented, have been _moved_ to the concrete classes, which implement the interfaces.
 
