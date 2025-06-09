@@ -58,7 +58,7 @@ Here’s a representational sketch of the `ClientConnection` Façade design from
  
 # Isn’t This the Adapter Design Pattern?
 Façade looks very much like the [Adapter Design Pattern](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html).
-Both solve similar problems in that they both allow delegation when the contract interfaces in dependencies don't align with business logic needs.
+Both solve similar problems in that they both allow delegation when the [contract](https://jhumelsine.github.io/2025/06/10/contracts.html) interfaces in dependencies don't align with business logic needs.
 
 **Adapter bridges a communication gap. Façade bridges a complexity gap.**
 
