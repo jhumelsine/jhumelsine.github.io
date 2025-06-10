@@ -60,4 +60,4 @@ This principle wasn’t obvious to me. It took me a while to understand it. It t
 
 Keep these two principles in mind while learning design patterns. It may help in understanding the choices that are made in their designs. I’ll try to point out the principles when presenting patterns in more detail.
 
-For more of my take on Design Patterns, See: [Index of my Design Patterns Blogs](https://jhumelsine.github.io/3000/01/01/preface.html#design-patterns).
+For more of my take on Design Patterns, See: [Index of my Design Patterns Blogs](https://jhumelsine.github.io/3000/01/01/preface.html#design-patterns) and [Essential Design Patterns AI Notebook](https://notebooklm.google.com/notebook/a4db6342-c117-4664-b0ed-1aa79d720db7?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw).
