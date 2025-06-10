@@ -141,6 +141,8 @@ Abstraction is an important concept in software engineering separating __what__ 
 
 However, the right abstraction is not always easy or obvious. Don’t force abstractions too early. It may take a few examples before the abstractions emerge from the domain, design or implementation.
 
+Also take a look at the [Abstraction AI Notebook](https://notebooklm.google.com/notebook/94884f00-c719-471f-87f6-9225b67922be?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw).
+
 This __Abstraction__ series contines with:
 * [What Are Cohesion and Coupling?](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html) - Cohesion and coupling address when things should and should not be too sticky with one another
 * [Coupling and Cohesion – Take 2](https://jhumelsine.github.io/2024/11/22/coupling-and-cohesion-2.html) - Let’s revisit these concepts one more time
