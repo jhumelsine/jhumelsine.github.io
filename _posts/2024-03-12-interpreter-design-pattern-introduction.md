@@ -206,6 +206,8 @@ Once the object tree, as shown above, has been constructed, then Tracks can be p
 # Summary
 Interpreter is a great approach for implementing a Domain-Specific Language. Interpreter is part of the algorithmic process from Domain-Specific Language to Grammar to Design to Implementation.
 
+Also see: [Interpreter Design Pattern AI Notebook](https://notebooklm.google.com/notebook/452441d7-f9d9-4a31-9084-a02621271099?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw).
+
 # References
 There are additional online resources with diagrams and implementations in different programming languages. Here are some free resources:
 * [Wikipedia Interpreter Design Pattern](https://en.wikipedia.org/wiki/Interpreter_pattern)
