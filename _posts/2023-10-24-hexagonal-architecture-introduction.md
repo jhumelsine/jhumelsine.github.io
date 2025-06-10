@@ -72,7 +72,7 @@ HexArch/P&A pulls a lot of ideas together. It’s a structure which can be layer
 And once we see how these different concepts relate to HexArch/P&A, we can see how they relate to each other. For example, Anti-Corruption Layer and [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) are the same concept in two different contexts.
 
 # Summary
-This has been a brief introduction to HexArch/P&A. Hopefully it has whetted your appetite for more. I’ll focus upon different aspects of HexArch/P&A in subsequent blogs posts.
+This has been a brief introduction to HexArch/P&A. Hopefully it has whetted your appetite for more. I’ll focus upon different aspects of HexArch/P&A in subsequent blogs posts. See [Hexagonal Architecture AI Notebook](https://notebooklm.google.com/notebook/224c31b5-fac9-441a-9886-8ed071bf1d52?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw).
 
 If you want to learn more about HexArch/P&A in the interim, please do so with some of the references provided below.
 
