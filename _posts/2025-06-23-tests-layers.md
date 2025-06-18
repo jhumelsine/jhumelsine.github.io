@@ -20,21 +20,23 @@ This was a [contract](https://jhumelsine.github.io/2025/06/10/contracts.html) fa
 
 My [Automated Test Series](https://jhumelsine.github.io/3000/01/01/preface.html#automated-testing) has mostly focused upon Automated ___Unit___ Testing via [Behavior-Driven Development](https://jhumelsine.github.io/2024/08/08/bdd.html) (BDD) and [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) practices.
 
+<img src="https://live.staticflickr.com/3719/9051059498_a84dfa949f_b.jpg" alt="Nut and Bolt" title="Image Source: https://www.flickr.com/photos/tudedude/9051059498" width = "20%" align="right" style="padding: 35px;">
+
 Unit testing is like confirming what stresses a nut and bolt can withstand separately. While this is important, we also need to confirm that the nut and bolt are the same size with the same thread count. If the nut and bolt don’t screw together securely, it doesn’t matter how much stress each can withstand individually. 
 
 Software is the same. Unit tests are myopic. They don’t see the bigger picture. I don’t think that unit testing alone would have identified the units of measure discrepancy in the Mars Orbiter software, since both software teams would have based their unit tests upon the assumption that they were each using the appropriate units of measure. The unit tests for both teams could have passed with flying colors. The discrepancy would have been easily observed when both sets of software were part of the same [Software Under Test](https://en.wikipedia.org/wiki/System_under_test) (SUT) in a test.
 
 # The Bigger Picture
-<img src="https://images.stockcake.com/public/4/8/9/48984547-b30d-40c4-994c-6a04e6fc6278/analyzing-complex-diagram-stockcake.jpg" alt="Analyzing a Complex Diagram" title="Image Source: https://stockcake.com/i/analyzing-complex-diagram_1386954_681864" width = "30%" align="right" style="padding: 35px;">
+<img src="https://images.stockcake.com/public/4/8/9/48984547-b30d-40c4-994c-6a04e6fc6278/analyzing-complex-diagram-stockcake.jpg" alt="Analyzing a Complex Diagram" title="Image Source: https://stockcake.com/i/analyzing-complex-diagram_1386954_681864" width = "40%" align="right" style="padding: 35px;">
  
 Acquiring the bigger picture often requires a tradeoff. Scope and detail are often inversely proportional. If we don’t reduce detail when expanding scope, then the resulting picture becomes so complex that we can’t comprehend it.
 
 Consider online maps. Street view provides many details, but we can only see at most a block or two in any direction. Zoom out, and we can see neighborhoods, which provide a wider view, but at the loss of details. For example, rather than seeing images of the actual buildings, they become rectangles on the neighborhood map. Continue zooming out and we get a wider view of the city, region, country and world, but the details disappear. We quickly lose buildings, local landmarks, smaller roads and even small communities. Each time we zoom out, we see more _scope_, but we also see fewer _details_.
 
 ## Scope vs Detail in Urban Planning
+<img src="https://images.stockcake.com/public/5/4/f/54f8bdb5-84f3-41b8-98b5-41f4d746943c_large/team-analyzing-model-stockcake.jpg" alt="Team Analyzing a City Model" title="Image Source: https://stockcake.com/i/team-analyzing-model_1359011_1134250" width = "40%" align="right" style="padding: 35px;">
+
 Let’s continue the scope/detail tradeoff in urban planning and see how it applies to three different types of civil servants in their roles and responsibilities.
-https://images.stockcake.com/public/5/4/f/54f8bdb5-84f3-41b8-98b5-41f4d746943c_large/team-analyzing-model-stockcake.jpg
-https://stockcake.com/i/team-analyzing-model_1359011_1134250
  
 ### Building Code Inspector
 Building code inspectors make sure that buildings are safe for occupancy. They check that the construction, plumbing, electrical systems, etc. are up to code.
@@ -68,8 +70,8 @@ Different types of tests are often characterized in layers as higher-level, mid-
 Before I dive into test layers, I will describe different tests horizontally via the SUT in each test type.
 
 Consider this design:
-https://source.roboflow.com/RAVs9fdslLftww6gGNs37Usnnlx2/0Ux4Vt6NXOwkdLU5lOwS/original.jpg
-https://universe.roboflow.com/uml-class-diagram-classification/class-diagram-classification
+
+<img src="https://source.roboflow.com/RAVs9fdslLftww6gGNs37Usnnlx2/0Ux4Vt6NXOwkdLU5lOwS/original.jpg" alt="UML Class Design" title="Image Source: https://universe.roboflow.com/uml-class-diagram-classification/class-diagram-classification" width = "60%" align="center" style="padding: 35px;">
   
 ## Narrowly Scoped Unit Tests
 We can design tests narrowly scoped to only one class, such as: `Transaction`, `Session`, `Tutor`, etc. Any dependencies upon other classes would be replaced by emulating [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html).
