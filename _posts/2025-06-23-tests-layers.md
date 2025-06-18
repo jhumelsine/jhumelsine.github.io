@@ -20,7 +20,7 @@ This was a [contract](https://jhumelsine.github.io/2025/06/10/contracts.html) fa
 
 My [Automated Test Series](https://jhumelsine.github.io/3000/01/01/preface.html#automated-testing) has mostly focused upon Automated ___Unit___ Testing via [Behavior-Driven Development](https://jhumelsine.github.io/2024/08/08/bdd.html) (BDD) and [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) practices.
 
-<img src="https://live.staticflickr.com/3719/9051059498_a84dfa949f_b.jpg" alt="Nut and Bolt" title="Image Source: https://www.flickr.com/photos/tudedude/9051059498" width = "20%" align="right" style="padding: 35px;">
+<img src="https://live.staticflickr.com/3719/9051059498_a84dfa949f_b.jpg" alt="Nut and Bolt" title="Image Source: https://www.flickr.com/photos/tudedude/9051059498" width = "25%" align="right" style="padding: 35px;">
 
 Unit testing is like confirming what stresses a nut and bolt can withstand separately. While this is important, we also need to confirm that the nut and bolt are the same size with the same thread count. If the nut and bolt don’t screw together securely, it doesn’t matter how much stress each can withstand individually. 
 
@@ -79,6 +79,7 @@ We can design tests narrowly scoped to only one class, such as: `Transaction`, `
 These tests specify and confirm the behavior of the class, which includes not just the expected scenarios, but the edge cases too. These tests stress our code. We don’t write tests to _prove_ that the code works. We write these tests as experiments to try to break our code. The more test stress our code withstands, the greater confidence we gain in our code. This quote, featured in [Test are Experiments](https://jhumelsine.github.io/2024/08/30/test-benefits.html#tests-are-experiments), describes it well:
 
 _Tests don't break your code; they break your illusions about the quality of that code._ — [Maaret Pyhäjärvi](https://www.pinterest.com/pin/597149231821381509/).
+
 These tests are generally considered __Unit Tests__. Using a previous analogy, each class is like a nut or bolt in the system.
 
 ## Moderately Scoped Integration Tests
@@ -97,7 +98,11 @@ These tests are generally considered __System Tests__, since they confirm the en
 
 These tests are sometimes called __End-to-End Tests__ (E2E).
 
-__NOTE:__ Replacing a system’s nuts and bolts with welded joints actually happened as described in this [99% Invisible Episode: Structural Integrity](https://99percentinvisible.org/episode/structural-integrity/) ([Transcript](https://99percentinvisible.org/episode/structural-integrity/transcript/)). An undergraduate student’s stress analysis class assignment on the recently constructed Citicorp building in New York City revealed there was a 1-in-16 chance of the building collapsing when subjected to hurricane force winds directed upon its corners. For three months in the late 1970s, workers clandestinely replaced the nuts and bolts with welded joints during the evening hours so that the unaware office workers would not know of the potential danger of their building.
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Citigroup_Center_%281977%29_%28A._Moore%29_with_frame_-_agr_ink2.png" alt="Citicorp Building" title="Image Source: https://commons.wikimedia.org/wiki/File:Citigroup_Center_%281977%29_%28A._Moore%29_with_frame_-_agr_ink2.png" width = "20%" align="right" style="padding: 35px;">
+
+__NOTE:__ Replacing a system’s nuts and bolts with welded joints actually happened as described in this [99% Invisible Episode: Structural Integrity](https://99percentinvisible.org/episode/structural-integrity/)/[Transcript](https://99percentinvisible.org/episode/structural-integrity/transcript/).
+
+An architectural engineering undergraduate student’s class assignment was a stress analysis on the recently constructed Citicorp building in New York City, which  revealed a 1-in-16 chance of the building collapsing when subjected to hurricane force winds directed upon its corners. For three months in the late 1970s, workers clandestinely replaced the nuts and bolts with welded joints during the evening hours so that the unaware office workers would not know of the potential danger of their building.
 
 # Testing Layers
 Though System, Integration/Acceptance and Unit Tests are defined by the horizontal Software Under Test enclosed within them, they are almost always described vertically with System Tests being on the top, Integration/Acceptance Tests in the middle and Unit Tests at the bottom.
@@ -125,8 +130,7 @@ Each test layer is tactical. Let’s examine several test strategies that favor 
 Test tactics define test layers, each of which has different attributes. Should we use a strategy that focuses upon one more than another?
 
 ## Snow Cone Test Strategy
-https://openclipart.org/download/282183/Shaved-Ice.svg
-https://openclipart.org/detail/282183/hawaiian-shaved-ice
+<img src="https://openclipart.org/download/282183/Shaved-Ice.svg" alt="Snow Cone" title="Image Source: https://openclipart.org/detail/282183/hawaiian-shaved-ice" width = "30%" align="right" style="padding: 35px;">
  
 This was the test strategy for most of my career. There’s an emphasis upon System Testing, as represented by the broad top of the snow cone. There are fewer Integration Tests in the narrow middle and even fewer Unit Tests at the almost non-existent bottom.
 
@@ -153,8 +157,7 @@ The feedback loop to developers took longer. It could take several days before Q
 Automated System Testing frameworks are becoming more prevalent, but they can still be brittle when they depend upon the UI.
 
 ## Pyramid Test Strategy
-https://www.worldhistory.org/Great_Pyramid_of_Giza/ 
-https://www.worldhistory.org/img/r/p/1000x1200/12087.gif?v=1749834365
+<img src="https://www.worldhistory.org/img/r/p/1000x1200/12087.gif" alt="Egyptian Pyramid" title="Image Source: https://www.worldhistory.org/Great_Pyramid_of_Giza/" width = "30%" align="right" style="padding: 35px;">
  
 The [Pyramid Test Strategy](https://martinfowler.com/bliki/TestPyramid.html) flips the Snow Cone Test Strategy. In Pyramid Testing, there are many Unit Tests at the bottom, representing the base of the pyramid, with fewer Integration/Acceptance Tests representing the middle of the pyramid and finally the fewest System Tests at the apex.
 
@@ -169,10 +172,9 @@ Since there’s more emphasis on the lower-level tests than the mid-level tests,
 Since tests specify behavior with a class, any refactoring or redesign that affects classes will tend to affect tests. When implementation is moved among classes, then the tests that defined those behaviors will probably need to be moved as well.
 
 ## Test Trophy
-https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Covered_cup%2C_Paul_de_Lamerie%2C_1737_-_Nelson-Atkins_Museum_of_Art_-_DSC08875.JPG/960px-Covered_cup%2C_Paul_de_Lamerie%2C_1737_-_Nelson-Atkins_Museum_of_Art_-_DSC08875.JPG
-https://commons.wikimedia.org/wiki/File:Covered_cup,_Paul_de_Lamerie,_1737_-_Nelson-Atkins_Museum_of_Art_-_DSC08875.JPG
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Covered_cup%2C_Paul_de_Lamerie%2C_1737_-_Nelson-Atkins_Museum_of_Art_-_DSC08875.JPG/960px-Covered_cup%2C_Paul_de_Lamerie%2C_1737_-_Nelson-Atkins_Museum_of_Art_-_DSC08875.JPG" alt="Trophy Cup" title="Image Source: https://commons.wikimedia.org/wiki/File:Covered_cup,_Paul_de_Lamerie,_1737_-_Nelson-Atkins_Museum_of_Art_-_DSC08875.JPG" width = "20%" align="right" style="padding: 35px;">
  
-The [Trophy Test Strategy](https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications) focuses upon Integration/Acceptance Tests. This is represented in the silhouette of Trophy with few System Tests at the top, most tests in the middle with Integration/Acceptance Tests and a few Unit Tests underneath. The Trophy Test Strategy also includes pedestal, which represents Static Analysis Tests, which are linters that check the implementation for coding standards and practices. The other test strategies tend to include them as well, but they don’t tend to show up in their definitions.
+The [Trophy Test Strategy](https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications) focuses upon Integration/Acceptance Tests. This is represented in the silhouette of Trophy Cup with few System Tests at the top, most tests in the middle with Integration/Acceptance Tests and a few Unit Tests underneath. The Trophy Test Strategy also includes pedestal, which represents Static Analysis Tests, which are linters that check the implementation for coding standards and practices. The other test strategies tend to include them as well, but they don’t tend to show up in their definitions.
 
 ### Pros
 The theory behind the Trophy Test Strategy is that we want to focus upon customer and user desired behaviors, which would be defined in Acceptance Tests. The customer doesn’t care about the software elements. The customer only cares about the features they will be using, and Acceptance Tests describe the scenarios for those features.
