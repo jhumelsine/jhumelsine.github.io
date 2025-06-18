@@ -16,19 +16,17 @@ This failure cost 286 days of mission time and $327.6 million.
 The discrepancy had previously been noticed, but the warning was not heeded:
 >_The discrepancy between calculated and measured position, resulting in the discrepancy between desired and actual orbit insertion altitude, had been noticed earlier by at least two navigators, whose concerns were dismissed because they "did not follow the rules about filling out [the] form to document their concerns"._
 
-This was a [contract](https://jhumelsine.github.io/2025/06/10/contracts.html) failure. The two teams had either been given two different contract definitions, or they had different interpretations or assumptions of the same contract.
-
 Though this seems like a simple measurement mismatch, at its root it was a __[contract](https://jhumelsine.github.io/2025/06/10/contracts.html) verification failure__—a failure to validate shared expectations between two systems. This is exactly the kind of failure that well-layered software testing can help uncover.
 
 Whether you’re a junior developer just beginning to explore automated testing or a senior engineer refining your team’s quality strategy, understanding layered tests can help avoid the kind of systemic failures seen in stories like the Mars Climate Orbiter.
 
-My [Automated Test Series](https://jhumelsine.github.io/3000/01/01/preface.html#automated-testing) has mostly focused upon Automated ___"Unit"___ Testing via [Behavior-Driven Development](https://jhumelsine.github.io/2024/08/08/bdd.html) (BDD) and [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) practices.
-
-<img src="https://live.staticflickr.com/3719/9051059498_a84dfa949f_b.jpg" alt="Nut and Bolt" title="Image Source: https://www.flickr.com/photos/tudedude/9051059498" width = "25%" align="right" style="padding: 35px;">
+My [Automated Test Series](https://jhumelsine.github.io/3000/01/01/preface.html#automated-testing) has mostly focused upon Automated ___"Unit"___ Testing via [Behavior-Driven Development](https://jhumelsine.github.io/2024/08/08/bdd.html) (BDD) and [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) practices, but Unit Testing may not be sufficient.
 
 ## Why Unit Tests Aren’t Enough
 
 ### Nut and Bolt Thinking: Strong, but Incomplete
+<img src="https://live.staticflickr.com/3719/9051059498_a84dfa949f_b.jpg" alt="Nut and Bolt" title="Image Source: https://www.flickr.com/photos/tudedude/9051059498" width = "25%" align="right" style="padding: 35px;">
+
 Unit testing is like confirming what stresses a nut and bolt can withstand separately. While this is important, we also need to confirm that the nut and bolt are the same size with the same thread count. If the nut and bolt don’t screw together securely, it doesn’t matter how much stress each can withstand individually. 
 
 ### What Unit Tests Miss: Assumptions Left Unchallenged
@@ -37,7 +35,6 @@ Software is the same. Unit tests are myopic. They don’t see the bigger picture
 # Zooming Out: Scope vs. Detail in Testing
 <img src="https://images.stockcake.com/public/4/8/9/48984547-b30d-40c4-994c-6a04e6fc6278/analyzing-complex-diagram-stockcake.jpg" alt="Analyzing a Complex Diagram" title="Image Source: https://stockcake.com/i/analyzing-complex-diagram_1386954_681864" width = "40%" align="right" style="padding: 35px;">
 
-## Online Maps: Seeing the Forest or the Trees
 Acquiring the bigger picture often requires a tradeoff. Scope and detail are often inversely proportional. If we don’t reduce detail when expanding scope, then the resulting picture becomes so complex that we can’t comprehend it. We can't see the forest for the trees.
 
 Consider online maps. Street view provides many details, but we can only see at most a block or two in any direction. Zoom out, and we can see neighborhoods, which provide a wider view, but at the loss of details. For example, rather than seeing images of the actual buildings, they become geometric shapes on the neighborhood map. Continue zooming out and we get a wider view of the city, region, country and world, but details disappear. We quickly lose buildings, local landmarks, smaller roads and even small communities. Each time we zoom out, we see more _scope_, but we also see fewer _details_.
@@ -111,12 +108,12 @@ These tests are sometimes called __End-to-End Tests__ (E2E).
 
 __NOTE:__ Replacing a system’s nuts and bolts with welded joints actually happened as described in this [99% Invisible Episode: Structural Integrity](https://99percentinvisible.org/episode/structural-integrity/)/[Transcript](https://99percentinvisible.org/episode/structural-integrity/transcript/).
 
-An architectural engineering undergraduate student’s class assignment was analyze the stresses on the recently constructed Citicorp building in New York City. The analysis revealed a 1-in-16 chance of the building collapsing when subjected to hurricane force winds directed upon its corners. For three months in the late 1970s, workers clandestinely replaced the nuts and bolts with welded joints during the overnight hours so that the unaware office workers would not know of the potential danger of their building during their daytime working hours.
+An architectural engineering undergraduate student’s class assignment was to analyze the stresses on the recently constructed Citicorp building in New York City. The analysis revealed a 1-in-16 chance of the building collapsing when subjected to hurricane force winds directed upon its corners. For three months in the late 1970s, workers clandestinely replaced the nuts and bolts with welded joints during the overnight hours so that the unaware office workers would not know of the potential danger of their building during their daytime working hours.
 
 # Layer Metaphors: Why Top and Bottom Matter
 Though System, Integration/Acceptance and Unit Tests are scoped by the horizontal Software Under Test enclosed within them, they are almost always described vertically with System Tests being on the top, Integration/Acceptance Tests in the middle and Unit Tests at the bottom.
 
-There is not always a clear boundary between these layers. It can be a bit fuzzy. A limited behavior-specifying test might involve several classes. Some people might consider it a Unit Test, since it's limited behavior, and others might consider it an Integration Test, since it involves several classes. It really doesn’t matter. All automated tests should specify and confirm behavior using the same [__Give/When/Then__](https://en.wikipedia.org/wiki/Given-When-Then) structure.
+There is not always a clear boundary between these layers. It can be a bit fuzzy. A limited behavior-specifying test might involve several classes. Some people might consider it a Unit Test, since it specifies limited behavior. Others might consider it an Integration Test, since it involves several classes. It really doesn’t matter. All automated tests should specify and confirm behavior using the same [__Give/When/Then__](https://en.wikipedia.org/wiki/Given-When-Then) structure.
 
 The major distinction between test layers is how much of the actual system is under test. While this doesn’t sound like much of a distinction, it creates subtle differences among the testing layers:
 * Lower-level tests tend to take less time to create than higher-level tests.
