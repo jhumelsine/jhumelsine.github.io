@@ -3,13 +3,11 @@ title: DRAFT – Test Layers
 description: How test layers confirm the behaviors of software components individually, in parts and as a whole
 unlisted: true
 ---
-https://source.roboflow.com/kk1Hdft7wVQdgzDnKUUoLMVChFF2/0L43HuS9JwwD6NkGOp1m/original.jpg
-https://universe.roboflow.com/screw-and-nut-classification/nut-and-bolt-corrosion-4cm1a
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Bolt_and_nut%2C_annotated.jpg" alt="Nut and Bolt Mismatch" title="Image Source: https://commons.wikimedia.org/wiki/File:Bolt_and_nut,_annotated.jpg" width = "50%" align="center" style="padding: 35px;">
 
 # Introduction
-https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Mars_Climate_Orbiter_2.jpg/1024px-Mars_Climate_Orbiter_2.jpg 
-https://en.wikipedia.org/wiki/Mars_Climate_Orbiter#/media/File:Mars_Climate_Orbiter_2.jpg 
-By NASA/JPL/Corby Waste - http://www.vitalstatistics.info/uploads/mars%20climate%20orbiter.jpg (see also http://www.jpl.nasa.gov/pictures/solar/mcoartist.html), Public Domain, https://commons.wikimedia.org/w/index.php?curid=390903
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Mars_Climate_Orbiter_2.jpg/1024px-Mars_Climate_Orbiter_2.jpg" alt="Mars Climate Orbiter" title="Image Source: By NASA/JPL/Corby Waste - http://www.vitalstatistics.info/uploads/mars%20climate%20orbiter.jpg (see also http://www.jpl.nasa.gov/pictures/solar/mcoartist.html), Public Domain, https://commons.wikimedia.org/w/index.php?curid=390903" width = "40%" align="right" style="padding: 35px;">
  
 On September 23, 1999 NASA lost contact the [Mars Climate Orbiter](https://en.wikipedia.org/wiki/Mars_Climate_Orbiter) as it was establishing its orbit around Mars. The [cause of failure](https://en.wikipedia.org/wiki/Mars_Climate_Orbiter#Cause_of_failure) was Lockheed Martin's ground control software using the imperial measuring system; whereas, NASA's orbital software was using the metric measuring system. Ground control was sending thruster firing instructions in pound-force seconds, but the orbiter was interpreting them in newton seconds.
 
@@ -27,8 +25,7 @@ Unit testing is like confirming what stresses a nut and bolt can withstand separ
 Software is the same. Unit tests are myopic. They don’t see the bigger picture. I don’t think that unit testing alone would have identified the units of measure discrepancy in the Mars Orbiter software, since both software teams would have based their unit tests upon the assumption that they were each using the appropriate units of measure. The unit tests for both teams could have passed with flying colors. The discrepancy would have been easily observed when both sets of software were part of the same [Software Under Test](https://en.wikipedia.org/wiki/System_under_test) (SUT) in a test.
 
 # The Bigger Picture
-https://images.stockcake.com/public/4/8/9/48984547-b30d-40c4-994c-6a04e6fc6278/analyzing-complex-diagram-stockcake.jpg 
-https://stockcake.com/i/analyzing-complex-diagram_1386954_681864
+<img src="https://images.stockcake.com/public/4/8/9/48984547-b30d-40c4-994c-6a04e6fc6278/analyzing-complex-diagram-stockcake.jpg" alt="Analyzing a Complex Diagram" title="Image Source: https://stockcake.com/i/analyzing-complex-diagram_1386954_681864" width = "30%" align="right" style="padding: 35px;">
  
 Acquiring the bigger picture often requires a tradeoff. Scope and detail are often inversely proportional. If we don’t reduce detail when expanding scope, then the resulting picture becomes so complex that we can’t comprehend it.
 
