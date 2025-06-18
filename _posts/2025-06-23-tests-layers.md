@@ -1,12 +1,12 @@
 ---
 title: DRAFT – Test Layers
-description: How test layers confirm the behaviors of software components individually, in parts and as a whole
+description: Building Confidence at Every Level of Your Codebase
 unlisted: true
 ---
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Bolt_and_nut%2C_annotated.jpg" alt="Nut and Bolt Mismatch" title="Image Source: https://commons.wikimedia.org/wiki/File:Bolt_and_nut,_annotated.jpg" width = "50%" align="center" style="padding: 35px;">
 
-# Introduction
+# A Lesson from Mars: When Testing Breaks Down
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Mars_Climate_Orbiter_2.jpg/1024px-Mars_Climate_Orbiter_2.jpg" alt="Mars Climate Orbiter" title="Image Source: By NASA/JPL/Corby Waste - http://www.vitalstatistics.info/uploads/mars%20climate%20orbiter.jpg (see also http://www.jpl.nasa.gov/pictures/solar/mcoartist.html), Public Domain, https://commons.wikimedia.org/w/index.php?curid=390903" width = "40%" align="right" style="padding: 35px;">
  
 On September 23, 1999 NASA lost contact the [Mars Climate Orbiter](https://en.wikipedia.org/wiki/Mars_Climate_Orbiter) as it was establishing its orbit around Mars. The [cause of failure](https://en.wikipedia.org/wiki/Mars_Climate_Orbiter#Cause_of_failure) was Lockheed Martin's ground control software using the imperial measuring system; whereas, NASA's orbital software was using the metric measuring system. Ground control was sending thruster firing instructions as pound-force seconds, but the orbiter was expecting them as newton-seconds.
@@ -18,22 +18,31 @@ The discrepancy had previously been noticed, but the warning was not heeded:
 
 This was a [contract](https://jhumelsine.github.io/2025/06/10/contracts.html) failure. The two teams had either been given two different contract definitions, or they had different interpretations or assumptions of the same contract.
 
+Though this seems like a simple measurement mismatch, at its root it was a __[contract](https://jhumelsine.github.io/2025/06/10/contracts.html) verification failure__—a failure to validate shared expectations between two systems. This is exactly the kind of failure that well-layered software testing can help uncover.
+
+Whether you’re a junior developer just beginning to explore automated testing or a senior engineer refining your team’s quality strategy, understanding layered tests can help avoid the kind of systemic failures seen in stories like the Mars Climate Orbiter.
+
 My [Automated Test Series](https://jhumelsine.github.io/3000/01/01/preface.html#automated-testing) has mostly focused upon Automated ___"Unit"___ Testing via [Behavior-Driven Development](https://jhumelsine.github.io/2024/08/08/bdd.html) (BDD) and [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) practices.
 
 <img src="https://live.staticflickr.com/3719/9051059498_a84dfa949f_b.jpg" alt="Nut and Bolt" title="Image Source: https://www.flickr.com/photos/tudedude/9051059498" width = "25%" align="right" style="padding: 35px;">
 
+## Why Unit Tests Aren’t Enough
+
+### Nut and Bolt Thinking: Strong, but Incomplete
 Unit testing is like confirming what stresses a nut and bolt can withstand separately. While this is important, we also need to confirm that the nut and bolt are the same size with the same thread count. If the nut and bolt don’t screw together securely, it doesn’t matter how much stress each can withstand individually. 
 
+### What Unit Tests Miss: Assumptions Left Unchallenged
 Software is the same. Unit tests are myopic. They don’t see the bigger picture. I don’t think that unit testing alone would have identified the units of measure discrepancy in the Mars Orbiter software, since both software teams would have based their unit tests upon the assumption that they were each using the appropriate units of measure. The unit tests for both teams could have passed with flying colors. The discrepancy would have been easily observed when both sets of software were part of the same [Software Under Test](https://en.wikipedia.org/wiki/System_under_test) (SUT) in a test.
 
-# The Bigger Picture
+# Zooming Out: Scope vs. Detail in Testing
 <img src="https://images.stockcake.com/public/4/8/9/48984547-b30d-40c4-994c-6a04e6fc6278/analyzing-complex-diagram-stockcake.jpg" alt="Analyzing a Complex Diagram" title="Image Source: https://stockcake.com/i/analyzing-complex-diagram_1386954_681864" width = "40%" align="right" style="padding: 35px;">
- 
+
+## Online Maps: Seeing the Forest or the Trees
 Acquiring the bigger picture often requires a tradeoff. Scope and detail are often inversely proportional. If we don’t reduce detail when expanding scope, then the resulting picture becomes so complex that we can’t comprehend it. We can't see the forest for the trees.
 
 Consider online maps. Street view provides many details, but we can only see at most a block or two in any direction. Zoom out, and we can see neighborhoods, which provide a wider view, but at the loss of details. For example, rather than seeing images of the actual buildings, they become geometric shapes on the neighborhood map. Continue zooming out and we get a wider view of the city, region, country and world, but details disappear. We quickly lose buildings, local landmarks, smaller roads and even small communities. Each time we zoom out, we see more _scope_, but we also see fewer _details_.
 
-## Scope vs Detail in Urban Planning
+## Urban Planning: Three Roles, Three Perspectives
 <img src="https://images.stockcake.com/public/5/4/f/54f8bdb5-84f3-41b8-98b5-41f4d746943c_large/team-analyzing-model-stockcake.jpg" alt="Team Analyzing a City Model" title="Image Source: https://stockcake.com/i/team-analyzing-model_1359011_1134250" width = "40%" align="right" style="padding: 35px;">
 
 Let’s continue the scope/detail tradeoff with urban planning and see how it applies to three different types of civil servants in their roles and responsibilities.
@@ -61,7 +70,7 @@ The three civil servants are not literally at different elevation levels, but we
 * Utility managers at a middle level focused upon infrastructure of the community
 * Building code inspectors at the lowest level confirming building safety at the smallest details for the community
 
-# Test Tactics
+# From Unit to System: Defining the Test Layers
 Just as the civil servants assess different aspects of the community based upon scope, software testing can assess different aspects of a system based upon the [Software Under Test](https://en.wikipedia.org/wiki/System_under_test) (SUT) that is declared for each test.
 
 ## Software Under Test
@@ -73,7 +82,7 @@ Consider this design:
 
 <img src="https://source.roboflow.com/RAVs9fdslLftww6gGNs37Usnnlx2/0Ux4Vt6NXOwkdLU5lOwS/original.jpg" alt="UML Class Design" title="Image Source: https://universe.roboflow.com/uml-class-diagram-classification/class-diagram-classification" width = "60%" align="center" style="padding: 35px;">
   
-## Narrowly Scoped Unit Tests
+## Unit Tests: Narrow Focus, Deep Confidence
 We can design tests narrowly scoped to only one class, such as: `Transaction`, `Session`, `Tutor`, etc. Any dependencies upon other classes would be replaced by emulating [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html).
 
 These tests specify and confirm the behavior of the class, which includes not just the expected scenarios, but the edge cases too. These tests stress our code. We don’t write tests to _show_ that the code works. We write these tests as experiments to try to break our code. The more test stress our code withstands, the greater confidence we gain in our code. This quote, featured in [Test are Experiments](https://jhumelsine.github.io/2024/08/30/test-benefits.html#tests-are-experiments), describes it well:
@@ -82,16 +91,16 @@ _Tests don't break your code; they break your illusions about the quality of tha
 
 These tests are generally considered __Unit Tests__. Using a previous analogy, each class being tested is like a nut or bolt in the system.
 
-## Moderately Scoped Integration Tests
+## Integration & Acceptance Tests: Confirming Cooperation
 We design tests scoped to the package, such as: `leisure program`, `leisure facility` and `member`. The SUT will include more classes in the design. Any dependencies upon classes in other packages would be replaced by emulating Test Doubles.
 
-These tests specify and confirm the behavior of the package. These tests might describe scenarios similar to the Unit Tests above; however, they focus upon confirming that the classes work together cohesively. These tests don’t cover every nook and cranny in the implementation, since the Unit Tests cover these ases. These tests favor expected scenarios and bypass edge cases. Some edge cases may be too difficult to set up with these tests.
+These tests specify and confirm the behavior of the package. These tests might describe scenarios similar to the Unit Tests above; however, they focus upon confirming that the classes work together cohesively. These tests don’t cover every nook and cranny in the implementation, since the Unit Tests cover these cases. These tests favor expected scenarios and bypass edge cases. Some edge cases may be too difficult to set up with these tests.
 
 These tests are generally considered [__Integration Tests__]( https://en.wikipedia.org/wiki/Integration_testing), since they confirm the integration of components. They would represent screwing the bolt into the nut to ensure they fit.
 
 There’s a subtype of Integration Test: [__Acceptance Tests__](https://en.wikipedia.org/wiki/Acceptance_testing). Acceptance Tests focus upon user specific desired behavior. They derive from [Acceptance Criteria](https://cio-wiki.org/wiki/Acceptance_Criteria), which are artifacts in [User Stories](https://en.wikipedia.org/wiki/User_story). An Acceptance Test isn’t a scenario conceived by a tester or developer. It’s defined by the domain expert.
 
-## Broadly Scoped System Tests
+## System Tests: Seeing the Whole Product
 We design tests scoped to the entire system. Any dependencies would be external to the system. They might be replaced by emulating Test Doubles, or they might be the actual dependency. These tests specify the behavior of the whole system.
 
 These tests are generally considered __System Tests__, since they confirm the entire system. The concept of _nut_ and _bolt_ may no longer apply at this level. These tests are concerned with the entire system regardless of the implementation. If desired, we could replace the nuts and bolts of the system with welded joints, and the System Tests should still pass. These tests are often executed manually, since they may involve the UI. Some test frameworks support UIs, but the tests can still be brittle and break with UI changes.
@@ -104,10 +113,10 @@ __NOTE:__ Replacing a system’s nuts and bolts with welded joints actually happ
 
 An architectural engineering undergraduate student’s class assignment was analyze the stresses on the recently constructed Citicorp building in New York City. The analysis revealed a 1-in-16 chance of the building collapsing when subjected to hurricane force winds directed upon its corners. For three months in the late 1970s, workers clandestinely replaced the nuts and bolts with welded joints during the overnight hours so that the unaware office workers would not know of the potential danger of their building during their daytime working hours.
 
-# Testing Layers
+# Layer Metaphors: Why Top and Bottom Matter
 Though System, Integration/Acceptance and Unit Tests are scoped by the horizontal Software Under Test enclosed within them, they are almost always described vertically with System Tests being on the top, Integration/Acceptance Tests in the middle and Unit Tests at the bottom.
 
-There is not always a clear boundary between these layers. It can be a bit fuzzy. A limited behvior specifying test might involve several classes. Some people might consider it a Unit Test, since it's limited behavior, and others might consider it an Integration Test, since it involves several classes. It really doesn’t matter. All automated tests should specify and confirm behavior using the same [__Give/When/Then__](https://en.wikipedia.org/wiki/Given-When-Then) structure.
+There is not always a clear boundary between these layers. It can be a bit fuzzy. A limited behavior-specifying test might involve several classes. Some people might consider it a Unit Test, since it's limited behavior, and others might consider it an Integration Test, since it involves several classes. It really doesn’t matter. All automated tests should specify and confirm behavior using the same [__Give/When/Then__](https://en.wikipedia.org/wiki/Given-When-Then) structure.
 
 The major distinction between test layers is how much of the actual system is under test. While this doesn’t sound like much of a distinction, it creates subtle differences among the testing layers:
 * Lower-level tests tend to take less time to create than higher-level tests.
@@ -125,10 +134,10 @@ The major distinction between test layers is how much of the actual system is un
 
 Each test layer is tactical. Let’s examine several test strategies that favor layers differently.
 
-# Test Strategies
+# Test Strategy Showdown: Snow Cone vs Pyramid vs Trophy
 Test tactics define test layers, each of which tests the software with different emphasis. Should we use a strategy that focuses upon one tactic more than another?
 
-## Snow Cone Test Strategy
+## The Snow Cone: Heavy on Manual System Testing
 <img src="https://openclipart.org/download/282183/Shaved-Ice.svg" alt="Snow Cone" title="Image Source: https://openclipart.org/detail/282183/hawaiian-shaved-ice" width = "30%" align="right" style="padding: 35px;">
  
 This was the test strategy for most of my career. There’s an emphasis upon System Testing, as represented by the broad top of the snow cone. There are fewer Integration Tests in the narrow middle and even fewer Unit Tests at the almost non-existent bottom.
@@ -143,7 +152,7 @@ While System Testing exclusively may no longer be in vogue, there can be some be
 Since this isn’t QA focused, everyone should consider doing this: domain experts, developers and testers. It should expand beyond individual contributors to management and executives too. If you can’t easily use your system, your customer and user won’t be able to easily use it either.
 
 ### Cons
-So much garbage was thrown over the wall by developers to QA, usually to meet an artificial deadline, in the hope that any serious problems in that garbage would be found by QA. Testers would also be annoyed when they found obvious bugs that the developers should have found on their own. This was during the days of the Waterfall Methdology, and a lot of garbage was thrown over almost every wall in the process, not just developers to QA.
+So much garbage was thrown over the wall by developers to QA, usually to meet an artificial deadline, in the hope that any serious problems in that garbage would be found by QA. Testers would also be annoyed when they found obvious bugs that the developers should have found on their own. This was during the days of the Waterfall Methodology, and a lot of garbage was thrown over almost every wall in the process, not just developers to QA.
 
 _When programmers do their jobs, testers find nothing._ — [Bob Martin](https://x.com/unclebobmartin/status/541876357320671232)
 
@@ -157,7 +166,7 @@ The feedback loop for developers is too long. It could take several days before 
 
 Automated System Testing frameworks are becoming more prevalent, but they can still be brittle when they depend upon the UI.
 
-## Pyramid Test Strategy
+## The Pyramid: Base of Confidence through Automation
 <img src="https://www.worldhistory.org/img/r/p/1000x1200/12087.gif" alt="Egyptian Pyramid" title="Image Source: https://www.worldhistory.org/Great_Pyramid_of_Giza/" width = "30%" align="right" style="padding: 35px;">
  
 The [Pyramid Test Strategy](https://martinfowler.com/bliki/TestPyramid.html) flips the Snow Cone Test Strategy. In Pyramid Testing, there are many Unit Tests at the bottom, representing the base of the pyramid, with fewer Integration/Acceptance Tests representing the middle of the pyramid and finally the fewest System Tests at the apex.
@@ -174,7 +183,7 @@ Since there’s more emphasis on the lower-level tests than the mid-level tests,
 
 Since tests specify behavior with a class, any refactoring or redesign that affects classes will tend to affect tests. When implementation is moved among classes, then the tests that defined those behaviors will probably need to be decomposed, moved and reassembled with the refactored and redesigned implementation as well.
 
-## Test Trophy
+## The Trophy: Centering on User-Centric Acceptance
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Covered_cup%2C_Paul_de_Lamerie%2C_1737_-_Nelson-Atkins_Museum_of_Art_-_DSC08875.JPG/960px-Covered_cup%2C_Paul_de_Lamerie%2C_1737_-_Nelson-Atkins_Museum_of_Art_-_DSC08875.JPG" alt="Trophy Cup" title="Image Source: https://commons.wikimedia.org/wiki/File:Covered_cup,_Paul_de_Lamerie,_1737_-_Nelson-Atkins_Museum_of_Art_-_DSC08875.JPG" width = "25%" align="right" style="padding: 35px;">
  
 The [Trophy Test Strategy](https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications) focuses upon Integration/Acceptance Tests. This is represented in the silhouette of Trophy Cup with few System Tests at the top, most tests in the middle with Integration/Acceptance Tests and a few Unit Tests underneath. The Trophy Test Strategy also includes a pedestal, which represents Static Analysis Tests, which are linters that check the implementation for coding standards and practices. The other test strategies tend to include them as well, but they don’t tend to show up in their definitions.
@@ -191,14 +200,16 @@ An Integration/Acceptance Test will tend to execute more lines of code than a Un
 
 Since Integration/Acceptance Tests aren't scoped to a specific class, there may not be a quick suite of tests to confirm a class while you're working on it.
 
-## Yes, And
+## Yes, And: Combining Strategies Effectively
 Test Strategies are not mutually exclusive. It’s not a case of either/or. It’s yes, and.
 
 I tend to prefer the Pyramid Test Strategy, but I’m not averse to the Trophy Test Strategy. You can leverage both. Use Test Strategies where they best fit. Some classes may tend to lean toward Pyramid. Some may tend to lean toward Trophy. And then with the confidence you gain in the code from Pyramid/Trophy Testing, you can always add exploratory manual System Testing on top not to look for errors, but to make sure that the system still feels like a cohesive product.
 
 It can be the best of all worlds.
 
-# The Achilles Heel of Higher-Level Testing
+# The Achilles’ Heel: When Test Layers Aren’t Enough
+
+## The Problem of Composable Designs
 Higher-level testing cannot easily test one type of design paradigm: [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html).
 
 Behavior emerges from a composable design via the interaction of objects, which are assembled at run-time. Unit Tests can specify and confirm behavior for individual classes in isolation. Unit/Integration Tests can also confirm that the objects can be created and assembled in various combinations. Unit/Integration Tests can confirm the behaviors that emerge from test specified object compositions.
@@ -209,12 +220,19 @@ For some designs, the configuration of compositions might remain within the defi
 
 The more composition options a design supports, the quicker the composition combinatorics explode. The [Interpreter Design Pattern](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) supports the most composition options. We can test each of the elements of an Interpreter design easily. We can’t test all the composition possibilities.
 
+## Lessons from Compilers: You Can’t Test Every Combination
 This is not a new problem. Compiler developers have always had this issue. Compiler developers can confirm that their compilers generate object code from the source code correctly, but they can’t predict every program that could be written in the compiler’s language and test it. No one blames JVM developers when there’s a logic bug in their own Java code.
 
 While we can’t confirm all possible compositions, we can confirm all the individual elements, just as the compiler developer can confirm all possible language features. While composable designs may be unbounded in the size their assembly, their assembly is often restricted by guardrails defining how the elements can be assembled. While users and customers may be able to define compositions that don’t define exactly what they wanted, they cannot define compositions that are illegal in the domain. For example, a Java developer can write a Java program with a logic error, but they cannot write a compliable Java program with a syntax error.
 
-# Summary
-__TBD__
+# What Test Layers Teach Us About Software Quality
+Testing isn’t just about proving that our code works—it’s about building confidence in its behavior under a range of conditions, at multiple levels of abstraction. Unit tests confirm that our building blocks are sound. Integration and acceptance tests ensure those blocks fit together. System tests assess the final structure and its behavior in the real world. Each test layer serves a different purpose, and together, they create a safety net that helps us catch errors before our users do.
+
+Too often, teams rely on a single strategy—leaning too heavily on high-level manual testing or obsessing over granular unit tests without confirming how components collaborate. By understanding test layers through analogies like nuts and bolts, urban infrastructure, or zooming maps, we gain an intuitive model for balancing scope and detail.
+
+No one strategy fits every project. Whether you favor the Pyramid, Trophy, or Snow Cone model, thoughtful layering of tests gives your team the agility to move fast without sacrificing safety. And as we’ve seen with composable designs, even the most thorough test suites can't cover every possible combination—especially when behavior is assembled dynamically. That’s why building robust, flexible components and placing strategic guardrails is just as important as writing tests.
+
+The goal is not perfection—it’s confidence. Confidence to refactor boldly. Confidence to release frequently. Confidence that when something goes wrong, you’ll catch it early. When we test with both discipline and empathy, we’re not just verifying code—we’re building trust.
 
 # References
  __TBD__
