@@ -20,7 +20,7 @@ Though this seems like a simple measurement mismatch, at its root it was a __[co
 
 Whether you’re a junior developer just beginning to explore automated testing or a senior engineer refining your team’s quality strategy, understanding layered tests can help avoid the kind of systemic failures seen in stories like the Mars Climate Orbiter.
 
-My [Automated Test Series](https://jhumelsine.github.io/3000/01/01/preface.html#automated-testing) has mostly focused upon Automated ___"Unit"___ Testing via [Behavior-Driven Development](https://jhumelsine.github.io/2024/08/08/bdd.html) (BDD) and [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) practices, but Unit Testing may not be sufficient.
+My [Automated Test Series](https://jhumelsine.github.io/3000/01/01/preface.html#automated-testing) has mostly focused upon Automated ___"Unit"___ Testing via [Behavior-Driven Development](https://jhumelsine.github.io/2024/08/08/bdd.html) (BDD) and [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) practices, but [Unit Testing](https://en.wikipedia.org/wiki/Unit_testing) may not be sufficient.
 
 ## Why Unit Tests Aren’t Enough
 
@@ -68,7 +68,7 @@ The three civil servants are not literally at different elevation levels, but we
 * Building code inspectors at the lowest level confirming building safety at the smallest details for the community
 
 # From Unit to System: Defining the Test Layers
-Just as the civil servants assess different aspects of the community based upon scope, software testing can assess different aspects of a system based upon the [Software Under Test](https://en.wikipedia.org/wiki/System_under_test) (SUT) that is declared for each test.
+Just as the civil servants assess different aspects of the community based upon scope, software testing can assess different aspects of a system based upon the SUT that is declared for each test.
 
 ## Software Under Test
 Different types of tests are often characterized in layers as higher-level, mid-level and lower-level testing, but like our civil servants, there’s no literal change in elevation.
@@ -100,7 +100,7 @@ There’s a subtype of Integration Test: [__Acceptance Tests__](https://en.wikip
 ## System Tests: Seeing the Whole Product
 We design tests scoped to the entire system. Any dependencies would be external to the system. They might be replaced by emulating Test Doubles, or they might be the actual dependency. These tests specify the behavior of the whole system.
 
-These tests are generally considered __System Tests__, since they confirm the entire system. The concept of _nut_ and _bolt_ may no longer apply at this level. These tests are concerned with the entire system regardless of the implementation. If desired, we could replace the nuts and bolts of the system with welded joints, and the System Tests should still pass. These tests are often executed manually, since they may involve the UI. Some test frameworks support UIs, but the tests can still be brittle and break with UI changes.
+These tests are generally considered [__System Tests__](https://en.wikipedia.org/wiki/System_testing), since they confirm the entire system. The concept of _nut_ and _bolt_ may no longer apply at this level. These tests are concerned with the entire system regardless of the implementation. If desired, we could replace the nuts and bolts of the system with welded joints, and the System Tests should still pass. These tests are often executed manually, since they may involve the UI. Some test frameworks support UIs, but the tests can still be brittle and break with UI changes.
 
 These tests are sometimes called __End-to-End Tests__ (E2E).
 
@@ -119,11 +119,10 @@ The major distinction between test layers is how much of the actual system is un
 * Lower-level tests tend to:
     * Take less time to create than higher-level tests
     * Be easier to automate than higher-level tests
+    * Be easier to set up than higher-level tests
     * Be less fragile than higher tests, since higher-level tests may depend upon UIs, which often change
     * Be replaced more than higher-level tests during refactoring and redesign
-    * Run faster than higher-level tests
     * Cover more code in the aggregate than higher-level tests, specifically the edge cases. An individual lower-level test will cover less code than an individual higher-level test, but the set of lower-level tests will tend to cover more code than the set of higher-level tests
-    * Be easier to set up than higher-level tests
     * Be more aligned with the design than higher-level tests, which tend to be more aligned with the system architecture
     * Provide greater confidence in the individual software components
 * Higher-level tests tend to:
@@ -150,7 +149,7 @@ Test tactics define test layers, each of which tests the software with different
 ## The Ice Cream Cone: Heavy on Manual System Testing
 <img src="https://jamdownfoodie.com/wp-content/uploads/2021/07/jmacian-grape-2-1920x2560.jpg" alt="Ice Cream Cone" title="Image Source: https://jamdownfoodie.com/grapenut-ice-cream/" width = "20%" align="right" style="padding: 35px;">
  
-This was the test strategy for most of my career. There’s an emphasis upon System Testing, as represented by the broad top of the ice cream cone. There are fewer Integration Tests in the narrow middle and even fewer Unit Tests at the almost non-existent bottom.
+[Ice Cream Cone](https://bugbug.io/blog/software-testing/ice-cream-cone-anti-pattern/) was the test strategy for most of my career. There’s an emphasis upon System Testing, as represented by the broad top of the ice cream cone. There are fewer Integration Tests in the narrow middle and even fewer Unit Tests at the almost non-existent bottom.
 
 We had dedicated QA testers whose mission was to test our system to ensure it was ready for release. QA testers were the final quality gate before deploying the system and releasing it to the customer. There was often an adversarial relationship between developers and testers. Developers would often become annoyed when testers found a bug in their code. Would developers prefer for users to have had find their bugs instead? 
 
@@ -218,6 +217,7 @@ Which strategy is best? That depends on your context.
 Here's a side-by-side comparison of the Ice Cream Cone, Pyramid, and Trophy test strategies to help highlight their trade-offs:
 
 ### Comparison of Testing Layer Strategies
+
 | Strategy      | Shape      | Emphasis                        | Strengths                                   | Weaknesses                                 | Best Used When…                        |
 |---------------|------------|----------------------------------|---------------------------------------------|---------------------------------------------|----------------------------------------|
 | **Ice Cream Cone** | 🍦 Ice Cream | Heavy system tests, few unit tests     | High user-centered coverage                 | Slow, fragile, poor fault isolation         | Starting out, exploratory environments |
@@ -260,14 +260,3 @@ Too often, teams rely on a single strategy—leaning too heavily on high-level m
 No one strategy fits every project. Whether you favor the Pyramid, Trophy, or Ice Cream Cone model, thoughtful layering of tests gives your team the agility to move fast without sacrificing safety. And as we’ve seen with composable designs, even the most thorough test suites can't cover every possible combination—especially when behavior is assembled dynamically. That’s why building robust, flexible components and placing strategic guardrails is just as important as writing tests.
 
 The goal is not perfection—it’s confidence. Confidence to refactor boldly. Confidence to release frequently. Confidence that when something goes wrong, you’ll catch it early. When we test with both discipline and empathy, we’re not just verifying code—we’re building trust.
-
-# References
- __TBD__
-* https://docs.pact.io/
-* https://en.wikipedia.org/wiki/Acceptance_testing
-* https://www.youtube.com/watch?v=38egQLsbgKk
-* https://www.youtube.com/watch?v=qMXsTb_rPpA
-* https://www.youtube.com/watch?v=V-OV6lRwhYA
-* https://thoughtworks.github.io/pacto/patterns/cdc/
-* https://jhumelsine.github.io/
-* https://jhumelsine.github.io/2023/10/28/hexagonal-architecture-structure.html
