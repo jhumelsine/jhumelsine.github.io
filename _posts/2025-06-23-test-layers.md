@@ -77,7 +77,7 @@ Before I dive into test layers, I will describe different tests horizontally via
 
 Consider this design:
 
-<img src="https://source.roboflow.com/RAVs9fdslLftww6gGNs37Usnnlx2/0Ux4Vt6NXOwkdLU5lOwS/original.jpg" alt="UML Class Design" title="Image Source: https://universe.roboflow.com/uml-class-diagram-classification/class-diagram-classification" width = "60%" align="center" style="padding: 35px;">
+<img src="https://source.roboflow.com/RAVs9fdslLftww6gGNs37Usnnlx2/0Ux4Vt6NXOwkdLU5lOwS/original.jpg" alt="UML Class Design" title="Image Source: https://universe.roboflow.com/uml-class-diagram-classification/class-diagram-classification" width = "70%" align="center" style="padding: 35px;">
   
 ## Unit Tests: Narrow Focus, Deep Confidence
 We can design tests narrowly scoped to only one class, such as: `Transaction`, `Session`, `Tutor`, etc. Any dependencies upon other classes would be replaced by emulating [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html).
@@ -131,15 +131,10 @@ The major distinction between test layers is how much of the actual system is un
     * Find errors between software components more than lower-level tests
 * The software responsible for newly introduced errors tends to be easier to isolate when found in failing lower-level tests than higher-level tests, since there is less SUT in lower-level tests and therefore fewer places where the error may reside
 
-Each test layer is tactical. Let’s examine several test strategies that favor layers differently.
-
-# Test Strategy Showdown: Snow Cone vs Pyramid vs Trophy
-Test tactics define test layers, each of which tests the software with different emphasis. Should we use a strategy that focuses upon one tactic more than another?
-
 Each layer of testing operates at a different scope and brings a different type of confidence. Unit tests give us confidence in logic. Integration or acceptance tests verify boundaries and data flow. System tests simulate real user behavior.
 
 Here's a side-by-side comparison to help clarify how the layers differ across scope, speed, and fragility:
-### Comparison of Testing Layers
+### Comparison of Testing Layer Tactics
 
 | Layer               | Scope                         | Focus                                   | Speed     | Fragility | Examples                                      | Tools                             |
 |---------------------|-------------------------------|-----------------------------------------|-----------|-----------|-----------------------------------------------|------------------------------------|
@@ -147,10 +142,15 @@ Here's a side-by-side comparison to help clarify how the layers differ across sc
 | **Integration / Acceptance** | Multiple components interacting | Data flow, boundaries, and contracts     | Medium | Medium  | HTTP API call through service layer           | Postman, REST Assured, Pact        |
 | **Unit**            | Single function or class      | Logic correctness in isolation          | Fast    | Low     | Testing a math function or basic behavior       | JUnit, pytest, NUnit, Jest         |
 
-## The Snow Cone: Heavy on Manual System Testing
-<img src="https://openclipart.org/download/282183/Shaved-Ice.svg" alt="Snow Cone" title="Image Source: https://openclipart.org/detail/282183/hawaiian-shaved-ice" width = "30%" align="right" style="padding: 35px;">
+Each test layer is tactical. Let’s examine several test strategies that favor layers differently.
+
+# Test Strategy Showdown: Ice Cream Cone vs Pyramid vs Trophy
+Test tactics define test layers, each of which tests the software with different emphasis. Should we use a strategy that focuses upon one tactic more than another 
+
+## The Ice Cream Cone: Heavy on Manual System Testing
+<img src="https://i.pinimg.com/736x/db/a4/6e/dba46ed4a45fb1b8d5c0d59dd1653749.jpg" alt="Ice Cream Cone" title="Image Source: https://i.pinimg.com/736x/db/a4/6e/dba46ed4a45fb1b8d5c0d59dd1653749.jpg" width = "20%" align="right" style="padding: 35px;">
  
-This was the test strategy for most of my career. There’s an emphasis upon System Testing, as represented by the broad top of the snow cone. There are fewer Integration Tests in the narrow middle and even fewer Unit Tests at the almost non-existent bottom.
+This was the test strategy for most of my career. There’s an emphasis upon System Testing, as represented by the broad top of the ice cream cone. There are fewer Integration Tests in the narrow middle and even fewer Unit Tests at the almost non-existent bottom.
 
 We had dedicated QA testers whose mission was to test our system to ensure it was ready for release. QA testers were the final quality gate before deploying the system and releasing it to the customer. There was often an adversarial relationship between developers and testers. Developers would often become annoyed when testers found a bug in their code. Would developers prefer for users to have had find their bugs instead? 
 
@@ -179,9 +179,9 @@ The feedback loop for developers is too long. It could take several days before 
 Automated System Testing frameworks are becoming more prevalent, but they can still be brittle when they depend upon the UI.
 
 ## The Pyramid: Base of Confidence through Automation
-<img src="https://www.worldhistory.org/img/r/p/1000x1200/12087.gif" alt="Egyptian Pyramid" title="Image Source: https://www.worldhistory.org/Great_Pyramid_of_Giza/" width = "30%" align="right" style="padding: 35px;">
+<img src="https://www.worldhistory.org/img/r/p/1000x1200/12087.gif" alt="Egyptian Pyramid" title="Image Source: https://www.worldhistory.org/Great_Pyramid_of_Giza/" width = "40%" align="right" style="padding: 35px;">
  
-The [Pyramid Test Strategy](https://martinfowler.com/bliki/TestPyramid.html) flips the Snow Cone Test Strategy. In Pyramid Testing, there are many Unit Tests at the bottom, representing the base of the pyramid, with fewer Integration/Acceptance Tests representing the middle of the pyramid and finally the fewest System Tests at the apex.
+The [Pyramid Test Strategy](https://martinfowler.com/bliki/TestPyramid.html) flips the Ice Cream Cone Test Strategy. In Pyramid Testing, there are many Unit Tests at the bottom, representing the base of the pyramid, with fewer Integration/Acceptance Tests representing the middle of the pyramid and finally the fewest System Tests at the apex.
 
 ### Pros
 Lower-level tests tend to accommodate automated tests, so this strategy tends to work well with CI/CD pipelines. An entire test suite can be executed on each commit to a major branch easily.
@@ -212,6 +212,18 @@ An Integration/Acceptance Test will tend to execute more lines of code than a Un
 
 Since Integration/Acceptance Tests aren't scoped to a specific class, there may not be a quick suite of tests to confirm a class while you're working on it.
 
+## Which Strategy is best?
+Which strategy is best? That depends on your context.
+
+Here's a side-by-side comparison of the Ice Cream Cone, Pyramid, and Trophy test strategies to help highlight their trade-offs:
+
+### Comparison of Testing Layer Strategies
+| Strategy      | Shape      | Emphasis                        | Strengths                                   | Weaknesses                                 | Best Used When…                        |
+|---------------|------------|----------------------------------|---------------------------------------------|---------------------------------------------|----------------------------------------|
+| **Ice Cream Cone** | 🍦 Ice Cream | Heavy system tests, few unit tests     | High user-centered coverage                 | Slow, fragile, poor fault isolation         | Starting out, exploratory environments |
+| **Pyramid**   | 🔺 Classic Pyramid   | Many unit tests, fewer system tests   | Fast, stable, good coverage at low cost     | Can miss integration/system-level issues    | Mature projects with modular code      |
+| **Trophy**    | 🏆 Hourglass/Trophy | Strong integration, moderate unit/system | Balances confidence and real-world testing  | Needs robust integration infrastructure      | Microservices, API-heavy architectures |
+
 ## Yes, And: Combining Strategies Effectively
 Test Strategies are not mutually exclusive. It’s not a case of either/or. It’s yes, and.
 
@@ -220,7 +232,7 @@ I tend to prefer the Pyramid Test Strategy, but I’m not averse to the Trophy T
 It can be the best of all worlds.
 
 # The Achilles Heel: When Test Layers Aren’t Enough
-<img src="https://live.staticflickr.com/8252/8664532341_d14ea6045e.jpg" alt="Achilles Heel" title="Image Source: https://www.flickr.com/photos/eltpics/8664532341" width = "25%" align="right" style="padding: 35px;">
+<img src="https://live.staticflickr.com/8252/8664532341_d14ea6045e.jpg" alt="Achilles Heel" title="Image Source: https://www.flickr.com/photos/eltpics/8664532341" width = "35%" align="right" style="padding: 35px;">
 
 There is one vulnerability.
 
@@ -245,24 +257,17 @@ Testing isn’t just about proving that our code works—it’s about building c
 
 Too often, teams rely on a single strategy—leaning too heavily on high-level manual testing or obsessing over granular unit tests without confirming how components collaborate. By understanding test layers through analogies like nuts and bolts, urban infrastructure, or zooming maps, we gain an intuitive model for balancing scope and detail.
 
-No one strategy fits every project. Whether you favor the Pyramid, Trophy, or Snow Cone model, thoughtful layering of tests gives your team the agility to move fast without sacrificing safety. And as we’ve seen with composable designs, even the most thorough test suites can't cover every possible combination—especially when behavior is assembled dynamically. That’s why building robust, flexible components and placing strategic guardrails is just as important as writing tests.
+No one strategy fits every project. Whether you favor the Pyramid, Trophy, or Ice Cream Cone model, thoughtful layering of tests gives your team the agility to move fast without sacrificing safety. And as we’ve seen with composable designs, even the most thorough test suites can't cover every possible combination—especially when behavior is assembled dynamically. That’s why building robust, flexible components and placing strategic guardrails is just as important as writing tests.
 
 The goal is not perfection—it’s confidence. Confidence to refactor boldly. Confidence to release frequently. Confidence that when something goes wrong, you’ll catch it early. When we test with both discipline and empathy, we’re not just verifying code—we’re building trust.
 
 # References
  __TBD__
-* https://www.google.com/search?q=consumer+driven+contract+testing
-* https://microsoft.github.io/code-with-engineering-playbook/automated-testing/cdc-testing/
-* https://pactflow.io/what-is-consumer-driven-contract-testing/
 * https://docs.pact.io/
 * https://en.wikipedia.org/wiki/Acceptance_testing
 * https://www.youtube.com/watch?v=38egQLsbgKk
 * https://www.youtube.com/watch?v=qMXsTb_rPpA
 * https://www.youtube.com/watch?v=V-OV6lRwhYA
-* https://dev.to/muratkeremozcan/my-thoughts-and-notes-about-consumer-driven-contract-testing-11id
 * https://thoughtworks.github.io/pacto/patterns/cdc/
-* https://www.hypertest.co/contract-testing/what-is-consumer-driven-contract-testing-cdc
-* https://testsigma.com/blog/consumer-driven-contract-testing/
-* https://www.youtube.com/results?search_query=Consumer+Driven+Contract+Testing
 * https://jhumelsine.github.io/
 * https://jhumelsine.github.io/2023/10/28/hexagonal-architecture-structure.html
