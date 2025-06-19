@@ -148,6 +148,8 @@ While System Testing exclusively may no longer be in vogue, there can be some be
 
 Since this isn’t QA focused, everyone should consider doing this: domain experts, developers and testers. It should expand beyond individual contributors to management and executives too. If you can’t easily use your system, your customer and user won’t be able to easily use it either.
 
+__TIP:__ If you have desktop video recording capability, such as Zoom, share and record your screen and narrate what you're doing. Describe your intent. Point out what you see. Point out what you expect to see, but don't. Point out anything that's odd or confusing. If you have access to logs, databases or any other relevant technical information, show it in the video as well. A five minute video will provide more context and takes less time to produce than filling out an extensive _How-To-Reproduce_ documentation. Personally, I've found video descriptions of issues found by others more useful to me than reading a step-by-step document.
+
 ### Cons
 So much garbage was thrown over the wall by developers to QA, usually to meet an artificial deadline, in the hope that any serious problems in that garbage would be found by QA. Testers would also be annoyed when they found obvious bugs that the developers should have found on their own. This was during the days of the Waterfall Methodology, and a lot of garbage was thrown over almost every wall in the process, not just developers to QA.
 
