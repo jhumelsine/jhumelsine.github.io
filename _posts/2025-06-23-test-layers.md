@@ -141,9 +141,9 @@ Here's a side-by-side comparison to help clarify how the layers differ across sc
 
 | Layer               | Scope                         | Focus                                   | Speed     | Fragility | Examples                                      | Tools                             |
 |---------------------|-------------------------------|-----------------------------------------|-----------|-----------|-----------------------------------------------|------------------------------------|
-| **System**          | Full application + dependencies| End-to-end behavior and user outcomes   | 🐢 Slow    | 🔴 High    | Full UI test: login, submit form, get result  | Selenium, Cypress, Playwright      |
-| **Integration / Acceptance** | Multiple components interacting | Data flow, boundaries, and contracts     | ⚡⚡ Medium | 🟡 Medium  | HTTP API call through service layer           | Postman, REST Assured, Pact        |
-| **Unit**            | Single function or class      | Logic correctness in isolation          | ⚡ Fast    | 🟢 Low     | Testing a math function or parser class       | JUnit, pytest, NUnit, Jest         |
+| **System**          | Full application + dependencies| End-to-end behavior and user outcomes   | Slow    | High    | Full UI test: login, submit form, get result  | Selenium, Cypress, Playwright      |
+| **Integration / Acceptance** | Multiple components interacting | Data flow, boundaries, and contracts     | Medium | Medium  | HTTP API call through service layer           | Postman, REST Assured, Pact        |
+| **Unit**            | Single function or class      | Logic correctness in isolation          | Fast    | Low     | Testing a math function or basic behavior       | JUnit, pytest, NUnit, Jest         |
 
 ## The Snow Cone: Heavy on Manual System Testing
 <img src="https://openclipart.org/download/282183/Shaved-Ice.svg" alt="Snow Cone" title="Image Source: https://openclipart.org/detail/282183/hawaiian-shaved-ice" width = "30%" align="right" style="padding: 35px;">
