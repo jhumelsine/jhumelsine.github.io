@@ -116,18 +116,20 @@ Though System, Integration/Acceptance and Unit Tests are scoped by the horizonta
 There is not always a clear boundary between these layers. It can be a bit fuzzy. A limited behavior-specifying test might involve several classes. Some people might consider it a Unit Test, since it specifies limited behavior. Others might consider it an Integration Test, since it involves several classes. It really doesn’t matter. All automated tests should specify and confirm behavior using the same [__Give/When/Then__](https://en.wikipedia.org/wiki/Given-When-Then) structure.
 
 The major distinction between test layers is how much of the actual system is under test. While this doesn’t sound like much of a distinction, it creates subtle differences among the testing layers:
-* Lower-level tests tend to take less time to create than higher-level tests.
-* Lower-level tests tend to be easier to automate than higher-level tests.
-* Lower-level tests tend to be less fragile than higher tests, since higher-level tests may depend upon UIs, which often change.
-* Lower-level tests tend to be replaced more than higher-level tests during refactoring and redesign.
-* Lower-level tests tend to run faster than higher-level tests.
-* Lower-level tests tend to cover more code in the aggregate than higher-level tests, specifically the edge cases. An individual lower-level test will cover less code than an individual higher-level test, but the set of lower-level tests will tend to cover more code than the set of higher-level tests.
-* Lower-level tests tend to be easier to set up than higher-level tests.
-* Lower-level tests tend to be more aligned with the design than higher-level tests, which tend to be more aligned with the system architecture.
-* Lower-level tests tend to provide greater confidence in the individual software components.
-* Higher-level tests tend to provide greater confidence in the overall system.
-* The software responsible for newly introduced errors tends to be easier to isolate when found in failing lower-level tests than higher-level tests, since there is less SUT in lower-level tests and therefore fewer places where the error may reside.
-* Higher-level tests tend to find errors between software components more than lower-level tests.
+* Lower-level tests tend to:
+    * Take less time to create than higher-level tests
+    * Be easier to automate than higher-level tests
+    * Be less fragile than higher tests, since higher-level tests may depend upon UIs, which often change
+    * Be replaced more than higher-level tests during refactoring and redesign
+    * Run faster than higher-level tests
+    * Cover more code in the aggregate than higher-level tests, specifically the edge cases. An individual lower-level test will cover less code than an individual higher-level test, but the set of lower-level tests will tend to cover more code than the set of higher-level tests
+    * Be easier to set up than higher-level tests
+    * Be more aligned with the design than higher-level tests, which tend to be more aligned with the system architecture
+    * Provide greater confidence in the individual software components
+* Higher-level tests tend to:
+    * Provide greater confidence in the overall system
+    * Find errors between software components more than lower-level tests
+* The software responsible for newly introduced errors tends to be easier to isolate when found in failing lower-level tests than higher-level tests, since there is less SUT in lower-level tests and therefore fewer places where the error may reside
 
 Each test layer is tactical. Let’s examine several test strategies that favor layers differently.
 
