@@ -148,7 +148,7 @@ Each test layer is tactical. Let’s examine several test strategies that favor 
 Test tactics define test layers, each of which tests the software with different emphasis. Should we use a strategy that focuses upon one tactic more than another 
 
 ## The Ice Cream Cone: Heavy on Manual System Testing
-<img src="https://i.pinimg.com/736x/db/a4/6e/dba46ed4a45fb1b8d5c0d59dd1653749.jpg" alt="Ice Cream Cone" title="Image Source: https://i.pinimg.com/736x/db/a4/6e/dba46ed4a45fb1b8d5c0d59dd1653749.jpg" width = "20%" align="right" style="padding: 35px;">
+<img src="https://jamdownfoodie.com/wp-content/uploads/2021/07/jmacian-grape-2-1920x2560.jpg" alt="Ice Cream Cone" title="Image Source: https://jamdownfoodie.com/grapenut-ice-cream/" width = "20%" align="right" style="padding: 35px;">
  
 This was the test strategy for most of my career. There’s an emphasis upon System Testing, as represented by the broad top of the ice cream cone. There are fewer Integration Tests in the narrow middle and even fewer Unit Tests at the almost non-existent bottom.
 
