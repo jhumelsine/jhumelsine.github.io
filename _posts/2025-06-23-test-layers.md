@@ -163,7 +163,7 @@ Since this isn’t QA focused, everyone should consider doing this: domain exper
 __TIP:__ If you have desktop video recording capability, such as Zoom, share and record your screen and narrate what you're doing. Describe your intent. Point out what you see. Point out what you expect to see, but don't. Point out anything that's odd or confusing. If you have access to logs, databases or any other relevant technical information, show it in the video as well. If you identify a poor user experience or a failure, then a five minute video will provide more context and takes less time to produce than filling out an extensive _How-To-Reproduce_ documentation in the ticket. Personally, I've found video descriptions of issues found by others more useful to me than reading a step-by-step document.
 
 ### Cons
-So much garbage was thrown over the wall by developers to QA, usually to meet an artificial deadline, in the hope that any serious problems in that garbage would be found by QA. Testers would also be annoyed when they found obvious bugs that the developers should have found on their own. This was during the days of the Waterfall Methodology, and a lot of garbage was thrown over almost every wall in the process, not just developers to QA.
+So much garbage was thrown over the wall by developers to QA, usually to meet an artificial deadline. We hoped that any serious problems in that garbage would be found by QA. Testers would also be annoyed when they found obvious bugs that the developers should have found on their own. This was during the days of the [Waterfall Methodology](https://en.wikipedia.org/wiki/Waterfall_model), and a lot of garbage was thrown over almost every wall in the process, not just developers to QA.
 
 _When programmers do their jobs, testers find nothing._ — [Bob Martin](https://x.com/unclebobmartin/status/541876357320671232)
 
@@ -200,7 +200,7 @@ Since tests specify behavior with a class, any refactoring or redesign that affe
 The [Trophy Test Strategy](https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications) focuses upon Integration/Acceptance Tests. This is represented in the silhouette of Trophy Cup with few System Tests at the top, most tests in the middle with Integration/Acceptance Tests and a few Unit Tests underneath. The Trophy Test Strategy also includes a pedestal, which represents Static Analysis Tests, which are linters that check the implementation for coding standards and practices. The other test strategies tend to include them as well, but they don’t tend to show up in their definitions.
 
 ### Pros
-The theory behind the Trophy Test Strategy is that we want to focus upon customer and user desired behaviors, which would be defined in Acceptance Tests. The customer doesn’t care about the implementation, so we shouldn't dedicated resources that are aligned with the design. The customer only cares about the features they will be using, and Acceptance Tests describe the scenarios for those features independent of the implementation.
+The theory behind the Trophy Test Strategy is that we want to focus upon customer and user desired behaviors, which would be defined in Acceptance Tests. The customer doesn’t care about the implementation, so we shouldn't dedicate many resources to tests that are aligned with the design. The customer only cares about the features they will be using, and Acceptance Tests describe the scenarios for those features independent of the implementation.
 
 The Integration/Acceptance Tests would tend to cover a significant amount of code. Unit Tests would be added to cover the remaining code. These tests would tend to be edge case code that can’t easily be covered via Integration/Acceptance Tests.
 
@@ -239,11 +239,11 @@ There is one vulnerability.
 ## The Problem of Composable Designs
 Higher-level testing cannot easily test one type of design paradigm: [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html).
 
-Behavior emerges from a composable design via the interaction of objects, which are assembled at run-time. Unit Tests can specify and confirm behavior for individual classes in isolation. Unit/Integration Tests can also confirm that the objects can be created and assembled in various combinations. Unit/Integration Tests can confirm the behaviors that emerge from test specified object compositions.
+Behavior emerges from a composable design via the interaction of objects, which are assembled at run-time. Unit Tests can specify and confirm behavior for individual classes in isolation. Unit/Integration Tests can also confirm that the objects are created and assembled in various combinations. Unit/Integration Tests can confirm the behaviors that emerge from test specified object compositions.
 
 However, developers and testers won’t be able to cover all possible scenarios. This is not a case of developer or tester incompetence. Object composition may be unlimited. It’s impossible to cover all possible scenarios when there’s a potentially infinite number of them.
 
-For some designs, the configuration of compositions might remain within the definition of development. This limited set of compositions can be tested via Integration Tests. But when behavior composition be made available to users, customers or even customer support, they are free to define any compositions. These cannot be tested, since they may not be defined until long after the software has been released.
+For some designs, the configuration of compositions might remain within control of development. This limited set of compositions can be tested via Integration Tests. But when behavior composition is available to users, customers or even customer support, they are free to define any compositions. These cannot be tested, since they may not be defined until long after the software has been released.
 
 The more composition options a design supports, the quicker the composition combinatorics explode. The [Interpreter Design Pattern](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) supports the most composition options. We can test each of the elements of an Interpreter design easily. We can’t test all the composition possibilities.
 
