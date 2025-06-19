@@ -1,6 +1,6 @@
 ---
-title: DRAFT – Test Layers
-description: Building Confidence at Every Level of Your Codebase
+title: DRAFT – Test Layers; From Unit to System
+description: Building Confidence with the Right Tests at the Right Level
 unlisted: true
 ---
 
@@ -134,6 +134,17 @@ Each test layer is tactical. Let’s examine several test strategies that favor 
 # Test Strategy Showdown: Snow Cone vs Pyramid vs Trophy
 Test tactics define test layers, each of which tests the software with different emphasis. Should we use a strategy that focuses upon one tactic more than another?
 
+Each layer of testing operates at a different scope and brings a different type of confidence. Unit tests give us confidence in logic. Integration or acceptance tests verify boundaries and data flow. System tests simulate real user behavior.
+
+Here's a side-by-side comparison to help clarify how the layers differ across scope, speed, and fragility:
+### Comparison of Testing Layers
+
+| Layer               | Scope                         | Focus                                   | Speed     | Fragility | Examples                                      | Tools                             |
+|---------------------|-------------------------------|-----------------------------------------|-----------|-----------|-----------------------------------------------|------------------------------------|
+| **System**          | Full application + dependencies| End-to-end behavior and user outcomes   | 🐢 Slow    | 🔴 High    | Full UI test: login, submit form, get result  | Selenium, Cypress, Playwright      |
+| **Integration / Acceptance** | Multiple components interacting | Data flow, boundaries, and contracts     | ⚡⚡ Medium | 🟡 Medium  | HTTP API call through service layer           | Postman, REST Assured, Pact        |
+| **Unit**            | Single function or class      | Logic correctness in isolation          | ⚡ Fast    | 🟢 Low     | Testing a math function or parser class       | JUnit, pytest, NUnit, Jest         |
+
 ## The Snow Cone: Heavy on Manual System Testing
 <img src="https://openclipart.org/download/282183/Shaved-Ice.svg" alt="Snow Cone" title="Image Source: https://openclipart.org/detail/282183/hawaiian-shaved-ice" width = "30%" align="right" style="padding: 35px;">
  
@@ -206,7 +217,10 @@ I tend to prefer the Pyramid Test Strategy, but I’m not averse to the Trophy T
 
 It can be the best of all worlds.
 
-# The Achilles’ Heel: When Test Layers Aren’t Enough
+# The Achilles Heel: When Test Layers Aren’t Enough
+<img src="https://live.staticflickr.com/8252/8664532341_d14ea6045e.jpg" alt="Achilles Heel" title="Image Source: https://www.flickr.com/photos/eltpics/8664532341" width = "25%" align="right" style="padding: 35px;">
+
+There is one vulnerability.
 
 ## The Problem of Composable Designs
 Higher-level testing cannot easily test one type of design paradigm: [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html).
