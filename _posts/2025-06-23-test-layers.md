@@ -50,7 +50,7 @@ Building code inspectors make sure that buildings are safe for occupancy. They c
 Their scope is limited to the building they are expecting, and their only concerns are the infrastructure within the building they are inspecting. Their role is to ensure the safety of the building by being up to code, and their responsibility is only that building they are inspecting.
 
 ### Utility Manager
-Utility managers ensure that the utility services for a community are working properly. This could include infrastructure systems for community, such as water, power, sewage, etc.
+Utility managers ensure that the utility services for a community are working properly. This could include infrastructure systems for the community, such as water, power, sewage, etc.
 
 Their scope is the management of infrastructure among the buildings in the community and the buildings’ connections to utility infrastructure. Utility manager scope is not necessarily the buildings themselves. Utility managers’ concerns are the details of the utility infrastructure.
 
@@ -89,7 +89,7 @@ _Tests don't break your code; they break your illusions about the quality of tha
 These tests are generally considered __Unit Tests__. Using a previous analogy, each class being tested is like a nut or bolt in the system.
 
 ## Integration & Acceptance Tests: Confirming Cooperation
-We design tests scoped to the package, such as: `leisure program`, `leisure facility` and `member`. The SUT will include more classes in the design. Any dependencies upon classes in other packages would be replaced by emulating Test Doubles.
+We design tests scoped to the package, such as `leisure program`, `leisure facility` and `member`. The SUT will include more classes in the design. Any dependencies upon classes in other packages would be replaced by emulating Test Doubles.
 
 These tests specify and confirm the behavior of the package. These tests might describe scenarios similar to the Unit Tests above; however, they focus upon confirming that the classes work together cohesively. These tests don’t cover every nook and cranny in the implementation, since the Unit Tests cover these cases. These tests favor expected scenarios and bypass edge cases. Some edge cases may be too difficult to set up with these tests.
 
@@ -160,7 +160,7 @@ While System Testing exclusively may no longer be in vogue, there can be some be
 
 Since this isn’t QA focused, everyone should consider doing this: domain experts, developers and testers. It should expand beyond individual contributors to management and executives too. If you can’t easily use your system, your customer and user won’t be able to easily use it either.
 
-__TIP:__ If you have desktop video recording capability, such as Zoom, share and record your screen and narrate what you're doing. Describe your intent. Point out what you see. Point out what you expect to see, but don't. Point out anything that's odd or confusing. If you have access to logs, databases or any other relevant technical information, show it in the video as well. If you identify a poor user experience or a failure, then a five minute video will provide more context and takes less time to produce than filling out an extensive _How-To-Reproduce_ documentation in the ticket. Personally, I've found video descriptions of issues found by others more useful to me than reading a step-by-step document.
+__TIP:__ If you have desktop video recording capability, such as Zoom, share and record your screen and narrate what you're doing. Describe your intent. Point out what you see. Point out what you expect to see, but don't. Point out anything that's odd or confusing. If you have access to logs, databases or any other relevant technical information, show it in the video as well. If you identify a poor user experience or a failure, then a five-minute video will provide more context and takes less time to produce than filling out an extensive _How-To-Reproduce_ documentation in the ticket. Personally, I've found video descriptions of issues found by others more useful to me than reading a step-by-step document.
 
 ### Cons
 So much garbage was thrown over the wall by developers to QA, usually to meet an artificial deadline. We hoped that any serious problems in that garbage would be found by QA. Testers would also be annoyed when they found obvious bugs that the developers should have found on their own. This was during the days of the [Waterfall Methodology](https://en.wikipedia.org/wiki/Waterfall_model), and a lot of garbage was thrown over almost every wall in the process, not just developers to QA.
@@ -202,7 +202,7 @@ The [Trophy Test Strategy](https://kentcdodds.com/blog/the-testing-trophy-and-te
 ### Pros
 The theory behind the Trophy Test Strategy is that we want to focus upon customer and user desired behaviors, which would be defined in Acceptance Tests. The customer doesn’t care about the implementation, so we shouldn't dedicate many resources to tests that are aligned with the design. The customer only cares about the features they will be using, and Acceptance Tests describe the scenarios for those features independent of the implementation.
 
-The Integration/Acceptance Tests would tend to cover a significant amount of code. Unit Tests would be added to cover the remaining code. These tests would tend to be edge case code that can’t easily be covered via Integration/Acceptance Tests.
+The Integration/Acceptance Tests would tend to cover a significant amount of code. Unit Tests would be added to cover the remaining code. These tests tend to be edge case code that can’t easily be covered via Integration/Acceptance Tests.
 
 Since Acceptance Tests describe feature behavior, not design behavior, refactoring and redesign should have minimal impact upon Acceptance Tests. And since there are fewer Unit Tests, there should be fewer Unit Tests that need to be updated.
 
@@ -250,7 +250,7 @@ The more composition options a design supports, the quicker the composition comb
 ## Lessons from Compilers: You Can’t Test Every Combination
 This is not a new problem. Compiler developers have always had this issue. Compiler developers can confirm that their compilers generate object code from the source code correctly, but they can’t predict every program that could be written in the compiler’s language and test it. No one blames JVM developers when there’s a logic bug in their own Java code.
 
-While we can’t confirm all possible compositions, we can confirm all the individual elements, just as the compiler developer can confirm all possible language features. While composable designs may be unbounded in the size their assembly, their assembly is often restricted by guardrails defining how the elements can be assembled. While users and customers may be able to define compositions that don’t define exactly what they wanted, they cannot define compositions that are illegal in the domain. For example, a Java developer can write a Java program with a logic error, but they cannot write a compliable Java program with a syntax error.
+While we can’t confirm all possible compositions, we can confirm all the individual elements, just as the compiler developer can confirm all possible language features. While composable designs may be unbounded in the size of their assembly, their assembly is often restricted by guardrails defining how the elements can be assembled. While users and customers may be able to define compositions that don’t define exactly what they wanted, they cannot define compositions that are illegal in the domain. For example, a Java developer can write a Java program with a logic error, but they cannot write a compliable Java program with a syntax error.
 
 # What Test Layers Teach Us About Software Quality
 Testing isn’t just about proving that our code works—it’s about building confidence in its behavior under a range of conditions, at multiple levels of abstraction. Unit tests confirm that our building blocks are sound. Integration and acceptance tests ensure those blocks fit together. System tests assess the final structure and its behavior in the real world. Each test layer serves a different purpose, and together, they create a safety net that helps us catch errors before our users do.
