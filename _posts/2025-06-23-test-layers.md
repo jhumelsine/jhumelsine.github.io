@@ -1,7 +1,6 @@
 ---
-title: DRAFT – Test Layers; From Unit to System
+title: Test Layers; From Unit to System
 description: Building Confidence with the Right Tests at the Right Level
-unlisted: true
 ---
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Bolt_and_nut%2C_annotated.jpg" alt="Nut and Bolt Mismatch" title="Image Source: https://commons.wikimedia.org/wiki/File:Bolt_and_nut,_annotated.jpg" width = "50%" align="center" style="padding: 35px;">
@@ -37,7 +36,7 @@ Software is the same. Unit tests are myopic. They don’t see the bigger picture
 
 Acquiring the bigger picture often requires a tradeoff. Scope and detail are often inversely proportional. If we don’t reduce detail when expanding scope, then the resulting picture becomes so complex that we can’t comprehend it. We can't see the forest for the trees.
 
-Consider online maps. Street view provides many details, but we can only see at most a block or two in any direction. Zoom out, and we can see neighborhoods, which provide a wider view, but at the loss of details. For example, rather than seeing images of the actual buildings, they become geometric shapes on the neighborhood map. Continue zooming out and we get a wider view of the city, region, country and world, but details disappear. We quickly lose buildings, local landmarks, smaller roads and even small communities. Each time we zoom out, we see more _scope_, but we also see fewer _details_.
+Consider online maps. Street view provides many details, but we can only see at most a block or two in any direction. Zoom out, and we can see neighborhoods, which provide a wider view, but at the loss of details. For example, rather than seeing images of the actual buildings, they become geometric shapes on the neighborhood map. Continue zooming out and we get a wider view of the city, region, country and world, but details disappear. We quickly lose buildings, local landmarks, smaller roads and even whole communities. Each time we zoom out, we see more _scope_, but we also lose more _details_.
 
 ## Urban Planning: Three Roles, Three Perspectives
 <img src="https://images.stockcake.com/public/5/4/f/54f8bdb5-84f3-41b8-98b5-41f4d746943c_large/team-analyzing-model-stockcake.jpg" alt="Team Analyzing a City Model" title="Image Source: https://stockcake.com/i/team-analyzing-model_1359011_1134250" width = "40%" align="right" style="padding: 35px;">
@@ -47,7 +46,7 @@ Let’s continue the scope/detail tradeoff with urban planning and see how it ap
 ### Building Code Inspector
 Building code inspectors make sure that buildings are safe for occupancy. They check that the construction, plumbing, electrical systems, etc. are up to code.
 
-Their scope is limited to the building they are expecting, and their only concerns are the infrastructure within the building they are inspecting. Their role is to ensure the safety of the building by being up to code, and their responsibility is only that building they are inspecting.
+Their scope is limited to the building they are expecting, and their only concerns are the infrastructure within the building they are inspecting. Their role is to ensure the safety of the building by its being up to code, and their responsibility is only that building they are inspecting.
 
 ### Utility Manager
 Utility managers ensure that the utility services for a community are working properly. This could include infrastructure systems for the community, such as water, power, sewage, etc.
@@ -108,7 +107,7 @@ These tests are sometimes called __End-to-End Tests__ (E2E).
 
 __NOTE:__ Replacing a system’s nuts and bolts with welded joints actually happened as described in this [99% Invisible Episode: Structural Integrity](https://99percentinvisible.org/episode/structural-integrity/)/[Transcript](https://99percentinvisible.org/episode/structural-integrity/transcript/).
 
-An architectural engineering undergraduate student’s class assignment was to analyze the stresses on the recently constructed Citicorp building in New York City. The analysis revealed a 1-in-16 chance of the building collapsing when subjected to hurricane force winds directed upon its corners. For three months in the late 1970s, workers clandestinely replaced the nuts and bolts with welded joints during the overnight hours so that the unaware office workers would not know of the potential danger of their building during their daytime working hours.
+An architectural engineering undergraduate student’s class assignment analyzed the stresses on the recently constructed Citicorp building in New York City. The analysis revealed a 1-in-16 chance of the building collapsing when subjected to hurricane force winds directed upon its corners. For three months in the late 1970s, workers clandestinely replaced the nuts and bolts with welded joints during the overnight hours so that the unaware office workers would not know of the potential danger of their building during their daytime working hours.
 
 # Layer Metaphors: Why Top and Bottom Matter
 Though System, Integration/Acceptance and Unit Tests are scoped by the horizontal Software Under Test enclosed within them, they are almost always described vertically with System Tests being on the top, Integration/Acceptance Tests in the middle and Unit Tests at the bottom.
@@ -151,7 +150,7 @@ Test tactics define test layers, each of which tests the software with different
  
 [Ice Cream Cone](https://bugbug.io/blog/software-testing/ice-cream-cone-anti-pattern/) was the test strategy for most of my career. There’s an emphasis upon System Testing, as represented by the broad top of the ice cream cone. There are fewer Integration Tests in the narrow middle and even fewer Unit Tests at the almost non-existent bottom.
 
-We had dedicated QA testers whose mission was to test our system to ensure it was ready for release. QA testers were the final quality gate before deploying the system and releasing it to the customer. There was often an adversarial relationship between developers and testers. Developers would often become annoyed when testers found a bug in their code. Would developers prefer for users to have had find their bugs instead? 
+We had dedicated QA testers whose mission was to test our system to ensure it was ready for release. QA testers were the final quality gate before deploying the system and releasing it to the customer. There was often an adversarial relationship between developers and testers. Developers would often become annoyed when testers found a bug in their code. Would developers prefer for users to have found their bugs instead? 
 
 ### Pros
 Manual System Testing was all we had before we had test frameworks that supported automated testing. We didn’t have the insights to understand the concept of automated testing either. Since so much software production was modeled upon manufacturing processes, QA was the final step before sending it to the customer. It’s all we knew at the time. It wasn’t perfect, or even great, but it was _mostly_ good enough for its day.
@@ -163,7 +162,7 @@ Since this isn’t QA focused, everyone should consider doing this: domain exper
 __TIP:__ If you have desktop video recording capability, such as Zoom, share and record your screen and narrate what you're doing. Describe your intent. Point out what you see. Point out what you expect to see, but don't. Point out anything that's odd or confusing. If you have access to logs, databases or any other relevant technical information, show it in the video as well. If you identify a poor user experience or a failure, then a five-minute video will provide more context and takes less time to produce than filling out an extensive _How-To-Reproduce_ documentation in the ticket. Personally, I've found video descriptions of issues found by others more useful to me than reading a step-by-step document.
 
 ### Cons
-So much garbage was thrown over the wall by developers to QA, usually to meet an artificial deadline. We hoped that any serious problems in that garbage would be found by QA. Testers would also be annoyed when they found obvious bugs that the developers should have found on their own. This was during the days of the [Waterfall Methodology](https://en.wikipedia.org/wiki/Waterfall_model), and a lot of garbage was thrown over almost every wall in the process, not just developers to QA.
+So much garbage was thrown over the wall by developers to QA, usually to meet an artificial deadline. We hoped that any serious problems in our code would be found by QA. If it slipped through, then well, that was QA's fault. Testers would also be annoyed when they found obvious bugs that the developers should have found on their own. This was during the days of the [Waterfall Methodology](https://en.wikipedia.org/wiki/Waterfall_model), and a lot of garbage was thrown over almost every wall in the process, not just developers to QA.
 
 _When programmers do their jobs, testers find nothing._ — [Bob Martin](https://x.com/unclebobmartin/status/541876357320671232)
 
@@ -218,11 +217,11 @@ Here's a side-by-side comparison of the Ice Cream Cone, Pyramid, and Trophy test
 
 ### Comparison of Testing Layer Strategies
 
-| Strategy      | Shape      | Emphasis                        | Strengths                                   | Weaknesses                                 | Best Used When…                        |
-|---------------|------------|----------------------------------|---------------------------------------------|---------------------------------------------|----------------------------------------|
-| **Ice Cream Cone** | 🍦 Ice Cream | Heavy system tests, few unit tests     | High user-centered coverage                 | Slow, fragile, poor fault isolation         | Starting out, exploratory environments |
-| **Pyramid**   | 🔺 Classic Pyramid   | Many unit tests, fewer system tests   | Fast, stable, good coverage at low cost     | Can miss integration/system-level issues    | Mature projects with modular code      |
-| **Trophy**    | 🏆 Hourglass/Trophy | Strong integration, moderate unit/system | Balances confidence and real-world testing  | Needs robust integration infrastructure      | Microservices, API-heavy architectures |
+| Strategy      | Emphasis                        | Strengths                                   | Weaknesses                                 | Best Used When…                        |
+|---------------|----------------------------------|---------------------------------------------|---------------------------------------------|----------------------------------------|
+| **Ice Cream Cone** | Heavy system tests, few unit tests     | High user-centered coverage                 | Slow, fragile, poor fault isolation         | Starting out, exploratory environments |
+| **Pyramid**   | Many unit tests, fewer system tests   | Fast, stable, good coverage at low cost     | Can miss integration/system-level issues    | Mature projects with modular code      |
+| **Trophy**    | Strong integration, moderate unit/system | Balances confidence and real-world testing  | Needs robust integration infrastructure      | Microservices, API-heavy architectures |
 
 ## Yes, And: Combining Strategies Effectively
 Test Strategies are not mutually exclusive. It’s not a case of either/or. It’s yes, and.
