@@ -48,21 +48,22 @@ Therefore, the Consumer developers can implement and test the __Consumer Busines
 <img src="/assets/CDCTesting3.png" alt="Consumer Testing" width = "50%" align="center" style="padding-right: 35px;">
  
 The Provider known world looks like this:
-__Add new diagram here.__
+
+<img src="/assets/CDCTesting4.png" alt="Provider View" width = "25%" align="center" style="padding-right: 35px;">
  
 Therefore, the Provider developers can implement and test the __Provider Contract Implementation__ in isolation with their __Contract Implementation Test Cases__, which specify __Contract__ behavior based upon their interpretation.
 
 The __Provider Contract Implementation__ probably has its own dependencies, which will require its own __Test Doubles__. I have chosen not to include them in this example for now.
 
-__Add new diagram here.__
+<img src="/assets/CDCTesting5.png" alt="Provider Testing" width = "45%" align="center" style="padding-right: 35px;">
  
-
 But there’s a possible disconnect. How do we know that the Consumer and Provider have the same interpretation of __Contract__ behaviors? How do we know that the __Test Doubles__ are emulating the __Contract__ with the same behaviors that the actual implementations in production will be using? The Consumer tests could be based upon false premises and rendering false positive results.
 
 I contemplated this possibility in [How Do We Know That Emulated Test Double Behavior Is Accurate?](https://jhumelsine.github.io/2024/07/02/test-doubles.html#how-do-we-know-that-emulated-test-double-behavior-is-accurate). A well-defined contract shouldn’t contain too much ambiguity, but what if the __Contract__ contains elements that are more dynamic, such as Strings or JSON structures? The __Contract__ might describe the String format or JSON structure, but how do we know that the Provider has honored that description? What if the __Test Doubles__ emulate the dynamic data format and structure correctly, but the Provider does not honor the contract description? What if the Provider honors the contract description, but Consumer has misinterpreted it when emulating the Test Doubles?
 
 [Integration Testing](https://jhumelsine.github.io/2025/06/23/test-layers.html#integration--acceptance-tests-confirming-cooperation) can help identify these issues. This diagram integrates both elements into the same test:
-__Add new diagram here.__
+
+<img src="/assets/CDCTesting6.png" alt="Integrated Testing" width = "55%" align="center" style="padding-right: 35px;">
  
 There is no __Test Double__ for the __Contract__, since this test resolves the reference with the __Provider Contract Implementation__. __NOTE:__ If __Provider Contract Implementation__ had its own dependencies, then the __Integration Test Case__ would need to include them as well.
 
