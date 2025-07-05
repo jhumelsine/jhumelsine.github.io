@@ -109,3 +109,4 @@ Best luck and wishes to all those currently searching for their next opportunity
 
 # References
 * [Future-proofing your Software Engineering career](https://addyo.substack.com/p/future-proofing-your-software-engineering) - Blog by Addy Osmani
+* [Just got laid off? Get back on your feet with this step-by-step guide](https://www.npr.org/2025/06/25/nx-s1-5366671/layoffs-job-loss-unemployment-finance-money-tips) - From NPR Life Kit
