@@ -1,6 +1,6 @@
 ---
 title: DRAFT – Consumer-Driven Contract Testing
-description: Giving the Consumer exactly what they asked for
+description: Giving the consumer exactly what they asked for
 unlisted: true
 ---
 
@@ -63,7 +63,7 @@ I contemplated this possibility in [How Do We Know That Emulated Test Double Beh
 
 [Integration Testing](https://jhumelsine.github.io/2025/06/23/test-layers.html#integration--acceptance-tests-confirming-cooperation) can help identify these issues. This diagram integrates both elements into the same test:
 
-<img src="/assets/CDCTesting6.png" alt="Integrated Testing" width = "55%" align="center" style="padding-right: 35px;">
+<img src="/assets/CDCTesting6.png" alt="Integrated Testing" width = "60%" align="center" style="padding-right: 35px;">
  
 There is no __Test Double__ for the __Contract__, since this test resolves the reference with the __Provider Contract Implementation__. __NOTE:__ If __Provider Contract Implementation__ had its own dependencies, then the __Integration Test Case__ would need to include them as well.
 
@@ -106,7 +106,7 @@ Do not despair. The Consumer can protect itself from the Provider contract by us
 
 We can see this with __Adapters__ within the [Hexagonal Architecture](https://jhumelsine.github.io/2023/10/28/hexagonal-architecture-structure.html) design:
 
-<img src="/assets/CDCTesting8.png" alt="Hexagonal Design" width = "55%" align="center" style="padding-right: 35px;">
+<img src="/assets/CDCTesting8.png" alt="Hexagonal Design" width = "70%" align="center" style="padding-right: 35px;">
  
 The Hexagonal design shows how the `Business Logic` only depends upon its `Business Contract` and `Dependency Contract`. The `Business Logic` is cocooned and isolated from external elements, since it has no dependency or knowledge beyond its Contracts. The Adapters are the connective elements that allow the `Business Logic` to interact with `Externals` without depending upon `Externals` directly.
 
@@ -117,7 +117,7 @@ Let’s examine each implementation with respect to its own testing.
 ### Business Logic
 This is the entire `Business Logic’s` known world:
 
-<img src="/assets/CDCTesting9.png" alt="Business Logic View" width = "55%" align="center" style="padding-right: 35px;">
+<img src="/assets/CDCTesting9.png" alt="Business Logic View" width = "45%" align="center" style="padding-right: 35px;">
  
 Since the Contracts are defined within the context of the application, this is easy to test:
 
@@ -126,13 +126,13 @@ Since the Contracts are defined within the context of the application, this is e
 ### Framework Adapter
 The `External Framework` is an external dependency. Frameworks are a tricky thing. They can do a lot for you, but they control the show. Let’s consider this naïve design:
 
-<img src="/assets/CDCTesting11.png" alt="Naive Design" width = "55%" align="center" style="padding-right: 35px;">
+<img src="/assets/CDCTesting11.png" alt="Naive Design" width = "35%" align="center" style="padding-right: 35px;">
 
 It’s straightforward. It’s clean. It’s simple. However, the `Business Logic` has knowledge of and depends upon the `External Framework`, but knowledge and dependency is not reciprocal. If the External Framework modifies its terms, it could have devastating effects upon the `Business Logic`.This is not a relationship of equals. The framework is dominant in the relationship. It makes most of the decisions. If the framework changes the nature of the relationship, then any of its partners must submit to those changes.
 
 _You must understand that when you marry a framework to your application, you will be stuck with that framework for the rest of the life cycle of that application. For better or for worse, in sickness and in health, for richer, for poorer, forsaking all others, you will be using that framework. This is not a commitment to be entered into lightly._ ― [Robert C. Martin]( https://www.goodreads.com/author/quotes/45372.Robert_C_Martin?page=11), Clean Architecture
 
-I’ve heard Bob phrase this more succinctly as: __Don’t marry the framework, but you can date it.__; however, I can’t find a confirmed source for the entire phrase.
+I’ve heard Bob phrase this more succinctly as: __Don’t marry the framework, but you can date it__; however, I can’t find a confirmed source for the entire phrase.
 
 This means that while we need to work with Frameworks, we should be careful not to allow our application logic to become too tightly coupled to them. When I first heard Martin’s admonition, I wasn’t exactly sure what he meant by _dating the Framework_. I have come to believe that an Adapter allows the application to date the Framework without the application having to marry it.
 
@@ -140,13 +140,13 @@ The `Framework Adapter` depends upon the Framework, but its limited responsibili
 
 This is the entire `Framework Adapter’s` known world:
 
-<img src="/assets/CDCTesting12.png" alt="Framework Adapter View" width = "55%" align="center" style="padding-right: 35px;">
+<img src="/assets/CDCTesting12.png" alt="Framework Adapter View" width = "50%" align="center" style="padding-right: 35px;">
  
 The `External Framework` and the `Business Contract` have no dependencies or knowledge of one another. If the `External Framework` changes its Contract, then ideally, the only impact is upon the `Framework Adapter` and not the `Business Contract`.
 
 A design to test the `Framework Adapter` might look something like this:
 
-<img src="/assets/CDCTesting13.png" alt="Framework Adapter Test" width = "55%" align="center" style="padding-right: 35px;">
+<img src="/assets/CDCTesting13.png" alt="Framework Adapter Test" width = "60%" align="center" style="padding-right: 35px;">
  
 I’ve indicated that `Framework Adapter Test Case` interacts with `Framework Adapter`, since it may not have access to the `External Framework` elements. If it does, then it could interact with it. `Business Contract Test Double` emulates `Business Logic` so that we can confirm `Framework Adapter` behavior.
 
@@ -157,7 +157,7 @@ We don’t want `Business Logic` to have a direct dependency upon an `External P
 
 This is the entire `Provider Adapter’s` known world:
 
-<img src="/assets/CDCTesting14.png" alt="Provider Adapter View" width = "55%" align="center" style="padding-right: 35px;">
+<img src="/assets/CDCTesting14.png" alt="Provider Adapter View" width = "45%" align="center" style="padding-right: 35px;">
  
 Testing isn’t as convenient as the two previous cases. `External Provider` is an external dependency, which makes it difficult to incorporate in a Unit Test. The `Provider Adapter’s` main purpose is to separate the `Business Logic` from external dependencies, but it cannot separate itself from those external dependencies. Therefore, we cannot easily unit test the `Provider Adapter`.
 
@@ -167,11 +167,11 @@ Given their limitations, they should not be part of the traditional test cycle. 
 
 This test design tests the `External Provider`:
 
-<img src="/assets/CDCTesting15.png" alt="External Provider CDC Test" width = "55%" align="center" style="padding-right: 35px;">
+<img src="/assets/CDCTesting15.png" alt="External Provider CDC Test" width = "50%" align="center" style="padding-right: 35px;">
  
 This test design tests the `Provider Adapter` and the `External Provider`:
 
-<img src="/assets/CDCTesting16.png" alt="Provider Adapter and External Provider CDC Test" width = "55%" align="center" style="padding-right: 35px;">
+<img src="/assets/CDCTesting16.png" alt="Provider Adapter and External Provider CDC Test" width = "60%" align="center" style="padding-right: 35px;">
  
 This level of testing is optional, so why bother to do it? I heard this story second hand from a coworker, so I may not have accurate details. A previous employer of mine had a strategic partner as an external provider. The provider changed their contract. I don’t know if they changed the contract’s syntax, semantics or both. Regardless, their change affected our products behavior to our users. We did not know about the provider’s update. I don’t know if it’s a case that we didn’t notice the notification in their release notes, or whether the update fell upon the wrong ears, or whether they didn’t notify us thinking that it didn’t matter.
 
