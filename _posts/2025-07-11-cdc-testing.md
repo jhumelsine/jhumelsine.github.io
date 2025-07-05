@@ -30,9 +30,9 @@ Contracts are [Stable/Fixed Elements](https://jhumelsine.github.io/2023/11/03/he
 Decoupled testing is supported by [injecting](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) Test Doubles within a test to resolve contract dependencies rather than depending upon the production implementation.
 
 Let’s consider this simple pattern where __Consumer Business Logic__ depends upon a __Contract__ which is implemented by the __Provider Contract Implementation__. This pattern repeats in almost every design.
-__Add new diagram here.__
 
- 
+<img src="/assets/CDCTesting1.png" alt="Basic Design" width = "40%" align="center" style="padding-right: 35px;">
+
 All arrows, indicating the flow of [dependency and knowledge](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#implications), point toward the __Contract__.
 
 The __Contract__ is a Natural Barrier between __Consumer Business Logic__ and __Provider Contract Implementation__. They do not know about nor depend upon each other. The Contract is a Seam allowing the design and implementation of each to proceed independently by different developers or teams. Their only implicit dependency is the shared __Contract__.
@@ -40,11 +40,12 @@ The __Contract__ is a Natural Barrier between __Consumer Business Logic__ and __
 The diagram doesn’t indicate how the __Consumer Business Logic__ obtains a reference to the __Provider Contract Implementation__. I prefer a [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) that creates a __Provider Contract Implementation__ and [injects](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) its reference into the __Consumer Business Logic__. I will include a Configurer in a subsequent diagram.
 
 The Consumer’s known world looks like this:
-__Add new diagram here.__
 
- 
+<img src="/assets/CDCTesting2.png" alt="Consumer View" width = "40%" align="center" style="padding-right: 35px;">
+
 Therefore, the Consumer developers can implement and test the __Consumer Business Logic__ in isolation and emulate the __Contract__ behavior in the __Contract Test Double__ based upon their interpretation of __Contract__ behavior.
-__Add new diagram here.__
+
+<img src="/assets/CDCTesting3.png" alt="Consumer Testing" width = "50%" align="center" style="padding-right: 35px;">
  
 The Provider known world looks like this:
 __Add new diagram here.__
