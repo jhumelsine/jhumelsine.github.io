@@ -79,7 +79,8 @@ Throughout this [Automated Testing](https://jhumelsine.github.io/3000/01/01/pref
 Test Doubles still need to emulate dependency behaviors accurately. However, we can use CDC Testing techniques to codify that the production dependency behavior matches our emulated Test Double behaviors. We still must confirm that our Test Doubles are emulating confirmed dependency behaviors, but with CDC Testing we have more confidence that our assumptions about dependency behavior are accurate.
 
 Here's what it looks like:
-__Add new diagram here.__
+
+<img src="/assets/CDCTesting7.png" alt="CDC Testing" width = "55%" align="center" style="padding-right: 35px;">
  
 This is structurally identical to the Provider’s unit tests, but it’s more than just a few additional tests.
 
@@ -104,7 +105,8 @@ Regardless of the scenario, the Provider is unlikely to allow the Consumer to dr
 Do not despair. The Consumer can protect itself from the Provider contract by using the [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) or [Façade](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html) design patterns.
 
 We can see this with __Adapters__ within the [Hexagonal Architecture](https://jhumelsine.github.io/2023/10/28/hexagonal-architecture-structure.html) design:
-__Add new diagram here.__
+
+<img src="/assets/CDCTesting8.png" alt="Hexagonal Design" width = "55%" align="center" style="padding-right: 35px;">
  
 The Hexagonal design shows how the `Business Logic` only depends upon its `Business Contract` and `Dependency Contract`. The `Business Logic` is cocooned and isolated from external elements, since it has no dependency or knowledge beyond its Contracts. The Adapters are the connective elements that allow the `Business Logic` to interact with `Externals` without depending upon `Externals` directly.
 
@@ -114,7 +116,8 @@ Let’s examine each implementation with respect to its own testing.
 
 ### Business Logic
 This is the entire `Business Logic’s` known world:
-__Add new diagram here.__
+
+<img src="/assets/CDCTesting9.png" alt="Business Logic View" width = "55%" align="center" style="padding-right: 35px;">
  
 Since the Contracts are defined within the context of the application, this is easy to test:
 __Add new diagram here.__
