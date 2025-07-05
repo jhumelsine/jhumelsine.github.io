@@ -120,11 +120,13 @@ This is the entire `Business Logic’s` known world:
 <img src="/assets/CDCTesting9.png" alt="Business Logic View" width = "55%" align="center" style="padding-right: 35px;">
  
 Since the Contracts are defined within the context of the application, this is easy to test:
-__Add new diagram here.__
- 
+
+<img src="/assets/CDCTesting10.png" alt="Business Logic Test" width = "55%" align="center" style="padding-right: 35px;">
+
 ### Framework Adapter
 The `External Framework` is an external dependency. Frameworks are a tricky thing. They can do a lot for you, but they control the show. Let’s consider this naïve design:
-__Add new diagram here.__
+
+<img src="/assets/CDCTesting11.png" alt="Naive Design" width = "55%" align="center" style="padding-right: 35px;">
 
 It’s straightforward. It’s clean. It’s simple. However, the `Business Logic` has knowledge of and depends upon the `External Framework`, but knowledge and dependency is not reciprocal. If the External Framework modifies its terms, it could have devastating effects upon the `Business Logic`.This is not a relationship of equals. The framework is dominant in the relationship. It makes most of the decisions. If the framework changes the nature of the relationship, then any of its partners must submit to those changes.
 
@@ -137,12 +139,14 @@ This means that while we need to work with Frameworks, we should be careful not 
 The `Framework Adapter` depends upon the Framework, but its limited responsibility is to delegate any Framework required behaviors to the Business Contract. The Adapter acts as an [Anticorruption Layer](http://ddd.fed.wiki.org/view/anticorruption-layer) keeping the Framework dependencies at bay. Adapters tend to be relatively small, since their main responsibility is to translate Framework concepts into Business Contract concepts. Any Framework updates would hopefully be limited to the Adapter’s relatively small implementation.
 
 This is the entire `Framework Adapter’s` known world:
-__Add new diagram here.__
+
+<img src="/assets/CDCTesting12.png" alt="Framework Adapter View" width = "55%" align="center" style="padding-right: 35px;">
  
 The `External Framework` and the `Business Contract` have no dependencies or knowledge of one another. If the `External Framework` changes its Contract, then ideally, the only impact is upon the `Framework Adapter` and not the `Business Contract`.
 
 A design to test the `Framework Adapter` might look something like this:
-__Add new diagram here.__
+
+<img src="/assets/CDCTesting13.png" alt="Framework Adapter Test" width = "55%" align="center" style="padding-right: 35px;">
  
 I’ve indicated that `Framework Adapter Test Case` interacts with `Framework Adapter`, since it may not have access to the `External Framework` elements. If it does, then it could interact with it. `Business Contract Test Double` emulates `Business Logic` so that we can confirm `Framework Adapter` behavior.
 
@@ -152,7 +156,8 @@ This will test most Adapter mapping behavior from the Framework to the Contract,
 We don’t want `Business Logic` to have a direct dependency upon an `External Provider` either, so an Adapter will work here as well. 
 
 This is the entire `Provider Adapter’s` known world:
-__Add new diagram here.__
+
+<img src="/assets/CDCTesting14.png" alt="Provider Adapter View" width = "55%" align="center" style="padding-right: 35px;">
  
 Testing isn’t as convenient as the two previous cases. `External Provider` is an external dependency, which makes it difficult to incorporate in a Unit Test. The `Provider Adapter’s` main purpose is to separate the `Business Logic` from external dependencies, but it cannot separate itself from those external dependencies. Therefore, we cannot easily unit test the `Provider Adapter`.
 
@@ -161,10 +166,12 @@ What we do is use the concept of CDC Testing but with one minor tweak. The Provi
 Given their limitations, they should not be part of the traditional test cycle. Each situation is unique, but maybe we don’t want to run these tests more frequently than nightly or possibly weekly. The `External Provider` probably won’t change behavior often, but when it does, we want to know, so we can adjust as needed.
 
 This test design tests the `External Provider`:
-__Add new diagram here.__
+
+<img src="/assets/CDCTesting15.png" alt="External Provider CDC Test" width = "55%" align="center" style="padding-right: 35px;">
  
 This test design tests the `Provider Adapter` and the `External Provider`:
-__Add new diagram here.__
+
+<img src="/assets/CDCTesting16.png" alt="Provider Adapter and External Provider CDC Test" width = "55%" align="center" style="padding-right: 35px;">
  
 This level of testing is optional, so why bother to do it? I heard this story second hand from a coworker, so I may not have accurate details. A previous employer of mine had a strategic partner as an external provider. The provider changed their contract. I don’t know if they changed the contract’s syntax, semantics or both. Regardless, their change affected our products behavior to our users. We did not know about the provider’s update. I don’t know if it’s a case that we didn’t notice the notification in their release notes, or whether the update fell upon the wrong ears, or whether they didn’t notify us thinking that it didn’t matter.
 
