@@ -5,16 +5,16 @@ unlisted: true
 ---
 
 # Introduction
-Bob Martin tells a story on the [Clean Coders Podcast](https://podcasts.apple.com/us/podcast/cc-010-the-programmers-oath-with-robert-uncle-bob-martin/id1497337173?i=1000509595169), starting at around 39:30, of a project he had worked on several decades previously. The customer paid Bob’s shop a _run rate_, which was about half what they wanted. It was enough to keep the doors open and the lights on, but not much after that.
+Bob Martin tells a story on the [Clean Coders Podcast](https://podcasts.apple.com/us/podcast/cc-010-the-programmers-oath-with-robert-uncle-bob-martin/id1497337173?i=1000509595169), starting at 39:38, of a project he had worked on several decades previously. The customer paid Bob’s shop a _run rate_, which was about half what they wanted. It was enough to keep the doors open and the lights on, but not much after that.
 
 The customer would also pay a completion bonus upon delivery for each of their requested 36 features. How would the customer know that a feature was accurate and complete? What if Bob’s team delivered a feature in good faith, but the customer refused to pay because it wasn’t exactly what they expected?
 
 The feature requirements weren’t specified traditionally. Bob’s customer provided [Acceptance Criteria](https://en.wikipedia.org/wiki/Acceptance_testing#Acceptance_criteria) from which Bob’s team created [Acceptance Tests](https://en.wikipedia.org/wiki/Acceptance_testing). When the Acceptance Tests for a feature passed, the team knew they could deliver the feature to the customer and receive payment. The customer couldn’t claim that the delivered feature wasn’t what they expected or needed, since the team had a repeatable proof via the Acceptance Tests that the feature worked as specified by the customer. They gave the customer exactly what they asked for.
 
 # Consumer-Driven Contract Testing
-Bob’s story is closely related to [Consumer-Driven Contract Testing](https://microsoft.github.io/code-with-engineering-playbook/automated-testing/cdc-testing/) (CDC Testing), which can be thought of as the intersection of [Contracts](https://jhumelsine.github.io/2025/06/10/contracts.html) and [Acceptance Testing](https://jhumelsine.github.io/2025/06/23/test-layers.html#integration--acceptance-tests-confirming-cooperation). CDC Testing ensures that the obligations and expectations defined in a contract are honored by the Provider via the Consumer provided tests that specify their contract obligations and expectations. Providers only release code that satisfies those Consumer provided tests.
+Bob’s story is closely related to [Consumer-Driven Contract Testing](https://microsoft.github.io/code-with-engineering-playbook/automated-testing/cdc-testing/) (CDC Testing), which can be thought of as the intersection of [Contracts](https://jhumelsine.github.io/2025/06/10/contracts.html) and [Acceptance Testing](https://jhumelsine.github.io/2025/06/23/test-layers.html#integration--acceptance-tests-confirming-cooperation). CDC Testing ensures that the obligations and expectations defined in a contract are honored by the Provider via the Consumer provided tests that specify their dependencies upon the contract obligations and expectations. Providers only release code that satisfies those Consumer provided contract specification tests.
 
-Microsoft’s Engineering Fundamentals Playbook describes [CDC Testing](https://microsoft.github.io/code-with-engineering-playbook/automated-testing/cdc-testing/) as:
+Microsoft describes [Engineering Fundamentals Playbook: CDC Testing](https://microsoft.github.io/code-with-engineering-playbook/automated-testing/cdc-testing/) as:
 >Consumer-Driven Contract Testing (or CDC for short) is a software testing methodology used to test components of a system in isolation while ensuring that provider components are compatible with the expectations that consumer components have of them.
 >
 >CDC _tests_ interactions between components in isolation using [_Test Doubles_](https://jhumelsine.github.io/2024/07/02/test-doubles.html) that conform to a shared understanding documented in a "contract". Contracts are agreed between consumer and provider, and are regularly verified against a real instance of the provider component. This effectively partitions a larger system into smaller pieces that can be tested individually in isolation of each other, leading to simpler, fast and stable tests that also give confidence to release.
@@ -22,7 +22,7 @@ Microsoft’s Engineering Fundamentals Playbook describes [CDC Testing](https://
 # CDC Testing in a Nutshell
 With CDC Testing, the Consumer provides tests that specify the contract behaviors they expect. The Producer doesn’t release their code until the consumer-provided tests pass.
 
-It’s still the responsibility of the Consumer to ensure that their Test Doubles emulate the contract, but with the reassurance that the Provider actually honors their interpretation of the contract.
+It’s still the responsibility of the Consumer to ensure that their Test Doubles emulate the contract, but now the Consumer has the reassurance that the Provider actually honors their interpretation of the contract.
 
 ## The Contract is Core
 Contracts are [Stable/Fixed Elements](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#stable-or-fixed-design-elements) within a design where they form [Natural Boundaries](https://jhumelsine.github.io/2024/05/28/design-process.html#natural-boundaries) among other software elements. Contracts define [Seams](https://jhumelsine.github.io/2025/03/24/legacy-code.html#seams) that allow us to decouple a design into chunks of cohesive elements. This facilitates parallel development among different developers or teams who can also test their code without being tightly coupled to the implementations provided by the other teams.
@@ -35,7 +35,7 @@ Let’s consider this simple pattern where __Consumer Business Logic__ depends u
 
 All arrows, indicating the flow of [dependency and knowledge](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#implications), point toward the __Contract__.
 
-The __Contract__ is a Natural Barrier between __Consumer Business Logic__ and __Provider Contract Implementation__. They do not know about nor depend upon each other. The Contract is a Seam allowing the design and implementation of each to proceed independently by different developers or teams. Their only implicit dependency is the shared __Contract__.
+The __Contract__ is a Natural Barrier between __Consumer Business Logic__ and __Provider Contract Implementation__. They do not know about nor depend upon each other. The __Contract__ is a Seam allowing the design and implementation of each to proceed independently by different developers or teams. Their only implicit dependency is the shared __Contract__.
 
 The diagram doesn’t indicate how the __Consumer Business Logic__ obtains a reference to the __Provider Contract Implementation__. I prefer a [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) that creates a __Provider Contract Implementation__ and [injects](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) its reference into the __Consumer Business Logic__. I will include a Configurer in a subsequent diagram.
 
