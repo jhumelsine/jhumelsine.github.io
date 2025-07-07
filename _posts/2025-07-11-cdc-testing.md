@@ -14,7 +14,7 @@ The feature requirements weren’t specified traditionally. Bob’s customer pro
 __They gave the customer exactly what they asked for.__
 
 # Consumer-Driven Contract Testing
-Bob’s story is closely related to [Consumer-Driven Contract Testing](https://microsoft.github.io/code-with-engineering-playbook/automated-testing/cdc-testing/) (CDC Testing), which can be thought of as the intersection of [Contracts](https://jhumelsine.github.io/2025/06/10/contracts.html) and [Acceptance Testing](https://jhumelsine.github.io/2025/06/23/test-layers.html#integration--acceptance-tests-confirming-cooperation). CDC Testing ensures that the obligations and expectations defined in a Contract are honored by the Provider via the Consumer-provided tests that specify their dependencies upon the Contract's obligations and expectations. Providers only release code that satisfies those Consumer-provided Contract specification tests.
+Bob’s story is closely related to [Consumer-Driven Contract Testing](https://microsoft.github.io/code-with-engineering-playbook/automated-testing/cdc-testing/) (CDC Testing), which can be thought of as the intersection of [Contracts](https://jhumelsine.github.io/2025/06/10/contracts.html) and [Acceptance Testing](https://jhumelsine.github.io/2025/06/23/test-layers.html#integration--acceptance-tests-confirming-cooperation). CDC Testing ensures that the obligations and expectations defined in a Contract are honored by the Provider via the Consumer-provided tests that specify the Consumer's dependencies upon the Contract's obligations and expectations. Providers only release code that satisfies those Consumer-provided Contract specification tests.
 
 Microsoft describes [CDC Testing](https://microsoft.github.io/code-with-engineering-playbook/automated-testing/cdc-testing/) in their [Engineering Fundamentals Playbook](https://microsoft.github.io/code-with-engineering-playbook/) as:
 >Consumer-Driven Contract Testing (or CDC for short) is a software testing methodology used to test components of a system in isolation while ensuring that provider components are compatible with the expectations that consumer components have of them.
@@ -78,7 +78,7 @@ __NOTE:__ If __Provider Contract Implementation__ had its own dependencies, then
 
 While this would help identify any interpretation differences about the __Contract__ between the __Consumer__ and __Provider__ it comes at several costs:
 * Integration testing probably isn’t going to happen until both implementations have matured which means that any inconsistencies might occur later making their resolution more costly than had they been identified earlier.
-* Since integration testing won’t cover all scenarios, the entire set of __Contract__ behaviors may not be confirmed. A lurking inconsistency may only be identified in production.
+* Since integration testing won’t cover all scenarios, the entire set of __Contract__ behaviors may not be confirmed. A lurking inconsistency might only be identified in production.
 * If an inconsistency is found, it will take some debugging, since it may not be obvious where the __Contract__ inconsistency resides.
 
 ### Contract Alignment
@@ -94,7 +94,7 @@ Here's what it looks like:
  
 This is structurally identical to the Provider’s unit tests, but it’s more than just a few additional tests.
 
-__The value in creating Consumer driven tests executed by the Provider is in the communication that it fosters between Consumer and Provider.__
+__The value in creating Consumer-Driven tests executed by the Provider is in the communication that it fosters between Consumer and Provider.__
 
 Revisiting a phrase from the Microsoft document:
 >CDC _tests confirm_ a shared understanding documented in a "contract". Contracts are agreed between consumer and provider …
@@ -106,7 +106,7 @@ Even though the Consumer drives the tests, the Consumer probably can’t write t
 # The Provider Driven Contract
 The Consumer/Provider partnership in driving the Contract won’t always be a kumbaya moment. I can think of several scenarios where the Contract specification might reside more with the Provider than the Consumer:
 * __Multiple Consumers__ – Most Providers will have multiple Consumers, and each Consumer will want its own bespoke Contract. The Provider will need to design a Contract that satisfies their Consumers as a whole, but the Provider won’t be able to create a bespoke Contract for each.
-* __Late Consumer__ – The schedule may force the Provider to define the Contract before there were any Consumers available for consultation. I requested a Contract update on a past project. My Provider, a coworker on another team, told me it was not possible. I should have made the request during the design review. I kindly pointed out that the design review happened several months before I had joined the company. This company used a layered architecture designed from the bottom up. Low-level decisions were locked into place prematurely. We didn’t realize it at the time, but this was the exact opposite of [Clean Architecture’s](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html) advice to delay decisions as long as possible.
+* __Late Consumer__ – The schedule may force the Provider to define the Contract before there were any Consumers available for consultation. I requested a Contract update on a past project. My Provider, a coworker on another team, told me it was not possible. I should have made the request during the design review. I kindly pointed out that the design review happened several months before I had joined the company. This company practiced the [Waterfall Methodology](https://en.wikipedia.org/wiki/Waterfall_model) and used a layered architecture designed from the bottom up. Low-level decisions were locked into place prematurely. We didn’t realize it at the time, but this was the exact opposite of [Clean Architecture’s](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html) advice to delay decisions as long as possible.
 * __External Provider__ – The Provider is external to your organization and may not even know you exist. They may be a major vendor. They may have hundreds of Consumers. They are unlikely to coordinate with you as a Consumer other than provide API documentation and if you’re lucky some customer technical support, both of which might vary widely in completeness and quality.
 
 Regardless of the scenario, the Provider is unlikely to allow the Consumer to drive the Contract nor will the Provider accept Consumer-provided tests.
@@ -122,7 +122,7 @@ The Hexagonal design shows how the `Business Logic` only depends upon its `Busin
 
 Even if the Consumer can’t directly use CDC Testing to drive the shared Contract, or force Providers to run any Consumer tests, the Consumer can still leverage CDC Test concepts.
 
-Let’s examine each implementation with respect to its own testing.
+Let’s examine each implementation with respect to its own testing. I'll start in the middle, move to the upper left and finish with the lower right.
 
 ### Business Logic
 This is the entire `Business Logic’s` known world:
