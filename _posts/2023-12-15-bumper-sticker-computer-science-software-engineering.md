@@ -338,6 +338,8 @@ _The art of debugging is figuring out what you really told your program to do ra
 
 _Tests don't break your code; they break your illusions about the quality of that code._ — Maaret Pyhäjärvi
 
+_As soon as you have humans doing repetitive tasks on behalf of computers, they all get together late at night and laugh at you._ — Neal Ford, in the context of repetitive manual vs automated testing
+
 _Beware of bugs in the above code; I have only proved it correct, not tried it._ — Donald Knuth
 
 _Testing leads to failure, and failure leads to understanding._ — Burt Rutan
