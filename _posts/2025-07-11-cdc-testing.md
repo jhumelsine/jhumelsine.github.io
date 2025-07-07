@@ -7,14 +7,16 @@ unlisted: true
 # Introduction
 Bob Martin tells a story on the [Clean Coders Podcast](https://podcasts.apple.com/us/podcast/cc-010-the-programmers-oath-with-robert-uncle-bob-martin/id1497337173?i=1000509595169), starting at 39:38, of a project he had worked on several decades previously. The customer paid Bob’s shop a _run rate_, which was about half what they wanted. It was enough to keep the doors open and the lights on, but not much after that.
 
-The customer would also pay a completion bonus upon delivery for each of their requested 36 features. How would the customer know that a feature was accurate and complete? What if Bob’s team delivered a feature in good faith, but the customer refused to pay because it wasn’t exactly what they expected?
+The customer also paid a completion bonus upon delivery for each of their requested 36 features. How would the customer know that a feature was accurate and complete? What if Bob’s team delivered a feature in good faith, but the customer refused to pay because it wasn’t exactly what they expected?
 
-The feature requirements weren’t specified traditionally. Bob’s customer provided [Acceptance Criteria](https://en.wikipedia.org/wiki/Acceptance_testing#Acceptance_criteria) from which Bob’s team created [Acceptance Tests](https://en.wikipedia.org/wiki/Acceptance_testing). When the Acceptance Tests for a feature passed, the team knew they could deliver the feature to the customer and receive payment. The customer couldn’t claim that the delivered feature wasn’t what they expected or needed, since the team had a repeatable proof via the Acceptance Tests that the feature worked as specified by the customer. They gave the customer exactly what they asked for.
+The feature requirements weren’t specified traditionally. Bob’s customer provided [Acceptance Criteria](https://en.wikipedia.org/wiki/Acceptance_testing#Acceptance_criteria) from which Bob’s team created [Acceptance Tests](https://en.wikipedia.org/wiki/Acceptance_testing). When the Acceptance Tests for a feature passed, the team knew they could deliver the feature to the customer and receive payment. The customer couldn’t claim that the delivered feature wasn’t what they expected or needed, since the team had a repeatable proof via the Acceptance Tests that the feature worked as specified by the customer.
+
+__They gave the customer exactly what they asked for.__
 
 # Consumer-Driven Contract Testing
 Bob’s story is closely related to [Consumer-Driven Contract Testing](https://microsoft.github.io/code-with-engineering-playbook/automated-testing/cdc-testing/) (CDC Testing), which can be thought of as the intersection of [Contracts](https://jhumelsine.github.io/2025/06/10/contracts.html) and [Acceptance Testing](https://jhumelsine.github.io/2025/06/23/test-layers.html#integration--acceptance-tests-confirming-cooperation). CDC Testing ensures that the obligations and expectations defined in a contract are honored by the Provider via the Consumer provided tests that specify their dependencies upon the contract obligations and expectations. Providers only release code that satisfies those Consumer provided contract specification tests.
 
-Microsoft describes [Engineering Fundamentals Playbook: CDC Testing](https://microsoft.github.io/code-with-engineering-playbook/automated-testing/cdc-testing/) as:
+Microsoft describes [CDC Testing](https://microsoft.github.io/code-with-engineering-playbook/automated-testing/cdc-testing/) in their [Engineering Fundamentals Playbook](https://microsoft.github.io/code-with-engineering-playbook/) as:
 >Consumer-Driven Contract Testing (or CDC for short) is a software testing methodology used to test components of a system in isolation while ensuring that provider components are compatible with the expectations that consumer components have of them.
 >
 >CDC _tests_ interactions between components in isolation using [_Test Doubles_](https://jhumelsine.github.io/2024/07/02/test-doubles.html) that conform to a shared understanding documented in a "contract". Contracts are agreed between consumer and provider, and are regularly verified against a real instance of the provider component. This effectively partitions a larger system into smaller pieces that can be tested individually in isolation of each other, leading to simpler, fast and stable tests that also give confidence to release.
@@ -22,7 +24,7 @@ Microsoft describes [Engineering Fundamentals Playbook: CDC Testing](https://mic
 # CDC Testing in a Nutshell
 With CDC Testing, the Consumer provides tests that specify the contract behaviors they expect. The Producer doesn’t release their code until the consumer-provided tests pass.
 
-It’s still the responsibility of the Consumer to ensure that their Test Doubles emulate the contract, but now the Consumer has the reassurance that the Provider actually honors their interpretation of the contract.
+It’s still the responsibility of the Consumer to ensure that their Test Doubles emulate the contract, but now the Consumer has the reassurance that the Provider honors their interpretation of the contract.
 
 ## The Contract is Core
 Contracts are [Stable/Fixed Elements](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#stable-or-fixed-design-elements) within a design where they form [Natural Boundaries](https://jhumelsine.github.io/2024/05/28/design-process.html#natural-boundaries) among other software elements. Contracts define [Seams](https://jhumelsine.github.io/2025/03/24/legacy-code.html#seams) that allow us to decouple a design into chunks of cohesive elements. This facilitates parallel development among different developers or teams who can also test their code without being tightly coupled to the implementations provided by the other teams.
@@ -30,15 +32,15 @@ Contracts are [Stable/Fixed Elements](https://jhumelsine.github.io/2023/11/03/he
 Decoupled testing is supported by [injecting](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) Test Doubles within a test to resolve contract dependencies rather than depending upon the production implementation.
 
 ### The Basic Contract Pattern
-Let’s consider this simple pattern where __Consumer Business Logic__ depends upon a __Contract__ which is implemented by the __Provider Contract Implementation__. This pattern repeats in almost every design.
+Let’s consider this simple pattern where __Consumer Business Logic__ delegates __Contract__ which is implemented by the __Provider Contract Implementation__.  This pattern repeats in almost every design.
 
 <img src="/assets/CDCTesting1.png" alt="Basic Design" width = "40%" align="center" style="padding-right: 35px;">
 
-All arrows, indicating the flow of [dependency and knowledge](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#implications), point toward the __Contract__.
+All arrows, indicating the flow of [dependency and knowledge](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#implications), point toward the __Contract__. Both implementations depend upon __Contract__ but in different contexts, delegation vs implementation.
 
 The __Contract__ is a Natural Barrier between __Consumer Business Logic__ and __Provider Contract Implementation__. They do not know about nor depend upon each other. The __Contract__ is a Seam allowing the design and implementation of each to proceed independently by different developers or teams. Their only implicit dependency is the shared __Contract__.
 
-The diagram doesn’t indicate how the __Consumer Business Logic__ obtains a reference to the __Provider Contract Implementation__. I prefer a [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) that creates a __Provider Contract Implementation__ and [injects](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) its reference into the __Consumer Business Logic__. I will include a Configurer in a subsequent diagram.
+The diagram doesn’t indicate how the __Consumer Business Logic__ obtains a reference to the __Provider Contract Implementation__. I prefer a [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) that creates a __Provider Contract Implementation__ and [injects](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) its reference into the __Consumer Business Logic__. The Configurer is a bit ouf of scope for this topic, but I will include it in a subsequent diagram.
 
 ### Consumer View
 The Consumer’s known world looks like this:
@@ -56,7 +58,7 @@ The Provider known world looks like this:
  
 Therefore, the Provider developers can implement and test the __Provider Contract Implementation__ in isolation with their __Contract Implementation Test Cases__, which specify __Contract__ behavior based upon their interpretation.
 
-The __Provider Contract Implementation__ probably has its own dependencies, which will require its own __Test Doubles__. I have chosen not to include them in this example for now.
+The __Provider Contract Implementation__ probably has its own dependencies, which will require its own __Test Doubles__. I have chosen not to include them in this example for simplicity.
 
 <img src="/assets/CDCTesting5.png" alt="Provider Testing" width = "45%" align="center" style="padding-right: 35px;">
 
@@ -65,6 +67,7 @@ But there’s a possible disconnect. How do we know that the Consumer and Provid
 
 I contemplated this possibility in [How Do We Know That Emulated Test Double Behavior Is Accurate?](https://jhumelsine.github.io/2024/07/02/test-doubles.html#how-do-we-know-that-emulated-test-double-behavior-is-accurate) A well-defined contract shouldn’t contain too much ambiguity, but what if the __Contract__ contains elements that are more dynamic, such as Strings or JSON structures? The __Contract__ might describe the String format or JSON structure, but how do we know that the Provider has honored that description? What if the __Test Doubles__ emulate the dynamic data format and structure correctly, but the Provider does not honor the contract description? What if the Provider honors the contract description, but Consumer has misinterpreted it when emulating the Test Doubles?
 
+### Integration Testing
 [Integration Testing](https://jhumelsine.github.io/2025/06/23/test-layers.html#integration--acceptance-tests-confirming-cooperation) can help identify Contract consistency issues. This diagram integrates both elements into the same test:
 
 <img src="/assets/CDCTesting6.png" alt="Integrated Testing" width = "60%" align="center" style="padding-right: 35px;">
@@ -75,7 +78,7 @@ __NOTE:__ If __Provider Contract Implementation__ had its own dependencies, then
 
 While this would help identify any interpretation differences about the __Contract__ between the __Consumer__ and __Provider__ it comes at several costs:
 * Integration testing probably isn’t going to happen until both implementations have matured which means that any inconsistencies might occur later making their resolution more costly than had they been identified earlier.
-* Since integration testing won’t cover all scenarios, the entire set of __Contract__ behaviors may not be confirmed.
+* Since integration testing won’t cover all scenarios, the entire set of __Contract__ behaviors may not be confirmed. A lurking inconsistency may only be identified in production.
 * If an inconsistency is found, it will take some debugging, since it may not be obvious where the __Contract__ inconsistency exists.
 
 ### Contract Alignment
@@ -98,13 +101,13 @@ Revisiting a phrase from the Microsoft document:
 
 CDC Testing forces Consumer and Provider to converge upon a shared understanding of the Contract. The test artifacts codify their shared understanding in a verifiable way.
 
-Even though the Consumer drives the tests, the Consumer probably can’t write them in isolation. The Consumer might provide Acceptance Criteria, and the Provider team would write the actual tests. The implementation may have dependencies, which will require Test Doubles in the test. The Provider team will know these details.
+Even though the Consumer drives the tests, the Consumer probably can’t write them in isolation. The Consumer might provide Acceptance Criteria, and the Provider team would write the actual tests, which was the case in Bob Martin's story. The implementation may have dependencies, which will require Test Doubles in the test. The Provider team will know these details.
 
 # The Provider Driven Contract
 The Consumer/Provider partnership in driving the Contract won’t always be a kumbaya moment. I can think of several scenarios where the Contract specification might reside more with the Provider than the Consumer:
 * __Multiple Consumers__ – Most Providers will have multiple Consumers, and each Consumer will want its own bespoke Contract. The Provider will need to design a Contract that satisfies their Consumers as a whole, but the Provider won’t be able to create a bespoke Contract for each.
-* __Late Consumer__ – The schedule may have forced the Provider to define the Contract before there were any Consumers available for consultation. I requested a Contract update on a past project. My Provider told me it was not possible. I should have made the request during the design review. I kindly pointed out that the design review happened several months before I had joined the company. This company used a layered architecture designed from the bottom up. Low-level decisions were locked into place prematurely. We didn’t realize it at the time, but this was the exact opposite of [Clean Architecture’s](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html) advice to delay decisions as long as possible.
-* __External Provider__ – The Provider is external to your organization and may not even know you exist. YThey may be a major vendor. They may have hundreds of Consumers. They are unlikely to coordinate with you as a Consumer other than provide API documentation and if you’re lucky some customer technical support, both of which might vary widely in completeness and quality.
+* __Late Consumer__ – The schedule may force the Provider to define the Contract before there were any Consumers available for consultation. I requested a Contract update on a past project. My Provider, a coworker on another team, told me it was not possible. I should have made the request during the design review. I kindly pointed out that the design review happened several months before I had joined the company. This company used a layered architecture designed from the bottom up. Low-level decisions were locked into place prematurely. We didn’t realize it at the time, but this was the exact opposite of [Clean Architecture’s](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html) advice to delay decisions as long as possible.
+* __External Provider__ – The Provider is external to your organization and may not even know you exist. They may be a major vendor. They may have hundreds of Consumers. They are unlikely to coordinate with you as a Consumer other than provide API documentation and if you’re lucky some customer technical support, both of which might vary widely in completeness and quality.
 
 Regardless of the scenario, the Provider is unlikely to allow the Consumer to drive the Contract nor will the Provider accept Consumer provided tests.
 
@@ -115,7 +118,7 @@ We can see this with __Adapters__ within the [Hexagonal Architecture](https://jh
 
 <img src="/assets/CDCTesting8.png" alt="Hexagonal Design" width = "70%" align="center" style="padding-right: 35px;">
  
-The Hexagonal design shows how the `Business Logic` only depends upon its `Business Contract` and `Dependency Contract`. The `Business Logic` is cocooned and isolated from external elements, since it has no dependency or knowledge beyond its Contracts. The Adapters are the connective elements that allow the `Business Logic` to interact with `Externals` without depending upon `Externals` directly.
+The Hexagonal design shows how the `Business Logic` only depends upon its `Business Contract` and `Dependency Contract`. The `Business Logic` is cocooned and isolated from external elements, since it has no dependency or knowledge beyond its Contracts. The Adapters are the connective elements that allow the `Business Logic` to interact with Externals without depending upon Externals directly.
 
 Even if the Consumer can’t directly use CDC Testing to drive the shared Contract, or force Providers to run any Consumer tests, the Consumer can still leverage CDC Test concepts.
 
@@ -133,7 +136,7 @@ Since the Contracts are defined within the context of the application, this is e
 ### Framework Adapter
 The `External Framework` is an external dependency. Frameworks are a tricky thing. They can do a lot for you, but they control the show. Let’s consider this naïve design:
 
-<img src="/assets/CDCTesting11.png" alt="Naive Design" width = "35%" align="center" style="padding-right: 35px;">
+<img src="/assets/CDCTesting11.png" alt="Naive Design" width = "25%" align="center" style="padding-right: 35px;">
 
 It’s straightforward. It’s clean. It’s simple. However, the `Business Logic` has knowledge of and depends upon the `External Framework`, but knowledge and dependency is not reciprocal. If the External Framework modifies its terms, it could have devastating effects upon the `Business Logic`.
 
@@ -170,9 +173,9 @@ This is the entire `Provider Adapter’s` known world:
  
 Testing isn’t as convenient as the two previous cases. `External Provider` is an external dependency, which makes it difficult to incorporate in a Unit Test. The `Provider Adapter’s` main purpose is to separate the `Business Logic` from external dependencies, but it cannot separate itself from those external dependencies. Therefore, we cannot easily unit test the `Provider Adapter`.
 
-What we do is use the concept of CDC Testing but with one minor tweak. The Provider won’t run any tests; the Customer will run them. We have two basic test designs. Both designs interact with the `External Provider` confirming its behaviors. Since the `External Provider` is an external dependency, these tests will be slow, more difficult to set up and potentially costly. Ideally, they should be executed in a test sandbox so that they don’t affect anything in production.
+We can use the concept of CDC Testing but with one minor tweak. The Provider won’t run any tests; the Customer will run them. We have two basic test designs. Both designs interact with the `External Provider` confirming its behaviors. Since the `External Provider` is an external dependency, these tests will be slow, more difficult to set up and potentially costly. Ideally, they should be executed in a test sandbox so that they don’t affect anything in production.
 
-Given their limitations, they should not be part of the traditional test cycle. Each situation is unique, but maybe we don’t want to run these tests more frequently than nightly or possibly weekly. The `External Provider` probably won’t change behavior often, but when it does, we want to know, so we can adjust as needed.
+Given their limitations, they should not be part of the traditional test cycle. Each situation is unique, but maybe we may not want to run these tests more frequently than nightly or possibly weekly. The `External Provider` probably won’t change behavior often, but when it does, we want to know, so we can adjust as needed.
 
 This test design tests the `External Provider`:
 
@@ -183,7 +186,7 @@ This test design tests the `Provider Adapter` and the `External Provider`:
 <img src="/assets/CDCTesting16.png" alt="Provider Adapter and External Provider CDC Test" width = "60%" align="center" style="padding-right: 35px;">
  
 # With Bother?
-This level of testing is optional, so why bother to do it? I heard this story second hand from a coworker, so I may not have accurate details. A previous employer had a strategic partner as an external provider. The provider changed their contract. I don’t know if they changed the contract’s syntax, semantics or both. Regardless, their change affected our products behavior to our users. We did not know about the provider’s update. I don’t know if it’s a case that we didn’t notice the notification in their release notes, or whether the update fell upon the wrong ears, or whether they didn’t notify us thinking that it didn’t matter.
+This level of testing is optional, so why bother? I heard this story second hand from a coworker, so I may not have accurate details. A previous employer had a strategic partner as an external provider. The provider changed their contract. I don’t know if they changed the contract’s syntax, semantics or both. Regardless, their change affected our products behavior to our users. We did not know about the provider’s update. I don’t know if it’s a case that we didn’t notice the notification in their release notes, or whether the update fell upon the wrong ears, or whether they didn’t notify us thinking that it didn’t matter.
 
 We learned of the update when our customers started to complain that our product was not working as expected. We looked a bit foolish and incompetent, since we didn’t have any idea what was wrong.
 
