@@ -244,6 +244,8 @@ _TDD applies a pressure to create code that is objectively “higher quality.”
 
 _Legacy code isn't the problem. It's all the cruft and technical debt in the legacy code that's the problem._ ― Jim Humelsine
 
+_The cost of technical debt and cruft is not in their abatement. The cost of technical debt and cruft is having to work around them while they're still in the system._ ― Jim Humelsine, not my original thought, but my phrasing.
+
 # Readable/Comprehensible Code
 
 _Software is like poetry. Most of it probably should not have been written._ — Anonymous
