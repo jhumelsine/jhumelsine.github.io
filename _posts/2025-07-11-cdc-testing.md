@@ -202,16 +202,15 @@ We would have known of a potential issue within a day. Identification and diagno
 __TBD__
 
 # References
- __TBD__
 * [What is consumer driven contract testing?](https://pactflow.io/what-is-consumer-driven-contract-testing/) - API Hub
 * [Consumer-Driven Contracts](https://www.martinfowler.com/articles/consumerDrivenContracts.html#Consumer-drivenContracts) - Blog by Ian Robinson
 * [Introduction to Pact](https://docs.pact.io/) - Getting Started Guide to Pact, which features Consumer Testing.
 * [My thoughts and notes about Consumer Driven Contract Testing](https://dev.to/muratkeremozcan/my-thoughts-and-notes-about-consumer-driven-contract-testing-11id) - Blog by Murat K Ozcan
 * [Consumer-Driven Contracts](https://thoughtworks.github.io/pacto/patterns/cdc/) - Brief overview from Thoughtworks
 * [What is Consumer-Driven Contract Testing (CDC)?](https://www.hypertest.co/contract-testing/what-is-consumer-driven-contract-testing-cdc) - Overview from Hypertest
-* [Consumer Driven Contract Testing | What , Tools & Example](https://testsigma.com/blog/consumer-driven-contract-testing/) - Blog by Lewis Prescott
-* https://www.google.com/search?q=consumer+driven+contract+testing
-* https://www.youtube.com/watch?v=38egQLsbgKk
-* https://www.youtube.com/watch?v=qMXsTb_rPpA
-* https://www.youtube.com/watch?v=V-OV6lRwhYA
-* https://www.youtube.com/results?search_query=Consumer+Driven+Contract+Testing
+* [Consumer Driven Contract Testing - What , Tools & Example](https://testsigma.com/blog/consumer-driven-contract-testing/) - Blog by Lewis Prescott
+* [What is contract testing?](https://www.youtube.com/watch?v=38egQLsbgKk) - Video by Daniel Knott
+* [What is Consumer Driven Contract (CDC)? How to use Spring Cloud Contract Testing?](https://www.youtube.com/watch?v=qMXsTb_rPpA) - Video by Jasvinder Singh Saggu
+* [Consumer Driven Contract Testing with Pact - Backend](https://www.youtube.com/watch?v=V-OV6lRwhYA) - Video by Kirill Ushakov
+* Google Search for [Consumer Driven Constract Testing](https://www.google.com/search?q=consumer+driven+contract+testing)
+* YouTube Search for [Consumer Driven Contract Testing](https://www.youtube.com/results?search_query=Consumer+Driven+Contract+Testing)
