@@ -65,7 +65,7 @@ The __Provider Contract Implementation__ probably has its own dependencies, whic
 ### Potential Disconnect
 But there’s a possible disconnect. How do we know that the Consumer and Provider have the same interpretation of __Contract__ behaviors? How do we know that the __Test Doubles__ are emulating the __Contract__ with the same behaviors that the actual implementations in production will be using? The Consumer tests could be based upon false premises and rendering false positive results.
 
-I contemplated this possibility in [How Do We Know That Emulated Test Double Behavior Is Accurate?](https://jhumelsine.github.io/2024/07/02/test-doubles.html#how-do-we-know-that-emulated-test-double-behavior-is-accurate) A well-defined Contract shouldn’t contain too much ambiguity, but what if the __Contract__ contains elements that are more dynamic, such as Strings or JSON structures? The Contract might describe the String format or JSON structure, but how do we know that the Provider has honored that description? What if the __Test Doubles__ emulate the dynamic data format and structure correctly, but the Provider does not honor the Contract description? What if the Provider honors the Contract description, but Consumer has misinterpreted it when emulating the Test Doubles?
+I contemplated this possibility in [How Do We Know That Emulated Test Double Behavior Is Accurate?](https://jhumelsine.github.io/2024/07/02/test-doubles.html#how-do-we-know-that-emulated-test-double-behavior-is-accurate) A well-defined Contract shouldn’t contain too much ambiguity, but what if the __Contract__ contains elements that are more dynamic, such as Strings or JSON structures? The Contract might specify the String format or JSON structure, but how do we know that the Provider has honored that specification? What if the __Test Doubles__ emulate the dynamic data format and structure correctly, but the Provider does not honor the Contract description? What if the Provider honors the Contract description, but Consumer has misinterpreted it when emulating the Test Doubles?
 
 ### Integration Testing
 [Integration Testing](https://jhumelsine.github.io/2025/06/23/test-layers.html#integration--acceptance-tests-confirming-cooperation) can help identify Contract consistency issues. This diagram integrates both elements into the same test:
@@ -78,7 +78,7 @@ __NOTE:__ If __Provider Contract Implementation__ had its own dependencies, then
 
 While this would help identify any interpretation differences about the __Contract__ between the __Consumer__ and __Provider__ it comes at several costs:
 * Integration testing probably isn’t going to happen until both implementations have matured which means that any inconsistencies might occur later making their resolution more costly than had they been identified earlier.
-* Since integration testing won’t cover all scenarios, the entire set of __Contract__ behaviors may not be confirmed. A lurking inconsistency might only be identified in production.
+* Since integration testing won’t cover all scenarios, the entire set of __Contract__ behaviors may not be confirmed. A lurking inconsistency might only be realized in production.
 * If an inconsistency is found, it will take some debugging, since it may not be obvious where the __Contract__ inconsistency resides.
 
 ### Contract Alignment
@@ -122,7 +122,7 @@ The Hexagonal design shows how the `Business Logic` only depends upon its `Busin
 
 Even if the Consumer can’t directly use CDC Testing to drive the shared Contract, or force Providers to run any Consumer tests, the Consumer can still leverage CDC Test concepts.
 
-Let’s examine each implementation with respect to its own testing. I'll start in the middle, move to the upper left and finish with the lower right.
+Let’s examine each implementation with respect to its own testing. I'll start in the middle of the Hexagonal design, move to the upper left and finish with the lower right.
 
 ### Business Logic
 This is the entire `Business Logic’s` known world:
@@ -192,9 +192,9 @@ This level of testing is optional, so why bother? I heard this story second hand
 
 We learned of the update when our customers started to complain that our product was not working as expected. We looked a bit foolish and incompetent, since we didn’t have any idea what was wrong.
 
-Diagnosis took additional time, since we first needed to rule out user error. When we were able to reproduce the behavior ourselves, we suspected our own code. Once we ruled that out, we identified the change in Contract behavior with our external partner Provider. We could accommodate their new Contract behavior, but by then the cost of unhappy customers and the frustration of our own customer support staff during the identification, diagnosis and remediation phases and done their damage.
+Diagnosis took additional time, since we first needed to rule out user error. When we were able to reproduce the behavior ourselves, we suspected our own code. Once we ruled that out, we identified the change in Contract behavior with our external partner Provider. We could accommodate their new Contract behavior, but by then the cost of unhappy customers and the frustration of our own customer support staff during the identification, diagnosis and remediation phases had done their damage.
 
-Now consider the same scenario, but instead we had several tests that confirmed the Provider’s Contract nightly. We would have identified a change inPprovider behavior no more than a day after being released. We could have contacted our Provider for additional information. We could have notified our customer support team and possibly even our customers that we had a known issue with partner-related features, and we were working on it. We could have gotten ahead of the problem.
+Now consider the same scenario, but instead we had several tests that confirmed the Provider’s Contract nightly. We would have identified a change in Provider behavior no more than a day after being released. We could have contacted our Provider for additional information. We could have notified our customer support team and possibly even our customers that we had a known issue with partner-related features, and we were working on it. We could have gotten ahead of the problem.
 
 We would have known of a potential issue within a day. Identification and diagnosis would have mostly been eliminated, since we would have known that the Provider had updated their behavior. Remediation may have taken about the same amount of time once identified, but we would have gotten a jump on the problem, since it would have been identified sooner.
 
@@ -203,17 +203,15 @@ __TBD__
 
 # References
  __TBD__
+* [What is consumer driven contract testing?](https://pactflow.io/what-is-consumer-driven-contract-testing/) - API Hub
+* [Consumer-Driven Contracts](https://www.martinfowler.com/articles/consumerDrivenContracts.html#Consumer-drivenContracts) - Blog by Ian Robinson
+* [Introduction to Pact](https://docs.pact.io/) - Getting Started Guide to Pact, which features Consumer Testing.
+* [My thoughts and notes about Consumer Driven Contract Testing](https://dev.to/muratkeremozcan/my-thoughts-and-notes-about-consumer-driven-contract-testing-11id) - Blog by Murat K Ozcan
+* [Consumer-Driven Contracts](https://thoughtworks.github.io/pacto/patterns/cdc/) - Brief overview from Thoughtworks
+* [What is Consumer-Driven Contract Testing (CDC)?](https://www.hypertest.co/contract-testing/what-is-consumer-driven-contract-testing-cdc) - Overview from Hypertest
+* [Consumer Driven Contract Testing | What , Tools & Example](https://testsigma.com/blog/consumer-driven-contract-testing/) - Blog by Lewis Prescott
 * https://www.google.com/search?q=consumer+driven+contract+testing
-* https://microsoft.github.io/code-with-engineering-playbook/automated-testing/cdc-testing/
-* https://pactflow.io/what-is-consumer-driven-contract-testing/
-* https://docs.pact.io/
 * https://www.youtube.com/watch?v=38egQLsbgKk
 * https://www.youtube.com/watch?v=qMXsTb_rPpA
 * https://www.youtube.com/watch?v=V-OV6lRwhYA
-* https://dev.to/muratkeremozcan/my-thoughts-and-notes-about-consumer-driven-contract-testing-11id
-* https://thoughtworks.github.io/pacto/patterns/cdc/
-* https://www.hypertest.co/contract-testing/what-is-consumer-driven-contract-testing-cdc
-* https://testsigma.com/blog/consumer-driven-contract-testing/
 * https://www.youtube.com/results?search_query=Consumer+Driven+Contract+Testing
-* https://jhumelsine.github.io/
-* https://jhumelsine.github.io/2023/10/28/hexagonal-architecture-structure.html
