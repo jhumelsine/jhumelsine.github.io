@@ -58,9 +58,9 @@ The Provider known world looks like this:
  
 Therefore, the Provider developers can implement and test the __Provider Contract Implementation__ in isolation with their __Contract Implementation Test Cases__, which specify __Contract__ behavior based upon their interpretation.
 
-The __Provider Contract Implementation__ probably has its own dependencies, which will require its own __Test Doubles__. I have chosen not to include them in this example for simplicity.
-
 <img src="/assets/CDCTesting5.png" alt="Provider Testing" width = "45%" align="center" style="padding-right: 35px;">
+
+The __Provider Contract Implementation__ probably has its own dependencies, which will require its own __Test Doubles__. I have chosen not to include them in this example for simplicity.
 
 ### Potential Disconnect
 But there’s a possible disconnect. How do we know that the Consumer and Provider have the same interpretation of __Contract__ behaviors? How do we know that the __Test Doubles__ are emulating the __Contract__ with the same behaviors that the actual implementations in production will be using? The Consumer tests could be based upon false premises and rendering false positive results.
