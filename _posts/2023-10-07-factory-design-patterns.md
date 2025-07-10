@@ -12,7 +12,7 @@ I only told half the story before with previous design patterns [Command](https:
 
 # You Complete Me
 
-<img src="https://i.imgflip.com/839whe.jpg" alt="You Complete Me" title="Image Source: https://imgflip.com/i/839whe" width = "35%" align="right" style="padding-right: 20px;">
+<img src="https://i.imgflip.com/839whe.jpg" alt="You Complete Me" title="Image Source: https://imgflip.com/i/839whe" width = "35%" align="right" style="padding: 0 20px;">
 
 Patterns that involve pluggable concrete classes are incomplete until a **Creational Design Pattern** completes them.
 
