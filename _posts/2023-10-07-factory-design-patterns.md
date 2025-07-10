@@ -21,7 +21,7 @@ While object creation and configuration are implicit themes in the Gang of Four 
 # Ways To Instantiate Object Instances
 
 ## The Problem with `new`
-Steve Ardalis used, and I think coined, the phrase, _New is Glue_, in a [2012 blog](https://ardalis.com/new-is-glue/). Any code that instantiates an object via a constructor directly, often calling `new`, will depend upon that class type. It will be glued to it.
+Steve Ardalis coined the phrase, _New is Glue_, in a [2012 blog](https://ardalis.com/new-is-glue/). Any code that instantiates an object via a constructor directly, often calling `new`, will depend upon that class type. It will be glued to it.
 
 We don’t want the Client Application to depend upon the objects that it uses. `new` will create a dependency.
 
@@ -35,7 +35,7 @@ String name = new String()
 ```
 The GoF addressed this conceptually with their first design principle: [Program to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation). This principle states that the code should depend upon interfaces and not specific classes. But it doesn’t state how references to interfaces are resolved.
 
-A naive approach could look like this, where the Client Application declares the reference as an interface, but it’s still calling `new` to instantiate the reference.
+A naïve approach could look like this, where the Client Application declares the reference as an interface, but it’s still calling `new` to instantiate the reference.
 
 <img src="/assets/FactoryInterfaceOnly.png" alt="Programming to Interface but calling new()" width = "60%" align="center" style="padding-right: 20px;">
 
