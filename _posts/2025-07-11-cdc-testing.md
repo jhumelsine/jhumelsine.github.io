@@ -148,7 +148,7 @@ _You must understand that when you marry a framework to your application, you wi
 
 I’ve heard Bob phrase this more succinctly as: ___Don’t marry the framework, but you can date it___; however, I can’t find a confirmed source for the entire phrase.
 
-This means that while we need to work with Frameworks, we should be careful not to allow our application logic to become too tightly coupled to them. When I first heard Martin’s warning, I wasn’t exactly sure what he meant by "dating the framework." I have come to believe that an Adapter allows the application to date the Framework without the application having to marry it.
+This means that while we need to work with Frameworks, we should be careful not to allow our application logic to become too tightly coupled to them. When I first heard Martin’s warning, I wasn’t exactly sure what he meant by "dating the framework." I have come to believe that an Adapter allows the application to date the Framework without the application having to marry it. Bob provides more context, without the matrimonial context, in [Framework Bound](https://blog.cleancoder.com/uncle-bob/2014/05/11/FrameworkBound.html).
 
 The `Framework Adapter` depends upon the Framework, but its limited responsibility is to delegate any Framework required behaviors to the Business Contract. The Adapter acts as an [Anticorruption Layer](http://ddd.fed.wiki.org/view/anticorruption-layer) keeping the Framework dependencies at bay. Adapters tend to be relatively small, since their main responsibility is to translate Framework concepts into Business Contract concepts. Any Framework updates would hopefully be limited to the Adapter’s relatively small implementation.
 
