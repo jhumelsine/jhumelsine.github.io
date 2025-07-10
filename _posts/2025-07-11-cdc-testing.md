@@ -187,7 +187,7 @@ This test design tests the `Provider Adapter` and the `External Provider`:
 
 <img src="/assets/CDCTesting16.png" alt="Provider Adapter and External Provider CDC Test" width = "60%" align="center" style="padding-right: 35px;">
  
-# With Bother?
+# Why Bother?
 This level of testing is optional, so why bother? I heard this story second hand from a coworker, so I may not have accurate details. A previous employer had a strategic partner as an external Provider. The Provider changed their Contract. I don’t know if they changed the Contract’s syntax, semantics or both. Regardless, their change affected our products behavior to our users. We did not know about the Provider’s update. I don’t know if it’s a case that we didn’t notice the notification in their release notes, or whether the update fell upon the wrong ears, or whether they didn’t notify us thinking that it didn’t matter.
 
 We learned of the update when our customers started to complain that our product was not working as expected. We looked a bit foolish and incompetent, since we didn’t have any idea what was wrong.
