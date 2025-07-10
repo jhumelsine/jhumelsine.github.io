@@ -127,7 +127,7 @@ I could go deep into the implications of knowledge boundaries and arrows, and I 
 * `MyClass` and `MyTestDouble` are in the lower right quadrant of this diagram. They have knowledge of and depend upon `MyInterface`. They tend to be small, and they are often [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) or [Façades](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html). Only the `Configurer` knows about them, so they can be swapped out easily as needed.
 
 # Turtles All the Way Down
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/47/River_terrapin.jpg" alt="Turtles All the Way Down" title="Image Source: https://en.wikipedia.org/wiki/File:River_terrapin.jpg" width = "35%" align="right" style="padding-right: 20px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/47/River_terrapin.jpg" alt="Turtles All the Way Down" title="Image Source: https://en.wikipedia.org/wiki/File:River_terrapin.jpg" width = "35%" align="right" style="padding: 0 20px;">
 
 But wait a second! `Configurer` is instantiating `MyClass` via `new()`. What happened to those [Factories Design Patterns](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) from the previous blog post?
 
