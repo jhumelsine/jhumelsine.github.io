@@ -116,7 +116,7 @@ The __computation/coordination model__ concept will continue throughout the Desi
 
 Behavior emerges from the coordination/composition of objects. The same objects in different compositions will yield different behaviors. Composition management may reside on a spectrum from development organization composition to customer [support] organization composition to customer self-service composition to individual user self-service composition. As the composition management moves away from development and closer to the customer and user, the definition and responsibility of desired behavior moves further from development and closer to the customer and user.
 
-While some compositions can be tested for sanity, it may not be possible to test all possible behaviors. And we may never know the behaviors composed by customers or users via self-service. I will blog (TBD) about this in the future.
+While some compositions can be tested for sanity, it may not be possible to test all possible behaviors. And we may never know the behaviors composed by customers or users via self-service. See: [The Achilles Heel](https://jhumelsine.github.io/2025/06/23/test-layers.html#the-achilles-heel-when-test-layers-arent-enough)
 
 # Use Cases for Composability Design Patterns
 These patterns are marvelous. A relatively small implementation provides so much functional potential. These patterns not only provide the potential means of code reuse for new features, but they also provide the possibility of customized features for customers and users as well.
