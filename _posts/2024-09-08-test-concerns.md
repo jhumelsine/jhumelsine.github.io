@@ -133,7 +133,7 @@ I think Cooper's intent about _internal testing_ was:
 * Don't change the implementation access so that its _internals_ can be _tested_. I.e., don't make private methods public so that they can be tested.
 * Implement code only when it's needed to satisfy a test that specifies behavior, not a test that specifies the implementation.
 
-As for ___a complex system___, that suggests to me a design that is comprised of multiple classes. It will be difficult to test all scenarios in that configuration, nor do we want to. There are different layers of testing that will help manage this, which I'll address in a future blog (TBD). 
+As for ___a complex system___, that suggests to me a design that is comprised of multiple classes. It will be difficult to test all scenarios in that configuration, nor do we want to. There are different [layers of testing](https://jhumelsine.github.io/2025/06/23/test-layers.html) that will help manage this. 
 
 # Summary
 Concerns associated with automated testing may be a matter of education and practice. The concerns may be a result of not knowing or not following good test practices. This was the case for me when I tried to create automated tests without understanding how best to create automated tests.
