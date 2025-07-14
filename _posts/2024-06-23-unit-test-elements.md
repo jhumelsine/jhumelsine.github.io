@@ -71,7 +71,7 @@ A test only needs Test Doubles if the flow of execution through the SUT interact
 
 Test Doubles shed a little light upon the SUT black box. The dependencies they override are SUT design details, which cannot be ignored in the test. The SUT is still a black box, but it’s a box for which the test knows a few details about the exterior of the box. It’s like electronic equipment. We may not know the circuitry in an electronic component, but we do need to know how to plug the stereo components together.
 
-The SUT’s design and implementation usually need to accommodate a Test Double easily so that can override the production dependency in the test. This means that the SUT should not be tightly coupled to its dependencies. I’ll blog (TBD) more on this in the future.
+The SUT’s design and implementation usually need to accommodate a Test Double easily so that can override the production dependency in the test. This means that the SUT should not be tightly coupled to its dependencies. See: [Provider Adapter](https://jhumelsine.github.io/2025/07/14/cdc-testing.html#provider-adapter).
 
 When tests require a lot of Test Double configuration, and especially if it’s complex, then this may be an indication that the SUT may be a good candidate for refactoring or redesign.
 
