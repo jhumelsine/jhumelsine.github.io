@@ -231,7 +231,7 @@ I tend to prefer the Pyramid Test Strategy, but I’m not averse to the Trophy T
 It can be the best of all worlds.
 
 # The Achilles Heel: When Test Layers Aren’t Enough
-<img src="https://live.staticflickr.com/8252/8664532341_d14ea6045e.jpg" alt="Achilles Heel" title="Image Source: https://www.flickr.com/photos/eltpics/8664532341" width = "35%" align="right" style="padding: 35px;">
+<img src="https://live.staticflickr.com/8252/8664532341_d14ea6045e.jpg" alt="Achilles Heel" title="Image Source: https://www.flickr.com/photos/eltpics/8664532341" width = "45%" align="right" style="padding: 35px;">
 
 There is one vulnerability.
 
