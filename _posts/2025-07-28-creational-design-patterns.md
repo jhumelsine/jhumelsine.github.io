@@ -3,9 +3,8 @@ title: DRAFT – Creational Design Patterns
 description: TBD
 unlisted: true
 ---
-__Add new diagram here.__
-https://cdn2.picryl.com/photo/2016/12/31/god-creating-heaven-and-earth-lacma-653754-1bdc56-1024.jpg
-https://itoldya420.getarchive.net/amp/media/god-creating-heaven-and-earth-lacma-653754-1bdc56
+
+<img src="https://cdn2.picryl.com/photo/2016/12/31/god-creating-heaven-and-earth-lacma-653754-1bdc56-1024.jpg" alt="God creating heaven and earth" title="Image Source: https://itoldya420.getarchive.net/amp/media/god-creating-heaven-and-earth-lacma-653754-1bdc56" width = "50%" align="center" style="padding: 35px;">
  
 # Introduction
 After a year-long diversion into [Automated Testing](https://jhumelsine.github.io/3000/01/01/preface.html#automated-testing), I’ve completed the series, and I’m moving back to Design Patterns with a series on Creational Design Patterns.
