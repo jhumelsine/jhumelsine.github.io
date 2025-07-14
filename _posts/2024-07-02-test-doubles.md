@@ -300,7 +300,7 @@ Test Doubles emulate dependency behavior based upon the dependency’s contract.
 It took me a long time to realize this and appreciate the distinction. Before I understood contracts and their implied boundaries, I thought tests could only confirm the whole software rather than using these contracts and boundaries to separate software components so they could be confirmed separately.
 Sometimes dependency contracts are vague. The dependency provider may have one thought in mind, whereas the dependency user may have a different interpretation of the contract.
 
-Unit testing won’t catch these contract interpretation inconsistencies. This is where [integration testing](https://jhumelsine.github.io/2025/06/23/test-layers.html#integration--acceptance-tests-confirming-cooperation) becomes important. Consumer-Driven Contract Testing may help as well (Blog TBD).
+Unit testing won’t catch these contract interpretation inconsistencies. This is where [integration testing](https://jhumelsine.github.io/2025/06/23/test-layers.html#integration--acceptance-tests-confirming-cooperation) becomes important. [Consumer-Driven Contract Testing](https://jhumelsine.github.io/2025/07/14/cdc-testing.html) may help as well.
 
 # Test Double Inclusion
 The SUT should be unaware of its dependency reference origins so that the SUT functions in production exactly in the same way that it functions in its unit test.
