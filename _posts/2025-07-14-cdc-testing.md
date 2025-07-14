@@ -1,7 +1,6 @@
 ---
-title: DRAFT – Consumer-Driven Contract Testing
+title: Consumer-Driven Contract Testing
 description: Giving the consumer exactly what they asked for
-unlisted: true
 ---
 
 # Introduction
@@ -70,7 +69,7 @@ I contemplated this possibility in [How Do We Know That Emulated Test Double Beh
 ### Integration Testing
 [Integration Testing](https://jhumelsine.github.io/2025/06/23/test-layers.html#integration--acceptance-tests-confirming-cooperation) can help identify Contract consistency issues. This diagram integrates both elements into the same test:
 
-<img src="/assets/CDCTesting6.png" alt="Integrated Testing" width = "60%" align="center" style="padding-right: 35px;">
+<img src="/assets/CDCTesting6.png" alt="Integrated Testing" width = "70%" align="center" style="padding-right: 35px;">
  
 There is no __Test Double__ for the __Contract__, since this test resolves the reference with the __Provider Contract Implementation__.
 
@@ -105,7 +104,7 @@ Even though the Consumer drives the tests, the Consumer probably can’t write t
 
 # The Provider Driven Contract
 The Consumer/Provider partnership in driving the Contract won’t always be a kumbaya moment. I can think of several scenarios where the Contract specification might reside more with the Provider than the Consumer:
-* __Multiple Consumers__ – Most Providers will have multiple Consumers, and each Consumer will want its own bespoke Contract. The Provider will need to design a Contract that satisfies their Consumers as a whole, but the Provider won’t be able to create a bespoke Contract for each.
+* __Multiple Consumers__ – Most Providers will have multiple Consumers, and each Consumer will want its own bespoke Contract. The Provider will need to design a Contract that satisfies their Consumers as a whole, but the Provider won’t be able to create a bespoke Contract for each..
 * __Late Consumer__ – The schedule may force the Provider to define the Contract before there were any Consumers available for consultation. I requested a Contract update on a past project. My Provider, a coworker on another team, told me it was not possible. I should have made the request during the design review. I kindly pointed out that the design review happened several months before I had joined the company. This company practiced the [Waterfall Methodology](https://en.wikipedia.org/wiki/Waterfall_model) and used a layered architecture designed from the bottom up. Low-level decisions were locked into place prematurely. We didn’t realize it at the time, but this was the exact opposite of [Clean Architecture’s](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html) advice to delay decisions as long as possible.
 * __External Provider__ – The Provider is external to your organization and may not even know you exist. They may be a major vendor. They may have hundreds of Consumers. They are unlikely to coordinate with you as a Consumer other than provide API documentation and if you’re lucky some customer technical support, both of which might vary widely in completeness and quality.
 
@@ -185,7 +184,7 @@ This test design tests the `External Provider`:
  
 This test design tests the `Provider Adapter` and the `External Provider`:
 
-<img src="/assets/CDCTesting16.png" alt="Provider Adapter and External Provider CDC Test" width = "60%" align="center" style="padding-right: 35px;">
+<img src="/assets/CDCTesting16.png" alt="Provider Adapter and External Provider CDC Test" width = "70%" align="center" style="padding-right: 35px;">
  
 # Why Bother?
 This level of testing is optional, so why bother? I heard this story second hand from a coworker, so I may not have accurate details. A previous employer had a strategic partner as an external Provider. The Provider changed their Contract. I don’t know if they changed the Contract’s syntax, semantics or both. Regardless, their change affected our products behavior to our users. We did not know about the Provider’s update. I don’t know if it’s a case that we didn’t notice the notification in their release notes, or whether the update fell upon the wrong ears, or whether they didn’t notify us thinking that it didn’t matter.
