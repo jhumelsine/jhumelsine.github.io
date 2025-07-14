@@ -203,7 +203,7 @@ Characterization tests tend to depend more upon the implementation than behavior
 # Tests Provide Working Reference Model Documentation for External Dependencies
 APIs for external dependencies can be confusing. The [contract](https://jhumelsine.github.io/2025/06/10/contracts.html) behavior of the external dependency may not be obvious in the documentation. There might not even be any documentation.
 
-Just as we can explore and document legacy code with tests, we can do the same with external dependency APIs in a variation of Consumer-Driven Contract (CDC) Testing (future blog TBD).
+Just as we can explore and document legacy code with tests, we can do the same with external dependency APIs in a variation of [Consumer-Driven Contract (CDC) Testing](https://jhumelsine.github.io/2025/07/14/cdc-testing.html).
 
 Tests that interact with external dependency APIs not only confirm and document their behavior, but they also serve as a developer reference model. And should the external dependency behavior change, then these tests will fail, and we may be able to adjust before the customer notices the changes in behavior.
 
