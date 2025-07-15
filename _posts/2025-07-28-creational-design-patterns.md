@@ -7,14 +7,14 @@ unlisted: true
 <img src="https://cdn2.picryl.com/photo/2016/12/31/god-creating-heaven-and-earth-lacma-653754-1bdc56-1024.jpg" alt="God creating heaven and earth" title="Image Source: https://itoldya420.getarchive.net/amp/media/god-creating-heaven-and-earth-lacma-653754-1bdc56" width = "50%" align="center" style="padding: 35px;">
  
 # Introduction
-After a year-long diversion into [Automated Testing](https://jhumelsine.github.io/3000/01/01/preface.html#automated-testing), I’ve completed the series, and I’m moving back to Design Patterns with a series on Creational Design Patterns.
+After a year-long diversion into [Automated Testing](https://jhumelsine.github.io/3000/01/01/preface.html#automated-testing), I’ve completed the series, and I’m moving back to Design Patterns with a series on __Creational Design Patterns__.
 
 If you’ve ever wrestled with unwieldy constructors or brittle object graphs, Creational Design Patterns offer proven solutions. Creational Design Patterns help software engineers control object creation, ensuring flexibility, testability, and scalability. Whether you need a single shared instance, a family of related objects, or assembled objects configured from a blueprint, these patterns offer time-tested solutions to common problems of initialization and configuration.
 
 This series will walk you through several core patterns—what they are, when to use them, and how they simplify your code.
 
 # The Gang of Four’s Creational Design Patterns
-The Gang of Four (GoF) organized their catalog of Design Patterns into three major categories, with the first category being the __Creational Design Patterns__. The other two are [Structural Design Patterns](https://refactoring.guru/design-patterns/structural-patterns) and [Behavioral Design Patterns](https://refactoring.guru/design-patterns/behavioral-patterns). Structural patterns focus upon the organization of objects, and behavioral patterns focus upon their behaviors. Quite frankly, I’ve often felt like the GoF’s assigning of design patterns to the structural and behavior categories was somewhat arbitrary, which is why I don't tend to focus upon the GoF's categorization.
+The Gang of Four (GoF) organized their catalog of Design Patterns into three major categories, with the first category being the __Creational Design Patterns__. The other two are [Structural Design Patterns](https://refactoring.guru/design-patterns/structural-patterns) and [Behavioral Design Patterns](https://refactoring.guru/design-patterns/behavioral-patterns). Structural patterns focus upon the organization of objects, and behavioral patterns focus upon their behaviors. Quite frankly, I’ve often felt like the GoF’s assigning of design patterns between the structural and behavior categories was somewhat arbitrary, which is why I don't tend to focus upon the GoF's categorization.
 
 I introduced the [Gang Of Four Creational Design Pattern Inventory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#gang-of-four-creational-design-pattern-inventory) as a section within the [Factory Design Pattern](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html), but I didn't go into too much detail. I'll provide more details in subsequent blogs in this series.
 
