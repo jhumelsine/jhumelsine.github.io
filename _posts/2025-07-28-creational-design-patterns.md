@@ -9,9 +9,9 @@ unlisted: true
 # Introduction
 After a year-long diversion into [Automated Testing](https://jhumelsine.github.io/3000/01/01/preface.html#automated-testing), I’ve completed the series, and I’m moving back to Design Patterns with a series on Creational Design Patterns.
 
-Creational Design Patterns help software engineers control object creation, ensuring flexibility, testability, and scalability. Whether you need a single shared instance, a family of related objects, or a blueprint for object construction, these patterns offer time-tested solutions to common problems of initialization and configuration.
+If you’ve ever wrestled with unwieldy constructors or brittle object graphs, Creational Design Patterns offer tested solutions. Creational Design Patterns help software engineers control object creation, ensuring flexibility, testability, and scalability. Whether you need a single shared instance, a family of related objects, or a blueprint for object construction, these patterns offer time-tested solutions to common problems of initialization and configuration.
 
-I had a few ideas in my head about what I’d like to write to set the stage on this landing page. I checked my previous blog entries to find that I’ve covered most of those ideas previously. So, I’m going to regroup, summarize those ideas here, provide reference links to previous blogs, and set the stage to move ahead with the series.
+This series will walk you through several core patterns—what they are, when to use them, and how they simplify your code.
 
 # The Gang of Four’s Creational Design Patterns
 The Gang of Four (GoF) organized their catalog of Design Patterns into three major groups, with the first group being the __Creational Design Patterns__. The other two are [Structural Design Patterns](https://refactoring.guru/design-patterns/structural-patterns) and [Behavioral Design Patterns](https://refactoring.guru/design-patterns/behavioral-patterns). Structural patterns focus upon the organization of objects, and behavioral patterns focus upon their behaviors. Quite frankly, I’ve often felt like the GoF’s organization between these two categories is somewhat arbitrary, which is why I don't tend to focus upon the GoF's organization into the structural and behavioral categories.
