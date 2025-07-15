@@ -1,5 +1,5 @@
 ---
-title: DRAFT – Creational Design Patterns
+title: DRAFT – An Introduction to Creational Design Patterns
 description: Different mechanisms to create objects without calling new directly
 unlisted: true
 ---
