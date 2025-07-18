@@ -66,7 +66,7 @@ Regardless of the name, here are the patterns, which I feel most highlight the c
 * [Specification](https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html) – Allow a Client to select or filter objects with specific attribute property values as specified by the Client.
 * [Interpreter](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) – Given a language, define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language. This pattern will require several blog entries.
 
-Additionally, there are some two additional creational patterns, which I may include in this series as well, since they are useful for these patterns:
+Additionally, there are some two additional [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html), which I may include in this series as well, since they are useful for these patterns:
 * [Builder](https://sourcemaking.com/design_patterns/builder) - Parse a complex representation, create one of several targets.
 * [Prototype](https://sourcemaking.com/design_patterns/prototype) - Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.
 
