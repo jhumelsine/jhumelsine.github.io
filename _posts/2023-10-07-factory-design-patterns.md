@@ -14,7 +14,7 @@ I only told half the story before with previous design patterns [Command](https:
 
 <img src="https://i.imgflip.com/839whe.jpg" alt="You Complete Me" title="Image Source: https://imgflip.com/i/839whe" width = "35%" align="right" style="padding: 0 20px;">
 
-Patterns that involve pluggable concrete classes are incomplete until a **Creational Design Pattern** completes them.
+Patterns that involve pluggable concrete classes are incomplete until a [**Creational Design Pattern**](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) completes them.
 
 While object creation and configuration are implicit themes in the Gang of Four (GoF), I think they should have been more explicit about it. Their patterns presentations rarely complete the story, which I’ll try to do.
 
@@ -39,7 +39,7 @@ A naïve approach could look like this, where the Client Application declares th
 
 <img src="/assets/FactoryInterfaceOnly.png" alt="Programming to Interface but calling new()" width = "60%" align="center" style="padding-right: 20px;">
 
-The GoF continued their interface theme with their Creational Design Patterns, which complete the story for most design patterns when paired together. The Creational Design Patterns instantiate objects without the Client Application having direct knowledge of the class type for the instantiated object. The GoF were obsessed with encapsulating class type within a Creational Design Pattern so that the Client Application would not know the type.
+The GoF continued their interface theme with their [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html), which complete the story for most design patterns when paired together. The Creational Design Patterns instantiate objects without the Client Application having direct knowledge of the class type for the instantiated object. The GoF were obsessed with encapsulating class type within a Creational Design Pattern so that the Client Application would not know the type.
 
 ## Resolving Object References Without Calling `new` Directly
 We have a bit of a paradox. We need to resolve references to interfaces without direct knowledge of the class type, but the only way to instantiate an object is via a constructor which requires direct knowledge of the class type. We can resolve this paradox with a little indirection. I can think of several ways to resolve an object reference without the Client Application calling `new` directly. The constructor is still invoked via `new` but never by the Client Application.
@@ -74,7 +74,7 @@ Abstract Factory is the first one you encounter in detail when reading the GoF b
 __NOTE:__ The above diagram is inspired by a diagram in Bob Martin’s Clean Architecture book.
 
 # Gang Of Four Creational Design Pattern Inventory
-The GoF Creational Design Patterns used the techniques listed above. In some cases, their patterns are mostly identical to the above, but they often provide additional features or context. I’ll list them with brief descriptions. See the references section below for more resources for specific Creational Design Patterns.
+The GoF [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) used the techniques listed above. In some cases, their patterns are mostly identical to the above, but they often provide additional features or context. I’ll list them with brief descriptions. See the references section below for more resources for specific Creational Design Patterns.
 
 ## Factory Method
 The GoF Factory Method is so close to what I described above that I don’t need to provide any additional context.
@@ -116,7 +116,7 @@ I don’t think I can describe Builder in a paragraph or two and give it justice
 Builder is the second design pattern in the GoF book. If Abstract Factory doesn’t confuse the casual reader, then Builder will. This is usually around the place where I put the book back on the shelf the first few times that I tried to read it.
 
 # Creational Design Patterns Not Always Used In Isolation.
-The creation techniques and the creational design patterns can be used in combination. For example, in the Factory Method or Factory Class examples above, the statements for each `case` in the `switch` block called `new`. Each of these could be resolved with another creational design pattern. It might look something like this:
+The creation techniques and the Creational Design Patterns can be used in combination. For example, in the Factory Method or Factory Class examples above, the statements for each `case` in the `switch` block called `new`. Each of these could be resolved with another creational design pattern. It might look something like this:
 ```java
 public MyInterface acquire(Kind kind) throws NotFound {
     switch (kind) {
@@ -153,10 +153,11 @@ Java has garbage collection, so memory management isn’t as necessary, but it s
 And Object Pool will always leak memory; although, a fixed amount of memory.
 
 # References
-Previous blogs tended to focus upon one design pattern. This one expanded into several. There are too many for individual references. However, most Creational Design Patterns references tend to be clustered. I'll present as many clusters as possible, since it should be relatively easy to find details for a specific design pattern.
+Previous blogs tended to focus upon one design pattern. This one expanded into several. There are too many for individual references. However, most [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) references tend to be clustered. I'll present as many clusters as possible, since it should be relatively easy to find details for a specific design pattern.
 
 There are many online resources with diagrams and implementations in different programming languages. Here are some free resources:
 
+* [My Introduction to Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html)
 * [Wikipedia Creational Design Patterns](https://en.wikipedia.org/wiki/Software_design_pattern#Creational_patterns)
 * [Source Making Creational Design Patterns](https://sourcemaking.com/design_patterns/creational_patterns)
 * [Refactoring Guru Creational Design Patterns](https://refactoring.guru/design-patterns/creational-patterns)
