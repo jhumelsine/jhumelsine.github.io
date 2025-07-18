@@ -75,7 +75,7 @@ I have a [beef](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.
 ## Lack of Encapsulation with Creational Design Pattern Method Names
 The GoF were obsessed with encapsulation. They emphasized that client code should only know about interfaces. The client code should not call `new()` directly, because that would require their direct knowledge of the concrete class.
 
-They defined several [creational design patterns](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#gang-of-four-creational-design-pattern-inventory) to encapsulate `new()` from the client code. However, most of their creational design pattern method names imply the creation design pattern being used. The public method names reflect the creation mechanism design rather than the client developer’s needs. While the concrete classes are encapsulated, the underlying creational mechanism may not be.
+They defined several [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) to encapsulate `new()` from the client code. However, most of their creational design pattern method names imply the creation design pattern being used. The public method names reflect the creation mechanism design rather than the client developer’s needs. While the concrete classes are encapsulated, the underlying creational mechanism may not be.
 
 This isn’t a major issue until the designer decides that a different creational design pattern might be a better choice. Then what? Change the existing method name to match the new creational pattern and break the API for any existing client code? Maintain the existing method name and imply a creation mechanism that’s no longer applicable? Neither choice is ideal.
 
