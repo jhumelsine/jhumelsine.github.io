@@ -52,7 +52,8 @@ Here are typical method invocations in the **IS-A** relationships:
 * **Tradition** (my term) – This is when a reference to an extended class executes a method declared in one of the base classes. This could be by default, or it could be the case where the child class method explicitly calls the method of a parent class in the inheritance hierarchy. I chose this term because I view inheritance as familial. Tradition indicates that the child class behavior is the same as one of its parent class behaviors. It follows the tradition of its ancestors.
   
 ### Static Method Invocation
-The last method invocation is not a relationship between objects. It is a **Static Method Invocation**. A statically declared method is accessible from the class itself without the need for an object reference. Static method invocation usually occurs with creational design patterns. That is, it allows clients to acquire a reference to a class without having to invoke the constructor directly.
+The last method invocation is not a relationship between objects. It is a **Static Method Invocation**. A statically declared method is accessible from the class itself without the need for an object reference. Static method invocation usually occurs with [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html). That is, it allows clients to acquire a reference to a class without having to invoke the constructor directly.
+
 # Conclusion
 Understanding these basic Object-Oriented building block components will help developers understand how the GoF used them to design most of their design patterns. These basic components won’t cover all the details, but they will cover most.
 
