@@ -1,6 +1,6 @@
 ---
 title: An Introduction to Creational Design Patterns
-description: Different mechanisms to create objects without calling new directly
+description: Different mechanisms to create objects without calling new() directly
 ---
 
 <img src="https://cdn2.picryl.com/photo/2016/12/31/god-creating-heaven-and-earth-lacma-653754-1bdc56-1024.jpg" alt="God creating heaven and earth" title="Image Source: https://itoldya420.getarchive.net/amp/media/god-creating-heaven-and-earth-lacma-653754-1bdc56" width = "50%" align="center" style="padding: 35px;">
