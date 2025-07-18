@@ -314,7 +314,7 @@ I’m going to start with `PrototypeCondition` since it’s less complex than `P
 
 The __Prototype__ Design Pattern is not a proof-of-concept implementation. This name is unfortunate, since I think, it can lead to confusion. I feel that __Clone__ or __Breeder__ may have been a better name for the design pattern.
 
-The __Prototype__ Design Pattern is a [Creational Design Pattern](https://refactoring.guru/design-patterns/creational-patterns), but it’s unlike the other creational design patterns. In most creational patterns, the pattern’s implementation knows the class type, which it uses to create an object without the client code knowing the class type or having direct access to the constructor. Prototype does not know the class type or have direct access to the constructor either.
+The __Prototype__ Design Pattern is a [Creational Design Pattern](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html), but it’s unlike the other Creational Design Patterns. In most creational patterns, the pattern’s implementation knows the class type, which it uses to create an object without the client code knowing the class type or having direct access to the constructor. Prototype does not know the class type or have direct access to the constructor either.
 
 Prototype creates and returns a new object without class knowledge, because it does not create the object via a class constructor. It creates the object by asking an object of that class to make a copy of itself. Constructors are still used, but they are encapsulated in the copy method and unknown to the Prototype implementation. See:
 * [Prototype via SourceMaking](https://sourcemaking.com/design_patterns/prototype)
