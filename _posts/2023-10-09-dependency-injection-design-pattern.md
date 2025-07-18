@@ -175,7 +175,7 @@ Here's how we could test `Implementation1` in isolation with `Test Doubles`:
 And like the previous diagram, we only need to configure one layer to resolve the dependencies.
 
 ## Kicking the Can Under the Rug
-Dependency Injection is a Creational Design Pattern, even if it wasn’t included by the Gang of Four. I don’t think this was a sin of omission as much as it was a case of DI not being too well known when they were writing their book.
+Dependency Injection is a [Creational Design Pattern](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html), even if it wasn’t included by the Gang of Four. I don’t think this was a sin of omission as much as it was a case of DI not being too well known when they were writing their book.
 
 I think it’s okay to resolve object references via `new` via DI, but we’ll soon see that we can use Factories with DI as well.
 
