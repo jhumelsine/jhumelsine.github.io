@@ -3,7 +3,8 @@ title: DRAFT – Abstract Factory Design Pattern
 description: Ensuring consistency among dependencies and the ability to create multiple objects without knowing class types
 unlisted: true
 ---
-__Add new diagram here.__
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg/800px-Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg" alt="Broadway Boogie Woogie" title="Image Source: By Piet Mondrian - Transferred from en.wikipedia to Commons., Public Domain, https://commons.wikimedia.org/w/index.php?curid=37640791" width = "50%" align="center" style="padding: 35px;">
 
 # Introduction
 __TBD__
@@ -15,16 +16,13 @@ The Gang of Four (GoF) organized their book in four basic sections:
 * The [Structural Design Patterns](https://refactoring.guru/design-patterns/structural-patterns), which catalog the structure of objects working together in repeating patterns.
 * The [Behavioral Design Patterns](), which catalog the behaviors that emerge from objects working together in repeating patterns.
 
-Patterns were presented in alphabetical order within each category. Therefore, Abstract Factory was the first design pattern presented in detail in their book. It’s a daunting first design pattern to encounter if reading the book from cover to cover.
+Patterns were presented in alphabetical order within each category. Therefore, __Abstract Factory__ was the first design pattern presented in detail in their book. It’s a daunting first design pattern to encounter if reading the book from cover to cover.
 
 Imagine seeing this as your first design pattern.
 
-__Add new diagram here.__
-https://upload.wikimedia.org/wikipedia/commons/9/9d/Abstract_factory_UML.svg
-https://commons.wikimedia.org/wiki/File:Abstract_factory_UML.svg
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Abstract_factory_UML.svg/1016px-Abstract_factory_UML.svg.png" alt="Gang of Four Abstract Factory Design" title="Image Source: https://en.wikipedia.org/wiki/File:Design_by_contract.svg" width = "80%" align="center" style="padding: 35px;">
  
-
-Builder (reference TBD) is the second pattern cataloged in the book, and it’s just about as intimidating. It’s the next pattern in this creational blog series.
+__Builder__ (reference TBD) is the second pattern cataloged in the book, and it’s just about as intimidating. It’s the next pattern in this creational blog series.
 
 The first several times I attempted to read the GoF, I made it through the foundations and use case, but once I hit Abstract Factory and Builder, I was so flummoxed that I put the book back on the shelf. I describe my struggles with the GoF, and how I got past them in [It’s You Move](https://jhumelsine.github.io/2023/08/24/its-your-move.html).
 
@@ -446,7 +444,7 @@ I won’t say that `main()` is ___dirty___, but I’ve found that it’s often w
 # The GoF Abstract Factory Mess
 I feel that a messy diagram will lead to a messy design and messy implementation. The GoF’s Abstract Factory class diagrams are messy in my opinion. It’s possibly the messiest design in their catalog. There are many similar named elements, and the class diagram cannot be drawn without lines crossing each other. Abstract Factory may be their only design pattern diagram with crossing lines.
 
-Any Abstract Factory class diagram that includes at least two concrete factories and two dependencies will have lines crossing each other, because the __2+ Factory/2+ Dependency Abstract Factory__ has a [complete 3-to-3 bipartite graph]( https://en.wikipedia.org/wiki/Complete_bipartite_graph), which I know cannot be planar due to [Kuratowski's theorem](https://en.wikipedia.org/wiki/Kuratowski%27s_theorem) thanks to [Professor Johnson](https://en.wikipedia.org/wiki/Donald_B._Johnson), my graph theory professor in college.
+Any Abstract Factory class diagram that includes at least two concrete factories and two dependencies will have lines crossing each other, because the __2+ Factory/2+ Dependency Abstract Factory__ has a [complete 3-to-3 bipartite graph]( https://en.wikipedia.org/wiki/Complete_bipartite_graph), which I know cannot be planar due to [Kuratowski's Theorem](https://en.wikipedia.org/wiki/Kuratowski%27s_theorem) thanks to [Professor Johnson](https://en.wikipedia.org/wiki/Donald_B._Johnson), my graph theory professor in college.
 
 My diagrams have been planar, since I limited them to one concrete Factory. Here’s my complete design with all three `LauncherSystems` added:
 
