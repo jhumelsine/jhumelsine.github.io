@@ -73,7 +73,7 @@ Abstract Factory is comprised of one [Design Pattern Principle](https://jhumelsi
 ## [Program to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation)
 This principle applies to almost every design pattern, but it’s even more so with Abstract Factory. The Warrior has two interface dependencies: `Launcher` and `Projectile`.
 
-<img src="/assets/AbstractFactory1.png" alt="Warrior delegates to Launcher and Projectile interfaces" width = "80%" align="center" style="padding-right: 35px;">
+<img src="/assets/AbstractFactory1.png" alt="Warrior delegates to Launcher and Projectile interfaces" width = "100%" align="center" style="padding-right: 35px;">
 
 `Launcher` and `Projectile` need to remain consistent. For example, we can’t attempt to load an `Arrow` into a `Rifle`. We also need the ability to instantiate any number of new Projectile instances.
 
@@ -84,7 +84,7 @@ The Abstract Factory will resolve these dependencies, so that they are resolved 
 
 However, the Strategy component of the pattern is the `LauncherSystem` Abstract Factory interface. When added to the design, we get:
 
-<img src="/assets/AbstractFactory2.png" alt="Featuring Strategy with LauncherSystem" width = "80%" align="center" style="padding-right: 35px;">
+<img src="/assets/AbstractFactory2.png" alt="Featuring Strategy with LauncherSystem" width = "100%" align="center" style="padding-right: 35px;">
 
 `LauncherSystem` is a Strategy as well. It’s only an Abstract Factory in the sense that it’s a Strategy whose responsibility is to acquire other dependencies associated with the design. Once the `LaunchSystem` reference is resolved, which I haven’t shown yet, the `Warrior` can acquire a `Launcher` and `Projectiles`.
 
@@ -93,7 +93,7 @@ However, the Strategy component of the pattern is the `LauncherSystem` Abstract 
 
 Here’s the design with a `LauncherSystemTestDouble`, which creates `LauncherTestDouble` and `ProjectileTestDouble`. The dashed red line represents architecture boundaries especially to convey the flow of dependency and knowledge.
 
-<img src="/assets/AbstractFactory3.png" alt="Adding test Doubles" width = "80%" align="center" style="padding-right: 35px;">
+<img src="/assets/AbstractFactory3.png" alt="Adding test Doubles" width = "100%" align="center" style="padding-right: 35px;">
 
 This is the entire Abstract Factory design. __Abstract Factory is simply a specific application of the Strategy design pattern where the behavior is acquiring object instances.__
 
@@ -105,7 +105,7 @@ As long as each `LauncherSystem` enforces dependency consistency, the rest of th
 
 At this point, the GoF are done with the design, but I’m not We still don’t know how `Warrior` resolves the `LauncherSystem` reference. There may be several ways to resolve this, but I prefer Dependency Injection with a Configurer, which completes the design with:
 
-<img src="/assets/AbstractFactory4.png" alt="Adding Testing Configurer" width = "80%" align="center" style="padding-right: 35px;">
+<img src="/assets/AbstractFactory4.png" alt="Adding Testing Configurer" width = "100%" align="center" style="padding-right: 35px;">
 
 `WarriorTest` is a test, but it’s also a Configurer. It creates an instance of `LauncherSystemTestDouble` and injects it into `Warrior`.
 
@@ -233,7 +233,7 @@ Nothing in the design or implementation changes above the horizontal dashed red 
 
 ## Rifle/Bullet
 
-<img src="/assets/AbstractFactory5.png" alt="Adding Rifle/Bullet Pair" width = "80%" align="center" style="padding-right: 35px;">
+<img src="/assets/AbstractFactory5.png" alt="Adding Rifle/Bullet Pair" width = "100%" align="center" style="padding-right: 35px;">
  
 ```java
 class RifleWeaponSystem implements LauncherSystem {
@@ -283,7 +283,7 @@ class Bullet implements Projectile {
 ```
 
 ## Bazooka/BazookaShell
-__Add new diagram here.__
+<img src="/assets/AbstractFactory6.png" alt="Adding Bazooka/Shell Pair" width = "100%" align="center" style="padding-right: 35px;">
  
 ```java
 class BazookaWeaponSystem implements LauncherSystem {
@@ -332,7 +332,7 @@ class BazookaShell implements Projectile {
 ```
 
 ## Bow Arrow
-__Add new diagram here.__
+<img src="/assets/AbstractFactory7.png" alt="Adding Bow/Arrow Pair" width = "100%" align="center" style="padding-right: 35px;">
  
 ```java
 class ArcheryWeaponSystem implements LauncherSystem {
@@ -444,13 +444,12 @@ Any Abstract Factory class diagram that includes at least two concrete factories
 
 My diagrams have been planar, since I limited them to one concrete Factory. Here’s my complete design with all three `LauncherSystems` added:
 
-__Add new diagram here.__
+<img src="/assets/AbstractFactory8.png" alt="Non-Planar Diagram" width = "100%" align="center" style="padding-right: 35px;">
 
- 
 My complete diagram has so many crossing lines that it reminds me [Broadway Boogie Woogie](https://en.wikipedia.org/wiki/Broadway_Boogie_Woogie) by [Piet Mondrian]( https://en.wikipedia.org/wiki/Piet_Mondrian)
-__Add new diagram here.__
 
- 
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg/800px-Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg" alt="Broadway Boogie Woogie" title="Image Source: By Piet Mondrian - Transferred from en.wikipedia to Commons., Public Domain, https://commons.wikimedia.org/w/index.php?curid=37640791" width = "20%" align="right" style="padding: 35px;">
+
 I color coded my diagram differently. Usually I use green for interfaces, blue for implementation, purple for configuration and red for externals. That’s still the case in the Abstract section, but the colors below the line take on one time meaning so that it’s a little easier to keep track of the relationships between cohesive classes, especially in the many crossing lines:
 * Red is for the Rifle/Bullet classes.
 * Green is for Bazooka/BazookaShell classes.
@@ -461,7 +460,9 @@ While the lines cross because this diagram is not a planar graph, notice that th
 There’s another way to picture this. Don’t imagine this class diagram on one plane. Imagine it on multiple stacked planes. The Red, Green and Purple planes are stacked on top of each other where they each independently plug into the Abstract elements.
 
 Each plane is planar within its own plane with the same structure:
- 
+
+<img src="/assets/AbstractFactory9.png" alt="Generic Abstract Factory" width = "100%" align="center" style="padding-right: 35px;">
+
 Abstract Factory isn’t messy. It’s quite neat and orderly in three-dimensional space. It only becomes messy when the three-dimensional design is projected onto two-dimensional space.
 
 # Summary
