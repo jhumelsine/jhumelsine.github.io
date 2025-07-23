@@ -11,7 +11,7 @@ __TBD__
 
 # Gang of Four’s Introduction to Abstract Factory
 The Gang of Four (GoF) organized their book in four basic sections:
-* The initial 80 pages in which they lay out the foundations for design patterns with an overview as well as present a use case for a little context.
+* The initial 80 pages, which they lay out the foundations for design patterns with an overview as well as present a use case for a little context.
 * The [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html), which cataloged patterns useful in creating and assembling objects. They are the topic of this blog series.
 * The [Structural Design Patterns](https://refactoring.guru/design-patterns/structural-patterns), which catalog the structure of objects working together in repeating patterns.
 * The [Behavioral Design Patterns](), which catalog the behaviors that emerge from objects working together in repeating patterns.
@@ -29,7 +29,8 @@ The first several times I attempted to read the GoF, I made it through the found
 # My Introduction to Abstract Factory
 Dear Reader, I hope to be gentler with you as I present Abstract Factory than the GoF were with me.
 
-Here is Abstract Factory in a Nutshell: __Abstract Factory is the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) where the behavior declared in the interface is a Factory method that acquires an instance to an abstract declaration.__
+Here is Abstract Factory in a Nutshell:
+> __Abstract Factory is the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) where the behavior declared in the interface is a Factory method that acquires and returns an instance to an abstract declaration.__
 
 Unlike the GoF, Abstract Factory is not the first design pattern I have presented. I’m about halfway through their pattern catalog. I’ve covered [Design Pattern Foundations](https://jhumelsine.github.io/3000/01/01/preface.html#design-pattern-foundations), [Essential Design Patterns](https://jhumelsine.github.io/3000/01/01/preface.html#essential-design-patterns) and [Composable Design Patterns]( https://jhumelsine.github.io/3000/01/01/preface.html#composable-design-patterns). I illustrated how the Essential Design Patterns work together to create the [Hexagonal Architecture/Design](https://jhumelsine.github.io/3000/01/01/preface.html#hexagonal-architecture-aka-ports-and-adapters-design).
 
