@@ -27,7 +27,7 @@ __Builder__ (reference TBD) is the second pattern cataloged in the book, and it�
 The first several times I attempted to read the GoF, I made it through the foundations and use case, but once I hit Abstract Factory and Builder, I was so flummoxed that I put the book back on the shelf. I describe my struggles with the GoF, and how I got past them in [It’s You Move](https://jhumelsine.github.io/2023/08/24/its-your-move.html).
 
 # My Introduction to Abstract Factory
-Dear Reader, I hope to be gentler with you as I present Abstract Factory than the GoF were.
+Dear Reader, I hope to be gentler with you as I present Abstract Factory than the GoF were with me.
 
 Here is Abstract Factory in a Nutshell: __Abstract Factory is the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) where the behavior declared in the interface is a Factory method that acquires an instance to an abstract declaration.__
 
@@ -84,9 +84,8 @@ The Abstract Factory will resolve these dependencies, so that they are resolved 
 
 However, the Strategy component of the pattern is the `LauncherSystem` Abstract Factory interface. When added to the design, we get:
 
-__Add new diagram here.__
+<img src="/assets/AbstractFactory2.png" alt="Featuring Strategy with LauncherSystem" width = "80%" align="center" style="padding-right: 35px;">
 
- 
 `LauncherSystem` is a Strategy as well. It’s only an Abstract Factory in the sense that it’s a Strategy whose responsibility is to acquire other dependencies associated with the design. Once the `LaunchSystem` reference is resolved, which I haven’t shown yet, the `Warrior` can acquire a `Launcher` and `Projectiles`.
 
 ## [Factory](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html)
@@ -94,9 +93,8 @@ __Add new diagram here.__
 
 Here’s the design with a `LauncherSystemTestDouble`, which creates `LauncherTestDouble` and `ProjectileTestDouble`. The dashed red line represents architecture boundaries especially to convey the flow of dependency and knowledge.
 
-__Add new diagram here.__
+<img src="/assets/AbstractFactory3.png" alt="Adding test Doubles" width = "80%" align="center" style="padding-right: 35px;">
 
- 
 This is the entire Abstract Factory design. __Abstract Factory is simply a specific application of the Strategy design pattern where the behavior is acquiring object instances.__
 
 ## [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) and [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer)
@@ -107,9 +105,8 @@ As long as each `LauncherSystem` enforces dependency consistency, the rest of th
 
 At this point, the GoF are done with the design, but I’m not We still don’t know how `Warrior` resolves the `LauncherSystem` reference. There may be several ways to resolve this, but I prefer Dependency Injection with a Configurer, which completes the design with:
 
-__Add new diagram here.__
+<img src="/assets/AbstractFactory4.png" alt="Adding Testing Configurer" width = "80%" align="center" style="padding-right: 35px;">
 
- 
 `WarriorTest` is a test, but it’s also a Configurer. It creates an instance of `LauncherSystemTestDouble` and injects it into `Warrior`.
 
 # Testing the Use Case
@@ -235,8 +232,8 @@ Since this pattern is about creating Launcher Systems, their implementations onl
 Nothing in the design or implementation changes above the horizontal dashed red line. The Abstract portion of the design does not depend upon nor know about the concrete elements below it.
 
 ## Rifle/Bullet
-__Add new diagram here.__
 
+<img src="/assets/AbstractFactory5.png" alt="Adding Rifle/Bullet Pair" width = "80%" align="center" style="padding-right: 35px;">
  
 ```java
 class RifleWeaponSystem implements LauncherSystem {
