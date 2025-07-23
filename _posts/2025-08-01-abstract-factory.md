@@ -73,8 +73,7 @@ Abstract Factory is comprised of one [Design Pattern Principle](https://jhumelsi
 ## [Program to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation)
 This principle applies to almost every design pattern, but it’s even more so with Abstract Factory. The Warrior has two interface dependencies: `Launcher` and `Projectile`.
 
-__Add new diagram here.__
- 
+<img src="/assets/AbstractFactory1.png" alt="Warrior delegates to Launcher and Projectile interfaces" width = "80%" align="center" style="padding-right: 35px;">
 
 `Launcher` and `Projectile` need to remain consistent. For example, we can’t attempt to load an `Arrow` into a `Rifle`. We also need the ability to instantiate any number of new Projectile instances.
 
