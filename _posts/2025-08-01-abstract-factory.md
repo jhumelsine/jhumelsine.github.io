@@ -1,6 +1,6 @@
 ---
-title: DRAFT – Abstract Factory Design Pattern
-description: Ensuring consistency among sets of dependencies plus the ability to create multiple objects of a class without knowing the class type
+title: DRAFT – Abstract Factory Design Pattern Without the Confusion
+description: Building Smart, Swappable Systems One Layer at a Time
 unlisted: true
 ---
 
@@ -26,7 +26,7 @@ If you’ve ever tried to read the Abstract Factory diagram in GoF and ended up 
  
 __Builder__ (reference TBD) is the second pattern cataloged in the book, and it’s just about as intimidating. It’s the next pattern in this creational blog series.
 
-The first several times I attempted to read the GoF, I made it through the foundations and the use case, but once I hit Abstract Factory and Builder, I was so flummoxed that I put the book back on the shelf. I describe my struggles with the GoF, and how I got past them in [It’s You Move](https://jhumelsine.github.io/2023/08/24/its-your-move.html).
+The first several times I attempted to read the GoF, I made it through the foundations and the use case, but once I hit Abstract Factory and Builder, I was so flummoxed that I put the book back on the shelf. I describe my struggles with the GoF, and how I got past them in [It’s Your Move](https://jhumelsine.github.io/2023/08/24/its-your-move.html).
 
 # My Introduction to Abstract Factory
 Dear Reader, I hope to be gentler with you as I present Abstract Factory than the GoF were with me.
@@ -98,7 +98,7 @@ When added to the design, we get:
 
 Here’s the design with a `LauncherSystemTestDouble`, which creates `LauncherTestDouble` and `ProjectileTestDouble`. I have remove the `fire()` code from `Warrior` for space considerations. Its presence is implied.
 
-The dashed red line represents architecture boundaries especially to highlight the flow of dependency and knowledge, which always crosses these boundaries in one direction. Dependency and knowledge flow upward toward abstraction, as represented by all arrows crossing the horizontal line pointing upward. Dependency and knowledge flow to the right from configuration to concrete as represented by all arrows crossing the vertical line point towrad the right.
+The dashed red line represents architecture boundaries especially to highlight the flow of dependency and knowledge, which always crosses these boundaries in one direction. Dependency and knowledge flow upward toward abstraction, as represented by all arrows crossing the horizontal line pointing upward. Dependency and knowledge flow to the right from configuration to concrete as represented by all arrows crossing the vertical line point toward the right.
 
 This is the entire Abstract Factory design. __Abstract Factory is a specific application of the Strategy design pattern where the behavior is acquiring object instances.__
 
@@ -240,7 +240,7 @@ private static void testWarrior() throws Exception {
 # Additional Use Case Launcher Systems
 Most of the work for this design is in defining the interfaces, providing the test doubles and testing the `Warrior`. Adding more `LauncherSystems` is trivial once the foundations have been laid.
 
-Since this pattern is about creating `LauncherSystems`, the additional concrete class implementations only contain print statements that describe what they would do rather than provide an actual implementation. In an actual application, each of these methods would have more sophisticated implementations with accompaning automated tests. Print statements keep the example small, while still conveying different text-specified behaviors for each `LauncherSystem`.
+Since this pattern is about creating `LauncherSystems`, the additional concrete class implementations only contain print statements that describe what they would do rather than provide an actual implementation. In an actual application, each of these methods would have more sophisticated implementations with accompanying automated tests. Print statements keep the example small, while still conveying different text-specified behaviors for each `LauncherSystem`.
 
 Nothing in the design or implementation changes above the horizontal dashed red line. The Abstract portion of the design does not depend upon nor know about the concrete elements below it.
 
