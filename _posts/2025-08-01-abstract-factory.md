@@ -502,11 +502,312 @@ Abstract Factory may not be the simplest design pattern, but once you’ve seen 
 Next time your application needs to support swappable modules, multiple environments, or consistent object families, reach for Abstract Factory. Just remember to build it layer by layer—and keep the messy wiring down in the dirt where it belongs.
 
 # References
-__TBD__
+* [Abstract Factory Design Pattern](https://en.wikipedia.org/wiki/Abstract_factory_pattern) via Wikipedia
+* [Abstract Factory Design Pattern](https://sourcemaking.com/design_patterns/abstract_factory) via SourceMaking
+* [Abstract Factory Design Pattern](https://refactoring.guru/design-patterns/abstract-factory) via RefactoringGuru
+* [Abstract Factory Design Pattern](https://www.baeldung.com/java-abstract-factory-pattern) via Baeldung
+* [Abstract Factory Design Pattern](https://dev.to/srishtikprasad/abstract-factory-design-pattern-18h3) blog by Srishti Prasad
+* [Abstract Factory Design Pattern in Java](https://www.digitalocean.com/community/tutorials/abstract-factory-design-pattern-in-java) blog by Pankaj Kumar
+* [The Abstract Design Pattern with Examples – Solving the Design Pattern Conundrum](https://www.digitalocean.com/community/tutorials/abstract-factory-design-pattern-in-java) blog by Team Blazeclan
+* [Understanding Design Patterns: Abstract Factory](https://dev.to/carlillo/understanding-design-patterns-abstract-factory-23e7) blog by Carlos Caballero
+* [Abstract Factory Design Pattern](https://www.pmi.org/disciplined-agile/the-design-patterns-repository/the-abstract-factory-pattern) video by Scott Bain
+* Google Search: [Abstract Factory Design Pattern](https://www.google.com/search?q=abstract+factory+design+pattern)
 
 # Complete Demo Code
 Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Add more tests. Play with the implementation. Refactor some of the code.
 
 ```java
-/// TBD
+import java.util.*;
+
+public class AbstractFactory {
+    public static void main(String[] args) throws Exception {
+        Test.test();
+
+        System.out.println();
+
+        Warrior rifleman = new Warrior(new RifleWeaponSystem());
+        rifleman.fire();
+
+        System.out.println();
+
+        Warrior antiTankSoldier = new Warrior(new BazookaWeaponSystem());
+        antiTankSoldier.fire();
+
+        System.out.println();
+
+        Warrior archer = new Warrior(new ArcheryWeaponSystem());
+        archer.fire();
+    }
+}
+
+///////////// ABSTRACT FRAMEWORK SOFTWARE UNDER TEST //////////////////
+
+interface LauncherSystem {
+    Launcher acquireLauncher();
+
+    Projectile acquireProjectile();
+}
+
+interface Launcher {
+    int getProjectileCapacity();
+
+    void load(Projectile projectile);
+
+    void aim();
+
+    void launch();
+}
+
+interface Projectile {
+    String getType();
+}
+
+class Warrior {
+    private final LauncherSystem launcherSystem;
+
+    public Warrior(LauncherSystem launcherSystem) {
+        this.launcherSystem = launcherSystem;
+    }
+
+    public void fire() {
+        Launcher launcher = launcherSystem.acquireLauncher();
+
+        for (int i = 0; i < launcher.getProjectileCapacity(); i++) {
+            launcher.load(launcherSystem.acquireProjectile());
+        }
+
+        for (int i = 0; i < launcher.getProjectileCapacity(); i++) {
+            launcher.aim();
+            launcher.launch();
+        }
+
+    }
+
+}
+
+///////////// RIFLE SYSTEM //////////////
+
+class RifleWeaponSystem implements LauncherSystem {
+    @Override
+    public Launcher acquireLauncher() {
+        return new Rifle();
+    }
+
+    @Override
+    public Projectile acquireProjectile() {
+        return new Bullet();
+    }
+}
+
+class Rifle implements Launcher {
+    private Projectile projectile;
+
+    @Override
+    public int getProjectileCapacity() {
+        return 6;
+    }
+
+    @Override
+    public void load(Projectile projectile) {
+        this.projectile = projectile;
+        System.out.format("Load %s into rifle\n", projectile.getType());
+    }
+
+    @Override
+    public void aim() {
+        System.out.println("Aim down rifle barrel");
+    }
+
+    @Override
+    public void launch() {
+        System.out.format("Squeeze rifle trigger to shoot %s\n", projectile.getType());
+    } 
+}
+
+class Bullet implements Projectile {
+    @Override
+    public String getType() {
+        return "Bullet";
+    }
+}
+
+///////////// BAZOOKA SYSTEMS //////////////
+
+class BazookaWeaponSystem implements LauncherSystem {
+    @Override
+    public Launcher acquireLauncher() {
+        return new Bazooka();
+    }
+
+    @Override
+    public Projectile acquireProjectile() {
+        return new BazookaShell();
+    }
+}
+
+class Bazooka implements Launcher {
+    private Projectile projectile;
+
+    @Override
+    public int getProjectileCapacity() {
+        return 1;
+    }
+
+    @Override
+    public void load(Projectile projectile) {
+        this.projectile = projectile;
+        System.out.format("Load %s into bazooka\n", projectile.getType());
+    }
+
+    @Override
+    public void aim() {
+        System.out.println("Aim down bazooka site");
+    }
+
+    @Override
+    public void launch() {
+        System.out.format("Squeeze bazooka trigger to launch %s\n", projectile.getType());
+    } 
+}
+
+class BazookaShell implements Projectile {
+    @Override
+    public String getType() {
+        return "BazookaShell";
+    }
+}
+
+///////////// ARCHERY SYSTEMS //////////////
+
+class ArcheryWeaponSystem implements LauncherSystem {
+    @Override
+    public Launcher acquireLauncher() {
+        return new Bow();
+    }
+
+    @Override
+    public Projectile acquireProjectile() {
+        return new Arrow();
+    }
+}
+
+class Bow implements Launcher {
+    private Projectile projectile;
+
+    @Override
+    public int getProjectileCapacity() {
+        return 1;
+    }
+
+    @Override
+    public void load(Projectile projectile) {
+        this.projectile = projectile;
+        System.out.format("Notch %s into the bow string\n", projectile.getType());
+    }
+
+    @Override
+    public void aim() {
+        System.out.format("Pull back bow string and aim down %s\n", projectile.getType());
+    }
+
+    @Override
+    public void launch() {
+        System.out.format("Release bow string to launch %s\n", projectile.getType());
+    } 
+}
+
+class Arrow implements Projectile {
+    @Override
+    public String getType() {
+        return "Arrow";
+    }
+}
+
+////////////// TEST DOUBLES /////////////////
+
+class LauncherSystemTestDouble implements LauncherSystem {
+    private List<String> actions;
+
+    public LauncherSystemTestDouble(List<String> actions) {
+        this.actions = actions;
+    }
+
+    @Override
+    public Launcher acquireLauncher() {
+        return new LauncherTestDouble(actions);
+    }
+
+    @Override
+    public Projectile acquireProjectile() {
+        return new ProjectileTestDouble();
+    }
+}
+
+class LauncherTestDouble implements Launcher {
+    private List<String> actions;
+    private Projectile projectile;
+
+    public LauncherTestDouble(List<String> actions) {
+        this.actions = actions;
+    }
+
+    @Override
+    public int getProjectileCapacity() {
+        return 2;
+    }
+
+    @Override
+    public void load(Projectile projectile) {
+        this.projectile = projectile;
+        actions.add(String.format("Load: %s", projectile.getType()));
+    }
+
+    @Override
+    public void aim() {
+        actions.add("Aim LauncherTestDouble");
+    }
+
+    @Override
+    public void launch() {
+        actions.add(String.format("Launch %s", projectile.getType()));
+    }
+}
+
+class ProjectileTestDouble implements Projectile {
+    @Override
+    public String getType() {
+        return "ProjectileTestDouble";
+    }
+}
+
+
+/////////////// TESTS ////////////////
+class Test {
+    public static void test() throws Exception {
+        testWarrior();
+
+        System.out.println("End Tests");
+    }
+
+    private static void testWarrior() throws Exception {
+        // Given
+        List<String> actions = new LinkedList<>();
+        LauncherSystem launcherSystem = new LauncherSystemTestDouble(actions);
+        Warrior warrior = new Warrior(launcherSystem);
+
+        // When
+        warrior.fire();
+
+        // Then
+        assertEquals("[Load: ProjectileTestDouble, Load: ProjectileTestDouble, Aim LauncherTestDouble, Launch ProjectileTestDouble, Aim LauncherTestDouble, Launch ProjectileTestDouble]", actions.toString());
+    }
+
+    private static void assertEquals(String expected, String actual) throws Exception {
+        if (!expected.equals(actual)) {
+            System.out.format("expected=%s, actual=%s\n", expected, actual);
+            throw new Exception();
+        }
+    }
+
+}
 ```
