@@ -16,8 +16,8 @@ _Cohesion_ and _Coupling_ are related and somewhat confusing terms. Before I des
 # Cohesive Abstractions
 __Cohesive Abstractions__ are when coupled elements are abstractions, such as interfaces. Our goal is to ensure that the concrete classes implementing the abstractions are consistent in their given context. I’ll continue with an example to demonstrate these concepts.
 
-## Call To Duty
-Let’s assume that you’re a developer on a military game, such as [Call to Duty](https://www.callofduty.com/), and you’re in the _Weapons_ development team.
+## Call Of Duty
+Let’s assume that you’re a developer on a military game, such as [Call of Duty](https://www.callofduty.com/), and you’re in the _Weapons_ development team.
 
 You’ll want to design a gun that supports behaviors, such as: ready, aim and fire.
 
