@@ -12,9 +12,9 @@ __TBD__
 # Gang of Four’s Introduction to Abstract Factory
 The Gang of Four (GoF) organized their book in four basic sections:
 * The 80 page overview, which presents the foundations for design patterns as well a use case to provide a little context.
-* The [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html), which catalog patterns for creating and assembling objects without directly depending upon class type. They are the topic of this blog series.
-* The [Structural Design Patterns](https://refactoring.guru/design-patterns/structural-patterns), which catalog the structure of objects working together in repeating patterns.
-* The [Behavioral Design Patterns](), which catalog the behaviors that emerge from objects working together in repeating patterns.
+* The [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html), which catalogs patterns for creating and assembling objects without directly depending upon class type. They are the topic of this blog series.
+* The [Structural Design Patterns](https://refactoring.guru/design-patterns/structural-patterns), which catalogs the structure of objects working together in repeating patterns.
+* The [Behavioral Design Patterns](), which catalogs the behaviors that emerge from objects working together in repeating patterns.
 
 Patterns were presented in alphabetical order within each category. Therefore, __Abstract Factory__ was the first design pattern presented in detail in their book. It’s a daunting first design pattern to encounter if reading the book from cover to cover.
 
@@ -32,7 +32,7 @@ Dear Reader, I hope to be gentler with you as I present Abstract Factory than th
 Here is Abstract Factory in a Nutshell:
 > __Abstract Factory is the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) where the behavior declared in the interface is a Factory method that acquires and returns an instance to an abstract declaration.__
 
-Unlike the GoF, Abstract Factory is not the first design pattern I have presented. I’m about halfway through their pattern catalog. I’ve covered [Design Pattern Foundations](https://jhumelsine.github.io/3000/01/01/preface.html#design-pattern-foundations), [Essential Design Patterns](https://jhumelsine.github.io/3000/01/01/preface.html#essential-design-patterns) and [Composable Design Patterns]( https://jhumelsine.github.io/3000/01/01/preface.html#composable-design-patterns). I illustrated how the Essential Design Patterns work together to create the [Hexagonal Architecture/Design](https://jhumelsine.github.io/3000/01/01/preface.html#hexagonal-architecture-aka-ports-and-adapters-design). Hopefully everyone reading this feels comfortable with design patterns.
+Unlike the GoF, Abstract Factory is not the first design pattern I have presented. I’m about halfway through their pattern catalog. I’ve covered [Design Pattern Foundations](https://jhumelsine.github.io/3000/01/01/preface.html#design-pattern-foundations), [Essential Design Patterns](https://jhumelsine.github.io/3000/01/01/preface.html#essential-design-patterns) and [Composable Design Patterns]( https://jhumelsine.github.io/3000/01/01/preface.html#composable-design-patterns). I illustrated how the Essential Design Patterns work together to create the [Hexagonal Architecture/Design](https://jhumelsine.github.io/3000/01/01/preface.html#hexagonal-architecture-aka-ports-and-adapters-design). Hopefully everyone reading here feels comfortable with design patterns.
 
 I have previously mentioned Abstract Factory as well in the:
 * [Creational Design Pattern](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) series introduction, with a brief description.
@@ -46,29 +46,29 @@ It took a long time before I understood the intent of Abstract Factory. I knew t
 
 >In [A Cautionary Tale](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html#a-cautionary-tale), I described work situation where an integration test was connected to our production database. When the test cleaned up upon completion, it deleted a table in our production database losing customer data. Had we configured our system with an Abstract Factory, it would have been much more difficult to have configured our test environment with a production dependency.
 
-While thinking about this blog, I realized that I was missing another Abstract Factory scenario - creating multiple instances. In most Creational Design Patterns, the caller indirectly depends upon the concrete class type of the object being created even if the class type is encapsulated and unknown to the caller. I described this situation in the beginning of the [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) (DI) blog how this makes unit testing difficult. DI helps resolve this indirect dependency issue by creating the instance outside the boundary of the application and injecting it into the application.
+While thinking about this blog, I realized that I was missing another Abstract Factory scenario—creating multiple instances. In most Creational Design Patterns, the caller indirectly depends upon the concrete class type of the object being created even if the class type is encapsulated and unknown to the caller. I described this situation in the beginning of the [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) (DI) blog how this makes unit testing difficult. DI helps resolve this indirect dependency issue by creating the instance outside the boundary of the application and injecting it into the application.
 
 Traditional DI injects one instance of a class type into the application before the application executes any behavior. This sufficies for single instance dependencies, such as [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) to databases or messaging systems, but it doesn't work well when the application needs to create an instance or multiple instances of a class type as part of its behavior while it executes.
 
 __Abstract Factory will address both scenarios:__
-__* Consistent Dependencies__
-__* Multiple Object Instances__
+* __Consistent Dependencies__
+* __Multiple Object Instances__
 
 There may be other scenarios where it will be useful, but I won’t present them.
 
 # Abstract Factory Use Case
-I will return to the [Call of Duty](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html#call-of-duty) example in [What Is Cohesive Abstraction?](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html) with a few modifications as the use case example to explain Abstract Factory.
+I will return to the [Call of Duty](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html#call-of-duty) example introduce in [What Is Cohesive Abstraction?](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html) with a few modifications as the use case example to explain Abstract Factory.
 
-This use case will feature a Warrior who uses a Launcher/Projectile launcher system, such as a Rifle/Bullet, Bazooka/Bazooka Shell or Bow/Arrow. The Warrior’s behavior consists of:
+This use case will feature a Warrior who uses a Launcher/Projectile Launcher System, such as a Rifle/Bullet, Bazooka/Bazooka Shell or Bow/Arrow. The Warrior’s behavior consists of:
 * Acquiring a Launcher.
 * Acquiring a set of Projectiles and loading those Projectiles into the Launcher up to the Launcher’s Projectile capacity.
 * Aiming and launching each of the Projectiles loaded into the Launcher.
 
-In more concrete terms, if the Warrior were a Rifleman, then Rifleman will load six bullets into the rifle, take aim and fire six rounds.
+In more concrete terms, if the Warrior were a Rifleman, then the Rifleman would load six bullets into the rifle, take aim and fire the six rounds.
 
-This use case will address both scenarios listed above, since it will ensure that the Launcher and Projectile dependencies are consistent, and the Warrior can acquire as many Projectile instances as needed.
+This use case will address both Abstract Factory scenarios listed above, since it will ensure that the Launcher and Projectile dependencies are consistent, and the Warrior can acquire as many Projectile instances as needed.
 
-I will construct the Warrior design in phases using the Abstract Factory in a test environment to confirm the Warrior's behavior. Then I’ll show how the design can accommodate Rifle/Bullet, Bazooka/BazookaShell and Bow/Arrow.
+I will construct the Warrior design in phases using the Abstract Factory within a test environment to confirm the Warrior's behavior. Then I’ll show how the design can accommodate Rifle/Bullet, Bazooka/BazookaShell and Bow/Arrow.
 
 # Abstract Factory is Comprised of other Design Patterns
 Abstract Factory is comprised of one [Design Pattern Principle](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html) and several [Essential Design Patterns](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html):
@@ -76,23 +76,23 @@ Abstract Factory is comprised of one [Design Pattern Principle](https://jhumelsi
 ## [Program to an interface, not an implementation](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation)
 This principle applies to almost every design pattern, but it’s even more so with Abstract Factory. The Warrior has two interface dependencies: `Launcher` and `Projectile`.
 
-<img src="/assets/AbstractFactory1.png" alt="Warrior delegates to Launcher and Projectile interfaces" width = "100%" align="center" style="padding-right: 35px;">
-
 `Launcher` and `Projectile` need to be consistent. For example, we can’t attempt to load an `Arrow` into a `Rifle`. We also need the ability to instantiate any number of new `Projectile` instances.
 
 The Abstract Factory will resolve these dependencies, so that they are consistent pairs and allow for multiple instances.
 
-## [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html)
-`Launcher` and `Projectile` are Strategies, since each will be realized via different sets of concrete classes, such as: `Rifle`/`Bullet`, `Bazooka`/`BazookaShell` and `Bow`/`Arrow`.
+<img src="/assets/AbstractFactory1.png" alt="Warrior delegates to Launcher and Projectile interfaces" width = "100%" align="center" style="padding-right: 35px;">
 
-However, the important Strategy component of the pattern is the `LauncherSystem` Abstract Factory interface. __`LauncherSystem` is a Strategy whose responsibility is to acquire other dependencies associated with the design. It's an abstraction and a factory, hence the pattern name: Abstract Factory.__ Once the `LaunchSystem` reference is resolved, which I haven’t shown yet, the `Warrior` can acquire a `Launcher` and `Projectiles`.
+## [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html)
+`Launcher` and `Projectile` are [Strategies](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html), since each will be realized via different sets of concrete classes, such as: `Rifle`/`Bullet`, `Bazooka`/`BazookaShell` and `Bow`/`Arrow`.
+
+However, the important Strategy component of the pattern is the `LauncherSystem` Abstract Factory interface. __`LauncherSystem` is a Strategy whose responsibility is to acquire dependencies associated with the design. It's an abstraction and a factory, hence the pattern name: Abstract Factory.__ Once the `LaunchSystem` reference is resolved, which I haven’t shown yet, the `Warrior` can acquire a `Launcher` and `Projectiles`.
 
 When added to the design, we get:
 
 <img src="/assets/AbstractFactory2.png" alt="Featuring Strategy with LauncherSystem" width = "100%" align="center" style="padding-right: 35px;">
 
 ## [Factory](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html)
-`LaunchSystem` is an abstract Strategy that declares the ability to acquire `Launcher` and `Projectile` virtually. Concrete instances of `LaunchSystem` realize that potential using a Factory.
+`LaunchSystem` is an abstract Strategy that declares the ability to acquire `Launcher` and `Projectile` virtually. Concrete instances of `LaunchSystem` realize that potential using a [Factory](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html).
 
 Here’s the design with a `LauncherSystemTestDouble`, which creates `LauncherTestDouble` and `ProjectileTestDouble`. I have remove the `fire()` code from `Warrior` for space considerations. Its presence is implied.
 
@@ -102,13 +102,13 @@ This is the entire Abstract Factory design. __Abstract Factory is a specific app
 
 <img src="/assets/AbstractFactory3.png" alt="Adding test Doubles" width = "100%" align="center" style="padding-right: 35px;">
 
-## [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) and [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer)
-
-Dependency consistency resides in the concrete Factories, but the pattern can’t guarantee or enforce it. A developer could easily define a `LauncherSystem` where the `Launcher` is a `Rifle` and the `Projectile` is an `Arrow`. However, the pattern can encourage and facility dependency consistency. The `LauncherSystem` is not complex. The code snippet in the diagram is almost the entire implementation. Visual inspection should help ensure that the acquired `Launcher` and `Projectile` are consistent. It would not be difficult to design unit tests that confirm this as well.
+Dependency consistency resides in the concrete Factories, but the pattern can’t guarantee or enforce it. A developer could easily define a `LauncherSystem` where the `Launcher` is a `Rifle` and the `Projectile` is an `Arrow`. However, the pattern can encourage and facilitate dependency consistency. The `LauncherSystem` is not complex. The code snippet in the diagram is almost the entire implementation. Visual inspection should help ensure that the acquired `Launcher` and `Projectile` are consistent. It would not be difficult to design unit tests that confirm this as well.
 
 As long as each `LauncherSystem` enforces dependency consistency, the rest of the design should not need to be concerned about it.
 
-At this point, the GoF are done with the design, but I’m not. We still don’t know how `Warrior` resolves the `LauncherSystem` reference. There may be several ways to resolve this, but I prefer Dependency Injection with a Configurer. `WarriorTest` is a test, but it’s also a Configurer. It creates an instance of `LauncherSystemTestDouble` and injects it into `Warrior`.
+## [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) and [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer)
+
+At this point, the GoF are done with the design, but I’m not. We still don’t know how `Warrior` resolves the `LauncherSystem` reference. There may be several ways to resolve this, but I prefer [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) with a [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer). `WarriorTest` is a test, but it’s also a Configurer. It creates an instance of `LauncherSystemTestDouble` and injects it into `Warrior`.
 
 Here is my complete Dependency Injected Configurer design:
 
@@ -238,7 +238,7 @@ private static void testWarrior() throws Exception {
 # Additional Use Case Launcher Systems
 Most of the work for this design is in defining the interfaces, providing the test doubles and testing the `Warrior`. Adding more `LauncherSystems` is trivial once the foundations have been laid.
 
-Since this pattern is about creating `LauncherSystems`, their implementations only contain print statements that describe what they would do rather than provide an actual implementation. In an actual application, each of these methods would have more sophisticated implementations with accompaning automated tests. Print statements keep the example small, while still conveying different text-specified behaviors for each `LauncherSystem`.
+Since this pattern is about creating `LauncherSystems`, the additional concrete class implementations only contain print statements that describe what they would do rather than provide an actual implementation. In an actual application, each of these methods would have more sophisticated implementations with accompaning automated tests. Print statements keep the example small, while still conveying different text-specified behaviors for each `LauncherSystem`.
 
 Nothing in the design or implementation changes above the horizontal dashed red line. The Abstract portion of the design does not depend upon nor know about the concrete elements below it.
 
@@ -350,7 +350,7 @@ class BazookaShell implements Projectile {
 }
 ```
 
-## Bow Arrow
+## Bow/Arrow
 <img src="/assets/AbstractFactory7.png" alt="Adding Bow/Arrow Pair" width = "100%" align="center" style="padding-right: 35px;">
  
 ```java
@@ -395,6 +395,13 @@ class Bow implements Launcher {
     } 
 }
 
+class Arrow implements Projectile {
+    @Override
+    public String getType() {
+        return "Arrow";
+    }
+}
+
 ```
 
 ## The Dirty Main
@@ -423,7 +430,7 @@ public class AbstractFactory {
 }
 ```
 
-When this code is executed, it produces the following output, which shows how the same `Warrior` implementation produces different results depending upon the concrete `LauncherSystem` that’s been injected into it`:
+When this code is executed, it produces the following output, which shows how the same `Warrior` implementation produces different results depending upon the concrete `LauncherSystem` that’s been injected into it:
 ```
 End Tests
 
@@ -455,7 +462,7 @@ Pull back bow string and aim down Arrow
 Release bow string to launch Arrow
 ```
 
-Bob Martin describes configuration as being in the _lowest_ portion of the design. It may reside in `main()` as I’ve shown above, where it resides in the _dirtiest part of the program_ as Martin has called it.
+Bob Martin describes configuration as the _lowest_ and _dirtiest_ portion of the design. It may reside in `main()` as I’ve shown above, where it resides in the _dirtiest part of the program_ as Martin has called it.
 
 I won’t say that `main()` is ___dirty___, but I’ve found that it’s often where dynamic configuration resides.
 
@@ -468,18 +475,18 @@ My previous diagrams have been planar, since I limited them to one concrete Fact
 
 <img src="/assets/AbstractFactory8.png" alt="Non-Planar Diagram" width = "100%" align="center" style="padding-right: 35px;">
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg/800px-Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg" alt="Broadway Boogie Woogie" title="Image Source: By Piet Mondrian - Transferred from en.wikipedia to Commons., Public Domain, https://commons.wikimedia.org/w/index.php?curid=37640791" width = "20%" align="right" style="padding: 35px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg/800px-Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg" alt="Broadway Boogie Woogie" title="Image Source: By Piet Mondrian - Transferred from en.wikipedia to Commons., Public Domain, https://commons.wikimedia.org/w/index.php?curid=37640791" width = "30%" align="right" style="padding: 35px;">
 
 My complete diagram has so many crossing lines that it reminds me [Broadway Boogie Woogie](https://en.wikipedia.org/wiki/Broadway_Boogie_Woogie) by [Piet Mondrian]( https://en.wikipedia.org/wiki/Piet_Mondrian)
 
-I color coded thsi diagram differently. Usually I use green for interfaces, blue for implementation, purple for configuration and red for externals. That’s still the case in the Abstract section, but the colors below the red dashed horizontal line take on one time meaning so that it’s a little easier to keep track of the relationships between cohesive classes, especially in the many crossing lines:
+I color coded this diagram differently. Usually I use green for interfaces, blue for implementation, purple for configuration and red for externals. That’s still the case in the Abstract section, but the colors below the red dashed horizontal line take on a different one time meaning so that it’s a little easier to keep track of the relationships between cohesive classes, especially in the many crossing lines:
 * Red is for the Rifle/Bullet classes.
 * Green is for Bazooka/BazookaShell classes.
 * Purple is for Bow/Arrows classes.
 
 While the lines cross because this diagram is not a planar graph, notice that the three sets of cohesive colors never interact with one another. They have no dependencies or knowledge of one another. They peacefully coexist.
 
-There’s another way to picture this. Don’t imagine this class diagram on one plane. Imagine it on multiple stacked planes. The Red, Green and Purple planes are stacked on top of each other where they each independently plug into the Abstract elements.
+There’s another way to imagine this. Don’t imagine this class diagram on one plane. Imagine it on multiple stacked planes. The Red, Green and Purple planes are stacked on top of each other where they each independently plug into the Abstract elements.
 
 Each diagram is planar within its own plane with the same pattern structure:
 
@@ -492,3 +499,10 @@ __TBD__
 
 # References
 __TBD__
+
+# Complete Demo Code
+Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Add more tests. Play with the implementation. Refactor some of the code.
+
+```java
+/// TBD
+```
