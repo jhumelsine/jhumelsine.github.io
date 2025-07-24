@@ -508,7 +508,7 @@ Next time your application needs to support swappable modules, multiple environm
 * [Abstract Factory Design Pattern](https://www.baeldung.com/java-abstract-factory-pattern) via Baeldung
 * [Abstract Factory Design Pattern](https://dev.to/srishtikprasad/abstract-factory-design-pattern-18h3) blog by Srishti Prasad
 * [Abstract Factory Design Pattern in Java](https://www.digitalocean.com/community/tutorials/abstract-factory-design-pattern-in-java) blog by Pankaj Kumar
-* [The Abstract Design Pattern with Examples – Solving the Design Pattern Conundrum](https://www.digitalocean.com/community/tutorials/abstract-factory-design-pattern-in-java) blog by Team Blazeclan
+* [The Abstract Design Pattern with Examples – Solving the Design Pattern Conundrum](https://blazeclan.com/blog/solving-design-pattern-conundrum-abstract-design-pattern-examples/) blog by Team Blazeclan
 * [Understanding Design Patterns: Abstract Factory](https://dev.to/carlillo/understanding-design-patterns-abstract-factory-23e7) blog by Carlos Caballero
 * [Abstract Factory Design Pattern](https://www.pmi.org/disciplined-agile/the-design-patterns-repository/the-abstract-factory-pattern) video by Scott Bain
 * Google Search: [Abstract Factory Design Pattern](https://www.google.com/search?q=abstract+factory+design+pattern)
