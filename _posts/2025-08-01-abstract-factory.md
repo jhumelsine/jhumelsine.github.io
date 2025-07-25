@@ -511,7 +511,13 @@ Next time your application needs to support swappable modules, multiple environm
 * [The Abstract Design Pattern with Examples – Solving the Design Pattern Conundrum](https://blazeclan.com/blog/solving-design-pattern-conundrum-abstract-design-pattern-examples/) blog by Team Blazeclan
 * [Understanding Design Patterns: Abstract Factory](https://dev.to/carlillo/understanding-design-patterns-abstract-factory-23e7) blog by Carlos Caballero
 * [Abstract Factory Design Pattern](https://www.pmi.org/disciplined-agile/the-design-patterns-repository/the-abstract-factory-pattern) video by Scott Bain
+* [The Abstract Factory Pattern Explained and Implemented](https://www.youtube.com/watch?v=QNpwWkdFvgQ) video by Geekific
+* [Abstract Factory Pattern – Design Patterns (ep 5)](https://www.youtube.com/watch?v=v-GiuMmsXj4) video by 
+Christopher Okhravi
+* [Abstract Factory Design Pattern in detail](https://www.youtube.com/watch?v=hJgubQLTjZU) video by Daily Code Buffer
+* [Abstract Factory Pattern (Gang of Four)](https://www.youtube.com/watch?v=ZKZ23kXvZBQ) video by Wes Doyle
 * Google Search: [Abstract Factory Design Pattern](https://www.google.com/search?q=abstract+factory+design+pattern)
+* Google Video Search: [Abstract Factory Design Pattern Video](https://www.google.com/search?q=abstract+factory+design+pattern+video)
 
 # Complete Demo Code
 Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Add more tests. Play with the implementation. Refactor some of the code.
