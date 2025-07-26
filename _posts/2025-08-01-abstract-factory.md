@@ -29,7 +29,7 @@ __Builder__ (reference TBD) is the second pattern cataloged in the book, and itâ
 The first several times I attempted to read the GoF, I made it through the foundations and the use case, but once I hit Abstract Factory and Builder, I was so flummoxed that I put the book back on the shelf. I describe my struggles with the GoF, and how I got past them in [Itâ€™s Your Move](https://jhumelsine.github.io/2023/08/24/its-your-move.html).
 
 # My Introduction to Abstract Factory
-Dear Reader, I hope to be gentler with you as I present Abstract Factory than the GoF were with me.
+Dear Reader, I promise to be gentler than the GoF were with me..
 
 Here is Abstract Factory in a Nutshell:
 > __Abstract Factory is the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) where the behavior declared in the interface is a Factory method that acquires and returns an instance to an abstract declaration.__
