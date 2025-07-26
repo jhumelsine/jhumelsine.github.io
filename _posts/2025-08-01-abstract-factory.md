@@ -486,11 +486,13 @@ I color coded this diagram differently. Usually I use green for interfaces, blue
 * Green is for Bazooka/BazookaShell classes.
 * Purple is for Bow/Arrows classes.
 
-While the lines cross because this diagram is not a planar graph, notice that the three sets of cohesive colors never interact with one another. They have no dependencies or knowledge of one another. They peacefully coexist.
+There’s another way to imagine this. Don’t imagine this class diagram on one plane. Imagine it on multiple stacked planes. The Red, Green and Purple planes are stacked on top of each other where they each independently plug into the Abstract elements. I've tried my best to redesign the above diagram to convey the three different planes.
 
-There’s another way to imagine this. Don’t imagine this class diagram on one plane. Imagine it on multiple stacked planes. The Red, Green and Purple planes are stacked on top of each other where they each independently plug into the Abstract elements.
+<img src="/assets/AbstractFactory10.png" alt="Non-Planar Diagram trying to emphasize stacked planes" width = "100%" align="center" style="padding-right: 35px;">
 
-Each diagram is planar within its own plane with the same pattern structure:
+While the lines cross because these diagrams are not a planar graph, notice that the three sets of cohesive colors never interact with one another. They have no dependencies or knowledge of one another. They peacefully coexist.
+
+Each colored set of cohesive elements are planar within their own plane where the Configurer creates and injects the Concrete Factory into the Business Logic. The Business Logic invokes the Concrete Factory abstractly to create the Concrete Dependencies it needs to resolve its abstract Dependencies. Regardless of Factory context, they all follow the same pattern structure:
 
 <img src="/assets/AbstractFactory9.png" alt="Generic Abstract Factory" width = "100%" align="center" style="padding-right: 35px;">
 
