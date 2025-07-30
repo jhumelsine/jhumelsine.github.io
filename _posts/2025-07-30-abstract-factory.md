@@ -1,7 +1,6 @@
 ---
-title: DRAFT – Abstract Factory Design Pattern Without the Confusion
+title: Abstract Factory Design Pattern Without the Confusion
 description: Building Smart, Swappable Systems One Layer at a Time
-unlisted: true
 ---
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg/800px-Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg" alt="Broadway Boogie Woogie" title="Image Source: By Piet Mondrian - Transferred from en.wikipedia to Commons., Public Domain, https://commons.wikimedia.org/w/index.php?curid=37640791" width = "50%" align="center" style="padding: 35px;">
@@ -16,7 +15,7 @@ The Gang of Four (GoF) organized their book in four basic sections:
 * The 80 page overview, which presents the foundations for design patterns as well a use case to provide a little context.
 * The [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html), which catalogs patterns for creating and assembling objects without directly depending upon class type. They are the topic of this blog series.
 * The [Structural Design Patterns](https://refactoring.guru/design-patterns/structural-patterns), which catalogs the structure of objects working together in repeating patterns.
-* The [Behavioral Design Patterns](), which catalogs the behaviors that emerge from objects working together in repeating patterns.
+* The [Behavioral Design Patterns](https://refactoring.guru/design-patterns/behavioral-patterns), which catalogs the behaviors that emerge from objects working together in repeating patterns.
 
 Patterns were presented in alphabetical order within each category. Therefore, __Abstract Factory__ was the first design pattern presented in detail in their book. It’s a daunting first design pattern to encounter if reading the book from cover to cover.
 
@@ -46,7 +45,7 @@ The GoF dumped Abstract Factory, whole cloth, in its entirety in their book. I w
 # Abstract Factory Intent
 It took a long time before I understood the intent of Abstract Factory. I knew that Abstract Factory helps ensure that all dependencies for an application are consistent for a specific environment or scenario. But its importance still didn’t resonate with me.
 
->In [A Cautionary Tale](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html#a-cautionary-tale), I described work situation where an integration test was connected to our production database. When the test cleaned up upon completion, it deleted a table in our production database losing customer data. Had we configured our system with an Abstract Factory, it would have been much more difficult to have configured our test environment with a production dependency.
+In [A Cautionary Tale](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html#a-cautionary-tale), I described work situation where an integration test was connected to our production database. When the test cleaned up upon completion, it deleted a table in our production database losing customer data. Had we configured our system with an Abstract Factory, it would have been much more difficult to have configured our test environment with a production dependency.
 
 While thinking about this blog, I realized that I was missing another Abstract Factory scenario—creating multiple instances. In most Creational Design Patterns, the caller indirectly depends upon the concrete class type of the object being created even if the class type is encapsulated and unknown to the caller. I described this situation in the beginning of the [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) (DI) blog how this makes unit testing difficult. DI helps resolve this indirect dependency issue by creating the instance outside the boundary of the application and injecting it into the application.
 
@@ -93,10 +92,10 @@ When added to the design, we get:
 
 <img src="/assets/AbstractFactory2.png" alt="Featuring Strategy with LauncherSystem" width = "100%" align="center" style="padding-right: 35px;">
 
-## [Factory](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html)
-`LauncherSystem` is an abstract Strategy that declares the ability to acquire `Launcher` and `Projectile` virtually. Concrete instances of `LauncherSystem` realize that potential using a [Factory](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html).
+## [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html)
+`LauncherSystem` is an abstract Strategy that declares the ability to acquire `Launcher` and `Projectile` virtually. Concrete instances of `LauncherSystem` realize that potential using a [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html).
 
-Here’s the design with a `LauncherSystemTestDouble`, which creates `LauncherTestDouble` and `ProjectileTestDouble`. I have remove the `fire()` code from `Warrior` for space considerations. Its presence is implied.
+Here’s the design with a `LauncherSystemTestDouble`, which creates `LauncherTestDouble` and `ProjectileTestDouble`. I have removed the `fire()` code from `Warrior` for space considerations. Its presence is implied.
 
 The dashed red line represents architecture boundaries especially to highlight the flow of dependency and knowledge, which always crosses these boundaries in one direction. Dependency and knowledge flow upward toward abstraction, as represented by all arrows crossing the horizontal line pointing upward. Dependency and knowledge flow to the right from configuration to concrete as represented by all arrows crossing the vertical line point toward the right.
 
@@ -106,7 +105,7 @@ This is the entire Abstract Factory design. __Abstract Factory is a specific app
 
 Dependency consistency resides in the concrete Factories, but the pattern can’t guarantee or enforce it. A developer could easily define a `LauncherSystem` where the `Launcher` is a `Rifle` and the `Projectile` is an `Arrow`. However, the pattern can encourage and facilitate dependency consistency. The `LauncherSystem` is not complex. The code snippet in the diagram is almost the entire implementation. Visual inspection should help ensure that the acquired `Launcher` and `Projectile` are consistent. It would not be difficult to design unit tests that confirm this as well.
 
-As long as each `LauncherSystem` enforces dependency consistency, the rest of the design should not need to be concerned about it.
+If each `LauncherSystem` enforces dependency consistency, the rest of the design should not need to be concerned about it.
 
 ## [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) and [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer)
 
