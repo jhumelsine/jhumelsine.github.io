@@ -63,7 +63,7 @@ The GoF tend to feature the Factory Method technique, but I prefer the Factory C
 <img src="/assets/FactoryClass.png" alt="Factory Class" width = "90%" align="center" style="padding-right: 20px;">
  
 ## Abstract Factory
-Abstract Factory is the first one you encounter in detail when reading the GoF book. It’s a bit overwhelming as the first pattern encountered. I’ve presented it here as a modification to the Factory Class:
+[Abstract Factory](https://jhumelsine.github.io/2025/07/30/abstract-factory.html) is the first one you encounter in detail when reading the GoF book. It’s a bit overwhelming as the first pattern encountered. I’ve presented it here as a modification to the Factory Class:
 * `MyInterfaceFactory` is a new element. It’s an interface that defines a contract for creating an instance of `MyInterface`.
 * Client Application is a little different. It doesn’t access a static class method. It accesses `acquire(Kind)` via a reference to `interfaceFactory`. And I’m going to kick the resolution can of `interfaceFactory` down the road once more. Its resolution will be in the next blog. See: [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html).
 * The _virtual_ creation line from `MyInterfaceFactory` to `MyInterface` is only to highlight that as far as the Client Application is concerned, `MyInterfaceFactory` created `MyInterface`, but it is actually created by `MyInterfaceFactoryImpl`.
