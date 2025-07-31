@@ -88,7 +88,7 @@ We read a Unit Testing book, whose title and author I donâ€™t remember. It didnâ
 
 The only part that made an impression on me was the section on Test Doubles.
 
-__Update:__ The forgotten book has been found while I was cleaning out some old boxes. The book is _Developer Testing: Building Quality into Software_ by Alexander Tarlinder. I suspect I'd get more out of it if I were to read it now. At a minimum, I'd be able to compare it against what I've since learned.
+__Update:__ The forgotten book has been found while I was cleaning out some old boxes. The book is ___Developer Testing: Building Quality into Software___ by Alexander Tarlinder. I suspect I'd get more out of it if I were to read it now. At a minimum, I'd be able to compare it against what I've since learned.
 
 ## Working Effectively with Legacy Code
 <img src="https://m.media-amazon.com/images/I/51spmHveKdL._SY445_SX342_.jpg" alt="Working Effectively with Legacy Code Book Cover" title="Image Source: https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052" width = "30%" align="right" style="padding-right: 35px;">
