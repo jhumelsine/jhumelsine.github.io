@@ -11,7 +11,7 @@ Fast forward 15 or so years, soon after starting my first job. I was in the book
 
 <img src="https://pictures.abebooks.com/isbn/9780486243535-us.jpg" alt="The Logical Approach To Chess Book Cover" title="Image Source: https://www.abebooks.com/servlet/BookDetailsPL?bi=31643813477" width = "25%" align="right" style="padding-right: 20px;">
 
-I picked it up and thumbed through it. It wasn’t a beginner chess book. It wasn’t an advanced one either. There were no set up chess problems with prompts to find white’s move to force checkmate in 20.
+I picked it up and thumbed through it. It wasn’t a beginner chess book. It wasn’t an advanced one either. There were no set up chess problems with prompts to find white’s move to force checkmate in 20 moves.
 
 In the first dozen pages I learned the importance of the center squares with great analogies, such as the Strait of Gibraltar and the Panama Canal. Surrender the center squares to your opponent, and you’ll be in a fine pickle of limited mobility. They listed opening position goals such as:  develop your minor pieces, i.e., get your knights and bishops off the back rank, and connect your rooks on the back rank. The advice continued through the middle and end game as well. True to its title, it made logical sense.
 
