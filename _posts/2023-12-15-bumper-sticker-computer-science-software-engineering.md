@@ -280,6 +280,8 @@ _All public elements of a design together make up its interface, and the name of
 
 _To write clean code, you must first write dirty code and then clean it._ ― Robert C. Martin
 
+_It’s amazing how much cleaner your code looks the third time writing it. First time, hack; Second over-engineer; Third = goldilocks._ ― Aaron Evans
+
 # Prevention
 
 _Rarely is anyone thanked for the work they did to prevent the disaster that didn’t happen._ — Mikko Hypponen
