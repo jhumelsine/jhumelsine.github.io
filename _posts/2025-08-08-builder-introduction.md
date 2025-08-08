@@ -140,7 +140,7 @@ The word ___complex___ appears in each of the above descriptions, including the 
 
 What is a complex object? It’s an object with optional elements, repeating elements and/or an assemble of various elements.
 
-The GoF features `MazeBuilder` as a complex object in their sample code. `MazeBuilder`, an abstract interface, allows the client code to build a `Maze` by adding `Rooms` to the `Maze` one at a time and connecting pairs of `Rooms` together via a `Door`. `MazeBuilder` supports the construction of a `Maze` of any size, or complexity, from a single `Room` to thousands of `Rooms` with connecting `Doors`. Their `Maze` is [undirected graph](https://en.wikipedia.org/wiki/Graph_theory#Graph), but within the context of a game. Here's a Java example:
+The GoF features `MazeBuilder` as a complex object in their sample code. `MazeBuilder`, an abstract interface, allows the client code to build a `Maze` by adding `Rooms` to the `Maze` one at a time and connecting pairs of `Rooms` together via a `Door`. `MazeBuilder` supports the construction of a `Maze` of any size, or complexity, from a single `Room` to thousands of `Rooms` with connecting `Doors`. Their `Maze` is a [undirected graph](https://en.wikipedia.org/wiki/Graph_theory#Graph), but within the context of a game setting. Here's a Java example:
 
 ```java
 interface MazeBuilder {
@@ -149,7 +149,7 @@ interface MazeBuilder {
 }
 ```
 
-They define two concrete `MazeBuilder` classes, `StandardMazeBuilder` and `CountingMazeBuilder`. `StandardMazeBuilder` fulfills the `MazeBuilder` interface contract by acquiring `Door` objects and connecting them via `Door` objects, much like a graph acquiring nodes and connecting them via edges. `CountingMazeBuilder` simply counts the number of `Rooms` and `Doors` that are declared in the `Maze` construction.
+They define two concrete `MazeBuilder` classes, `StandardMazeBuilder` and `CountingMazeBuilder`. `StandardMazeBuilder` fulfills the `MazeBuilder` interface contract by acquiring `Room` objects and connecting them via `Door` objects, much like a graph acquiring nodes and connecting them via edges. `CountingMazeBuilder` simply counts the number of `Rooms` and `Doors` that are declared in the `Maze` construction.
 
 Here's the basic structure of each concrete class. Both implement `addRoom` and `addDoor` as required by `MazeBuilder`. However, each returns a different ___Product___. `StandardMazeBuilder` returns a `Maze`; whereas, `CountingMazeBuilder` returns an `int`.
 
