@@ -1,5 +1,5 @@
 ---
-title: DRAFT – Builder Design Pattern Introduction
+title: Builder Design Pattern Introduction
 description: Building complex objects one element at a time step-by-step until complete
 ---
 
