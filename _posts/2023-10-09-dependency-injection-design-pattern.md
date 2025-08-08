@@ -155,7 +155,7 @@ We can see that `ProductionConfigurer` is creating an instance of `ClientApplica
 `ProductionConfigurer` is not limited to calling `new` directly. Here are a few other options:
 * `ProductionConfigurer` could create and inject using [Factories Design Patterns](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html)
 * `ProductionConfigurer` could be based upon an inject framework, such as **Spring** described below
-* If configuration is more dynamic or configurable, then `ProductionConfigurer` could leverage the **Builder Design Pattern** (See: [Source Making Builder](https://sourcemaking.com/design_patterns/builder) or [Refactoring Guru Builder](https://refactoring.guru/design-patterns/builder))
+* If configuration is more dynamic or configurable, then `ProductionConfigurer` could leverage the [**Builder Design Pattern**](https://jhumelsine.github.io/2025/08/08/builder-introduction.html).
 
 Unit test configuration will require resolution for the first layer of dependencies only. The interface is a contract. It is not an implementation. Implementation knowledge and dependencies are encapsulated behind it. It doesn't matter how simple or complex the actual implementation is. We only need to configure the bare minimum in our `Test Doubles`, and that may only be a single behavior for a single method too.
 
