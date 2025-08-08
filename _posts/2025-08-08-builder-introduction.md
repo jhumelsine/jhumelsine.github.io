@@ -1,7 +1,6 @@
 ---
 title: DRAFT – Builder Design Pattern Introduction
 description: Building complex objects one element at a time step-by-step until complete
-unlisted: true
 ---
 
 <img src="https://live.staticflickr.com/2790/4137335458_8c2de51dcb_k.jpg" alt="Bob the Builder Balloon" title="Image Source: https://www.flickr.com/photos/brianandjaclyn/4137335458" width = "70%" align="center" style="padding: 35px;">
@@ -169,7 +168,7 @@ class CountingMazeBuilder implements MazeBuilder {
 ```
 
 # A Few Real World Examples
-I asked ChatGPT for a few real world examples of Builder. Here are several examples it provided with some code examples where we see in each example how details are added one at a time in a chain with the last method returning the class type being built. These examples are not constructing their complex objects via an iterated specification, but that's not required for Builder even if the GoF's description featured it.
+I asked ChatGPT for a few real world examples of Builder. Here are several examples it provided with some code examples where we see in each example how details are added one at a time in a chain with the last method returning the class type being built. These examples are not constructing complex objects via an iterated specification, but that's not required for Builder even if the GoF's description featured it.
 
 ## [StringBuilder](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html)
 
@@ -207,7 +206,7 @@ I introduced Abstract Factory in phases. I’ll do the same with Builder. As the
 I will continue with more Builder content in subsequent blog entries. Here's a preview of what I'll be presenting.
 
 Builder consists of several basic mechanisms, which don't all need to be present in a Builder design:
-* Rather than initialize a complex object via an individual class constructor or [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html), initialize the complex object in parts via set accessor methods potentially implemented so that they can be chained together. This is the technique presented in the real world examples above.
+* Rather than initialize a complex object via an individual class constructor or [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html), initialize the complex object in parts via set accessor methods potentially implemented so that they can be chained together. This is the technique presented in the real-world examples above.
 * Rather than hardcoding the accessor method calls, initialize the complex object via a specification script that determines which method should be called for each script instruction. This expands the number of configurations available for complex objects to limitless options via an unchanging codebase. The only variable is the script, which could specify one element in the complex object to thousands of elements.
 * Declare the set accessor methods in an interface and use the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) to declare multiple concrete classes that from the interface, so that different class types can be constructed based upon the same serialized construction.
 * Once the complex object has been constructed, acquire a single object that encapsulates the complexity from the client code that accesses it.
