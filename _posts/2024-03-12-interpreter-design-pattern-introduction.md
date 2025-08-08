@@ -198,8 +198,7 @@ The result is still a set objects configured in a data structure — in this cas
 The difference is that the object tree will be based upon a program consistent with the grammar.
 A program can be thought of as a blueprint for the object tree.
 The scanner and parser will construct the object tree based upon that blueprint.
-
-Their behavior is close to the [Builder Design Pattern](https://refactoring.guru/design-patterns/builder), for which I’ll probably provide a blog (TBD) as I get into more scanner and parser details.
+Their behavior is close to the [Builder Design Pattern](https://jhumelsine.github.io/2025/08/08/builder-introduction.html).
 
 Once the object tree, as shown above, has been constructed, then Tracks can be passed to it to determine their satisfiability based upon a Track's attributes and the configuration of the Specifications in the tree.
 
