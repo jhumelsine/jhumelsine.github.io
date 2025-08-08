@@ -23,7 +23,7 @@ If you’ve ever tried to read the Abstract Factory diagram in GoF and ended up 
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Abstract_factory_UML.svg/1016px-Abstract_factory_UML.svg.png" alt="Gang of Four Abstract Factory Design" title="Image Source: https://en.wikipedia.org/wiki/File:Design_by_contract.svg" width = "80%" align="center" style="padding: 35px;">
  
-__Builder__ (reference TBD) is the second pattern cataloged in the book, and it’s just about as intimidating. It’s the next pattern in this creational blog series.
+[__Builder__](https://jhumelsine.github.io/2025/08/08/builder-introduction.html) is the second pattern cataloged in the book, and it’s just about as intimidating. It’s the next pattern in this creational blog series.
 
 The first several times I attempted to read the GoF, I made it through the foundations and the use case, but once I hit Abstract Factory and Builder, I was so flummoxed that I put the book back on the shelf. I describe my struggles with the GoF, and how I got past them in [It’s Your Move](https://jhumelsine.github.io/2023/08/24/its-your-move.html).
 
