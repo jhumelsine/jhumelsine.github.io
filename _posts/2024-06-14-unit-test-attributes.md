@@ -54,7 +54,7 @@ The worst-case scenario is when the user is the first to encounter the issue and
 # Isolated
 The software being tested within a unit test is referred to as the [Software Under Test](https://en.wikipedia.org/wiki/System_under_test) (SUT).
 
-The SUT should be isolated from its external dependencies, such as: Databases, File Systems, Internet, Clocks, and other components of the project. [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) will replace external dependencies by emulating their behaviors. __NOTE:__ Test Doubles leak implementation information into the tests, which introduces a bit of brittleness. I don't know of a way to avoid this, but there may be techniques to minimize it, which I'll discuss in future blogs (TBD).
+The SUT should be isolated from its external dependencies, such as: Databases, File Systems, Internet, Clocks, and other components of the project. [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) will replace external dependencies by emulating their behaviors. __NOTE:__ Test Doubles leak implementation information into the tests, which introduces a bit of brittleness. I don't know of a way to avoid this, but there may be techniques to minimize it.
 
 Any developer should be able to clone a repository, compile the code and the unit tests should execute without environmental issues. I.e., the SUT should have no dependencies upon the original developer’s development or test environment.
 
