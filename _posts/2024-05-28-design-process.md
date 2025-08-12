@@ -123,7 +123,7 @@ When the design is too large for a single page, segregating the design across mu
 ## Natural Boundaries
 Segregating a design across several pages with interfaces and abstract classes as the connecting elements is more than just a convenient decomposition mechanism. Interfaces and abstract classes are [stable/fixed](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#stable-or-fixed-design-elements) elements. They don’t depend upon other parts of the design. Dependency/knowledge arrows point toward them. 
 
-The design elements on one page don’t depend upon nor know about the design elements on other pages. The stable/fixed connecting elements don’t allow information to flow through them. There are exceptions to this, especially with [Leaky Abstractions](https://en.wikipedia.org/wiki/Leaky_abstraction), but leaks should be kept to a minimum.
+The design elements on one page don’t depend upon nor know about the design elements on other pages. The stable/fixed connecting elements don’t allow information to flow through them. There are exceptions to this, especially with [Leaky Abstractions](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html#leaky-abstraction), but leaks should be kept to a minimum.
 
 Design elements on the same page tend to be cohesive without being coupled to design elements on other pages. If the stable/fixed connecting elements are reasonably mature, implementation can proceed with the design elements across the pages in parallel.
 
