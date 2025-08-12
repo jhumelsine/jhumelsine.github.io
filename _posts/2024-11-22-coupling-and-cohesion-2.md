@@ -128,7 +128,7 @@ I'll provide a scenario of one, which I think is technically __External Coupling
 
 My scenario fits the spirit of external coupling, but it's not one of the listed cases. In my scenario elements may be coupled to the schema of another element, and then that schema changes. That is, the coupling could be based upon context.
 
-We can still have coupling with a good design with good contracts. Contracts may be [Leaky Abstractions](https://en.wikipedia.org/wiki/Leaky_abstraction). [Joel Spolsky](https://en.wikipedia.org/wiki/Joel_Spolsky) pointed this out in his blog post, [The Law of Leaky Abstractions](https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/) when he wrote: __All non-trivial abstractions, to some degree, are leaky.__
+We can still have coupling with a good design with good contracts. Contracts may be [Leaky Abstractions](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html#leaky-abstraction). [Joel Spolsky](https://en.wikipedia.org/wiki/Joel_Spolsky) pointed this out in his blog post, [The Law of Leaky Abstractions](https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/) when he wrote: __All non-trivial abstractions, to some degree, are leaky.__
 
 I didn’t fully appreciate leaky abstractions until writing this blog entry. I had only considered leaking abstracts in the context that implementation details could be leaked in a contract.
 
