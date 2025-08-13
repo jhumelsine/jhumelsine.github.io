@@ -1,11 +1,10 @@
 ---
-title: DRAFT – Builder Design Pattern
+title: Builder Design Pattern - Basic Implementation
 description: From Constructor to Basic Builder
-unlisted: true
 ---
 
 # Introduction
-This blog entry walks you through how to apply the Builder Pattern in Java—from long constructors, to fluent setters, to a complete Builder implementation. Along the way, we’ll discuss design tradeoffs, give you practical code, and explain why the Builder Pattern is still relevant.
+This blog entry walks you through how to apply the Builder Pattern in Java—from constructors with long parameter lists, to fluent setters, to a complete basic Builder implementation. Along the way, we’ll discuss design tradeoffs, give you practical code, and explain why the Builder Pattern is still relevant.
 
 # You’ve Tried the Rest, Now Try the Best
 <img src="https://as1.ftcdn.net/jpg/00/27/57/96/1000_F_27579652_tM7V4fZBBw8RLmZo0Bi8WhtO2EosTRFD.jpg" alt="Pizza" title="Image Source: https://stock.adobe.com/images/supreme-pizza-lifted-slice-3/27579652
