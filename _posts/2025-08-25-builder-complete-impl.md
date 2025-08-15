@@ -27,7 +27,7 @@ Here is an intermediate redesign moving toward the GoF’s Builder; however, thi
 
 Here is the updated UML diagram with separate `PizzaBuilder` and `Pizza` class definitions. `Pizza` no longer has knowledge of nor depends upon `PizzaBuilder`. I also added a `Client` class to show how it uses `PizzaBuilder` to build a `Pizza` instance. The `Client` is the [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) in this design, and it will be the Configure throughout these design phases.
 
-<img src="/assets/Builder-3-1.png" alt="Pizza/PizzaBuilder decoupling" width = "70%" align="center" style="padding: 35px;">
+<img src="/assets/Builder-3-1.png" alt="Pizza/PizzaBuilder decoupling" width = "90%" align="center" style="padding: 35px;">
 
 Here is the code:
 ```java
@@ -156,7 +156,7 @@ Each concrete class that implements `PizzaBuilder` can build its own type of pro
 
 Since the `Client` wants to create a `Pizza`, it will still reference the `StandardPizzaBuilder` class so that it has access to its `Pizza build()` method.
 
-<img src="/assets/Builder-3-2.png" alt="PizzaBuilder Interface" width = "70%" align="center" style="padding: 35px;">
+<img src="/assets/Builder-3-2.png" alt="PizzaBuilder Interface" width = "90%" align="center" style="padding: 35px;">
  
 Here are the updated Java snippets. The entire implementation for each design phase is provided at [Complete Demo Code](#CompleteDemoCode).
 ```java
@@ -220,7 +220,7 @@ This first diagram features `PizzaDirector`. Its `construct()` method declares t
 
 `construct(specification, pizzaBuilder)` iterates the specification one line at a time and based upon the spec value, it delegates to the appropriate `PizzaBuilder` method. `construct(specification, pizzaBuilder)` only initializes the `PizzaBuilder` by telling it the pizza size and toppings. It does not build the pizza itself.
 
-<img src="/assets/Builder-3-3.png" alt="PizzaDirector details" width = "70%" align="center" style="padding: 35px;">
+<img src="/assets/Builder-3-3.png" alt="PizzaDirector details" width = "90%" align="center" style="padding: 35px;">
 
 The previous diagram is only part of the design. `construct(…)` required too much space to fit the entire design on one diagram.
 
@@ -229,7 +229,7 @@ Here’s the complete design where the `construct(...)` details have been remove
 * Except for moving the `PizzaSize` declaration from the `StandardPizzaBuilder` to the `PizzaBuilder` interface , `StandardPizzaBuilder` and `PizzaBuilder` have not changed.
 * `Pizza` has never changed. Since it has no dependencies upon the rest of the design.
 
-<img src="/assets/Builder-3-4.png" alt="Complete Design with PizzaDirector" width = "70%" align="center" style="padding: 35px;">
+<img src="/assets/Builder-3-4.png" alt="Complete Design with PizzaDirector" width = "90%" align="center" style="padding: 35px;">
  
 Here is the code for the updated elements in this design:
 ```java
@@ -362,7 +362,7 @@ This final diagram shows all elements in the design. Its structure mirrors the G
 
 Once the entire design assembled, it becomes obvious that the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) is a major design element in this design. For example, this design can easily accommodate more concrete `PizzaBuilders` such as `PricePizzaBuilder`, for which its implementation would look very similar to `CaloriePizzaBuilder`, but rather than calculating calories, it would calculate the cost of the built pizza.
 
-<img src="/assets/Builder-3-6.png" alt="Complete Design" width = "70%" align="center" style="padding: 35px;">
+<img src="/assets/Builder-3-6.png" alt="Complete Design" width = "80%" align="center" style="padding: 35px;">
  
 # But Wait, There’s More
 There’s one more aspect of Builder that’s useful. I think it’s the most important aspect of Builder, but the GoF don’t really mention it. I’ll cover that in the next and final Builder blog entry.
