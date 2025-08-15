@@ -378,17 +378,650 @@ Here’s the entire implementation up to this point as one file. Copy and paste 
 
 ## Addressing Tight Coupling
 ```java
+import java.util.*;
+
+public class PizzaBuilder1 {
+    public static void main(String[] args) {
+        Pizza pizza1 = new PizzaBuilder(PizzaSize.LARGE)
+            .addPepperoni()
+            .addOnions()
+            .build();
+        System.out.println(pizza1);
+
+        Pizza pizza2 = new PizzaBuilder(PizzaSize.MEDIUM)
+            .addPepperoni()
+            .addPeppers()
+            .addOnions()
+            .addBlackOlives()
+            .build();
+        System.out.println(pizza2);
+
+        Pizza pizza3 = new PizzaBuilder(PizzaSize.SMALL).build();
+        System.out.println(pizza3);
+    }
+
+}
+
+enum PizzaSize {
+    SMALL, MEDIUM, LARGE
+}
+
+public class PizzaBuilder {
+    private PizzaSize size;
+    private boolean pepperoni = false;
+    private boolean peppers = false;
+    private boolean onions = false;
+    private boolean blackOlives = false;
+
+    public PizzaBuilder(PizzaSize size) {
+        this.size = size;
+    }
+
+    public PizzaBuilder addPepperoni() {
+        pepperoni = true;
+        return this;
+    }
+
+    public PizzaBuilder addPeppers() {
+        peppers = true;
+        return this;
+    }
+
+    public PizzaBuilder addOnions() {
+        onions = true;
+        return this;
+    }
+
+    public PizzaBuilder addBlackOlives() {
+        blackOlives = true;
+        return this;
+    }
+
+    public Pizza build() {
+        return new Pizza(size, pepperoni, peppers, onions, blackOlives);
+    }
+}
+
+class Pizza {
+    private final PizzaSize size;
+    private final boolean pepperoni;
+    private final boolean peppers;
+    private final boolean onions;
+    private final boolean blackOlives;
+
+    Pizza(PizzaSize size, boolean pepperoni, boolean peppers, boolean onions, boolean blackOlives) {
+        this.size = size;
+        this.pepperoni = pepperoni;
+        this.peppers = peppers;
+        this.onions = onions;
+        this.blackOlives = blackOlives;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder description = new StringBuilder();
+        description.append("Pizza Size: ").append(size);
+
+        description.append(" with toppings:");
+        boolean hasToppings = false;
+
+        if (pepperoni) {
+            description.append(" Pepperoni");
+            hasToppings = true;
+        }
+        if (peppers) {
+            if (hasToppings) description.append(",");
+            description.append(" Peppers");
+            hasToppings = true;
+        }
+        if (onions) {
+            if (hasToppings) description.append(",");
+            description.append(" Onions");
+            hasToppings = true;
+        }
+        if (blackOlives) {
+            if (hasToppings) description.append(",");
+            description.append(" Black Olives");
+            hasToppings = true;
+        }
+
+        if (!hasToppings) {
+            description.append(" None");
+        }
+
+        return description.toString();
+    }
+}
 ```
 
 ## Extracting a PizzaBuilder Interface
 ```java
+import java.util.*;
+
+public class PizzaBuilder2 {
+    public static void main(String[] args) {
+        StandardPizzaBuilder pizzaBuilder1 = new StandardPizzaBuilder(PizzaSize.LARGE);
+        pizzaBuilder1.addPepperoni();
+        pizzaBuilder1.addOnions();
+        Pizza pizza1 = pizzaBuilder1.build();
+        System.out.println(pizza1);
+
+        StandardPizzaBuilder pizzaBuilder2 = new StandardPizzaBuilder(PizzaSize.MEDIUM);
+        pizzaBuilder2.addPepperoni();
+        pizzaBuilder2.addPeppers();
+        pizzaBuilder2.addOnions();
+        pizzaBuilder2.addBlackOlives();
+        Pizza pizza2 = pizzaBuilder2.build();
+        System.out.println(pizza2);
+
+        StandardPizzaBuilder pizzaBuilder3 = new StandardPizzaBuilder(PizzaSize.SMALL);
+        Pizza pizza3 = pizzaBuilder3.build();
+        System.out.println(pizza3);
+    }
+
+}
+
+enum PizzaSize {
+    SMALL, MEDIUM, LARGE
+}
+
+interface PizzaBuilder {
+    void addPepperoni();
+
+    void addPeppers();
+
+    void addOnions();
+
+    void addBlackOlives();
+}
+
+public class StandardPizzaBuilder implements PizzaBuilder {
+    private PizzaSize size;
+    private boolean pepperoni = false;
+    private boolean peppers = false;
+    private boolean onions = false;
+    private boolean blackOlives = false;
+
+    public StandardPizzaBuilder(PizzaSize size) {
+        this.size = size;
+    }
+
+    @Override
+    public void addPepperoni() {
+        pepperoni = true;
+    }
+
+    @Override
+    public void addPeppers() {
+        peppers = true;
+    }
+
+    @Override
+    public void addOnions() {
+        onions = true;
+    }
+
+    @Override
+    public void addBlackOlives() {
+        blackOlives = true;
+    }
+
+    public Pizza build() {
+        return new Pizza(size, pepperoni, peppers, onions, blackOlives);
+    }
+}
+
+class Pizza {
+    private final PizzaSize size;
+    private final boolean pepperoni;
+    private final boolean peppers;
+    private final boolean onions;
+    private final boolean blackOlives;
+
+    Pizza(PizzaSize size, boolean pepperoni, boolean peppers, boolean onions, boolean blackOlives) {
+        this.size = size;
+        this.pepperoni = pepperoni;
+        this.peppers = peppers;
+        this.onions = onions;
+        this.blackOlives = blackOlives;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder description = new StringBuilder();
+        description.append("Pizza Size: ").append(size);
+
+        description.append(" with toppings:");
+        boolean hasToppings = false;
+
+        if (pepperoni) {
+            description.append(" Pepperoni");
+            hasToppings = true;
+        }
+        if (peppers) {
+            if (hasToppings) description.append(",");
+            description.append(" Peppers");
+            hasToppings = true;
+        }
+        if (onions) {
+            if (hasToppings) description.append(",");
+            description.append(" Onions");
+            hasToppings = true;
+        }
+        if (blackOlives) {
+            if (hasToppings) description.append(",");
+            description.append(" Black Olives");
+            hasToppings = true;
+        }
+
+        if (!hasToppings) {
+            description.append(" None");
+        }
+
+        return description.toString();
+    }
+}
 ```
 
 ## Adding the Director
 ```java
+import java.util.*;
+
+public class PizzaBuilder3 {
+    public static void main(String[] args) throws Exception {
+        StandardPizzaBuilder pizzaBuilder1 = new StandardPizzaBuilder();
+        PizzaDirector.construct(getLargePizzaSpecification(), pizzaBuilder1);
+        Pizza pizza1 = pizzaBuilder1.build();
+        System.out.println(pizza1);
+
+        StandardPizzaBuilder pizzaBuilder2 = new StandardPizzaBuilder();
+        PizzaDirector.construct(getMediumPizzaSpecification(), pizzaBuilder2);
+        Pizza pizza2 = pizzaBuilder2.build();
+        System.out.println(pizza2);
+
+        StandardPizzaBuilder pizzaBuilder3 = new StandardPizzaBuilder();
+        PizzaDirector.construct(getSmallPizzaSpecification(), pizzaBuilder3);
+        Pizza pizza3 = pizzaBuilder3.build();
+        System.out.println(pizza3);
+    }
+
+    private static List<String> getLargePizzaSpecification() {
+        List<String> specification = new LinkedList<>();
+
+        specification.add("Large");
+        specification.add("pepperoni");
+        specification.add("onions");
+
+        return specification;
+    }
+
+    private static List<String> getMediumPizzaSpecification() {
+        List<String> specification = new LinkedList<>();
+
+        specification.add("Medium");
+        specification.add("pepperoni");
+        specification.add("peppers");
+        specification.add("onions");
+        specification.add("black olives");
+
+        return specification;
+    }
+
+    private static List<String> getSmallPizzaSpecification() {
+        List<String> specification = new LinkedList<>();
+
+        specification.add("Small");
+
+        return specification;
+    }
+
+}
+
+enum PizzaSize {
+    SMALL, MEDIUM, LARGE
+}
+
+class PizzaDirector {
+
+    public static void construct(List<String> specification, PizzaBuilder pizzaBuilder) throws Exception {
+        for (String spec : specification) {
+            switch (spec.toUpperCase()) {
+                case "LARGE": pizzaBuilder.setSize(PizzaSize.LARGE); break;
+                case "MEDIUM": pizzaBuilder.setSize(PizzaSize.MEDIUM); break;
+                case "SMALL": pizzaBuilder.setSize(PizzaSize.SMALL); break;
+                case "PEPPERONI": pizzaBuilder.addPepperoni(); break;
+                case "PEPPERS": pizzaBuilder.addPeppers(); break;
+                case "ONIONS": pizzaBuilder.addOnions(); break;
+                case "BLACK OLIVES": pizzaBuilder.addBlackOlives(); break;
+                default: throw new Exception("Unknown spec=" + spec);
+            }
+        }
+    }
+}
+
+interface PizzaBuilder {
+    void setSize(PizzaSize size);
+
+    void addPepperoni();
+
+    void addPeppers();
+
+    void addOnions();
+
+    void addBlackOlives();
+}
+
+public class StandardPizzaBuilder implements PizzaBuilder {
+    private PizzaSize size = null;
+    private boolean pepperoni = false;
+    private boolean peppers = false;
+    private boolean onions = false;
+    private boolean blackOlives = false;
+
+    public void setSize(PizzaSize size) {
+        this.size = size;
+    }
+
+    public void addPepperoni() {
+        pepperoni = true;
+    }
+
+    public void addPeppers() {
+        peppers = true;
+    }
+
+    public void addOnions() {
+        onions = true;
+    }
+
+    public void addBlackOlives() {
+        blackOlives = true;
+    }
+
+    public Pizza build() {
+        return new Pizza(size, pepperoni, peppers, onions, blackOlives);
+    }
+}
+
+class Pizza {
+    private final PizzaSize size;
+    private final boolean pepperoni;
+    private final boolean peppers;
+    private final boolean onions;
+    private final boolean blackOlives;
+
+    Pizza(PizzaSize size, boolean pepperoni, boolean peppers, boolean onions, boolean blackOlives) {
+        if (size == null) throw new NullPointerException();
+        this.size = size;
+        this.pepperoni = pepperoni;
+        this.peppers = peppers;
+        this.onions = onions;
+        this.blackOlives = blackOlives;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder description = new StringBuilder();
+        description.append("Pizza Size: ").append(size);
+
+        description.append(" with toppings:");
+        boolean hasToppings = false;
+
+        if (pepperoni) {
+            description.append(" Pepperoni");
+            hasToppings = true;
+        }
+        if (peppers) {
+            if (hasToppings) description.append(",");
+            description.append(" Peppers");
+            hasToppings = true;
+        }
+        if (onions) {
+            if (hasToppings) description.append(",");
+            description.append(" Onions");
+            hasToppings = true;
+        }
+        if (blackOlives) {
+            if (hasToppings) description.append(",");
+            description.append(" Black Olives");
+            hasToppings = true;
+        }
+
+        if (!hasToppings) {
+            description.append(" None");
+        }
+
+        return description.toString();
+    }
+}
 ```
 
 ## A New Concrete PizzaBuilder
+import java.util.*;
+
+public class PizzaBuilder4 {
+    public static void main(String[] args) throws Exception {
+        StandardPizzaBuilder pizzaBuilder1 = new StandardPizzaBuilder();
+        PizzaDirector.construct(getLargePizzaSpecification(), pizzaBuilder1);
+        Pizza pizza1 = pizzaBuilder1.build();
+        System.out.println(pizza1);
+
+        StandardPizzaBuilder pizzaBuilder2 = new StandardPizzaBuilder();
+        PizzaDirector.construct(getMediumPizzaSpecification(), pizzaBuilder2);
+        Pizza pizza2 = pizzaBuilder2.build();
+        System.out.println(pizza2);
+
+        StandardPizzaBuilder pizzaBuilder3 = new StandardPizzaBuilder();
+        PizzaDirector.construct(getSmallPizzaSpecification(), pizzaBuilder3);
+        Pizza pizza3 = pizzaBuilder3.build();
+        System.out.println(pizza3);
+
+        int calories = 0;
+
+        CaloriePizzaBuilder pizzaBuilder4 = new CaloriePizzaBuilder();
+        PizzaDirector.construct(getLargePizzaSpecification(), pizzaBuilder4);
+        calories = pizzaBuilder4.getCalories();
+        System.out.format("Pizza has %d calories.\n", calories);
+
+        CaloriePizzaBuilder pizzaBuilder5 = new CaloriePizzaBuilder();
+        PizzaDirector.construct(getMediumPizzaSpecification(), pizzaBuilder5);
+        calories = pizzaBuilder5.getCalories();
+        System.out.format("Pizza has %d calories.\n", calories);
+
+        CaloriePizzaBuilder pizzaBuilder6 = new CaloriePizzaBuilder();
+        PizzaDirector.construct(getSmallPizzaSpecification(), pizzaBuilder6);
+        calories = pizzaBuilder6.getCalories();
+        System.out.format("Pizza has %d calories.\n", calories);
+    }
+
+    private static List<String> getLargePizzaSpecification() {
+        List<String> specification = new LinkedList<>();
+
+        specification.add("Large");
+        specification.add("pepperoni");
+        specification.add("onions");
+
+        return specification;
+    }
+
+    private static List<String> getMediumPizzaSpecification() {
+        List<String> specification = new LinkedList<>();
+
+        specification.add("Medium");
+        specification.add("pepperoni");
+        specification.add("peppers");
+        specification.add("onions");
+        specification.add("black olives");
+
+        return specification;
+    }
+
+    private static List<String> getSmallPizzaSpecification() {
+        List<String> specification = new LinkedList<>();
+
+        specification.add("Small");
+
+        return specification;
+    }
+
+}
+
+enum PizzaSize {
+    SMALL, MEDIUM, LARGE
+}
+
+class PizzaDirector {
+
+    public static void construct(List<String> specification, PizzaBuilder pizzaBuilder) throws Exception {
+        for (String spec : specification) {
+            switch (spec.toUpperCase()) {
+                case "LARGE": pizzaBuilder.setSize(PizzaSize.LARGE); break;
+                case "MEDIUM": pizzaBuilder.setSize(PizzaSize.MEDIUM); break;
+                case "SMALL": pizzaBuilder.setSize(PizzaSize.SMALL); break;
+                case "PEPPERONI": pizzaBuilder.addPepperoni(); break;
+                case "PEPPERS": pizzaBuilder.addPeppers(); break;
+                case "ONIONS": pizzaBuilder.addOnions(); break;
+                case "BLACK OLIVES": pizzaBuilder.addBlackOlives(); break;
+                default: throw new Exception("Unknown spec=" + spec);
+            }
+        }
+    }
+}
+
+interface PizzaBuilder {
+    void setSize(PizzaSize size);
+
+    void addPepperoni();
+
+    void addPeppers();
+
+    void addOnions();
+
+    void addBlackOlives();
+}
+
+public class StandardPizzaBuilder implements PizzaBuilder {
+    private PizzaSize size = null;
+    private boolean pepperoni = false;
+    private boolean peppers = false;
+    private boolean onions = false;
+    private boolean blackOlives = false;
+
+    public void setSize(PizzaSize size) {
+        this.size = size;
+    }
+
+    public void addPepperoni() {
+        pepperoni = true;
+    }
+
+    public void addPeppers() {
+        peppers = true;
+    }
+
+    public void addOnions() {
+        onions = true;
+    }
+
+    public void addBlackOlives() {
+        blackOlives = true;
+    }
+
+    public Pizza build() {
+        return new Pizza(size, pepperoni, peppers, onions, blackOlives);
+    }
+}
+
+class Pizza {
+    private final PizzaSize size;
+    private final boolean pepperoni;
+    private final boolean peppers;
+    private final boolean onions;
+    private final boolean blackOlives;
+
+    Pizza(PizzaSize size, boolean pepperoni, boolean peppers, boolean onions, boolean blackOlives) {
+        if (size == null) throw new NullPointerException();
+        this.size = size;
+        this.pepperoni = pepperoni;
+        this.peppers = peppers;
+        this.onions = onions;
+        this.blackOlives = blackOlives;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder description = new StringBuilder();
+        description.append("Pizza Size: ").append(size);
+
+        description.append(" with toppings:");
+        boolean hasToppings = false;
+
+        if (pepperoni) {
+            description.append(" Pepperoni");
+            hasToppings = true;
+        }
+        if (peppers) {
+            if (hasToppings) description.append(",");
+            description.append(" Peppers");
+            hasToppings = true;
+        }
+        if (onions) {
+            if (hasToppings) description.append(",");
+            description.append(" Onions");
+            hasToppings = true;
+        }
+        if (blackOlives) {
+            if (hasToppings) description.append(",");
+            description.append(" Black Olives");
+            hasToppings = true;
+        }
+
+        if (!hasToppings) {
+            description.append(" None");
+        }
+
+        return description.toString();
+    }
+}
+
+public class CaloriePizzaBuilder implements PizzaBuilder {
+    private PizzaSize size = null;
+    private int calories = 0;
+
+    public void setSize(PizzaSize size) {
+        this.size = size;
+        calories += getSizeRatio(size) * 1000.0;
+    }
+
+    private double getSizeRatio(PizzaSize size) {
+        switch (size) {
+            case SMALL: return 1.0;
+            case MEDIUM: return 1.5;
+            case LARGE: return 2.0;
+            default: return 0.0;
+        }
+    }
+
+    public void addPepperoni() {
+        calories += getSizeRatio(size) * 250;
+    }
+
+    public void addPeppers() {
+        calories += getSizeRatio(size) * 30;
+    }
+
+    public void addOnions() {
+        calories += getSizeRatio(size) * 25;
+    }
+
+    public void addBlackOlives() {
+        calories += getSizeRatio(size) * 100;
+    }
+
+    public int getCalories() {
+        return calories;
+    }
+}
 ```java
 ```
 
