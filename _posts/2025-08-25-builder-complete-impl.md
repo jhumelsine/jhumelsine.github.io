@@ -3,7 +3,6 @@ title: DRAFT – Builder Design Pattern Continued
 description: Progressing to the Gang of Four’s complete Builder design
 unlisted: true
 ---
-__Add new diagram here.__ 
 
 # Introduction
 __TBD__
@@ -28,8 +27,7 @@ Here is an intermediate redesign moving toward the GoF’s Builder. This would n
 
 Here is the updated UML diagram with separate `PizzaBuilder` and `Pizza` class definitions. `Pizza` no longer has knowledge of nor depends upon `PizzaBuilder`. I also added a `Client` class to show how it uses `PizzaBuilder` to build a `Pizza` instance. The `Client` is the [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) in this design and it will be the Configure throughout these design phases.
 
-__Add new diagram here.__ 
- 
+<img src="/assets/Builder-3-1.png" alt="Pizza/PizzaBuilder decoupling" width = "70%" align="center" style="padding: 35px;">
 
 Here is the code:
 ```java
@@ -158,7 +156,7 @@ Each concrete class that implements `PizzaBuilder` can build its own type of pro
 
 Since the `Client` wants to create a `Pizza`, it will still reference the `StandardPizzaBuilder` class so that it has access to its `Pizza build()` method.
 
-__Add new diagram here.__ 
+<img src="/assets/Builder-3-2.png" alt="PizzaBuilder Interface" width = "70%" align="center" style="padding: 35px;">
  
 Here are the updated Java snippets. The entire implementation for each design phase is provided at [Complete Demo Code](#CompleteDemoCode).
 ```java
@@ -221,8 +219,9 @@ This first diagram features `PizzaDirector`. Its `construct()` method declares t
 `setSize(PizzaSize size)` has also been added to `PizzaBuilder` thereby placing it in the `PizzaBuilder` interface contract, which makes more sense, at least to me.
 
 `construct(specification, pizzaBuilder)` iterates each specification line and based upon its value, delegates to the appropriate `PizzaBuilder` method. `construct(specification, pizzaBuilder)` only constructs the `PizzaBuilder` by telling it the pizza size and toppings. It does not build the pizza itself.
-__Add new diagram here.__ 
- 
+
+<img src="/assets/Builder-3-3.png" alt="PizzaDirector details" width = "70%" align="center" style="padding: 35px;">
+
 The previous diagram is only part of the design. `construct(…)` required too much space to fit the entire design on one diagram.
 
 Here’s the complete design where the `construct()` details have been removed. A few items of note:
@@ -230,7 +229,7 @@ Here’s the complete design where the `construct()` details have been removed. 
 * Except for moving `setSize(PizzaSize`, `PizzaBuilder` and `StandardPizzaBuilder` have not changed.
 * `Pizza` has never changed. Since it has no dependencies upon the rest of the design.
 
-__Add new diagram here.__ 
+<img src="/assets/Builder-3-4.png" alt="Complete Design with PizzaDirector" width = "70%" align="center" style="padding: 35px;">
  
 Here is the code for the updated elements in this design:
 ```java
@@ -309,8 +308,8 @@ Here’s the design that supports `CaloriePizzaBuilder`. Here are a few items of
 * The `Client` has been updated, but barely. It creates a `CaloriePizzaBuilder` rather than a `StandardPizzaBuilder`. `calories` is a basic type rather than an object.
 * Nothing else in the design changes.
 
-__Add new diagram here.__ 
- 
+<img src="/assets/Builder-3-5.png" alt="CaloriePizzaBuilder" width = "70%" align="center" style="padding: 35px;">
+
 Here are snippets of the updated code. The `PizzaSize` will act as a scalar to increase the number of calories reflecting the fact that larger pizzas will have more calories.
 ```java
 StandardPizzaBuilder pizzaBuilder1 = new StandardPizzaBuilder();
@@ -360,7 +359,10 @@ public class CaloriePizzaBuilder implements PizzaBuilder {
 
 # The Complete Design
 This final diagram shows all elements in the design. Its structure mirrors the GoF’s example at the top of this blog and also available [here](https://jhumelsine.github.io/2025/08/08/builder-introduction.html#why-use-it).
+
 Once the entire design assembled, it becomes obvious that the `Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) is a major design element in this design. For example, this design can easily accommodate more concrete `PizzaBuilders` such as `PricePizzaBuilder`, for which its implementation would look very similar to `CaloriePizzaBuilder`, but rather than calculating calories, it would calculate the cost of the built pizza.
+
+<img src="/assets/Builder-3-6.png" alt="Complete Design" width = "70%" align="center" style="padding: 35px;">
  
 # But Wait, There’s More
 There’s one more aspect of Builder that’s useful. I think it’s the most important aspect of Builder, but the GoF don’t really mention it. I’ll cover that in the next and final Builder blog entry.
