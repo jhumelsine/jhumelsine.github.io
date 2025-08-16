@@ -367,7 +367,7 @@ There’s a bit more code and complexity to this implementation than in the earl
 The Builder pattern isn’t just a way to reduce constructor clutter—it’s a tool that brings clarity and control to object creation. Try applying it in your next project when you need flexible, readable instantiation of complex objects. And stay tuned—we’ll look at how to structure reusable builders and abstract the process even further in the next article.
 
 # References
-See: [Previous Blog References](https://jhumelsine.github.io/2025/08/08/builder-introduction.html#references)
+See: [Previous Blog References](https://jhumelsine.github.io/2025/08/08/builder-introduction.html#references), which provides an extensive list of __Builder__ resources.
 
 # Complete Demo Code
 Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Add more tests. Play with the implementation. Refactor some of the code.
