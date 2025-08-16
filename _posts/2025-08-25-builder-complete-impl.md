@@ -5,17 +5,12 @@ unlisted: true
 ---
 
 # Introduction
-__TBD__
-
-In the previous post, [Builder Design Pattern - Basic Implementation]( https://jhumelsine.github.io/2025/08/13/builder-basic-impl.html), I showed the pregression of creating a complext object from a multi-parameter constructor to a basic inner-class Builder pattern. In this post, I'll continue with Builder as I evolve that design toward a full Gang of Four-level implementation.
-
-The inner-class Builder in the previous blog did not feature several elements of the Gang of Four’s (GoF) Builder example. Specifically, it did not have __Director__, which constructs the complex object as defined in a specification, nor did it feature multiple concrete __Builder__ classes.
+In the previous post, [Builder Design Pattern - Basic Implementation]( https://jhumelsine.github.io/2025/08/13/builder-basic-impl.html), I showed the pregression of creating a complext object from a multi-parameter constructor to a basic inner-class Builder pattern. The inner-class Builder pattern worked, but it was tightly coupled to the product and left little room for flexibility. In this article, we’ll take the next step—refactoring that design into a full Gang of Four-style Builder. Along the way, we’ll introduce a __Director__ that will construct the complex object based upon a specification, decouple the Builder from the Product, and explore how multiple Builders can create different representations of the same object. By the end, you’ll see how the Builder pattern provides not just convenience, but also powerful extensibility.
 
 This blog will continue where the previous blog left off by progressing step-by-step until it reaches a design more akin to the GoF’s full __Builder__ diagram:
 
 <img src="/assets/Builder1-1.png" alt="RTF Builder by GoF" width = "90%" align="center" style="padding-right: 35px;">
  
-
 These step-by-step transitions will pull the elements of the design apart along their seams. There will be a little messiness as I progress. It’s like reorganizing a room. You need to pull everything apart before you can organize the elements to put it back together.
 
 This blog entry will primarily focus upon the design elements and implementation snippets in transition toward the GoF’s Builder design.
@@ -369,15 +364,26 @@ This final diagram shows all elements in the design. Its structure mirrors the G
 Once the entire design assembled, it becomes obvious that the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) is a major design element in this design. For example, this design can easily accommodate more concrete `PizzaBuilders` such as `PricePizzaBuilder`, for which its implementation would look very similar to `CaloriePizzaBuilder`, but rather than calculating calories, it would calculate the cost of the built pizza.
 
 <img src="/assets/Builder-3-6.png" alt="Complete Design" width = "80%" align="center" style="padding: 35px;">
+
+# A Review of the Builder Evolution
+| Phase | Description | Key Characteristics | Pros | Cons |
+|-------|-------------|----------------------|------|------|
+| **1. Inner-Class Builder (Basic Impl)** | Builder nested inside `Pizza` class | - Fluent API for constructing `Pizza` <br> - Builder tightly coupled to Product | - Simple to implement <br> - Easy to read and use | - Limited flexibility <br> - Hard to extend beyond `Pizza` |
+| **2. Decoupled Builder (Standalone Class)** | Builder extracted into its own `PizzaBuilder` class | - Builder separated from Product <br> - Still tailored to a single `Pizza` product | - Reduces coupling <br> - More modular design | - Still requires client to manage construction logic |
+| **3. Abstract Builder Interface** | Defined a `Builder` interface for generalization | - Supports multiple concrete Builders <br> - Moves closer to GoF definition | - Enables polymorphism <br> - Easier to extend to other products | - Adds boilerplate <br> - Still leaves orchestration with client |
+| **4. Director + Specification** | Introduced `Director` to orchestrate construction | - Director encapsulates build steps <br> - Specification controls configuration | - Removes construction logic from client <br> - Consistent object creation process | - More complex design <br> - Requires upfront specification model |
+| **5. Alternate Concrete Builders (e.g., CaloriePizzaBuilder)** | Multiple Builders reuse same process for different outputs | - One Builder creates `Pizza` <br> - Another computes calorie totals | - Demonstrates extensibility <br> - Supports different “representations” from same steps | - Extra classes to maintain <br> - May feel heavyweight for simple cases |
+| **Takeaway** | Builder evolves from a *convenience tool* into a *full design pattern* | - Separation of construction from representation <br> - Flexibility through abstraction | - Scales to complex systems <br> - Encourages clean, maintainable code | - Adds design overhead <br> - Unnecessary for simple objects |
+
  
 # But Wait, There’s More
 There’s one more aspect of Builder that’s useful. I think it’s the most important aspect of Builder, but the GoF don’t really mention it. I’ll cover that in the next and final Builder blog entry.
 
 # Summary
-__TBD__
+__Builder__ isn’t just about chaining setters—it’s about separating the “what” from the “how.” By decoupling the __Builder__ from the __Product__ and introducing a __Director__, we gained flexibility and extensibility. With alternate __Builders__, we opened the door to new ways of representing the same construction steps. This is the difference between a convenience trick and a true design pattern. In the next post, we’ll explore one aspect of __Builder__ which the GoF mostly ignored.
 
 # References
-See: [Previous Blog References](https://jhumelsine.github.io/2025/08/08/builder-introduction.html#references)
+See: [Previous Blog References](https://jhumelsine.github.io/2025/08/08/builder-introduction.html#references), which provides an extensive list of __Builder__ resources.
 
 # Complete Demo Code
 Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Add more tests. Play with the implementation. Refactor some of the code.
