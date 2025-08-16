@@ -5,7 +5,7 @@ unlisted: true
 ---
 
 # Introduction
-In the previous post, [Builder Design Pattern - Basic Implementation]( https://jhumelsine.github.io/2025/08/13/builder-basic-impl.html), I showed the progression of creating a complex object from a multi-parameter constructor to a basic inner-class Builder pattern. The inner-class Builder pattern worked, but it was tightly coupled to the product and left little room for flexibility. In this article, we’ll take the next step—refactoring that design into a full Gang of Four-style Builder. Along the way, we’ll introduce a Director, which will construct the complex object based upon a specification. We'll also decouple the Builder from the Product, and explore how multiple Builders can create different representations of the same object. By the end, you’ll see how the Builder pattern provides not just convenience, but also powerful extensibility.
+In the previous post, [Builder Design Pattern - Basic Implementation]( https://jhumelsine.github.io/2025/08/13/builder-basic-impl.html), I showed the progression of creating a complex object from a multi-parameter constructor to a basic inner-class Builder pattern. The inner-class Builder pattern worked, but it was tightly coupled to the product and left little room for flexibility. In this article, we’ll take the next step—refactoring that design into a full Gang of Four-style Builder. Along the way, we’ll introduce a Director, which will construct the complex object based upon a specification. We'll also decouple the Builder from the Product and explore how multiple Builders can create different representations of the same object. By the end, you’ll see how the Builder pattern provides not just convenience, but also powerful extensibility.
 
 This blog will continue where the previous blog left off by progressing step-by-step until it reaches a design more akin to the GoF’s full __Builder__ diagram:
 
@@ -299,7 +299,7 @@ public class StandardPizzaBuilder implements PizzaBuilder {
 # A New Concrete PizzaBuilder
 The GoF also featured several concrete Builders. This design allows different concrete Builders to create different products from the same Builder interface construction. This aspect of the Builder pattern is the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html).
 
-In this final design I’ll add `CaloriePizzaBuilder`, which is another `PizzaBuilder`. This design shows how simple it is to add a new concrete `PizzaBuilder` once the design infrastructure has stabalized. Its addition does not affect the rest of the design.
+In this final design I’ll add `CaloriePizzaBuilder`, which is another `PizzaBuilder`. This design shows how simple it is to add a new concrete `PizzaBuilder` once the design infrastructure has stabilized. Its addition does not affect the rest of the design.
 
 `CaloriePizzaBuilder’s` product is the number of calories in the pizza, which is returned as an `int`.
 
