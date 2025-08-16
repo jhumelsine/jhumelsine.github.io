@@ -366,6 +366,7 @@ Once the entire design assembled, it becomes obvious that the [Strategy Design P
 <img src="/assets/Builder-3-6.png" alt="Complete Design" width = "80%" align="center" style="padding: 35px;">
 
 # A Review of the Builder Evolution
+
 | Phase | Description | Key Characteristics | Pros | Cons |
 |-------|-------------|----------------------|------|------|
 | **1. Inner-Class Builder (Basic Impl)** | Builder nested inside `Pizza` class | - Fluent API for constructing `Pizza` <br> - Builder tightly coupled to Product | - Simple to implement <br> - Easy to read and use | - Limited flexibility <br> - Hard to extend beyond `Pizza` |
