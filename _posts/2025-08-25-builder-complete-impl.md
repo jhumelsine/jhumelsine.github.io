@@ -390,6 +390,7 @@ See: [Previous Blog References](https://jhumelsine.github.io/2025/08/08/builder-
 Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Add more tests. Play with the implementation. Refactor some of the code.
 
 ## Addressing Tight Coupling
+
 ```java
 import java.util.*;
 
@@ -508,6 +509,7 @@ class Pizza {
 ```
 
 ## Extracting a PizzaBuilder Interface
+
 ```java
 import java.util.*;
 
@@ -637,6 +639,7 @@ class Pizza {
 ```
 
 ## Adding the Director
+
 ```java
 import java.util.*;
 
@@ -810,7 +813,8 @@ class Pizza {
 ```
 
 ## A New Concrete PizzaBuilder
-java```
+
+```java
 import java.util.*;
 
 public class PizzaBuilder4 {
