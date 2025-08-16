@@ -5,7 +5,7 @@ unlisted: true
 ---
 
 # Introduction
-In the previous post, [Builder Design Pattern - Basic Implementation]( https://jhumelsine.github.io/2025/08/13/builder-basic-impl.html), I showed the pregression of creating a complext object from a multi-parameter constructor to a basic inner-class Builder pattern. The inner-class Builder pattern worked, but it was tightly coupled to the product and left little room for flexibility. In this article, we’ll take the next step—refactoring that design into a full Gang of Four-style Builder. Along the way, we’ll introduce a __Director__ that will construct the complex object based upon a specification, decouple the Builder from the Product, and explore how multiple Builders can create different representations of the same object. By the end, you’ll see how the Builder pattern provides not just convenience, but also powerful extensibility.
+In the previous post, [Builder Design Pattern - Basic Implementation]( https://jhumelsine.github.io/2025/08/13/builder-basic-impl.html), I showed the progression of creating a complex object from a multi-parameter constructor to a basic inner-class Builder pattern. The inner-class Builder pattern worked, but it was tightly coupled to the product and left little room for flexibility. In this article, we’ll take the next step—refactoring that design into a full Gang of Four-style Builder. Along the way, we’ll introduce a Director, which will construct the complex object based upon a specification. We'll also decouple the Builder from the Product, and explore how multiple Builders can create different representations of the same object. By the end, you’ll see how the Builder pattern provides not just convenience, but also powerful extensibility.
 
 This blog will continue where the previous blog left off by progressing step-by-step until it reaches a design more akin to the GoF’s full __Builder__ diagram:
 
@@ -16,7 +16,7 @@ These step-by-step transitions will pull the elements of the design apart along 
 This blog entry will primarily focus upon the design elements and implementation snippets in transition toward the GoF’s Builder design.
 
 # Addressing Tight Coupling
-The previous blog concluded with the [Pizza.Builder]( https://jhumelsine.github.io/2025/08/13/builder-basic-impl.html#the-pizzabuilder) design, which is a Builder, but a rather simple one. `Pizza.Builder` was declared as an inner class of `Pizza`, which tightly coupled the two classes. For some designs this may make perfect sense. However, this tight coupling won’t support the remaining GoF Builder behaviors that I want to convey; therefore, this next tranistion will decouple them to some degree by extracting the `Builder` from `Pizza`, so that `Pizza` no longer depends upon the `Builder` class.
+The previous blog concluded with the [Pizza.Builder]( https://jhumelsine.github.io/2025/08/13/builder-basic-impl.html#the-pizzabuilder) design, which is a Builder, but a rather simple one. `Pizza.Builder` was declared as an inner class of `Pizza`, which tightly coupled the two classes. For some designs this may make perfect sense. However, this tight coupling won’t support the remaining GoF Builder behaviors that I want to convey; therefore, this next tranistion will remove their mutual coupling by extracting the `Builder` from `Pizza`, so that `Pizza` no longer depends upon the `Builder` class.
 
 Here is an intermediate redesign moving toward the GoF’s Builder; however, this would not be my final design if this were more than an example. I must make some _accommodations_ in this design that I don’t particularly like, such as declaring `Pizza` constructor as __package-protected__, but these accommodations will make it easier to transition to the full GoF Builder design. I am mostly including this design as a transient transitional phase in moving toward the final design.
 
@@ -224,7 +224,7 @@ The previous diagram is only part of the design. `construct(…)` required too m
 Here’s the complete design where the `construct(...)` details have been removed. A few items of note:
 * `Client` no longer hardcodes the pizza. The pizza order resides within the specification. The other parts of `Client` are mostly the same as with the previous design.
 * Except for moving the `PizzaSize` declaration from the `StandardPizzaBuilder` to the `PizzaBuilder` interface , `StandardPizzaBuilder` and `PizzaBuilder` have not changed.
-* `Pizza` has never changed. Since it has no dependencies upon the rest of the design.
+* `Pizza` has never changed. Since it has no dependencies upon the rest of the design. This can be observed visually in the design, since all arrows of dependency and knowledge point into it.
 
 <img src="/assets/Builder-3-4.png" alt="Complete Design with PizzaDirector" width = "90%" align="center" style="padding: 35px;">
  
@@ -299,7 +299,7 @@ public class StandardPizzaBuilder implements PizzaBuilder {
 # A New Concrete PizzaBuilder
 The GoF also featured several concrete Builders. This design allows different concrete Builders to create different products from the same Builder interface construction. This aspect of the Builder pattern is the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html).
 
-In this final design I’ll add `CaloriePizzaBuilder`, which is another `PizzaBuilder`. This design shows how simple it is to add a new concrete `PizzaBuilder` once the design infrastructure has matured. Its addition does not affect the rest of the design.
+In this final design I’ll add `CaloriePizzaBuilder`, which is another `PizzaBuilder`. This design shows how simple it is to add a new concrete `PizzaBuilder` once the design infrastructure has stabalized. Its addition does not affect the rest of the design.
 
 `CaloriePizzaBuilder’s` product is the number of calories in the pizza, which is returned as an `int`.
 
@@ -319,15 +319,15 @@ Pizza pizza1 = pizzaBuilder1.build();
 System.out.println(pizza1);
 
 public class CaloriePizzaBuilder implements PizzaBuilder {
-    private PizzaSize size = null;
+    private double sizeScalar = 0.0;
     private int calories = 0;
 
     public void setSize(PizzaSize size) {
-        this.size = size;
-        calories += getSizeRatio(size) * 1000.0;
+        sizeScalar = getSizeScalar(size);
+        calories += sizeScalar * 1000.0;
     }
 
-    private double getSizeRatio(PizzaSize size) {
+    private double getSizeScalar(PizzaSize size) {
         switch (size) {
             case SMALL: return 1.0;
             case MEDIUM: return 1.5;
@@ -337,19 +337,19 @@ public class CaloriePizzaBuilder implements PizzaBuilder {
     }
 
     public void addPepperoni() {
-        calories += getSizeRatio(size) * 250;
+        calories += sizeScalar * 250;
     }
 
     public void addPeppers() {
-        calories += getSizeRatio(size) * 30;
+        calories += sizeScalar * 30;
     }
 
     public void addOnions() {
-        calories += getSizeRatio(size) * 25;
+        calories += sizeScalar * 25;
     }
 
     public void addBlackOlives() {
-        calories += getSizeRatio(size) * 100;
+        calories += sizeScalar * 100;
     }
 
     public int getCalories() {
@@ -810,6 +810,7 @@ class Pizza {
 ```
 
 ## A New Concrete PizzaBuilder
+java```
 import java.util.*;
 
 public class PizzaBuilder4 {
@@ -998,15 +999,15 @@ class Pizza {
 }
 
 public class CaloriePizzaBuilder implements PizzaBuilder {
-    private PizzaSize size = null;
+    private double sizeScalar = 0.0;
     private int calories = 0;
 
     public void setSize(PizzaSize size) {
-        this.size = size;
-        calories += getSizeRatio(size) * 1000.0;
+        sizeScalar = getSizeScalar(size);
+        calories += sizeScalar * 1000.0;
     }
 
-    private double getSizeRatio(PizzaSize size) {
+    private double getSizeScalar(PizzaSize size) {
         switch (size) {
             case SMALL: return 1.0;
             case MEDIUM: return 1.5;
@@ -1016,27 +1017,23 @@ public class CaloriePizzaBuilder implements PizzaBuilder {
     }
 
     public void addPepperoni() {
-        calories += getSizeRatio(size) * 250;
+        calories += sizeScalar * 250;
     }
 
     public void addPeppers() {
-        calories += getSizeRatio(size) * 30;
+        calories += sizeScalar * 30;
     }
 
     public void addOnions() {
-        calories += getSizeRatio(size) * 25;
+        calories += sizeScalar * 25;
     }
 
     public void addBlackOlives() {
-        calories += getSizeRatio(size) * 100;
+        calories += sizeScalar * 100;
     }
 
     public int getCalories() {
         return calories;
     }
 }
-```java
 ```
-
-
-
