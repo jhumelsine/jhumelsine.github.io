@@ -103,7 +103,7 @@ D = 1
 ```
 The constructed parse tree could be:
 
-<img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/fc/Parse_Tree_Example.svg/768px-Parse_Tree_Example.svg.png" alt="Delete Railroad tracks" title="Image Source: https://en.wikipedia.org/wiki/File:Parse_Tree_Example.svg" width = "40%" align="center" style="padding-right: 35px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Parse_Tree_Example.svg/840px-Parse_Tree_Example.svg.png" alt="Parse Tree Example" title="Image Source: https://en.wikipedia.org/wiki/File:Parse_Tree_Example.svg" width = "40%" align="center" style="padding-right: 35px;">
  
 We don’t generate the tree from the program. We start with an initial rule, such as __statements__ and expand it one rule at a time growing the tree from its root until each non-terminal node has been expanded to a leaf node. Parsers use the tokens in the program as road signs to know which rules to expand to build the object tree.
 
