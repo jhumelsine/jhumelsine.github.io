@@ -210,6 +210,15 @@ DrinkOrder acquire(String ingredient, DrinkOrder drinkOrder) throws Exception {
 }
 ```
 
+__ERRATA__
+>I found a minor issue in the above code while drafting one of the [Builder Design Pattern](TBD) (TBD) blog entries. That blog continues with this example, and I while reviewing it on August 18, 2025, I noticed something that isn't quite correct. Can you spot it?
+>
+>This is a case where I provided code snippets without actually implementing or testing them. If I had continued the design with tests and implementation, I would have found the issue. It's not uncommon to make mistakes in design code snippets, which are often later revealed during the test and implementation phases.
+>
+>The issue is not major. It resides within the code snippet that splits and iterates the ingredients. It's iterating and building the `drinkOrder` from the start of the ingredients to the end. That is, if the incredients are: _Coffee, Sugar, Sugar, Milk_, then the code snippet will attempt to build a `drinkOrder` linked list that's: `coffee` -> `sugar` -> `sugar` -> `milk`, which is not possible, since `Coffee` does not contain a reference to a `drinkOrder`. Instead, we want the `drinkOrder` linked list to be: `milk` -> `sugar` -> `sugar` -> `coffee`.
+>
+>This can be easily addressed by reversing the iteration. Rather than iterate the ingredients from front to back, we should interate them from back to front. Relatively basic data structure algorithms should support this.
+
 Consider how flexible this design is. `Coffee` could easily be replaced with `DarkRoast`, `HouseBlend`, `Espresso`, and `Decaf`. `Tea` could be replaced with `EarlGrey`, `BlackTea`, `Chai`, and `Herbal`. New _`Flavor`_’s can easily be added, such as `Honey`, `SoyMilk`, and `Cream`. Some _`Flavor`_’s may be seasonal, so they can be easily added or removed as desired, such as `PumpkinSpice` and `Peppermint`.
 
 __This is an extremely contrived example.__ It’s an over-engineered design for this specific problem. It converts a String of ingredients into a label that’s almost identical to the ingredients. I could have just as easily split the ingredients and inserted a comma between them.
