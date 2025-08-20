@@ -69,7 +69,7 @@ I will present this final type of Builder by expanding upon the [Decorator Desig
  
 I have updated it slightly as. In this version, `DrinkOrder’s` behavior is more functional in that it calculates calories and cost. I also changed a few class names. I also expanded upon `DrinkOrderBuilder` from the previous diagram by providing more a bit more detail with the __Factories__.
 
-__Add new diagram here.__
+<img src="/assets/Builder-4-1.png" alt="Director Design 1" width = "90%" align="center" style="padding: 35px;">
  
 I started [TDD](https://jhumelsine.github.io/2024/07/15/tdd.html) as I was sketching out the implementation. I focused upon `Coffee`, `Tea`, `Sugar` and `Milk`. The tests were straightforward, and each class implementation was simple. But even so, I noticed the same code being copy-and-pasted in each concrete class. It was basically the same code with different values for calories and cost.
 
@@ -81,7 +81,7 @@ Sometimes you discover that your design isn’t quite right once you start test 
 
 Here is the updated design with my new understanding.
 
-__Add new diagram here.__
+<img src="/assets/Builder-4-2.png" alt="Director Design 2" width = "90%" align="center" style="padding: 35px;">
  
 The `DrinkOrder` implementation matches the design snippet almost exactly:
 ```java
