@@ -29,12 +29,12 @@ While the GoF didn’t cover this use case, other Builder references have mentio
 # The Director
 The GoF’s Builder description features two elements: __Builder__ and __Director__.
 
-They focused their description upon the __Builder_. They acknowledge the __Director__, but they don’t treat it like a first-class citizen. Their __Director__ feels more like an supporting character in __Builder’s__ story than a character deserving of its own story. The more I think about the __Builder__ pattern as I’m working on this blog entry, the more I’m thinking that __Director__ should have probably deserved its own place in the GoF catalog as a design pattern.
+They focused their description upon the __Builder__. They acknowledge the __Director__, but they don’t treat it like a first-class citizen. Their __Director__ feels more like an supporting character in __Builder’s__ story rather than a character deserving of its own story. The more I think about the __Builder__ pattern as I’m working on this blog entry, the more I’m thinking that __Director__ should have probably deserved its own place in the GoF catalog as a design pattern.
 
 The GoF included a __Director__ in their __Builder__ diagrams. They include a few high-level code snippet examples. And they also hinted at some of its additional uses at the end of __Builder__ in the __Known Uses__ section. __NOTE:__ I believe these first two references are associated with constructs in Smalltalk-80, for which they state, “Builder is a common pattern in Smalltalk-80”:
 >The `Parser` class in the compiler subsystem is a __Director__ that takes a `ProgramNodeBuilder` object as an argument. A `Parser` object notifies its `ProgramNodeBuilder` object each time it recognizes a syntactic construct. When the parser is done, it asks the builder for the parse tree it built and returns it to the client.
 >
->ClassBuilder is a builder that Classes use to create subclasses for themselves. In this case a Class is both the Director and the Product.
+>`ClassBuilder` is a builder that Classes use to create subclasses for themselves. In this case a Class is both the Director and the Product.
 
 The next one is not associated with Smalltalk-80:
 >The Service Configurator framework from the Adaptive Communications Environment uses a __Builder__ to construct network service components that are linked into a server at run-time. The components are described with a configuration language that’s parsed by an LALR(l) parser. The semantic actions of the parser perform operations on the builder that add information to the service component. In this case, the parser is the __Director__.
