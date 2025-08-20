@@ -5,7 +5,9 @@ unlisted: true
 ---
 
 # Introduction
-__TBD__
+The Gang of Four described the Director in passing as part of the Builder pattern, a helper role that orchestrates construction. But what if the Director is more than a supporting actor? In real systems, the logic that assembles objects—how they’re sequenced, nested, or decorated—often deserves as much attention as the objects themselves. In this article, I’ll make the case for treating the Director as a standalone design pattern, explore its connection to Builder and Composite, and show how a Director can drive flexible object creation through examples like a configurable drink ordering system.
+
+Too often, we focus on _what_ gets built and forget about _how_ it’s assembled. By elevating the Director to a full-fledged pattern, we highlight the orchestration logic that makes builders, composites, and decorators truly usable. Ignoring this layer can lead to duplication, scattered construction code, or rigid systems that are hard to extend.
 
 # Multiple Objects
 The previous Builder post entries demonstrated how the design can be used to build complex objects, even dynamically via a specification. But rather than building one complex object via a specification, it can be used to build a set of simple objects assembled in different combinations from which different behaviors emerge.
@@ -286,7 +288,7 @@ class DrinkFactory {
         }
     }
 
-    // Imagine these values were acquired fron an external source, such as a flat file.
+    // Imagine these values were acquired from an external source, such as a flat file.
     private static List<String> getDrinkOrderConfigurations() {
         List<String> drinkOrderConfigurations = new LinkedList<>();
         drinkOrderConfigurations.add("Coffee, 350, 5");
@@ -312,7 +314,7 @@ class AddOnFactory {
         }
     }
 
-    // Imagine these values were acquired fron an external source, such as a flat file.
+    // Imagine these values were acquired from an external source, such as a flat file.
     private static List<String> getDrinkOrderConfigurations() {
         List<String> drinkOrderConfigurations = new LinkedList<>();
         drinkOrderConfigurations.add("Sugar, 15, 200");
