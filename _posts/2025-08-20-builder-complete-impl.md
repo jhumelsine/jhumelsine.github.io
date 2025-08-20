@@ -1,7 +1,6 @@
 ---
-title: DRAFT – Builder Design Pattern Completed
+title: Builder Design Pattern Completed
 description: Progressing toward the Gang of Four’s complete Builder design
-unlisted: true
 ---
 
 # Introduction
