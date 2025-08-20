@@ -155,7 +155,7 @@ Since the `Client` creates a `Pizza` in this example, it will still reference th
 
 <img src="/assets/Builder-3-2.png" alt="PizzaBuilder Interface" width = "90%" align="center" style="padding: 35px;">
  
-Here are the updated Java snippets. The entire implementation for each design phase is provided in the [Complete Demo Code](#CompleteDemoCode).
+Here are the updated Java snippets. The entire implementation for each design phase is provided in the [Complete Demo Code](#complete-demo-code).
 ```java
 interface PizzaBuilder {
     void addPepperoni();
@@ -361,7 +361,7 @@ public class CaloriePizzaBuilder implements PizzaBuilder {
 # The Complete Design
 This final diagram shows all elements in the design. Its structure mirrors the GoF’s example at the top of this blog, which is also available [here](https://jhumelsine.github.io/2025/08/08/builder-introduction.html#why-use-it).
 
-Once the entire design diagramed, it becomes obvious that the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) is a major design element in this design. For example, this design can easily accommodate more concrete `PizzaBuilders` such as `PricePizzaBuilder`, which would look very similar to `CaloriePizzaBuilder`, but rather than calculating calories, it would calculate the cost of the built pizza.
+Once the entire design is diagramed, it becomes obvious that the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) is a major design element in this design. For example, this design can easily accommodate more concrete `PizzaBuilders` such as `PricePizzaBuilder`, which would look very similar to `CaloriePizzaBuilder`, but rather than calculating calories, it would calculate the cost of the built pizza.
 
 <img src="/assets/Builder-3-6.png" alt="Complete Design" width = "80%" align="center" style="padding: 35px;">
 
