@@ -29,7 +29,7 @@ While the GoF didn’t cover this use case, other Builder references have mentio
 # The Director
 The GoF’s Builder description features two elements: __Builder__ and __Director__.
 
-They focused their description upon the __Builder__. They acknowledge the __Director__, but they don’t treat it like a first-class citizen. Their __Director__ feels more like an supporting character in __Builder’s__ story rather than a character deserving of its own story. The more I think about the __Builder__ pattern as I’m working on this blog entry, the more I’m thinking that __Director__ should have probably deserved its own place in the GoF catalog as a design pattern.
+They focused their description upon the __Builder__. They acknowledge the __Director__, but they don’t treat it like a first-class citizen. Their __Director__ feels more like an supporting character in __Builder’s__ story rather than a character deserving of its own story. The more I think about the __Builder__ pattern as I’m working on this blog entry, the more __I’m thinking that Director should have probably deserved its own place in the GoF catalog as a design pattern__.
 
 The GoF included a __Director__ in their __Builder__ diagrams. They include a few high-level code snippet examples. And they also hinted at some of its additional uses at the end of __Builder__ in the __Known Uses__ section. __NOTE:__ I believe these first two references are associated with constructs in Smalltalk-80, for which they state, “Builder is a common pattern in Smalltalk-80”:
 >The `Parser` class in the compiler subsystem is a __Director__ that takes a `ProgramNodeBuilder` object as an argument. A `Parser` object notifies its `ProgramNodeBuilder` object each time it recognizes a syntactic construct. When the parser is done, it asks the builder for the parse tree it built and returns it to the client.
@@ -52,11 +52,11 @@ Sometimes my Configurer design references were simply purple classes named _Conf
 I did not feature a specification-driven Configurer. I didn’t even feature a specification-driven Configurer for the [Specification Design Pattern](https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html) or its [Smart Playlist Use Case](https://jhumelsine.github.io/2024/03/07/specification-design-pattern-use-case.html), both of which featured hardcoded Configurers.
 
 # The Interpreter
-I did not completely ignore specification-driven Configurers in the Composable Design Patterns. I featured them at great length with the [Interpreter Design Pattern - Introduction](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html). As stated by GoF above, Parsers are types of Builders and Directors.
+I did not completely ignore specification-driven Configurers in the Composable Design Patterns. I featured them at great length with the [Interpreter Design Pattern - Introduction](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html). As stated by the GoF above, Parsers are types of Builders and Directors.
 
-Interpreter was its own miniseries where I presented Domain-Specific Languages (DSL), Grammar, and Parser Theory and Implementation. I will not repeat those details, since they can be found via the Interpreter link above.
+Interpreter was its own blog miniseries where I presented Domain-Specific Languages (DSL), Grammar, and Parser Theory and Implementation. I will not repeat those details, since they can be found via the Interpreter link above.
 
-A Configurer can be implemented via a Parser is a type of Builder/Director.
+A Configurer can be implemented via a Parser, which is a type of Builder/Director.
 
 # The Decorator Use Case Example
 __Don’t Panic!__
@@ -67,15 +67,15 @@ I will present this final type of Builder by expanding upon the [Decorator Desig
 
 <img src="/assets/DecoratorDrinks.png" alt="Starbuzz Labels via Decorator" width = "85%" align="center" style="padding-right: 20px;">
  
-I have updated it slightly as. In this version, `DrinkOrder’s` behavior is more functional in that it calculates calories and cost. I also changed a few class names. I also expanded upon `DrinkOrderBuilder` from the previous diagram by providing more a bit more detail with the __Factories__.
+I have updated it slightly for this Build use case. In this version, `DrinkOrder’s` behavior calculates cost and calorie sums for the entire drink order. I  changed a few class names. I also expanded upon `DrinkOrderBuilder` from the previous diagram by providing more a bit more design detail with the __Factories__.
 
 <img src="/assets/Builder-4-1.png" alt="Director Design 1" width = "90%" align="center" style="padding: 35px;">
  
-I started [TDD](https://jhumelsine.github.io/2024/07/15/tdd.html) as I was sketching out the implementation. I focused upon `Coffee`, `Tea`, `Sugar` and `Milk`. The tests were straightforward, and each class implementation was simple. But even so, I noticed the same code being copy-and-pasted in each concrete class. It was basically the same code with different values for calories and cost.
+I started with [TDD](https://jhumelsine.github.io/2024/07/15/tdd.html) techniques as I was sketching out the implementation. I focused upon tests and implementation for `Coffee`, `Tea`, `Sugar` and `Milk`. The tests were straightforward, and each class implementation was simple. But even so, I noticed the same code structures repeating in each concrete class. It was basically the same code with different values for calories and cost.
 
 I started to refactor the code. I moved calorie and cost attributes into the `Drink` and `AddOn` abstract base classes and initialized them from the concrete class constructors. And still there was duplication.
 
-It finally sunk through my thick skull that the `Drink` and `AddOn` abstract base classes didn’t need to be abstract. They can be concrete classes that declare immutable value objects with final attributes for `name`, `calories` and `cost`. The extraneous concrete classes disappeared from the design.
+It finally sunk through my thick skull that the `Drink` and `AddOn` abstract base classes didn’t need to be abstract. They can be concrete classes that declare immutable value objects with final attributes for `name`, `calories` and `cost`. The extraneous concrete classes in the previous design disappeared.
 
 Sometimes you discover that your design isn’t quite right once you start test and implementation just as I did. Go ahead and change your design as you understand it better.
 
@@ -122,9 +122,9 @@ class Drink implements DrinkOrder {
 }
 ```
 
-`AddOn` is a value object as well. In addition to `cost`, `calories` and `name`, it also has a reference to `drinkOrder`. `Drink` and `AddOn` still have a little duplication in their attributes, but I decided to allow it. While I could have consolidated `cost`, `calories` and `name` into one class, the additional complexity didn’t feel like it justified the consolidation.
+`AddOn` is a value object as well. In addition to `cost`, `calories` and `name`, it also has a reference to `drinkOrder`. `Drink` and `AddOn` still have a little duplication in their attributes, but I decided to allow it. While I could have consolidated `cost`, `calories` and `name` into one class, the additional complexity that would have resulted from this consolidation didn’t feel justified.
 
-`AddOn` is where the core __Decorator__ implementation resides as it calculates cost, calories and assembles `toString()` by delegating to `drinkOrder`, which is the next element in the linked list.
+`AddOn` is where the core __Decorator__ mechanism resides as it calculates cost, calories and assembles `toString()` by delegating to `drinkOrder`, which is the next element in the linked list.
 
 ```java
  class AddOn implements DrinkOrder {
@@ -161,7 +161,7 @@ class Drink implements DrinkOrder {
 }
 ```
 
-The code snippets in the design for the __Factory__ hinted at their implementation with one example for each. Here are the implementations for both __Factories__. All calorie and cost values are contrived:
+The code snippets in the design for the __Factory__ hinted at their implementation by providing one `case` in the `switch` statement. Here are the implementations for both __Factories__ with all cases. All calorie and cost values are contrived, since I have no idea what the actual cost or calories might be:
 ```java
 class DrinkFactory {
     public static DrinkOrder acquire(String drink) throws IllegalArgumentException {
@@ -198,8 +198,8 @@ I’ll wrap most of the rest of the design with `DrinkOrderBuilder`. The grammar
 It’s simply any number of colon separated AddOn identifiers terminating with a single Drink identifier. It’s so simple that it’s really a regular expression, which is still a context-free grammar.
 
 I used recursion to implement the Builder/Director:
-* If the colon delimiter is not found, then the order is a Drink identifier. It will acquire a and return `DrinkOrder` from the `DrinkFactory` based upon the Drink identifier.
-* Otherwise, it will split the order into two substrings: the first AddOn Identifier and the rest of the order. It will acquired the `DrinkOrder` recursively from the rest of the order, which will be an argument for the `AddOnFactory` as the `drinkOrder` for the newly acquired AddOn, which will be returned.
+* If the colon delimiter is not found, then the order is a Drink identifier. It will acquire and return `DrinkOrder` from the `DrinkFactory` based upon the Drink identifier.
+* Otherwise, it will split the order into two substrings: the first AddOn Identifier and the rest of the order. It will acquire the `DrinkOrder` recursively from the rest of the order, which will become an argument for the `AddOnFactory` as the `drinkOrder` for the newly acquired AddOn, which will be returned.
 
 The code is a bit less cumbersome than my description above:
 ```java
@@ -212,7 +212,7 @@ class DrinkOrderBuilder {
 }
 ```
 
-The final, and least interesting class, is `BaristaBot`. It acquires a `DrinkOrder` from `DrinkOrderBuilder` and prints the order’s label and calories.
+The final, and least interesting class, is `BaristaBot`. It acquires a `DrinkOrder` from `DrinkOrderBuilder` and prints the order’s label, cost and calories.
 ```java
 class BaristaBot {
     public void prepareOrder(String order) {
@@ -241,14 +241,14 @@ class BaristaBot {
 
 And now we see how it all comes together. A text order is passed to the barista, which acquires a `DrinkOrder` linked list that’s composed of the objects that match the order. From there, the barista can obtain the label, cost and calories for the order using __Decorator__.
 
-This implementation has similar behaviors to the __PizzaBuilder__ example in the previous blogs, where label, calories and eventually cost were calculated via different concrete Builders; whereas, this implementation uses one __Decorator__.
+This implementation has similar behaviors to the __PizzaBuilder__ example in the previous blogs, where label, calories and eventually cost were calculated via different concrete Builders; whereas, this implementation uses a __Decorator__ list.
 
 This demonstrates that different design patterns can solve similar problems. It’s a matter of design preference. This won’t be the last technique used to solve problems like this, but that’s the topic for a future blog TBD.
 
 # Factory Revisit
 I'm wrapping up with a bit of a side tangent, that's not specifically about __Builder__ or the __Director__. It's about the __Factories__.
 
-The `DrinkFactory` and `AddOnFactory` are sufficient for now, but they aren't dynamic. If a new drink or add on is desired, then the code has to be updated. I revisited the implementation and updated it. Rather than a being a `switch` statement, the factories look up `DrinkConfiguration` information from a `Map`. `DrinkConfiguration` contains name, cost and calorie information. The `Map` is initialized via a `static` method in my example, but it could easily be initialized via a configuration file, so that it could be updated as needed.
+The `DrinkFactory` and `AddOnFactory` are sufficient for now, but they aren't flexible. If a new drink or add-on is desired, then the code has to be updated. I revisited the implementation and updated it. Rather than a being a `switch` statement with multiple `cases`, the factories look up `DrinkConfiguration` information from a `Map` that returns a `DrinkConfiguration`. `DrinkConfiguration` contains name, cost and calorie information. The `Map` is initialized via a `static` method in my example, but it could easily be initialized via a configuration file, so that it could be updated as needed.
 
 There is the Java code for the updated Factories:
 ```java
