@@ -245,6 +245,94 @@ This implementation has similar behaviors to the __PizzaBuilder__ example in the
 
 This demonstrates that different design patterns can solve similar problems. It’s a matter of design preference. This won’t be the last technique used to solve problems like this, but that’s the topic for a future blog TBD.
 
+# Factory Revisit
+I'm wrapping up with a bit of a side tangent, that's not specifically about __Builder__ or the __Director__. It's about the __Factories__.
+
+The `DrinkFactory` and `AddOnFactory` are sufficient for now, but they aren't dynamic. If a new drink or add on is desired, then the code has to be updated. I revisited the implementation and updated it. Rather than a being a `switch` statement, the factories look up `DrinkConfiguration` information from a `Map`. `DrinkConfiguration` contains name, cost and calorie information. The `Map` is initialized via a `static` method in my example, but it could easily be initialized via a configuration file, so that it could be updated as needed.
+
+There is the Java code for the updated Factories:
+```java
+class DrinkOrderConfiguration {
+    private final String name;
+    private final int cost;
+    private final int calories;
+
+    public DrinkOrderConfiguration(String name, int cost, int calories) {
+        this.name = name;
+        this.cost = cost;
+        this.calories = calories;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public int getCalories() {
+        return calories;
+    }
+}
+
+class DrinkFactory {
+    private static Map<String, DrinkOrderConfiguration> drinkOrderConfigurations = new HashMap<>();
+
+    static {
+        for (String drinkConfiguration : getDrinkOrderConfigurations()) {
+            String[] tokens = drinkConfiguration.split(",");
+            drinkOrderConfigurations.put(tokens[0].trim(), new DrinkOrderConfiguration(tokens[0].trim(), Integer.valueOf(tokens[1].trim()), Integer.valueOf(tokens[2].trim())));
+        }
+    }
+
+    // Imagine these values were acquired fron an external source, such as a flat file.
+    private static List<String> getDrinkOrderConfigurations() {
+        List<String> drinkOrderConfigurations = new LinkedList<>();
+        drinkOrderConfigurations.add("Coffee, 350, 5");
+        drinkOrderConfigurations.add("Tea, 250, 15");
+        return drinkOrderConfigurations;
+    }
+
+    public static DrinkOrder acquire(String drink) throws IllegalArgumentException {
+        drink = drink.trim();
+        if (!drinkOrderConfigurations.containsKey(drink)) throw new IllegalArgumentException("Cannot create Drink for:" + drink);
+        DrinkOrderConfiguration drinkConfiguration = drinkOrderConfigurations.get(drink);
+        return new Drink(drinkConfiguration.getName(), drinkConfiguration.getCost(), drinkConfiguration.getCalories());
+    }
+}
+
+class AddOnFactory {
+    private static Map<String, DrinkOrderConfiguration> drinkOrderConfigurations = new HashMap<>();
+
+    static {
+        for (String addOnConfiguration : getDrinkOrderConfigurations()) {
+            String[] tokens = addOnConfiguration.split(",");
+            drinkOrderConfigurations.put(tokens[0].trim(), new DrinkOrderConfiguration(tokens[0].trim(), Integer.valueOf(tokens[1].trim()), Integer.valueOf(tokens[2].trim())));
+        }
+    }
+
+    // Imagine these values were acquired fron an external source, such as a flat file.
+    private static List<String> getDrinkOrderConfigurations() {
+        List<String> drinkOrderConfigurations = new LinkedList<>();
+        drinkOrderConfigurations.add("Sugar, 15, 200");
+        drinkOrderConfigurations.add("Milk, 35, 100");
+        drinkOrderConfigurations.add("SoyMilk, 35, 75");
+        drinkOrderConfigurations.add("EspressoShot, 100, 400");
+        drinkOrderConfigurations.add("Lemon, 15, 15");
+        drinkOrderConfigurations.add("PumpkinSpice, 75, 200");
+        return drinkOrderConfigurations;
+    }
+
+    public static DrinkOrder acquire(String addOn, DrinkOrder drinkOrder) throws IllegalArgumentException {
+        addOn = addOn.trim();
+        if (!drinkOrderConfigurations.containsKey(addOn)) throw new IllegalArgumentException("Cannot create AddOn for:" + addOn);
+        DrinkOrderConfiguration drinkOrderConfiguration = drinkOrderConfigurations.get(addOn);
+        return new AddOn(drinkOrderConfiguration.getName(), drinkOrderConfiguration.getCost(), drinkOrderConfiguration.getCalories(), drinkOrder);
+    }
+}
+```
+
 # Summary
 __TBD__
 
