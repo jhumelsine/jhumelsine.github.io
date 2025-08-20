@@ -124,6 +124,43 @@ class Drink implements DrinkOrder {
 
 `AddOn` is a value object as well. In addition to `cost`, `calories` and `name`, it also has a reference to `drinkOrder`. `Drink` and `AddOn` still have a little duplication in their attributes, but I decided to allow it. While I could have consolidated `cost`, `calories` and `name` into one class, the additional complexity didn’t feel like it justified the consolidation.
 
+`AddOn` is where the core __Decorator__ implementation resides as it calculates cost, calories and assembles `toString()` by delegating to `drinkOrder`, which is the next element in the linked list.
+
+```java
+ class AddOn implements DrinkOrder {
+    private final int cost;
+    private final int calories;
+    private final String name;
+    private final DrinkOrder drinkOrder;
+
+    public AddOn(String name, int cost, int calories, DrinkOrder drinkOrder) throws NullPointerException {
+        if (drinkOrder == null) {
+            throw new NullPointerException("drinkOrder");
+        }
+        this.name = name;
+        this.cost = cost;
+        this.calories = calories;
+        this.drinkOrder = drinkOrder;
+    }
+
+    @Override
+    public final int getCost() {
+        return cost + drinkOrder.getCost();
+    }
+
+    @Override
+    public final int getCalories() {
+        return calories + drinkOrder.getCalories();
+    }
+
+    @Override
+    public final String toString() {
+        return name + " " + drinkOrder.toString();
+    }
+
+}
+```
+
 The code snippets in the design for the __Factory__ hinted at their implementation with one example for each. Here are the implementations for both __Factories__. All calorie and cost values are contrived:
 ```java
 class DrinkFactory {
