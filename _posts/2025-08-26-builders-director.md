@@ -1,5 +1,5 @@
 ---
-title: DRAFT – Builder Design Pattern and Composable Patterns
+title: DRAFT – The Director - More Than Builder’s Sidekick
 description: Should Builder’s Director have been its own design pattern?
 unlisted: true
 ---
