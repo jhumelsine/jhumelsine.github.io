@@ -4,12 +4,12 @@ description: Should Builder’s Director have been its own design pattern?
 unlisted: true
 ---
 
-# Introduction
+# Introduction & Motivation
 The Gang of Four described the Director in passing as part of the Builder pattern, a helper role that orchestrates construction. But what if the Director is more than a supporting actor? In real systems, the logic that assembles objects—how they’re sequenced, nested, or decorated—often deserves as much attention as the objects themselves. In this article, I’ll make the case for treating the Director as a standalone design pattern, explore its connection to Builder and Composite, and show how a Director can drive flexible object creation through examples like a configurable drink ordering system.
 
 Too often, we focus on _what_ gets built and forget about _how_ it’s assembled. By elevating the Director to a full-fledged pattern, we highlight the orchestration logic that makes builders, composites, and decorators truly usable. Ignoring this layer can lead to duplication, scattered construction code, or rigid systems that are hard to extend.
 
-# Multiple Objects
+# Builder & Composite: A Quick Recap
 The previous Builder post entries demonstrated how the design can be used to build complex objects, even dynamically via a specification. But rather than building one complex object via a specification, it can be used to build a set of simple objects assembled in different combinations from which different behaviors emerge.
 
 Previous blogs have covered design patterns that support this flexibility with the [Composable Design Pattern](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html), but I didn’t go into great detail about how to configure these multiple object designs.
@@ -28,7 +28,7 @@ While the GoF didn’t cover this use case, other Builder references have mentio
 >
 >The Builder … comes in handy when you need to build an object tree.
 
-# The Director
+# The Case for Director as a Stand-Alone Pattern
 The GoF’s Builder description features two elements: __Builder__ and __Director__.
 
 They focused their description upon the __Builder__. They acknowledge the __Director__, but they don’t treat it like a first-class citizen. Their __Director__ feels more like an supporting character in __Builder’s__ story rather than a character deserving of its own story. The more I think about the __Builder__ pattern as I’m working on this blog entry, the more __I’m thinking that Director should have probably deserved its own place in the GoF catalog as a design pattern__.
@@ -60,7 +60,9 @@ Interpreter was its own blog miniseries where I presented Domain-Specific Langua
 
 A Configurer can be implemented via a Parser, which is a type of Builder/Director.
 
-# The Decorator Use Case Example
+In my Configurer design, I often orchestrate object composition through declarative configuration; in the Interpreter mini-series, the parser acts as both Builder and Director by constructing and orchestrating object trees via DSL grammars.
+
+# The Decorator Use Case & code Walkthrough
 __Don’t Panic!__
 
 I will not present an example as complex as what I provided in the Interpreter examples. While all DSLs are defined by a grammar, not all grammars define a DSL. My grammar and parser in this example will be about as simple as possible.
@@ -247,7 +249,7 @@ This implementation has similar behaviors to the __PizzaBuilder__ example in the
 
 This demonstrates that different design patterns can solve similar problems. It’s a matter of design preference. This won’t be the last technique used to solve problems like this, but that’s the topic for a future blog TBD.
 
-# Factory Revisit
+# Factory Evolution (Hardcoded to Configuration-Based)
 I'm wrapping up with a bit of a side tangent, that's not specifically about __Builder__ or the __Director__. It's about the __Factories__.
 
 The `DrinkFactory` and `AddOnFactory` are sufficient for now, but they aren't flexible. If a new drink or add-on is desired, then the code has to be updated. I revisited the implementation and updated it. Rather than a being a `switch` statement with multiple `cases`, the factories look up `DrinkConfiguration` information from a `Map` that returns a `DrinkConfiguration`. `DrinkConfiguration` contains name, cost and calorie information. The `Map` is initialized via a `static` method in my example, but it could easily be initialized via a configuration file, so that it could be updated as needed.
@@ -336,7 +338,7 @@ class AddOnFactory {
 ```
 
 # Summary
-__TBD__
+What started as a minor note in the Gang of Four catalog turns out to be a powerful design lever. The Director is more than an optional helper—it’s the orchestrator that turns builders, composites, and decorators into a coherent system. Highlighting it as a pattern on its own not only sharpens our design vocabulary but also points us toward new areas of exploration, such as configuration-driven architectures and runtime extensibility. Recognizing Director in this way may change how you approach system assembly in your own projects.
 
 # References
 See: [Previous Blog References](https://jhumelsine.github.io/2025/08/08/builder-introduction.html#references), which provides an extensive list of __Builder__ resources.
