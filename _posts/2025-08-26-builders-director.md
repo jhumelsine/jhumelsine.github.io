@@ -336,6 +336,19 @@ class AddOnFactory {
     }
 }
 ```
+# Builder and Director Comparison
+
+Builder and Director are closely related and often work together. Here's a closing table comparing their features:
+
+| Aspect            | Builder                                         | Director                                             |
+|-------------------|-------------------------------------------------|------------------------------------------------------|
+| **Intent**        | Defines *how* to construct an object, step by step. | Orchestrates *when* and *in what order* to call Builder operations. |
+| **Responsibility**| Encapsulates the construction logic for parts or representations of a product. | Encapsulates the sequence and flow of building, ensuring consistency. |
+| **Focus**         | The *details* of object creation (parts, representations). | The *process* of assembly (workflow, ordering, reuse). |
+| **Knowledge**     | Knows how to build components or variations of a product. | Knows the construction recipe or strategy to follow. |
+| **Flexibility**   | Enables multiple representations of the same product. | Enables multiple recipes or configurations using the same Builder. |
+| **Analogy**       | The chef who prepares ingredients and cooks.    | The head chef or manager who dictates the order of dishes to be made. |
+| **When to Use**   | When construction requires complex, fine-grained control. | When the same steps can be reused in different contexts or need orchestration. |
 
 # Summary
 What started as a minor note in the Gang of Four catalog turns out to be a powerful design lever. The __Director__ is more than an optional helper—it’s the orchestrator that turns builders, composites, and decorators into a coherent system. Highlighting it as a pattern on its own not only sharpens our design vocabulary but also points us toward new areas of exploration, such as configuration-driven architectures and runtime extensibility. Recognizing __Director__ in this way may change how you approach system assembly in your own projects.
