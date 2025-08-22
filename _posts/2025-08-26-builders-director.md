@@ -199,7 +199,7 @@ I’ll wrap most of the rest of the design with `DrinkOrderBuilder`. The grammar
 (AddOnID “:”)* DrinkID
 ```
 
-It’s simply any number of colon separated AddOn identifiers terminating with a single Drink identifier. It’s so simple that it’s really a regular expression, which is still a context-free grammar.
+It’s simply any number of colon-separated AddOn identifiers terminating with a single Drink identifier. It’s so simple that it’s really a regular expression, which is still a context-free grammar.
 
 I used recursion to implement the Builder/Director:
 * If the colon delimiter is not found, then the order is a Drink identifier. It will acquire and return `DrinkOrder` from the `DrinkFactory` based upon the Drink identifier.
