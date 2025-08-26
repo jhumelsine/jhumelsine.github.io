@@ -37,12 +37,12 @@ I will use _class_ and _instance_ rather than _object_ for the rest of this blog
 Here are a few examples of classes and their instances.
 
 ### Chairman Mao
-<img src="https://live.staticflickr.com/31/96727458_434393623a_b.jpg" alt="Warhol's Mao" title="Image Source: https://www.flickr.com/photos/andydoro/96727458" width = "20%" align="right" style="padding: 35px;">
+<img src="https://live.staticflickr.com/31/96727458_434393623a_b.jpg" alt="Warhol's Mao" title="Image Source: https://www.flickr.com/photos/andydoro/96727458" width = "30%" align="right" style="padding: 35px;">
  
 [Andy Warhol](https://en.wikipedia.org/wiki/Andy_Warhol) pioneered silk screening as an art form. His Mao work displays multiple images of Chairman Mao printed from the same silkscreen template. The silk screen template is like a class. It defines potential. Images are realized when ink is forced through the silk screen template onto paper or canvas. Here is an example of nine images of Mao created by Warhol. He was not limited to this set. He could have created many more, and I have no idea how many color combinations he assembled.
 
 ### Design Patterns
-<img src="/assets/DecoratorDrinks.png" alt="Starbuzz Labels via Decorator" width = "25%" align="right" style="padding-right: 20px;">
+<img src="/assets/DecoratorDrinks.png" alt="Starbuzz Labels via Decorator" width = "30%" align="right" style="padding-right: 20px;">
 
 When I visualize Design Patterns, I tend to do so via classes. I have described [Design Patterns](https://jhumelsine.github.io/3000/01/01/preface.html#design-patterns) throughout my blog entries via [UML Class Diagrams](https://jhumelsine.github.io/2021/06/22/uml.html).
 
@@ -95,14 +95,14 @@ Let’s consider two domains, both relative to Dogs:
 * Show Dogs
 
 #### Dog Shelters
-<img src="https://images.pexels.com/photos/12195433/pexels-photo-12195433.jpeg" alt="Dogs in Shelter" title="Image Source: https://images.pexels.com/photos/12195433/pexels-photo-12195433.jpeg" width = "20%" align="right" style="padding: 35px;">
+<img src="https://images.pexels.com/photos/12195433/pexels-photo-12195433.jpeg" alt="Dogs in Shelter" title="Image Source: https://images.pexels.com/photos/12195433/pexels-photo-12195433.jpeg" width = "30%" align="right" style="padding: 35px;">
  
 Dog Shelters want to find homes for abandoned dogs. They want a website that features their furry friends with photo and a description for each dog. The description will contain basic information, such as the dog’s name, estimated age, history (if known), temperament, etc.
 
 A shelter’s domain will probably suffice with A single Dog class with each individual dog being an instance of Dog.
 
 #### Show Dog
-<img src="https://s0.geograph.org.uk/geophotos/06/18/45/6184562_88499b20_original.jpg" alt="Dogs Show" title="Image Source: https://www.geograph.org.uk/photo/6184562" width = "20%" align="right" style="padding: 35px;">
+<img src="https://s0.geograph.org.uk/geophotos/06/18/45/6184562_88499b20_original.jpg" alt="Dogs Show" title="Image Source: https://www.geograph.org.uk/photo/6184562" width = "30%" align="right" style="padding: 35px;">
  
 Show Dog are a different domain. A single Dog class would be woefully insufficient for their modeling needs. There may still be a Dog class, but there would be subclasses for each show group, such as: Working Group, Miniatures, etc. See: [American Kennel Club](https://www.akc.org/dog-breeds/). Then each show group would have subclasses for the individual breeds within those groups.
 
