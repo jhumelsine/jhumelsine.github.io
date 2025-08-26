@@ -9,28 +9,30 @@ unlisted: true
 __TBD__
 
 # What is an Object?
-This blog entry is a precursor to the [Singleton Design Pattern](https://refactoring.guru/design-patterns/singleton) (TBD). It was originally going to be part of the Singleton blog entry itself, but I decided that it is long enough had has enough merits to stand on its own.
+This blog entry is a precursor to the [Singleton Design Pattern](https://refactoring.guru/design-patterns/singleton) (TBD). This entry was originally going to be part of the Singleton blog entry itself, but I decided that it is long enough had has enough merits to stand on its own.
 
-Before I dive into Singleton in the next blog, I’d like to return to Object-Oriented (OO) fundamentals and ask, ___“What is an object?”___ We use this term frequently, and I’m not sure that we always use it consistently. I try my best to use it consistently, but I know that I’ve not always been consistent.
+Before I dive into Singleton in the next blog, I’d like to consider Object-Oriented (OO) fundamentals and ask, ___“What is an object?”___ We use this term frequently, and I’m not sure that we always use it consistently. I try my best to use it consistently, but I know that I’ve not always been consistent.
 
-Sometimes we might use the term _object_ when we really mean _class_. Sometimes we might use the term _object_ when we really mean _instance_ as in _an instance of a class_ or even _an object instance of a class_. These uses create two more questions:
+Sometimes we might use the term _object_ when we really mean _class_. Sometimes we might use the term _object_ when we really mean _instance_ as in _an instance of a class_ or even _an object instance of a class_. These two new terms suggest two more questions:
 * What is a class?
 * What is an instance?
 
 ## What is a class?
-Code within an OO implementation defines the behavior of a _class_. Our terminology is mostly consistent since `class` is a keyword for this concept in many OO languages. The class implementation defines relationships with other classes through inheritance, reference and delegation. Classes declare methods which define behavior.
+Code within an OO implementation defines the behavior of a _class_. Our terminology is mostly consistent since `class` is a keyword for this concept in many OO languages. The class implementation defines relationships with other classes through inheritance, reference and delegation. Classes declare methods which define their behavior.
 
-Classes declare and define behavior and relationships with other classes as specified within the implementation.
+__Classes declare and define behavior and relationships with other classes as specified within the implementation.__
 
 ## What is an instance?
 Classes define potential in the form of code. That potential is realized when the code is executed. Except for `static` defined implementations, class potential can only be realized by an instance of a class.
 
-An instance contains state information for a class usually in the form of the values for its `private` and `protected` field attributes. Multiple instances of the same class can be created, each with their own independent state. An instance executes the methods of the class it instantiates and exhibits behaviors relative to its state information.
+An instance contains state information for a class usually in the form of the values for its `private` and `protected` field attributes. Multiple instances of the same class can be created, each with their own independent state.
+
+__An instance executes the methods of the class it instantiates and exhibits behaviors relative to its state information.__
 
 Classes reside in code. Instances reside in memory.
 
 ## A few real-world examples of classes and their instances
-While I consider _object_ and _instance_ as two terms for the same concept, I think we tend to focus so much upon _classes_ when using OO, that we sometimes use the term _object_ when we really meant _class_. Those of us with experience quickly adjust based upon the context, but using the term _object_ inconsistently can be confusing who are first learning OO.
+While I consider _object_ and _instance_ as two terms for the same concept, I think that since we tend to focus so much upon _classes_ when using OO, we sometimes use the term _object_ when we really meant _class_. Experienced developers understand the intent based upon the context, but using the term _object_ inconsistently can be confusing who are in the process of learning OO.
 
 I will use _class_ and _instance_ rather than _object_ for the rest of this blog entry to avoid any potential confusion.
 
@@ -44,9 +46,11 @@ Here are a few examples of classes and their instances.
 ### Design Patterns
 <img src="/assets/DecoratorDrinks.png" alt="Starbuzz Labels via Decorator" width = "30%" align="right" style="padding-right: 20px;">
 
-When I visualize Design Patterns, I tend to do so via classes. I have described [Design Patterns](https://jhumelsine.github.io/3000/01/01/preface.html#design-patterns) throughout my blog entries via [UML Class Diagrams](https://jhumelsine.github.io/2021/06/22/uml.html).
+When I visualize Design Patterns, I tend to do so via classes. I have described [Design Patterns](https://jhumelsine.github.io/3000/01/01/preface.html#design-patterns) throughout my blog entries using [UML Class Diagrams](https://jhumelsine.github.io/2021/06/22/uml.html).
 
 Behavior defined in classes within these patterns can only be realized via instances of those classes. For many design patterns, the instance is a runtime detail that’s often assumed. This is prevalent in the [Essential Design Patterns](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html) for which runtime instance realization was not addressed by the GoF. I recognized instance realization but mostly by introducing a [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) without much additional detail as to how it realized the instance.
+
+<img src="/assets/SpecificationPlaylistObjects2.png" alt="Leaf Playlist Classes" width = "40%" align="right" style="padding-right: 35px;">
 
 There are some patterns where the instances are critical in defining behavior. This is most prevalent in the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html). Composable Design Patterns define classes with relatively limited atomic behavior. No one class in a Composable Design Pattern can do __everything__, but an organized group of instances of the classes defined within the pattern can do __anything__.
 
@@ -63,7 +67,7 @@ Soon thereafter, his lectures turned to specific [Data Structures](https://en.wi
 
 While data structure code can be intimidating, just take a look at the implementation for a [doubly linked list](https://en.wikipedia.org/wiki/Doubly_linked_list#Inserting_a_node), the visual diagram of nodes and reference links made sense to me. I could see how his diagram and corresponding implementation were two representations of the same concept. It clicked. My grades improved dramatically in the midterms and the remaining homework. I think I ended up with the highest grade in the class.
 
-While we didn’t have terms such as _class_, _instance_ or _object_ in 1982, my professor presented data structures graphically using the equivalent of _instances_, whereas the accompanying implementation was the using the equivalent of _classes_.
+While we didn’t have terms such as _class_, _instance_ or _object_ in 1982, my professor presented data structures graphically using the equivalent of _instances_, whereas the accompanying implementation was the using the equivalent of _classes_. I visualize data structures as instances because most data structures don't contain too many classes. A Linked List is a Node with a pointer to a Node. A Tree is also a Node with a pointer to a left sub-Tree and a pointer to a right sub-Tree.
 
 I suspect that data structures are presented in academia these days as _classes_ and _instances_.
 
@@ -90,7 +94,7 @@ While Clients are people, these domains won’t include height and eye color in 
 But what if our customer is a government agency that issues documents, such as Driver Licenses and Passports? Personal identifying features, such as height and eye color are critical to those domains, so they would be included in the Client model.
 
 ### It’s a Dog-Eat-Dog World
-Let’s consider two domains, both relative to Dogs:
+Let’s consider two canine domains:
 * Dog Shelters
 * Show Dogs
 
