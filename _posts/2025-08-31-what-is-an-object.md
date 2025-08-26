@@ -1,12 +1,12 @@
 ---
-title: DRAFT – What is an Object?
-description: TBD
+title: DRAFT – What Is an Object?
+description: Clarifying Class, Object, Instance, and Their Real-World Meaning.
 unlisted: true
 ---
 <img src="https://openclipart.org/image/800px/68929" alt="Andy Warhol" title="Image Source: https://openclipart.org/detail/68929/andy-warhol" width = "50%" align="center" style="padding: 35px;">
  
 # Introduction
-__TBD__
+Object-oriented programming has been around for decades, yet the most basic question—_what is an object?_—still sparks debate. The terms “class,” “instance,” and “object” are often tossed around casually, but they’re not synonyms. In fact, misunderstanding the distinctions can lead to sloppy modeling, unclear code, and fragile designs. In this article, we’ll revisit these core concepts, ground them in analogy and practice, and set the stage for exploring design patterns like Singleton.
 
 # What is an Object?
 This blog entry is a precursor to the [Singleton Design Pattern](https://refactoring.guru/design-patterns/singleton) (TBD). This entry was originally going to be part of the Singleton blog entry itself, but I decided that it is long enough had has enough merits to stand on its own.
@@ -17,12 +17,12 @@ Sometimes we might use the term _object_ when we really mean _class_. Sometimes 
 * What is a class?
 * What is an instance?
 
-## What is a class?
+## What is a Class?
 Code within an OO implementation defines the behavior of a _class_. Our terminology is mostly consistent since `class` is a keyword for this concept in many OO languages. The class implementation defines relationships with other classes through inheritance, reference and delegation. Classes declare methods which define their behavior.
 
 __Classes declare and define behavior and relationships with other classes as specified within the implementation.__
 
-## What is an instance?
+## What is an Instance?
 Classes define potential in the form of code. That potential is realized when the code is executed. Except for `static` defined implementations, class potential can only be realized by an instance of a class.
 
 An instance contains state information for a class usually in the form of the values for its `private` and `protected` field attributes. Multiple instances of the same class can be created, each with their own independent state.
@@ -30,6 +30,15 @@ An instance contains state information for a class usually in the form of the va
 __An instance executes the methods of the class it instantiates and exhibits behaviors relative to its state information.__
 
 Classes reside in code. Instances reside in memory.
+
+## A Summary of Class, Instance and Object
+
+| Term      | Definition                                                                 | Key Characteristics                                                                 | Example (Dog Domain)                              |
+|-----------|-----------------------------------------------------------------------------|-------------------------------------------------------------------------------------|--------------------------------------------------|
+| **Class** | A blueprint or template that defines structure (fields) and behavior (methods). | - Describes what all its instances share.<br>- No concrete data until instantiated. | `class Dog { name, age, bark() }`                |
+| **Instance** | A specific, concrete occurrence of a class. Created when the program uses the class to allocate memory. | - Has actual values for fields.<br>- Behaves according to its class definition.      | `Dog d1 = new Dog("Buddy", 5)`                   |
+| **Object** | The general term often used to refer to an instance of a class, though usage can be ambiguous. | - In many contexts, “object” = instance.<br>- Sometimes used loosely to mean any entity in a system. | `d1` is an object of class `Dog`                 |
+
 
 ## A few real-world examples of classes and their instances
 While I consider _object_ and _instance_ as two terms for the same concept, I think that since we tend to focus so much upon _classes_ when using OO, we sometimes use the term _object_ when we really meant _class_. Experienced developers understand the intent based upon the context, but using the term _object_ inconsistently can be confusing who are in the process of learning OO.
@@ -42,6 +51,8 @@ Here are a few examples of classes and their instances.
 <img src="https://live.staticflickr.com/31/96727458_434393623a_b.jpg" alt="Warhol's Mao" title="Image Source: https://www.flickr.com/photos/andydoro/96727458" width = "30%" align="right" style="padding: 35px;">
  
 [Andy Warhol](https://en.wikipedia.org/wiki/Andy_Warhol) pioneered silk screening as an art form. His Mao work displays multiple images of Chairman Mao printed from the same silkscreen template. The silk screen template is like a class. It defines potential. Images are realized when ink is forced through the silk screen template onto paper or canvas. Here is an example of nine images of Mao created by Warhol. He was not limited to this set. He could have created many more, and I have no idea how many color combinations he assembled.
+
+The silk-screen template was Warhol's class, and the prints where his object instances.
 
 ### Design Patterns
 <img src="/assets/DecoratorDrinks.png" alt="Starbuzz Labels via Decorator" width = "30%" align="right" style="padding-right: 20px;">
@@ -61,20 +72,18 @@ The [Interpreter Design Pattern](https://jhumelsine.github.io/2024/03/12/interpr
  
 When I visualize Data Structures, I tend to do so via object instances.
 
-I had earned high grades in my college Computer Science classes, until I hit Data Structures. I received Cs in the first few weeks of homework assignments, and I was more accustomed to higher grades. I even visited my professor during office hours to voice my concern. Data Structures weren’t clicking. I don’t recall too much of his advice other than to give it more time.
+I initially struggled in my Data Structures course in college. Something wasn't clicking. A few weeks into the semester, my professor's lectures focuses upon specific [Data Structures](https://en.wikipedia.org/wiki/Data_structure), such as Stacks, Queues, Deques, Lists, Trees, etc. His presentations became more visual. He drew linked list nodes. He drew the links connecting them. He updated the nodes and links in logical order, maintaining references until the list was completed for each operation. As he drew each update to the list, he wrote the code that implemented each update to the visual representation of the linked list.
 
-Soon thereafter, his lectures turned to specific [Data Structures](https://en.wikipedia.org/wiki/Data_structure), such as Stacks, Queues, Deques, Lists, Trees, etc. His presentations became more visual. He drew linked list nodes. He drew the links connecting them. He updated the nodes and links in logical order, maintaining references until the list was completed for each operation. As he drew each update to the list, he wrote the code that implemented each update to the visual representation of the linked list.
-
-While data structure code can be intimidating, just take a look at the implementation for a [doubly linked list](https://en.wikipedia.org/wiki/Doubly_linked_list#Inserting_a_node), the visual diagram of nodes and reference links made sense to me. I could see how his diagram and corresponding implementation were two representations of the same concept. It clicked. My grades improved dramatically in the midterms and the remaining homework. I think I ended up with the highest grade in the class.
+While data structure code can be intimidating, just take a look at the implementation for a [doubly linked list](https://en.wikipedia.org/wiki/Doubly_linked_list#Inserting_a_node), the visual diagram of nodes and reference links made sense to me. I could see how his diagram and corresponding implementation were two representations of the same concept. It clicked.
 
 While we didn’t have terms such as _class_, _instance_ or _object_ in 1982, my professor presented data structures graphically using the equivalent of _instances_, whereas the accompanying implementation was the using the equivalent of _classes_. I visualize data structures as instances because most data structures don't contain too many classes. A Linked List is a Node with a pointer to a Node. A Tree is also a Node with a pointer to a left sub-Tree and a pointer to a right sub-Tree.
 
 I suspect that data structures are presented in academia these days as _classes_ and _instances_.
 
 ## Where is the line between class and instance?
-I’ve defined _class_ as code implementing behavior and _instance_ as the memory location for state in realizing that behavior at runtime. But it’s not always obvious what should be defined in a _class_ and what should be realized in an _instance_.
+I’ve defined _class_ as code implementing behavior and _instance_ as the memory location for state in realizing that behavior at runtime. But it’s not always obvious what should be defined in a _class_ and what should be realized in an _instance_. When should behavior reside in the class implementation or the instance state or organization?
 
-I have already demonstrated this case myself in the previous [Builder/Director](TBD) (TBD) blog where my initial design contained classes for Tea, Coffee, Sugar, Lemon, etc., and then as I started to test and implement my design, I realized what I had thought were different behaviors that required classes each for `Tea`, `Coffee`, `Sugar`, `Lemon`, etc. were really different state values for two classes: `Drink` and `AddOn`. 
+I have already illustrated an example of this decision in the previous [Builder/Director](TBD) (TBD) blog where my initial design contained classes for Tea, Coffee, Sugar, Lemon, etc., and then as I started to test and implement my design, I realized what I had thought were different behaviors that required classes each for `Tea`, `Coffee`, `Sugar`, `Lemon`, etc. were really different state values for two classes: `Drink` and `AddOn`. 
 
 ### Domain and Modeling
 The distinction between behavior residing within a _class_ implementation or behavior residing within an _instance_ state depends upon the domain and how the domain modeled. I’ll write about this more in the future (TBD) when I blog about [Domain-Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design), but I can provide a summary here.
@@ -103,25 +112,23 @@ Let’s consider two canine domains:
  
 Dog Shelters want to find homes for abandoned dogs. They want a website that features their furry friends with photo and a description for each dog. The description will contain basic information, such as the dog’s name, estimated age, history (if known), temperament, etc.
 
-A shelter’s domain will probably suffice with A single Dog class with each individual dog being an instance of Dog.
+A shelter’s domain is relatively simple; therefor a simple model will probably suffice with a single Dog class with each individual dog being an instance of Dog.
 
 #### Show Dog
 <img src="https://s0.geograph.org.uk/geophotos/06/18/45/6184562_88499b20_original.jpg" alt="Dogs Show" title="Image Source: https://www.geograph.org.uk/photo/6184562" width = "30%" align="right" style="padding: 35px;">
  
-Show Dog are a different domain. A single Dog class would be woefully insufficient for their modeling needs. There may still be a Dog class, but there would be subclasses for each show group, such as: Working Group, Miniatures, etc. See: [American Kennel Club](https://www.akc.org/dog-breeds/). Then each show group would have subclasses for the individual breeds within those groups.
+A single Dog class would be woefully insufficient for their modeling needs. There may still be a Dog class, but there would be subclasses for each show group, such as: Working Group, Miniatures, etc. See: [American Kennel Club](https://www.akc.org/dog-breeds/). Then each show group would have subclasses for the individual breeds within those groups.
 
 Each Group might define the characteristics of the Breeds within that Group. Each Breed might define the standards for that Breed. I don’t know enough about this domain to know whether Groups and Breeds would be their own classes or whether they could be sufficiently represented via state as was the case for Coffee, Tea and Sugar.
 
 Regardless, each Dog instance in the show model would contain much more information than in the shelter model. The show model would contain the dog’s name, pedigree, show history, owner, trainer, and more.
 
-# Summary
-__TBD__
+The Show Dog's domain is more complex; therefore, a more complex model will be needed to represent the Dog Groups, Breeds, and their traits.
 
+# Summary
 Now that I’ve presented _class_ and _instance_ in excruciating detail, I can come full circle introduce the scenario that will lead to Singleton, which is where I started this blog.
 
-Sometimes, the domain/model contains a concept for which there’s just one instance. These tend to be lower-level elements, such as the system clock, file system, a data store, etc., but it could be single instance elements in the customer’s Domain too.
-
-The next blog (TBD) will continue with Singleton describing how it can accommodate the one instance scenario.
+In some domains or design structures, you only ever need one instance of a class—like the system clock or the configuration loader. That setup leads to the __Singleton pattern__ (BD), which ensures single-instance behavior while addressing concerns like thread safety and testability. That’s where we’ll go next.
 
 # References
 _TBD_
