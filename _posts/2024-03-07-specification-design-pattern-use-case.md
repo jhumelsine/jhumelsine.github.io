@@ -100,7 +100,7 @@ fiveStarAltRock.add(new RatingSpecification(5));
 fiveStarAltRock.add(acceptedArtists);
 ```
 
-It's Specification/Composite tree would be:
+Its Specification/Composite tree would be:
 <img src="/assets/SpecificationPlaylistObjects2.png" alt="Leaf Playlist Classes" width = "90%" align="center" style="padding-right: 35px;">
 
 # Summary
