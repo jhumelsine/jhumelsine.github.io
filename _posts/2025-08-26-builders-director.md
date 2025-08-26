@@ -62,7 +62,7 @@ A Configurer can be implemented via a Parser, which is a type of Builder/Directo
 
 In my Configurer design, I often orchestrate object composition through declarative configuration; in the Interpreter mini-series, the pParser acts as both Builder and Director by constructing and orchestrating object trees via DSL grammars.
 
-# The Decorator Use Case & code Walkthrough
+# The Decorator Use Case & Code Walkthrough
 __Don’t Panic!__
 
 I will not present an example as complex as what I provided in the Interpreter examples. While all DSLs are defined by a grammar, not all grammars define a DSL. My grammar and parser in this example will be about as simple as possible.
