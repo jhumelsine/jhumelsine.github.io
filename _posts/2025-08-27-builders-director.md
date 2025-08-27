@@ -1,11 +1,10 @@
 ---
-title: DRAFT – The Director - More Than Builder’s Sidekick
+title: The Director - More Than Builder’s Sidekick
 description: Should Builder’s Director have been its own design pattern?
-unlisted: true
 ---
 
 # Introduction & Motivation
-The Gang of Four described the Director in passing as part of the Builder pattern, a helper role that orchestrates construction. But what if the Director is more than a supporting actor? In real systems, the logic that assembles objects—how they’re sequenced, nested, or decorated—often deserves as much attention as the objects themselves. In this blog entry, I’ll make the case for treating the Director as a standalone design pattern, explore its connection to Builder and [Composable Design Pattern](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html), and show how a Director can drive flexible object creation through examples like a configurable drink ordering system.
+The Gang of Four described the Director in passing as part of the Builder pattern, a helper role that orchestrates construction. But what if the Director is more than a supporting actor? In real systems, the logic that assembles objects—how they’re sequenced, nested, or decorated—often deserves as much attention as the objects themselves. In this blog entry, I’ll make the case for treating the Director as a standalone design pattern, explore its connection to [Builder](https://jhumelsine.github.io/2025/08/08/builder-introduction.html) and [Composable Design Pattern](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html), and show how a Director can drive flexible object creation through examples like a configurable drink ordering system.
 
 Too often, we focus on _what_ gets built and forget about _how_ it’s assembled. By elevating the Director to a full-fledged pattern, we highlight the orchestration logic that makes builders, composites, and decorators truly usable. Ignoring this layer can lead to duplication, scattered construction code, or rigid systems that are hard to extend.
 
@@ -81,7 +80,7 @@ I refactored the code. I moved calorie and cost attributes into the `Drink` and 
 
 It finally sunk through my thick skull that the `Drink` and `AddOn` abstract base classes didn’t need to be abstract. They can be concrete classes that declare immutable value objects with final attributes for `name`, `calories` and `cost`. The extraneous concrete classes in the previous design disappeared.
 
-Sometimes you discover that your design isn’t quite right until you start test and implementation just as I did. Go ahead and change your design as you gain a better understanding through the test and implementation.
+Sometimes you don't discover that your design isn’t quite right until you start test and implementation just as I did. Go ahead and change your design as you gain a better understanding through the test and implementation.
 
 Here is the updated design with my new understanding.
 
