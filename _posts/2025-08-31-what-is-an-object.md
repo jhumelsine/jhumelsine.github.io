@@ -1,24 +1,24 @@
 ---
 title: DRAFT – What Is an Object?
-description: Clarifying Class, Object, Instance, and Their Real-World Meaning.
+description: Clarifying Class, Object, Instance, and Their Real-World Meaning
 unlisted: true
 ---
 <img src="https://openclipart.org/image/800px/68929" alt="Andy Warhol" title="Image Source: https://openclipart.org/detail/68929/andy-warhol" width = "50%" align="center" style="padding: 35px;">
  
 # Introduction
-Object-oriented programming has been around for decades, yet the most basic question—_what is an object?_—still sparks debate. The terms “class,” “instance,” and “object” are often tossed around casually, but they’re not synonyms. In fact, misunderstanding the distinctions can lead to sloppy modeling, unclear code, and fragile designs. In this article, we’ll revisit these core concepts, ground them in analogy and practice, and set the stage for exploring design patterns like Singleton.
+Object-oriented programming has been around for decades, yet the most basic question—_what is an object?_—may cause some confusion. The terms “class,” “instance,” and “object” are often tossed around casually, but they’re not synonyms. In fact, misunderstanding the distinctions can lead to sloppy modeling, unclear code, and fragile designs. In this blog entry, we’ll revisit these core concepts, ground them in analogy and practice, and set the stage for exploring design patterns like Singleton.
 
 # What is an Object?
-This blog entry is a precursor to the [Singleton Design Pattern](https://refactoring.guru/design-patterns/singleton) (TBD). This entry was originally going to be part of the Singleton blog entry itself, but I decided that it is long enough had has enough merits to stand on its own.
+This blog entry is a precursor to the Singleton Design Pattern (TBD). It was originally going to be part of the Singleton blog entry itself, but I decided that it has enough merits to stand on its own.
 
-Before I dive into Singleton in the next blog, I’d like to consider Object-Oriented (OO) fundamentals and ask, ___“What is an object?”___ We use this term frequently, and I’m not sure that we always use it consistently. I try my best to use it consistently, but I know that I’ve not always been consistent.
+Before I dive into Singleton in the next blog, I’d like to consider Object-Oriented (OO) fundamentals and ask, ___“What is an object?”___ We use ___object___ frequently, but I’m not sure that we always use it consistently. I try my best to use it consistently, but I know that I’ve not always been consistent myself.
 
-Sometimes we might use the term _object_ when we really mean _class_. Sometimes we might use the term _object_ when we really mean _instance_ as in _an instance of a class_ or even _an object instance of a class_. These two new terms suggest two more questions:
-* What is a class?
-* What is an instance?
+Sometimes we might use the term _object_ when we mean _class_. Sometimes we might use the term _object_ when we mean _instance_ as in _an instance of a class_ or even _an object instance of a class_. These two new terms suggest two more questions:
+* _What is a class?_
+* _What is an instance?_
 
 ## What is a Class?
-Code within an OO implementation defines the behavior of a _class_. Our terminology is mostly consistent since `class` is a keyword for this concept in many OO languages. The class implementation defines relationships with other classes through inheritance, reference and delegation. Classes declare methods which define their behavior.
+Code written within an OO implementation defines the behavior of a _class_. Our terminology is mostly consistent with OO languages since `class` is a keyword for this concept in many of them. A class implementation defines relationships with other classes through inheritance, reference and delegation. Classes declare methods which define their behavior.
 
 __Classes declare and define behavior and relationships with other classes as specified within the implementation.__
 
@@ -36,36 +36,36 @@ Classes reside in code. Instances reside in memory.
 | Term      | Definition                                                                 | Key Characteristics                                                                 | Example (Dog Domain)                              |
 |-----------|-----------------------------------------------------------------------------|-------------------------------------------------------------------------------------|--------------------------------------------------|
 | **Class** | A blueprint or template that defines structure (fields) and behavior (methods). | - Describes what all its instances share.<br>- No concrete data until instantiated. | `class Dog { name, age, bark() }`                |
-| **Instance** | A specific, concrete occurrence of a class. Created when the program uses the class to allocate memory. | - Has actual values for fields.<br>- Behaves according to its class definition.      | `Dog d1 = new Dog("Buddy", 5)`                   |
+| **Instance** | A specific, occurrence of a class. Created when the program uses the class to allocate memory. | - Has actual values for fields.<br>- Behaves according to its class definition.      | `Dog d1 = new Dog("Buddy", 5)`                   |
 | **Object** | The general term often used to refer to an instance of a class, though usage can be ambiguous. | - In many contexts, “object” = instance.<br>- Sometimes used loosely to mean any entity in a system. | `d1` is an object of class `Dog`                 |
 
 
 ## A few real-world examples of classes and their instances
-While I consider _object_ and _instance_ as two terms for the same concept, I think that since we tend to focus so much upon _classes_ when using OO, we sometimes use the term _object_ when we really meant _class_. Experienced developers understand the intent based upon the context, but using the term _object_ inconsistently can be confusing who are in the process of learning OO.
+While I consider _object_ and _instance_ as two terms for the same concept, I think that since we tend to focus so much upon _classes_ when using OO, we sometimes use the term _object_ when we really meant _class_. Some of our programming languages contribute to this confusion. All classes in Java inherit from a root superclass, named [Object](https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html) implicitly. Experienced developers understand the intent based upon the context, but using the term _object_ inconsistently can be confusing who are in the process of learning OO.
 
 I will use _class_ and _instance_ rather than _object_ for the rest of this blog entry to avoid any potential confusion.
 
 Here are a few examples of classes and their instances.
 
 ### Chairman Mao
-<img src="https://live.staticflickr.com/31/96727458_434393623a_b.jpg" alt="Warhol's Mao" title="Image Source: https://www.flickr.com/photos/andydoro/96727458" width = "30%" align="right" style="padding: 35px;">
+<img src="https://live.staticflickr.com/31/96727458_434393623a_b.jpg" alt="Warhol's Mao" title="Image Source: https://www.flickr.com/photos/andydoro/96727458" width = "35%" align="right" style="padding: 35px;">
  
-[Andy Warhol](https://en.wikipedia.org/wiki/Andy_Warhol) pioneered silk screening as an art form. His Mao work displays multiple images of Chairman Mao printed from the same silkscreen template. The silk screen template is like a class. It defines potential. Images are realized when ink is forced through the silk screen template onto paper or canvas. Here is an example of nine images of Mao created by Warhol. He was not limited to this set. He could have created many more, and I have no idea how many color combinations he assembled.
+[Andy Warhol](https://en.wikipedia.org/wiki/Andy_Warhol) pioneered silk screening as an art form. His Mao prints display multiple images of Chairman Mao printed from the same silkscreen template. The silk screen template is like a class. It defines potential. Images are realized when ink is forced through the silk screen template onto paper or canvas. Here is an example of nine images of Mao created by Warhol. He was not limited to this set. He could have created many more, and I have no idea how many color combinations he assembled.
 
-The silk-screen template was Warhol's class, and the prints where his object instances.
+The silk-screen template was Warhol's class, and the prints created from it were his instances.
 
 ### Design Patterns
 <img src="/assets/DecoratorDrinks.png" alt="Starbuzz Labels via Decorator" width = "30%" align="right" style="padding-right: 20px;">
 
 When I visualize Design Patterns, I tend to do so via classes. I have described [Design Patterns](https://jhumelsine.github.io/3000/01/01/preface.html#design-patterns) throughout my blog entries using [UML Class Diagrams](https://jhumelsine.github.io/2021/06/22/uml.html).
 
-Behavior defined in classes within these patterns can only be realized via instances of those classes. For many design patterns, the instance is a runtime detail that’s often assumed. This is prevalent in the [Essential Design Patterns](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html) for which runtime instance realization was not addressed by the GoF. I recognized instance realization but mostly by introducing a [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) without much additional detail as to how it realized the instance.
+Behavior defined in classes within these patterns can only be realized via instances of those classes. For many design patterns, the instance is a runtime detail that’s often assumed. This is prevalent in the [Essential Design Patterns](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html) for which runtime instance realization was not addressed by the GoF. I included instance realization mostly by introducing a [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) without much additional detail as to how it realized the instance.
 
-<img src="/assets/SpecificationPlaylistObjects2.png" alt="Leaf Playlist Classes" width = "40%" align="right" style="padding-right: 35px;">
+<img src="/assets/SpecificationPlaylistObjects2.png" alt="Leaf Playlist Classes" width = "45%" align="right" style="padding-right: 35px;">
 
 There are some patterns where the instances are critical in defining behavior. This is most prevalent in the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html). Composable Design Patterns define classes with relatively limited atomic behavior. No one class in a Composable Design Pattern can do __everything__, but an organized group of instances of the classes defined within the pattern can do __anything__.
 
-The [Interpreter Design Pattern](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) is probably the greatest example of this. Each Interpreter class implements a rule in the [Grammar](https://jhumelsine.github.io/2024/04/02/interpreter-design-pattern-grammars.html) for the [Domain-Specific Language](https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html) (DSL). Instances of those grammar rules and created and assembled into a parse tree by the [Parser](https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html#parser) based upon a script written in the DSL. Each DSL script is parsed into its own parse tree of instances which collectively exhibits the unique behaviors defined in that DSL script. An almost infinite set of behaviors can emerge from the assembled configuration of instances created from the same set of finite rule-based classes.
+The [Interpreter Design Pattern](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) is probably the greatest example of this. Each Interpreter class implements a rule in the [Grammar](https://jhumelsine.github.io/2024/04/02/interpreter-design-pattern-grammars.html) for a [Domain-Specific Language](https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html) (DSL). Instances of those grammar rules are created and assembled into a parse tree by the [Parser](https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html#parser) based upon a script written in the DSL. Each DSL script is parsed into its own parse tree of instances which collectively exhibits the unique behaviors defined in that DSL script. An almost infinite set of behaviors can emerge from the assembled configuration of instances created from the same set of finite rule-based classes.
 
 ### Data Structures
 <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/C_language_linked_list_adding_a_link_step_2.png" alt="Linked List" title="Image Source: https://commons.wikimedia.org/wiki/File:C_language_linked_list_adding_a_link_step_2.png" width = "40%" align="right" style="padding: 35px;">
@@ -76,12 +76,12 @@ I initially struggled in my Data Structures course in college. Something wasn't 
 
 While data structure code can be intimidating, just take a look at the implementation for a [doubly linked list](https://en.wikipedia.org/wiki/Doubly_linked_list#Inserting_a_node), the visual diagram of nodes and reference links made sense to me. I could see how his diagram and corresponding implementation were two representations of the same concept. It clicked.
 
-While we didn’t have terms such as _class_, _instance_ or _object_ in 1982, my professor presented data structures graphically using the equivalent of _instances_, whereas the accompanying implementation was the using the equivalent of _classes_. I visualize data structures as instances because most data structures don't contain too many classes. A Linked List is a Node with a pointer to a Node. A Tree is also a Node with a pointer to a left sub-Tree and a pointer to a right sub-Tree.
+While we didn’t have terms such as _class_, _instance_ or _object_ in 1982, my professor presented data structures graphically using the equivalent of _instances_, whereas the accompanying implementation was the using the equivalent of _classes_. I suspect that data structures are presented in academia these days as _classes_ and _instances_. 
 
-I suspect that data structures are presented in academia these days as _classes_ and _instances_.
+I visualize data structures as instances because most data structures don't contain too many classes. A Linked List is a ListNode class with a reference to the next ListNode. A Tree is also a TreeNode with a reference to a left sub-TreeNode and a reference to a right sub-TreeNode.
 
 ## Where is the line between class and instance?
-I’ve defined _class_ as code implementing behavior and _instance_ as the memory location for state in realizing that behavior at runtime. But it’s not always obvious what should be defined in a _class_ and what should be realized in an _instance_. When should behavior reside in the class implementation or the instance state or organization?
+I’ve defined _class_ as code implementing behavior and _instance_ as the memory location for state in realizing that behavior at runtime. But it’s not always obvious what should be defined in a _class_ and what should be realized in an _instance_. When should behavior reside in the class implementation, the instance state or the organization of a set of instances?
 
 I have already illustrated an example of this decision in the previous [Builder/Director](TBD) (TBD) blog where my initial design contained classes for Tea, Coffee, Sugar, Lemon, etc., and then as I started to test and implement my design, I realized what I had thought were different behaviors that required classes each for `Tea`, `Coffee`, `Sugar`, `Lemon`, etc. were really different state values for two classes: `Drink` and `AddOn`. 
 
@@ -108,16 +108,16 @@ Let’s consider two canine domains:
 * Show Dogs
 
 #### Dog Shelters
-<img src="https://images.pexels.com/photos/12195433/pexels-photo-12195433.jpeg" alt="Dogs in Shelter" title="Image Source: https://images.pexels.com/photos/12195433/pexels-photo-12195433.jpeg" width = "30%" align="right" style="padding: 35px;">
+<img src="https://images.pexels.com/photos/12195433/pexels-photo-12195433.jpeg" alt="Dogs in Shelter" title="Image Source: https://images.pexels.com/photos/12195433/pexels-photo-12195433.jpeg" width = "35%" align="right" style="padding: 35px;">
  
 Dog Shelters want to find homes for abandoned dogs. They want a website that features their furry friends with photo and a description for each dog. The description will contain basic information, such as the dog’s name, estimated age, history (if known), temperament, etc.
 
 A shelter’s domain is relatively simple; therefor a simple model will probably suffice with a single Dog class with each individual dog being an instance of Dog.
 
 #### Show Dog
-<img src="https://s0.geograph.org.uk/geophotos/06/18/45/6184562_88499b20_original.jpg" alt="Dogs Show" title="Image Source: https://www.geograph.org.uk/photo/6184562" width = "30%" align="right" style="padding: 35px;">
+<img src="https://s0.geograph.org.uk/geophotos/06/18/45/6184562_88499b20_original.jpg" alt="Dogs Show" title="Image Source: https://www.geograph.org.uk/photo/6184562" width = "35%" align="right" style="padding: 35px;">
  
-A single Dog class would be woefully insufficient for their modeling needs. There may still be a Dog class, but there would be subclasses for each show group, such as: Working Group, Miniatures, etc. See: [American Kennel Club](https://www.akc.org/dog-breeds/). Then each show group would have subclasses for the individual breeds within those groups.
+A single Dog class would be woefully insufficient for Show Dog modeling needs. There may still be a Dog class, but there would be subclasses for each show group, such as: Working Group, Miniatures, etc. See: [American Kennel Club](https://www.akc.org/dog-breeds/). Then each show group would have subclasses for the individual breeds within those groups.
 
 Each Group might define the characteristics of the Breeds within that Group. Each Breed might define the standards for that Breed. I don’t know enough about this domain to know whether Groups and Breeds would be their own classes or whether they could be sufficiently represented via state as was the case for Coffee, Tea and Sugar.
 
