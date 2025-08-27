@@ -211,7 +211,7 @@ DrinkOrder acquire(String ingredient, DrinkOrder drinkOrder) throws Exception {
 ```
 
 __ERRATA__
->I found a minor issue in the above code while drafting one of the [Builder Design Pattern](TBD) (TBD) blog entries. That blog continues with this example, and I while reviewing it on August 18, 2025, I noticed something that isn't quite correct. Can you spot it?
+>I found a minor issue in the above code while drafting one of the [Builder Design Pattern](https://jhumelsine.github.io/2025/08/08/builder-introduction.html) blog entries. That blog continues with this example, and I while reviewing it on August 18, 2025, I noticed something that isn't quite correct. Can you spot it?
 >
 >This is a case where I provided code snippets without actually implementing or testing them. If I had continued the design with tests and implementation, I would have found the issue. It's not uncommon to make mistakes in design code snippets, which are often later revealed during the test and implementation phases.
 >
