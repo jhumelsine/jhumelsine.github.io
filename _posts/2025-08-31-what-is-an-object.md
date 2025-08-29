@@ -3,7 +3,7 @@ title: DRAFT – What Is an Object?
 description: Clarifying Class, Object, Instance, and Their Real-World Meaning
 unlisted: true
 ---
-<img src="https://openclipart.org/image/800px/68929" alt="Andy Warhol" title="Image Source: https://openclipart.org/detail/68929/andy-warhol" width = "50%" align="center" style="padding: 35px;">
+<img src="https://openclipart.org/image/800px/68929" alt="Andy Warhol" title="Image Source: https://openclipart.org/detail/68929/andy-warhol" width = "40%" align="center" style="padding: 35px;">
  
 # Introduction
 Object-oriented programming has been around for decades, yet the most basic question—_what is an object?_—may cause some confusion. The terms “class,” “instance,” and “object” are often tossed around casually, but they’re not synonyms. In fact, misunderstanding the distinctions can lead to sloppy modeling, unclear code, and fragile designs. In this blog entry, we’ll revisit these core concepts, ground them in analogy and practice, and set the stage for exploring design patterns like Singleton.
@@ -41,7 +41,7 @@ Classes reside in code. Instances reside in memory.
 
 
 ## A few real-world examples of classes and their instances
-While I consider _object_ and _instance_ as two terms for the same concept, I think that since we tend to focus so much upon _classes_ when using OO, we sometimes use the term _object_ when we really meant _class_. Some of our programming languages contribute to this confusion. All classes in Java inherit from a root superclass, named [Object](https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html) implicitly. Experienced developers understand the intent based upon the context, but using the term _object_ inconsistently can be confusing who are in the process of learning OO.
+While I consider _object_ and _instance_ as two terms for the same concept, I think that since we tend to focus so much upon _classes_ when using OO, we sometimes use the term _object_ when we really meant _class_. Some of our programming languages contribute to this confusion. All classes in Java inherit from a root superclass, named [Object](https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html), even if it's really a __class__. Experienced developers understand the intent based upon the context, but using the term _object_ inconsistently can be confusing who are in the process of learning OO.
 
 I will use _class_ and _instance_ rather than _object_ for the rest of this blog entry to avoid any potential confusion.
 
@@ -129,6 +129,3 @@ The Show Dog's domain is more complex; therefore, a more complex model will be n
 Now that I’ve presented _class_ and _instance_ in excruciating detail, I can come full circle introduce the scenario that will lead to Singleton, which is where I started this blog.
 
 In some domains or design structures, you only ever need one instance of a class—like the system clock or the configuration loader. That setup leads to the __Singleton pattern__ (BD), which ensures single-instance behavior while addressing concerns like thread safety and testability. That’s where we’ll go next.
-
-# References
-_TBD_
