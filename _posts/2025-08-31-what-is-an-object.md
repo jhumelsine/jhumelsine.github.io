@@ -11,14 +11,15 @@ Object-oriented programming has been around for decades, yet the most basic ques
 # What is an Object?
 This blog entry is a precursor to the Singleton Design Pattern (TBD). It was originally going to be part of the Singleton blog entry itself, but I decided that it has enough merits to stand on its own.
 
-Before I dive into Singleton in the next blog, I’d like to consider Object-Oriented (OO) fundamentals and ask, ___“What is an object?”___ We use ___object___ frequently, but I’m not sure that we always use it consistently. I try my best to use it consistently, but I know that I’ve not always been consistent myself.
+Before I dive into Singleton in the next blog, I’d like to consider Object-Oriented (OO) fundamentals and ask, ___What is an object?___ We use ___object___ frequently, but I’m not sure that we always use it consistently. I try my best to use it consistently, but I know that I’ve not always been consistent myself.
 
 Sometimes we might use the term _object_ when we mean _class_. Sometimes we might use the term _object_ when we mean _instance_ as in _an instance of a class_ or even _an object instance of a class_. These two new terms suggest two more questions:
 * _What is a class?_
 * _What is an instance?_
 
 ## What is a Class?
-Code written within an OO implementation defines the behavior of a _class_. Our terminology is mostly consistent with OO languages since `class` is a keyword for this concept in many of them. A class implementation defines relationships with other classes through inheritance, reference and delegation. Classes declare methods which define their behavior.
+A _class_ implementation defines relationships with other classes through inheritance, reference and delegation. Classes declare methods whose implementation define their behavior.
+Code written for a _class_ within an OO implementation defines the boundaries of the _class_. Our terminology is mostly consistent with OO languages since `class` is a keyword for this concept in many of them.
 
 __Classes declare and define behavior and relationships with other classes as specified within the implementation.__
 
@@ -29,7 +30,7 @@ An instance contains state information for a class usually in the form of the va
 
 __An instance executes the methods of the class it instantiates and exhibits behaviors relative to its state information.__
 
-Classes reside in code. Instances reside in memory.
+__Classes reside in code. Instances reside in memory.__
 
 ## A Summary of Class, Instance and Object
 
@@ -50,7 +51,7 @@ Here are a few examples of classes and their instances.
 ### Chairman Mao
 <img src="https://live.staticflickr.com/31/96727458_434393623a_b.jpg" alt="Warhol's Mao" title="Image Source: https://www.flickr.com/photos/andydoro/96727458" width = "35%" align="right" style="padding: 35px;">
  
-[Andy Warhol](https://en.wikipedia.org/wiki/Andy_Warhol) pioneered silk screening as an art form. His Mao prints display multiple images of Chairman Mao printed from the same silkscreen template. The silk screen template is like a class. It defines potential. Images are realized when ink is forced through the silk screen template onto paper or canvas. Here is an example of nine images of Mao created by Warhol. He was not limited to this set. He could have created many more, and I have no idea how many color combinations he assembled.
+[Andy Warhol](https://en.wikipedia.org/wiki/Andy_Warhol) pioneered silk screening as an art form. His Mao prints display multiple images of Chairman Mao printed from the same silkscreen template. The silk screen template is like a class. It defines potential. Images are realized when ink is forced through the silk screen template onto paper or canvas. Here is an example of nine images of Mao created by Warhol. He was not limited to this set. He could have created many more, and I have no idea how many color combinations he created.
 
 The silk-screen template was Warhol's class, and the prints created from it were his instances.
 
@@ -59,36 +60,36 @@ The silk-screen template was Warhol's class, and the prints created from it were
 
 When I visualize Design Patterns, I tend to do so via classes. I have described [Design Patterns](https://jhumelsine.github.io/3000/01/01/preface.html#design-patterns) throughout my blog entries using [UML Class Diagrams](https://jhumelsine.github.io/2021/06/22/uml.html).
 
-Behavior defined in classes within these patterns can only be realized via instances of those classes. For many design patterns, the instance is a runtime detail that’s often assumed. This is prevalent in the [Essential Design Patterns](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html) for which runtime instance realization was not addressed by the GoF. I included instance realization mostly by introducing a [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) without much additional detail as to how it realized the instance.
+Behavior defined in classes within these patterns can only be realized via instances of those classes. For many design patterns, the instance is a runtime detail that’s often assumed. This is prevalent in the [Essential Design Patterns](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html) for which runtime instance realization was not addressed by the GoF. I included instance realization mostly by introducing a [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) without much additional detail as to how it realized the instance and injected it into the primary portion of the design.
 
 <img src="/assets/SpecificationPlaylistObjects2.png" alt="Leaf Playlist Classes" width = "45%" align="right" style="padding-right: 35px;">
 
-There are some patterns where the instances are critical in defining behavior. This is most prevalent in the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html). Composable Design Patterns define classes with relatively limited atomic behavior. No one class in a Composable Design Pattern can do __everything__, but an organized group of instances of the classes defined within the pattern can do __anything__.
+There are some patterns where the instances are critical in defining behavior. This is most prevalent in the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html). Composable Design Patterns define classes with relatively limited atomic behavior from which the desired behavior emerges from the composition and coordination of those instances. No one class in a Composable Design Pattern can do __everything__, but an organized group of instances of the classes defined within the pattern can do __anything__.
 
-The [Interpreter Design Pattern](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) is probably the greatest example of this. Each Interpreter class implements a rule in the [Grammar](https://jhumelsine.github.io/2024/04/02/interpreter-design-pattern-grammars.html) for a [Domain-Specific Language](https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html) (DSL). Instances of those grammar rules are created and assembled into a parse tree by the [Parser](https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html#parser) based upon a script written in the DSL. Each DSL script is parsed into its own parse tree of instances which collectively exhibits the unique behaviors defined in that DSL script. An almost infinite set of behaviors can emerge from the assembled configuration of instances created from the same set of finite rule-based classes.
+The [Interpreter Design Pattern](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) is probably the greatest example of this. Each Interpreter class implements a rule in the [Grammar](https://jhumelsine.github.io/2024/04/02/interpreter-design-pattern-grammars.html) for a [Domain-Specific Language](https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html) (DSL). Instances of those grammar rules are created and assembled into a parse tree by the [Parser](https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html#parser) based upon a script written in the DSL. Each DSL script is parsed into its own parse tree of instances which collectively exhibits the unique behaviors defined in that DSL script. An almost infinite set of behaviors can emerge from the assembled configuration of instances created from one finite set of rule-based classes.
 
 ### Data Structures
 <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/C_language_linked_list_adding_a_link_step_2.png" alt="Linked List" title="Image Source: https://commons.wikimedia.org/wiki/File:C_language_linked_list_adding_a_link_step_2.png" width = "40%" align="right" style="padding: 35px;">
  
-When I visualize Data Structures, I tend to do so via object instances.
+On the other hand, when I visualize Data Structures, I tend to do so via object instances.
 
-I initially struggled in my Data Structures course in college. Something wasn't clicking. A few weeks into the semester, my professor's lectures focuses upon specific [Data Structures](https://en.wikipedia.org/wiki/Data_structure), such as Stacks, Queues, Deques, Lists, Trees, etc. His presentations became more visual. He drew linked list nodes. He drew the links connecting them. He updated the nodes and links in logical order, maintaining references until the list was completed for each operation. As he drew each update to the list, he wrote the code that implemented each update to the visual representation of the linked list.
+I initially struggled in my Data Structures course in college. Something wasn't clicking. A few weeks into the semester, my professor's lectures focused upon specific [Data Structures](https://en.wikipedia.org/wiki/Data_structure), such as Stacks, Queues, Deques, Lists, Trees, etc. His presentations became more visual. He drew linked list nodes and the links connecting them. For each linked list operation, he updated the nodes and links in logical order, maintaining references until the list was completed for each operation. As he drew each update to the list, he wrote the corresponding code that implemented each update that matched the visual representation of the linked list.
 
-While data structure code can be intimidating, just take a look at the implementation for a [doubly linked list](https://en.wikipedia.org/wiki/Doubly_linked_list#Inserting_a_node), the visual diagram of nodes and reference links made sense to me. I could see how his diagram and corresponding implementation were two representations of the same concept. It clicked.
+While data structure code is not overly complex, just imagine how confusing a [doubly linked list](https://en.wikipedia.org/wiki/Doubly_linked_list#Inserting_a_node) operation would be without a visual model. The visual diagram of nodes and reference links made sense to me. I could see how his diagram and corresponding implementation were two representations of the same concept. It clicked.
 
 While we didn’t have terms such as _class_, _instance_ or _object_ in 1982, my professor presented data structures graphically using the equivalent of _instances_, whereas the accompanying implementation was the using the equivalent of _classes_. I suspect that data structures are presented in academia these days as _classes_ and _instances_. 
 
-I visualize data structures as instances because most data structures don't contain too many classes. A Linked List is a ListNode class with a reference to the next ListNode. A Tree is also a TreeNode with a reference to a left sub-TreeNode and a reference to a right sub-TreeNode.
+I visualize data structures as instances because most data structures don't contain too many classes. A Linked List is a `Node` class with a reference to the `next` `Node`. A Tree is also a `Node` with a reference to a `left` sub-Tree `Node` and a reference to a `right` sub-Tree `Node`. Many data structures are comprised of composable instances of self-referential classes.
 
 ## Where is the line between class and instance?
 I’ve defined _class_ as code implementing behavior and _instance_ as the memory location for state in realizing that behavior at runtime. But it’s not always obvious what should be defined in a _class_ and what should be realized in an _instance_. When should behavior reside in the class implementation, the instance state or the organization of a set of instances?
 
-I have already illustrated an example of this decision in the previous [Builder/Director](https://jhumelsine.github.io/2025/08/27/builders-director.html) blog where my initial design contained classes for Tea, Coffee, Sugar, Lemon, etc., and then as I started to test and implement my design, I realized what I had thought were different behaviors that required classes each for `Tea`, `Coffee`, `Sugar`, `Lemon`, etc. were really different state values for two classes: `Drink` and `AddOn`. 
+I have already illustrated an example of this decision in the previous [Builder/Director](https://jhumelsine.github.io/2025/08/27/builders-director.html) blog where my initial design contained classes for `Tea`, `Coffee`, `Sugar`, `Lemon`, etc., and then as I started to test and implement my design, I realized what I had thought were different behaviors that required classes each for `Tea`, `Coffee`, `Sugar`, `Lemon`, etc. were really different attribute states for two classes: `Drink` and `AddOn`. 
 
 ### Domain and Modeling
 The distinction between behavior residing within a _class_ implementation or behavior residing within an _instance_ state depends upon the domain and how the domain modeled. I’ll write about this more in the future (TBD) when I blog about [Domain-Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design), but I can provide a summary here.
 
-The Domain (TBD) is business concern of your customer. It’s why they exist. Their business concern could be communications, marketing, finance, health, entertainment, etc. Sometimes our customers might be external, such as creating software for a hospital or bank, and sometimes our customers might be internal, such as software we provide as employees of Google, Meta or Amazon.
+The Domain (TBD) is business concern of your customer. It’s why they exist. Their business domains could be communications, marketing, finance, health, entertainment, etc. Sometimes our customers might be external, such as when we create software for a hospital or bank, and sometimes our customers might be internal, such as when we create software as employees of Google, Meta or Amazon.
 
 The Domain Model (TBD) is how we represent the customer’s Domain and its associated behaviors within our design and implementation. There are many ways to model a Domain. Some better than others.
 
@@ -110,7 +111,7 @@ Let’s consider two canine domains:
 #### Dog Shelters
 <img src="https://images.pexels.com/photos/12195433/pexels-photo-12195433.jpeg" alt="Dogs in Shelter" title="Image Source: https://images.pexels.com/photos/12195433/pexels-photo-12195433.jpeg" width = "35%" align="right" style="padding: 35px;">
  
-Dog Shelters want to find homes for abandoned dogs. They want a website that features their furry friends with photo and a description for each dog. The description will contain basic information, such as the dog’s name, estimated age, history (if known), temperament, etc.
+Dog Shelters seek homes for abandoned dogs. They want a website that features their furry friends with photo and a description for each dog. The description will contain basic information, such as the dog’s name, estimated age, history (if known), temperament, etc.
 
 A shelter’s domain is relatively simple; therefor a simple model will probably suffice with a single Dog class with each individual dog being an instance of Dog.
 
@@ -128,4 +129,4 @@ The Show Dog's domain is more complex; therefore, a more complex model will be n
 # Summary
 Now that I’ve presented _class_ and _instance_ in excruciating detail, I can come full circle introduce the scenario that will lead to Singleton, which is where I started this blog.
 
-In some domains or design structures, you only ever need one instance of a class—like the system clock or the configuration loader. That setup leads to the __Singleton pattern__ (BD), which ensures single-instance behavior while addressing concerns like thread safety and testability. That’s where we’ll go next.
+In some domains or design structures, you only ever need one instance of a class—like the system clock or the configuration loader. That setup leads to the __Singleton pattern__ (TBD), which ensures single-instance behavior while addressing concerns like thread safety and testability. That’s where we’ll go next.
