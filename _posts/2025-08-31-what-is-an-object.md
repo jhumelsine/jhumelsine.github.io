@@ -13,9 +13,9 @@ This blog entry is a precursor to the Singleton Design Pattern (TBD). It was ori
 
 Before I dive into Singleton in the next blog, I’d like to consider Object-Oriented (OO) fundamentals and ask, ___What is an object?___ We use ___object___ frequently, but I’m not sure that we always use it consistently. I try my best to use it consistently, but I know that I’ve not always been consistent myself.
 
-Sometimes we might use the term _object_ when we mean _class_. Sometimes we might use the term _object_ when we mean _instance_ as in _an instance of a class_ or even _an object instance of a class_. These two new terms suggest two more questions:
-* _What is a class?_
-* _What is an instance?_
+Sometimes we might use the term ___object___ when we mean ___class___. Sometimes we might use the term ___object___ when we mean ___instance___ as in ___an instance of a class___ or even ___an object instance of a class___. These two new terms suggest two more questions:
+* ___What is a class?___
+* ___What is an instance?___
 
 ## What is a Class?
 A _class_ implementation defines relationships with other classes through inheritance, reference and delegation. Classes declare methods whose implementation define their behavior.
@@ -42,7 +42,7 @@ __Classes reside in code. Instances reside in memory.__
 
 
 ## A few real-world examples of classes and their instances
-While I consider _object_ and _instance_ as two terms for the same concept, I think that since we tend to focus so much upon _classes_ when using OO, we sometimes use the term _object_ when we really meant _class_. Some of our programming languages contribute to this confusion. All classes in Java inherit from a root superclass, named [Object](https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html), even if it's really a __class__. Experienced developers understand the intent based upon the context, but using the term _object_ inconsistently can be confusing who are in the process of learning OO.
+While I consider _object_ and _instance_ as two terms for the same concept, I think that since we tend to focus so much upon _classes_ when using OO, we sometimes use the term _object_ when we really mean _class_. Some of our programming languages contribute to this confusion. All classes in Java inherit from a root superclass, named [Object](https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html), even if it's really a __class__. Experienced developers understand the intent based upon the context, but using the term _object_ inconsistently can be confusing who are learning OO.
 
 I will use _class_ and _instance_ rather than _object_ for the rest of this blog entry to avoid any potential confusion.
 
@@ -60,11 +60,11 @@ The silk-screen template was Warhol's class, and the prints created from it were
 
 When I visualize Design Patterns, I tend to do so via classes. I have described [Design Patterns](https://jhumelsine.github.io/3000/01/01/preface.html#design-patterns) throughout my blog entries using [UML Class Diagrams](https://jhumelsine.github.io/2021/06/22/uml.html).
 
-Behavior defined in classes within these patterns can only be realized via instances of those classes. For many design patterns, the instance is a runtime detail that’s often assumed. This is prevalent in the [Essential Design Patterns](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html) for which runtime instance realization was not addressed by the GoF. I included instance realization mostly by introducing a [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) without much additional detail as to how it realized the instance and injected it into the primary portion of the design.
+Behavior defined in classes within these patterns can only be realized via instances of those classes. For many design patterns, the instance is a runtime detail that’s often assumed. This is prevalent in the [Essential Design Patterns](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html) for which runtime instance realization was not addressed by the GoF. I included instance realization mostly by introducing a [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) without much additional detail other than to show how it realized the instance and injected it into the primary portion of the design.
 
 <img src="/assets/SpecificationPlaylistObjects2.png" alt="Leaf Playlist Classes" width = "45%" align="right" style="padding-right: 35px;">
 
-There are some patterns where the instances are critical in defining behavior. This is most prevalent in the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html). Composable Design Patterns define classes with relatively limited atomic behavior from which the desired behavior emerges from the composition and coordination of those instances. No one class in a Composable Design Pattern can do __everything__, but an organized group of instances of the classes defined within the pattern can do __anything__.
+There are some patterns where the instances are critical in defining emergent behavior. This is most prevalent in the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html). Composable Design Patterns define classes with relatively limited atomic behavior from which the desired behavior emerges from the composition and coordination of instances of those limited behavior classes. No one class in a Composable Design Pattern can do __everything__, but an organized group of instances of the classes defined within the pattern can do __anything__.
 
 The [Interpreter Design Pattern](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) is probably the greatest example of this. Each Interpreter class implements a rule in the [Grammar](https://jhumelsine.github.io/2024/04/02/interpreter-design-pattern-grammars.html) for a [Domain-Specific Language](https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html) (DSL). Instances of those grammar rules are created and assembled into a parse tree by the [Parser](https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html#parser) based upon a script written in the DSL. Each DSL script is parsed into its own parse tree of instances which collectively exhibits the unique behaviors defined in that DSL script. An almost infinite set of behaviors can emerge from the assembled configuration of instances created from one finite set of rule-based classes.
 
@@ -77,9 +77,11 @@ I initially struggled in my Data Structures course in college. Something wasn't 
 
 While data structure code is not overly complex, just imagine how confusing a [doubly linked list](https://en.wikipedia.org/wiki/Doubly_linked_list#Inserting_a_node) operation would be without a visual model. The visual diagram of nodes and reference links made sense to me. I could see how his diagram and corresponding implementation were two representations of the same concept. It clicked.
 
-While we didn’t have terms such as _class_, _instance_ or _object_ in 1982, my professor presented data structures graphically using the equivalent of _instances_, whereas the accompanying implementation was the using the equivalent of _classes_. I suspect that data structures are presented in academia these days as _classes_ and _instances_. 
+While we didn’t have terms such as _class_, _instance_ or _object_ in 1982, my professor presented data structures graphically mirrored _instances_, whereas the accompanying implementation mirrored _classes_. I suspect that data structures are presented in academia these days as _classes_ and _instances_. 
 
 I visualize data structures as instances because most data structures don't contain too many classes. A Linked List is a `Node` class with a reference to the `next` `Node`. A Tree is also a `Node` with a reference to a `left` sub-Tree `Node` and a reference to a `right` sub-Tree `Node`. Many data structures are comprised of composable instances of self-referential classes.
+
+__Side Note:__ The _class_ for a Tree and Doubly Linked List would the same. It's a `Node` with two references to two other `Nodes`. The only distiction is how the references assigned in the operations. Trees reference sub-Trees. Doubly Linked Lists reference their left and right neighbors.
 
 ## Where is the line between class and instance?
 I’ve defined _class_ as code implementing behavior and _instance_ as the memory location for state in realizing that behavior at runtime. But it’s not always obvious what should be defined in a _class_ and what should be realized in an _instance_. When should behavior reside in the class implementation, the instance state or the organization of a set of instances?
@@ -89,19 +91,19 @@ I have already illustrated an example of this decision in the previous [Builder/
 ### Domain and Modeling
 The distinction between behavior residing within a _class_ implementation or behavior residing within an _instance_ state depends upon the domain and how the domain modeled. I’ll write about this more in the future (TBD) when I blog about [Domain-Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design), but I can provide a summary here.
 
-The Domain (TBD) is business concern of your customer. It’s why they exist. Their business domains could be communications, marketing, finance, health, entertainment, etc. Sometimes our customers might be external, such as when we create software for a hospital or bank, and sometimes our customers might be internal, such as when we create software as employees of Google, Meta or Amazon.
+The Domain (TBD) is business concern of your customer. It’s why they exist, and how they make money. Their business domains could be communications, marketing, finance, health, entertainment, etc. Sometimes our customers might be external, such as when we create software for a hospital or bank, and sometimes our customers might be internal, such as when we create software as employees of Google, Meta or Amazon.
 
-The Domain Model (TBD) is how we represent the customer’s Domain and its associated behaviors within our design and implementation. There are many ways to model a Domain. Some better than others.
+The Domain Model (TBD) is how we represent the customer’s Domain and its associated behaviors within our design and implementation. There are many ways to model a Domain. Some better than others. We often don't know the Domain well enough, especially as we start, to design a good or even accurate Model. As we learn more about the Domain via the iterative process, we gain additional insights that will result in a better Model. That's why we must strive to keep our design and implementation modular and flexible. __As we learn that our Model does not accurately reflect our new found insights about the Domain, we want the flexibility to easily update the Model, design and implementation to better reflect those new found insights.__ 
 
 >_All models are wrong, but some are useful._ ― [George Box](https://en.wikipedia.org/wiki/All_models_are_wrong)
 
-We must decide which domain elements are important enough to model and which domain elements do not need to be included in the model.
+We must decide which domain elements are important enough to model and which domain elements do not need to be included in the Model.
 
 For example, many domains include a `Client`. The model for most Clients will require a name, contact information, history, etc. Clients will often be individual people, especially for domains, such as Linkedin, Meta, Amazon and Netflix.
 
 While Clients are people, these domains won’t include height and eye color in the model. While these are attributes of people, they aren’t relevant attributes for Clients in these domains.
 
-But what if our customer is a government agency that issues documents, such as Driver Licenses and Passports? Personal identifying features, such as height and eye color are critical to those domains, so they would be included in the Client model.
+But what if our customer is a government agency that issues identification documents, such as Driver Licenses and Passports? Personal identifying features, such as height and eye color are critical to those domains, so they would be included in the Client model.
 
 ### It’s a Dog-Eat-Dog World
 Let’s consider two canine domains:
