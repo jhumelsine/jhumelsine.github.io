@@ -42,7 +42,7 @@ __Classes reside in code. Instances reside in memory.__
 
 
 ## A few real-world examples of classes and their instances
-While I consider _object_ and _instance_ as two terms for the same concept, I think that since we tend to focus so much upon _classes_ when using OO, we sometimes use the term _object_ when we really mean _class_. Some of our programming languages contribute to this confusion. All classes in Java inherit from a root superclass, named [Object](https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html), even if it's really a __class__. Experienced developers understand the intent based upon the context, but using the term _object_ inconsistently can be confusing who are learning OO.
+While I consider _object_ and _instance_ as two terms for the same concept, I think that since we tend to focus so much upon _classes_ when using OO, we sometimes use the term _object_ when we really mean _class_. Some of our programming languages contribute to this confusion. All classes in Java inherit from a root superclass, named [Object](https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html), even if it's really a __class__. Experienced developers understand the intent based upon the context, but using the term _object_ inconsistently can be confusing to those who are learning OO.
 
 I will use _class_ and _instance_ rather than _object_ for the rest of this blog entry to avoid any potential confusion.
 
@@ -77,11 +77,11 @@ I initially struggled in my Data Structures course in college. Something wasn't 
 
 While data structure code is not overly complex, just imagine how confusing a [doubly linked list](https://en.wikipedia.org/wiki/Doubly_linked_list#Inserting_a_node) operation would be without a visual model. The visual diagram of nodes and reference links made sense to me. I could see how his diagram and corresponding implementation were two representations of the same concept. It clicked.
 
-While we didn’t have terms such as _class_, _instance_ or _object_ in 1982, my professor presented data structures graphically mirrored _instances_, whereas the accompanying implementation mirrored _classes_. I suspect that data structures are presented in academia these days as _classes_ and _instances_. 
+While we didn’t have terms such as _class_, _instance_ or _object_ in 1982, my professor data structure diagrams mirrored _instances_, whereas his accompanying implementation mirrored _classes_. I suspect that data structures are presented in academia these days as _classes_ and _instances_. 
 
-I visualize data structures as instances because most data structures don't contain too many classes. A Linked List is a `Node` class with a reference to the `next` `Node`. A Tree is also a `Node` with a reference to a `left` sub-Tree `Node` and a reference to a `right` sub-Tree `Node`. Many data structures are comprised of composable instances of self-referential classes.
+I visualize data structures as instances because most data structures don't contain too many classes in the design. They often only contain one. A Linked List is a List`Node` class with a reference to the `next` `ListNode`. A Tree is also a `TreeNode` with a reference to a `left` sub `TreeNode` and a reference to a `right` sub `TreeNode`. Many data structures are comprised of composable instances of self-referential classes.
 
-__Side Note:__ The _class_ for a Tree and Doubly Linked List would the same. It's a `Node` with two references to two other `Nodes`. The only distiction is how the references assigned in the operations. Trees reference sub-Trees. Doubly Linked Lists reference their left and right neighbors.
+__Side Note:__ The _class_ for a Tree and Doubly Linked List would the same. It's a `Node` with two references to two other `Nodes`. The only distiction is how the references assigned in the operations. Trees reference sub-Tree `Nodes`. Doubly Linked Lists reference their left and right neighbor `Nodes`.
 
 ## Where is the line between class and instance?
 I’ve defined _class_ as code implementing behavior and _instance_ as the memory location for state in realizing that behavior at runtime. But it’s not always obvious what should be defined in a _class_ and what should be realized in an _instance_. When should behavior reside in the class implementation, the instance state or the organization of a set of instances?
@@ -93,7 +93,9 @@ The distinction between behavior residing within a _class_ implementation or beh
 
 The Domain (TBD) is business concern of your customer. It’s why they exist, and how they make money. Their business domains could be communications, marketing, finance, health, entertainment, etc. Sometimes our customers might be external, such as when we create software for a hospital or bank, and sometimes our customers might be internal, such as when we create software as employees of Google, Meta or Amazon.
 
-The Domain Model (TBD) is how we represent the customer’s Domain and its associated behaviors within our design and implementation. There are many ways to model a Domain. Some better than others. We often don't know the Domain well enough, especially as we start, to design a good or even accurate Model. As we learn more about the Domain via the iterative process, we gain additional insights that will result in a better Model. That's why we must strive to keep our design and implementation modular and flexible. __As we learn that our Model does not accurately reflect our new found insights about the Domain, we want the flexibility to easily update the Model, design and implementation to better reflect those new found insights.__ 
+The Domain Model (TBD) is how we represent the customer’s Domain and its associated behaviors within our design and implementation. There are many ways to model a Domain. Some better than others. We often don't know the Domain well enough, especially as we start, to design a good or even accurate Model. As we learn more about the Domain via the iterative process, we gain additional insights that will result in a better Model. That's why we must strive to keep our design and implementation modular and flexible.
+
+__As we learn that our Model does not accurately reflect our new found insights about the Domain, we want the flexibility to easily update the Model, design and implementation to better reflect those new found insights.__ 
 
 >_All models are wrong, but some are useful._ ― [George Box](https://en.wikipedia.org/wiki/All_models_are_wrong)
 
@@ -113,9 +115,9 @@ Let’s consider two canine domains:
 #### Dog Shelters
 <img src="https://images.pexels.com/photos/12195433/pexels-photo-12195433.jpeg" alt="Dogs in Shelter" title="Image Source: https://images.pexels.com/photos/12195433/pexels-photo-12195433.jpeg" width = "35%" align="right" style="padding: 35px;">
  
-Dog Shelters seek homes for abandoned dogs. They want a website that features their furry friends with photo and a description for each dog. The description will contain basic information, such as the dog’s name, estimated age, history (if known), temperament, etc.
+Dog Shelters seek homes for abandoned dogs. They want a website that features their furry friends with a photo and a description for each dog. The description will contain basic information, such as the dog’s name, estimated age, history (if known), temperament, etc.
 
-A shelter’s domain is relatively simple; therefor a simple model will probably suffice with a single Dog class with each individual dog being an instance of Dog.
+A shelter’s domain is relatively simple; therefore, a simple model will probably suffice with a single Dog class with each individual dog being an instance of Dog.
 
 #### Show Dog
 <img src="https://s0.geograph.org.uk/geophotos/06/18/45/6184562_88499b20_original.jpg" alt="Dogs Show" title="Image Source: https://www.geograph.org.uk/photo/6184562" width = "35%" align="right" style="padding: 35px;">
