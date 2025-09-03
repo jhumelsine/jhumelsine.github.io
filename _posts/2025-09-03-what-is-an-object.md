@@ -1,7 +1,6 @@
 ---
-title: DRAFT – What Is an Object?
+title: What Is an Object?
 description: Clarifying Class, Object, Instance, and Their Real-World Meaning
-unlisted: true
 ---
 <img src="https://openclipart.org/image/800px/68929" alt="Andy Warhol" title="Image Source: https://openclipart.org/detail/68929/andy-warhol" width = "40%" align="center" style="padding: 35px;">
  
@@ -77,9 +76,9 @@ I initially struggled in my Data Structures course in college. Something wasn't 
 
 While data structure code is not overly complex, just imagine how confusing a [doubly linked list](https://en.wikipedia.org/wiki/Doubly_linked_list#Inserting_a_node) operation would be without a visual model. The visual diagram of nodes and reference links made sense to me. I could see how his diagram and corresponding implementation were two representations of the same concept. It clicked.
 
-While we didn’t have terms such as _class_, _instance_ or _object_ in 1982, my professor data structure diagrams mirrored _instances_, whereas his accompanying implementation mirrored _classes_. I suspect that data structures are presented in academia these days as _classes_ and _instances_. 
+While we didn’t have terms such as _class_, _instance_ or _object_ in 1982, my professor's data structure diagrams mirrored _instances_, whereas his accompanying implementation mirrored _classes_. I suspect that data structures are presented in academia these days as _classes_ and _instances_. 
 
-I visualize data structures as instances because most data structures don't contain too many classes in the design. They often only contain one. A Linked List is a List`Node` class with a reference to the `next` `ListNode`. A Tree is also a `TreeNode` with a reference to a `left` sub `TreeNode` and a reference to a `right` sub `TreeNode`. Many data structures are comprised of composable instances of self-referential classes.
+I visualize data structures as instances because most data structures don't contain too many classes in the design. They often only contain one. A Linked List is a `ListNode` class with a reference to the `next` `ListNode`. A Tree is also a `TreeNode` with a reference to a `left` sub `TreeNode` and a reference to a `right` sub `TreeNode`. Many data structures are comprised of composable instances of self-referential classes.
 
 __Side Note:__ The _class_ for a Tree and Doubly Linked List would the same. It's a `Node` with two references to two other `Nodes`. The only distiction is how the references assigned in the operations. Trees reference sub-Tree `Nodes`. Doubly Linked Lists reference their left and right neighbor `Nodes`.
 
