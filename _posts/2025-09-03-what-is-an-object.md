@@ -88,13 +88,13 @@ I’ve defined _class_ as code implementing behavior and _instance_ as the memor
 I have already illustrated an example of this decision in the previous [Builder/Director](https://jhumelsine.github.io/2025/08/27/builders-director.html) blog where my initial design contained classes for `Tea`, `Coffee`, `Sugar`, `Lemon`, etc., and then as I started to test and implement my design, I realized what I had thought were different behaviors that required classes each for `Tea`, `Coffee`, `Sugar`, `Lemon`, etc. were really different attribute states for two classes: `Drink` and `AddOn`. 
 
 ### Domain and Modeling
-The distinction between behavior residing within a _class_ implementation or behavior residing within an _instance_ state depends upon the domain and how the domain modeled. I’ll write about this more in the future (TBD) when I blog about [Domain-Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design), but I can provide a summary here.
+The distinction between behavior residing within a _class_ implementation or behavior residing within an _instance_ state depends upon the domain and how the domain is modeled. I’ll write about this more in the future (TBD) when I blog about [Domain-Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design), but I can provide a summary here.
 
 The Domain (TBD) is business concern of your customer. It’s why they exist, and how they make money. Their business domains could be communications, marketing, finance, health, entertainment, etc. Sometimes our customers might be external, such as when we create software for a hospital or bank, and sometimes our customers might be internal, such as when we create software as employees of Google, Meta or Amazon.
 
-The Domain Model (TBD) is how we represent the customer’s Domain and its associated behaviors within our design and implementation. There are many ways to model a Domain. Some better than others. We often don't know the Domain well enough, especially as we start, to design a good or even accurate Model. As we learn more about the Domain via the iterative process, we gain additional insights that will result in a better Model. That's why we must strive to keep our design and implementation modular and flexible.
+The Domain Model (TBD) is how we represent the customer’s Domain and its associated behaviors within our design and implementation. There are many ways to model a Domain. Some are better than others. We often don't know the Domain well enough, especially as we start, to design a good or even accurate Model. As we learn more about the Domain via the iterative process, we gain additional insights that will result in a better Model. That's why we must strive to keep our design and implementation modular and flexible.
 
-__As we learn that our Model does not accurately reflect our new found insights about the Domain, we want the flexibility to easily update the Model, design and implementation to better reflect those new found insights.__ 
+__As we learn that our Model does not accurately reflect our newfound insights about the Domain, we want the flexibility to easily update the Model, design and implementation to better reflect those newfound insights.__ 
 
 >_All models are wrong, but some are useful._ ― [George Box](https://en.wikipedia.org/wiki/All_models_are_wrong)
 
