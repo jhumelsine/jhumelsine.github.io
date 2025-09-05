@@ -133,3 +133,23 @@ The Show Dog's domain is more complex; therefore, a more complex model will be n
 Now that I’ve presented _class_ and _instance_ in excruciating detail, I can come full circle introduce the scenario that will lead to Singleton, which is where I started this blog.
 
 In some domains or design structures, you only ever need one instance of a class—like the system clock or the configuration loader. That setup leads to the __Singleton pattern__ (TBD), which ensures single-instance behavior while addressing concerns like thread safety and testability. That’s where we’ll go next.
+
+# Addendum: Other Views of Objects and Classes  
+
+A reader noted that some languages treat objects and classes differently than the Java/C++ model I discussed. One example is **Objective-C**, which follows the Smalltalk tradition of *message sending* rather than direct method calls. In this model, every interaction is resolved dynamically at runtime, and even classes themselves are objects. This means you can “send a message” to a class just as you would to an instance. Class methods operate on the class object, and `self` inside such methods refers to the class, allowing subclasses to respond dynamically.  
+
+This design emphasizes flexibility, reflection, and runtime dynamism—quite different from the largely static method dispatch of Java or C++.  
+
+Other models diverge as well:  
+- **Prototype-based (JavaScript, Self):** Dispenses with classes entirely. New objects are created by cloning existing ones, and inheritance is managed through prototype chains.  
+- **Composition-focused (Go, Rust):** Prefers assembling objects from smaller parts over building deep inheritance hierarchies. This approach favors modularity and clarity over rigid class structures.  
+
+| Model                  | Classes?            | Invocation Style       | Key Trait |
+|-------------------------|--------------------|------------------------|-----------|
+| Java / C++             | Classes ≠ Objects  | Direct method calls    | Predictable, efficient |
+| Objective-C            | Classes are Objects| Message sending        | Dynamic, flexible |
+| Prototype-based        | No classes         | Prototype delegation   | Highly dynamic |
+| Composition-centric    | No hierarchies     | Composed behavior      | Modular, clear |  
+
+***Thanks to a reader for raising this point and prompting a deeper look at these variations.***
+
