@@ -330,6 +330,8 @@ _When programmers do their jobs, testers find nothing._ — Bob Martin
 
 _Hardware eventually fails. Software eventually works._ — Michael Hartung
 
+_As the tests get more specific, the code gets more generic._ — Bob Martin
+
 _Our end users are our best and most expensive testers._ — Jim Humelsine
 
 _The most effective debugging tool is still careful thought, coupled with judiciously placed print statements._ — Brian Kernighan
