@@ -236,6 +236,8 @@ _Good Programming is not learned from generalities, but by seeing how significan
 
 _There’s nothing more permanent than a temporary hack._ — Kyle Simpson
 
+_There are two kinds of companies: those that are embarrsed by their codebase and those that fail._ — Dave Smith
+
 _The strength of JavaScript is that you can do anything. The weakness is that you will._ — Reg Braithwaite
 
 _Always implement things when you actually need them, never when you just foresee that you need them._ — Ron Jeffries
