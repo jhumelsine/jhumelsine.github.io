@@ -290,6 +290,8 @@ _Rarely is anyone thanked for the work they did to prevent the disaster that did
 
 _Some of those firefighters were also the arsonists._ — Dave T., coworker and friend, who whispered this to me at a Department Meeting after several developers were given The Firefighter Award by our Department Head for their heroic efforts in fixing issues in production.
 
+_There's no glory in prevention._ — Geoffrey Rose 
+
 _A good lifeguard never gets wet. A bad lifeguard gets his name in the paper._ — My Red Cross Lifeguard Instructor when I was as teenager
 
 # Documentation
