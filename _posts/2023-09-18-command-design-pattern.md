@@ -153,3 +153,42 @@ Here are some resources that can be purchased or are included in a subscription 
 * Agile Principles, Patterns, and Practices in C#, Chapter 21 ([O'Reilly](https://learning.oreilly.com/library/view/agile-principles-patterns/0131857258/) and [Amazon](https://www.amazon.com/Agile-Principles-Patterns-Practices-C/dp/0131857258))
 * Clean Code: Design Patterns, Episode 25 video ([Clean Coders](https://cleancoders.com/episode/clean-code-episode-25) and [O'Reilly](https://learning.oreilly.com/videos/clean-code-fundamentals/9780134661742/9780134661742-code_03_25_00/))
 * Head First Design Patterns ([O'Reilly](https://learning.oreilly.com/library/view/head-first-design/9781492077992/ch06.html#home_automation_or_bust) and [Amazon](https://www.amazon.com/Head-First-Design-Patterns-Object-Oriented-ebook/dp/B08P3X99QP))
+
+# Complete Demo Code
+Here’s the entire demonstrating `Runnable` with an `ExecutorService` in Java. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. Add more Runnables. Refactor some of the code.
+
+```java
+import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class Command {
+    public static void main(String[] args) throws Exception {
+        ExecutorService executor = Executors.newFixedThreadPool(1);
+
+        executor.submit(new Printer("Hello World!"));
+
+        for (int i = 0; i < 5; i++) {
+            executor.submit(new Printer(String.format("Counting = %d", i)));
+        }
+
+        executor.submit(new Printer("Good-Bye World!"));
+
+        executor.shutdown();
+
+    }
+}
+
+class Printer implements Runnable {
+    private final String message;
+
+    public Printer(String message) {
+        this.message = message;
+    }
+
+    @Override
+    public void run() {
+        System.out.println(message);
+    }
+}
+```
