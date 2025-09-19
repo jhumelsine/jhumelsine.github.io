@@ -157,6 +157,12 @@ Here are some resources that can be purchased or are included in a subscription 
 # Complete Demo Code
 Here’s the entire demonstrating `Runnable` with an `ExecutorService` in Java. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. Add more Runnables. Refactor some of the code.
 
+In this short example:
+* [`Runnable`](https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html) is the Command interface.
+* `Printer` is a concrete implementing `Runnable` where _whatever action_ it has taken to satsify the _general `run()` contract_ upon its execution is to print its constructor injected private state attribute `message`.
+* Several new `Printer` instances, each with different `messages`, are created and submitted to the `executor`, an [`ExecutorService`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html), as `Runnables`.
+* `Runnable` execution is delegated to the `executor`, which is configured as a single Thread Pool to preserve execution order. `executor` will envoke `run()` for each submitted `Printer` `Runnable` in order.
+
 ```java
 import java.util.*;
 import java.util.concurrent.ExecutorService;
