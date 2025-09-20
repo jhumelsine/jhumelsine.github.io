@@ -26,7 +26,7 @@ Objects are first-class citizens in Object-Oriented languages. There’s a popul
 
 Functions are declared in classes as methods. They are not objects. They can be called directly, but that’s about it. They cannot be passed as arguments, added to data structures, etc. Other than calling them, there’s not much else we can do with them.
 
- The Command Design Pattern allows us to wrap a function within a class, instantiate it as an object and then execute it through an Interface via polymorphism. By “objectifying” the function, it becomes a first-class citizen. **A function wrapped within an object can do anything an object can do.**
+The Command Design Pattern allows us to wrap a function within a class, instantiate it as an object and then execute it through an Interface via polymorphism. By “objectifying” the function, it becomes a first-class citizen. **A function wrapped within an object can do anything an object can do.**
 
 There is nothing difficult or sophisticated in the implementation of Command. It’s about intent, context and mindset. Once a function is an object, we can do much more with it.
 Here’s a simple example of a Command implementation:
@@ -43,7 +43,9 @@ Command command = new HelloWorld();
 command.execute();
 ```
 
-Command can support parameters by passing them as constructor arguments. Here's a more generalized version of the HelloWorld above, but this version prints any String:
+Command can support parameters by passing them as constructor arguments. Essentially, function arguments become constructor arguments, which are part of the Command instance's state to be referenced when the Command instance is subsequently executed.
+
+Here's a more generalized version of the HelloWorld above, but this version prints any String:
 ```java
 class Printer implements Command {
     private final String text;
