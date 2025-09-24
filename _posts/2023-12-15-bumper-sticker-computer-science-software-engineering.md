@@ -62,6 +62,8 @@ _The purpose of software engineering is to control complexity, not to create it.
 
 _A computer will do what you tell it to do, but that may be much different from what you had in mind._ — Joseph Weizenbaum
 
+_I think that "Vibe Coding" may not have been the best name. I think "Monkey Paw Coding" is more accurate. It may give you what you asked for, but not exactly what you wanted._ — Jim Humelsine
+
 _To me programming is more than an important practical art. It is also a gigantic undertaking in the foundations of knowledge._ — Grace Hopper
 
 _The best thing about a boolean is even if you are wrong, you are only off by a bit._ — Anonymous
