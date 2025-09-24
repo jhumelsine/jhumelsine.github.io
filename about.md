@@ -36,3 +36,11 @@ It may take me a whole to find my own style, but here are some guidelines that I
 # Links
 * [GitHub](https://github.com/jhumelsine/)
 * [Design Pattern Evangelist Blog: Smart Pointers about software design](https://jhumelsine.github.io/)
+
+# Other Appearances
+* [Hexagonal Architecture & Legacy Code](https://www.youtube.com/watch?v=aayl6FysZ_U) - My video presentation on [The Legacy of SoCraTes](https://www.youtube.com/@TheLegacyofSoCraTes) video channel.
+* My guest appearances on Tabs and Spaces podcast:
+    * [What They Don't Teach You At University](https://open.spotify.com/episode/75q4sE0Qs5RnMl7ECVmRZc)
+    * [Do You Wanna Test Like Me?](https://open.spotify.com/episode/1nktoh5QzNtiNpN2VoHR7g)
+    * [Jim's Greatest Hits](https://open.spotify.com/episode/7odjsvlJFX8LbTdZ8C3AsL) - Recorded three days into my retirement
+* [Economics of Technical Debt with Jim Humelsine](https://legacycode.rocks/episodes/100/) - I was a guest on the [Legacy Code Rocks!](https://www.legacycode.rocks/) podcast discussing my ideas of how incentives drive us toward technical debt.
