@@ -170,7 +170,7 @@ _Architecture is a hypothesis, that needs to be proven by implementation and mea
 
 _The tragedy is that the architects, by making a premature decision, multiplied the development effort enormously._ ― Robert C. Martin
 
-_At a certian level of abstraction, all complex systems are message passing systems. ... Genes are one mechanism that life uses to pass information across time; memes are one mechanism that societies use to pass information across time._ — Grady Booch
+_At a certain level of abstraction, all complex systems are message passing systems. ... Genes are one mechanism that life uses to pass information across time; memes are one mechanism that societies use to pass information across time._ — Grady Booch
 
 # Abstraction
 
