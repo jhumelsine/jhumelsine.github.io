@@ -216,6 +216,8 @@ _I have always wished for my computer to be as easy to use as my telephone. My w
 
 _There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies, and the other way is to make it so complicated that there are no obvious deficiencies. The first method is far more difficult._ ― C. A. R. Hoare
 
+_The hardest part of engineering is resisting the urge to over-engineer._ ― @_Andrew_Mic
+
 _Folk wisdom in software development teaches that interfaces shouldn't be unduly influenced by implementations. Writing a test first is a concrete way to achieve this separation._ ― Kent Beck
 
 _The vital detail about the design is captured in the code. A well-written implementation should be transparent, revealing the model underlying it._ ― Eric Evans
