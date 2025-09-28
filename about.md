@@ -15,7 +15,9 @@ Fast forward about 45 years. I earned a BS and MS in Computer Science. I've been
 
 # Blogging
 
-I learned a lot in those years. I want to share what I've learned with others, so I've started a blog. I think that most of this will be in the realm of Software Engineering, which I view as related to but separate from Computer Science. However, I suspect I will dabble in Computer Science topics as well. I'm starting with my favorite topic, Design Patterns, hence my handle on some social media handle on some platforms - **Design Pattern Evangelist (Jim)**. But I'll be writing about other Software topics, such as Test-Driven Development, Domain-Driven Development, Refactoring, Legacy Code, etc.
+I learned a lot in those years. I want to share what I've learned with others, so I've started a blog. I think that most of this will be in the realm of Software Engineering, which I view as related to but separate from Computer Science. However, I suspect I will dabble in Computer Science topics as well. I'm starting with my favorite topic, [Design Patterns](https://jhumelsine.github.io/3000/01/01/preface.html#design-patterns), hence my handle on some social media handle on some platforms - **Design Pattern Evangelist (Jim)**. But I'll be writing about other Software topics, such as [Test-Driven Development](https://jhumelsine.github.io/3000/01/01/preface.html#automated-testing), Domain-Driven Development, Refactoring, Legacy Code, etc.
+
+Here's a [Table of Contents](https://jhumelsine.github.io/3000/01/01/preface.html) that organizes my blog entries around common themes.
 
 It may take me a whole to find my own style, but here are some guidelines that I'm going to try to adhere to:
 * I will try to limit each blog entry to no more that about 1,000 words. (Trying but really not succeeding. Under 2,000 words is probably more accurate. I can't even maintain that limit. They will be as long as they need to be.)
@@ -25,13 +27,14 @@ It may take me a whole to find my own style, but here are some guidelines that I
 * I will try to inject some of my personal experiences from along the way, but I'll protect the identity of those who might be embarassed.
 * I will try to use humor where I can.
 
-# Contact
+# Contact via Social Networking
 * X/Twitter: **@jhumelsine**
 * Bluesky: **jhumelsine.bsky.social**
 * [Coding Blocks Slack](https://www.codingblocks.net/slack/): **Design Pattern Evangelist (Jim)**
 * [Legacy Code Rocks! Slack](http://slack.legacycode.rocks/): **Jim Humelsine**
-* [We Do TDD Slack](http://wedotdd.slack.com): **Design Pattern Evangelist (Jim)**
-* [Tabs and Spaces Discord](https://tabsandspaces.io/): **Design Pattern Evangelist (Jim)**
+* [We Do TDD Slack](http://wedotdd.slack.com): **Jim Humelsine**
+* [Software Crafters Slack](http://softwarecrafters.slack.com): **Jim Humelsine**
+* [Tabs and Spaces Discord](https://discord.com/channels/863824308904132608/863838701305987082): **Design Pattern Evangelist (Jim)**
 * [Linkedin](https://www.linkedin.com/in/james-humelsine-16b0749/)
 
 # Links
@@ -44,4 +47,4 @@ It may take me a whole to find my own style, but here are some guidelines that I
     * [What They Don't Teach You At University](https://open.spotify.com/episode/75q4sE0Qs5RnMl7ECVmRZc)
     * [Do You Wanna Test Like Me?](https://open.spotify.com/episode/1nktoh5QzNtiNpN2VoHR7g)
     * [Jim's Greatest Hits](https://open.spotify.com/episode/7odjsvlJFX8LbTdZ8C3AsL) - Recorded three days into my retirement
-* [Economics of Technical Debt with Jim Humelsine](https://legacycode.rocks/episodes/100/) - I was a guest on the [Legacy Code Rocks!](https://www.legacycode.rocks/) podcast discussing my ideas of how incentives drive us toward technical debt.
+* [Economics of Technical Debt with Jim Humelsine](https://legacycode.rocks/episodes/100/) - I was a guest on the [Legacy Code Rocks!](https://www.legacycode.rocks/) podcast discussing my ideas on how incentives drive us toward technical debt.
