@@ -5,9 +5,9 @@ comments: false
 ---
 
 # About Jim
-<img src="/assets/Shippensburg.jpg" alt="First Computer Camp Certificate" width = "40%" align="right" style="padding-right: 35px;">
-
 I'm Jim Humelsine (AKA Design Pattern Evangelist). I trace my desire to work with computers back to my youth when watching _Batman_ and _Lost in Space_ on television in the 1960s. I was entranced with the Bat Computer in the Bat Cave, the computer on board the Jupiter 2 and of course Will Robinson's Robot.
+
+<img src="/assets/Shippensburg.jpg" alt="First Computer Camp Certificate" width = "45%" align="right" style="padding: 15px;">
 
 At 16, I vividly remember watching my first program execute. It was the summer of 1977, and I was attending a computer programming day camp at a local state college where we were learning BASIC. I wrote a program that printed out the prime numbers less than 100. I remember being delighted and a bit amazed watching the teletype clickety clacking out numbers about two every second: 2, 3, 5, 7, 11, ... I was hooked. I knew what I wanted to do for my career.
 
