@@ -361,7 +361,7 @@ Because of their nature, they may be good candidates for code generation. I reti
 >    * Any unintuitive or surprising behavior that should be locked down
 >1. Provide test code using JUnit 5 (with @Test, assertEquals, assertThrows, etc.).
 >1. Ensure the tests capture and document the current behavior (even if it looks buggy or counterintuitive).
->1. Organize tests so that they are readable, naming them according to the behavior being tested (e.g., shouldReturnXWhenY)."
+>1. Organize tests so that they are readable, naming them according to the behavior being tested (e.g., shouldReturnXWhenY).
 
 # Summary
 Legacy code may seem daunting, but with the right strategies—automated testing, refactoring for testability, and leveraging seams—it becomes manageable. By taking a disciplined, incremental approach, developers can modernize code while preserving its reliability and reducing technical debt.
