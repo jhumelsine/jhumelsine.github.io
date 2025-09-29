@@ -341,6 +341,28 @@ I wrote unit tests for `BatchResults` in about five to ten minutes. Would that h
 
 I feel that an ounce of prevention is worth a pound of cure.
 
+# A Necessary Evil
+Characterization tests are useful tools when working with legacy code, but as I've pointed out above:
+* They can be difficult to write.
+* They can be implementation dependent and brittle.
+* They can can be ugly.
+* They become redundant and a liability once the legacy code has been understood, refactored and new behavior based tests have replaced them.
+
+Because of their nature, they may be good candidates for code generation. I retired before I had an opportunity to experiement with this idea, so it's still conjecture. I think worthy of investigation. Here's a possible prompt:
+>I have some legacy Java code that I need to put under test. The goal is not to redesign or refactor the code right now, but to create characterization tests that capture the current behavior so I can safely make changes later.
+>
+>Please:
+>1. Analyze the given Java class or method.
+>1. Identify observable inputs and outputs, including return values, exceptions, and side effects (e.g., state changes, file I/O, database calls).
+>1. Suggest test cases that cover:
+>    * Typical/expected inputs
+>    * Edge and boundary conditions
+>    * Error or exceptional cases
+>    * Any unintuitive or surprising behavior that should be locked down
+>1. Provide test code using JUnit 5 (with @Test, assertEquals, assertThrows, etc.).
+>1. Ensure the tests capture and document the current behavior (even if it looks buggy or counterintuitive).
+>1. Organize tests so that they are readable, naming them according to the behavior being tested (e.g., shouldReturnXWhenY)."
+
 # Summary
 Legacy code may seem daunting, but with the right strategies—automated testing, refactoring for testability, and leveraging seams—it becomes manageable. By taking a disciplined, incremental approach, developers can modernize code while preserving its reliability and reducing technical debt.
 
