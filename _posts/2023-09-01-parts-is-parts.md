@@ -57,4 +57,4 @@ The last method invocation is not a relationship between objects. It is a **Stat
 # Conclusion
 Understanding these basic Object-Oriented building block components will help developers understand how the GoF used them to design most of their design patterns. These basic components won’t cover all the details, but they will cover most.
 
-For more of my take on Design Patterns, See: [Index of my Design Patterns Blogs](https://jhumelsine.github.io/3000/01/01/preface.html#design-patterns).
+For more of my take on Design Patterns, See: [Index of my Design Patterns Blogs](https://jhumelsine.github.io/table-of-contents#design-patterns).
