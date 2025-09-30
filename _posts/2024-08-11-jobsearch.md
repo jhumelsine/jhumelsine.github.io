@@ -85,7 +85,7 @@ For me, it fell into two broad categories:
 ## Investing In Myself
 I was not considered for two potential Java jobs, because I only had C/C++ experience at the time. I enrolled in a weekly evening Java class at our local community college to expand my prospects. It was ten years before I had a job that required Java, and that was after my second period of unemployment. That previous preparation paid off ten years and two companies later.
 
-I had tried to learn the [Design Patterns](https://jhumelsine.github.io/3000/01/01/preface.html#design-patterns) while employed, but they just weren’t clicking for me. I didn’t have the time while working to do a deep dive into them. Once I was laid off, I had all the time in the world. I was on a sabbatical sponsored by the New Jersey Department of Unemployment. I learned the design patterns on my own via online resources. I described this in more detail almost a year ago in [It’s Your Move](https://jhumelsine.github.io/2023/08/24/its-your-move.html).
+I had tried to learn the [Design Patterns](https://jhumelsine.github.io/table-of-contents#design-patterns) while employed, but they just weren’t clicking for me. I didn’t have the time while working to do a deep dive into them. Once I was laid off, I had all the time in the world. I was on a sabbatical sponsored by the New Jersey Department of Unemployment. I learned the design patterns on my own via online resources. I described this in more detail almost a year ago in [It’s Your Move](https://jhumelsine.github.io/2023/08/24/its-your-move.html).
 
 I incorporated design patterns into my Java coding assignments to gain a better understanding of both.
 
