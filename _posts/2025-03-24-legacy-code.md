@@ -8,7 +8,7 @@ description: … with all due respect to Michael Feathers in stealing his book t
 # Introduction
 Have you ever hesitated before touching a piece of code, fearing it might break everything? That’s the reality of working with legacy code.
 
-I wrapped up the first part of my [Automated Testing](https://jhumelsine.github.io/3000/01/01/preface.html#automated-testing) series primarily focused upon [Test-Driven Development]( https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) and [Behavior-Driven Development](https://jhumelsine.github.io/2024/08/08/bdd.html) (BDD).
+I wrapped up the first part of my [Automated Testing](https://jhumelsine.github.io/table-of-contents#automated-testing) series primarily focused upon [Test-Driven Development]( https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) and [Behavior-Driven Development](https://jhumelsine.github.io/2024/08/08/bdd.html) (BDD).
 
 BDD and TDD are great practices to drive and shape a new implementation. However, many software developers maintain existing legacy code more often than they write new code. Since BDD and TDD practices focus upon writing tests before implementing the code, and legacy code has already been implemented, these practices, by definition, cannot support legacy code.
 
