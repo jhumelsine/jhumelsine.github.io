@@ -1,5 +1,5 @@
 ---
-title: Preface, Primer, Table of Contents, Etc.
+title: Table of Contents
 description: A little bit of order to organize the chaos.
 ---
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Long_Room_Interior%2C_Trinity_College_Dublin%2C_Ireland_-_Diliff.jpg/1017px-Long_Room_Interior%2C_Trinity_College_Dublin%2C_Ireland_-_Diliff.jpg" alt="Trinity College Library" title="Image Source: https://commons.wikimedia.org/wiki/File:Long_Room_Interior,_Trinity_College_Dublin,_Ireland_-_Diliff.jpg" width = "50%" align="center" style="padding-right: 20px;">
