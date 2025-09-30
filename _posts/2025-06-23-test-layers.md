@@ -19,7 +19,7 @@ Though this seems like a simple measurement mismatch, at its root it was a __[co
 
 Whether you’re a junior developer just beginning to explore automated testing or a senior engineer refining your team’s quality strategy, understanding layered tests can help avoid the kind of systemic failures seen in stories like the Mars Climate Orbiter.
 
-My [Automated Test Series](https://jhumelsine.github.io/3000/01/01/preface.html#automated-testing) has mostly focused upon Automated ___"Unit"___ Testing via [Behavior-Driven Development](https://jhumelsine.github.io/2024/08/08/bdd.html) (BDD) and [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) practices, but [Unit Testing](https://en.wikipedia.org/wiki/Unit_testing) may not be sufficient.
+My [Automated Test Series](https://jhumelsine.github.io/table-of-contents#automated-testing) has mostly focused upon Automated ___"Unit"___ Testing via [Behavior-Driven Development](https://jhumelsine.github.io/2024/08/08/bdd.html) (BDD) and [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) (TDD) practices, but [Unit Testing](https://en.wikipedia.org/wiki/Unit_testing) may not be sufficient.
 
 ## Why Unit Tests Aren’t Enough
 
