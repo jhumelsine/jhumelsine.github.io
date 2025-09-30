@@ -6,7 +6,7 @@ description: Different mechanisms to create objects without calling new() direct
 <img src="https://cdn2.picryl.com/photo/2016/12/31/god-creating-heaven-and-earth-lacma-653754-1bdc56-1024.jpg" alt="God creating heaven and earth" title="Image Source: https://itoldya420.getarchive.net/amp/media/god-creating-heaven-and-earth-lacma-653754-1bdc56" width = "50%" align="center" style="padding: 35px;">
  
 # Introduction
-After a year-long diversion into [Automated Testing](https://jhumelsine.github.io/3000/01/01/preface.html#automated-testing), I’ve completed the series, and I’m returning to Design Patterns with a series on __Creational Design Patterns__.
+After a year-long diversion into [Automated Testing](https://jhumelsine.github.io/table-of-contents#automated-testing), I’ve completed the series, and I’m returning to Design Patterns with a series on __Creational Design Patterns__.
 
 If you’ve ever wrestled with unwieldy constructors or tangled initialization logic, Creational Design Patterns offer proven solutions. Creational Design Patterns help software engineers control object creation, ensuring flexibility, testability, and scalability. Whether you need a single shared instance, a family of related objects, or assembled objects configured from a blueprint, these patterns offer time-tested solutions to common problems of initialization and configuration.
 
