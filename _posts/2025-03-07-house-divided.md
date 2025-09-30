@@ -38,7 +38,7 @@ I think that both practices are effective. I think it depends upon the scope of 
 
 As the design matures, I find that the domain elements start to scream which behaviors they are responsible for. It's like writers who say that the characters in their novels take control and tell them where the story is going while they write it.
 
-Sometimes the screaming domain elements are aligned with [design patterns](https://jhumelsine.github.io/3000/01/01/preface.html#design-patterns). The code snippets I mentioned previously are usually associated with the tried-and-true code of the design patterns I'm using.
+Sometimes the screaming domain elements are aligned with [design patterns](https://jhumelsine.github.io/table-of-contents#design-patterns). The code snippets I mentioned previously are usually associated with the tried-and-true code of the design patterns I'm using.
 
 ## TDD
 TDD works well when developers know enough to define behavior specifications that can be confirmed in the implementation. I have found that this knowledge is often a result of the design process. The list of behaviors doesn’t need to be complete. New behaviors may emerge while working through the TDD process as the domain is better understood. This is still a discovery process, and it may result in updates to the design as well.
