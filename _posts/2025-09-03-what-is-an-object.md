@@ -57,7 +57,7 @@ The silk-screen template was Warhol's class, and the prints created from it were
 ### Design Patterns
 <img src="/assets/DecoratorDrinks.png" alt="Starbuzz Labels via Decorator" width = "30%" align="right" style="padding-right: 20px;">
 
-When I visualize Design Patterns, I tend to do so via classes. I have described [Design Patterns](https://jhumelsine.github.io/3000/01/01/preface.html#design-patterns) throughout my blog entries using [UML Class Diagrams](https://jhumelsine.github.io/2021/06/22/uml.html).
+When I visualize Design Patterns, I tend to do so via classes. I have described [Design Patterns](https://jhumelsine.github.io/table-of-contents#design-patterns) throughout my blog entries using [UML Class Diagrams](https://jhumelsine.github.io/2021/06/22/uml.html).
 
 Behavior defined in classes within these patterns can only be realized via instances of those classes. For many design patterns, the instance is a runtime detail that’s often assumed. This is prevalent in the [Essential Design Patterns](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html) for which runtime instance realization was not addressed by the GoF. I included instance realization mostly by introducing a [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) without much additional detail other than to show how it realized the instance and injected it into the primary portion of the design.
 
