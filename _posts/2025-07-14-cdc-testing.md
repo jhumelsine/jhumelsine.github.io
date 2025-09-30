@@ -83,7 +83,7 @@ While this would help identify any interpretation differences about the __Contra
 ### Contract Alignment
 Can we identify __Contract__ issues sooner than through Integration Testing?
 
-Throughout this [Automated Testing](https://jhumelsine.github.io/3000/01/01/preface.html#automated-testing) series, I have advocated using tests as verifiable specifications for implementation behaviors within our own code. But Consumers can use tests for more than just their own implementations. They can use tests as verifiable specifications for __Contracts__ implemented by Providers, that is, Contract-Driven Customer Testing.
+Throughout this [Automated Testing](https://jhumelsine.github.io/table-of-contents#automated-testing) series, I have advocated using tests as verifiable specifications for implementation behaviors within our own code. But Consumers can use tests for more than just their own implementations. They can use tests as verifiable specifications for __Contracts__ implemented by Providers, that is, Contract-Driven Customer Testing.
 
 Test Doubles still need to emulate dependency behaviors accurately. However, we can use CDC Testing techniques to codify that the production dependency behavior matches our emulated Test Double behaviors. We still must confirm that our Test Doubles are emulating confirmed dependency behaviors, but with CDC Testing we have more confidence that our assumptions about dependency behavior are accurate.
 
