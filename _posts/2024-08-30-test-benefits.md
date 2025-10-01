@@ -218,4 +218,4 @@ Almost all these benefits are a result of test and implementation consistency. I
 * Previous [blog references](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html#references)
 * [Does TDD really lead to good design?](https://www.codurance.com/publications/2015/05/12/does-tdd-lead-to-good-design) Blog by Sandro Mancuso
 * [Testing Yourself – Growing Through Refactoring](https://www.linkedin.com/pulse/testing-yourself-growing-refactoring-michael-feathers/) Linkedin article by Michael Feathers
-* [Do you-ou-ou a-wanna test like  me-e-e?](https://tabsandspaces.libsyn.com/2022/02) Tabs and Spaces Podcast with me as the featured artist with the three regular hosts discussing some of the topics I've listed here
+* [Do you-ou-ou a-wanna test like  me-e-e?](https://open.spotify.com/episode/1nktoh5QzNtiNpN2VoHR7g) Tabs and Spaces Podcast with me as the featured artist with the three regular hosts discussing some of the topics I've listed here
