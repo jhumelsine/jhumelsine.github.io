@@ -5,7 +5,7 @@ unlisted: true
 ---
 
 # Introduction
-When I interviewed job candidates, I’d ask them if they knew any Design Patterns. Most didn’t know what I was talking about. Some had heard of them, but they had not studied them. A few had the Gang of Four’s (GoF) Design Pattern book but had never read it. I never held anyone’s lack of Design Pattern knowledge against them, since it was so prevalent. I had not learned the Design Pattern myself until my mid-forties.
+When I interviewed job candidates, I’d ask them if they knew any Design Patterns. Most didn’t know what I was talking about. Some had heard of them, but they didn't know much more than that. A few had the Gang of Four’s (GoF) Design Pattern book but had never read it. I never held anyone’s lack of Design Pattern knowledge against them, since it was so prevalent. I had not learned the Design Pattern myself until my mid-forties.
 
 When candidates could name a few Design Patterns, __Singleton__ seemed to be the pattern that was mentioned most often, even if they weren’t quite sure how to apply it. 
 
@@ -40,7 +40,7 @@ The GoF defined Singleton’s intent as:
 There are valid domain model situations for which we would only desire no more than one instance for a class, such as the system clock, the file system, a repository, etc.
 
 # Considering Static Methods
-Static methods are already associated with the class rather than an instance of the object. That is, for most Object-Oriented (OO) languages, we can access a static method without having to do so via an instance of the class. Static attributes, which are associated with the class rather than an instance of the class, are also accessible from static methods without the need for an instance of the class. Isn’t this already a type of Singleton?
+Static methods are already associated with the class rather than an instance of the object. That is, for most Object-Oriented (OO) languages, we can access a static method without having to do so via an instance of the class. Static attributes, which are associated with the class rather than an instance of the class, are also accessible from static methods without the need for an instance of the class. Isn’t making everything static already a type of Singleton?
 
 Technically, yes, it is. And we will see that Singleton’s mechanism uses a static method and static attribute, but Singleton is different, since it is an instance.
 
@@ -48,7 +48,7 @@ Static methods are great for [Pure Functions](https://en.wikipedia.org/wiki/Pure
 
 But objects, as in object instances, are first class citizens in OO languages. They can do things that static methods can’t do or can’t do as easily. They can be passed as arguments. They are more flexible. Since Singleton is an object instance, it can do things that static methods may not be able to do.
 
-I worked on a project that used [MongoDB](https://en.wikipedia.org/wiki/MongoDB). Long before I joined the project, they had created static methods for each domain persistent operation as wrappers around Mongo details. It was a type of [Façade](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html). While I appreciated not having to dive into Mongo details, it was a big cumbersome to create and initialize [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) for these static methods. Fortunately newer versions of [Mockito](https://site.mockito.org/) provide static method mocking, it’s not the most elegant mechanism I’ve seen, as I pointed out in [Mocking Frameworks](https://jhumelsine.github.io/2025/03/24/legacy-code.html#mocking-frameworks). 
+I worked on a project that used [MongoDB](https://en.wikipedia.org/wiki/MongoDB). Long before I joined the project, they had created static methods for each operation as wrappers around Mongo details. It was a type of [Façade](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html). While I appreciated not having to dive into Mongo details, it was a bit cumbersome to create and initialize [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) for these static methods. Fortunately newer versions of [Mockito](https://site.mockito.org/) provide static method mocking, it’s not the most elegant mechanism I’ve seen, as I pointed out in [Mocking Frameworks](https://jhumelsine.github.io/2025/03/24/legacy-code.html#mocking-frameworks). 
 
 # Singleton Implementation
 The Singleton implementation appears simple, which is one of its issues.
