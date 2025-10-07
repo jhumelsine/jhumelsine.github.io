@@ -5,7 +5,7 @@ unlisted: true
 ---
 
 # Introduction
-When I interviewed job candidates, I’d ask them if they knew any Design Patterns. Most didn’t know what I was talking about. Some had heard of them, but they didn't know much more than that. A few had the Gang of Four’s (GoF) Design Pattern book but had never read it. I never held anyone’s lack of Design Pattern knowledge against them, since it was so prevalent. I had not learned the Design Pattern myself until my mid-forties.
+When I interviewed job candidates, I’d ask them if they knew any Design Patterns. Most didn’t know what I was talking about. Some had heard of them, but they didn't know much more than that. A few had the Gang of Four (GoF) Design Pattern book but had never read it. I never held anyone’s lack of Design Pattern knowledge against them, since it was so prevalent. I had not learned the Design Pattern myself until my mid-forties, so I shouldn't judge others either.
 
 When candidates could name a few Design Patterns, __Singleton__ seemed to be the pattern that was mentioned most often, even if they weren’t quite sure how to apply it. 
 
@@ -14,13 +14,13 @@ I suspect that most developers still may not know how to apply it, and Singleton
 # I come to bury Singleton, not to praise it
 I feel that incorporating design patterns into your designs will improve the quality of your code as I’ve described in previous [Design Pattern blog entries](https://jhumelsine.github.io/table-of-contents#design-patterns). I’m not convinced that Singleton falls into that category.
 
-Singleton has its place in a design, but it’s a narrow spot. It’s often used outside of its narrow use case boundary.
+Singleton has its place in a design, but it’s a narrow spot. It’s often used outside of its narrow niche.
 
 Singleton is simple. Almost too simple. It’s fraught with traps and pitfalls. Singleton’s misuse reduces to several issues:
 * It’s easy to understand and use without fully grasping the implications of its use.
 * It’s easy to implement, possibly too easy.
 * It’s easy to implement incorrectly.
-* It’s easy to reference from within a design, which can cause additional issues.
+* It’s easy to reference from almost anywhere within a design, which can cause additional issues.
 
 # Singleton’s Purpose in a Design
 As I pointed out in [What is an Object?](https://jhumelsine.github.io/2025/09/03/what-is-an-object.html), Singleton’s purpose is to ensure that there’s no more than one instance for a class.
@@ -37,24 +37,24 @@ The GoF defined Singleton’s intent as:
 >* Encapsulated "just-in-time initialization" or "initialization on first use".
 
 # Single Instance
-There are valid domain model situations for which we would only desire no more than one instance for a class, such as the system clock, the file system, a repository, etc.
+There are valid domain model situations for which we would desire no more than one instance for a class, such as the system clock, the file system, a repository, etc.
 
 # Considering Static Methods
-Static methods are already associated with the class rather than an instance of the object. That is, for most Object-Oriented (OO) languages, we can access a static method without having to do so via an instance of the class. Static attributes, which are associated with the class rather than an instance of the class, are also accessible from static methods without the need for an instance of the class. Isn’t making everything static already a type of Singleton?
+Static methods are already associated with the class rather than an instance of the class. That is, for most Object-Oriented (OO) languages, we can access a static method without having to do so via an instance of the class. Static attributes, which are associated with the class rather than an instance of the class, are also accessible from static methods without the need for an instance of the class. Isn’t making everything static already a type of Singleton?
 
 Technically, yes, it is. And we will see that Singleton’s mechanism uses a static method and static attribute, but Singleton is different, since it is an instance.
 
 Static methods are great for [Pure Functions](https://en.wikipedia.org/wiki/Pure_function), such mathematical operations. They are a core concept to [Functional Programming](https://en.wikipedia.org/wiki/Functional_programming).
 
-But objects, as in object instances, are first class citizens in OO languages. They can do things that static methods can’t do or can’t do as easily. They can be passed as arguments. They are more flexible. Since Singleton is an object instance, it can do things that static methods may not be able to do.
+But objects object instances are first class citizens in OO languages. They can do things that static methods can’t do or can’t do as easily. They can be passed as arguments. They are more flexible. Since Singleton is an object instance, it can do things that static methods may not be able to do.
 
-I worked on a project that used [MongoDB](https://en.wikipedia.org/wiki/MongoDB). Long before I joined the project, they had created static methods for each operation as wrappers around Mongo details. It was a type of [Façade](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html). While I appreciated not having to dive into Mongo details, it was a bit cumbersome to create and initialize [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) for these static methods. Fortunately newer versions of [Mockito](https://site.mockito.org/) provide static method mocking, it’s not the most elegant mechanism I’ve seen, as I pointed out in [Mocking Frameworks](https://jhumelsine.github.io/2025/03/24/legacy-code.html#mocking-frameworks). 
+I worked on a project that used [MongoDB](https://en.wikipedia.org/wiki/MongoDB). Long before I joined the project, they had created static methods for each operation as wrappers around Mongo details. It was a type of [Façade](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html). While I appreciated not having to dive into Mongo details, it was a bit cumbersome to create and initialize [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) for these static methods. Fortunately newer versions of [Mockito](https://site.mockito.org/) provide static method mocking. While it works, it’s not the most elegant mechanism I’ve seen, as I pointed out in [Mocking Frameworks](https://jhumelsine.github.io/2025/03/24/legacy-code.html#mocking-frameworks). 
 
 # Singleton Implementation
 The Singleton implementation appears simple, which is one of its issues.
 
 ## The Classic Implementation
-Here is a Java equivalent of the C++ Singleton implementation from the Gang of Four (GoF) book:
+Here is a Java equivalent of the C++ Singleton implementation from the GoF book:
 ```java
 class SingletonA {
     private static SingletonA singleton = null;
@@ -70,7 +70,7 @@ class SingletonA {
     }
 }
 ```
-The `SingletonA` class contains an internal reference to an object of its own type, `singleton`. The constructor is `private` so that no other instance can execute it. The `static` `acquire()` method initializes the internal `singleton` if null via the constructor, assign and returns a reference. The GoF use `instance()` rather than `acquire()`, but I prefer the latter name, since it doesn’t suggest the underlying creation mechanism. `getInstance()` is another popular method name you’ll see.
+The `SingletonA` class contains an internal reference to an object of its own type, `singleton`. The constructor is `private` so that no other instance can execute it. The `static` `acquire()` method initializes the internal `singleton` if null via the constructor, assigns and returns a reference. The GoF use `instance()` rather than `acquire()`, but I prefer the latter name, since it doesn’t suggest the underlying creation mechanism. `getInstance()` is another popular method name you’ll see.
 
 It’s nice and simple, and it contains a flaw. It is not thread safe. If two threads are first to execute the null check at the same time, both will find it null and initialize `singleton`. Two instances of `SingletonA` will be initialized, but only the second one will be retained.
 
@@ -131,10 +131,11 @@ In some languages, order was not specified. While the first bullet has to be fir
 
 Therefore, it’s possible for two threads to execute this code simultaneously. The first thread will call the constructor, allocate the memory and potentially assign `singleton` before the constructor has initialized the memory.
 
-While the first thread is still initializing the memory, a second thread proceeds. The first null check is false, so it resolves the reference by returning `singleton`, which may still be in process of initializing its memory. This means that the second thread may start to invoke a method on the uninitialized `singleton`, which would most likely throw a bizarre exception. Good luck repeating that behavior and figuring it out. You can read more about this issue in [C++ and the Perils of Double-Checked Locking](https://www.aristeia.com/Papers/DDJ_Jul_Aug_2004_revised.pdf) by Scott Meyers and Andrei Alexandrescu. Unless you know with 100% certainty that your language does not have an issue with double-checked locking, then don’t do it.
+While the first thread is still initializing the memory, a second thread proceeds. The first null check is false, so it resolves the reference by returning `singleton`, which may still be in process of being initialized. This means that the second thread may start to invoke a method on the uninitialized `singleton`, which would most likely throw a bizarre exception. Good luck repeating that behavior and figuring it out. You can read more about this issue in [C++ and the Perils of Double-Checked Locking](https://www.aristeia.com/Papers/DDJ_Jul_Aug_2004_revised.pdf) by Scott Meyers and Andrei Alexandrescu. Unless you know with 100% certainty that your language does not have an issue with double-checked locking, then don’t do it.
 
 ## The Initialize at Start Up Implementation
 The previous implementations use lazy initialization. The Singleton is not initialized until it’s needed. I suspect that in most applications, Singletons will be needed, so don’t use lazy initialization. Initialize it statically.
+
 ```java
 class SingletonD {
     private static SingletonD singleton = new SingletonD();
@@ -152,6 +153,7 @@ I read of this implementation in [SourceMaking.com]( https://sourcemaking.com/de
 >University of Maryland Computer Science researcher Bill Pugh has written about the code issues underlying the Singleton pattern when implemented in Java. Pugh's efforts on the "Double-checked locking" idiom led to changes in the Java memory model in Java 5 and to what is generally regarded as the standard method to implement Singletons in Java. The technique is known as the initialization on demand holder idiom, is as lazy as possible, and works in all known versions of Java. It takes advantage of language guarantees about class initialization, and will therefore work correctly in all Java-compliant compilers and virtual machines.
 >
 >The inner class is referenced no earlier (and therefore loaded no earlier by the class loader) than the moment that getInstance() is called. Thus, this solution is thread-safe without requiring special language constructs (i.e. volatile or synchronized).
+
 ```java
 class SingletonE {
     private SingletonE() {}
@@ -167,14 +169,14 @@ class SingletonE {
 ```
 
 ## Implementation Recommendation
-Singleton seems like a simple implementation, but it can burn you. Look up other implementations. Both resources contain Singleton implementations in several languages at the bottom of each page respectively:
+Singleton seems like a simple implementation, but it can burn you. Look up other implementations. Both resources below contain Singleton implementations in several languages at the bottom of each page respectively:
 * [Singleton via SourceMaking.com](https://sourcemaking.com/design_patterns/singleton)
 * [Singleton via Refactoring.guru](https://refactoring.guru/design-patterns/singleton)
 
 # What Happened to Class Encapsulation?
-Most [creational design patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) encapsulate the class type from the user, which adheres to their first design principle: [_Program to an interface, not an implementation_](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation). Yet Singleton has violated this principle in almost every use of it that I’ve seen in production code. Almost every example I’ve seen illustrates Singleton with the `acquire()` method returning an instance of its class.
+Most [creational design patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) encapsulate the class type from the user, which adheres to their first design principle: [_Program to an interface, not an implementation_](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation). Yet Singleton has violated this principle in almost every use of it that I’ve seen in production code. Almost every example I’ve seen illustrates Singleton with the `acquire()`, `instance()`, `getInstance()`, method returning an instance of its own class.
 
-As a result, almost every use of Singleton I’ve seen in production code is tightly coupled to the class. It’s no different than obtaining an instance via `new()`, except that with Singleton, there’s only one instance.
+As a result, almost every use of Singleton I’ve seen in production code is tightly coupled to the class. It’s no different than obtaining an instance via `new()`, except that with Singleton, there’s only one instance ever created.
 
 Making matters worse, Singleton is often used as an inlined variable such as:
 ```java
@@ -186,10 +188,10 @@ Technically we could do the same with `new()`, but we rarely see:
 System.out.println(“The value is =” + new MyClass().toString());
 ```
 
-A Singleton instance is so easy to obtain that it can be referenced almost anywhere, which can make maintenance more challenging. Notice that every reference to intent above contains a version of the following:
->Provide a global access point
+A Singleton instance is so easy to obtain that it can be referenced almost anywhere, which can make maintenance more challenging. Notice that every reference for intent above contains a version of the following:
+>Provides a global access point
 
-Singleton’s solitary  instances tend to be associated with external dependencies. Providing a class specific Singleton not only violates encapsulation, it violates a lot of the principles that I championed in the Hexagonal Architecture Series. Specifically, applications have direct knowledge and dependency upon externals.
+Singleton’s solitary  instances tend to be associated with external dependencies, such as System Clock, File System, Database, etc. Providing a class specific Singleton not only violates encapsulation, it violates a lot of the principles that I championed in the Hexagonal Architecture Series. Specifically, applications have direct knowledge and dependency upon externals.
 
 In defense of the GoF, they do provide a ___Registry___ example, which looks somewhat like a Factory Method, which addresses this to some degree, but it comes too late. Singleton’s relatively simple implementation is easy enough to understand, that I suspect many GoF readers read it, understood it, and then didn’t continue reading the rest of Singleton section, which contained more subtle points.
 
