@@ -377,6 +377,7 @@ Here are some free resources:
 * [Extract Method](https://refactoring.guru/extract-method) by Refactoring.guru
 * [The key points of Working Effectively with Legacy Code](https://understandlegacycode.com/blog/key-points-of-working-effectively-with-legacy-code/) by [Nicolas Carlo](https://bsky.app/profile/nicoespeon.com)
 * [Understanding Legacy Code: Change Messy Software Without Breaking It](https://understandlegacycode.com/) by [Nicolas Carlo](https://bsky.app/profile/nicoespeon.com)
+* [The Legacy Code Survival Guide: Add Features Without Fear](https://understandlegacycode.com/blog/legacy-code-survival-guide-talk/) by Nicolas Carlo summarizing Steven Diamente's presentation of the same name. Presentation is embedded in the summary.
 * [Notes from Working Effectively with Legacy Code](https://barryosull.com/blog/notes-from-working-effectively-with-legacy-code/) by Barry O'Sullivan, which I think provides a summary for each chapter of ___Working Effectively with Legacy Code___
 * [9 Techniques That Help You Safely Work With Legacy Code](https://blog.scitools.com/safely-work-with-legacy-code/) by SciTools
 * [Navigating Legacy Code: How I Used the Sprout Method to build a new feature](https://www.linkedin.com/pulse/navigating-legacy-code-how-i-used-sprout-method-build-sibin-m-s-kcodc/) by Sibin M S
