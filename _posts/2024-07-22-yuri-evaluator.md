@@ -325,7 +325,7 @@ A few notes about the form above:
 * The `parenthesesBoundedExpession` will not be empty. It may also contain additional parentheses.
 * The `postParenthesesExpression` may be any empty string. I may also contain additional parentheses.
 
-The evaluation of the parentheses delimited expression is doubly nested recursive calls to `evaluate(...)`, where `+` is String concatenation:
+The evaluation of the parentheses delimited expression is doubly nested recursive calls to `evaluate(...)`, where `+` is String concatenation and not arithmetic addition:
 ```
 evaluate(preParenthesesExpression + evaluate(parenthesesBoundedExpression) + postParenthesesExpression)
 ```
@@ -346,12 +346,11 @@ The parentheses specific implementation took about an hour from start to finish.
             // Matching closing parenthesis index
             int closeParenIndex = openParenIndex + getClosingParen(expression.substring(openParenIndex));
 
-            // Evaluate and return a shorter version of original expression
+            // Evaluate and return a shorter version of original expression by concatenating the expressions before and after the shortened evaluated parentheses defined expression.
             return evaluate(
-                    expression.substring(0, openParenIndex) +
-                    // Evalate parentheses bounded expression
-                    evaluate(expression.substring(openParenIndex+1, closeParenIndex), variables) +
-                    expression.substring(closeParenIndex+1, expression.length()),
+                    expression.substring(0, openParenIndex) + // preParentheses expression
+                    evaluate(expression.substring(openParenIndex+1, closeParenIndex), variables) + // Parentheses bounded expression
+                    expression.substring(closeParenIndex+1, expression.length()), // postParentheses expression
                 variables);
         }
 
