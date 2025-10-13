@@ -202,7 +202,7 @@ We had not tried expressions with different multiple operators such as `3 + 4 * 
 
 I suggested that he didn’t have to over think how to get this to work. Create a test that declared an expected evaluation of `23`, and then try it. We had already implemented addition and multiplication. If the test passed, then it evaluated addition and multiplication operations in the correct order returning `23`. If it failed and returned `35`, then the order of operator processing is in the wrong order. Swap the order of operator processing and test again.
 
-Do this for the other operators too. Create a few more complicated expressions. Test and adjust takes less thinking effort and time than adjust and test.
+Do this for the other operators too. Create a few more complicated expressions. Don't overthink it. Create the test and adjust the code until the tests pass. _Test and adjust_ takes less thinking effort and time than _adjust and test_.
 
 I sent him on his way.
 
