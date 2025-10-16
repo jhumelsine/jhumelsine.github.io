@@ -59,6 +59,15 @@ Finding your next job is a part-time job. Keep the job search alive, but don’t
 
 And if you skip a day or two, don't beat yourself up about it. Start back up again the next day.
 
+## It's not what you know, it's who you know
+My mother used to say that all the time, and she was right. I worked for five companies in my career. I got three of those five jobs from referrals from previous coworkers who had moved to those companies.
+
+### Your Network
+Make sure that the people you used work with know that you're looking for work. This is especially true for past coworkers who had already moved to other companies. They may know of internal opportunities that haven't been posted yet. Referrals are usually given higher consideration than an application from an unknown candidate.
+
+### For the Glory of Old State ...
+If you graduated from a university with a career center, contact them. They may have additional resources available to you too.
+
 ## Automate Your Job Search
 Update your LinkedIn status to __open to work__. Post your resume on other job sites. Let others know that you’re in the job market.
 
