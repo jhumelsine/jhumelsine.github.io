@@ -5,7 +5,7 @@ unlisted: true
 ---
 
 # Introduction
-When I interviewed job candidates, I’d ask them if they knew any Design Patterns. Most didn’t know what I was talking about. Some had heard of them, but they didn't know much more than that. A few had the Gang of Four (GoF) Design Pattern book but had never read it. I never held anyone’s lack of Design Pattern knowledge against them, since it was so prevalent. I had not learned the Design Pattern myself until my mid-forties, so I shouldn't judge others either.
+When I interviewed job candidates, I’d ask them if they knew any Design Patterns. Most didn’t know what I was talking about. Some had heard of them, but they didn't know much more than that. A few had the Gang of Four (GoF) Design Pattern book but had never read it. I never held anyone’s lack of Design Pattern knowledge against them, since it was so prevalent. I had not learned the Design Pattern myself until my mid-forties, so I felt that shouldn't judge others either.
 
 When candidates could name a few Design Patterns, __Singleton__ seemed to be the pattern that was mentioned most often, even if they weren’t quite sure how to apply it. 
 
@@ -40,7 +40,7 @@ The GoF defined Singleton’s intent as:
 There are valid domain model situations for which we would desire no more than one instance for a class, such as the system clock, the file system, a repository, etc.
 
 # Considering Static Methods
-Static methods are already associated with the class rather than an instance of the class. That is, for most Object-Oriented (OO) languages, we can access a static method without having to do so via an instance of the class. Static attributes, which are associated with the class rather than an instance of the class, are also accessible from static methods without the need for an instance of the class. Isn’t making everything static already a type of Singleton?
+Static methods are already associated with the class rather than an instance of the class. That is, for most Object-Oriented (OO) languages, we can access a static method without having to do so via an instance of the class. Static attributes, which are associated with the class rather than an instance of the class, are also accessible without the need for an instance of the class. Isn’t making everything static already a type of Singleton?
 
 Technically, yes, it is. And we will see that Singleton’s mechanism uses a static method and static attribute, but Singleton is different, since it is an instance.
 
@@ -70,7 +70,7 @@ class SingletonA {
     }
 }
 ```
-The `SingletonA` class contains an internal reference to an object of its own type, `singleton`. The constructor is `private` so that no other instance can execute it. The `static` `acquire()` method initializes the internal `singleton` if null via the constructor, assigns and returns a reference. The GoF use `instance()` rather than `acquire()`, but I prefer the latter name, since it doesn’t suggest the underlying creation mechanism. `getInstance()` is another popular method name you’ll see.
+The `SingletonA` class contains an internal reference to an object of its own type, `singleton`. The constructor is `private` so that no other instance can execute it. The `static` `acquire()` method initializes the internal `singleton`, if null, via the constructor, assigns and returns a reference. The GoF use `instance()` rather than `acquire()`, but I prefer the latter name, since it doesn’t suggest the underlying creation mechanism. `getInstance()` is another popular method name you’ll see.
 
 It’s nice and simple, and it contains a flaw. It is not thread safe. If two threads are first to execute the null check at the same time, both will find it null and initialize `singleton`. Two instances of `SingletonA` will be initialized, but only the second one will be retained.
 
@@ -231,7 +231,7 @@ class SingletonF implements MyFeature {
 }
 ```
 
-Here is it being instantiated and invoked:
+Here it is being instantiated and invoked:
 ```java
 MyFeature myFeature = SingletonF.acquire();
 System.out.println(myFeature.getMessage());
@@ -256,7 +256,7 @@ I’ve only kicked the can down the road a bit. Even if the Singleton type is en
 
 I’m no closer to being able to inject my own Test Double. It’s similar to the problem I described in the beginning of [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) where my team could only test our software in the lab emulating the entire environment because of our tight dependencies.
 
-We can address this by using an [Injected Configurer] (https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer). The application would look something like this, where `MyFeature` is injected into it:
+We can address this by using an [Injected Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer). The application would look something like this, where `MyFeature` is injected into it:
 ```java
 class MyFeatureApp {
     private final MyFeature myFeature;
@@ -287,11 +287,52 @@ myFeatureApp.print();
 
 This is very similar to what [Spring’s @Autowired](https://www.baeldung.com/spring-autowire) does. I don’t know if all @Autowired references are resolved with Singletons, but many are.
 
-While this works, because we can inject Test Doubles into `MyFeatureApp `, it leaves me a bit unsatisfied. Do we even need a Singleton? A Configurer only injects one instance anyway. The only reason to implement a Singleton would be to ensure that there’s only one instance across multiple Configurers that are injecting the single-instance domains, such as Databases, File Systems and other external dependencies.
+While this works, because we can inject Test Doubles into `MyFeatureApp`, it leaves me a bit unsatisfied. Do we even need a Singleton? A Configurer only injects one instance anyway. The only reason to implement a Singleton would be to ensure that there’s only one instance across multiple Configurers that are injecting the single-instance domains, such as Databases, File Systems and other external dependencies.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Down_the_Rabbit_Hole_%28311526846%29.jpg/1200px-Down_the_Rabbit_Hole_%28311526846%29.jpg?20220726070017" alt="Alice in Wonderland with the Rabbit" title="Image Source: https://commons.wikimedia.org/wiki/File:Down_the_Rabbit_Hole_(311526846).jpg" width = "35%" align="right" style="padding-right: 20px;">
+If we were to desire the ability for an application to call `acquire()` repeatedly, then we can still provide this by injecting an [Abstract Factory](https://jhumelsine.github.io/2025/07/30/abstract-factory.html). Here is the basic implementation where `AbstractFeatureFactory` declares a method that returns a `MyFeatureFactory`. The `AbstractFeatureFactoryDemo` implements `AbstractFeatureFactory` and `acquireMyFeatureFactory()` returns `MyFeatureFactory`:
+```java
+interface AbstractFeatureFactory {
+    MyFeatureFactory acquireMyFeatureFactory();
+}
 
-If we were to desire the ability for an application to call `acquire()` repeatedly, then we can still provide this by injecting an [Abstract Factory](https://jhumelsine.github.io/2025/07/30/abstract-factory.html), I won’t tumble down this rabbit hole, since I already covered it there, but here’s the basics:
+class AbstractFeatureFactoryDemo implements AbstractFeatureFactory {
+    @Override
+    public MyFeatureFactory acquireMyFeatureFactory() {
+        return new MyFeatureFactory();
+    }
+}
+```
+
+Here is some sample code that references an `AbstractFeatureFactory` injected into it. The `print()` method has to go through two factories just to finally get the message:
+```java
+class MyFeatureAppB {
+    private final AbstractFeatureFactory abstractFeatureFactory;
+
+    public MyFeatureAppB(AbstractFeatureFactory abstractFeatureFactory) {
+        this.abstractFeatureFactory = abstractFeatureFactory;
+    }
+
+    public void print() {
+        MyFeatureFactory myFeatureFactory = abstractFeatureFactory.acquireMyFeatureFactory();
+        MyFeature myFeature = myFeatureFactory.acquire();
+        System.out.println(myFeature.getMessage());
+    }
+}
+```
+
+And finally, here's the code that creates and injects the abstract factory into `MyFeatureAppB`:
+```java
+MyFeatureAppB myFeatureApp = new MyFeatureAppB(new AbstractFeatureFactoryDemo());
+myFeatureApp.print();
+```
+
+Technically this works. This code can call `myFeatureFactory.acquire()` repeatedly, and it will always acquire the same Singleton instance, but I can't help feeling that it's over engineered. I would only go to this level of multiple indirections if I had no other options.
+
+As I look at this implementation, I keep thinking of his quote:
+>_All problems in CS can be solved by another level of indirection, except for the problem of too many layers of indirection._ — David Wheeler
+
+# Unit Testing Concerns
+Singleton is one instance ... everywhere. It's often embedded deep within the code, often within a statement as I've shown above. These 
 
 # Summary
 __TBD__
