@@ -1,11 +1,11 @@
 ---
 title: WORK IN PROGRESS – Singleton Design Pattern
-description: The One. The Only. The Good, The Bad and the Ugly.
+description: The One. The Only. The Good. The Bad. And the Ugly.
 unlisted: true
 ---
 
 # Introduction
-When I interviewed job candidates, I’d ask them if they knew any Design Patterns. Most didn’t know what I was talking about. Some had heard of them, but they didn't know much more than that. A few had the Gang of Four (GoF) Design Pattern book but had never read it. I never held anyone’s lack of Design Pattern knowledge against them, since it was so prevalent. I had not learned the Design Pattern myself until my mid-forties, so I felt that shouldn't judge others negatively either.
+When I interviewed job candidates, I’d ask them if they knew any Design Patterns. Most didn’t know what I was talking about. Some had heard of them, but they didn't know much more than that. A few had the Gang of Four (GoF) Design Pattern book but had never read it. I never held anyone’s lack of Design Pattern knowledge against them, since the lack of knowledge was so prevalent. I had not learned the Design Pattern myself until my mid-forties, so I felt that shouldn't judge others negatively either.
 
 When candidates could name a few Design Patterns, __Singleton__ seemed to be the pattern that was mentioned most often, even if they weren’t quite sure how to apply it. 
 
@@ -44,11 +44,23 @@ Static methods are already associated with the class rather than an instance of 
 
 Technically, yes, it is. And we will see that Singleton’s mechanism uses a static method and static attribute, but Singleton is different, since it is an instance.
 
-Static methods are great for [Pure Functions](https://en.wikipedia.org/wiki/Pure_function), such mathematical operations. They are a core concept to [Functional Programming](https://en.wikipedia.org/wiki/Functional_programming).
+Static methods are great for [Pure Functions](https://en.wikipedia.org/wiki/Pure_function), such as mathematical operations. They are a core concept in [Functional Programming](https://en.wikipedia.org/wiki/Functional_programming).
 
 But objects object instances are first class citizens in OO languages. They can do things that static methods can’t do or can’t do as easily. They can be passed as arguments. They are more flexible. Since Singleton is an object instance, it can do things that static methods may not be able to do.
 
-I worked on a project that used [MongoDB](https://en.wikipedia.org/wiki/MongoDB). Long before I joined the project, they had created static methods for each operation as wrappers around Mongo details. It was a type of [Façade](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html). While I appreciated not having to dive into Mongo details, it was a bit cumbersome to create and initialize [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) for these static methods. Fortunately newer versions of [Mockito](https://site.mockito.org/) provide static method mocking. While it works, it’s not the most elegant mechanism I’ve seen, as I pointed out in [Mocking Frameworks](https://jhumelsine.github.io/2025/03/24/legacy-code.html#mocking-frameworks). 
+# Unit Testing Concerns
+Singleton is one instance ... everywhere. It's often embedded deep within the code, often within a statement. These attributes can create unit testing concerns.
+
+Singleton acquisition occurs via a static method, which is difficult to replace with a [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html). And if you're not able to inject a dedicated Test Double for each unit test, you'll end up acquiring the Singleton instance, which is often associated with an external dependency. This alone makes unit testing inefficient, but once a Singleton, always a Singleton. There will be one instance that all of your unit test cases may be accessing at the same time. The exeuction of one test might update the Singleton instance such that it affects the behavior of other unit test cases making them [flaky](https://jhumelsine.github.io/2025/04/14/humble-object.html#flaky-tests).
+
+Mockito 3.4.0 provided the ability to inject Test Double behaviors into static methods without having to touch the implementation as described in this Mockito Static Method Tutorial. Even though Mockito provided this ability, the tutorial adds this [caveat](https://www.baeldung.com/mockito-mock-static-methods#a-quick-word-on-testing-static-methods):
+>Generally speaking, some might say that when writing clean object-orientated code, we shouldn’t need to mock static classes. __This could typically hint at a design issue or code smell in our application.__
+>
+>Why? First, a class depending on a static method has tight coupling, and second, it nearly always leads to code that is difficult to test. Ideally, a class should not be responsible for obtaining its dependencies, and if possible, they should be externally injected.
+>
+>__So, it’s always worth investigating if we can refactor our code to make it more testable.__ Of course, this is not always possible, and sometimes we need to mock static methods.
+
+I worked on a project that used [MongoDB](https://en.wikipedia.org/wiki/MongoDB). Long before I joined the project, they had created static methods for each operation as wrappers around Mongo details. It was a type of [Façade](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html). While I appreciated not having to dive into Mongo details, it was a bit cumbersome to create and initialize Test Doubles for these static methods. Fortunately newer versions of [Mockito](https://site.mockito.org/) provide static method mocking. While it works, it’s not the most elegant mechanism I’ve seen, as I pointed out in [Mocking Frameworks](https://jhumelsine.github.io/2025/03/24/legacy-code.html#mocking-frameworks). The Static Method support in Mockito allowed me to inject Test Doubles and avoid the other issues listed above.
 
 # Singleton Implementation
 The Singleton implementation appears simple, which is one of its issues.
@@ -70,9 +82,9 @@ class SingletonA {
     }
 }
 ```
-The `SingletonA` class contains an internal reference to an object of its own type, `singleton`. The constructor is `private` so that no other instance can execute it. The `static` `acquire()` method initializes the internal `singleton`, if null, via the constructor, assigns and returns a reference. The GoF use `instance()` rather than `acquire()`, but I prefer the latter name, since it doesn’t suggest the underlying creation mechanism. `getInstance()` is another popular method name you’ll see.
+The `SingletonA` class contains an internal reference to an object of its own type, `singleton`. The constructor is `private` so that no other instance can execute it. The `static` `acquire()` method initializes the internal `singleton` if null, via the constructor, assigns and returns a reference. The GoF use `instance()` rather than `acquire()`, but I prefer the latter name, since it doesn’t suggest the underlying creation mechanism. `getInstance()` is another popular method name you’ll see.
 
-It’s nice and simple, and it contains a flaw. It is not thread safe. If two threads are first to execute the null check at the same time, both will find it null and initialize `singleton`. Two instances of `SingletonA` will be initialized, but only the second one will be retained.
+It’s nice and simple, and it contains a flaw. It is not thread safe. If multiple threads are first to execute the null check at the same time, all will find it null and initialize the `singleton`. Multiple instances of `SingletonA` will be initialized, but only the last one will be retained.
 
 ## The Thread Safe Implementation
 The addition of `synchronized` makes the previous implementation thread safe:
@@ -131,7 +143,9 @@ In some languages, order was not specified. While the first bullet has to be fir
 
 Therefore, it’s possible for two threads to execute this code simultaneously. The first thread will call the constructor, allocate the memory and potentially assign `singleton` before the constructor has initialized the memory.
 
-While the first thread is still initializing the memory, a second thread proceeds. The first null check is false, so it resolves the reference by returning `singleton`, which may still be in process of being initialized. This means that the second thread may start to invoke a method on the uninitialized `singleton`, which would most likely throw a bizarre exception. Good luck repeating that behavior and figuring it out. You can read more about this issue in [C++ and the Perils of Double-Checked Locking](https://www.aristeia.com/Papers/DDJ_Jul_Aug_2004_revised.pdf) by Scott Meyers and Andrei Alexandrescu. Unless you know with 100% certainty that your language does not have an issue with double-checked locking, then don’t do it.
+While the first thread is still initializing the memory, a second thread proceeds. The first null check is false, so it resolves the reference by returning `singleton`, which may still be in process of being initialized. This means that the second thread may start to invoke a method on the uninitialized `singleton`, which would most likely throw a bizarre exception. Good luck repeating that behavior and figuring it out.
+
+You can read more about this issue in [C++ and the Perils of Double-Checked Locking](https://www.aristeia.com/Papers/DDJ_Jul_Aug_2004_revised.pdf) by Scott Meyers and Andrei Alexandrescu. Unless you know with 100% certainty that your language does not have an issue with double-checked locking, then don’t do it.
 
 ## The Initialize at Start Up Implementation
 The previous implementations use lazy initialization. The Singleton is not initialized until it’s needed. I suspect that in most applications, Singletons will be needed, so don’t use lazy initialization. Initialize it statically.
@@ -169,23 +183,18 @@ class SingletonE {
 ```
 
 ## Implementation Recommendation
-Singleton seems like a simple implementation, but it can burn you. Look up other implementations. Both resources below contain Singleton implementations in several languages at the bottom of each page respectively:
+Singleton seems like a simple implementation, but it can burn you. Look up implementations for other programming languages. Both resources below contain Singleton implementations in several languages at the bottom of each page:
 * [Singleton via SourceMaking.com](https://sourcemaking.com/design_patterns/singleton)
 * [Singleton via Refactoring.guru](https://refactoring.guru/design-patterns/singleton)
 
 # What Happened to Class Encapsulation?
-Most [creational design patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) encapsulate the class type from the user, which adheres to their first design principle: [_Program to an interface, not an implementation_](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation). Yet Singleton has violated this principle in almost every use of it that I’ve seen in production code. Almost every example I’ve seen illustrates Singleton with the `acquire()`, `instance()`, `getInstance()`, method returning an instance of its own class.
+Most [creational design patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) encapsulate the class type from the user, which adheres to the GoF's first design principle: [_Program to an interface, not an implementation_](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation). Yet Singleton has violated this principle in almost every use of it that I’ve seen in production code. Almost every example I’ve seen in production code obtains a Singleton with the `acquire()`, `instance()`, `getInstance()`, method returning an instance of its own class.
 
-As a result, almost every use of Singleton I’ve seen in production code is tightly coupled to the class. It’s no different than obtaining an instance via `new()`, except that with Singleton, there’s only one instance ever created.
+As a result, almost every use of Singleton I’ve seen in production code is tightly coupled to the Singleton class, and since Singletons tend be coupled to external dependencies, the application code that uses this technique is coupled to those external dependencies as well. It’s no different than obtaining an instance via `new()`, except that with Singleton, there’s only one instance ever created.
 
 Making matters worse, Singleton is often used as an inlined variable such as:
 ```java
 System.out.println(“The value is =” + Singleton.instance().toString());
-```
-
-Technically we could do the same with `new()`, but we rarely see:
-```java
-System.out.println(“The value is =” + new MyClass().toString());
 ```
 
 A Singleton instance is so easy to obtain that it can be referenced almost anywhere, which can make maintenance more challenging. Notice that every reference for intent above contains a version of the following:
@@ -193,16 +202,7 @@ A Singleton instance is so easy to obtain that it can be referenced almost anywh
 
 Singleton’s solitary  instances tend to be associated with external dependencies, such as System Clock, File System, Database, etc. Providing a class specific Singleton not only violates encapsulation, it violates a lot of the principles that I championed in the Hexagonal Architecture Series. Specifically, applications have direct knowledge and dependency upon externals.
 
-In defense of the GoF, they do provide a ___Registry___ example, which looks somewhat like a Factory Method, which addresses this to some degree, but it comes too late. Singleton’s relatively simple implementation is easy enough to understand, that I suspect many GoF readers read it, understood it, and then didn’t continue reading the rest of Singleton section, which contained more subtle points.
-
-Substituting [Test Double](https://jhumelsine.github.io/2024/07/02/test-doubles.html) for Singtons can be challenging, especially if writing your Test Doubles.
-
-Mockito 3.4.0 provided the ability to inject Test Double behaviors into static methods without having to touch the implementation as described in this Mockito Static Method Tutorial. Even though Mockito provided this ability, the tutorial adds this [caveat](https://www.baeldung.com/mockito-mock-static-methods#a-quick-word-on-testing-static-methods):
->Generally speaking, some might say that when writing clean object-orientated code, we shouldn’t need to mock static classes. __This could typically hint at a design issue or code smell in our application.__
->
->Why? First, a class depending on a static method has tight coupling, and second, it nearly always leads to code that is difficult to test. Ideally, a class should not be responsible for obtaining its dependencies, and if possible, they should be externally injected.
->
->__So, it’s always worth investigating if we can refactor our code to make it more testable.__ Of course, this is not always possible, and sometimes we need to mock static methods.
+In defense of the GoF, they do provide a ___Registry___ example, which looks somewhat like a [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html), which addresses this to some degree, but it comes too late. Singleton’s relatively simple implementation is easy enough to understand, that I suspect many GoF readers read it, understood it, and then didn’t continue reading the rest of Singleton section, which contained more subtle points.
 
 ## First Design Principle
 Michael Feathers devotes a chapter in [Working Effectively with Legacy Code]( https://jhumelsine.github.io/2025/03/24/legacy-code.html) to the struggles of testing with Singletons.
@@ -261,11 +261,9 @@ We can address this by using an [Injected Configurer](https://jhumelsine.github.
 class MyFeatureApp {
     private final MyFeature myFeature;
 
-
     public MyFeatureApp(MyFeature myFeature) {
         this.myFeature = myFeature;
     }
-
 
     public void print() {
         System.out.println(myFeature.getMessage());
@@ -287,9 +285,9 @@ myFeatureApp.print();
 
 This is very similar to what [Spring’s @Autowired](https://www.baeldung.com/spring-autowire) does. I don’t know if all @Autowired references are resolved with Singletons, but many are.
 
-While this works, because we can inject Test Doubles into `MyFeatureApp`, it leaves me a bit unsatisfied. Do we even need a Singleton? A Configurer only injects one instance anyway. The only reason to implement a Singleton would be to ensure that there’s only one instance across multiple Configurers that are injecting the single-instance domains, such as Databases, File Systems and other external dependencies.
+While this works, because we can inject Test Doubles into `MyFeatureApp`, it leaves me a bit unsatisfied. Do we even need a Singleton? A Configurer only injects one instance anyway. The only reason to implement a Singleton would be to ensure that there’s only one instance across multiple Configurers that are injecting the single-instance domains, such as Databases, File Systems and other external dependencies. Since [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) injects a single instance into the application, Singleton feels a bit redundant in that case.
 
-If we were to desire the ability for an application to call `acquire()` repeatedly, then we can still provide this by injecting an [Abstract Factory](https://jhumelsine.github.io/2025/07/30/abstract-factory.html). Here is the basic implementation where `AbstractFeatureFactory` declares a method that returns a `MyFeatureFactory`. The `AbstractFeatureFactoryDemo` implements `AbstractFeatureFactory` and `acquireMyFeatureFactory()` returns `MyFeatureFactory`:
+However, if we were to desire the ability for an application to call `acquire()` repeatedly upon a single instance, then we can still provide this by injecting an [Abstract Factory](https://jhumelsine.github.io/2025/07/30/abstract-factory.html). Here is the basic implementation where `AbstractFeatureFactory` declares a method that returns a `MyFeatureFactory`. The `AbstractFeatureFactoryDemo` implements `AbstractFeatureFactory` and `acquireMyFeatureFactory()` returns `MyFeatureFactory`:
 ```java
 interface AbstractFeatureFactory {
     MyFeatureFactory acquireMyFeatureFactory();
@@ -314,8 +312,9 @@ class MyFeatureAppB {
 
     public void print() {
         MyFeatureFactory myFeatureFactory = abstractFeatureFactory.acquireMyFeatureFactory();
-        MyFeature myFeature = myFeatureFactory.acquire();
-        System.out.println(myFeature.getMessage());
+        for (int i = 0; i < 5; i++) {
+            System.out.println(myFeatureFactory.acquire().getMessage());
+        }
     }
 }
 ```
@@ -326,13 +325,10 @@ MyFeatureAppB myFeatureApp = new MyFeatureAppB(new AbstractFeatureFactoryDemo())
 myFeatureApp.print();
 ```
 
-Technically this works. This code can call `myFeatureFactory.acquire()` repeatedly, and it will always acquire the same Singleton instance, but I can't help feeling that it's over engineered. I would only go to this level of multiple indirections if I had no other options.
+Technically this works. This code calls `myFeatureFactory.acquire()` repeatedly, and it will always acquire the same Singleton instance, but I can't help feeling that it's overengineered. I would only implement to this level of multiple indirections if I had no other options.
 
-As I look at this implementation, I keep thinking of his quote:
+As I look at this implementation, I keep hearing this quote in my head:
 >_All problems in CS can be solved by another level of indirection, except for the problem of too many layers of indirection._ — David Wheeler
-
-# Unit Testing Concerns
-Singleton is one instance ... everywhere. It's often embedded deep within the code, often within a statement as I've shown above. These 
 
 # Summary
 __TBD__
@@ -343,6 +339,9 @@ _TBD_
 
 ++++++++++++++++++++++++++++++++++++++++++++++++
 ConfigurationManager. Principle of Least Astonishment
+
 Intrinsic state.
+
 Proxy for local state.
+
 Unit test concerns. One instance. Tests may interfere with each other. Difficult to inject test doubles.
