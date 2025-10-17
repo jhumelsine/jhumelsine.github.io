@@ -1,11 +1,11 @@
 ---
-title: WORK IN PROGRESS – Singleton
-description: TBD
+title: WORK IN PROGRESS – Singleton Design Pattern
+description: The One. The Only. The Good, The Bad and the Ugly.
 unlisted: true
 ---
 
 # Introduction
-When I interviewed job candidates, I’d ask them if they knew any Design Patterns. Most didn’t know what I was talking about. Some had heard of them, but they didn't know much more than that. A few had the Gang of Four (GoF) Design Pattern book but had never read it. I never held anyone’s lack of Design Pattern knowledge against them, since it was so prevalent. I had not learned the Design Pattern myself until my mid-forties, so I felt that shouldn't judge others either.
+When I interviewed job candidates, I’d ask them if they knew any Design Patterns. Most didn’t know what I was talking about. Some had heard of them, but they didn't know much more than that. A few had the Gang of Four (GoF) Design Pattern book but had never read it. I never held anyone’s lack of Design Pattern knowledge against them, since it was so prevalent. I had not learned the Design Pattern myself until my mid-forties, so I felt that shouldn't judge others negatively either.
 
 When candidates could name a few Design Patterns, __Singleton__ seemed to be the pattern that was mentioned most often, even if they weren’t quite sure how to apply it. 
 
