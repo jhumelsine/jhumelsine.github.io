@@ -358,11 +358,11 @@ I wanted to modify the timeout on a communication channel to something like 15 s
 >
 >CM Dev: You can't do that. You'll change it for everyone.
 >
->Me: What do you mean I can't do that. It won't affect others; I'm only changing my local ConfigurationManager object.
+>Me: What do you mean I can't do that. You provided the API to do it. Besides, it won't affect others because I'm only changing my local ConfigurationManager object.
 >
 >CM Dev: I know it looks like you have your own ConfigurationManager object, but there's a Singleton implementation within it. All of the configuration values reside in one place and they're shared. When you change the TimeOut, you changed it for everyone.
 >
->Me: _Pause_ So let me get this straight. You provided the ability for me to change a value with your API, but I'm not supposed to use it, because it will change the value for everyone, because it's really a Singleton, and there's no indication anywhere that it's a shared Singleton. Do I have that right?
+>Me: _Pause_ ... So let me get this straight. You provided the ability for me to change a value with your API, but I'm not supposed to use it, because it will change the value for everyone, because it's really a Singleton, and there's no indication anywhere that it's a shared Singleton. Do I have that right?
 >
 >CM Dev: Yes.
 >
