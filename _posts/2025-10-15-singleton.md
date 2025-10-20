@@ -332,14 +332,57 @@ Technically this works. This code calls `myFeatureFactory.acquire()` repeatedly,
 As I look at this implementation, I keep hearing this quote in my head:
 >_All problems in CS can be solved by another level of indirection, except for the problem of too many layers of indirection._ — David Wheeler
 
+# Internal State
+Singleton instances can have state. But since there's one instance for all clients, the state needs to apply to all. For example, a Print Spooler Singleton might contain the printer queue. Therefore, if multiple clients submitted jobs to be printed, then they would be queued until printed. There might even be a method to obtain the list of jobs currently the queue, and any client that requested the print queue would see all jobs that had been submitted.
+
+## You Did What? Why?
+I worked on a [middleware](https://en.wikipedia.org/wiki/Middleware) project for about seven years, which was anticipated to be used by hundreds if not thousands of developers creating applications that would reside upon our middleware platform. We were encouraged to use our own product within the middleware with the only restriction that we could not reference any code that was higher than our code in the architecture stack for our middleware.
+
+One of our components was the __ConfigurationManager__. Configuration values could be declared in an [XML](https://en.wikipedia.org/wiki/XML) file. The ConfigurationManager would read the XML files, and provide an API to retrieve values. Its use looked something like this:
+```java
+ConfigurationManager configurationManager = new ConfigurationManager(); // I can't remember if we had to specify the XML files, or whether it knew where to find them.
+int timeout = configurationManager.get("TimeOut");
+```
+
+We could even update values in the ConfigurationManager, looking something like this:
+```java
+ConfigurationManager configurationManager = new ConfigurationManager();
+configurationManager.set("TimeOut", 15);
+```
+
+I wanted to modify the timeout on a communication channel to something like 15 seconds rather than the default 30 seconds, which I did with code that similar to what I've shown above. Someone from the ConfigurationManager team, which was a sibling team to mine, contacted me about my code. Our conversation was something like this:
+
+>Configuration Manager Dev (CM Dev): You changed the TimeOut value.
+>
+>Me: Yes. I want a shorter TimeOut.
+>
+>CM Dev: You can't do that. You'll change it for everyone.
+>
+>Me: What do you mean I can't do that. I'm only changing my local ConfigurationManager object.
+>
+>CM Dev: I know it looks like your own ConfigurationManager object, but there's a Singleton implementation within it. All of the configuration values are shared, and when you change the TimeOut, you changed it for everyone.
+>
+>Me: _Pause_ So let me get this straight. You provided the ability for me to change a value with your API, but I'm not supposed to use it, because it will change the value for everyone, because it's really a Singleton, and there's no indication anywhere that it's a shared Singleton. Do I have that right?
+>
+>CM Dev: Yes.
+>
+>Me: Do you think that's a good idea? We're in the same department, and I had no idea that this could happen. There's nothing in the API or the documentation that suggests that updating a configuration value, which you provided, will affect all other clients especially since we all have what appears to be our own ConfigurationManager instance. What are the odds that one of the hundreds or thousands of application developers will do exactly what I have done?
+>
+>CM Dev: _Silence_
+
+This is an excellent example of the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment). The only way to get around this was to create a bespoke XML file with my own TimeOut value. It was a pain, since the XML grammar rules were crazy confusing. In hindsight, I should have just accepted the default TimeOut value.
+
 # Summary
 __TBD__
+
 # References
 _TBD_
+
 # Complete Demo Code
 _TBD_
 
 ++++++++++++++++++++++++++++++++++++++++++++++++
+
 ConfigurationManager. Principle of Least Astonishment
 
 Intrinsic state.
