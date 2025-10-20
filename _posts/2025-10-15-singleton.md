@@ -17,9 +17,9 @@ I feel that incorporating design patterns into your designs will improve the qua
 Singleton has its place in a design, but it’s a narrow spot. It’s often used outside of its narrow niche.
 
 Singleton is simple; almost too simple. It’s fraught with traps and pitfalls. Singleton’s misuse reduces to several issues:
-* It’s easy to understand, implement and use without fully grasping the implications of its use.
-* It’s easy to implement incorrectly.
-* It’s easy to reference from almost anywhere within a design, which can cause additional issues.
+* It’s easy to understand, implement and use without fully grasping the implications
+* It’s easy to implement incorrectly
+* It’s easy to reference from almost anywhere within a design, which can cause additional issues
 
 # Singleton’s Purpose in a Design
 As I pointed out in [What is an Object?](https://jhumelsine.github.io/2025/09/03/what-is-an-object.html), Singleton’s purpose is to ensure that there’s no more than one instance for a class.
@@ -50,7 +50,7 @@ But objects object instances are first class citizens in OO languages. They can 
 # Unit Testing Concerns
 Singleton is one instance ... everywhere. Its access often resides deep within the code, often embeeded within a statement. These attributes can create unit testing concerns.
 
-Singleton acquisition occurs via a static method, which is difficult to replace with a [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html). And if you're not able to inject a dedicated Test Double for each unit test, you'll end up acquiring the sole Singleton instance, which is often associated with an external dependency. There will be one instance that all of your unit test cases may be accessing at the same time, and that instance may be coupled to an external dependency. The exeuction of one test might update the Singleton instance such that it affects the behavior of other unit test cases making them [flaky](https://jhumelsine.github.io/2025/04/14/humble-object.html#flaky-tests).
+Singleton acquisition occurs via a static method, which is difficult to replace with a [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) in unit testing. And if you're not able to inject a dedicated Test Double for each unit test, you'll end up acquiring the sole Singleton instance for each of those tests. The Singleton is often associated with an external dependency. There will be one instance that all of your unit test cases may be accessing at the same time, and that instance may be coupled to an external dependency. The exeuction of one test might update the Singleton instance such that it affects the behavior of other unit test cases making them [flaky](https://jhumelsine.github.io/2025/04/14/humble-object.html#flaky-tests).
 
 Mockito 3.4.0 provided the ability to inject Test Double behaviors into static methods without having to touch the implementation as described in this [Mockito Static Method Tutorial](https://www.baeldung.com/mockito-mock-static-methods). Even though Mockito provided this ability, the tutorial adds this [caveat](https://www.baeldung.com/mockito-mock-static-methods#a-quick-word-on-testing-static-methods):
 >Generally speaking, some might say that when writing clean object-orientated code, we shouldn’t need to mock static classes. __This could typically hint at a design issue or code smell in our application.__
@@ -201,12 +201,12 @@ System.out.println(“The value is =” + Singleton.instance().toString());
 
 Singleton’s solitary  instances tend to be associated with external dependencies, such as System Clock, File System, Database, etc. Providing a class specific Singleton not only violates encapsulation, it violates a lot of the principles that I championed in the [Hexagonal Architecture Series](https://jhumelsine.github.io/table-of-contents#hexagonal-architecture-aka-ports-and-adapters-design). Specifically, applications have direct knowledge and dependency upon externals.
 
-In defense of the GoF, they do provide a ___Registry___ example, which looks somewhat like a [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html), which addresses this to some degree, but it comes too late. Singleton’s relatively simple implementation is easy enough to understand, that I suspect many GoF readers read it, understood it, and then didn’t continue reading the rest of Singleton section, which contained more subtle points.
+In defense of the GoF, they do provide a ___Registry___ example, which looks somewhat like a [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html), which addresses this to some degree, but it comes too late in their Singleton description. Singleton’s relatively simple implementation is easy enough to understand, that I suspect many GoF readers read it, understood it, and then didn’t continue reading the rest of Singleton section, which contained more the subtle points.
 
 ## First Design Principle
 Michael Feathers devotes a chapter in [Working Effectively with Legacy Code]( https://jhumelsine.github.io/2025/03/24/legacy-code.html) to the struggles of testing with Singletons.
 
-One of his suggestions harkens back to the GoF’s first design principle. Other than the single instance restriction of Singleton, it is just like any other class. A Singleton can implement an interface. Here’s an example:
+One of his suggestions harkens back to the GoF’s first design principle ti [_Program to an interface, not an implementation_](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation). Other than the single instance restriction of Singleton, it is just like any other class. A Singleton can implement an interface. Here’s an example:
 ```java
 interface MyFeature {
     String getMessage();
@@ -251,6 +251,7 @@ MyFeature myFeature = MyFeatureFactory.acquire();
 System.out.println(myFeature.getMessage());
 ```
 
+## Dependency Injection
 I’ve only kicked the can down the road a bit. Even if the Singleton type is encapsulated, the above code still depends upon it indirectly. This code depends upon `MyFeatureFactory` which depends upon `SingletonF`. And if `SingltonF` were an external dependency, I’d be stuck, unless using the Mockito Static Methods, which is a sign of a design issue.
 
 I’m no closer to being able to inject my own Test Double. It’s similar to the problem I described in the beginning of [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) where my team could only test our software in the lab emulating the entire environment because of our tight dependencies.
@@ -283,6 +284,8 @@ myFeatureApp.print();
 ```
 
 This is very similar to what [Spring’s @Autowired](https://www.baeldung.com/spring-autowire) does. I don’t know if all @Autowired references are resolved with Singletons, but many are.
+
+## Is That All There Is?
 
 While this works, because we can inject Test Doubles into `MyFeatureApp`, it leaves me a bit unsatisfied. Do we even need a Singleton? A Configurer only injects one instance anyway. The only reason to implement a Singleton would be to ensure that there’s only one instance across multiple Configurers that are injecting the single-instance domains, such as Databases, File Systems and other external dependencies. Since [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) injects a single instance into the application, Singleton feels a bit redundant in that case.
 
