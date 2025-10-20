@@ -358,15 +358,15 @@ I wanted to modify the timeout on a communication channel to something like 15 s
 >
 >CM Dev: You can't do that. You'll change it for everyone.
 >
->Me: What do you mean I can't do that. I'm only changing my local ConfigurationManager object.
+>Me: What do you mean I can't do that. It won't affect others; I'm only changing my local ConfigurationManager object.
 >
->CM Dev: I know it looks like your own ConfigurationManager object, but there's a Singleton implementation within it. All of the configuration values are shared, and when you change the TimeOut, you changed it for everyone.
+>CM Dev: I know it looks like you have your own ConfigurationManager object, but there's a Singleton implementation within it. All of the configuration values reside in one place and they're shared. When you change the TimeOut, you changed it for everyone.
 >
 >Me: _Pause_ So let me get this straight. You provided the ability for me to change a value with your API, but I'm not supposed to use it, because it will change the value for everyone, because it's really a Singleton, and there's no indication anywhere that it's a shared Singleton. Do I have that right?
 >
 >CM Dev: Yes.
 >
->Me: Do you think that's a good idea? We're in the same department, and I had no idea that this could happen. There's nothing in the API or the documentation that suggests that updating a configuration value, which you provided, will affect all other clients especially since we all have what appears to be our own ConfigurationManager instance. What are the odds that one of the hundreds or thousands of application developers will do exactly what I have done?
+>Me: Do you think that's a good idea? We're in the same department, and I had no idea that this could happen. Your API allows it. The documentation does not suggest that updating a configuration value will affect all other clients especially since we all have what appears to be our own ConfigurationManager instance. What are the odds that one of the hundreds or thousands of application developers will do exactly what I have done?
 >
 >CM Dev: _Silence_
 
