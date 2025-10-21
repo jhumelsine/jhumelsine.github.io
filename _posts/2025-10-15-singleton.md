@@ -376,6 +376,15 @@ In hindsight, I should have just accepted the default TimeOut value.
 
 This project was the poster child for POLA. I'm sure all include more POLA examples in the future. (TBD)
 
+## TBD
+There are probably many ways to provide the desired __ConfigurationManager__ behavior listed above, but without the POLA.
+
+Here's one possible way to do it with a wrapper. This is a hybrid of ideas from the [Proxy](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html) and [Chain of Responsibility](https://jhumelsine.github.io/2024/02/20/chain-of-responsibility-design-pattern.html) design pattern. The bulk of the configuration values still reside within a Singleton instance, there's a `ConfigurationCache` object wrapper that's created each time a `ConfigurationManager` is acquired. Any updated configuration values will reside in the `ConfigurationCache` wrapper object, which is associated with the client that acquired it without affecting the Singleton. If a configuration value is not in the cache, then it will delegate to the Singleton for the value. Notice it's impossible to even modify configuration values in the Singleton, since there's no API that supports it. Only the `ConfigurationCache` wrapper object allows modifications.
+
+<img src="/assets/SingletonWrapper.png" alt="Singleton with Wrapper" width = "80%" align="center" style="padding-right: 35px;">
+
+A complete implementation resides at [Singleton Wrapper](#singleton-wrapper).
+
 # Summary
 __TBD__
 
@@ -383,14 +392,275 @@ __TBD__
 _TBD_
 
 # Complete Demo Code
-_TBD_
+Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. Refactor some of the code.
 
-++++++++++++++++++++++++++++++++++++++++++++++++
+## Singleton Implementations
+```java
+import java.util.*;
 
-ConfigurationManager. Principle of Least Astonishment
+public class SingletonDemo {
+    public static void main(String[] args) throws Exception {
 
-Intrinsic state.
+        SingletonA singletonA = SingletonA.acquire();
+        System.out.println(singletonA.toString());
 
-Proxy for local state.
+        SingletonB singletonB = SingletonB.acquire();
+        System.out.println(singletonB.toString());
+
+        SingletonC singletonC = SingletonC.acquire();
+        System.out.println(singletonC.toString());
+
+        SingletonD singletonD = SingletonD.acquire();
+        System.out.println(singletonD.toString());
+
+        SingletonE singletonE = SingletonE.acquire();
+        System.out.println(singletonE.toString());
+
+        MyFeature myFeature1 = SingletonF.acquire();
+        System.out.println(myFeature1.getMessage());
+
+        MyFeature myFeature = MyFeatureFactory.acquire();
+        System.out.println(myFeature.getMessage());
+
+        MyFeatureAppA myFeatureApp1 = new MyFeatureAppA(SingletonF.acquire());
+        myFeatureApp1.print();
+
+        MyFeatureAppA myFeatureApp2 = new MyFeatureAppA(MyFeatureFactory.acquire());
+        myFeatureApp2.print();
+
+        MyFeatureAppB myFeatureApp = new MyFeatureAppB(new AbstractFeatureFactoryDemo());
+        myFeatureApp.print();
+    }
+}
+
+class SingletonA {
+    private static SingletonA singleton = null;
+
+    private SingletonA() {}
+
+    public static SingletonA acquire() {
+        if (singleton == null) {
+            singleton = new SingletonA();
+        }
+
+        return singleton;
+    }
+
+    @Override
+    public String toString() {
+        return "SingletonA";
+    }
+}
+
+class SingletonB {
+    private static SingletonB singleton = null;
+
+    private SingletonB() {}
+
+    public synchronized static SingletonB acquire() {
+        if (singleton == null) {
+            singleton = new SingletonB();
+        }
+
+        return singleton;
+    }
+
+    @Override
+    public String toString() {
+        return "SingletonB";
+    }
+}
+
+class SingletonC {
+    private static SingletonC singleton = null;
+    private final static Object lock = new Object();
+
+    private SingletonC() {}
+
+    public static SingletonC acquire() {
+        if (singleton == null) {
+            synchronized (lock) {
+                if (singleton == null) {
+                    singleton = new SingletonC();
+                }
+            }
+        }
+
+        return singleton;
+    }
+
+    @Override
+    public String toString() {
+        return "SingletonC";
+    }
+}
+
+class SingletonD {
+    private static SingletonD singleton = new SingletonD();
+
+    private SingletonD() {}
+
+    public static SingletonD acquire() {
+        return singleton;
+    }
+
+    @Override
+    public String toString() {
+        return "SingletonD";
+    }
+}
+
+class SingletonE {
+    private SingletonE() {}
+
+    private static class SingletonHolder {
+        private static final SingletonE singleton = new SingletonE();
+    }
+
+    public static SingletonE acquire() {
+        return SingletonHolder.singleton;
+    }
+
+    @Override
+    public String toString() {
+        return "SingletonE";
+    }
+}
+
+interface MyFeature {
+    String getMessage();
+}
+
+class SingletonF implements MyFeature {
+        private SingletonF() {}
+
+    private static class SingletonHolder {
+        private static final SingletonF singleton = new SingletonF();
+    }
+
+    public static SingletonF acquire() {
+        return SingletonHolder.singleton;
+    }
+
+    @Override
+    public String getMessage() {
+        return "A Message from SingletonF";
+    }
+}
+
+class MyFeatureFactory {
+    public static MyFeature acquire() {
+        return SingletonF.acquire();
+    }
+}
+
+class MyFeatureAppA {
+    private final MyFeature myFeature;
+
+    public MyFeatureAppA(MyFeature myFeature) {
+        this.myFeature = myFeature;
+    }
+
+    public void print() {
+        System.out.println(myFeature.getMessage());
+    }
+}
+
+interface AbstractFeatureFactory {
+    MyFeatureFactory acquireMyFeatureFactory();
+}
+
+class AbstractFeatureFactoryDemo implements AbstractFeatureFactory {
+    @Override
+    public MyFeatureFactory acquireMyFeatureFactory() {
+        return new MyFeatureFactory();
+    }
+}
+
+class MyFeatureAppB {
+    private final AbstractFeatureFactory abstractFeatureFactory;
+
+    public MyFeatureAppB(AbstractFeatureFactory abstractFeatureFactory) {
+        this.abstractFeatureFactory = abstractFeatureFactory;
+    }
+
+    public void print() {
+        MyFeatureFactory myFeatureFactory = abstractFeatureFactory.acquireMyFeatureFactory();
+        for (int i = 0; i < 5; i++) {
+            System.out.println(myFeatureFactory.acquire().getMessage());
+        }
+    }
+}
+```
+
+## Singleton Wrapper
+```java
+import java.util.*;
+
+public class SingletonWithState {
+    public static void main(String[] args) throws Exception {
+        ConfigurationManager configurationManager1 = ConfigurationManagerFactory.acquire();
+        System.out.println("Original TimeOut=" + configurationManager1.getInt("TimeOut"));
+        configurationManager1.set("TimeOut", 15);
+        System.out.println("Updated TimeOut=" + configurationManager1.getInt("TimeOut"));
+        
+        ConfigurationManager configurationManager2 = ConfigurationManagerFactory.acquire();
+        System.out.println("Should be Original TimeOut=" + configurationManager2.getInt("TimeOut"));
+    }
+}
+
+interface ConfigurationRepo {
+    int getInt(String name);
+}
+
+class ConfigurationRepoSingleton implements ConfigurationRepo {
+    private final Map<String, Integer> configurations = new HashMap<>();
+
+    private ConfigurationRepoSingleton() {
+        System.out.println("ConfigurationRepoSingleton initialization. Should only happen once.");
+        configurations.put("TimeOut", 30); // This would be populated via an XML file.
+    }
+
+    private static class SingletonHolder {
+        private static final ConfigurationRepoSingleton singleton = new ConfigurationRepoSingleton();
+    }
+
+    public static ConfigurationRepoSingleton acquire() {
+        return SingletonHolder.singleton;
+    }
+
+    public int getInt(String name) {
+        return configurations.get(name);
+    }
+}
+
+interface ConfigurationManager extends ConfigurationRepo {
+    void set(String name, int value);
+}
+
+class ConfigurationCache implements ConfigurationManager {
+    private final Map<String, Integer> configCache = new HashMap<>();
+    private final ConfigurationRepoSingleton configRepoSingleton = ConfigurationRepoSingleton.acquire();
+
+    public int getInt(String name) {
+        if (configCache.containsKey(name)) return configCache.get(name);
+        return configRepoSingleton.getInt(name);
+    }
+
+    public void set(String name, int value) {
+        configCache.put(name, value);
+    }
+}
+
+class ConfigurationManagerFactory {
+    public static ConfigurationManager acquire() {
+        return new ConfigurationCache();
+    }
+}
+```
+
++++++++++++++++++++++++++++++++++++++++++++++++
+
+Inject state.
 
 Memory Leak. Once created, they never go away.
