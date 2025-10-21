@@ -336,7 +336,7 @@ As I look at this implementation, I keep hearing this quote in my head:
 Singleton instances can have state. But since there's one instance for all clients, the state needs to apply to all. For example, a Print Spooler Singleton might contain the printer queue. Therefore, if multiple clients submitted jobs to be printed, then they would be queued until printed. There might even be a method to obtain the list of jobs currently the queue, and any client that requested the print queue would see all jobs that had been submitted.
 
 ## You Did What? Why?
-I worked on a [middleware](https://en.wikipedia.org/wiki/Middleware) project for about seven years, which was anticipated to be used by hundreds if not thousands of developers creating applications that would reside upon our middleware platform. We were encouraged to use our own product within the middleware with the only restriction that we could not reference any code that was higher than our code in the architecture stack for our middleware.
+I worked on a [middleware](https://en.wikipedia.org/wiki/Middleware) project for about twenty years ago, which was anticipated to be used by hundreds if not thousands of developers creating applications that would run upon our middleware platform. Our middleware was a bespoke super-charged operating system. It extended beyond typical operating system features by providing Communications, Fault Management, among others as a single cohesive platform for our domain-specific application developers. We were encouraged to use our own product within the middleware with the only restriction that we could not reference any code that was higher than our code in the architecture stack for our middleware.
 
 One of our components was the __ConfigurationManager__. Configuration values could be declared in an [XML](https://en.wikipedia.org/wiki/XML) file. The ConfigurationManager would read the XML files, and provide an API to retrieve values. Its use looked something like this:
 ```java
@@ -350,27 +350,31 @@ ConfigurationManager configurationManager = new ConfigurationManager();
 configurationManager.set("TimeOut", 15);
 ```
 
-I wanted to modify the timeout on a communication channel to something like 15 seconds rather than the default 30 seconds, which I did with code that similar to what I've shown above. Someone from the ConfigurationManager team, which was a sibling team to mine, contacted me about my code. Our conversation was something like this:
+I wanted to modify the timeout on a communication channel to something like 15 seconds rather than the default 30 seconds, which I did with code that similar to what I've shown above. Someone from the ConfigurationManager team, which was a sibling team in our department, contacted me about my code. Our conversation went something like this:
 
->Configuration Manager Dev (CM Dev): You changed the TimeOut value.
+>__Configuration Manager Dev (CM Dev)__: You changed the TimeOut value.
 >
->Me: Yes. I want a shorter TimeOut.
+>__Me__: Yes. I want a shorter TimeOut.
 >
->CM Dev: You can't do that. You'll change it for everyone.
+>__CM Dev__: You can't do that. You'll change it for everyone.
 >
->Me: What do you mean I can't do that. You provided the API to do it. Besides, it won't affect others because I'm only changing my local ConfigurationManager object.
+>__Me__: What do you mean I can't do that. You provided the API to do it. Besides, it won't affect others because I'm only changing my local ConfigurationManager object.
 >
->CM Dev: I know it looks like you have your own ConfigurationManager object, but there's a Singleton implementation within it. All of the configuration values reside in one place and they're shared. When you change the TimeOut, you changed it for everyone.
+>__CM Dev__: I know it looks like you have your own ConfigurationManager object, but there's a Singleton implementation within it. All of the configuration values reside in one place and they're shared. When you change the TimeOut, you changed it for everyone.
 >
->Me: _Pause_ ... So let me get this straight. You provided the ability for me to change a value with your API, but I'm not supposed to use it, because it will change the value for everyone, because it's really a Singleton, and there's no indication anywhere that it's a shared Singleton. Do I have that right?
+>__Me__: _Pause_ ... So let me get this straight. You provided the ability for me to change a value with your API, but I'm not supposed to use it, because it will change the value for everyone, because it's really a Singleton, and there's no indication anywhere that it's a shared Singleton. Do I have that right?
 >
->CM Dev: Yes.
+>__CM Dev__: Yes.
 >
->Me: Do you think that's a good idea? We're in the same department, and I had no idea that this could happen. Your API allows it. The documentation does not suggest that updating a configuration value will affect all other clients especially since we all have what appears to be our own ConfigurationManager instance. What are the odds that one of the hundreds or thousands of application developers will do exactly what I have done?
+>__Me__: Do you think that's a good idea? We're in the same department, and I had no idea that this could happen. Your API allows it. The documentation does not suggest that updating a configuration value will affect all other clients especially since we all have what appears to be our own ConfigurationManager instance. What are the odds that one of the hundreds or thousands of application developers will do exactly what I have done?
 >
->CM Dev: _Silence_
+>__CM Dev__: _Silence_
 
-This is an excellent example of the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment). The only way to get around this was to create a bespoke XML file with my own TimeOut value. It was a pain, since the XML grammar rules were crazy confusing. In hindsight, I should have just accepted the default TimeOut value.
+This is an excellent example of the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment) (POLA). The only way to get around this was to create a bespoke XML file with my own TimeOut value. It was a pain, since the XML grammar rules were crazy confusing. I never figured it out. The XML parser developer was on my team. Whenever I needed a new XML file, I would describe what I needed to him, and he'd guide me toward it. I have no idea how our application developers would ever figure out how to use it.
+
+In hindsight, I should have just accepted the default TimeOut value. 
+
+This project was the poster child for POLA. I'm sure all include more POLA examples in the future. (TBD)
 
 # Summary
 __TBD__
