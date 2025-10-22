@@ -1,6 +1,6 @@
 ---
 title: WORK IN PROGRESS – Singleton Design Pattern
-description: The One, The Only; The Good, The Bad, And The Ugly.
+description: The One - The Only; The Good, The Bad, And The Ugly.
 unlisted: true
 ---
 
@@ -180,6 +180,9 @@ class SingletonE {
     }
 }
 ```
+
+## Complete Code
+A complete set of the code snippets above reside at [Singleton Implementations](#singleton-implementations).
 
 ## Implementation Recommendation
 Singleton seems like a simple implementation, but it can burn you. Look up implementations for other programming languages. Both resources below contain references to Singleton implementations in several languages at the bottom of each page:
