@@ -111,7 +111,7 @@ Let’s consider how these principles apply with Hexagonal Architectures.
 There are no dependency/knowledge cycles. Start at any rectangle in the above diagram and follow any set of directed paths. You can never return to your starting position.
 
 ## Ports/Interfaces/Contracts
-The Port/Interface/Contract elements are pure Stable/Fixed elements. All arrows are inward. They have no dependencies nor knowledge of other elements. Interfaces tend to only contain Contract definitions. They traditionally don’t contain code. Once defined they don’t tend to change often. They have zero knowledge of the rest of the design. They don’t even know that the rest of the design exists.
+The Port/Interface/[Contract](https://jhumelsine.github.io/2025/06/10/contracts.html) elements are pure Stable/Fixed elements. All arrows are inward. They have no dependencies nor knowledge of other elements. Interfaces tend to only contain Contract definitions. They traditionally don’t contain code. Once defined they don’t tend to change often. They have zero knowledge of the rest of the design. They don’t even know that the rest of the design exists.
 
 ## Adapters and Façades
 [Adapters](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) and [Façades](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html) are Unstable/Flexible. Their only inward relationship is their creation. Adapters and Façades can be swapped out with ease.
