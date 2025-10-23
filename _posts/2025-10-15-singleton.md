@@ -396,6 +396,21 @@ The bulk of the configuration values still reside within a Singleton instance as
 
 A complete implementation resides at [Singleton Wrapper](#singleton-wrapper).
 
+# State Injection
+Singletons can contain state, but their state applies to all clients who share a reference to the Singleton. What if we want Singleton to process with state that's specific to the client without impacting other clients. We can use a similar wrapper technique that was show above, except in this technique state is injected in to the Singleton as an argument.
+
+Let's continue the __ConfigurationManager__ scenario. I wanted to update TimeOut in the __ConfigurationManager__ without affecting other clients who preferred to use the configured TimeOut value. I presented a wrapper solution above. Now I want to use my own TimeOut value with a communication `Channel`, which is also a Singleton, since channels are limited resources.
+
+Though it's a bit contrived, here's a design that allows me to do that. `Channel` defines a `send(String message)` interface. `ChannelSingleton`, which is mostly hidden in the design, defines `send(String message, int timeout)`, which allows us to send a message with an injected timeout.
+
+`ChannelWrapper` gets the `TimeOut` value from its injected `ConfigurationManager` and includes the `TimeOut` value when sending the message via `ChannelSingleton`.
+
+Here's the design:
+
+<img src="/assets/SingletonStateInjection.png" alt="Singleton with state injection" width = "80%" align="center" style="padding-right: 35px;">
+
+A complete implementation resides at [State Injection](#state-injection).
+
 # Summary
 __TBD__
 
@@ -607,6 +622,8 @@ class MyFeatureAppB {
 ```
 
 ## Singleton Wrapper
+The following code is an implementation for the design presented in [Internal State](#internal-state).
+
 ```java
 import java.util.*;
 
@@ -672,8 +689,71 @@ class ConfigurationManagerFactory {
 }
 ```
 
-+++++++++++++++++++++++++++++++++++++++++++++++
+## State Injection
+```java
+import java.util.*;
 
-Inject state.
+public class SingletonWithState {
+    public static void main(String[] args) throws Exception {
+        ConfigurationManager configurationManager1 = ConfigurationManagerFactory.acquire();
+        System.out.println("Original TimeOut=" + configurationManager1.getInt("TimeOut"));
+        configurationManager1.set("TimeOut", 15);
+        System.out.println("Updated TimeOut=" + configurationManager1.getInt("TimeOut"));
+        
+        ConfigurationManager configurationManager2 = ConfigurationManagerFactory.acquire();
+        System.out.println("Should be Original TimeOut=" + configurationManager2.getInt("TimeOut"));
+    }
+}
+
+interface ConfigurationRepo {
+    int getInt(String name);
+}
+
+class ConfigurationRepoSingleton implements ConfigurationRepo {
+    private final Map<String, Integer> configurations = new HashMap<>();
+
+    private ConfigurationRepoSingleton() {
+        System.out.println("ConfigurationRepoSingleton initialization. Should only happen once.");
+        configurations.put("TimeOut", 30); // This would be populated via an XML file.
+    }
+
+    private static class SingletonHolder {
+        private static final ConfigurationRepoSingleton singleton = new ConfigurationRepoSingleton();
+    }
+
+    public static ConfigurationRepoSingleton acquire() {
+        return SingletonHolder.singleton;
+    }
+
+    public int getInt(String name) {
+        return configurations.get(name);
+    }
+}
+
+interface ConfigurationManager extends ConfigurationRepo {
+    void set(String name, int value);
+}
+
+class ConfigurationCache implements ConfigurationManager {
+    private final Map<String, Integer> configCache = new HashMap<>();
+    private final ConfigurationRepoSingleton configRepoSingleton = ConfigurationRepoSingleton.acquire();
+
+    public int getInt(String name) {
+        if (configCache.containsKey(name)) return configCache.get(name);
+        return configRepoSingleton.getInt(name);
+    }
+
+    public void set(String name, int value) {
+        configCache.put(name, value);
+    }
+}
+
+class ConfigurationManagerFactory {
+    public static ConfigurationManager acquire() {
+        return new ConfigurationCache();
+    }
+}
+```
++++++++++++++++++++++++++++++++++++++++++++++++
 
 Memory Leak. Once created, they never go away.
