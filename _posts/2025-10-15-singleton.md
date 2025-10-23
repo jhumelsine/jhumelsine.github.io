@@ -382,7 +382,17 @@ This project was the poster child for POLA. I'm sure all include more POLA examp
 ## TBD
 There are probably many ways to provide the desired __ConfigurationManager__ behavior listed above, but without the POLA.
 
-Here's one possible way to do it with a wrapper. This is a hybrid of ideas from the [Proxy](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html) and [Chain of Responsibility](https://jhumelsine.github.io/2024/02/20/chain-of-responsibility-design-pattern.html) design pattern. The bulk of the configuration values still reside within a Singleton instance, there's a `ConfigurationCache` object wrapper that's created each time a `ConfigurationManager` is acquired. Any updated configuration values will reside in the `ConfigurationCache` wrapper object, which is associated with the client that acquired it without affecting the Singleton. If a configuration value is not in the cache, then it will delegate to the Singleton for the value. Notice it's impossible to even modify configuration values in the Singleton, since there's no API that supports it. Only the `ConfigurationCache` wrapper object allows modifications.
+Here's one possible way to do it with a wrapper. This is a hybrid of ideas from the [Proxy](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html) and [Chain of Responsibility](https://jhumelsine.github.io/2024/02/20/chain-of-responsibility-design-pattern.html) design pattern.
+
+The bulk of the configuration values still reside within a Singleton instance as a Map of Strings to Integers. The `getInt(String name)` method returns the Integer that's associated with the String. This is an extremely simplistic example of the __ConfigurationManager__ on my project 20 years ago. Notice that there's no means to update any configuration value in `ConfigurationRepoSingleton`. The String to Integer mappings are created from XML files when the Singleton is initialized, which is not shown in the diagram.
+
+`ConfigurationCache` is the wrapper that provides the additional ability. It has the ability to set a String to Integer mapping within itself using `setInt(String name, int value)`. Unlike the `ConfigurationRepoSingleton`, which is shared by all, each client would have its own `ConfigurationCache`, so each updated name/value mapping would be local to that client and it would not affect other clients.
+
+`ConfigurationCache's` `getInt(String name)` is where the primary method that allows the wrapper to work. When executed, if the `name` is found in it's mapping, then the local value is returned; otherwise, it returns the value that resides in the Singleton.
+
++++++++++++++++++++++++++++++++++++
+
+, there's a `ConfigurationCache` object wrapper that's created each time a `ConfigurationManager` is acquired. Any updated configuration values will reside in the `ConfigurationCache` wrapper object, which is associated with the client that acquired it without affecting the Singleton. If a configuration value is not in the cache, then it will delegate to the Singleton for the value. Notice it's impossible to even modify configuration values in the Singleton, since there's no API that supports it. Only the `ConfigurationCache` wrapper object allows modifications.
 
 <img src="/assets/SingletonWrapper.png" alt="Singleton with Wrapper" width = "80%" align="center" style="padding-right: 35px;">
 
