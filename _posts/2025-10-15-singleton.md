@@ -388,11 +388,9 @@ The bulk of the configuration values still reside within a Singleton instance as
 
 `ConfigurationCache` is the wrapper that provides the additional ability. It has the ability to set a String to Integer mapping within itself using `setInt(String name, int value)`. Unlike the `ConfigurationRepoSingleton`, which is shared by all, each client would have its own `ConfigurationCache`, so each updated name/value mapping would be local to that client and it would not affect other clients.
 
-`ConfigurationCache's` `getInt(String name)` is where the primary method that allows the wrapper to work. When executed, if the `name` is found in it's mapping, then the local value is returned; otherwise, it returns the value that resides in the Singleton.
+`ConfigurationCache's` `getInt(String name)` is where the primary method that allows the wrapper to work. When executed, if the `name` is found in its mapping, then the local value is returned; otherwise, it returns the value that resides in the Singleton.
 
-+++++++++++++++++++++++++++++++++++
-
-, there's a `ConfigurationCache` object wrapper that's created each time a `ConfigurationManager` is acquired. Any updated configuration values will reside in the `ConfigurationCache` wrapper object, which is associated with the client that acquired it without affecting the Singleton. If a configuration value is not in the cache, then it will delegate to the Singleton for the value. Notice it's impossible to even modify configuration values in the Singleton, since there's no API that supports it. Only the `ConfigurationCache` wrapper object allows modifications.
+`ConfigurationManagerFactory` ensures that a `ConfigurationManager` object is acquired without the client having to know about `ConfigurationCache` or `ConfigurationRepoSingleton` specifically.
 
 <img src="/assets/SingletonWrapper.png" alt="Singleton with Wrapper" width = "80%" align="center" style="padding-right: 35px;">
 
