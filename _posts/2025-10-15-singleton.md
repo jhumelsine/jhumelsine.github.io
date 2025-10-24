@@ -14,7 +14,7 @@ I suspect that most developers still may not know how to apply it, and Singleton
 # I come to bury Singleton, not to praise it
 I feel that incorporating design patterns into your designs will improve the quality of your code as I’ve described in previous [Design Pattern blog entries](https://jhumelsine.github.io/table-of-contents#design-patterns). I’m not convinced that Singleton falls into that category.
 
-Singleton has its place in a design, but it’s a narrow spot. It’s often used outside of its narrow niche.
+Singleton has its place in a design, but it’s a narrow spot. It’s often used outside of its narrow niche. Modern techniques may even make that niche more narrow.
 
 Singleton is simple; almost too simple. It’s fraught with traps and pitfalls. Singleton’s misuse reduces to several issues:
 * It’s easy to understand, implement and use without fully grasping the implications
@@ -81,9 +81,9 @@ class SingletonA {
     }
 }
 ```
-The `SingletonA` class contains an internal reference to an object of its own type, `singleton`. The constructor is `private` so that no other instance can execute it. The `static` `acquire()` method initializes the internal `singleton` if null, via the constructor, assigns and returns a reference. The GoF use `instance()` rather than `acquire()`, but I prefer the latter name, since it doesn’t suggest the underlying creation mechanism. `getInstance()` is another popular method name you’ll see.
+The `SingletonA` class contains an internal static reference to an object of its own type, `singleton`. The constructor is `private` so that no other instance can execute it. The `static` `acquire()` method initializes the internal `singleton` if null, via the constructor, assigns and returns a reference. The GoF use `instance()` rather than `acquire()`, but I prefer the latter name, since it doesn’t suggest the underlying creation mechanism. `getInstance()` is another popular method name you’ll see.
 
-It’s nice and simple, and it contains a flaw. It is not thread safe. If multiple threads are first to execute the null check at the same time, all will find it null and initialize the `singleton`. Multiple instances of `SingletonA` will be initialized, but only the last one will be retained.
+It’s nice and simple, but it contains a flaw. It is not thread safe. If multiple initial threads execute the null check at the same time, all will find it null and initialize the `singleton`. Multiple instances of `SingletonA` will be initialized, but only the last one will be retained.
 
 ## The Thread Safe Implementation
 The addition of `synchronized` makes the previous implementation thread safe:
@@ -133,7 +133,7 @@ The `synchronized` lock is only needed when `singleton` is not initialized. Once
 
 Looks great, right? It has a very nasty problem, which can be tricky to understand. __NOTE:__ This problem is language specific. It was a problem in C++ at one time. It might have been a problem in Java at one time. I don’t know if it’s a problem now.
 
-Constructors do three things:
+Here is the nasty problem. Constructors do three things:
 * Allocate memory from the heap.
 * Initialize the returned memory via executing the constructor.
 * Return a reference to the memory location.
@@ -142,7 +142,7 @@ In some languages, order was not specified. While the first bullet has to be fir
 
 Therefore, it’s possible for two threads to execute this code simultaneously. The first thread will call the constructor, allocate the memory and potentially assign `singleton` before the constructor has initialized the memory.
 
-While the first thread is still initializing the memory, a second thread proceeds. The first null check is false, so it resolves the reference by returning `singleton`, which may still be in process of being initialized. This means that the second thread may start to invoke a method on the uninitialized `singleton`, which would most likely throw a bizarre exception. Good luck repeating that behavior and figuring it out.
+While the first thread is still initializing the memory, a second thread proceeds. Since `singleton` is not null, it resolves the reference by returning `singleton`, which may still be in process of being initialized. This means that the second thread may start to invoke a method on the uninitialized `singleton`, which might throw a bizarre exception. Good luck repeating that exception and figuring it out.
 
 You can read more about this issue in [C++ and the Perils of Double-Checked Locking](https://www.aristeia.com/Papers/DDJ_Jul_Aug_2004_revised.pdf) by Scott Meyers and Andrei Alexandrescu. Unless you know with 100% certainty that your language does not have an issue with double-checked locking, then don’t do it.
 
@@ -209,7 +209,7 @@ In defense of the GoF, they do provide a ___Registry___ example, which looks som
 ## First Design Principle
 Michael Feathers devotes a chapter in [Working Effectively with Legacy Code]( https://jhumelsine.github.io/2025/03/24/legacy-code.html) to the struggles of testing with Singletons.
 
-One of his suggestions harkens back to the GoF’s first design principle ti [_Program to an interface, not an implementation_](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation). Other than the single instance restriction of Singleton, it is just like any other class. A Singleton can implement an interface. Here’s an example:
+One of his suggestions harkens back to the GoF’s first design principle to [_Program to an interface, not an implementation_](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation). Other than the single instance restriction of Singleton, it is just like any other class. A Singleton can implement an interface. Here’s an example:
 ```java
 interface MyFeature {
     String getMessage();
@@ -339,7 +339,7 @@ As I look at this implementation, I keep hearing this quote in my head:
 Singleton instances can have state. But since there's one instance for all clients, the state needs to apply to all. For example, a Print Spooler Singleton might contain the printer queue. Therefore, if multiple clients submitted jobs to be printed, then they would be queued until printed. There might even be a method to obtain the list of jobs currently the queue, and any client that requested the print queue would see all jobs that had been submitted.
 
 ## You Did What? Why?
-I worked on a [middleware](https://en.wikipedia.org/wiki/Middleware) project for about twenty years ago, which was anticipated to be used by hundreds if not thousands of developers creating applications that would run upon our middleware platform. Our middleware was a bespoke super-charged operating system. It extended beyond typical operating system features by providing Communications, Fault Management, among others as a single cohesive platform for our domain-specific application developers. We were encouraged to use our own product within the middleware with the only restriction that we could not reference any code that was higher than our code in the architecture stack for our middleware.
+I worked on a [middleware](https://en.wikipedia.org/wiki/Middleware) project for about twenty years ago, which was to be used by hundreds if not thousands of developers creating applications that would run upon our middleware platform. Our middleware was a bespoke super-charged operating system. It extended beyond typical operating system features by providing Communications, Fault Management, among other supporting featuress as a single cohesive platform for our domain-specific application developers. We were encouraged to use our own product within the middleware with the only restriction that we could not reference any code that was higher than our code in the architecture stack for our middleware.
 
 One of our components was the __ConfigurationManager__. Configuration values could be declared in an [XML](https://en.wikipedia.org/wiki/XML) file. The ConfigurationManager would read the XML files, and provide an API to retrieve values. Its use looked something like this:
 ```java
@@ -361,26 +361,28 @@ I wanted to modify the timeout on a communication channel to something like 15 s
 >
 >__CM Dev__: You can't do that. You'll change it for everyone.
 >
->__Me__: What do you mean I can't do that. You provided the API to do it. Besides, it won't affect others because I'm only changing my local ConfigurationManager object.
+>__Me__: What do you mean I can't do that? You provided the API that allows me to do it. Besides, it won't affect others because I'm only changing my local ConfigurationManager object.
 >
->__CM Dev__: I know it looks like you have your own ConfigurationManager object, but there's a Singleton implementation within it. All of the configuration values reside in one place and they're shared. When you change the TimeOut, you changed it for everyone.
+>__CM Dev__: I know it looks like you have your own ConfigurationManager object, but there's a Singleton implementation within it. All of the configuration values reside in one place and they're shared. When you change "your" TimeOut value, you changed it for everyone.
 >
 >__Me__: _Pause_ ... So let me get this straight. You provided the ability for me to change a value with your API, but I'm not supposed to use it, because it will change the value for everyone, because it's really a Singleton, and there's no indication anywhere that it's a shared Singleton. Do I have that right?
 >
 >__CM Dev__: Yes.
 >
->__Me__: Do you think that's a good idea? We're in the same department, and I had no idea that this could happen. Your API allows it. The documentation does not suggest that updating a configuration value will affect all other clients especially since we all have what appears to be our own ConfigurationManager instance. What are the odds that one of the hundreds or thousands of application developers will do exactly what I have done?
+>__Me__: Do you think that's a good idea? We're in the same department, and I had no idea that this could happen. Your API allows it. The documentation does not suggest that updating a configuration value will affect all other clients. We all have what appears to be our own ConfigurationManager instance. What are the odds that one of the hundreds or thousands of application developers will do exactly what I have done? You can't possibly scale to review code from thousands of developers.
 >
 >__CM Dev__: _Silence_
 
-This is an excellent example of the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment) (POLA). The only way to get around this was to create a bespoke XML file with my own TimeOut value. It was a pain, since the XML grammar rules were crazy confusing. I never figured it out. The XML parser developer was on my team. Whenever I needed a new XML file, I would describe what I needed to him, and he'd guide me toward it. I have no idea how our application developers would ever figure out how to use it.
+This is an excellent example of the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment) (POLA).
+
+The only way to get around this was to create a bespoke XML file with my own TimeOut value. It was a pain, since the XML grammar rules were extremely confusing. I never figured them out. The XML parser developer was on my team. Whenever I needed a new XML file, I would describe what I needed to him, and he'd guide me. I have no idea how our application developers would ever figure out how to use it.
 
 In hindsight, I should have just accepted the default TimeOut value. 
 
 This project was the poster child for POLA. I'm sure all include more POLA examples in the future. (TBD)
 
 ## Wrapping Singleton With State
-There are probably many ways to provide the desired __ConfigurationManager__ behavior listed above, but without the POLA.
+There are probably many ways to provide the desired __ConfigurationManager__ behavior listed above, but without the inadvertently changing the value for everyone.
 
 Here's one possible way to do it with a wrapper. This is a hybrid of ideas from the [Proxy](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html) and [Chain of Responsibility](https://jhumelsine.github.io/2024/02/20/chain-of-responsibility-design-pattern.html) design pattern.
 
