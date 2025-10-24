@@ -379,7 +379,7 @@ In hindsight, I should have just accepted the default TimeOut value.
 
 This project was the poster child for POLA. I'm sure all include more POLA examples in the future. (TBD)
 
-## TBD
+## Wrapping Singleton With State
 There are probably many ways to provide the desired __ConfigurationManager__ behavior listed above, but without the POLA.
 
 Here's one possible way to do it with a wrapper. This is a hybrid of ideas from the [Proxy](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html) and [Chain of Responsibility](https://jhumelsine.github.io/2024/02/20/chain-of-responsibility-design-pattern.html) design pattern.
@@ -394,22 +394,32 @@ The bulk of the configuration values still reside within a Singleton instance as
 
 <img src="/assets/SingletonWrapper.png" alt="Singleton with Wrapper" width = "80%" align="center" style="padding-right: 35px;">
 
-A complete implementation resides at [Singleton Wrapper](#singleton-wrapper).
+A complete implementation resides at [State Wrapped Singleton](#state-wrapped-singleton).
 
 # State Injection
-Singletons can contain state, but their state applies to all clients who share a reference to the Singleton. What if we want Singleton to process with state that's specific to the client without impacting other clients. We can use a similar wrapper technique that was show above, except in this technique state is injected in to the Singleton as an argument.
+Singletons can contain state, but their state applies to all clients who share a reference to the Singleton instance. What if we want Singleton to process with state that's specific to the client without impacting other clients?
 
-Let's continue the __ConfigurationManager__ scenario. I wanted to update TimeOut in the __ConfigurationManager__ without affecting other clients who preferred to use the configured TimeOut value. I presented a wrapper solution above. Now I want to use my own TimeOut value with a communication `Channel`, which is also a Singleton, since channels are limited resources.
+Most Singleton examples focus upon the creation of the sole Singleton instance, but that's only part of the story. Singleton classes also have methods for behavior. Rather than depending upon state within the Singleton class when calling a functional method, pass state information as an argument to the Singleton functional method.
 
-Though it's a bit contrived, here's a design that allows me to do that. `Channel` defines a `send(String message)` interface. `ChannelSingleton`, which is mostly hidden in the design, defines `send(String message, int timeout)`, which allows us to send a message with an injected timeout.
+State injection is not a new concept for this blog. It appeared as __Context__ within the [Specification Design Pattern](https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html), which is a special case of the [Interpreter Design Pattern](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html). From [Specification Design Pattern](https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html):
+>Leaf objects in the composite tree are immutable. The non-terminal objects will be immutable once activated. The entire composite tree is a pure function. That means that Specification, and Composite in general, are thread-safe structures. Any number of threads can be calculating satisfiability simultaneously without concern of affecting each other. __State resides within the Context argument__.
 
-`ChannelWrapper` gets the `TimeOut` value from its injected `ConfigurationManager` and includes the `TimeOut` value when sending the message via `ChannelSingleton`.
+Composite objects are immutable, but injecting Context into them allows them to vary their behavior. Singletons and Composites are similar in that we can use the same technique to inject state. While this works, it can be a bit cumbersome to inject state.
 
-Here's the design:
+We can use a similar wrapper technique that was show above, except in this technique state resides within the wrapper and it's injected into the Singleton instance. This allows each client to have its own state within the wrapper and injected into the shared Singleton without affecting any other Singleton clients.
+
+Let's expand the previous __ConfigurationManager__ scenario. I wanted to update `TimeOut` in the __ConfigurationManager__ without affecting other clients who preferred to use the configured TimeOut value. I presented a wrapper solution above. Now I want to use my own `TimeOut` value with a communication `Channel`, which is designed as a Singleton. I want the ability to configure my own `TimeOut` value when sending messages via `Channel` it uses my `TimeOut` value. And I don't want to be overly burdened with `TimeOut` overhead. Basically, I want to set the `TimeOut` value once, and then forget about it.
+
+`Channel` defines a `send(String message)` interface. `ChannelSingleton`, which is mostly hidden in the design, defines `send(String message, int timeout)`, which allows us to send a message with an injected timeout. `ChannelWrapper` gets the `TimeOut` value from its injected `ConfigurationManager` and includes the `TimeOut` value when sending the message via `ChannelSingleton`.
+
+Here's the design (Note: it only references the `ConfigurationManager` interface. Any design that implements it would suffice, but my implementation repeates the `ConfigurationManager` design from the previous section):
 
 <img src="/assets/SingletonStateInjection.png" alt="Singleton with state injection" width = "80%" align="center" style="padding-right: 35px;">
 
 A complete implementation resides at [State Injection](#state-injection).
+
+# Memory Leaks
+Memory Leak. Once created, they never go away.
 
 # Summary
 __TBD__
@@ -421,7 +431,7 @@ _TBD_
 Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. Refactor some of the code.
 
 ## Singleton Implementations
-The following code is a program containing all of the Singleton implementation snippets, which appeared in [Singleton Implementation](#singleton-implementation).
+The following code is a program containing all the Singleton implementation snippets, which appeared in [Singleton Implementation](#singleton-implementation).
 
 ```java
 import java.util.*;
@@ -621,8 +631,10 @@ class MyFeatureAppB {
 }
 ```
 
-## Singleton Wrapper
-The following code is an implementation for the design presented in [Internal State](#internal-state).
+## State Wrapped Singleton
+The following code is an implementation for the design presented in [Wrapping Singleton With State](#wrapping-singleton-with-state).
+
+It shows how `ConfigurationCache` allows the client to modify configuration values without affecting the default state values in `ConfigurationRepoSingleton`, which is shared by all clients.
 
 ```java
 import java.util.*;
@@ -690,18 +702,67 @@ class ConfigurationManagerFactory {
 ```
 
 ## State Injection
+The following code is an implementation for the design presented in [State Injection](#state-injection).
+
+
 ```java
 import java.util.*;
 
-public class SingletonWithState {
+public class ChannelSingletonWrapper {
     public static void main(String[] args) throws Exception {
         ConfigurationManager configurationManager1 = ConfigurationManagerFactory.acquire();
-        System.out.println("Original TimeOut=" + configurationManager1.getInt("TimeOut"));
-        configurationManager1.set("TimeOut", 15);
-        System.out.println("Updated TimeOut=" + configurationManager1.getInt("TimeOut"));
-        
+        Channel channel1 = ChannelFactory.acquire(configurationManager1);
+        channel1.send("Message with default thirty second timeout.");
+
         ConfigurationManager configurationManager2 = ConfigurationManagerFactory.acquire();
-        System.out.println("Should be Original TimeOut=" + configurationManager2.getInt("TimeOut"));
+        configurationManager2.set("TimeOut", 15);
+        Channel channel2 = ChannelFactory.acquire(configurationManager2);
+        channel2.send("Message with modified fifteen second timeout.");
+
+        ConfigurationManager configurationManager3 = ConfigurationManagerFactory.acquire();
+        Channel channel3 = ChannelFactory.acquire(configurationManager3);
+        channel1.send("Message with default thirty second timeout.");
+    }
+}
+
+interface Channel {
+    void send(String message);
+}
+
+class ChannelFactory {
+    public static Channel acquire(ConfigurationManager configurationManager) {
+        return new ChannelWrapper(configurationManager);
+    }
+}
+
+class ChannelWrapper implements Channel {
+    private final ConfigurationManager configurationManager;
+    private final ChannelSingleton channelSingleton = ChannelSingleton.acquire();
+
+    public ChannelWrapper(ConfigurationManager configurationManager) {
+        this.configurationManager = configurationManager;
+    }
+
+    public void send(String message) {
+        channelSingleton.send(message, configurationManager.getInt("TimeOut"));
+    }
+}
+
+class ChannelSingleton {
+    private ChannelSingleton() {
+        System.out.println("ChannelSingleton initialization. Should only happen once.");
+    }
+
+    private static class SingletonHolder {
+        private static final ChannelSingleton singleton = new ChannelSingleton();
+    }
+
+    public static ChannelSingleton acquire() {
+        return SingletonHolder.singleton;
+    }
+
+    public void send(String message, int timeOut) {
+        System.out.format("Sending message=>>%s<< with timeout=%d\n", message, timeOut);
     }
 }
 
@@ -754,6 +815,3 @@ class ConfigurationManagerFactory {
     }
 }
 ```
-+++++++++++++++++++++++++++++++++++++++++++++++
-
-Memory Leak. Once created, they never go away.
