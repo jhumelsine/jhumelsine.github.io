@@ -419,13 +419,28 @@ Here's the design (Note: it only references the `ConfigurationManager` interface
 A complete implementation resides at [State Injection](#state-injection).
 
 # Memory Leaks
-Memory Leak. Once created, they never go away.
+I have one last shot to take at Singleton. It leaks memory, maybe not a lot, but it does allocate resources that it never releases, even when clients are no longer accessing the Singleton. It's own static self reference is enough to prevent it from being cleaned up.
+
+Most times this won't be an issue. It's not leaking memory repeated that will eventually crash the process. But it's possible for the Singleton to allocate a lot of memory or another limited resource, which will never be released. Consider if that were the case for a Singleton that's only accessed at start up. We'd end up with an allocated resource that's never released.
+
+There is a way to address this at least in Java; however, I won't present it until the next blog entry, which will feature the Flyweight Design Pattern (TBD).
 
 # Summary
-__TBD__
+As you can tell if you've made it this far, I'm not a big fan of Singleton. I rarely use it myself, and when I do use it, it's usually to implement a hidden collection, which I'll demonstrated with the Flyweight, Prototype and possibly the Object Pool Design Patterns (TBD).
+
+Use of [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) will cover many cases where Singleton would have been used. Rather than depending upon Singleton, a [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) can create and inject a single instance into an application.
 
 # References
-_TBD_
+* [Wikipedia Singleton Design Pattern](https://en.wikipedia.org/wiki/Singleton_pattern)
+* [Source Making Singleton Design Pattern](https://sourcemaking.com/design_patterns/singleton)
+* [Refactoring Guru Singleton Design Pattern](https://refactoring.guru/design-patterns/singleton)
+* [Singleton Design Pattern and 7 Ways to Implement it](https://blog.algomaster.io/p/singleton-design-pattern) - blog by Ashish Pratap Singh
+* [Drawbacks of the Singleton Design Pattern](https://www.baeldung.com/java-patterns-singleton-cons) - Baeldung Article
+* [What is Singleton Design Pattern -Tutorial with Practical Example (For Beginners)](https://www.youtube.com/watch?v=tItFlLprRMY) - Video by CodeBeauty
+* [Singleton Pattern EXPLAINED IN 10 MINS | Javascript Design Patterns for beginners](https://www.youtube.com/watch?v=CWkD2kP6Wug) - Video by developedbyed
+* [Singleton Pattern – Design Patterns (ep 6)](https://www.youtube.com/watch?v=hUE_j6q0LTQ) - Video by 
+Christopher Okhravi
+* and for more, Google: [Singleton Design Pattern](https://www.google.com/search?q=singleton+design+pattern)
 
 # Complete Demo Code
 Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. Refactor some of the code.
