@@ -182,7 +182,7 @@ class SingletonE {
 ```
 
 ## Complete Code
-A complete set of the code snippets above reside at [Singleton Implementations](#singleton-implementations).
+A complete set of the code snippets above reside at [Singleton Implementations](#singleton-implementations). It also contains some of the code snippets listed below as well.
 
 ## Implementation Recommendation
 Singleton seems like a simple implementation, but it can burn you. Look up implementations for other programming languages. Both resources below contain references to Singleton implementations in several languages at the bottom of each page:
@@ -382,13 +382,13 @@ In hindsight, I should have just accepted the default TimeOut value.
 This project was the poster child for POLA. I'm sure all include more POLA examples in the future. (TBD)
 
 ## Wrapping Singleton With State
-There are probably many ways to provide the desired __ConfigurationManager__ behavior listed above, but without the inadvertently changing the value for everyone.
+There are probably many ways to provide the desired __ConfigurationManager__ behavior described above, but without the inadvertently changing the value for everyone.
 
 Here's one possible way to do it with a wrapper. This is a hybrid of ideas from the [Proxy](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html) and [Chain of Responsibility](https://jhumelsine.github.io/2024/02/20/chain-of-responsibility-design-pattern.html) design pattern.
 
 The bulk of the configuration values still reside within a Singleton instance as a Map of Strings to Integers. The `getInt(String name)` method returns the Integer that's associated with the String. This is an extremely simplistic example of the __ConfigurationManager__ on my project 20 years ago. Notice that there's no means to update any configuration value in `ConfigurationRepoSingleton`. The String to Integer mappings are created from XML files when the Singleton is initialized, which is not shown in the diagram.
 
-`ConfigurationCache` is the wrapper that provides the additional ability. It has the ability to set a String to Integer mapping within itself using `setInt(String name, int value)`. Unlike the `ConfigurationRepoSingleton`, which is shared by all, each client would have its own `ConfigurationCache`, so each updated name/value mapping would be local to that client and it would not affect other clients.
+`ConfigurationCache` is the wrapper that provides the additional ability to modify configuration values, but only for the client. It won't affect others. It sets a String to Integer mapping within itself using `setInt(String name, int value)`. Unlike the `ConfigurationRepoSingleton`, which is shared by all, each client would have its own `ConfigurationCache`, so each updated name/value mapping would be local to that client and it would not affect other clients.
 
 `ConfigurationCache's` `getInt(String name)` is where the primary method that allows the wrapper to work. When executed, if the `name` is found in its mapping, then the local value is returned; otherwise, it returns the value that resides in the Singleton.
 
@@ -399,7 +399,9 @@ The bulk of the configuration values still reside within a Singleton instance as
 A complete implementation resides at [State Wrapped Singleton](#state-wrapped-singleton).
 
 # State Injection
-Singletons can contain state, but their state applies to all clients who share a reference to the Singleton instance. What if we want Singleton to process with state that's specific to the client without impacting other clients?
+Singletons can contain state, but their state applies to all clients who share a reference to the Singleton instance as was seen with the original version of the __ConfigurationManager__. The solution shown above introduced a `ConfigurationCache` wrapper class that intercepted and satisfied the request without having to invoke the Singleton.
+
+What if our Singleton request is more functional? What if we want Singleton to process with state that's specific to the client without impacting other clients?
 
 Most Singleton examples focus upon the creation of the sole Singleton instance, but that's only part of the story. Singleton classes also have methods for behavior. Rather than depending upon state within the Singleton class when calling a functional method, pass state information as an argument to the Singleton functional method.
 
