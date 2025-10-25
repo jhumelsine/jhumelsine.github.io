@@ -1,6 +1,6 @@
 ---
 title: WORK IN PROGRESS – Singleton Design Pattern
-description: The One - The Only; The Good, The Bad, And The Ugly.
+description: The One, The Only; The Good, The Bad, And The Ugly.
 unlisted: true
 ---
 
@@ -83,7 +83,7 @@ class SingletonA {
 ```
 The `SingletonA` class contains an internal static reference to an object of its own type, `singleton`. The constructor is `private` so that no other instance can execute it. The `static` `acquire()` method initializes the internal `singleton` if null, via the constructor, assigns and returns a reference. The GoF use `instance()` rather than `acquire()`, but I prefer the latter name, since it doesn’t suggest the underlying creation mechanism. `getInstance()` is another popular method name you’ll see.
 
-It’s nice and simple, but it contains a flaw. It is not thread safe. If multiple initial threads execute the null check at the same time, all will find it null and initialize the `singleton`. Multiple instances of `SingletonA` will be initialized, but only the last one will be retained.
+It’s nice and simple, but it contains a flaw. It is not thread safe. If multiple initial threads execute the `singleton` null check at the same time, all will find it null and initialize `singleton`. Multiple instances of `SingletonA` will be initialized, but only the last one will be retained.
 
 ## The Thread Safe Implementation
 The addition of `synchronized` makes the previous implementation thread safe:
@@ -209,14 +209,16 @@ In defense of the GoF, they do provide a ___Registry___ example, which looks som
 ## First Design Principle
 Michael Feathers devotes a chapter in [Working Effectively with Legacy Code]( https://jhumelsine.github.io/2025/03/24/legacy-code.html) to the struggles of testing with Singletons.
 
-One of his suggestions harkens back to the GoF’s first design principle to [_Program to an interface, not an implementation_](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation). Other than the single instance restriction of Singleton, it is just like any other class. A Singleton can implement an interface. Here’s an example:
+One of his suggestions harkens back to the GoF’s first design principle to [_Program to an interface, not an implementation_](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation). Other than the single instance restriction of Singleton, it is just like any other class. A Singleton can implement an interface.
+
+Here’s an example:
 ```java
 interface MyFeature {
     String getMessage();
 }
 
 class SingletonF implements MyFeature {
-        private SingletonF() {}
+    private SingletonF() {}
 
     private static class SingletonHolder {
         private static final SingletonF singleton = new SingletonF();
@@ -353,7 +355,7 @@ ConfigurationManager configurationManager = new ConfigurationManager();
 configurationManager.set("TimeOut", 15);
 ```
 
-I wanted to modify the timeout on a communication channel to something like 15 seconds rather than the default 30 seconds, which I did with code that similar to what I've shown above. Someone from the ConfigurationManager team, which was a sibling team in our department, contacted me about my code. Our conversation went something like this:
+I wanted to modify the timeout on a communication channel to something like 15 seconds rather than the default 30 seconds, which I did with code that similar to what I've shown above. Someone from the ConfigurationManager team, which was a sibling team in my department, contacted me about my code. Our conversation went something like this:
 
 >__Configuration Manager Dev (CM Dev)__: You changed the TimeOut value.
 >
@@ -369,20 +371,20 @@ I wanted to modify the timeout on a communication channel to something like 15 s
 >
 >__CM Dev__: Yes.
 >
->__Me__: Do you think that's a good idea? We're in the same department, and I had no idea that this could happen. Your API allows it. The documentation does not suggest that updating a configuration value will affect all other clients. We all have what appears to be our own ConfigurationManager instance. What are the odds that one of the hundreds or thousands of application developers will do exactly what I have done? You can't possibly scale to review code from thousands of developers.
+>__Me__: Do you think that's a good idea? We're in the same department, and I had no idea that this could happen. Your API allows it. The documentation does not suggest that updating a configuration value will affect all other clients. We all have what appears to be our own ConfigurationManager instance. What are the odds that one of the hundreds or thousands of our application developers will do exactly what I have done? Are you going to review code from thousands of developers to make sure they haven't done what I have done.
 >
 >__CM Dev__: _Silence_
 
 This is an excellent example of the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment) (POLA).
 
-The only way to get around this was to create a bespoke XML file with my own TimeOut value. It was a pain, since the XML grammar rules were extremely confusing. I never figured them out. The XML parser developer was on my team. Whenever I needed a new XML file, I would describe what I needed to him, and he'd guide me. I have no idea how our application developers would ever figure out how to use it.
+The only way to get around this issue was to create a bespoke XML file with my own TimeOut value. It was a pain, since the XML grammar rules were extremely confusing. I never figured them out. The XML parser developer was on my team. Whenever I needed a new XML file, I would describe what I needed to him, and he'd guide me. I have no idea how our application developers would ever figure out how to use it.
 
 In hindsight, I should have just accepted the default TimeOut value. 
 
 This project was the poster child for POLA. I'm sure all include more POLA examples in the future. (TBD)
 
 ## Wrapping Singleton With State
-There are probably many ways to provide the desired __ConfigurationManager__ behavior described above, but without the inadvertently changing the value for everyone.
+There are probably many ways to provide the desired __ConfigurationManager__ behavior described above without the inadvertently changing the value for everyone.
 
 Here's one possible way to do it with a wrapper. This is a hybrid of ideas from the [Proxy](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html) and [Chain of Responsibility](https://jhumelsine.github.io/2024/02/20/chain-of-responsibility-design-pattern.html) design pattern.
 
@@ -432,9 +434,9 @@ Most times this won't be an issue. It's not leaking memory repeated that will ev
 There is a way to address this at least in Java; however, I won't present it until the next blog entry, which will feature the Flyweight Design Pattern (TBD).
 
 # Summary
-As you can tell if you've made it this far, I'm not a big fan of Singleton. I rarely use it myself, and when I do use it, it's usually to implement a hidden collection, which I'll demonstrated with the Flyweight, Prototype and possibly the Object Pool Design Patterns (TBD).
+As you can tell if you've made it this far, I'm not a big fan of Singleton. I rarely use it myself.
 
-Use of [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) will cover many cases where Singleton would have been used. Rather than depending upon Singleton, a [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) can create and inject a single instance into an application.
+[Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) will cover many cases where Singleton would have previously been used. Rather than depending upon Singleton, a [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) can create and inject a single instance into an application.
 
 # References
 * [Wikipedia Singleton Design Pattern](https://en.wikipedia.org/wiki/Singleton_pattern)
@@ -443,7 +445,7 @@ Use of [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency
 * [Singleton Design Pattern and 7 Ways to Implement it](https://blog.algomaster.io/p/singleton-design-pattern) - blog by Ashish Pratap Singh
 * [Drawbacks of the Singleton Design Pattern](https://www.baeldung.com/java-patterns-singleton-cons) - Baeldung Article
 * [What is Singleton Design Pattern -Tutorial with Practical Example (For Beginners)](https://www.youtube.com/watch?v=tItFlLprRMY) - Video by CodeBeauty
-* [Singleton Pattern EXPLAINED IN 10 MINS | Javascript Design Patterns for beginners](https://www.youtube.com/watch?v=CWkD2kP6Wug) - Video by developedbyed
+* [Singleton Pattern EXPLAINED IN 10 MINS: Javascript Design Patterns for beginners](https://www.youtube.com/watch?v=CWkD2kP6Wug) - Video by developedbyed
 * [Singleton Pattern – Design Patterns (ep 6)](https://www.youtube.com/watch?v=hUE_j6q0LTQ) - Video by 
 Christopher Okhravi
 * and for more, Google: [Singleton Design Pattern](https://www.google.com/search?q=singleton+design+pattern)
