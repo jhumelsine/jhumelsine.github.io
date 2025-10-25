@@ -401,29 +401,31 @@ A complete implementation resides at [State Wrapped Singleton](#state-wrapped-si
 # State Injection
 Singletons can contain state, but their state applies to all clients who share a reference to the Singleton instance as was seen with the original version of the __ConfigurationManager__. The solution shown above introduced a `ConfigurationCache` wrapper class that intercepted and satisfied the request without having to invoke the Singleton.
 
-What if our Singleton request is more functional? What if we want Singleton to process with state that's specific to the client without impacting other clients?
+Most Singleton examples focus upon the creation of the sole Singleton instance, but that's only part of the story. Singleton classes also have methods for behavior. What if our Singleton request is more functional? What if we want Singleton to process with client specific state without that state impacting other clients?
 
-Most Singleton examples focus upon the creation of the sole Singleton instance, but that's only part of the story. Singleton classes also have methods for behavior. Rather than depending upon state within the Singleton class when calling a functional method, pass state information as an argument to the Singleton functional method.
+Rather than depending upon state within the Singleton class when calling a functional method, pass state as an argument to the Singleton functional method.
 
 State injection is not a new concept for this blog. It appeared as __Context__ within the [Specification Design Pattern](https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html), which is a special case of the [Interpreter Design Pattern](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html). From [Specification Design Pattern](https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html):
 >Leaf objects in the composite tree are immutable. The non-terminal objects will be immutable once activated. The entire composite tree is a pure function. That means that Specification, and Composite in general, are thread-safe structures. Any number of threads can be calculating satisfiability simultaneously without concern of affecting each other. __State resides within the Context argument__.
 
-Composite objects are immutable, but injecting Context into them allows them to vary their behavior. Singletons and Composites are similar in that we can use the same technique to inject state. While this works, it can be a bit cumbersome to inject state.
+Composite objects are immutable, but injecting Context into them allows them to vary their behavior based upon that state. Singletons and Composites are similar in that we can use the same technique to inject state while still maintaining their immutable properties. While this works, it can be a bit cumbersome to inject state, since it adds to the parameter list.
 
 We can use a similar wrapper technique that was show above, except in this technique state resides within the wrapper and it's injected into the Singleton instance. This allows each client to have its own state within the wrapper and injected into the shared Singleton without affecting any other Singleton clients.
 
-Let's expand the previous __ConfigurationManager__ scenario. I wanted to update `TimeOut` in the __ConfigurationManager__ without affecting other clients who preferred to use the configured TimeOut value. I presented a wrapper solution above. Now I want to use my own `TimeOut` value with a communication `Channel`, which is designed as a Singleton. I want the ability to configure my own `TimeOut` value when sending messages via `Channel` it uses my `TimeOut` value. And I don't want to be overly burdened with `TimeOut` overhead. Basically, I want to set the `TimeOut` value once, and then forget about it.
+Let's expand the previous __ConfigurationManager__ scenario. I wanted to update `TimeOut` in the __ConfigurationManager__ without affecting other clients who preferred to use the configured `TimeOut` value.
+
+Now I want to use my own `TimeOut` value within a communication `Channel`, which is designed as a Singleton. I want the ability to configure my own `TimeOut` value when sending messages via `Channel`, and I don't want to be overly burdened with `TimeOut` management overhead. Basically, I want to set the `TimeOut` value once, and then forget about it.
 
 `Channel` defines a `send(String message)` interface. `ChannelSingleton`, which is mostly hidden in the design, defines `send(String message, int timeout)`, which allows us to send a message with an injected timeout. `ChannelWrapper` gets the `TimeOut` value from its injected `ConfigurationManager` and includes the `TimeOut` value when sending the message via `ChannelSingleton`.
 
-Here's the design (Note: it only references the `ConfigurationManager` interface. Any design that implements it would suffice, but my implementation repeates the `ConfigurationManager` design from the previous section):
+Here's the design (Note: it only references the `ConfigurationManager` interface. Any design that implements it would suffice, but my implementation repeats the `ConfigurationManager` design from the previous section):
 
 <img src="/assets/SingletonStateInjection.png" alt="Singleton with state injection" width = "80%" align="center" style="padding-right: 35px;">
 
 A complete implementation resides at [State Injection](#state-injection).
 
 # Memory Leaks
-I have one last shot to take at Singleton. It leaks memory, maybe not a lot, but it does allocate resources that it never releases, even when clients are no longer accessing the Singleton. It's own static self reference is enough to prevent it from being cleaned up.
+I have one last shot to take at Singleton. It leaks memory, maybe not a lot, but it does allocate resources that it never releases, even when clients are no longer accessing the Singleton. It's own static self reference is enough to prevent it from being cleaned up during garbage collection.
 
 Most times this won't be an issue. It's not leaking memory repeated that will eventually crash the process. But it's possible for the Singleton to allocate a lot of memory or another limited resource, which will never be released. Consider if that were the case for a Singleton that's only accessed at start up. We'd end up with an allocated resource that's never released.
 
