@@ -401,7 +401,7 @@ Christopher Okhravi
 Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. Refactor some of the code.
 
 ## Singleton Implementations
-The following code is a program containing all the Singleton implementation snippets, which appeared in [Singleton Implementation](#singleton-implementation).
+The following code is a program containing all the Singleton implementation snippets, which appeared in [Singleton Implementation](#singleton-implementation) and [First Design Principle](#first-design-principle).
 
 ```java
 import java.util.*;
@@ -435,9 +435,6 @@ public class SingletonDemo {
 
         MyFeatureAppA myFeatureApp2 = new MyFeatureAppA(MyFeatureFactory.acquire());
         myFeatureApp2.print();
-
-        MyFeatureAppB myFeatureApp = new MyFeatureAppB(new AbstractFeatureFactoryDemo());
-        myFeatureApp.print();
     }
 }
 
@@ -571,32 +568,6 @@ class MyFeatureAppA {
 
     public void print() {
         System.out.println(myFeature.getMessage());
-    }
-}
-
-interface AbstractFeatureFactory {
-    MyFeatureFactory acquireMyFeatureFactory();
-}
-
-class AbstractFeatureFactoryDemo implements AbstractFeatureFactory {
-    @Override
-    public MyFeatureFactory acquireMyFeatureFactory() {
-        return new MyFeatureFactory();
-    }
-}
-
-class MyFeatureAppB {
-    private final AbstractFeatureFactory abstractFeatureFactory;
-
-    public MyFeatureAppB(AbstractFeatureFactory abstractFeatureFactory) {
-        this.abstractFeatureFactory = abstractFeatureFactory;
-    }
-
-    public void print() {
-        MyFeatureFactory myFeatureFactory = abstractFeatureFactory.acquireMyFeatureFactory();
-        for (int i = 0; i < 5; i++) {
-            System.out.println(myFeatureFactory.acquire().getMessage());
-        }
     }
 }
 ```
