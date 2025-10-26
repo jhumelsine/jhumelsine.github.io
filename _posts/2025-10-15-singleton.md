@@ -21,7 +21,7 @@ Singleton is simple; almost too simple. It’s fraught with traps and pitfalls. 
 * It’s easy to implement incorrectly
 * It’s easy to reference from almost anywhere within a design, which can cause additional issues
 
-# Singleton’s Purpose in a Design
+# Singleton’s Single Purpose in a Design
 As I pointed out in [What is an Object?](https://jhumelsine.github.io/2025/09/03/what-is-an-object.html), Singleton’s purpose is to ensure that there’s no more than one instance for a class.
 
 The GoF defined Singleton’s intent as:
@@ -35,17 +35,7 @@ The GoF defined Singleton’s intent as:
 >
 >* Encapsulated "just-in-time initialization" or "initialization on first use".
 
-# Single Instance
-There are valid domain model situations for which we would desire no more than one instance for a class, such as the System Clock, the File System, a Data Repository, etc.
-
-# Considering Static Methods
-Static methods are already associated with the class rather than an instance of the class. That is, for most Object-Oriented (OO) languages, we can access a static method without having to do so via an instance of the class. Static attributes, which are associated with the class rather than an instance of the class, are also accessible without the need for an instance of the class. Isn’t making everything static already a type of Singleton?
-
-Technically, yes, it is. And we will see that Singleton’s mechanism uses a static method and static attribute, but Singleton is different, since it is an instance.
-
-Static methods are great for [Pure Functions](https://en.wikipedia.org/wiki/Pure_function), such as mathematical operations. They are a core concept in [Functional Programming](https://en.wikipedia.org/wiki/Functional_programming).
-
-But objects object instances are first class citizens in OO languages. They can do things that static methods can’t do or can’t do as easily. They can be passed as arguments. They are more flexible. Since Singleton is an object instance, it can do things that static methods may not be able to do.
+Here are a few valid domain model situations for which we would desire no more than one instance for a class: System Clock, the File System, a Data Repository, etc.
 
 # Unit Testing Concerns
 Singleton is one instance ... everywhere. Its access often resides deep within the code, often embeeded within a statement. These attributes can create unit testing concerns.
