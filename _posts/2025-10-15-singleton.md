@@ -284,49 +284,6 @@ This is very similar to what [Spring’s @Autowired](https://www.baeldung.com/sp
 
 While this works, because we can inject Test Doubles into `MyFeatureApp`, it leaves me a bit unsatisfied. Do we even need a Singleton? A Configurer only injects one instance anyway. The only reason to implement a Singleton would be to ensure that there’s only one instance across multiple Configurers that are injecting the single-instance domains, such as Databases, File Systems and other external dependencies. Since [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) injects a single instance into the application, Singleton feels a bit redundant in that case.
 
-However, if we were to desire the ability for an application to call `acquire()` repeatedly upon a single instance, then we can still provide this by injecting an [Abstract Factory](https://jhumelsine.github.io/2025/07/30/abstract-factory.html). Here is the basic implementation where `AbstractFeatureFactory` declares a method that returns a `MyFeatureFactory`. The `AbstractFeatureFactoryDemo` implements `AbstractFeatureFactory` and `acquireMyFeatureFactory()` returns `MyFeatureFactory`:
-```java
-interface AbstractFeatureFactory {
-    MyFeatureFactory acquireMyFeatureFactory();
-}
-
-class AbstractFeatureFactoryDemo implements AbstractFeatureFactory {
-    @Override
-    public MyFeatureFactory acquireMyFeatureFactory() {
-        return new MyFeatureFactory();
-    }
-}
-```
-
-Here is some sample code that references an `AbstractFeatureFactory` injected into it. The `print()` method has to go through two factories just to finally get the message:
-```java
-class MyFeatureAppB {
-    private final AbstractFeatureFactory abstractFeatureFactory;
-
-    public MyFeatureAppB(AbstractFeatureFactory abstractFeatureFactory) {
-        this.abstractFeatureFactory = abstractFeatureFactory;
-    }
-
-    public void print() {
-        MyFeatureFactory myFeatureFactory = abstractFeatureFactory.acquireMyFeatureFactory();
-        for (int i = 0; i < 5; i++) {
-            System.out.println(myFeatureFactory.acquire().getMessage());
-        }
-    }
-}
-```
-
-And finally, here's the code that creates and injects the abstract factory into `MyFeatureAppB`:
-```java
-MyFeatureAppB myFeatureApp = new MyFeatureAppB(new AbstractFeatureFactoryDemo());
-myFeatureApp.print();
-```
-
-Technically this works. This code calls `myFeatureFactory.acquire()` repeatedly, and it will always acquire the same Singleton instance, but I can't help feeling that it's overengineered. I would only implement to this level of multiple indirections if I had no other options.
-
-As I look at this implementation, I keep hearing this quote in my head:
->_All problems in CS can be solved by another level of indirection, except for the problem of too many layers of indirection._ — David Wheeler
-
 # Internal State
 Singleton instances can have state. But since there's one instance for all clients, the state needs to apply to all. For example, a Print Spooler Singleton might contain the printer queue. Therefore, if multiple clients submitted jobs to be printed, then they would be queued until printed. There might even be a method to obtain the list of jobs currently the queue, and any client that requested the print queue would see all jobs that had been submitted.
 
