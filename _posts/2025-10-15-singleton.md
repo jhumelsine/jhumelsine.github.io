@@ -57,7 +57,9 @@ class SingletonA {
     }
 }
 ```
-The `SingletonA` class contains an internal static reference to an object of its own type, `singleton`. The constructor is `private` so that no other instance can execute it. The `static` `acquire()` method initializes the internal `singleton` if null, via the constructor, assigns `singleton` and returns a reference to it. The GoF use `instance()` rather than `acquire()`, but I prefer the latter name, since it doesn’t suggest the underlying creation mechanism. `getInstance()` is another popular method name you’ll see.
+The `SingletonA` class contains an internal static reference to an object of its own type, `singleton`. The constructor is `private` so that no other instance can execute it. The `static` `acquire()` method initializes the internal `singleton` via the constructor if null, assigns it to the `static` `singleton` and returns a reference to it.
+
+The GoF use `instance()` rather than `acquire()`, but I prefer the latter name, since it doesn’t suggest the underlying creation mechanism. `getInstance()` is another popular method name you’ll see.
 
 This implementation nice and simple, but it contains a flaw. It is not thread safe. If multiple threads execute the `singleton` null check at the same time initially, all will find it null and initialize `singleton`. Multiple instances of `SingletonA` will be initialized, but only the last one will be retained.
 
@@ -114,11 +116,11 @@ Constructors do three things:
 * Initialize the returned memory via executing the constructor.
 * Return a reference to the memory location.
 
-Here is the nasty problem. In some languages, order was not specified. While the first bullet has to be first, for some languages, they returned the reference before the allocated memory was initialized.
+Here is the nasty problem. In some languages, order is not specified. While the first bullet has to be first, for some languages, they returned the reference before the allocated memory was initialized.
 
 Therefore, it’s possible for two threads to execute this code in quick succession. The first thread will call the constructor, allocate the memory and assign `singleton` before the constructor has initialized the memory.
 
-While the first thread is still initializing the memory, a second thread proceeds. Since `singleton` has been resolved by the first thread, the second thread proceeds with the non-null `singleton`, which may still be in process of being initialized. This means that the second thread may start to invoke a method on the uninitialized `singleton`, which might throw a bizarre exception. Good luck repeating that exception and figuring it out.
+While the first thread is still initializing the memory, a second thread proceeds. Since `singleton` has been assigned by the first thread, the second thread proceeds with the non-null `singleton`, which may still be in process of being initialized. This means that the second thread may start to invoke a method on the uninitialized `singleton`, which might throw a bizarre exception. Good luck repeating that exception and figuring it out.
 
 You can read more about this issue in [C++ and the Perils of Double-Checked Locking](https://www.aristeia.com/Papers/DDJ_Jul_Aug_2004_revised.pdf) by Scott Meyers and Andrei Alexandrescu. Unless you know with 100% certainty that your language does not have an issue with double-checked locking, don’t do it.
 
@@ -180,12 +182,14 @@ System.out.println(“The value is =” + Singleton.instance().toString());
 
 Singleton’s solitary  instances tend to be associated with external dependencies, such as System Clock, File System, Database, etc. Providing a class specific Singleton not only violates encapsulation, it violates a lot of the principles that I championed in the [Hexagonal Architecture Series](https://jhumelsine.github.io/table-of-contents#hexagonal-architecture-aka-ports-and-adapters-design). Specifically, applications have knowledge and dependency upon externals when using Singletons.
 
-In defense of the GoF, they do provide a ___Registry___ example, which looks somewhat like a [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html), which addresses this to some degree, but it comes too late in their Singleton description. Singleton’s relatively simple implementation is easy enough to understand, that I suspect many GoF readers read it, thought they understood it, and then didn’t continue reading the rest of Singleton section, which contained more the subtle points.
+In defense of the GoF, they do provide a ___Registry___ example, which looks somewhat like a [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html), which addresses this to some degree, but it comes too late in their Singleton description.
+
+Singleton’s relatively simple implementation is easy enough to understand, that I suspect many GoF readers read it, thought they understood it, and then didn’t continue reading the rest of Singleton section, which contained more the subtle points.
 
 ## Traditional Singleton Causes Unit Testing Concerns
 Singleton allows only one instance regardless of when or where it is accessed. Its access often resides deep within the code, often embedded within a statement. These attributes can create unit testing concerns.
 
-Singleton acquisition occurs via a static method, which is difficult to replace with a [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) in unit testing. And if you're not able to inject a dedicated Test Double for each unit test, you'll end up acquiring the sole Singleton instance for each of those tests. There will be one instance that all of your unit test cases may be accessing at the same time, and that Singleton instance may be coupled to an external dependency. The exeuction of one test might update the Singleton instance such that it affects the behavior of other unit test cases making them [flaky](https://jhumelsine.github.io/2025/04/14/humble-object.html#flaky-tests).
+Singleton acquisition occurs via a static method, which is difficult to replace with a [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) in unit testing. And if you're not able to inject a dedicated Test Double for each unit test, you'll end up acquiring the sole Singleton instance for each of those tests. There will be one instance that all of your unit test cases may be accessing at the same time, and that Singleton instance may be coupled to an external dependency. The execution of one test might update the Singleton instance such that it affects the behavior of other unit test cases making them [flaky](https://jhumelsine.github.io/2025/04/14/humble-object.html#flaky-tests).
 
 I worked on a project that used [MongoDB](https://en.wikipedia.org/wiki/MongoDB). Long before I joined the project, they had created static methods for each operation as wrappers around Mongo details. Their technique didn't use Singleton. It was more like the [Façade Design Pattern](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html), but it still used static methods everywhere. While I appreciated not having to dive into Mongo details, it was a bit cumbersome to create and initialize Test Doubles for these static methods. I used [Mockito's](https://site.mockito.org/) static method mocking. While it worked, it was not the most elegant mechanism I’ve seen, but it allowed me to inject Test Doubles and avoid the Singleton type of testing issues listed above.
 
@@ -251,7 +255,7 @@ I’ve only kicked the can down the road a bit with the Factory. Even if the Sin
 
 I’m no closer to being able to inject my own Test Double. It’s similar to the problem I described in the beginning of [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) where my team could only test our software in the lab emulating the entire environment because of our tight dependencies.
 
-We can address this by using an [Injected Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer). The application would look something like this, where `MyFeature` is injected into it:
+We can address this by using an [Injecting Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer). The application would look something like this, where `MyFeature` is injected into it:
 ```java
 class MyFeatureApp {
     private final MyFeature myFeature;
@@ -288,9 +292,11 @@ While this works, because we can inject Test Doubles into `MyFeatureApp`, it lea
 Singleton instances can have state. But since there's one instance for all clients, the state needs to apply to all. For example, a Print Spooler Singleton might contain the printer queue. Therefore, if multiple clients submitted jobs to be printed, then they would be queued until printed. There might even be a method to obtain the list of jobs currently the queue, and any client that requested the print queue would see all jobs that had been submitted.
 
 ## You Did What? Why?
-I worked on a [middleware](https://en.wikipedia.org/wiki/Middleware) project for about twenty years ago, which was to be used by hundreds if not thousands of developers creating applications that would run upon our middleware platform. Our middleware was a bespoke super-charged operating system. It extended beyond typical operating system features by providing Communications, Fault Management, among other supporting featuress as a single cohesive platform for our domain-specific application developers. We were encouraged to use our own product within the middleware with the only restriction that we could not reference any code that was higher than our code in the architecture stack for our middleware.
+I worked on a [middleware](https://en.wikipedia.org/wiki/Middleware) project for about twenty years ago, which was to be used by hundreds if not thousands of developers creating applications that would run upon our middleware platform. Our middleware was a bespoke super-charged operating system. It extended beyond typical operating system features by providing Communications, Fault Management, among other supporting featuress as a single cohesive platform for our domain-specific application developers.
 
-One of our components was the __ConfigurationManager__. Configuration values could be declared in an [XML](https://en.wikipedia.org/wiki/XML) file. The ConfigurationManager would read the XML files, and provide an API to retrieve values. Its use looked something like this:
+We were encouraged to use our own product within the middleware with the only restriction that we could not reference any code that was higher than our code in the architecture stack for our middleware.
+
+One of our components was the __ConfigurationManager__. Configuration values could be declared in an [XML](https://en.wikipedia.org/wiki/XML) file. The ConfigurationManager would read the XML files and provide an API to retrieve values. Its use looked something like this:
 ```java
 ConfigurationManager configurationManager = new ConfigurationManager(); // I can't remember if we had to specify the XML files, or whether it knew where to find them.
 int timeout = configurationManager.get("TimeOut");
@@ -322,7 +328,7 @@ I wanted to modify the timeout on a communication channel to something like 15 s
 >
 >__CM Dev__: _Silence_
 
-This is an excellent example of the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment) (POLA). The code did something that absolutely astonished me once I was alerted. This project was the poster child for POLA. I'm sure I'll include more POLA examples in the future. (TBD)
+This is an excellent example of the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment) (POLA). The code did something that absolutely astonished me once I was alerted of the actual behavior. This project was the poster child for POLA. I'm sure I'll include more POLA examples in the future. (TBD)
 
 The only way to get around this issue was to create a bespoke XML file with my own TimeOut value. It was a pain, since the XML grammar rules were extremely confusing. I never figured them out. The XML parser developer was on my team. Whenever I needed a new XML file, I would describe what I needed to him, and he'd guide me. I have no idea how our application developers would ever figure out how to use it.
 
@@ -335,9 +341,9 @@ Here's one possible way to do it with a wrapper. This is a hybrid of ideas from 
 
 The bulk of the configuration values still reside within a Singleton instance as a Map of Strings to Integers. The `getInt(String name)` method returns the Integer that's associated with the String. This is an extremely simplistic example of the __ConfigurationManager__ from my project 20 years ago. Notice that there's no means to update any configuration value in `ConfigurationRepoSingleton`. The String to Integer mappings are created from XML files when the Singleton is initialized, which is not shown in the diagram.
 
-`ConfigurationCache` is the wrapper that provides the additional ability to modify configuration values, but only for the client. It won't affect configuration values for other clients. It sets a String to Integer mapping within itself using `setInt(String name, int value)`. Unlike the `ConfigurationRepoSingleton`, which is shared by all, each client would have its own `ConfigurationCache`, so each updated name/value mapping would be local to that client and it would not affect other clients.
+`ConfigurationCache` is the wrapper that provides the additional ability to modify configuration values, but only for the client. It won't affect configuration values for other clients. It sets a String to Integer mapping within itself using `setInt(String name, int value)`. Unlike the `ConfigurationRepoSingleton`, which is shared by all, each client would have its own `ConfigurationCache` instance, so each updated name/value mapping would be local to that client and it would not affect other clients.
 
-`ConfigurationCache's` `getInt(String name)` is where the primary method that allows the wrapper to work. When executed, if the `name` is found in its mapping, then the local cached value is returned; otherwise, it returns the value that resides in the Singleton.
+`ConfigurationCache's` `getInt(String name)` is the primary method that allows the wrapper to work. When executed, if the `name` is found in its mapping, then the local cached value is returned; otherwise, it returns the value that resides in the Singleton.
 
 `ConfigurationManagerFactory` ensures that a `ConfigurationManager` object is acquired without the client having to know about `ConfigurationCache` or `ConfigurationRepoSingleton` specifically.
 
@@ -372,14 +378,14 @@ Here's the design (Note: it only references the `ConfigurationManager` interface
 A complete implementation resides at [State Injection](#state-injection).
 
 # Memory Leaks
-I have one last shot to take at Singleton. It leaks memory, maybe not a lot, but it does allocate resources that it never releases, even when clients are no longer accessing the Singleton. It's own static self reference is enough to prevent it from being cleaned up during garbage collection.
+I have one last shot to take at Singleton. It leaks memory, maybe not a lot, but it does allocate resources that it never releases, even when clients are no longer accessing the Singleton. Its own static self-reference is enough to prevent it from being cleaned up during garbage collection.
 
-Most times this won't be an issue. It's not leaking memory repeated that will eventually crash the process. But it's possible for the Singleton to allocate a lot of memory or other limited resources, which will never be released. Consider if that were the case for a Singleton that's only accessed at start up. We'd end up with an allocated resources that are never released.
+Most times this won't be an issue. It's not leaking memory repeated that will eventually crash the process. But it's possible for the Singleton to allocate a lot of memory or other limited resources, which will never be released. Consider if that were the case for a Singleton that's only accessed at start up. We'd end up with allocated resources that are never released.
 
 There is a way to address this at least in Java; however, I won't present it until the next blog entry, which will feature the Flyweight Design Pattern (TBD).
 
 # Summary
-As you can tell if you've made it this far, it will be quite obvious that I'm not a big fan of Singleton. I rarely use it myself.
+As you can tell if you've made it this far, it is quite obvious that I'm not a big fan of Singleton. I rarely use it myself.
 
 [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) will cover many cases where Singleton would have previously been used. Rather than depending upon Singleton, a [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) can create and inject a single instance into an application.
 
