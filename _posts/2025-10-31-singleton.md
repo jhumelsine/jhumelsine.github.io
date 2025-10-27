@@ -11,12 +11,6 @@ When candidates could name a few Design Patterns, __Singleton__ seemed to be the
 
 I suspect that most developers still may not know how to apply it, and Singleton’s description is in part to blame for this.
 
-In this blog entry I will present:
-1. What the Singleton pattern is.
-2. How to implement it (with pitfalls).
-3. Where it fits (and where it doesn’t).
-4. Alternatives and better options in modern codebases.
-
 # I come to bury Singleton, not to praise it
 I feel that incorporating design patterns into your designs will improve the quality of your code as I’ve described in previous [Design Pattern blog entries](https://jhumelsine.github.io/table-of-contents#design-patterns). I’m not convinced that Singleton falls into that category.
 
