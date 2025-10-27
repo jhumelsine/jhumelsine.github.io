@@ -1,5 +1,5 @@
 ---
-title: WORK IN PROGRESS – Singleton Design Pattern
+title: DRAFT OPEN FOR REVIEW – Singleton Design Pattern
 description: The One, The Only - The Good, The Bad, And The Ugly.
 unlisted: true
 ---
@@ -11,7 +11,7 @@ When candidates could name a few Design Patterns, __Singleton__ seemed to be the
 
 I suspect that most developers still may not know how to apply it, and Singleton’s description is in part to blame for this.
 
-In this blog entry you will learn:
+In this blog entry I will present:
 1. What the Singleton pattern is.
 2. How to implement it (with pitfalls).
 3. Where it fits (and where it doesn’t).
