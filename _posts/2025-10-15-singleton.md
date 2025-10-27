@@ -11,6 +11,12 @@ When candidates could name a few Design Patterns, __Singleton__ seemed to be the
 
 I suspect that most developers still may not know how to apply it, and Singleton’s description is in part to blame for this.
 
+In this blog entry you will learn:
+1. What the Singleton pattern is.
+2. How to implement it (with pitfalls).
+3. Where it fits (and where it doesn’t).
+4. Alternatives and better options in modern codebases.
+
 # I come to bury Singleton, not to praise it
 I feel that incorporating design patterns into your designs will improve the quality of your code as I’ve described in previous [Design Pattern blog entries](https://jhumelsine.github.io/table-of-contents#design-patterns). I’m not convinced that Singleton falls into that category.
 
@@ -61,7 +67,7 @@ The `SingletonA` class contains an internal static reference to an object of its
 
 The GoF use `instance()` rather than `acquire()`, but I prefer the latter name, since it doesn’t suggest the underlying creation mechanism. `getInstance()` is another popular method name you’ll see.
 
-This implementation nice and simple, but it contains a flaw. It is not thread safe. If multiple threads execute the `singleton` null check at the same time initially, all will find it null and initialize `singleton`. Multiple instances of `SingletonA` will be initialized, but only the last one will be retained.
+This implementation is nice and simple, but it contains a flaw. It is not thread safe. If multiple threads execute the `singleton` null check at the same time initially, all will find it null and initialize `singleton`. Multiple instances of `SingletonA` will be initialized, but only the last one will be retained.
 
 ## The Thread Safe Implementation
 The addition of `synchronized` makes the previous implementation thread safe:
@@ -162,12 +168,13 @@ class SingletonE {
 ## Complete Code
 A complete set of the code snippets above reside at [Singleton Implementations](#singleton-implementations). It also contains some of the code snippets listed below as well.
 
-## Implementation Recommendation
-Singleton seems like a simple implementation, but it can burn you. Look up implementations for other programming languages. Both resources below contain references to Singleton implementations in several languages at the bottom of each page:
+Singleton seems like a simple implementation, but it can burn you. I have only provided a few examples in Java. Look up implementations for other programming languages. Both resources below contain references to Singleton implementations in several languages at the bottom of each page:
 * [Singleton via SourceMaking.com](https://sourcemaking.com/design_patterns/singleton)
 * [Singleton via Refactoring.guru](https://refactoring.guru/design-patterns/singleton)
 
 # What Happened to Class Encapsulation?
+I feel there are more issues with Singleton than just the challenges to avoid traps and pitfalls in the implementation. There are issues with its premise. For example, what happened to class encapsulation?
+
 Most [creational design patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) encapsulate the class type from the user, which adheres to the GoF's first design principle: [_Program to an interface, not an implementation_](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html#program-to-an-interface-not-an-implementation). Yet Singleton has violated this principle in almost every use of it that I’ve seen in production code. Almost every example I’ve seen in production code obtains a Singleton with the `acquire()`, `instance()`, or `getInstance()` method returning an instance of its own class.
 
 As a result, almost every use of Singleton I’ve seen in production code is tightly coupled to the Singleton class, and since Singletons tend be coupled to external dependencies, the application code that uses this technique is coupled to those external dependencies as well. It’s no different than obtaining an instance via `new()`, except that with Singleton, there’s only one instance ever created.
@@ -291,7 +298,7 @@ While this works, because we can inject Test Doubles into `MyFeatureApp`, it lea
 # Internal State
 Singleton instances can have state. But since there's one instance for all clients, the state needs to apply to all. For example, a Print Spooler Singleton might contain the printer queue. Therefore, if multiple clients submitted jobs to be printed, then they would be queued until printed. There might even be a method to obtain the list of jobs currently the queue, and any client that requested the print queue would see all jobs that had been submitted.
 
-## You Did What? Why?
+## You Did What? Why? A Real World Cautionary Tale
 I worked on a [middleware](https://en.wikipedia.org/wiki/Middleware) project for about twenty years ago, which was to be used by hundreds if not thousands of developers creating applications that would run upon our middleware platform. Our middleware was a bespoke super-charged operating system. It extended beyond typical operating system features by providing Communications, Fault Management, among other supporting featuress as a single cohesive platform for our domain-specific application developers.
 
 We were encouraged to use our own product within the middleware with the only restriction that we could not reference any code that was higher than our code in the architecture stack for our middleware.
