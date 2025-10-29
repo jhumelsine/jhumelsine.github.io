@@ -52,3 +52,5 @@ Here are my favorite online design pattern resources:
 The first two sites are related, so there’s some duplication. Both sites also have great resources on Refactoring and Code Smells.
 
 For more of my take on Design Patterns, See: [Index of my Design Patterns Blogs](https://jhumelsine.github.io/table-of-contents#design-patterns) and [Design Pattern Foundations AI Notebook](https://notebooklm.google.com/notebook/ec8ed593-cd93-4a65-8615-2233bef3d910?_gl=1*u5eebw*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzAkdDE3NDk1NjA5MjQkajYwJGwwJGgw).
+
+__Addendum__: I've stumbled upon what appears to be the complete [Gang of Four Design Pattern](https://www.cs.unc.edu/~stotts/GOF/hires/contfso.htm) book online posted by the University of North Carolina Computer Science Department.
