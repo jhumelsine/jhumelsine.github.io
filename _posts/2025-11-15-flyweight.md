@@ -17,6 +17,18 @@ I view Flyweight is an extension of the [Singleton Design Pattern](https://jhume
 
 Regardless of its categorization, I've not much liked the name Flyweight either. I think it's based upon [weight class](https://en.wikipedia.org/wiki/Weight_class_(boxing)) in boxing, where [flyweight](https://en.wikipedia.org/wiki/Flyweight) is the lightest weight class. The pattern focuses upon keeping memory acquisition lean and clean.
 
+# DVR Example
+
+# GoF Design
+
+# My Design
+
+# DVR Details
+
+## My DVR Design
+
+## My DVR Implementation
+
 # Summary
 TBD
 
