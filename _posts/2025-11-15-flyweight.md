@@ -18,6 +18,17 @@ I view Flyweight is an extension of the [Singleton Design Pattern](https://jhume
 Regardless of its categorization, I've not much liked the name Flyweight either. I think it's based upon [weight class](https://en.wikipedia.org/wiki/Weight_class_(boxing)) in boxing, where [flyweight](https://en.wikipedia.org/wiki/Flyweight) is the lightest weight class. The pattern focuses upon keeping memory acquisition lean and clean.
 
 # DVR Example
+The _Multiple Singleton_ description can be confusing. Let me try to describe it with an example.
+
+The harddrive for my DVR is stored in the cloud. I suspected this since response with the remote is horrendous and I suspected network latency. However, it was confirmed when we refinished the hardwood floors in our house this summer. The DVR was disconnected for several days during the work, and when I reattached it, one of my scheduled programs had been recorded when the DVR had been disconnected and unplugged.
+
+What does __my__ harddrive look like in the cloud? Its 1080 Full HD 100 hour capacity requires somewhere between 500GB and 1TB. Does my cable company need to retain this much harddrive memory for each customer? Probably not.
+
+The most viewed television program in the United States each year is the Superbowl. Many viewers will set their DVR to record the game even if only to rewatch the halftime show. The cable company doesn't need an individual for each customer. They only need one recording, which all customers can share. When the last customer deletes the game, then the program can be removed from their records. I suspect that there would be additional recordings for faster distribution, redundency, etc., but I'm going to ignore them for now.
+
+This applies for all programs, not just popular ones. The cable company only needs to persist one instance per program regardless of how many customers have recorded it. Each instance would maintain the program's name, length among other attributes. Each customer would have their own program instance to, which would maintain their playback location in the program and possibly playback speed, closed-captions, etc., but these may be attributes associated with the customer and not the individual program.
+
+Each program is a type of _multiple singleton_. The cable company only needs to persist one copy of a program, but there may be many individual programs that they have to persist. The primary attribute that distinguishes the programs would be the program's name.
 
 # GoF Design
 
