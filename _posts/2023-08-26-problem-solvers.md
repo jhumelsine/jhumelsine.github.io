@@ -3,7 +3,7 @@ title: Problem Solvers
 description: Software developers aren't hired to write code
 ---
 
-![Solving a problem at a whiteboard](https://www.potential.com/wp-content/uploads/2017/11/problem-solving.png "Image Source: https://www.potential.com/articles/six-steps-develop-effective-problem-solving-process/")
+![Solving a problem together](https://blog.potential.com/wp-content/uploads/2017/11/Blog-Post.png "Image Source: https://www.potential.com/articles/six-steps-develop-effective-problem-solving-process/")
 
 Software developers aren’t hired to write code. We’re hired to solve problems. We just happen to solve problems using code most of the time.
 
