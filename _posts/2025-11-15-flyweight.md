@@ -34,7 +34,11 @@ Each program is a type of _multiple singleton_. The cable company only needs to 
 
 # My Design
 
-# Memory Leaks
+# Issues
+
+## Concurrency
+
+## Memory Leaks
 
 # DVR Details
 
