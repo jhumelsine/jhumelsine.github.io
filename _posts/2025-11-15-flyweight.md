@@ -13,7 +13,7 @@ Flyweight allows the client to create multiple instances of a Singleton class. I
 
 Though not included by the GoF, there is a creational pattern for this behavior: __Multiton__, which is a portmanteau of _Multiple_ and _Singleton_. Multiton describes __what__ it does. Flyweight describes __how__ it does it. I view them as two patterns for the same concept approached from two different directions: __What__ vs __How__. As I alluded to in my opening sentence, I think the GoF should have focused upon its creational aspects and possibly Multiton would have been a better name. But since Flyweight is the name they chose, I'll stick with it for the rest of this blog.
 
-I view Flyweight is an extension of the [Singleton Design Pattern](https://jhumelsine.github.io/2025/10/31/singleton.html), or maybe it might be more accurate to view Sington as a special case of Flyweight.
+I view Flyweight is an extension of the [Singleton Design Pattern](https://jhumelsine.github.io/2025/10/31/singleton.html), or maybe it might be more accurate to view Sington as a special case of Flyweight. While I'm not a fan of Singleton, I do tend to appreciate Flyweight, even if it's a more general case of Singleton.
 
 Regardless of its categorization, I've not much liked the name Flyweight either. I think it's based upon [weight class](https://en.wikipedia.org/wiki/Weight_class_(boxing)) in boxing, where [flyweight](https://en.wikipedia.org/wiki/Flyweight) is the lightest weight class. The pattern focuses upon keeping memory acquisition lean and clean.
 
