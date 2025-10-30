@@ -67,7 +67,10 @@ public static synchronized int acquire(String key) {
 ```
 
 ## Memory Leaks
+[Singleton's Memory Leak issue](https://jhumelsine.github.io/2025/10/31/singleton.html#memory-leaks) is minor. However, it could become a major issue with Flyweight, since there is an unlimited number of keys that could be requested. This sort of ironic, since the point of Flyweight is to reduce memory consumption.
 
+The GoF don't really address the concern. If anything, they state that there is no concern. Here's exactly what they state about memory reclaimation:
+>Sharability also implies some form of reference counting or garbage collection to reclaim a flyweight’s storage when it’s no longer needed. However, neither is necessary if the number of flyweights is fixed and small (e.g., flyweights for the ASCII character set). In that case, the flyweights are worth keeping around permanently.
 
 ### Singleton Memory Leak
 
