@@ -38,7 +38,13 @@ This diagram represents the basics of the GoF's Flyweight design. In this design
 
 <img src="/assets/Flyweight1.png" alt="GoF Flyweight Design" width = "80%" align="center" style="padding-right: 20px;">
 
-# My Design
+# My Flyweight Design
+
+Here is my variation on the GoF Flyweight pattern. I've combined the classes into one class so that this design is closer to the Singleton design.
+
+Both are sufficient. Using one of the other is a matter of personal style.
+
+<img src="/assets/Flyweight2.png" alt="My Flyweight Design" width = "80%" align="center" style="padding-right: 20px;">
 
 # Issues
 
