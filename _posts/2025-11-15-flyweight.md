@@ -55,7 +55,7 @@ Singleton had several issues mostly with concurrency and memory leaks. Flyweight
 Any concurrency mechanism that addresses this will be sufficient. Here is the thread safe update to the code snippets above using `synchronized` within Java.
 
 ```java
-private static Map<Flyweight> flyweights = new HashMap<>();
+private static Map<String, Flyweight> flyweights = new HashMap<>();
 
 public static synchronized int acquire(String key) {
     if (!flyweights.containsKey(key)) {
@@ -76,7 +76,7 @@ Unless you know for sure that you'll never have a large number of flyweight inst
 The GoF didn't provide any suggestions, as noted above. Java has a nice way to address this with its [WeakHashMap](https://docs.oracle.com/javase/8/docs/api/java/util/WeakHashMap.html) class. A __WeakHashMap__ doesn't include the map in a stored instance's reference count. If the weak map is the only reference to an instance, then it is eligible for garbage collection.
 
 ```java
-private static Map<Flyweight> flyweights = new WeakHashMap<>();
+private static Map<String, Flyweight> flyweights = new WeakHashMap<>();
 
 public static int acquire(String key) {
     if (!flyweights.containsKey(key)) {
@@ -89,7 +89,7 @@ public static int acquire(String key) {
 ## Combining Concurrency and Memory Leak Solutions
 Here's a Java implementation that's ensures that the implementation is thread safe and releases memory by adding a [Collections.synchronizedMap](https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#synchronizedMap-java.util.Map-):
 ```java
-private static Map<Flyweight> flyweights = Collections.synchronizedMap(new WeakHashMap<>());
+private static Map<String, Flyweight> flyweights = Collections.synchronizedMap(new WeakHashMap<>());
 
 public static int acquire(String key) {
     if (!flyweights.containsKey(key)) {
@@ -100,6 +100,20 @@ public static int acquire(String key) {
 ```
 
 ### Singleton Memory Leak
+I ended the [Singleton Memory Leaks](https://jhumelsine.github.io/2025/10/31/singleton.html#memory-leaks) section with:
+>There is a way to address this at least in Java; however, I won’t present it until the next blog entry, which will feature the Flyweight Design Pattern.
+
+To the best of my knowledge there is no ___Weak___ static variable concept in Java, but we can adjust the previous implementation so that the Map contains only one mapping:
+```java
+private static Map<String, Singleton> singleton = Collections.synchronizedMap(new WeakHashMap<>());
+
+public static int acquire() {
+    if (!singleton.containsKey("singleton")) {
+        singleton.put("singleton", new Singleton());
+    }
+    return singleton.get("singleton");
+}
+```
 
 ## Shared State
 
