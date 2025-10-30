@@ -30,7 +30,13 @@ This applies for all programs, not just popular ones. The cable company only nee
 
 Each program is a type of _multiple singleton_. The cable company only needs to persist one copy of a program, but there may be many individual programs that they have to persist. The primary attribute that distinguishes the programs would be the program's name.
 
-# GoF Design
+# GoF Flyweight Design
+
+Flyweight is very similar to [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html) except that instead of one `singleton` static instance, there is a static Map of instances.
+
+This diagram represents the basics of the GoF's Flyweight design. In this design `flyweightA1` and `flyweightA2` will contain references to the same instance. `flyweightB` will be a separate instance.
+
+<img src="/assets/Flyweight1.png" alt="GoF Flyweight Design" width = "80%" align="center" style="padding-right: 20px;">
 
 # My Design
 
