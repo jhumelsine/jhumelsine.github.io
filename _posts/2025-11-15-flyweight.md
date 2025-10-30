@@ -74,6 +74,8 @@ The GoF don't really address the concern. If anything, they state that there is 
 
 ### Singleton Memory Leak
 
+## Shared State
+
 # DVR Details
 
 ## My DVR Design
