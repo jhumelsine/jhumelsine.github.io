@@ -47,10 +47,29 @@ Both are sufficient. Using one of the other is a matter of personal style.
 <img src="/assets/Flyweight2.png" alt="My Flyweight Design" width = "80%" align="center" style="padding-right: 20px;">
 
 # Issues
+Singleton had several issues mostly with concurrency and memory leaks. Flyweight has the same issues, but possibly to an even greater degree.
 
 ## Concurrency
+[Singleton's concurrency issue](https://jhumelsine.github.io/2025/10/31/singleton.html#singleton-implementation) is infrequent, since it is mostly only a concern when the `singleton` instance is first being initialized. Flyweight is different. A new instance can be instantated at any time when a new key value is presented.
+
+Any concurrency mechanism that addresses this will be sufficient. Here is the thread safe update to the code snippets above using `synchronized` within Java.
+
+```java
+private static Map<Flyweight> flyweights = new HashMa;<>();
+
+public static synchronized int acquire(String key) {
+    if (!flyweights.containsKey(key)) {
+        flyweights.put(key, new Flyweight(key));
+    }
+    return flyweights.get(key);
+}
+
+```
 
 ## Memory Leaks
+
+
+### Singleton Memory Leak
 
 # DVR Details
 
