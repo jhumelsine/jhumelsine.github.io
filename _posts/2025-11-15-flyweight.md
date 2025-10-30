@@ -55,7 +55,7 @@ Singleton had several issues mostly with concurrency and memory leaks. Flyweight
 Any concurrency mechanism that addresses this will be sufficient. Here is the thread safe update to the code snippets above using `synchronized` within Java.
 
 ```java
-private static Map<Flyweight> flyweights = new HashMa;<>();
+private static Map<Flyweight> flyweights = new HashMap<>();
 
 public static synchronized int acquire(String key) {
     if (!flyweights.containsKey(key)) {
@@ -63,7 +63,6 @@ public static synchronized int acquire(String key) {
     }
     return flyweights.get(key);
 }
-
 ```
 
 ## Memory Leaks
@@ -71,6 +70,34 @@ public static synchronized int acquire(String key) {
 
 The GoF don't really address the concern. If anything, they state that there is no concern. Here's exactly what they state about memory reclaimation:
 >Sharability also implies some form of reference counting or garbage collection to reclaim a flyweight’s storage when it’s no longer needed. However, neither is necessary if the number of flyweights is fixed and small (e.g., flyweights for the ASCII character set). In that case, the flyweights are worth keeping around permanently.
+
+Unless you know for sure that you'll never have a large number of flyweight instances, I'd prefer some sort of flyweight clean up. Instances can be released when there are no more references to them. For some languages, such as C++, this responsibility is mostly upon the developer. For other languages, such as Java, the environment will manage this and perform garbage collection when needed.
+
+The GoF didn't provide any suggestions, as noted above. Java has a nice way to address this with its [WeakHashMap](https://docs.oracle.com/javase/8/docs/api/java/util/WeakHashMap.html) class. A __WeakHashMap__ doesn't include the map in a stored instance's reference count. If the weak map is the only reference to an instance, then it is eligible for garbage collection.
+
+```java
+private static Map<Flyweight> flyweights = new WeakHashMap<>();
+
+public static int acquire(String key) {
+    if (!flyweights.containsKey(key)) {
+        flyweights.put(key, new Flyweight(key));
+    }
+    return flyweights.get(key);
+}
+```
+
+## Combining Concurrency and Memory Leak Solutions
+Here's a Java implementation that's ensures that the implementation is thread safe and releases memory by adding a [Collections.synchronizedMap](https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#synchronizedMap-java.util.Map-):
+```java
+private static Map<Flyweight> flyweights = Collections.synchronizedMap(new WeakHashMap<>());
+
+public static int acquire(String key) {
+    if (!flyweights.containsKey(key)) {
+        flyweights.put(key, new Flyweight(key));
+    }
+    return flyweights.get(key);
+}
+```
 
 ### Singleton Memory Leak
 
