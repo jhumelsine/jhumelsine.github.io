@@ -5,7 +5,7 @@ unlisted: true
 ---
 
 # Introduction
-When I interviewed job candidates, I’d ask them if they knew any Design Patterns. Most didn’t know what I was talking about. Some had heard of them, but they didn't know much more than that. A few had the Gang of Four (GoF) Design Pattern book but had never read it. I never held anyone’s lack of Design Pattern knowledge against them, since the lack of knowledge was so prevalent. I had not learned the Design Pattern myself until my mid-forties, so I felt that shouldn't judge others negatively either.
+When I interviewed job candidates, I’d ask them if they knew any Design Patterns. Most didn’t know what I was talking about. Some had heard of them, but they didn't know much more than that. A few had the Gang of Four (GoF) Design Pattern book but had never read it. I never held anyone’s lack of Design Pattern knowledge against them, since the lack of knowledge was so prevalent. I had not learned the Design Pattern myself until my mid-forties, so I felt that I shouldn't judge others negatively either.
 
 When candidates could name a few Design Patterns, __Singleton__ seemed to be the pattern that was mentioned most often, even if they weren’t quite sure how to apply it. 
 
@@ -14,7 +14,7 @@ I suspect that most developers still may not know how to apply it, and Singleton
 # I come to bury Singleton, not to praise it
 I feel that incorporating design patterns into your designs will improve the quality of your code as I’ve described in previous [Design Pattern blog entries](https://jhumelsine.github.io/table-of-contents#design-patterns). I’m not convinced that Singleton falls into that category.
 
-Singleton has its place in a design, but it’s a narrow spot. It’s often used outside of its narrow niche. Modern techniques may even make that niche more narrow.
+Singleton has its place in a design, but it’s a narrow spot. It’s often used outside of its narrow niche. Modern techniques may even make that niche narrower.
 
 Singleton is simple; almost too simple. It’s fraught with traps and pitfalls. Singleton’s misuse reduces to several issues:
 * It’s easy to understand, implement and use without fully grasping the implications
@@ -185,7 +185,7 @@ Singleton’s solitary  instances tend to be associated with external dependenci
 
 In defense of the GoF, they do provide a ___Registry___ example, which looks somewhat like a [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html), which addresses this to some degree, but it comes too late in their Singleton description.
 
-Singleton’s relatively simple implementation is easy enough to understand, that I suspect many GoF readers read it, thought they understood it, and then didn’t continue reading the rest of Singleton section, which contained more the subtle points.
+Singleton’s relatively simple implementation is easy enough to understand, that I suspect many GoF readers read it, thought they understood it, and then didn’t continue reading the rest of Singleton section, which contained more subtle points.
 
 ## Traditional Singleton Causes Unit Testing Concerns
 Singleton allows only one instance regardless of when or where it is accessed. Its access often resides deep within the code, often embedded within a statement. These attributes can create unit testing concerns.
@@ -256,7 +256,7 @@ I’ve only kicked the can down the road a bit with the Factory. Even if the Sin
 
 I’m no closer to being able to inject my own Test Double. It’s similar to the problem I described in the beginning of [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) where my team could only test our software in the lab emulating the entire environment because of our tight dependencies.
 
-We can address this by using an [Injecting Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer). The application would look something like this, where `MyFeature` is injected into it:
+We can address this by using an [Injecting Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer). The application would look like this, where `MyFeature` is injected into it:
 ```java
 class MyFeatureApp {
     private final MyFeature myFeature;
@@ -297,7 +297,7 @@ I worked on a [middleware](https://en.wikipedia.org/wiki/Middleware) project for
 
 We were encouraged to use our own product within the middleware with the only restriction that we could not reference any code that was higher than our code in the architecture stack for our middleware.
 
-One of our components was the __ConfigurationManager__. Configuration values could be declared in an [XML](https://en.wikipedia.org/wiki/XML) file. The ConfigurationManager would read the XML files and provide an API to retrieve values. Its use looked something like this:
+One of our components was the __ConfigurationManager__. Configuration values could be declared in an [XML](https://en.wikipedia.org/wiki/XML) file. The ConfigurationManager would read the XML files and provide an API to retrieve values. Its use resembled this:
 ```java
 ConfigurationManager configurationManager = new ConfigurationManager(); // I can't remember if we had to specify the XML files, or whether it knew where to find them.
 int timeout = configurationManager.get("TimeOut");
@@ -309,7 +309,7 @@ ConfigurationManager configurationManager = new ConfigurationManager();
 configurationManager.set("TimeOut", 15);
 ```
 
-I wanted to modify the timeout on a communication channel to something like 15 seconds rather than the default 30 seconds, which I did with code that similar to what I've shown above. Someone from the ConfigurationManager team, which was a sibling team in my department, contacted me about my code. Our conversation went something like this:
+I wanted to modify the timeout on a communication channel to something like 15 seconds rather than the default 30 seconds, which I did with code similar to what I've shown above. Someone from the ConfigurationManager team, which was a sibling team in my department, contacted me about my code. Our conversation went something like this:
 
 >__Configuration Manager Dev (CM Dev)__: You changed the TimeOut value.
 >
@@ -364,11 +364,11 @@ State injection is not a new concept for this blog. It appeared as __Context__ w
 
 Composite objects are immutable, but injecting Context into them allows them to vary their behavior based upon that state. Singletons and Composites are similar in that we can use the same technique to inject state while still maintaining their immutable properties. While this works, it can be a bit cumbersome to inject state, since it adds to the parameter list.
 
-We can use a similar wrapper technique that was show above, except in this technique state resides within the wrapper and it's injected into the Singleton instance. This allows each client to have its own state within the wrapper and injected into the shared Singleton without affecting any other Singleton clients.
+We can use a similar wrapper technique that was shown above, except in this technique state resides within the wrapper and it's injected into the Singleton instance. This allows each client to have its own state within the wrapper and injected into the shared Singleton without affecting any other Singleton clients.
 
 Let's expand the previous __ConfigurationManager__ scenario. I wanted to update `TimeOut` in the __ConfigurationManager__ without affecting other clients who preferred to use the configured `TimeOut` value.
 
-Now I want to use my own `TimeOut` value within a communication `Channel`, which is designed as a Singleton. I want the ability to configure my own `TimeOut` value when sending messages via `Channel`, and I don't want to be overly burdened with `TimeOut` management overhead. Basically, I want to set the `TimeOut` value once, and then forget about it.
+Now I want to use my own `TimeOut` value within a communication `Channel`, which is designed as a Singleton. I want the ability to configure my own `TimeOut` value when sending messages via `Channel`, and I don't want to be overly burdened with `TimeOut` management overhead. Basically, I want to set the `TimeOut` value once and then forget about it.
 
 `Channel` defines a `send(String message)` interface. `ChannelSingleton`, which is mostly hidden in the design, defines `send(String message, int timeout)`, which allows us to send a message with an injected timeout. `ChannelWrapper` gets the `TimeOut` value from its injected `ConfigurationManager` and includes the `TimeOut` value when sending the message via `ChannelSingleton`.
 
@@ -386,7 +386,7 @@ Most times this won't be an issue. It's not leaking memory repeated that will ev
 There is a way to address this at least in Java; however, I won't present it until the next blog entry, which will feature the Flyweight Design Pattern (TBD).
 
 # Summary
-As you can tell if you've made it this far, it is obvious that I'm not a big fan of Singleton. I rarely use it myself.
+As you can tell, if you've made it this far, it is obvious that I'm not a big fan of Singleton. I rarely use it myself.
 
 [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) will cover many cases where Singleton would have previously been used. Rather than depending upon Singleton, a [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) can create and inject a single instance into an application.
 
