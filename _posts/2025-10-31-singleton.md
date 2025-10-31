@@ -1,7 +1,7 @@
 ---
-title: DRAFT OPEN FOR COMMENTS – Singleton Design Pattern
+title: Singleton Design Pattern
 description: The One, The Only - The Good, The Bad, And The Ugly.
-unlisted: true
+unlisted: false
 ---
 
 # Introduction
