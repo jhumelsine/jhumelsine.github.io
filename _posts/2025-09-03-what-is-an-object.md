@@ -132,7 +132,7 @@ The Show Dog's domain is more complex; therefore, a more complex model will be n
 # Summary
 Now that I’ve presented _class_ and _instance_ in excruciating detail, I can come full circle introduce the scenario that will lead to Singleton, which is where I started this blog.
 
-In some domains or design structures, you only ever need one instance of a class—like the system clock or the configuration loader. That setup leads to the __Singleton pattern__ (TBD), which ensures single-instance behavior while addressing concerns like thread safety and testability. That’s where we’ll go next.
+In some domains or design structures, you only ever need one instance of a class—like the system clock or the configuration loader. That setup leads to the [__Singleton pattern__](https://jhumelsine.github.io/2025/10/31/singleton.html), which ensures single-instance behavior while addressing concerns like thread safety and testability. That’s where we’ll go next.
 
 # Addendum: Other Views of Objects and Classes  
 
