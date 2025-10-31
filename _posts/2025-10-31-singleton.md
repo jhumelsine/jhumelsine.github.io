@@ -190,7 +190,7 @@ Singleton’s relatively simple implementation is easy enough to understand, tha
 ## Traditional Singleton Causes Unit Testing Concerns
 Singleton allows only one instance regardless of when or where it is accessed. Its access often resides deep within the code, often embedded within a statement. These attributes can create unit testing concerns.
 
-Singleton acquisition occurs via a static method, which is difficult to replace with a [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) in unit testing. And if you're not able to inject a dedicated Test Double for each unit test, you'll end up acquiring the sole Singleton instance for each of those tests. There will be one instance that all of your unit test cases may be accessing at the same time, and that Singleton instance may be coupled to an external dependency. The execution of one test might update the Singleton instance such that it affects the behavior of other unit test cases making them [flaky](https://jhumelsine.github.io/2025/04/14/humble-object.html#flaky-tests).
+Singleton acquisition occurs via a static method, which is difficult to replace with a [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) in unit testing. And if you're not able to inject a dedicated Test Double for each unit test, you'll end up acquiring the sole Singleton instance for each of those tests. There will be one instance that all your unit test cases may be accessing at the same time, and that Singleton instance may be coupled to an external dependency. The execution of one test might update the Singleton instance such that it affects the behavior of other unit test cases making them [flaky](https://jhumelsine.github.io/2025/04/14/humble-object.html#flaky-tests).
 
 I worked on a project that used [MongoDB](https://en.wikipedia.org/wiki/MongoDB). Long before I joined the project, they had created static methods for each operation as wrappers around Mongo details. Their technique didn't use Singleton. It was more like the [Façade Design Pattern](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html), but it still used static methods everywhere. While I appreciated not having to dive into Mongo details, it was a bit cumbersome to create and initialize Test Doubles for these static methods. I used [Mockito's](https://site.mockito.org/) static method mocking. While it worked, it was not the most elegant mechanism I’ve seen, but it allowed me to inject Test Doubles and avoid the Singleton type of testing issues listed above.
 
@@ -290,10 +290,10 @@ This is very similar to what [Spring’s @Autowired](https://www.baeldung.com/sp
 While this works, because we can inject Test Doubles into `MyFeatureApp`, it leaves me a bit unsatisfied. Do we even need a Singleton? A Configurer only injects one instance anyway. The only reason to implement a Singleton would be to ensure that there’s only one instance across multiple Configurers that are injecting the single-instance domains, such as Databases, File Systems and other external dependencies. Since [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) injects a single instance into the application, Singleton feels a bit redundant in that case.
 
 # Internal State
-Singleton instances can have state. But since there's one instance for all clients, the state needs to apply to all. For example, a Print Spooler Singleton might contain the printer queue. Therefore, if multiple clients submitted jobs to be printed, then they would be queued until printed. There might even be a method to obtain the list of jobs currently the queue, and any client that requested the print queue would see all jobs that had been submitted.
+Singleton instances can have state. But since there's one instance for all clients, the state needs to apply to all. For example, a Print Spooler Singleton might contain the printer queue. Therefore, if multiple clients submitted jobs to be printed, then they would be queued until printed. There might even be a method to obtain the list of jobs currently in the queue, and any client that requested the print queue would see all jobs that had been submitted.
 
 ## You Did What? Why? A Real World Cautionary Tale
-I worked on a [middleware](https://en.wikipedia.org/wiki/Middleware) project for about twenty years ago, which was to be used by hundreds if not thousands of developers creating applications that would run upon our middleware platform. Our middleware was a bespoke super-charged operating system. It extended beyond typical operating system features by providing Communications, Fault Management, among other supporting featuress as a single cohesive platform for our domain-specific application developers.
+I worked on a [middleware](https://en.wikipedia.org/wiki/Middleware) project for about twenty years ago, which was to be used by hundreds if not thousands of developers creating applications that would run upon our middleware platform. Our middleware was a bespoke super-charged operating system. It extended beyond typical operating system features by providing Communications, Fault Management, among other supporting features as a single cohesive platform for our domain-specific application developers.
 
 We were encouraged to use our own product within the middleware with the only restriction that we could not reference any code that was higher than our code in the architecture stack for our middleware.
 
@@ -319,7 +319,7 @@ I wanted to modify the timeout on a communication channel to something like 15 s
 >
 >__Me__: What do you mean I can't do that? You provided the API that allows me to do it. Besides, it won't affect others because I'm only changing my local ConfigurationManager object.
 >
->__CM Dev__: I know it looks like you have your own ConfigurationManager object, but there's a Singleton implementation within it. All configuration values reside in one place and they're shared. When you change "your" TimeOut value, you change it for everyone.
+>__CM Dev__: I know it looks like you have your own ConfigurationManager object, but there's a Singleton implementation within it. All configuration values reside in one place, and they're shared. When you change "your" TimeOut value, you change it for everyone.
 >
 >__Me__: _Pause_ ... So let me get this straight. You provided the ability for me to change a value with your API, but I'm not supposed to use it, because it will change the value for everyone, because it's really a Singleton, and there's no indication anywhere that it's a shared Singleton. Do I have that right?
 >
@@ -336,13 +336,13 @@ The only way to get around this issue was to create a bespoke XML file with my o
 In hindsight, I should have just accepted the default TimeOut value. 
 
 ## Wrapping Singleton With State
-There are probably many ways to provide the desired __ConfigurationManager__ behavior described above without the inadvertently changing the value for everyone.
+There are probably many ways to provide the desired __ConfigurationManager__ behavior described above without inadvertently changing the value for everyone.
 
 Here's one possible way to do it with a wrapper. This is a hybrid of ideas from the [Proxy](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html) and [Chain of Responsibility](https://jhumelsine.github.io/2024/02/20/chain-of-responsibility-design-pattern.html) design pattern.
 
 The bulk of the configuration values still reside within a Singleton instance as a Map of Strings to Integers. The `getInt(String name)` method returns the Integer that's associated with the String. This is an extremely simplistic example of the __ConfigurationManager__ from my project 20 years ago. Notice that there's no means to update any configuration value in `ConfigurationRepoSingleton`. The String to Integer mappings are created from XML files when the Singleton is initialized, which is not shown in the diagram.
 
-`ConfigurationCache` is the wrapper that provides the additional ability to modify configuration values, but only for the client. It won't affect configuration values for other clients. It sets a String to Integer mapping within itself using `setInt(String name, int value)`. Unlike the `ConfigurationRepoSingleton`, which is shared by all, each client would have its own `ConfigurationCache` instance, so each updated name/value mapping would be local to that client and it would not affect other clients.
+`ConfigurationCache` is the wrapper that provides the additional ability to modify configuration values, but only for the client. It won't affect configuration values for other clients. It sets a String to Integer mapping within itself using `setInt(String name, int value)`. Unlike the `ConfigurationRepoSingleton`, which is shared by all, each client would have its own `ConfigurationCache` instance, so each updated name/value mapping would be local to that client, and it would not affect other clients.
 
 `ConfigurationCache's` `getInt(String name)` is the primary method that allows the wrapper to work. When executed, if the `name` is found in its mapping, then the local cached value is returned; otherwise, it returns the value that resides in the Singleton.
 
@@ -386,7 +386,7 @@ Most times this won't be an issue. It's not leaking memory repeated that will ev
 There is a way to address this at least in Java; however, I won't present it until the next blog entry, which will feature the Flyweight Design Pattern (TBD).
 
 # Summary
-As you can tell if you've made it this far, it is quite obvious that I'm not a big fan of Singleton. I rarely use it myself.
+As you can tell if you've made it this far, it is obvious that I'm not a big fan of Singleton. I rarely use it myself.
 
 [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) will cover many cases where Singleton would have previously been used. Rather than depending upon Singleton, a [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer) can create and inject a single instance into an application.
 
