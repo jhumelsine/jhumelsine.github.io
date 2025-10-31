@@ -19,7 +19,7 @@ I felt as if the scales had fallen from my eyes. I had been playing this game po
 
 Fast forward another 15 years or so again. I had been a C developer and a C++ developer for the previous five years or so. I understood the elements of Object-Oriented Programming such as encapsulation, inheritance, polymorphism, etc.
 
-I had heard of “Design Patterns” in the mid-1990s. I had even attended a few technical presentations, but they never held my imagination. By 2000 I was working at a startup and some developers mentioned design patterns off and on … mostly Singleton. 
+I had heard of “Design Patterns” in the mid-1990s. I had even attended a few technical presentations, but they never held my imagination. By 2000 I was working at a startup and some developers mentioned design patterns off and on … mostly [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html). 
 A coworker had a copy of the Gang of Four [Design Patterns Book](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/) on his desk.
 
 <img src="https://m.media-amazon.com/images/I/51JYkEpbhzL.jpg" alt="Design Pattern Book Cover" title="Image Source: https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612" width = "25%" align="left" style="padding-right: 20px;">
