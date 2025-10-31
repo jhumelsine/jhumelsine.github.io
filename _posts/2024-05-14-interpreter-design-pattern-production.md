@@ -277,7 +277,7 @@ The design I had sketched on the whiteboard was close, but it needed a few eleme
 
 I added the following to the design. Most are Design Patterns not yet covered in my blogs:
 * __Prototype__ (TBD)
-* __Singleton Repos__ (TBD)
+* [__Singleton__](https://jhumelsine.github.io/2025/10/31/singleton.html)
 * [__Decorator__](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html)
 
 ## Enhancements
