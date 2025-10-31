@@ -124,6 +124,15 @@ While the first thread is still initializing the memory, a second thread proceed
 
 You can read more about this issue in [C++ and the Perils of Double-Checked Locking](https://www.aristeia.com/Papers/DDJ_Jul_Aug_2004_revised.pdf) by Scott Meyers and Andrei Alexandrescu. Unless you know with 100% certainty that your language does not have an issue with double-checked locking, don’t do it.
 
+__Addendum__ provided from a reader:
+>The Double-Check Locking is fixed in Java 1.5 ___if___ you add the ___volatile___ keyword on the instance declaration:
+>
+>`private static volatile SingletonC singleton = null;`
+>
+>It's an issue of runtime compiler optimization: Without the "volatile" keyword, it might not re-fetch the value in the second (inner) "if" statement. It might just use the prefetched register value, making the lock ineffective.
+>
+>https://stackoverflow.com/questions/18093735/double-checked-locking-in-singleton
+
 ## The Initialize at Start Up Implementation
 The previous implementations use lazy initialization. The Singleton is not initialized until it’s needed. I suspect that in most applications, Singletons will always be needed, so don’t use lazy initialization. Initialize it statically.
 
