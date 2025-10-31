@@ -80,7 +80,7 @@ The GoF [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/cre
 The GoF Factory Method is so close to what I described above that I don’t need to provide any additional context.
 
 ## Singleton
-Singleton ensures that only one instance of the class is ever created. It’s quite possibly the most overly used and incorrectly used design pattern. The GoF’s implementation is not thread safe. Singletons should not contain state unless that state applies to all Client Applications globally.
+[Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html) ensures that only one instance of the class is ever created. It’s quite possibly the most overly used and incorrectly used design pattern. The GoF’s implementation is not thread safe. Singletons should not contain state unless that state applies to all Client Applications globally.
 
 There are legitimate uses for Singleton. Just make sure you only use it for those reasons.
 
@@ -99,7 +99,7 @@ Object Pool has several additional considerations:
     * Expanding the pool
 
 ## Abstract Factory
-The GoF Abstract Factory is close to what I described above, but Abstract Factory descriptions usually focus upon the ability create consistent instances of interface family types. That is, they help ensure a consistent set of objects when several interfaces need to interact consistently. For example, you wouldn't want one factory that returned a production object another one that returned a test object to interact. Abstract Factory helps avoid that.
+The GoF [Abstract Factory](https://jhumelsine.github.io/2025/07/30/abstract-factory.html) is close to what I described above, but Abstract Factory descriptions usually focus upon the ability create consistent instances of interface family types. That is, they help ensure a consistent set of objects when several interfaces need to interact consistently. For example, you wouldn't want one factory that returned a production object another one that returned a test object to interact. Abstract Factory helps avoid that.
 
 Abstract Factory is a Factory of Factory of Factory Methods.
 
