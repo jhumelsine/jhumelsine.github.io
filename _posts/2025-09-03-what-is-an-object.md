@@ -8,7 +8,7 @@ description: Clarifying Class, Object, Instance, and Their Real-World Meaning
 Object-oriented programming has been around for decades, yet the most basic question—_what is an object?_—may cause some confusion. The terms “class,” “instance,” and “object” are often tossed around casually, but they’re not synonyms. In fact, misunderstanding the distinctions can lead to sloppy modeling, unclear code, and fragile designs. In this blog entry, we’ll revisit these core concepts, ground them in analogy and practice, and set the stage for exploring design patterns like Singleton.
 
 # What is an Object?
-This blog entry is a precursor to the Singleton Design Pattern (TBD). It was originally going to be part of the Singleton blog entry itself, but I decided that it has enough merits to stand on its own.
+This blog entry is a precursor to the [Singleton Design Pattern](https://jhumelsine.github.io/2025/10/31/singleton.html). It was originally going to be part of the Singleton blog entry itself, but I decided that it has enough merits to stand on its own.
 
 Before I dive into Singleton in the next blog, I’d like to consider Object-Oriented (OO) fundamentals and ask, ___What is an object?___ We use ___object___ frequently, but I’m not sure that we always use it consistently. I try my best to use it consistently, but I know that I’ve not always been consistent myself.
 
