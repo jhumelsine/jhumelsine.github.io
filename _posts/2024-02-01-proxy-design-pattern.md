@@ -111,7 +111,7 @@ class Factory {
 ```
 
 Here’s a UML class diagram of how this could be designed:
-* The `Client` depends upon `Factory`, but it has no knowledge of the underlying creation mechanism. The `Factory` designer could use a Factory Method, Singleton, Prototype, etc. Then later decide that another creation mechanism would be better, and the `Client` would not need to change.
+* The `Client` depends upon `Factory`, but it has no knowledge of the underlying creation mechanism. The `Factory` designer could use a [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#factory-method), [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html), Prototype, etc. Then later decide that another creation mechanism would be better, and the `Client` would not need to change.
 * The `Client` acquires the `feature` object via `Factory.acquire()`, and it releases the `feature` object via `Factory.release(feature)` when it no longer requires it.
 * Regardless of the creation mechanism, the memory associated with `feature` will be managed appropriately, since it’s now the responsibility of the `Factory` and not the `Client`.
 * There is no Proxy in this design, yet.
