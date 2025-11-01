@@ -118,7 +118,8 @@ public static int acquire() {
 }
 ```
 
-## Shared State
+## Internal State
+Flyweight has the same internal state concerns that Singleton does. It also has the same wrapper solution, which I described in [Singleton State Injection](https://jhumelsine.github.io/2025/10/31/singleton.html#state-injection); therefore, I won't repeat it here.
 
 # DVR Details
 
