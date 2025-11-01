@@ -15,20 +15,20 @@ Though not included by the GoF, there is a creational pattern for this behavior:
 
 I view Flyweight is an extension of the [Singleton Design Pattern](https://jhumelsine.github.io/2025/10/31/singleton.html), or maybe it might be more accurate to view Sington as a special case of Flyweight. While I'm not a fan of Singleton, I do tend to appreciate Flyweight, even if it's a more general case of Singleton.
 
-Regardless of its categorization, I've not much liked the name Flyweight either. I think it's based upon [weight class](https://en.wikipedia.org/wiki/Weight_class_(boxing)) in boxing, where [flyweight](https://en.wikipedia.org/wiki/Flyweight) is the lightest weight class. The pattern focuses upon keeping memory acquisition lean and clean.
+Regardless of its categorization, I've not much liked the name Flyweight either. I think it's based upon [weight class](https://en.wikipedia.org/wiki/Weight_class_(boxing)) in boxing, where [flyweight](https://en.wikipedia.org/wiki/Flyweight) is the lightest weight class. I think this name was chosen because the pattern focuses upon keeping memory acquisition lean and clean.
 
 # DVR Example
-The _Multiple Singleton_ description can be confusing. Let me try to describe it with an example.
+The _Multiple Singleton_ concept can be confusing. Let me try to describe it with an example.
 
-The harddrive for my DVR is stored in the cloud. I suspected this since response with the remote is horrendous and I suspected network latency. However, it was confirmed when we refinished the hardwood floors in our house this summer. The DVR was disconnected for several days during the work, and when I reattached it, one of my scheduled programs had been recorded when the DVR had been disconnected and unplugged.
+The harddrive for my DVR is stored in the cloud. I suspected this since response with the remote is horrendous, and I suspected network latency was the cause. However, it's cloud nature was confirmed when we refinished the hardwood floors in our house this summer. The DVR was disconnected for several days while the floors were being sanded and refinished, and when I reconnected the DVR, one of my scheduled programs had been recorded when the DVR had been unplugged and disconnected.
 
-What does __my__ harddrive look like in the cloud? Its 1080 Full HD 100 hour capacity requires somewhere between 500GB and 1TB. Does my cable company need to retain this much harddrive memory for each customer? Probably not.
+What does __my__ harddrive look like in the cloud? Its 1080 Full HD 100 hour capacity requires somewhere between 500GB and 1TB. Does my cable company need to retain this much harddrive memory for each customer? Probably not. Cloud space for programs could be shared.
 
-The most viewed television program in the United States each year is the Superbowl. Many viewers will set their DVR to record the game even if only to rewatch the halftime show. The cable company doesn't need an individual for each customer. They only need one recording, which all customers can share. When the last customer deletes the game, then the program can be removed from their records. I suspect that there would be additional recordings for faster distribution, redundency, etc., but I'm going to ignore them for now.
+The most viewed television program in the United States each year is the [Super Bowl](https://en.wikipedia.org/wiki/Super_Bowl). Many viewers will set their DVR to record the game even if only to rewatch the [halftime show](https://en.wikipedia.org/wiki/List_of_Super_Bowl_halftime_shows). The cable company doesn't need to maintain an individual recording of the Super Bowl in the cloud for each customer. They only need one recording, which all customers can share. When the last customer deletes the program from their line up, then the program can be removed from the cloud.
 
-This applies for all programs, not just popular ones. The cable company only needs to persist one instance per program regardless of how many customers have recorded it. Each instance would maintain the program's name, length among other attributes. Each customer would have their own program instance to, which would maintain their playback location in the program and possibly playback speed, closed-captions, etc., but these may be attributes associated with the customer and not the individual program.
+This applies for all programs, not just popular ones. The cable company only needs to persist one instance per program regardless of how many customers have recorded it. Each instance would maintain the program's name, length among other attributes. Each customer would have a list of their recorded programs, which would maintain local information, such as playback location in a program.
 
-Each program is a type of _multiple singleton_. The cable company only needs to persist one copy of a program, but there may be many individual programs that they have to persist. The primary attribute that distinguishes the programs would be the program's name.
+Each program stored in the cloud is a type of _multiple singleton_. The cable company only needs to persist one copy of a program, but there may be many persisted programs. The primary attribute that distinguishes the programs would be the program's name.
 
 # GoF Flyweight Design
 
@@ -38,19 +38,19 @@ This diagram represents the basics of the GoF's Flyweight design. In this design
 
 <img src="/assets/Flyweight1.png" alt="GoF Flyweight Design" width = "80%" align="center" style="padding-right: 20px;">
 
-# My Flyweight Design
+# The Singleton extension for Flyweight Design
 
-Here is my variation on the GoF Flyweight pattern. I've combined the classes into one class so that this design is closer to the Singleton design.
+Here is a Flyweight pattern that's more akin to being an extension of Singleton. It's basically Singleton where the `static singleton` instance is replaced by a `static Map<Key, Flyweight>`.
 
-Both are sufficient. Using one of the other is a matter of personal style.
+Both designs are sufficient. Using one of the other is a matter of personal style.
 
 <img src="/assets/Flyweight2.png" alt="My Flyweight Design" width = "80%" align="center" style="padding-right: 20px;">
 
 # Issues
-Singleton had several issues mostly with concurrency and memory leaks. Flyweight has the same issues, but possibly to an even greater degree.
+Singleton had several issues mostly with concurrency, memory leaks and state. Flyweight has the same issues and possibly to an even greater degree.
 
 ## Concurrency
-[Singleton's concurrency issue](https://jhumelsine.github.io/2025/10/31/singleton.html#singleton-implementation) is infrequent, since it is mostly only a concern when the `singleton` instance is first being initialized. Flyweight is different. A new instance can be instantated at any time when a new key value is presented.
+[Singleton's concurrency issue](https://jhumelsine.github.io/2025/10/31/singleton.html#singleton-implementation) is infrequent, since it is mostly only a concern when the `singleton` instance is first being initialized. Flyweight is different. A new instance can be instantated any time when a new key is requested.
 
 Any concurrency mechanism that addresses this will be sufficient. Here is the thread safe update to the code snippets above using `synchronized` within Java.
 
@@ -71,9 +71,11 @@ public static synchronized int acquire(String key) {
 The GoF don't really address the concern. If anything, they state that there is no concern. Here's exactly what they state about memory reclaimation:
 >Sharability also implies some form of reference counting or garbage collection to reclaim a flyweight’s storage when it’s no longer needed. However, neither is necessary if the number of flyweights is fixed and small (e.g., flyweights for the ASCII character set). In that case, the flyweights are worth keeping around permanently.
 
-Unless you know for sure that you'll never have a large number of flyweight instances, I'd prefer some sort of flyweight clean up. Instances can be released when there are no more references to them. For some languages, such as C++, this responsibility is mostly upon the developer. For other languages, such as Java, the environment will manage this and perform garbage collection when needed.
+Unless you know for sure that the number of flyweight instances are fixed and small, I'd prefer some sort of flyweight clean up. Instances can be released when there are no more references to them. For some languages, such as C++, this responsibility is mostly upon the developer. For other languages, such as Java, the environment will manage this and perform garbage collection when needed.
 
-The GoF didn't provide any suggestions, as noted above. Java has a nice way to address this with its [WeakHashMap](https://docs.oracle.com/javase/8/docs/api/java/util/WeakHashMap.html) class. A __WeakHashMap__ doesn't include the map in a stored instance's reference count. If the weak map is the only reference to an instance, then it is eligible for garbage collection.
+The GoF didn't provide any suggestions, as noted above. Even with garbage collection, we have an issue, since the Flyweight itself is a reference which would prevent garbage collection.
+
+Java has a nice way to address this with its [WeakHashMap](https://docs.oracle.com/javase/8/docs/api/java/util/WeakHashMap.html) class. A __WeakHashMap__ doesn't include the map in a stored instance's reference count. If the weak map is the only reference to an instance, then it is eligible for garbage collection.
 
 ```java
 private static Map<String, Flyweight> flyweights = new WeakHashMap<>();
@@ -85,9 +87,10 @@ public static int acquire(String key) {
     return flyweights.get(key);
 }
 ```
-
+ __NOTE:__ A __Weak__ reference only makes the unreferenced flyweight element eligible for garbage collection. It does not force or ensure it. If garbage collection is not performed, then the flyweight element will be retained. This may not necessarily be bad. Retaining an unreferenced element until collected creates a window in which another client has the opportunity to acquire it while it's still instantiated.
+ 
 ## Combining Concurrency and Memory Leak Solutions
-Here's a Java implementation that's ensures that the implementation is thread safe and releases memory by adding a [Collections.synchronizedMap](https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#synchronizedMap-java.util.Map-):
+Let's combine concurrency and memory leak solutions. Here's a Java implementation that's ensures that the implementation is thread safe and releases memory by adding a [Collections.synchronizedMap](https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#synchronizedMap-java.util.Map-):
 ```java
 private static Map<String, Flyweight> flyweights = Collections.synchronizedMap(new WeakHashMap<>());
 
