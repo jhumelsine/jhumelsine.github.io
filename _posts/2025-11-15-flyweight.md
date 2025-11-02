@@ -57,7 +57,7 @@ Any concurrency mechanism that addresses this will be sufficient. Here is the th
 ```java
 private static Map<String, Flyweight> flyweights = new HashMap<>();
 
-public static synchronized int acquire(String key) {
+public static synchronized Flyweight acquire(String key) {
     if (!flyweights.containsKey(key)) {
         flyweights.put(key, new Flyweight(key));
     }
@@ -80,7 +80,7 @@ Java has a nice way to address this with its [WeakHashMap](https://docs.oracle.c
 ```java
 private static Map<String, Flyweight> flyweights = new WeakHashMap<>();
 
-public static int acquire(String key) {
+public static Flyweight acquire(String key) {
     if (!flyweights.containsKey(key)) {
         flyweights.put(key, new Flyweight(key));
     }
@@ -94,7 +94,7 @@ Let's combine concurrency and memory leak solutions. Here's a Java implementatio
 ```java
 private static Map<String, Flyweight> flyweights = Collections.synchronizedMap(new WeakHashMap<>());
 
-public static int acquire(String key) {
+public static Flyweight acquire(String key) {
     if (!flyweights.containsKey(key)) {
         flyweights.put(key, new Flyweight(key));
     }
@@ -110,7 +110,7 @@ To the best of my knowledge there is no ___Weak___ static variable concept in Ja
 ```java
 private static Map<String, Singleton> singleton = Collections.synchronizedMap(new WeakHashMap<>());
 
-public static int acquire() {
+public static Flyweight acquire() {
     if (!singleton.containsKey("singleton")) {
         singleton.put("singleton", new Singleton());
     }
