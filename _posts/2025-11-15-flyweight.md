@@ -158,7 +158,7 @@ class Recording {
         return recordings.get(name);
     }
 
-        private Recording(String name) {
+    private Recording(String name) {
         this.name = name;
         this.runTime = name.length() * 15;
 
@@ -401,7 +401,7 @@ class Recording {
         return recordings.get(name);
     }
 
-        private Recording(String name) {
+    private Recording(String name) {
         this.name = name;
         this.runTime = name.length() * 15;
 
