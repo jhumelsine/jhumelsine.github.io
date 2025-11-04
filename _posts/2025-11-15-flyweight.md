@@ -128,7 +128,11 @@ I'll return to the [DVR Example](#dvr-example) to demonstrate a Flyweight design
 
 ## DVR Design
 The use case design consists of three classes:
-* TBD
+* `DVR` - This is collection of Programs recorded by a user. The user can get a record and get a recorded Program by name.
+* `Program` - This is the specific Program recorded by a user. Program mostly manages program state, which is location where the user is viewing the program. Most methods allow the user to move about the program's viewing locations.
+* `Recording` - This is the shared Flyweight instance for a Program. Only one Recording instance is needed regardless of how many users have recorded the program.
+
+<img src="/assets/Flyweight3.png" alt="DVR Use Case Design" width = "80%" align="center" style="padding-right: 20px;">
 
 ## DVR Implementation
 
