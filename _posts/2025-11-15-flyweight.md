@@ -121,11 +121,16 @@ public static Flyweight acquire() {
 ## Internal State
 Flyweight has the same internal state concerns that Singleton does. It also has the same wrapper solution, which I described in [Singleton State Injection](https://jhumelsine.github.io/2025/10/31/singleton.html#state-injection); therefore, I won't repeat it here.
 
-# DVR Details
+# DVR Use Case
+I'll return to the [DVR Example](#dvr-example) to demonstrate a Flyweight design and implementation. This use case will be bare bones. I'll provide enough to demonstrate:
+* A Flyweight implementation
+* A wrapper class to store information state information that's passed to the shared Flyweight instance.
 
-## My DVR Design
+## DVR Design
+The use case design consists of three classes:
+* TBD
 
-## My DVR Implementation
+## DVR Implementation
 
 # Summary
 TBD
