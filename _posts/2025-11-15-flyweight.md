@@ -135,6 +135,127 @@ The use case design consists of three classes:
 <img src="/assets/Flyweight3.png" alt="DVR Use Case Design" width = "80%" align="center" style="padding-right: 20px;">
 
 ## DVR Implementation
+I'll present the classes from right to left as shown in the design.
+
+### Recording
+
+```java
+// Recording demonstrates Flyweight.
+// In a real application, Recording would have more behavior, such as description, rating, warnings, etc.
+// It would have at least three states: Scheduled, Recording and Recorded.
+// None of these additional behaviors have been represented in this demo.
+// I wanted different values for the recording length, so I chose a bogus 15 minutes times the length of the title.
+class Recording {
+    private static final Map<String, Recording> recordings = Collections.synchronizedMap(new WeakHashMap<>());
+
+    private final String name;
+    private final int runTime;
+    
+    public static Recording acquire(String name) {
+        if (!recordings.containsKey(name)) {
+            recordings.put(name, new Recording(name));
+        }
+        return recordings.get(name);
+    }
+
+        private Recording(String name) {
+        this.name = name;
+        this.runTime = name.length() * 15;
+
+        System.out.format("Creating Recording name=%s, runtime=%s\n", name, runTime);
+    }
+
+    public String getRecordingName() {
+        return name;
+    }
+
+    public int getRunTime() {
+        return runTime;
+    }
+
+    public void playAt(int start, int duration) {
+        System.out.format("Playing %s starting at minute %d for %d minute(s)\n", name, start, Math.min(duration, runTime - start));
+    }
+}
+```
+
+### Program
+
+```java
+// Program contains user state, which in this example is playbackLocation, which keeps track of where the user has been watching the program.
+// Most behavior is delegated to recording, which is a Flyweight entity shared by all DVR accounts that have recorded it.
+class Program {
+    private final Recording recording;
+    private int playbackLocation = 0;
+
+    public Program(String name) {
+        this.recording = Recording.acquire(name);
+    }
+
+    public String getProgramName() {
+        return recording.getRecordingName();
+    }
+
+    public int getPlayTime() {
+        return recording.getRunTime();
+    }
+
+    // Play resumes at the current recording location.
+    public void play(int minutes) {
+        recording.playAt(playbackLocation, minutes);
+        playbackLocation = Math.min(playbackLocation + minutes, recording.getRunTime());
+    }
+
+    // Play restarts at the beginning.
+    public void restart(int minutes) {
+        playbackLocation = 0;
+        play(minutes);
+    }
+
+    public int getRemainingPlayTime() {
+        return recording.getRunTime() - playbackLocation;
+    }
+
+    public int getPlaybackLocation() {
+        return playbackLocation;
+    }
+
+    public void fastForward(int minutes) {
+        playbackLocation = Math.min(playbackLocation + minutes, recording.getRunTime());
+    }
+
+    public void reverse(int minutes) {
+        playbackLocation = Math.max(playbackLocation - minutes, 0);
+    }
+
+    // Convient means to print Program state.
+    public String toString() {
+        return String.format("name=%s, playTime=%d, playbackLocation=%d, remainingPlayTime=%d", getProgramName(), getPlayTime(), getPlaybackLocation(), getRemainingPlayTime());
+    }
+}
+```
+
+### DVR
+
+```java
+class DVR {
+    // There's no method to return the programs map, but if this were a real feature, I'd add one.
+    Map<String, Program> programs = new HashMap<>();
+
+    public void recordProgram(String name) {
+        programs.put(name, new Program(name));
+    }
+
+    public void deleteProgram(String name) {
+        programs.remove(name);
+    }
+
+    // This should really return Optional<Program>, but that's not the primary concern of this demo.
+    public Program getProgram(String name) {
+        return programs.containsKey(name) ? programs.get(name) : null;
+    }
+}
+```
 
 # Summary
 TBD
@@ -155,3 +276,148 @@ TBD
 * [Design Pattern Series: Singleton and Multiton Pattern](https://www.codeproject.com/articles/Singleton-and-Multiton-Pattern#comments-section) - Blog by CodeProject
 * [Multiton Pattern in Java: Mastering Advanced Singleton Variants](https://java-design-patterns.com/patterns/multiton/) - Blog by Java Pattern Designs
 * and for more, Google: [Flyweight Design Pattern](https://www.google.com/search?q=flyweight+design+pattern) and [Multiton Design Pattern](https://www.google.com/search?q=multiton+design+pattern)
+
+# Complete Demo Code
+Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation.
+
+```java
+import java.util.*;
+
+public class FlyweightDemo {
+    public static void main(String[] args) throws Exception {
+        DVR dvr1 = new DVR();
+        DVR dvr2 = new DVR();
+        DVR dvr3 = new DVR();
+
+        dvr1.recordProgram("Jaws");
+        Program jaws1 = dvr1.getProgram("Jaws");
+        System.out.println(jaws1.toString());
+        jaws1.play(15);
+        System.out.println(jaws1.toString());
+
+        dvr2.recordProgram("Jaws");
+        Program jaws2 = dvr2.getProgram("Jaws");
+        System.out.println(jaws2.toString());
+        jaws2.fastForward(30);
+        jaws2.play(45);
+        System.out.println(jaws2.toString());
+
+        dvr3.recordProgram("Star Wars");
+        Program starWars3 = dvr3.getProgram("Star Wars");
+        System.out.println(starWars3.toString());
+
+        dvr1.deleteProgram("Jaws");
+
+        dvr3.recordProgram("Jaws");
+    }
+}
+
+class DVR {
+    // There's no method to return the programs map, but if this were a real feature, I'd add one.
+    Map<String, Program> programs = new HashMap<>();
+
+    public void recordProgram(String name) {
+        programs.put(name, new Program(name));
+    }
+
+    public void deleteProgram(String name) {
+        programs.remove(name);
+    }
+
+    // This should really return Optional<Program>, but that's not the primary concern of this demo.
+    public Program getProgram(String name) {
+        return programs.containsKey(name) ? programs.get(name) : null;
+    }
+}
+
+
+// Program contains user state, which in this example is playbackLocation, which keeps track of where the user has been watching the program.
+// Most behavior is delegated to recording, which is a Flyweight entity shared by all DVR accounts that have recorded it.
+class Program {
+    private final Recording recording;
+    private int playbackLocation = 0;
+
+    public Program(String name) {
+        this.recording = Recording.acquire(name);
+    }
+
+    public String getProgramName() {
+        return recording.getRecordingName();
+    }
+
+    public int getPlayTime() {
+        return recording.getRunTime();
+    }
+
+    // Play resumes at the current recording location.
+    public void play(int minutes) {
+        recording.playAt(playbackLocation, minutes);
+        playbackLocation = Math.min(playbackLocation + minutes, recording.getRunTime());
+    }
+
+    // Play restarts at the beginning.
+    public void restart(int minutes) {
+        playbackLocation = 0;
+        play(minutes);
+    }
+
+    public int getRemainingPlayTime() {
+        return recording.getRunTime() - playbackLocation;
+    }
+
+    public int getPlaybackLocation() {
+        return playbackLocation;
+    }
+
+    public void fastForward(int minutes) {
+        playbackLocation = Math.min(playbackLocation + minutes, recording.getRunTime());
+    }
+
+    public void reverse(int minutes) {
+        playbackLocation = Math.max(playbackLocation - minutes, 0);
+    }
+
+    // Convient means to print Program state.
+    public String toString() {
+        return String.format("name=%s, playTime=%d, playbackLocation=%d, remainingPlayTime=%d", getProgramName(), getPlayTime(), getPlaybackLocation(), getRemainingPlayTime());
+    }
+}
+
+// Recording demonstrates Flyweight.
+// In a real application, Recording would have more behavior, such as description, rating, warnings, etc.
+// It would have at least three states: Scheduled, Recording and Recorded.
+// None of these additional behaviors have been represented in this demo.
+// I wanted different values for the recording length, so I chose a bogus 15 minutes times the length of the title.
+class Recording {
+    private static final Map<String, Recording> recordings = Collections.synchronizedMap(new WeakHashMap<>());
+
+    private final String name;
+    private final int runTime;
+    
+    public static Recording acquire(String name) {
+        if (!recordings.containsKey(name)) {
+            recordings.put(name, new Recording(name));
+        }
+        return recordings.get(name);
+    }
+
+        private Recording(String name) {
+        this.name = name;
+        this.runTime = name.length() * 15;
+
+        System.out.format("Creating Recording name=%s, runtime=%s\n", name, runTime);
+    }
+
+    public String getRecordingName() {
+        return name;
+    }
+
+    public int getRunTime() {
+        return runTime;
+    }
+
+    public void playAt(int start, int duration) {
+        System.out.format("Playing %s starting at minute %d for %d minute(s)\n", name, start, Math.min(duration, runTime - start));
+    }
+}
+```
