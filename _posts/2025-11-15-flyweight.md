@@ -126,6 +126,8 @@ I'll return to the [DVR Example](#dvr-example) to demonstrate a Flyweight design
 * A Flyweight implementation
 * A wrapper class to store information state information that's passed to the shared Flyweight instance.
 
+I cut a lot of corners in this design and implementation. It is be no means production quality. The classes are too tightly coupled to one another. I did not use [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) techniques, and I haven't provided any unit tests. I _confirmed_ the code as I wrote it via manual testing. _Mea culpa. Mea culpa. Mea maxima culpa._ This is how [legacy code](https://jhumelsine.github.io/2025/03/24/legacy-code.html) accumulates, one shortcut at a time.
+
 ## DVR Design
 The use case design consists of three classes:
 * `DVR` - This is collection of Programs recorded by a user. The user can get a record and get a recorded Program by name.
@@ -138,13 +140,15 @@ The use case design consists of three classes:
 I'll present the classes from right to left as shown in the design.
 
 ### Recording
+Recording demonstrates Flyweight.
+In a real application, Recording would have more behavior, such as description, rating, warnings, etc.
+It would have at least three states: Scheduled, Recording and Recorded.
+
+None of these additional behaviors have been represented in this demo.
+
+I wanted different values for the recording length, so I chose a bogus 15 minutes times the length of the title for some variety.
 
 ```java
-// Recording demonstrates Flyweight.
-// In a real application, Recording would have more behavior, such as description, rating, warnings, etc.
-// It would have at least three states: Scheduled, Recording and Recorded.
-// None of these additional behaviors have been represented in this demo.
-// I wanted different values for the recording length, so I chose a bogus 15 minutes times the length of the title.
 class Recording {
     private static final Map<String, Recording> recordings = Collections.synchronizedMap(new WeakHashMap<>());
 
@@ -180,10 +184,12 @@ class Recording {
 ```
 
 ### Program
+Program contains user state, which in this example is playbackLocation, which keeps track of where the user has been watching the program. The most challenging part
+of this implementation was making sure that `playbackLocation` was correct, especially when the `minutes` arguments could have resulted in a negative `playbackLocation` or one that was beyond the runtime if care was not taken.
+
+Most behavior delegates to `recording`, which is a Flyweight entity shared by all DVR accounts that have recorded it.
 
 ```java
-// Program contains user state, which in this example is playbackLocation, which keeps track of where the user has been watching the program.
-// Most behavior is delegated to recording, which is a Flyweight entity shared by all DVR accounts that have recorded it.
 class Program {
     private final Recording recording;
     private int playbackLocation = 0;
@@ -228,7 +234,7 @@ class Program {
         playbackLocation = Math.max(playbackLocation - minutes, 0);
     }
 
-    // Convient means to print Program state.
+    // Convenient means to print Program state.
     public String toString() {
         return String.format("name=%s, playTime=%d, playbackLocation=%d, remainingPlayTime=%d", getProgramName(), getPlayTime(), getPlaybackLocation(), getRemainingPlayTime());
     }
@@ -236,10 +242,12 @@ class Program {
 ```
 
 ### DVR
+There is no method that returns the list of recorded programs, but if this were a real feature, I'd add one.
+
+`Program getProgram(String name)` should probably return an `Optional<Program>`, since a `Program` for the given `name` may not be on the DVR. If this were going to be a real feature, then I would have done that rather than return a `null` if the `Program` is not found.
 
 ```java
 class DVR {
-    // There's no method to return the programs map, but if this were a real feature, I'd add one.
     Map<String, Program> programs = new HashMap<>();
 
     public void recordProgram(String name) {
@@ -250,7 +258,6 @@ class DVR {
         programs.remove(name);
     }
 
-    // This should really return Optional<Program>, but that's not the primary concern of this demo.
     public Program getProgram(String name) {
         return programs.containsKey(name) ? programs.get(name) : null;
     }
@@ -377,7 +384,7 @@ class Program {
         playbackLocation = Math.max(playbackLocation - minutes, 0);
     }
 
-    // Convient means to print Program state.
+    // Convenient means to print Program state.
     public String toString() {
         return String.format("name=%s, playTime=%d, playbackLocation=%d, remainingPlayTime=%d", getProgramName(), getPlayTime(), getPlaybackLocation(), getRemainingPlayTime());
     }
