@@ -39,3 +39,5 @@ What to do when an object is requested, but the pool is empty?
 * Create a new object on the spot.
 
 As for an implementation, consider using a Queue. May need an `initialize(arguments)` method as well.
+
+Still have to deal with concurrency and state. Memory leaks is a different topic. This pattern will always leak in that objects are added to the pool at start up and they remain as long as the process is running.
