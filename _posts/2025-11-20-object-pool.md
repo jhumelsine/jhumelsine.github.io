@@ -37,3 +37,5 @@ What to do when an object is requested, but the pool is empty?
 * Block wait with timeout.
 * Exception immediately.
 * Create a new object on the spot.
+
+As for an implementation, consider using a Queue. May need an `initialize(arguments)` method as well.
