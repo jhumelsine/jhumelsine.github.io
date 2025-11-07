@@ -1,5 +1,5 @@
 ---
-title: WORK IN PROGRESS – Flyweight/Multiton Design Pattern
+title: DRAFT OPEN FOR COMMENTS – Flyweight/Multiton Design Pattern
 description: When you wanted a Singleton, but you just can't stop at one
 unlisted: true
 ---
