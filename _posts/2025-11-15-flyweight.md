@@ -1,6 +1,6 @@
 ---
 title: WORK IN PROGRESS – Flyweight/Multiton Design Pattern
-description: TBD
+description: When you wanted a Singleton, but you just can't stop at one
 unlisted: true
 ---
 
@@ -30,6 +30,10 @@ This applies for all programs, not just popular ones. The cable company only nee
 
 Each program stored in the cloud is a type of _multiple singleton_. The cable company only needs to persist one copy of a program, but there may be many persisted programs. The primary attribute that distinguishes the programs would be the program's name.
 
+Although this example focuses on DVR recordings, Flyweight is widely used anywhere many lightweight objects share a large portion of their state. In graphical user interfaces, for instance, thousands of characters on a screen may share the same underlying font glyphs or rendering data, dramatically reducing memory requirements. Web browsers and document editors rely heavily on this concept to keep performance responsive.
+
+Game engines provide another classic application. Projectiles, particles, trees, and NPCs often reuse shared meshes, textures, animations, or AI states, while only position and behavior differ per instance. Instead of thousands of identical copies consuming system resources, Flyweight allows the engine to maintain a single authoritative version of each asset and apply extrinsic state as needed. The principle remains the same: when shared identity outweighs individual uniqueness, Flyweight can make high-scale systems feasible.
+
 # GoF Flyweight Design
 
 Flyweight is very similar to [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html) except that instead of one `singleton` static instance, there is a static Map of attribte(s) to instances.
@@ -44,7 +48,7 @@ Here is a Flyweight pattern that's more akin to being an extension of Singleton.
 
 Both designs are sufficient. Using one instead of the other is a matter of personal style.
 
-<img src="/assets/Flyweight2.png" alt="My Flyweight Design" width = "80%" align="center" style="padding-right: 20px;">
+<img src="/assets/Flyweight2.png" alt="Singleton Extension For Flyweight Design" width = "80%" align="center" style="padding-right: 20px;">
 
 # Issues
 Singleton had several issues mostly with concurrency, memory leaks and state. Flyweight has the same issues and possibly to an even greater degree.
@@ -289,8 +293,26 @@ class DVR {
 }
 ```
 
+# Comparing Singleton, Multiton, and Flyweight Patterns
+
+While these three patterns are closely related, each manages object uniqueness and shared state at a different scale.
+
+| Pattern      | Purpose / Guarantee                                | Scope of Uniqueness                         | State Management                             | Typical Use-Cases                                   | Notes on Relationship |
+|--------------|---------------------------------------------------|---------------------------------------------|----------------------------------------------|-----------------------------------------------------|----------------------|
+| **Singleton** | Ensure only one instance exists for the entire app | One instance globally                        | All state is shared                           | Logging, configuration, global caches               | Simplest form of controlled instance count |
+| **Multiton**  | Ensure one instance exists per key/category        | One instance per key (e.g., type or ID)      | State shared within each keyed instance       | Database connections by region, UI themes, resource pools | Generalizes Singleton with multiple “singletons” |
+| **Flyweight** | Share intrinsic state across many logical objects  | One instance per unique **intrinsic** state  | Intrinsic shared; extrinsic provided by caller | Game entities, text rendering (glyphs), media models | Generalizes Multiton by separating shared vs. per-use state |
+
+> Viewed from a creational perspective:  
+> Singleton → Multiton → Flyweight  
+> Each step increases the flexibility of how uniqueness is defined and how state is shared.
+
 # Summary
-TBD
+Flyweight can be viewed as a generalization of Singleton and Multiton — enforcing “one instance per key” where the key represents intrinsic state. By separating shared and mutable attributes, we gain a memory-efficient architecture that still expresses our domain clearly.
+
+However, this power comes with trade-offs: thread-safety becomes critical, cleanup must be intentional, and debugging shared state can be challenging. Understanding when the savings outweigh the complexity is essential.
+
+Used wisely, Flyweight supports scalable object-rich systems in UI frameworks, game engines, streaming services, and more.
 
 # References
 * [Wikipedia Flyweight Design Pattern](https://en.wikipedia.org/wiki/Flyweight_pattern)
