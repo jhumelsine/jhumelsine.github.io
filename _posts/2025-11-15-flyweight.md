@@ -7,7 +7,7 @@ unlisted: true
 <img src="https://live.staticflickr.com/7295/14000278151_141357835b_b.jpg" alt="Flyweight Boxers" title="Image Source: https://www.flickr.com/photos/worldseriesboxing/14000278151/" width = "50%" style="padding-right: 20px;">
 
 # Introduction
-The Gang of Four (GoF) categorize __Flyweight__ as a [Structural Pattern](http://refactoring.guru/design-patterns/structural-patterns), whereas I view it as a [Creational Pattern](https://refactoring.guru/design-patterns/creational-patterns), which is why I've included it in my [Creational Pattern Series](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html).
+The Gang of Four (GoF) classify __Flyweight__ as a [Structural Pattern](http://refactoring.guru/design-patterns/structural-patterns), whereas I view it as a [Creational Pattern](https://refactoring.guru/design-patterns/creational-patterns), which is why I've included it in my [Creational Pattern Series](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html). I realize that my Flyweight reclassification is different from the GoF's classification, which I hope does not cause too much confusion, since other sources mostly likely classify it and group it with other structural patterns.
 
 Flyweight allows the client to create multiple instances of a Singleton-ish class. I know this sounds like an oxymoron, but hang in there for a bit. Singleton only allows one instance for a class. Flyweight allows multiple attribute-specified instances of a class, but with the constraint that there can only be one instance for each set of unique attributes.
 
@@ -146,7 +146,13 @@ public final class MySingleton {
 ```
 
 ## Internal State
-Flyweight has the same internal state concerns that Singleton does. It can also leverage the same wrapper solution, which I described in [Singleton State Injection](https://jhumelsine.github.io/2025/10/31/singleton.html#state-injection); therefore, I won't repeat it here, but I will feature it in the [DVR Use Case](#dvr-use-case).
+Flyweight has the same internal state concerns that Singleton does. The more formal terms for state are:
+* ___Intrinsic state___ which is an object’s state that can be shared across many instances
+* ___Extrinsic state___ which is context-specific, per-instance data passed in from outside
+
+As I described in [Singleton Internal State](https://jhumelsine.github.io/2025/10/31/singleton.html#internal-state), we want to make sure that we take advantage of shared intrinsic state without allowing specific extrinsic state to slip within the intrinsic state realm.
+
+Flyweight can also leverage the same wrapper [Singleton State Injection](https://jhumelsine.github.io/2025/10/31/singleton.html#state-injection) solution; therefore, I won't repeat it here, but I will feature it in the [DVR Use Case](#dvr-use-case).
 
 # DVR Use Case
 I'll return to the [DVR Example](#dvr-example) to demonstrate a Flyweight design and implementation. This use case will be bare bones. I'll provide enough to demonstrate:
