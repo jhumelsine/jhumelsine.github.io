@@ -7,7 +7,7 @@ unlisted: true
 <img src="https://live.staticflickr.com/7295/14000278151_141357835b_b.jpg" alt="Flyweight Boxers" title="Image Source: https://www.flickr.com/photos/worldseriesboxing/14000278151/" width = "50%" style="padding-right: 20px;">
 
 # Introduction
-The Gang of Four (GoF) classify __Flyweight__ as a [Structural Pattern](http://refactoring.guru/design-patterns/structural-patterns), whereas I view it as a [Creational Pattern](https://refactoring.guru/design-patterns/creational-patterns), which is why I've included it in my [Creational Pattern Series](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html). I realize that my Flyweight reclassification is different from the GoF's classification, which I hope does not cause too much confusion, since other sources mostly likely classify it and group it with other structural patterns.
+The Gang of Four (GoF) classify __Flyweight__ as a [Structural Pattern](http://refactoring.guru/design-patterns/structural-patterns), whereas I view it as a [Creational Pattern](https://refactoring.guru/design-patterns/creational-patterns), which is why I've included it in my [Creational Pattern Series](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html). I hope that my reclassification doesn't cause too much confusion, since other sources mostly likely classify Flyweight and group it with other structural patterns.
 
 Flyweight allows the client to create multiple instances of a Singleton-ish class. I know this sounds like an oxymoron, but hang in there for a bit. Singleton only allows one instance for a class. Flyweight allows multiple attribute-specified instances of a class, but with the constraint that there can only be one instance for each set of unique attributes.
 
@@ -15,24 +15,26 @@ Though not included by the GoF, there is a creational pattern for this behavior:
 
 I view Flyweight is an extension of the [Singleton Design Pattern](https://jhumelsine.github.io/2025/10/31/singleton.html), or maybe it might be more accurate to view Sington as a special case of Flyweight. While I'm not a fan of Singleton, I do tend to appreciate Flyweight, even if it's a general case of Singleton.
 
-Regardless of its categorization, I've not much liked the name Flyweight either. I think it's based upon [weight class](https://en.wikipedia.org/wiki/Weight_class_(boxing)) in boxing, where [flyweight](https://en.wikipedia.org/wiki/Flyweight) is the lightest weight class. I think this name was chosen because the pattern focuses upon keeping memory acquisition lean and clean, but I don't feel it's very descriptive.
+Regardless of its categorization, I've not much liked the name Flyweight either. I think it's based upon a [weight class](https://en.wikipedia.org/wiki/Weight_class_(boxing)) in boxing, where [flyweight](https://en.wikipedia.org/wiki/Flyweight) is the lightest weight class. I think this name was chosen because the pattern focuses upon keeping memory acquisition lean and clean. Even if this is the origin of the name, I still don't feel it's very descriptive.
 
 # DVR Example
 Since the _Multiple Singleton_ concept can be confusing, let me try to describe it with an example.
 
-The harddrive for my DVR is stored in the cloud. I suspected this since response with the remote is horrendously slow, and I suspected network latency was the cause. It's cloud nature was confirmed when we refinished the hardwood floors in our house this summer. The DVR was disconnected for several days while the floors were being sanded and refinished, and when I reconnected the DVR, one of my scheduled programs had been recorded when the DVR had been unplugged and disconnected.
+The hard drive for my DVR is stored in the cloud. I suspected this since response with the remote is horrendously. I suspected network latency was the cause of its sluggishness. It's cloud nature was confirmed when we refinished the hardwood floors in our house this summer. The DVR was disconnected for several days while the floors were being sanded and refinished, and when I reconnected the DVR, one of my scheduled programs had been recorded when the DVR had been unplugged and disconnected.
 
-What does __my__ harddrive look like in the cloud? Its 1080 Full HD 100 hour capacity requires somewhere between 500GB and 1TB. Does my cable company need to retain this much harddrive memory for each customer? Probably not. Cloud space for programs could be shared.
+What does __my__ hard drive look like in the cloud? Its 1080 Full HD 100 hour capacity requires somewhere between 500GB and 1TB. Does my cable company need to retain this much hard drive memory for each customer? Probably not. Cloud space for programs could be shared.
 
 The most viewed television program in the United States each year is the [Super Bowl](https://en.wikipedia.org/wiki/Super_Bowl). Many viewers will set their DVR to record the game even if only to rewatch the [halftime show](https://en.wikipedia.org/wiki/List_of_Super_Bowl_halftime_shows). The cable company doesn't need to maintain an individual recording of the Super Bowl in the cloud for each customer. They only need one recording, which all customers can share. When the last customer deletes the program from their line up, then the program can be removed from the cloud.
 
-This applies for all programs, not just popular ones. The cable company only needs to persist one instance per program regardless of how many customers have recorded it. Each instance would maintain the program's name, length among other attributes. Each customer would have a list of their recorded programs, which would maintain local information, such as the playback location in a program.
+This applies for all programs, not just popular ones. The cable company only needs to persist one instance per program regardless of how many customers have recorded it. Each instance would maintain the program's name and runtime length among other attributes. Each customer would have a list of their recorded programs, which would maintain local information, such as the playback location in a program for each customer.
 
 Each program stored in the cloud is a type of _multiple singleton_. The cable company only needs to persist one copy of a program, but there may be many persisted programs. The primary attribute that distinguishes the programs would be the program's name.
 
-Although this example focuses on DVR recordings, Flyweight is widely used anywhere many lightweight objects share a large portion of their state. In graphical user interfaces, for instance, thousands of characters on a screen may share the same underlying font glyphs or rendering data, dramatically reducing memory requirements. Web browsers and document editors rely heavily on this concept to keep performance responsive.
+Although this example focuses on DVR recordings, Flyweight is widely used anywhere many objects share a large portion of their state. In graphical user interfaces, for instance, thousands of characters on a screen may share the same underlying font glyphs or rendering data, dramatically reducing memory requirements. Web browsers and document editors rely heavily on this concept to keep performance responsive.
 
-Game engines provide another classic application. Projectiles, particles, trees, and NPCs often reuse shared meshes, textures, animations, or AI states, while only position and behavior differ per instance. Instead of thousands of identical copies consuming system resources, Flyweight allows the engine to maintain a single authoritative version of each asset and apply extrinsic state as needed. The principle remains the same: when shared identity outweighs individual uniqueness, Flyweight can make high-scale systems feasible.
+Game engines provide another classic application. Projectiles, particles, trees, and (Non-Playing Characters)[https://en.wikipedia.org/wiki/Non-player_character] (NPCs) often reuse shared meshes, textures, animations, or AI states, while only position and behavior differ per instance. Instead of thousands of identical copies consuming system resources, Flyweight allows the engine to maintain a single authoritative version of each asset and apply extrinsic state as needed.
+
+The principle remains the same: when shared identity outweighs individual uniqueness, Flyweight can make high-scale systems feasible.
 
 # GoF Flyweight Design
 
@@ -46,9 +48,9 @@ This diagram represents the basics of the GoF's Flyweight design. In this design
 
 Here is a Flyweight pattern that's more akin to being an extension of Singleton. It's basically Singleton where the `static singleton` instance is replaced by a `static Map<Key, Flyweight>`.
 
-Both designs are sufficient. Using one instead of the other is a matter of personal style.
-
 <img src="/assets/Flyweight2.png" alt="Singleton Extension For Flyweight Design" width = "80%" align="center" style="padding-right: 20px;">
+
+Both designs are sufficient. Using one instead of the other is a matter of personal style.
 
 # Issues
 Singleton had several issues mostly with concurrency, memory leaks and state. Flyweight has the same issues and possibly to an even greater degree.
@@ -79,7 +81,7 @@ Unless you know for sure that the number of flyweight instances are fixed and sm
 
 The GoF didn't provide any Flyweight reclamation suggestions, as noted above. Even with garbage collection, we have an issue, since the Flyweight itself is a reference which would prevent garbage collection.
 
-Java has a nice way to address this with its [WeakHashMap](https://docs.oracle.com/javase/8/docs/api/java/util/WeakHashMap.html) class. A __WeakHashMap__ doesn't include the map in a stored instance's reference count. If the weak map is the only reference to an instance, then it is eligible for garbage collection.
+Java has a nice way to address this with its [WeakHashMap](https://docs.oracle.com/javase/8/docs/api/java/util/WeakHashMap.html) class. A __WeakHashMap__ doesn't include references stored in the Map against the reference count. If the only reference remaining is the one from the Weak Map, then the instance is eligible for garbage collection.
 
 ```java
 private static Map<String, Flyweight> flyweights = new WeakHashMap<>();
@@ -173,7 +175,7 @@ The use case design consists of three classes:
 I'll present the class implementations from right to left as shown in the design.
 
 ### Recording
-Recording demonstrates Flyweight.
+`Recording` demonstrates a Flyweight design and implementation.
 In a real application, Recording would have more behavior, such as description, rating, warnings, etc.
 It would have at least three states: Scheduled, Recording and Recorded.
 
@@ -217,8 +219,8 @@ class Recording {
 ```
 
 ### Program
-Program contains state, which in this example is playbackLocation, which keeps track of where the user has been watching the program. The most challenging part
-of this implementation was making sure that `playbackLocation` was correct, especially when the `minutes` arguments could have resulted in a negative `playbackLocation` or one that was beyond the runtime if care was not taken.
+`Program` contains state, which in this example is `playbackLocation`, which keeps track of where the user has been watching the program. The most challenging part
+of this implementation was making sure that `playbackLocation` was correct, especially when the `minutes` arguments could have resulted in a negative `playbackLocation` or one that was beyond the runtime of the `recording` if care was not taken.
 
 Most behavior delegates to `recording`, which is a Flyweight entity shared by all DVR accounts that have recorded it.
 
@@ -275,7 +277,7 @@ class Program {
 ```
 
 ### DVR
-DVR only provide context for the map of recorded Programs.
+`DVR` only provide context for the map of recorded Programs.
 
 There is no method that returns the list of recorded programs, but if this were a real feature, I'd add one.
 
