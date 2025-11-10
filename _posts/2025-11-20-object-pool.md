@@ -5,6 +5,19 @@ unlisted: true
 ---
 
 # Introduction
+The Gang of Four (GoF) included [Flyweight](https://jhumelsine.github.io/2025/11/15/flyweight.html), but cataloged it as a structural design pattern. They may have felt that most interactions with Flyweight returned an existing object rather than creating a new one. But if this were the case, then [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html) should have been a structural design pattern too.
+
+The GoF completely ignored __Object Pool__ as a design pattern, creational, structural or otherwise. I'm not sure why, since I'm sure that the [Thread Pools](https://en.wikipedia.org/wiki/Thread_pool) existed during the time of publication.
+
+<img src="https://heute-at-prod-images.imgix.net/2022/04/21/0d770b26-f233-4039-9a25-4cce88dcc9ec.jpeg?rect=0%2C283%2C3600%2C2025&auto=format" alt="Mad Men" title="Image Source: https://www.heute.at/i/mad-men-star-im-alter-von-90-jahren-gestorben-100202791/doc-1g16gc2ur0" width = "35%" align="right" style="padding: 35px;">
+
+And there are plenty of real world examples of shared [Resource Pools](https://en.wikipedia.org/wiki/Pooling_(resource_management)) including:
+* [Secretarial Pools](https://en.wikipedia.org/wiki/Secretarial_pool)
+* [Libraries](https://en.wikipedia.org/wiki/Library)
+* [Bowling Ball Shoe Rentals](https://en.wikipedia.org/wiki/Bowling#Shoes)
+
+# Intent
+Flyweight and Object Pool are both about  +++ TBD +++
 
 # Summary
 
@@ -27,8 +40,6 @@ Here’s the entire implementation up to this point as one file. Copy and paste 
 +++++++++++++++++++++++++++++++++++++
 # NOTES
 
-Not in the GoF, but probably should have been.
-
 I consider it a creational pattern even if the objects are not being created. The client is still acquiring them.
 
 Feels similar to Flyweight structurally, but it's different. Both involve collections of objects. Flyweight objects are shared. Object Pool objects are not shared.
@@ -36,11 +47,6 @@ Feels similar to Flyweight structurally, but it's different. Both involve collec
 Object Pools are used when an object is resource intensive. It make take a lot of time to instantiate, or it may be tied to a limited resource.
 
 Even if most haven't implemented an Object Pool, most have used one. A Thread Pool is an object pool.
-
-Real world object pools:
-* Secretarial Pool - think Mad Men.
-* Bowling Shoe rentals
-* Library books
 
 Objects need to be returned to the pool otherwise you'll end up with a drained pool. I don't think that work references will work. Need a means to release the object. Maybe something like close() might help.
 
