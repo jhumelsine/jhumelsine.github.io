@@ -7,15 +7,15 @@ unlisted: true
 <img src="https://live.staticflickr.com/7295/14000278151_141357835b_b.jpg" alt="Flyweight Boxers" title="Image Source: https://www.flickr.com/photos/worldseriesboxing/14000278151/" width = "50%" style="padding-right: 20px;">
 
 # Introduction
-The Gang of Four (GoF) classify __Flyweight__ as a [Structural Pattern](http://refactoring.guru/design-patterns/structural-patterns), whereas I view it as a [Creational Pattern](https://refactoring.guru/design-patterns/creational-patterns), which is why I've included it in my [Creational Pattern Series](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html). I hope that my reclassification doesn't cause too much confusion, since other sources will classify and list Flyweight with other structural patterns.
+The Gang of Four (GoF) classify __Flyweight__ as a [Structural Pattern](http://refactoring.guru/design-patterns/structural-patterns), whereas I view it as a [Creational Pattern](https://refactoring.guru/design-patterns/creational-patterns), which is why I've included it in my [Creational Pattern Series](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html). Hopefully my reclassification wont cause too much confusion, since other sources will classify and list Flyweight with the structural patterns.
 
-Flyweight allows the client to create multiple instances of a Singleton-like class. I know that multiple instances of a Singleton sounds like an oxymoron, but hang in there for a bit. Singleton only allows one instance for a class. Flyweight allows multiple attribute-specified instances of a class, but with the constraint that there can only be one instance for each set of unique attributes.
+Flyweight allows the client to create multiple instances of a Singleton-like class. I know that multiple instances of a Singleton sounds like an oxymoron, but hang in there for a bit. While Singleton only allows one instance for a class, Flyweight allows multiple attribute-specified instances of a class, but with the constraint that there can only be one instance for each set of unique attributes.
 
 Though not included by the GoF, there is a creational pattern for this behavior: __Multiton__, which is a portmanteau of _Multiple_ and _Singleton_. Multiton describes __what__ it does. Flyweight describes __how__ it does it. I view them as two patterns for the same concept with two different intents: __What__ vs __How__. As I alluded to in my opening sentence, I think the GoF should have focused upon the creational aspect of this behavior and included it in the creational section as Multiton rather than their Flyweight structural classification. But since Flyweight is the name they chose, I'll stick with it for the rest of this blog.
 
 I view Flyweight is an extension of the [Singleton Design Pattern](https://jhumelsine.github.io/2025/10/31/singleton.html), or maybe it might be more accurate to view Sington as a special case of Flyweight. While I'm not a fan of Singleton, I do tend to appreciate Flyweight.
 
-Regardless of its categorization, I've not much liked the name _Flyweight_. I think its inspiration is based upon a [weight class](https://en.wikipedia.org/wiki/Weight_class_(boxing)) in boxing, where [flyweight](https://en.wikipedia.org/wiki/Flyweight) is the lightest weight class. I think this name was chosen because the pattern focuses upon keeping memory acquisition lean and clean. Even if this is the origin of the name, I still don't feel it's sufficiently descriptive.
+Regardless of its categorization, I've not much liked the name _Flyweight_. I think its inspiration is based upon a [weight class](https://en.wikipedia.org/wiki/Weight_class_(boxing)) in boxing, where [flyweight](https://en.wikipedia.org/wiki/Flyweight) is the lightest weight class. I think this name was chosen because the pattern focuses upon keeping memory acquisition lean and clean. Even if this is the origin of the name, I still don't feel that a boxing metaphor is sufficiently descriptive.
 
 # DVR Example
 Since the _Multiple Singleton_ concept can be confusing, let me try to describe it with an example.
@@ -24,11 +24,11 @@ The hard drive for my DVR is stored in the cloud. I had long suspected this sinc
 
 What does __my__ hard drive look like in the cloud? Its 1080 Full HD 100 hour capacity requires somewhere between 500GB and 1TB. Does my cable company need to retain this much hard drive storage for each customer? Probably not. Cloud space for programs could be shared.
 
-The most viewed television program in the United States each year is the [Super Bowl](https://en.wikipedia.org/wiki/Super_Bowl). Many viewers will set their DVR to record the game even if only to rewatch the [halftime show](https://en.wikipedia.org/wiki/List_of_Super_Bowl_halftime_shows). The cable company doesn't need to retain an individual recording of the Super Bowl in the cloud for each customer. They only need one recording, which all customers can share. When the last customer deletes the program from their line up, then the program can be removed from the cloud. I'm pretty sure they have additional recordings for redundancy and performance, but those needs are beyond the intent of Flyweight.
+The most viewed television program in the United States each year is the [Super Bowl](https://en.wikipedia.org/wiki/Super_Bowl). Many viewers will set their DVR to record the game even if only to rewatch the [halftime show](https://en.wikipedia.org/wiki/List_of_Super_Bowl_halftime_shows). The cable company doesn't need to retain an individual recording of the Super Bowl in the cloud for each customer. They only need one recording, which all customers can share. When the last customer deletes the program from their line up, then the program can be removed from the cloud. I'm sure they have additional recordings for redundancy and performance, but those needs are beyond the intent of Flyweight.
 
 A single instance applies for all programs, not just popular ones. The cable company only needs to persist one instance per program regardless of how many customers have recorded it. Each instance would maintain the program's name and runtime length among other attributes. Each customer would have a list of their recorded programs, which would maintain local information, such as the playback location in a program for each customer.
 
-Each program stored in the cloud is a type of _multiple singleton_. The cable company only needs to persist one copy of a program, but there may be many persisted programs. The primary attribute that distinguishes the programs would be the program's name.
+Each program stored in the cloud is a type of _multiple singleton_. The cable company only needs to persist one copy of a program, but there may be many persisted programs. The key attribute that distinguishes the programs would be the program's name.
 
 Although this example focuses on DVR recordings, Flyweight is widely used anywhere many objects share a large portion of their state. In graphical user interfaces, for instance, thousands of characters on a screen may share the same underlying font glyphs or rendering data, dramatically reducing memory requirements. Web browsers and document editors rely heavily on this concept to keep performance responsive.
 
@@ -72,7 +72,7 @@ public static synchronized Flyweight acquire(String key) {
 ```
 
 ## Memory Leaks
-[Singleton's Memory Leak issue](https://jhumelsine.github.io/2025/10/31/singleton.html#memory-leaks) is minor. However, it could become a major issue with Flyweight, since there is an unlimited number of keys that could be requested. This sort of ironic, since the point of Flyweight is to reduce memory consumption.
+[Singleton's Memory Leak issue](https://jhumelsine.github.io/2025/10/31/singleton.html#memory-leaks) is minor. However, it could become a major issue with Flyweight, since there is an unlimited number of keys that could be requested. This is sort of ironic, since the point of Flyweight is to reduce memory consumption.
 
 The GoF don't really address the concern. If anything, they state that there is no concern. Here's exactly what they state about memory reclaimation:
 >Sharability also implies some form of reference counting or garbage collection to reclaim a flyweight’s storage when it’s no longer needed. However, neither is necessary if the number of flyweights is fixed and small (e.g., flyweights for the ASCII character set). In that case, the flyweights are worth keeping around permanently.
@@ -110,7 +110,7 @@ public static Flyweight acquire(String key) {
 
 ### Singleton Memory Leak
 I ended the [Singleton Memory Leaks](https://jhumelsine.github.io/2025/10/31/singleton.html#memory-leaks) section with:
->There is a way to address this at least in Java; however, I won’t present it until the next blog entry, which will feature the Flyweight Design Pattern.
+>There is a way to address [singleton memory leaks] at least in Java; however, I won’t present it until the next blog entry, which will feature the Flyweight Design Pattern.
 
 We can use Java's [WeakReference](https://docs.oracle.com/javase/8/docs/api/java/lang/ref/WeakReference.html) for an individual instance.
 
@@ -161,7 +161,7 @@ Flyweight can also leverage the same wrapper [Singleton State Injection](https:/
 # DVR Use Case
 I'll return to the [DVR Example](#dvr-example) to demonstrate a Flyweight design and implementation. This use case will be bare bones. I'll provide enough to demonstrate:
 * A Flyweight implementation
-* A wrapper class to store state information that's passed to the shared Flyweight instance.
+* A wrapper class to store extrinsic state information that's passed to the shared Flyweight instance.
 
 I cut a lot of corners in this design and implementation. It is by no means production quality. The classes are too tightly coupled to one another. I did not use [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) techniques, and I haven't provided any unit tests. I _confirmed_ the code as I wrote it via manual testing. _Mea culpa. Mea culpa. Mea maxima culpa._
 
