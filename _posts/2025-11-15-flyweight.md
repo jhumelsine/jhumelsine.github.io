@@ -7,7 +7,7 @@ unlisted: true
 <img src="https://live.staticflickr.com/7295/14000278151_141357835b_b.jpg" alt="Flyweight Boxers" title="Image Source: https://www.flickr.com/photos/worldseriesboxing/14000278151/" width = "50%" style="padding-right: 20px;">
 
 # Introduction
-The Gang of Four (GoF) classify __Flyweight__ as a [Structural Pattern](http://refactoring.guru/design-patterns/structural-patterns), whereas I view it as a [Creational Pattern](https://refactoring.guru/design-patterns/creational-patterns), which is why I've included it in my [Creational Pattern Series](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html). Hopefully my reclassification wont cause too much confusion, since other sources will classify and list Flyweight with the structural patterns.
+The Gang of Four (GoF) classify __Flyweight__ as a [Structural Pattern](http://refactoring.guru/design-patterns/structural-patterns), whereas I view it as a [Creational Pattern](https://refactoring.guru/design-patterns/creational-patterns), which is why I've included it in my [Creational Pattern Series](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html). Hopefully my reclassification wont cause too much confusion, since other sources classify and list Flyweight with the structural patterns.
 
 Flyweight allows the client to create multiple instances of a Singleton-like class. I know that multiple instances of a Singleton sounds like an oxymoron, but hang in there for a bit. While Singleton only allows one instance for a class, Flyweight allows multiple attribute-specified instances of a class, but with the constraint that there can only be one instance for each set of unique attributes.
 
@@ -311,13 +311,8 @@ While these three patterns are closely related, each manages object uniqueness a
 
 | Pattern      | Purpose / Guarantee                                | Scope of Uniqueness                         | State Management                             | Typical Use-Cases                                   | Notes on Relationship |
 |--------------|---------------------------------------------------|---------------------------------------------|----------------------------------------------|-----------------------------------------------------|----------------------|
-| **Singleton** | Ensure only one instance exists for the entire app | One instance globally                        | All state is shared                           | Logging, configuration, global caches               | Simplest form of controlled instance count |
-| **Multiton**  | Ensure one instance exists per key/category        | One instance per key (e.g., type or ID)      | State shared within each keyed instance       | Database connections by region, UI themes, resource pools | Generalizes Singleton with multiple “singletons” |
-| **Flyweight** | Share intrinsic state across many logical objects  | One instance per unique **intrinsic** state  | Intrinsic shared; **extrinsic** provided by caller | Game entities, text rendering (glyphs), media models | Generalizes Multiton by separating shared vs. per-use state |
-
-Viewed from a creational perspective: Singleton → Multiton → Flyweight  
-
-Each step increases the flexibility of how uniqueness is defined and how state is shared.
+| **Singleton/Multiton** | Ensure only one instance exists for the entire app | One instance globally                        | All state is shared                           | Logging, configuration, global caches               | Simplest form of controlled instance count |
+| **Flyweight** | Share **intrinsic** state across many logical objects  | One instance per unique **intrinsic** state  | Intrinsic shared; **extrinsic** provided by caller | Game entities, text rendering (glyphs), media models | Generalizes Singleton/Multiton by separating shared vs. per-use state |
 
 # Summary
 Flyweight can be viewed as a generalization of Singleton and Multiton — enforcing “one instance per key” where the key represents intrinsic state. By separating shared and mutable attributes, we gain a memory-efficient architecture that still expresses our domain clearly.
