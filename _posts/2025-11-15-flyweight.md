@@ -11,9 +11,9 @@ The Gang of Four (GoF) classify __Flyweight__ as a [Structural Pattern](http://r
 
 Flyweight allows the client to create multiple instances of a Singleton-like class. I know that multiple instances of a Singleton sounds like an oxymoron, but hang in there for a bit. While Singleton only allows one instance for a class, Flyweight allows multiple attribute-specified instances of a class, but with the constraint that there can only be one instance for each set of unique attributes.
 
-Though not included by the GoF, there is a creational pattern for this behavior: __Multiton__, which is a portmanteau of _Multiple_ and _Singleton_. Multiton describes __what__ it does. Flyweight describes __how__ it does it. I view them as two patterns for the same concept with two different perspectives: __What__ vs __How__. As I alluded to in my opening sentence, I think the GoF should have focused upon the creational aspect of this behavior and included it in the creational section as Multiton rather than their Flyweight structural classification. But since Flyweight is the name they chose, I'll stick with it for the rest of this blog.
-
 I view Flyweight is an extension of the [Singleton Design Pattern](https://jhumelsine.github.io/2025/10/31/singleton.html), or maybe it might be more accurate to view Sington as a special case of Flyweight. While I'm not a fan of Singleton, I do tend to appreciate Flyweight.
+
+Though not included by the GoF, there is a creational pattern for this behavior: __Multiton__, which is a portmanteau of _Multiple_ and _Singleton_. Multiton describes __what__ it does. Flyweight describes __how__ it does it. I view them as two patterns for the same concept with two different perspectives: __What__ vs __How__. As I alluded to in my opening sentence, I think the GoF should have focused upon the creational aspect of this behavior and included it in the creational section as Multiton rather than their Flyweight structural classification. But since Flyweight is the name they chose, I'll stick with it for the rest of this blog.
 
 Regardless of its categorization, I've not much liked the name _Flyweight_. I think its inspiration is based upon a [weight class](https://en.wikipedia.org/wiki/Weight_class_(boxing)) in boxing, where [flyweight](https://en.wikipedia.org/wiki/Flyweight) is the lightest weight class. I think this name was chosen because the pattern focuses upon keeping memory acquisition lean and clean. Even if this is the origin of the name, I still don't feel that a boxing metaphor is sufficiently descriptive.
 
@@ -53,7 +53,7 @@ Here is a Flyweight pattern that's more akin to being an extension of Singleton.
 Both designs are sufficient. Using one instead of the other is a matter of personal style.
 
 # Issues
-Singleton had several issues mostly with concurrency, memory leaks and state. Flyweight has the same issues and possibly to an even greater degree.
+Singleton had several issues mostly with concurrency, memory leaks and shared state. Flyweight has the same issues and possibly to an even greater degree.
 
 ## Concurrency
 [Singleton's concurrency issue](https://jhumelsine.github.io/2025/10/31/singleton.html#singleton-implementation) is infrequent, since it is mostly only a concern when the `singleton` instance is first being initialized. Flyweight is different. A new instance can be instantated any time when a new key is requested.
@@ -283,7 +283,7 @@ class Program {
 ### DVR
 `DVR` only provides context for the map of recorded Programs.
 
-There is no method that returns the list of recorded programs, but if this were a real feature, I'd add one.
+There is no method that returns the list of recorded programs, but if this were a real feature, I would add one.
 
 `Program getProgram(String name)` should probably return an `Optional<Program>`, since a `Program` for the given `name` may not be on the DVR. If this were going to be a real feature, then I would have done that rather than return a `null` if the `Program` is not found.
 
@@ -311,7 +311,7 @@ While these three patterns are closely related, each manages object uniqueness a
 
 | Pattern      | Purpose / Guarantee                                | Scope of Uniqueness                         | State Management                             | Typical Use-Cases                                   | Notes on Relationship |
 |--------------|---------------------------------------------------|---------------------------------------------|----------------------------------------------|-----------------------------------------------------|----------------------|
-| **Singleton/Multiton** | Ensure only one instance exists for the entire app | One instance globally                        | All state is shared                           | Logging, configuration, global caches               | Simplest form of controlled instance count |
+| **Singleton Multiton** | Ensure only one instance exists for the entire app | One instance globally                        | All state is shared                           | Logging, configuration, global caches               | Simplest form of controlled instance count |
 | **Flyweight** | Share **intrinsic** state across many logical objects  | One instance per unique **intrinsic** state  | Intrinsic shared; **extrinsic** provided by caller | Game entities, text rendering (glyphs), media models | Generalizes Singleton/Multiton by separating shared vs. per-use state |
 
 # Summary
