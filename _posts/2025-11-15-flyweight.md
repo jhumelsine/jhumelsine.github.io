@@ -7,11 +7,11 @@ unlisted: true
 <img src="https://live.staticflickr.com/7295/14000278151_141357835b_b.jpg" alt="Flyweight Boxers" title="Image Source: https://www.flickr.com/photos/worldseriesboxing/14000278151/" width = "50%" style="padding-right: 20px;">
 
 # Introduction
-The Gang of Four (GoF) classify __Flyweight__ as a [Structural Pattern](http://refactoring.guru/design-patterns/structural-patterns), whereas I view it as a [Creational Pattern](https://refactoring.guru/design-patterns/creational-patterns), which is why I've included it in my [Creational Pattern Series](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html). Hopefully my reclassification wont cause too much confusion, since other sources classify and list Flyweight with the structural patterns.
+The Gang of Four (GoF) classify __Flyweight__ as a [Structural Pattern](http://refactoring.guru/design-patterns/structural-patterns), whereas I view it as a [Creational Pattern](https://refactoring.guru/design-patterns/creational-patterns), which is why I've included it in my [Creational Pattern Series](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html). Hopefully my reclassification won't cause too much confusion, since other sources classify and list Flyweight with the structural patterns.
 
-Flyweight allows the client to create multiple instances of a Singleton-like class. I know that multiple instances of a Singleton sounds like an oxymoron, but hang in there for a bit. While Singleton only allows one instance for a class, Flyweight allows multiple attribute-specified instances of a class, but with the constraint that there can only be one instance for each set of unique attributes.
+Flyweight allows the client to create multiple instances of a Singleton-like class. I know that multiple instances of a Singleton sounds like an oxymoron, but hang in there for a bit. While Singleton only allows one instance for a class, Flyweight allows multiple attribute-keyed instances of a class, but with the constraint that there can only be one instance for each set of unique attributes.
 
-I view Flyweight is an extension of the [Singleton Design Pattern](https://jhumelsine.github.io/2025/10/31/singleton.html), or maybe it might be more accurate to view Sington as a special case of Flyweight. While I'm not a fan of Singleton, I do tend to appreciate Flyweight.
+I view Flyweight as an extension of the [Singleton Design Pattern](https://jhumelsine.github.io/2025/10/31/singleton.html), or maybe it might be more accurate to view Sington as a special case of Flyweight. While I'm not a fan of Singleton, I do tend to appreciate Flyweight.
 
 Though not included by the GoF, there is a creational pattern for this behavior: __Multiton__, which is a portmanteau of _Multiple_ and _Singleton_. Multiton describes __what__ it does. Flyweight describes __how__ it does it. I view them as two patterns for the same concept with two different perspectives: __What__ vs __How__. As I alluded to in my opening sentence, I think the GoF should have focused upon the creational aspect of this behavior and included it in the creational section as Multiton rather than their Flyweight structural classification. But since Flyweight is the name they chose, I'll stick with it for the rest of this blog.
 
@@ -123,6 +123,8 @@ public static Recording acquire(String name) {
 }
 ```
 
+Because `ConcurrentHashMap.compute` locks only the bucket for that key, multiple independent acquisitions can run concurrently without blocking each other.
+
 ### Singleton Memory Leak
 I ended the [Singleton Memory Leaks](https://jhumelsine.github.io/2025/10/31/singleton.html#memory-leaks) section with:
 >There is a way to address [singleton memory leaks] at least in Java; however, I won’t present it until the next blog entry, which will feature the Flyweight Design Pattern.
@@ -168,6 +170,8 @@ Flyweight has the same internal state concerns that Singleton does. The more for
 * ___Extrinsic state___ which is context-specific, per-instance data passed in from outside
 
 As I described in [Singleton Internal State](https://jhumelsine.github.io/2025/10/31/singleton.html#internal-state), we want to make sure that we take advantage of shared intrinsic state without allowing specific extrinsic state to slip within the intrinsic state realm.
+
+**Rule of thumb:** Intrinsic state never changes once created; extrinsic state always belongs to whoever is using the singleton or the flyweight.
 
 Flyweight can also leverage the same wrapper [Singleton State Injection](https://jhumelsine.github.io/2025/10/31/singleton.html#state-injection) solution; therefore, I won't repeat it here, but I will feature it in the [DVR Use Case](#dvr-use-case).
 
@@ -298,7 +302,7 @@ class Program {
         playbackLocation = Math.max(playbackLocation - minutes, 0);
     }
 
-    // Convient means to print Program state.
+    // Convenient means to print Program state.
     public String toString() {
         return String.format("name=%s, playTime=%d, playbackLocation=%d, remainingPlayTime=%d", getProgramName(), getPlayTime(), getPlaybackLocation(), getRemainingPlayTime());
     }
@@ -336,10 +340,21 @@ class DVR {
 
 While these three patterns are closely related, each manages object uniqueness and shared state at a different scale.
 
-| Pattern      | Purpose / Guarantee                                | Scope of Uniqueness                         | State Management                             | Typical Use-Cases                                   | Notes on Relationship |
-|--------------|---------------------------------------------------|---------------------------------------------|----------------------------------------------|-----------------------------------------------------|----------------------|
-| **Singleton Multiton** | Ensure only one instance exists for the entire app | One instance globally                        | All state is shared                           | Logging, configuration, global caches               | Simplest form of controlled instance count |
-| **Flyweight** | Share **intrinsic** state across many logical objects  | One instance per unique **intrinsic** state  | Intrinsic shared; **extrinsic** provided by caller | Game entities, text rendering (glyphs), media models | Generalizes Singleton/Multiton by separating shared vs. per-use state |
+| Aspect                      | **Singleton**                                   | **Multiton**                                                          | **Flyweight**                                                                                    |
+| --------------------------- | ----------------------------------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| **Core Idea**               | Exactly one global instance                     | One instance per key                                                  | One shared instance per *intrinsic* state                                                        |
+| **Lookup Structure**        | Single static reference                         | Map keyed by identifier                                               | Map keyed by intrinsic state (often composite)                                                   |
+| **State Split**             | No split; all state is internal                 | No formal state split                                                 | **Intrinsic** state inside; **extrinsic** state passed in by caller                              |
+| **Memory Behavior**         | Minimal memory savings; always held             | Saves memory when many keys reuse instances                           | Maximizes sharing of heavy intrinsic data; huge savings at scale                                 |
+| **Thread Safety Concerns**  | Safe once instance is published                 | Must synchronize map access                                           | Must synchronize map access **and** handle extrinsic state correctly                             |
+| **Identity / Uniqueness**   | One unique object                               | One per key                                                           | Many callers share the same intrinsic object; extrinsic varies per use                           |
+| **Creation Logic**          | Construct on first access                       | Construct on first use of each key                                    | Construct on first use of each intrinsic state combination                                       |
+| **GC Friendliness**         | Often poor (long-lived global)                  | Better; map can use WeakReferences                                    | Very good with WeakHashMap or WeakReference flyweights                                           |
+| **When to Use**             | Global configuration, logging, connection pools | Keyed sets of shared instances (e.g., database connections by tenant) | Large numbers of lightweight objects sharing heavy representation (glyphs, sprites, trees, etc.) |
+| **When *Not* to Use**       | When global state is harmful                    | When key explosion defeats sharing                                    | When extrinsic state dominates or identity must be unique                                        |
+| **Typical Java Patterns**   | Private constructor + static instance           | Private constructor + `Map<K, T>` factory                             | Factory using `Map<IntrinsicKey, Flyweight>` with separate extrinsic parameter                   |
+| **Conceptual Relationship** | Multiton with one key                           | Superset of Singleton                                                 | Specialization of Multiton + intrinsic/extrinsic discipline                                      |
+
 
 # Summary
 Flyweight can be viewed as a generalization of Singleton and Multiton — enforcing “one instance per key” where the key represents intrinsic state. By separating shared and mutable attributes, we gain a memory-efficient architecture that still expresses our domain clearly.
@@ -467,7 +482,7 @@ class Program {
         playbackLocation = Math.max(playbackLocation - minutes, 0);
     }
 
-    // Convient means to print Program state.
+    // Convenient means to print Program state.
     public String toString() {
         return String.format("name=%s, playTime=%d, playbackLocation=%d, remainingPlayTime=%d", getProgramName(), getPlayTime(), getPlaybackLocation(), getRemainingPlayTime());
     }
