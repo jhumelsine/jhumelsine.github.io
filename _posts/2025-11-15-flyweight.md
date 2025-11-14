@@ -96,15 +96,30 @@ public static Flyweight acquire(String key) {
  __NOTE:__ A __Weak__ reference only makes the unreferenced flyweight element eligible for garbage collection. It does not ensure it. If garbage collection is not performed, then the flyweight element will be retained. This may not necessarily be bad. Retaining an unreferenced element until collected creates a window in which another client has the opportunity to acquire it while it's still instantiated.
  
 ## Combining Concurrency and Memory Leak Solutions
-Let's combine concurrency and memory leak solutions. Here's a Java implementation that's ensures that the implementation is thread safe and releases memory by adding a [Collections.synchronizedMap](https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#synchronizedMap-java.util.Map-):
-```java
-private static Map<String, Flyweight> flyweights = Collections.synchronizedMap(new WeakHashMap<>());
+Let's combine concurrency and memory leak solutions. Here's a Java implementation that's ensures that the implementation is thread safe and releases memory by adding a [WeakReference](https://docs.oracle.com/javase/8/docs/api/java/lang/ref/WeakReference.html).
 
-public static Flyweight acquire(String key) {
-    if (!flyweights.containsKey(key)) {
-        flyweights.put(key, new Flyweight(key));
-    }
-    return flyweights.get(key);
+__Full Disclosure:__ I have never implemented a `WeakReference`. ChatGPT generated the following code when I asked it to review my previous version, which had a few issues:
+
+```java
+private static final Map<String, WeakReference<Recording>> recordings = new ConcurrentHashMap<>();
+
+public static Recording acquire(String name) {
+    // Atomically compute a WeakReference<Recording> for this name
+    WeakReference<Recording> ref =
+        recordings.compute(name, (key, existingRef) -> {
+            Recording recording = (existingRef == null ? null : existingRef.get());
+
+            if (recording == null) {
+                // Either first time or the previous Recording was GC’d
+                recording = new Recording(key);
+                return new WeakReference<>(recording);
+            }
+
+            return existingRef; // recording still alive
+        });
+
+    // Safe because compute(...) always returns a non-null WeakReference
+    return ref.get();
 }
 ```
 
@@ -112,9 +127,7 @@ public static Flyweight acquire(String key) {
 I ended the [Singleton Memory Leaks](https://jhumelsine.github.io/2025/10/31/singleton.html#memory-leaks) section with:
 >There is a way to address [singleton memory leaks] at least in Java; however, I won’t present it until the next blog entry, which will feature the Flyweight Design Pattern.
 
-We can use Java's [WeakReference](https://docs.oracle.com/javase/8/docs/api/java/lang/ref/WeakReference.html) for an individual instance.
-
-__Full Disclosure:__ I have never implemented a `WeakReference`; therefore, I asked ChatGPT to generate some code with the following prompt:
+__Full Disclosure:__ As with the previous code, I asked ChatGPT to generate some code from scratch with the following prompt:
 >Create a Java implementation for Singleton using a Weak Reference. Make sure that it's thread safe as well.
 
 Here's what it produced:
@@ -189,16 +202,28 @@ I wanted different values for the recording length, so I chose a bogus runtime o
 
 ```java
 class Recording {
-    private static final Map<String, Recording> recordings = Collections.synchronizedMap(new WeakHashMap<>());
+    private static final Map<String, WeakReference<Recording>> recordings = new ConcurrentHashMap<>();
 
     private final String name;
     private final int runTime;
     
     public static Recording acquire(String name) {
-        if (!recordings.containsKey(name)) {
-            recordings.put(name, new Recording(name));
-        }
-        return recordings.get(name);
+        // Atomically compute a WeakReference<Recording> for this name
+        WeakReference<Recording> ref =
+            recordings.compute(name, (key, existingRef) -> {
+                Recording recording = (existingRef == null ? null : existingRef.get());
+
+                if (recording == null) {
+                    // Either first time or the previous Recording was GC’d
+                    recording = new Recording(key);
+                    return new WeakReference<>(recording);
+                }
+
+                return existingRef; // recording still alive
+            });
+
+        // Safe because compute(...) always returns a non-null WeakReference
+        return ref.get();
     }
 
     private Recording(String name) {
@@ -273,7 +298,7 @@ class Program {
         playbackLocation = Math.max(playbackLocation - minutes, 0);
     }
 
-    // Convenient means to print Program state.
+    // Convient means to print Program state.
     public String toString() {
         return String.format("name=%s, playTime=%d, playbackLocation=%d, remainingPlayTime=%d", getProgramName(), getPlayTime(), getPlaybackLocation(), getRemainingPlayTime());
     }
@@ -289,6 +314,7 @@ There is no method that returns the list of recorded programs, but if this were 
 
 ```java
 class DVR {
+    // There's no method to return the programs map, but if this were a real feature, I'd add one.
     Map<String, Program> programs = new HashMap<>();
 
     public void recordProgram(String name) {
@@ -299,8 +325,9 @@ class DVR {
         programs.remove(name);
     }
 
+    // This should really return Optional<Program>, but that's not the primary concern of this demo.
     public Program getProgram(String name) {
-        return programs.containsKey(name) ? programs.get(name) : null;
+        return programs.get(name);
     }
 }
 ```
@@ -343,6 +370,8 @@ Here’s the entire implementation up to this point as one file. Copy and paste 
 
 ```java
 import java.util.*;
+import java.util.concurrent.*;
+import java.lang.ref.WeakReference;
 
 public class FlyweightDemo {
     public static void main(String[] args) throws Exception {
@@ -387,7 +416,7 @@ class DVR {
 
     // This should really return Optional<Program>, but that's not the primary concern of this demo.
     public Program getProgram(String name) {
-        return programs.containsKey(name) ? programs.get(name) : null;
+        return programs.get(name);
     }
 }
 
@@ -438,7 +467,7 @@ class Program {
         playbackLocation = Math.max(playbackLocation - minutes, 0);
     }
 
-    // Convenient means to print Program state.
+    // Convient means to print Program state.
     public String toString() {
         return String.format("name=%s, playTime=%d, playbackLocation=%d, remainingPlayTime=%d", getProgramName(), getPlayTime(), getPlaybackLocation(), getRemainingPlayTime());
     }
@@ -450,16 +479,28 @@ class Program {
 // None of these additional behaviors have been represented in this demo.
 // I wanted different values for the recording length, so I chose a bogus 15 minutes times the length of the title.
 class Recording {
-    private static final Map<String, Recording> recordings = Collections.synchronizedMap(new WeakHashMap<>());
+    private static final Map<String, WeakReference<Recording>> recordings = new ConcurrentHashMap<>();
 
     private final String name;
     private final int runTime;
     
     public static Recording acquire(String name) {
-        if (!recordings.containsKey(name)) {
-            recordings.put(name, new Recording(name));
-        }
-        return recordings.get(name);
+        // Atomically compute a WeakReference<Recording> for this name
+        WeakReference<Recording> ref =
+            recordings.compute(name, (key, existingRef) -> {
+                Recording recording = (existingRef == null ? null : existingRef.get());
+
+                if (recording == null) {
+                    // Either first time or the previous Recording was GC’d
+                    recording = new Recording(key);
+                    return new WeakReference<>(recording);
+                }
+
+                return existingRef; // recording still alive
+            });
+
+        // Safe because compute(...) always returns a non-null WeakReference
+        return ref.get();
     }
 
     private Recording(String name) {
