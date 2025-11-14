@@ -15,6 +15,8 @@ I view Flyweight as an extension of the [Singleton Design Pattern](https://jhume
 
 Though not included by the GoF in the catalog, there is a creational pattern that captures this behavior: __Multiton__, a portmanteau of _Multiple_ and _Singleton_. Multiton describes __what__ it does. Flyweight describes __how__ it does it. I view them as two patterns for the same concept with two different perspectives: __What__ vs __How__. Multiton explains what is produced: one instance per key. Flyweight explains how to ensure it remains lightweight and shared.
 
+Multiton and Flyweight are similar. Multiton distinguishes instances via a key, whereas Flyweight distinguishes instances via intrinsic state. It could be argued that key is a type of intrinsic state, in which case Multiton could be considered a special case of Flyweight.
+
 As I alluded to in my opening sentence, I think the GoF should have focused upon the creational aspect of this behavior and included it in the creational section as Multiton rather than their Flyweight structural classification. But since Flyweight is the name they chose, I'll stick with it for the rest of this blog.
 
 Regardless of its categorization, I've not much liked the name _Flyweight_. I think its inspiration is based upon a [weight class](https://en.wikipedia.org/wiki/Weight_class_(boxing)) in boxing, where [flyweight](https://en.wikipedia.org/wiki/Flyweight) is the lightest weight class. I think this name was chosen because the pattern focuses upon keeping memory acquisition lean and clean. Even if this is the origin of the name, I still don't feel that a boxing metaphor is sufficiently descriptive.
@@ -138,7 +140,7 @@ public static Recording acquire(String name) {
 }
 ```
 
-The WeakReference makes the value eligible for garbage collection, but the key remains in the map. The cleanup logic above removes entries only after detection, so there may be a small window where the map contains a cleared reference. Manual cleanup is necessary to prevent the map from growing indefinitely if many keys are requested over time.
+The `WeakReference` makes the value eligible for garbage collection, but the key remains in the map. The cleanup logic above removes entries only after detection, so there may be a small window where the map contains a cleared reference. Manual cleanup is necessary to prevent the map from growing indefinitely if many keys are requested over time.
 
 Because `ConcurrentHashMap.compute` locks only the bucket for that key, multiple independent acquisitions can proceed concurrently without blocking each other.
 
