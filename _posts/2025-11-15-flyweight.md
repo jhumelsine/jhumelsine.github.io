@@ -60,7 +60,7 @@ Both designs are sufficient. Using one instead of the other is a matter of perso
 Singleton had several issues mostly with concurrency, memory leaks and shared state. Flyweight has the same issues and possibly to an even greater degree.
 
 ## Concurrency
-[Singleton's concurrency issue](https://jhumelsine.github.io/2025/10/31/singleton.html#singleton-implementation) is infrequent, since it is mostly only a concern when the `singleton` instance is first being initialized. Flyweight is different. A new instance can be instantated any time when a new key is requested.
+[Singleton's concurrency issue](https://jhumelsine.github.io/2025/10/31/singleton.html#singleton-implementation) is infrequent, since it is mostly only a concern when the `singleton` instance is first being initialized. Flyweight is different. A new instance can be instantiated any time when a new key is requested.
 
 Any concurrency mechanism that addresses this will be sufficient. Here is the thread safe update to the code snippets above using `synchronized` within Java.
 
@@ -100,7 +100,7 @@ public static Flyweight acquire(String key) {
 }
 ```
 
- __NOTE:__ A __Weak__ reference only makes the unreferenced flyweight element eligible for garbage collection. It does not ensure it. If garbage collection is not performed, then the flyweight element will be retained. This may not necessarily be bad. Retaining an unreferenced element until collected creates a window in which another client has the opportunity to acquire it while it's still instantated.
+ __NOTE:__ A __Weak__ reference only makes the unreferenced flyweight element eligible for garbage collection. It does not ensure it. If garbage collection is not performed, then the flyweight element will be retained. This may not necessarily be bad. Retaining an unreferenced element until collected creates a window in which another client has the opportunity to acquire it while it's still instantiated.
  
 ## Combining Concurrency and Memory Leak Solutions
 Let's combine concurrency and memory leak solutions. Here's a Java implementation that's ensures that the implementation is thread safe and releases memory by adding a [WeakReference](https://docs.oracle.com/javase/8/docs/api/java/lang/ref/WeakReference.html).
@@ -138,7 +138,9 @@ public static Recording acquire(String name) {
 }
 ```
 
-Because `ConcurrentHashMap.compute` locks only the bucket for that key, multiple independent acquisitions can run concurrently without blocking each other.
+The WeakReference makes the value eligible for garbage collection, but the key remains in the map. The cleanup logic above removes entries only after detection, so there may be a small window where the map contains a cleared reference. Manual cleanup is necessary to prevent the map from growing indefinitely if many keys are requested over time.
+
+Because `ConcurrentHashMap.compute` locks only the bucket for that key, multiple independent acquisitions can proceed concurrently without blocking each other.
 
 ### Singleton Memory Leak
 I ended the [Singleton Memory Leaks](https://jhumelsine.github.io/2025/10/31/singleton.html#memory-leaks) section with:
@@ -374,7 +376,7 @@ While these three patterns are closely related, each manages object uniqueness a
 | **Thread Safety Concerns**  | Safe once instance is published                 | Must synchronize map access                                           | Must synchronize map access **and** handle extrinsic state correctly                             |
 | **Identity / Uniqueness**   | One unique object                               | One per key                                                           | Many callers share the same intrinsic object; extrinsic varies per use                           |
 | **Creation Logic**          | Construct on first access                       | Construct on first use of each key                                    | Construct on first use of each intrinsic state combination                                       |
-| **GC Friendliness**         | Often poor (long-lived global)                  | Better; map can use WeakReferences                                    | Very good with WeakHashMap or WeakReference flyweights                                           |
+| **GC Friendliness**         | Often poor (long-lived global)                  | Better; map can use WeakReferences                                    | Better with WeakHashMap or WeakReference; still requires manual cleanup of cleared entries if key-space grows                                           |
 | **When to Use**             | Global configuration, logging, connection pools | Keyed sets of shared instances (e.g., database connections by tenant) | Large numbers of lightweight objects sharing heavy representation (glyphs, sprites, trees, etc.) |
 | **When *Not* to Use**       | When global state is harmful                    | When key explosion defeats sharing                                    | When extrinsic state dominates or identity must be unique                                        |
 | **Typical Java Patterns**   | Private constructor + static instance           | Private constructor + `Map<K, T>` factory                             | Factory using `Map<IntrinsicKey, Flyweight>` with separate extrinsic parameter                   |
