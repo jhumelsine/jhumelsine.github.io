@@ -1,7 +1,6 @@
 ---
-title: DRAFT OPEN FOR COMMENTS – Flyweight/Multiton Design Pattern
+title: Flyweight/Multiton Design Pattern
 description: When you thought you only wanted a Singleton, but you just couldn't stop at one
-unlisted: true
 ---
 
 <img src="https://live.staticflickr.com/7295/14000278151_141357835b_b.jpg" alt="Flyweight Boxers" title="Image Source: https://www.flickr.com/photos/worldseriesboxing/14000278151/" width = "50%" style="padding-right: 20px;">
@@ -26,7 +25,7 @@ Since the _Multiple Singleton_ concept can be confusing, let me try to describe 
 
 The hard drive for my DVR is stored in the cloud. I had long suspected this since response with the remote is horrendously slow. I had suspected network latency was the cause of its sluggishness. Its cloud nature was confirmed when we refinished the hardwood floors in our house this summer. The DVR was disconnected for several days while the floors were being sanded and refinished, and when I reconnected the DVR, one of my scheduled programs had been recorded while the DVR had been unplugged and disconnected.
 
-What does __my__ hard drive look like in the cloud? Its 1080-Full-HD 100 hour capacity requires somewhere between 500GB and 1TB. Does my cable company need to retain this much hard drive storage for each customer? Probably not. Cloud space for programs could be shared.
+What does __my__ hard drive look like in the cloud? Its 1080-Full-HD 100-hour capacity requires somewhere between 500GB and 1TB. Does my cable company need to retain this much hard drive storage for each customer? Probably not. Cloud space for programs could be shared.
 
 The most viewed television program in the United States each year is the [Super Bowl](https://en.wikipedia.org/wiki/Super_Bowl). Many viewers will set their DVR to record the game even if only to rewatch the [halftime show](https://en.wikipedia.org/wiki/List_of_Super_Bowl_halftime_shows). The cable company doesn't need to retain an individual recording of the Super Bowl in the cloud for each customer. They only need one recording, which all customers can share. When the last customer deletes the program from their line up, then the program can be removed from the cloud. I'm sure they have additional recordings for redundancy and performance, but those needs are beyond the scope of Flyweight.
 
@@ -102,7 +101,7 @@ public static Flyweight acquire(String key) {
 }
 ```
 
- __NOTE:__ A __Weak__ reference only makes the unreferenced flyweight element eligible for garbage collection. It does not ensure it. If garbage collection is not performed, then the flyweight element will be retained. This may not necessarily be bad. Retaining an unreferenced element until collected creates a window in which another client has the opportunity to acquire it while it's still instantiated.
+ __NOTE:__ A __Weak__ reference only makes the unreferenced flyweight element eligible for garbage collection. It does not ensure it. If garbage collection is not performed, then the flyweight element will be retained. This may not necessarily be bad. Retaining an unreferenced element until collected creates a window in which another client can acquire it while it's still instantiated.
  
 ## Combining Concurrency and Memory Leak Solutions
 Let's combine concurrency and memory leak solutions. Here's a Java implementation that's ensures that the implementation is thread safe and releases memory by adding a [WeakReference](https://docs.oracle.com/javase/8/docs/api/java/lang/ref/WeakReference.html).
