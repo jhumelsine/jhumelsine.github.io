@@ -392,7 +392,7 @@ I have one last shot to take at Singleton. It leaks memory, maybe not a lot, but
 
 Most times this won't be an issue. It's not leaking memory repeated that will eventually crash the process. But it's possible for the Singleton to allocate a lot of memory or other limited resources, which will never be released. Consider if that were the case for a Singleton that's only accessed at start up. We'd end up with allocated resources that are never released.
 
-There is a way to address this at least in Java; however, I won't present it until the next blog entry, which will feature the Flyweight Design Pattern (TBD).
+There is a way to address this at least in Java; however, I won't present it until the next blog entry, which will feature the [Flyweight Design Pattern](https://jhumelsine.github.io/2025/11/14/flyweight.html).
 
 # Summary
 As you can tell, if you've made it this far, it is obvious that I'm not a big fan of Singleton. I rarely use it myself.
