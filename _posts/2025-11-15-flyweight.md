@@ -11,9 +11,11 @@ The Gang of Four (GoF) classify __Flyweight__ as a [Structural Pattern](http://r
 
 Flyweight allows the client to create multiple instances of a Singleton-like class. I know that multiple instances of a Singleton sounds like an oxymoron, but hang in there for a bit. While Singleton only allows one instance for a class, Flyweight allows multiple attribute-keyed instances of a class, but with the constraint that there can only be one instance for each set of unique attributes.
 
-I view Flyweight as an extension of the [Singleton Design Pattern](https://jhumelsine.github.io/2025/10/31/singleton.html), or maybe it might be more accurate to view Sington as a special case of Flyweight. While I'm not a fan of Singleton, I do tend to appreciate Flyweight.
+I view Flyweight as an extension of the [Singleton Design Pattern](https://jhumelsine.github.io/2025/10/31/singleton.html), or maybe it might be more accurate to view Singleton as a special case of Flyweight. While I'm not a fan of Singleton, I do tend to appreciate Flyweight.
 
-Though not included by the GoF, there is a creational pattern for this behavior: __Multiton__, which is a portmanteau of _Multiple_ and _Singleton_. Multiton describes __what__ it does. Flyweight describes __how__ it does it. I view them as two patterns for the same concept with two different perspectives: __What__ vs __How__. As I alluded to in my opening sentence, I think the GoF should have focused upon the creational aspect of this behavior and included it in the creational section as Multiton rather than their Flyweight structural classification. But since Flyweight is the name they chose, I'll stick with it for the rest of this blog.
+Though not included by the GoF in the catalog, there is a creational pattern that captures this behavior: __Multiton__, a portmanteau of _Multiple_ and _Singleton_. Multiton describes __what__ it does. Flyweight describes __how__ it does it. I view them as two patterns for the same concept with two different perspectives: __What__ vs __How__. Multiton explains what is produced: one instance per key. Flyweight explains how to ensure it remains lightweight and shared.
+
+As I alluded to in my opening sentence, I think the GoF should have focused upon the creational aspect of this behavior and included it in the creational section as Multiton rather than their Flyweight structural classification. But since Flyweight is the name they chose, I'll stick with it for the rest of this blog.
 
 Regardless of its categorization, I've not much liked the name _Flyweight_. I think its inspiration is based upon a [weight class](https://en.wikipedia.org/wiki/Weight_class_(boxing)) in boxing, where [flyweight](https://en.wikipedia.org/wiki/Flyweight) is the lightest weight class. I think this name was chosen because the pattern focuses upon keeping memory acquisition lean and clean. Even if this is the origin of the name, I still don't feel that a boxing metaphor is sufficiently descriptive.
 
@@ -30,15 +32,17 @@ A single instance applies for all programs, not just popular ones. The cable com
 
 Each program stored in the cloud is a type of _multiple singleton_. The cable company only needs to persist one copy of a program, but there may be many persisted programs. The key attribute that distinguishes the programs would be the program's name.
 
+The key idea: customers share the same underlying recording instance; only per-user playback state is unique.
+
 Although this example focuses on DVR recordings, Flyweight is widely used anywhere many objects share a large portion of their state. In graphical user interfaces, for instance, thousands of characters on a screen may share the same underlying font glyphs or rendering data, dramatically reducing memory requirements. Web browsers and document editors rely heavily on this concept to keep performance responsive.
 
-Game engines provide another classic application. Projectiles, particles, trees, and [Non-Playing Characters](https://en.wikipedia.org/wiki/Non-player_character) (NPCs) often reuse shared meshes, textures, animations, or AI states, while only position and behavior differ per instance. Instead of thousands of identical copies consuming system resources, Flyweight allows the engine to maintain a single authoritative version of each asset and apply extrinsic state as needed.
+Game engines provide another classic application. In gaming, extrinsic state (position, velocity, orientation, behavior scripts) tends to vary wildly, while intrinsic state (meshes, textures, animations) is expensive and shared. Projectiles, particles, trees, and [Non-Playing Characters](https://en.wikipedia.org/wiki/Non-player_character) (NPCs) often reuse shared meshes, textures, animations, or AI states, while only position and behavior differ per instance. Instead of thousands of identical copies consuming system resources, Flyweight allows the engine to maintain a single authoritative version of each asset and apply extrinsic state as needed.
 
 The principle remains the same: when shared identity outweighs individual uniqueness, Flyweight can make high-scale systems feasible.
 
 # GoF Flyweight Design
 
-Flyweight is similar to [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html) except that instead of one `singleton` static instance, there is a static Map of key attribte(s) to instances.
+Flyweight is similar to [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html) except that instead of one `singleton` static instance, there is a static Map of key attributes(s) to instances.
 
 This diagram represents the basics of the GoF's Flyweight design. In this design `flyweightA1` and `flyweightA2` will contain references to the same instance. `flyweightB` will be a separate instance.
 
@@ -71,10 +75,12 @@ public static synchronized Flyweight acquire(String key) {
 }
 ```
 
+Using synchronized works but can bottleneck under heavy access. A `ConcurrentHashMap.computeIfAbsent` or `compute` version, as shown later, provides better scalability.
+
 ## Memory Leaks
 [Singleton's Memory Leak issue](https://jhumelsine.github.io/2025/10/31/singleton.html#memory-leaks) is minor. However, it could become a major issue with Flyweight, since there is an unlimited number of keys that could be requested. This is sort of ironic, since the point of Flyweight is to reduce memory consumption.
 
-The GoF don't really address the concern. If anything, they state that there is no concern. Here's exactly what they state about memory reclaimation:
+The GoF don't really address the concern. If anything, they state that there is no concern. Here's what they state about memory reclamation:
 >Sharability also implies some form of reference counting or garbage collection to reclaim a flyweight’s storage when it’s no longer needed. However, neither is necessary if the number of flyweights is fixed and small (e.g., flyweights for the ASCII character set). In that case, the flyweights are worth keeping around permanently.
 
 Unless you know for sure that the number of flyweight instances are fixed and small, I'd prefer some sort of flyweight clean up. Instances can be released when there are no more references to them. For some languages, such as C++, this responsibility is mostly upon the developer. For other languages, such as Java, the environment will manage this and perform garbage collection when needed.
@@ -93,7 +99,8 @@ public static Flyweight acquire(String key) {
     return flyweights.get(key);
 }
 ```
- __NOTE:__ A __Weak__ reference only makes the unreferenced flyweight element eligible for garbage collection. It does not ensure it. If garbage collection is not performed, then the flyweight element will be retained. This may not necessarily be bad. Retaining an unreferenced element until collected creates a window in which another client has the opportunity to acquire it while it's still instantiated.
+
+ __NOTE:__ A __Weak__ reference only makes the unreferenced flyweight element eligible for garbage collection. It does not ensure it. If garbage collection is not performed, then the flyweight element will be retained. This may not necessarily be bad. Retaining an unreferenced element until collected creates a window in which another client has the opportunity to acquire it while it's still instantated.
  
 ## Combining Concurrency and Memory Leak Solutions
 Let's combine concurrency and memory leak solutions. Here's a Java implementation that's ensures that the implementation is thread safe and releases memory by adding a [WeakReference](https://docs.oracle.com/javase/8/docs/api/java/lang/ref/WeakReference.html).
@@ -124,6 +131,8 @@ public static Recording acquire(String name) {
 ```
 
 Because `ConcurrentHashMap.compute` locks only the bucket for that key, multiple independent acquisitions can run concurrently without blocking each other.
+
+Unlike WeakHashMap, using WeakReference values requires manual cleanup of cleared entries if key-space explosion becomes an issue. For most cases it’s fine, but be aware the map itself may retain cleared keys unless you remove them.
 
 ### Singleton Memory Leak
 I ended the [Singleton Memory Leaks](https://jhumelsine.github.io/2025/10/31/singleton.html#memory-leaks) section with:
@@ -234,7 +243,7 @@ class Recording {
         this.name = name;
         this.runTime = name.length() * 15;
 
-        System.out.format("Creating Recording name=%s, runtime=%s\n", name, runTime);
+        System.out.format("Creating Recording name=%s, runtime=%d\n", name, runTime);
     }
 
     public String getRecordingName() {
@@ -316,6 +325,8 @@ There is no method that returns the list of recorded programs, but if this were 
 
 `Program getProgram(String name)` should probably return an `Optional<Program>`, since a `Program` for the given `name` may not be on the DVR. If this were going to be a real feature, then I would have done that rather than return a `null` if the `Program` is not found.
 
+`DVR` uses a simple `HashMap` because it’s only modeling per-user state; the shared concurrency concerns reside inside `Recording`.
+
 ```java
 class DVR {
     // There's no method to return the programs map, but if this were a real feature, I'd add one.
@@ -353,7 +364,7 @@ While these three patterns are closely related, each manages object uniqueness a
 | **When to Use**             | Global configuration, logging, connection pools | Keyed sets of shared instances (e.g., database connections by tenant) | Large numbers of lightweight objects sharing heavy representation (glyphs, sprites, trees, etc.) |
 | **When *Not* to Use**       | When global state is harmful                    | When key explosion defeats sharing                                    | When extrinsic state dominates or identity must be unique                                        |
 | **Typical Java Patterns**   | Private constructor + static instance           | Private constructor + `Map<K, T>` factory                             | Factory using `Map<IntrinsicKey, Flyweight>` with separate extrinsic parameter                   |
-| **Conceptual Relationship** | Multiton with one key                           | Superset of Singleton                                                 | Specialization of Multiton + intrinsic/extrinsic discipline                                      |
+| **Conceptual Connection Between Patterns** | Multiton with one key                           | Superset of Singleton                                                 | Specialization of Multiton + intrinsic/extrinsic discipline                                      |
 
 
 # Summary
@@ -362,6 +373,8 @@ Flyweight can be viewed as a generalization of Singleton and Multiton — enforc
 However, this power comes with trade-offs: thread-safety becomes critical, cleanup must be intentional, and debugging shared state can be challenging. Understanding when the savings outweigh the complexity is essential.
 
 Used wisely, Flyweight supports scalable object-rich systems in UI frameworks, game engines, streaming services, and more.
+
+Flyweight is not a universal solution, but in domains where intrinsic state is heavy and reused, it can transform a memory-hungry design into a scalable, elegant architecture.
 
 # References
 * [Wikipedia Flyweight Design Pattern](https://en.wikipedia.org/wiki/Flyweight_pattern)
@@ -522,7 +535,7 @@ class Recording {
         this.name = name;
         this.runTime = name.length() * 15;
 
-        System.out.format("Creating Recording name=%s, runtime=%s\n", name, runTime);
+        System.out.format("Creating Recording name=%s, runtime=%d\n", name, runTime);
     }
 
     public String getRecordingName() {
