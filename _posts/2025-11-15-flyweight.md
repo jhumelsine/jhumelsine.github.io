@@ -126,13 +126,19 @@ public static Recording acquire(String name) {
         });
 
     // Safe because compute(...) always returns a non-null WeakReference
-    return ref.get();
+    Recording result = ref.get();
+
+    // Cleanup if the value was collected
+    if (result == null) {
+        recordings.remove(name, ref); // only removes if still mapped to this ref
+        return acquire(name); // retry
+    }
+
+    return result;
 }
 ```
 
 Because `ConcurrentHashMap.compute` locks only the bucket for that key, multiple independent acquisitions can run concurrently without blocking each other.
-
-Unlike WeakHashMap, using WeakReference values requires manual cleanup of cleared entries if key-space explosion becomes an issue. For most cases it’s fine, but be aware the map itself may retain cleared keys unless you remove them.
 
 ### Singleton Memory Leak
 I ended the [Singleton Memory Leaks](https://jhumelsine.github.io/2025/10/31/singleton.html#memory-leaks) section with:
@@ -236,7 +242,15 @@ class Recording {
             });
 
         // Safe because compute(...) always returns a non-null WeakReference
-        return ref.get();
+        Recording result = ref.get();
+
+        // Cleanup if the value was collected
+        if (result == null) {
+            recordings.remove(name, ref); // only removes if still mapped to this ref
+            return acquire(name); // retry
+        }
+
+        return result;
     }
 
     private Recording(String name) {
@@ -528,7 +542,15 @@ class Recording {
             });
 
         // Safe because compute(...) always returns a non-null WeakReference
-        return ref.get();
+        Recording result = ref.get();
+
+        // Cleanup if the value was collected
+        if (result == null) {
+            recordings.remove(name, ref); // only removes if still mapped to this ref
+            return acquire(name); // retry
+        }
+
+        return result;
     }
 
     private Recording(String name) {
