@@ -5,19 +5,28 @@ unlisted: true
 ---
 
 # Introduction
-The Gang of Four (GoF) included [Flyweight](https://jhumelsine.github.io/2025/11/15/flyweight.html), but cataloged it as a structural design pattern. They may have felt that most interactions with Flyweight returned an existing object rather than creating a new one. But if this were the case, then [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html) should have been a structural design pattern too.
+The Gang of Four (GoF) included [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html), but cataloged it as a structural design pattern. They may have felt that most interactions with Flyweight returned an existing object rather than creating a new one. But if this were the case, then [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html) should have been a structural design pattern too.
 
 The GoF completely ignored __Object Pool__ as a design pattern, creational, structural or otherwise. I'm not sure why, since I'm sure that the [Thread Pools](https://en.wikipedia.org/wiki/Thread_pool) existed during the time of publication.
+
+
+# Intent
+Object Pool allows multiple clients to access a set resource intensive objects one at a time. By resource intensive, I mean that the objects are expensive to instantiate or they are coupled to a limited resources, such as a hardware constraint.
+
+Basically, an Object Pool is filled with a fixed number of objects at start up. Then when a client requests one, it acquires one from the pool and then returns it when done.
 
 <img src="https://heute-at-prod-images.imgix.net/2022/04/21/0d770b26-f233-4039-9a25-4cce88dcc9ec.jpeg?rect=0%2C283%2C3600%2C2025&auto=format" alt="Mad Men" title="Image Source: https://www.heute.at/i/mad-men-star-im-alter-von-90-jahren-gestorben-100202791/doc-1g16gc2ur0" width = "35%" align="right" style="padding: 35px;">
 
 And there are plenty of real world examples of shared [Resource Pools](https://en.wikipedia.org/wiki/Pooling_(resource_management)) including:
-* [Secretarial Pools](https://en.wikipedia.org/wiki/Secretarial_pool)
-* [Libraries](https://en.wikipedia.org/wiki/Library)
-* [Bowling Ball Shoe Rentals](https://en.wikipedia.org/wiki/Bowling#Shoes)
+* [Secretarial Pools](https://en.wikipedia.org/wiki/Secretarial_pool) - Though mostly a thing of the past, executives would acquire a secretary from the pool, who could take dictation, type of a letter, do filing or perform other secretarial skills. Once done with a task, secretaries would return to the pool for the next executive's task. Secretarial pools are so much a thing anymore, but they were common before the advent of office computers. Women in the secretarial pool were featured on the TV Show: [Mad Men](https://en.wikipedia.org/wiki/Mad_Men).
+* [Libraries](https://en.wikipedia.org/wiki/Library) - Libraries contain a finite number of books. Patrons checkout books and then return them several days or weeks later. Libraries are pool-like, but they are not a perfect fit, since libraries are filled with different books. To be a pure pool, the library would contain multiple copies of only one book.
+* [Bowling Ball Shoe Rentals](https://en.wikipedia.org/wiki/Bowling#Shoes) - Customers rent a pair of shoes while at the bowling lanes and then return them when done. They are pool-ish too, since the shoes some in different sizes.
 
-# Intent
-Flyweight and Object Pool are both about  +++ TBD +++
+# Flyweight vs Object Pool
+Flyweight and Object Pool have a few similarities:
+* Each maintains a repository of objects
+* Each tends to return an existing object rather than instantiate a new one upon demand
+* 
 
 # Summary
 
