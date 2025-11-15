@@ -15,7 +15,7 @@ Object Pool allows multiple clients to access a set resource intensive objects o
 
 Basically, an Object Pool is filled with a fixed number of objects at start up. Then when a client requests one, it acquires one from the pool and then returns it when done.
 
-<img src="https://heute-at-prod-images.imgix.net/2022/04/21/0d770b26-f233-4039-9a25-4cce88dcc9ec.jpeg?rect=0%2C283%2C3600%2C2025&auto=format" alt="Mad Men" title="Image Source: https://www.heute.at/i/mad-men-star-im-alter-von-90-jahren-gestorben-100202791/doc-1g16gc2ur0" width = "35%" align="right" style="padding: 35px;">
+<img src="https://heute-at-prod-images.imgix.net/2022/04/21/0d770b26-f233-4039-9a25-4cce88dcc9ec.jpeg?rect=0%2C283%2C3600%2C2025&auto=format" alt="Mad Men" title="Image Source: https://www.heute.at/i/mad-men-star-im-alter-von-90-jahren-gestorben-100202791/doc-1g16gc2ur0" width = "45%" align="right" style="padding: 35px;">
 
 And there are plenty of real world examples of shared [Resource Pools](https://en.wikipedia.org/wiki/Pooling_(resource_management)) including:
 * [Secretarial Pools](https://en.wikipedia.org/wiki/Secretarial_pool) - Though mostly a thing of the past, executives would acquire a secretary from the pool, who could take dictation, type of a letter, do filing or perform other secretarial skills. Once done with a task, secretaries would return to the pool for the next executive's task. Secretarial pools are so much a thing anymore, but they were common before the advent of office computers. Women in the secretarial pool were featured on the TV Show: [Mad Men](https://en.wikipedia.org/wiki/Mad_Men).
@@ -26,7 +26,13 @@ And there are plenty of real world examples of shared [Resource Pools](https://e
 Flyweight and Object Pool have a few similarities:
 * Each maintains a repository of objects
 * Each tends to return an existing object rather than instantiate a new one upon demand
-* 
+* Each has concurrency concerns
+
+However, they have a few differences:
+* Acquired Flyweight objects are shared by multiple clients, whereas acquired Object Pool objects are used by one client at a time
+* The number of Flyweight objects can grow as requested, but the number of Object Pool objects are fixed.
+* Flyweight objects are initialized via [Lazy Initialization](https://en.wikipedia.org/wiki/Lazy_initialization), whereas Object Pool objects are initialized at start up
+* Flyweight object reclamation is optional, whereas Object Pool reclamation is required
 
 # Summary
 
