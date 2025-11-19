@@ -11,16 +11,16 @@ I’ve been in the position of searching for a new job in a weak market in the p
 Each person’s journey is unique. What worked for me won’t be universal. But maybe something I share may be of assistance to someone, somewhere.
 
 # Like a Punch to the Gut
-Losing your job can feel like getting punched in the gut. While the loss of an income stream creates practical challenges, job loss can also result in a loss of identity. I suspect that many software developers attribute a great deal of their personal identity to being paid software professionals. It becomes a personal loss when our occupations taken from us, especially if it becomes an extended period of unemployment. We question whether we'll ever practice our trade again. Will we regain a sense of ourselves?
+Losing your job can feel like getting punched in the gut. While the loss of an income stream creates practical challenges, job loss can also result in a loss of identity. I suspect that many software developers attribute a great deal of their personal identity to being paid software professionals. It becomes a personal loss when our occupations are taken from us, especially if it becomes an extended period of unemployment. We question whether we’ll ever practice our trade again or regain a sense of ourselves.
 
 ## It's not personal, it's strictly business.
 <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/0*6coWXSV5RhWta-G_.jpg" alt="Quote from The Godfather" title="Image Source: https://abhishekvpaul.medium.com/everybody-matters-its-not-personal-only-business-1ba35d772689" width = "40%" align="right" style="padding-right: 35px;">
 
-Losing your job is rarely a judgement upon your value or worth as a software developer. While it may be difficult to stomach while the sting of a pink slip is still fresh, take some degree of solice from the ___The Godfather___: _It's not personal, it's strictly business._
+Losing your job is rarely a judgement upon your value or worth as a software developer. While it may be difficult to stomach while the sting of a pink slip is still fresh, take some degree of solace from ___The Godfather___: _It's not personal, it's strictly business._
 
-I witnessed a few coworkers being let go due to poor performance, but it was rare. Most had ample warning to adjust.
+I witnessed a few coworkers being let go due to poor performance, but it was rare. When performance issues surface, good management will work with the individual to address it. Most people let go for performance reasons had ample warning and opportunity to adjust.
 
-I witnessed many more cases of those being let go because they were at the wrong place at the wrong time. The company needed to reduce expenses, and they were on the project being cancelled, or they worked at the location being shutdown, or the short straw was drawn for them. Sometimes for large layoffs, I got the feeling that HR decided who was cut to ensure that no protected group was targeted who might file a class action lawsuit against the company.
+I witnessed many more cases of those being let go because they were at the wrong place at the wrong time. The company needed to reduce expenses, and they were on the project being cancelled, or they worked at the location being shut down, or the short straw was drawn for them. In large layoffs, decisions sometimes felt driven more by spreadsheets and legal risk management than by any assessment of individual value.
 
 ## Most of us are Mercenaries
 <img src="https://m.media-amazon.com/images/I/517W+fhalTL._SY466_.jpg" alt="Live Rich Book Cover" title="Image Source: https://www.amazon.com/Live-Rich-Everything-Need-Know/dp/0887309348" width = "20%" align="right" style="padding-right: 35px;">
@@ -29,23 +29,23 @@ I read in a professional self-help book years ago that you're either an Entrepre
 
 The book was [Live Rich: Everything You Need to Know To Be Your Own Boss, Whoever You Work For](https://www.amazon.com/Live-Rich-Everything-Need-Know-ebook/dp/B0012095EE) by Stephen Pollan and Mark Levine.
 
-I like some of Pollan's ideas, but I thought several were a bit harsh. He proposes that as a mercenary, money is your only employement criteria. Go for the highest paycheck even if it's not your ideal job. You're concerned about job satisfaction? Take up a hobby that gives you satisfaction instead. He doesn't encourage building relationships with coworkers either. Doing so will make it too difficult to leave when you get a better offer.
+I like some of Pollan's ideas, but I thought several were a bit harsh. He proposes that as a mercenary, money should be your only factor in employment decisions. Go for the highest paycheck even if it's not your ideal job. You're concerned about job satisfaction? Take up a hobby that gives you satisfaction instead. He doesn't encourage building relationships with coworkers either. Doing so will make it difficult to leave when you get a better offer.
 
 I disagree with him for several reasons:
-* Jobs consume a lot of our time. If you're not feeling some form of satisfaction during the eigth to ten hours a day you're working, then you'll be miserable for a good chunk of your life. There's more to a job than the money. In addition to the salary, there's benefits, technology, location, company reputation, industry domain, work-life balance, etc. All of these should factor into job selection.
-* We often spend more time wiht our coworkers than with our family members. Building good relationships is vital to good teamwork. When you help others, they are more willing to help you. You don't foster good working relationships just for the current job, but also for your next one. These coworkers can become part of your network when they move to other companies. I worked for five companies in my career. Three of those jobs were due to a previous coworker recruiting me.
+* Jobs consume a lot of our time. If you're not feeling some form of satisfaction during the eight to ten hours a day you're working, then you'll be miserable for a good chunk of your life. There's more to a job than the money. In addition to the salary, there's benefits, technology, location, company reputation, industry domain, work-life balance, etc. All of these should factor into job selection.
+* We often spend more time with our coworkers than with our family members. Building good relationships is vital to good teamwork. When you help others, they are more willing to help you. You don't foster good working relationships just for the current job, but also for your next one. These coworkers can become part of your network when they move to other companies. I worked for five companies in my career. Three of those jobs were due to a previous coworker recruiting me.
 
 <img src="https://i2.pickpik.com/photos/615/452/1010/fist-punch-water-splash-preview.jpg" alt="Fist in Water" title="Image Source: https://www.pickpik.com/fist-punch-water-splash-wall-hand-125582#google_vignette" width = "20%" align="right" style="padding-right: 35px;">
 
-However, I do agree with Pollan when it comes to company loyality. The ___Godfather___ quote above works in both directions. Don't let loyality prevent you from exploring new opportunities. It's strictly business. Those who stay with a company out of a sense of loyalty often find that the company doesn't feel the same way about them.
+But Pollan is correct about one thing: if you treat a company like a family, you will eventually be disappointed. The ___Godfather___ quote above works in both directions. Don't let company loyalty prevent you from exploring new opportunities. It's strictly business. Those who stay with a company out of a sense of loyalty often find that the company doesn't feel the same way about them.
 
-Be ready to leave on a moments notice. Can you pack up your personal belongs in less than five or ten minutes and walk out the door never to return?
+Being prepared isn’t pessimistic; it’s simply professional. If the day ever comes, you should be able to gather your belongings in a few minutes and exit with dignity whether it's your choice or the company's.
 
-Don't feel that your irreplacable. When you leave, you'll be missed for about as long as it takes the hole to fill when you've pulled your submerged fist from a bucket of water.
+Don't feel that you're irreplaceable. When you leave, you'll be missed for about as long as it takes the hole to fill when you've pulled your fist from a bucket of water. It’s a harsh metaphor, but in my experience, it’s accurate.
 
-I've moved on from several companies. Not once was I contacted after I left. Likewise, I've seen many coworkers move to their next opportunity. I don't recall any cases where they were called back for a consultation.
+I've moved on from several companies, and not once was I contacted after I left. Likewise, I've seen many coworkers move to their next opportunity, and I don't recall any of them being called back for a consultation.
 
-In short, if you see the writing on the wall, leave before being asked to leave.
+If you see the writing on the wall, start exploring options before someone else makes that decision for you. The upside is that once you embrace this mindset, you take back control of your career.
 
 # Establish a Financial Plan
 I took private flying lessons in my early twenties. When the engine stops in flight, the first step is to establish a glidepath and look for a potential landing site. Once that is under control, then you start the process of restarting the engine.
