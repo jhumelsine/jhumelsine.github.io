@@ -10,6 +10,18 @@ I’ve been in the position of searching for a new job in a weak market in the p
 
 Each person’s journey is unique. What worked for me won’t be universal. But maybe something I share may be of assistance to someone, somewhere.
 
+# Like a Punch to the Gut
+Losing your job can feel like getting punched in the gut. While the loss of an income stream creates practical challenges, job loss can also result in a loss of identity. I suspect that many software developers attribute a great deal of their personal identity to being paid software professionals. It becomes a personal loss when taken from us, especially if it's an extended period of unemployment. We question whether we'll ever practice our trade once again. Will we regain a sense of ourselves?
+
+## It's not personal, it's strictly business.
+<img src="https://miro.medium.com/v2/resize:fit:720/format:webp/0*6coWXSV5RhWta-G_.jpg" alt="Quote from The Godfather" title="Image Source: https://abhishekvpaul.medium.com/everybody-matters-its-not-personal-only-business-1ba35d772689" width = "40%" align="right" style="padding-right: 35px;">
+
+Losing your job is rarely a judgement upon your value or worth as a software developer. While it may be difficult to stomach while the sting of a pink slip is still fresh, take some degree of solice from the ___The Godfather___: _It's not personal, it's strictly business._
+
+I witnessed a few coworkers being let go due to poor performance, but it was rare. Most had ample warning to adjust. I witnessed many more cases of those being let go because they were at the wrong place at the wrong time. The company needed to reduce expenses, and they were on the project being cancelled, or they worked at the location being shutdown, or the short straw was drawn for them. Sometimes for large layoffs, I got the feeling that HR decided to ensure that no protected group was targeted who might file a class action lawsuit against the company.
+
+## Most of us are Mercenaries
+
 # Establish a Financial Plan
 I took private flying lessons in my early twenties. When the engine stops in flight, the first step is to establish a glidepath and look for a potential landing site. Once that is under control, then you start the process of restarting the engine.
 
