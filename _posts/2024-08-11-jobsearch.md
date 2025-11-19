@@ -35,11 +35,11 @@ I disagree with him for several reasons:
 * Jobs consume a lot of our time. If you're not feeling some form of satisfaction during the eight to ten hours a day you're working, then you'll be miserable for a good chunk of your life. There's more to a job than the money. In addition to the salary, there's benefits, technology, location, company reputation, industry domain, work-life balance, etc. All of these should factor into job selection.
 * We often spend more time with our coworkers than with our family members. Building good relationships is vital to good teamwork. When you help others, they are more willing to help you. You don't foster good working relationships just for the current job, but also for your next one. These coworkers can become part of your network when they move to other companies. I worked for five companies in my career. Three of those jobs were due to a previous coworker recruiting me.
 
-<img src="https://i2.pickpik.com/photos/615/452/1010/fist-punch-water-splash-preview.jpg" alt="Fist in Water" title="Image Source: https://www.pickpik.com/fist-punch-water-splash-wall-hand-125582#google_vignette" width = "20%" align="right" style="padding-right: 35px;">
-
 But Pollan is correct about one thing: if you treat a company like a family, you will eventually be disappointed. The ___Godfather___ quote above works in both directions. Don't let company loyalty prevent you from exploring new opportunities. It's strictly business. Those who stay with a company out of a sense of loyalty often find that the company doesn't feel the same way about them.
 
 Being prepared isn’t pessimistic; it’s simply professional. If the day ever comes, you should be able to gather your belongings in a few minutes and exit with dignity whether it's your choice or the company's.
+
+<img src="https://i2.pickpik.com/photos/615/452/1010/fist-punch-water-splash-preview.jpg" alt="Fist in Water" title="Image Source: https://www.pickpik.com/fist-punch-water-splash-wall-hand-125582#google_vignette" width = "20%" align="right" style="padding-right: 35px;">
 
 Don't feel that you're irreplaceable. When you leave, you'll be missed for about as long as it takes the hole to fill when you've pulled your fist from a bucket of water. It’s a harsh metaphor, but in my experience, it’s accurate.
 
