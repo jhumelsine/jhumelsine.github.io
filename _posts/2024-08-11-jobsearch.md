@@ -43,7 +43,7 @@ Being prepared isn’t pessimistic; it’s simply professional. If the day ever 
 
 Don't feel that you're irreplaceable. When you leave, you'll be missed for about as long as it takes the hole to fill when you've pulled your fist from a bucket of water. It’s a harsh metaphor, but in my experience, it’s accurate.
 
-I've moved on from several companies, and not once was I contacted after I left. Likewise, I've seen many coworkers move to their next opportunity, and I don't recall any of them being called back for a consultation.
+I've moved on from several companies, and not once was I contacted after I left. Likewise, I've seen many coworkers move to their next opportunity, and I don't recall any of them being contacted for a consultation.
 
 If you see the writing on the wall, start exploring options before someone else makes that decision for you. The upside is that once you embrace this mindset, you take back control of your career.
 
