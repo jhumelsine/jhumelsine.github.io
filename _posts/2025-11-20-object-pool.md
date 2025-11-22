@@ -176,6 +176,64 @@ My implementation example doesn't keep track of client acquired objects. In addi
 
 If the Object Pool maintains all pooled objects whether current being used by clients or waiting to be acquired, then we would be more likely to identify foreign, potentially malicious, objects being injected into the pool via `release(PooledObject)`.
 
+## Proxy Wrapped Object Pool Design and Implementation
+The core design and implementation places a lot of responsibility upon the client to release the object and clear it locally. I don't trust developers to get that right. I wouldn't even trust myself to geth it right.
+
+When I was a C++ developer I used the [Resource Allocation Is Instantiation](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization) (RAII) idiom to accommodate this. RAII is used for classes that have start and finish operations, such as a mutex lock/unlock and a file system open/close.
+
+RAII is a [Proxy](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html). Its constructor executes the start operation. Its destructor executes the finish operation. 
+
+The proxy wrapper object is instantiated upon the stack. Its constructor is executed, which executes the start operation. When the object exists its current scope whether it reaches the end of the scope, returns or an exception is thrown, the object is popped off the stack, and its destructor is executed, which executes the finish operation. It's a nice way to ensure that start/finish operations always execute in pairs. Once I learned of it and started using it, I no longer had to worry about leaving a mutex locked because of an unexpected exception being thrown.
+
+However, Java doesn't have destructors nor are objects instantiated on the stack. Java doesn't support RAII in the same form that C++ can. But it does support it with its [try-with-resources](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html) statement.
+
+Here's a design that adds a `WrappedObject` in front of the `PooledObject`:
+<img src="/assets/ObjectPool2.png" alt="Core Object Pool Design" width = "80%" align="center" style="padding: 35px;">
+
+It's has taken on the client's release responsibility:
+```java
+class WrappedObject implements Feature, Closeable {
+    private PooledObject pooledObject;
+
+    private WrappedObject(PooledObject pooledObject) {
+        this.pooledObject = pooledObject;
+    }
+
+    public static WrappedObject acquire(String name) throws Exception {
+        return new WrappedObject(PooledObject.acquire(name));
+    }
+
+    @Override
+    public void doSomething() {
+        pooledObject.doSomething();
+    }
+
+    @Override
+    public void close() throws IOException  {
+        if (pooledObject == null) {
+            // Already closed or never initialized - nothing to do.
+            return;
+        }
+        
+        try {
+            PooledObject.release(pooledObject);
+            pooledObject = null;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+```
+
+Now that `WrappedObject` has taken on the release and clean up responsibility for the client, the client's code becomes much nicer with:
+```java
+try (WrappedObject a = WrappedObject.acquire("A")) {
+    a.doSomething();
+}
+```
+
+A complete implementation of the above is availble at [Proxy Wrapped Object Pool Design and Implementation](#proxy-wrapped-object-pool-implementation).
+
 # Summary
 
 # References
@@ -196,6 +254,11 @@ Here’s the entire implementation up to this point as one file. Copy and paste 
 ## Core Object Pool Implementation
 ```java
 ```
+
+## Proxy Wrapped Object Pool Design and Implementation
+```java
+```
+
 
 
 +++++++++++++++++++++++++++++++++++++
