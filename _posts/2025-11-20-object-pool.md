@@ -5,7 +5,7 @@ unlisted: true
 ---
 
 # Introduction
-The Gang of Four (GoF) omitted __Object Pool__ as a design pattern from their catalog. I'm not sure why, since I'm sure that the concept existed at the time of the publication. For example,  [Thread Pools](https://en.wikipedia.org/wiki/Thread_pool) should have been.
+The Gang of Four (GoF) omitted __Object Pool__ as a design pattern from their catalog. I'm not sure why, since I'm sure that the concept existed at the time of the publication, or it may have been emerging. The earliest [Thread Pool](https://en.wikipedia.org/wiki/Thread_pool) references I could find where from around that period as well.
 
 Even if the GoF had included it in their catalog, they may not have considered it a [Creational Design Pattern](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html), since an object is not created when acquired. However, I would still consider it a creational pattern, since from the client's point of view, the object is being acquired, even if the specific creation mechanism is encapsulated from the client.
 
@@ -21,7 +21,10 @@ There are plenty of real world examples of shared [Resource Pools](https://en.wi
 * [Bowling Ball Shoe Rentals](https://en.wikipedia.org/wiki/Bowling#Shoes) - Customers rent a pair of shoes while at the bowling lanes and then return them when done. They are pool-ish too, since the shoes some in different sizes.
 * [Car Rental Agencies](https://en.wikipedia.org/wiki/Car_rental) - Customers rent a car and then return it when done. They aren't pure pools either, but I suspect a car rental of [Model T Fords](https://en.wikipedia.org/wiki/Ford_Model_T) could be a pure pool, since they were mostly identical.
 
-# Flyweight vs Object Pool
+# Object Pool Design and Implementation
+I will layer in various Object Pool design and implementation considerations.
+
+## Flyweight vs Object Pool
 Object Pool is structurally similar to [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html), but there are some differences. Here are some of each.
 
 Flyweight and Object Pool have a few similarities:
@@ -31,12 +34,102 @@ Flyweight and Object Pool have a few similarities:
 
 However, they have a few differences:
 * Acquired Flyweight objects are shared by multiple clients, whereas acquired Object Pool objects are used by one client at a time
+* Because Flyweight objects are shared, their intrinsic state must apply to all clients, whereas because Object Pool objects are only used by one client at a time, they can have client specific state
 * The number of Flyweight objects can grow as requested, whereas the number of Object Pool objects are fixed
 * Flyweight always returns an object when acquired, whereas an Object Pool might not have any available objects when one is requested
 * Flyweight objects are initialized via [Lazy Initialization](https://en.wikipedia.org/wiki/Lazy_initialization), whereas Object Pool objects are initialized at start up
 * Flyweight object reclamation is optional, whereas Object Pool reclamation is required
 
-# Object Pool Design and Implementation
+## Core Object Pool Design and Implementation
+As mentioned above, Object Pool's structure is similar to Flyweight's structure. I do not have a specific context in mind, so class and interface names will not tend to indicate what they do within the context of a domain, but how they manage pooled objects.
+
+Here are some highlights from the design:
+* `Feature` defines a basic constract with `doSomething()`.
+* `PooledObject`contains the bulk of the Object Pool structure. It maintains a collection of `pooledObjects` along with static `acquire()` and `release()` methods, which manage the objects within `pooledObjects`.
+* `Client` is not part of the pattern design specifically, but it's important to feature how the client interacts with the pattern design.
+
+<img src="/assets/ObjectPool1.png" alt="Core Object Pool Design" width = "80%" align="center" style="padding: 35px;">
+
+Here is a Java implementation, which fills in more implementation details:
+```java
+interface Feature {
+    void doSomething();
+}
+
+class PooledObject implements Feature {
+    private final static int POOL_SIZE = 3;
+    private static BlockingQueue<PooledObject> objectPool = new ArrayBlockingQueue<>(POOL_SIZE);
+
+    static {
+        for (int i = 0; i < POOL_SIZE; i++) {
+            try {
+                release(new PooledObject(i));
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+    }
+
+    private final int idNumber;
+    private String name;
+
+    private PooledObject(int idNumber) {
+        this.idNumber = idNumber;
+
+        System.out.format("Creating PooledObject idNumber=%d\n", idNumber);
+    }
+
+    public static PooledObject acquire(String name) throws InterruptedException {
+        PooledObject pooledObject = objectPool.take(); // Blocks if pool empty
+        pooledObject.setName(name);
+        return pooledObject;
+    }
+
+    public static void release(PooledObject pooledObject) throws Exception {
+        if (objectPool.contains(pooledObject)) throw new IllegalStateException("Object already released");
+        pooledObject.setName(null); // Cleans the object before returning it to the pool.
+        objectPool.put(pooledObject); // Blocks if pool full
+        System.out.format("Release %s by adding it to objectPool\n", pooledObject.toString());
+    }
+
+    private void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void doSomething() {
+        System.out.format("Do something with %s\n", toString());
+    }
+
+    @Override
+    public String toString() {
+        return String.format("PooledObject idNumber=%d, name=%s", idNumber, name);
+    }
+}
+```
+
+Here is the client code:
+```java
+PooledObject a = PooledObject.acquire("A");  // Take one object from pool
+a.doSomething();                             // Perform some operation
+PooledObject.release(a);                     // Return it to pool
+a = null;                                    // Local reference cleared
+```
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/SHALLOW_WATER_NO_DIVING_ALLOWED_II.jpg/960px-SHALLOW_WATER_NO_DIVING_ALLOWED_II.jpg" alt="Empty Pool" title="Image Source: https://commons.wikimedia.org/wiki/File:SHALLOW_WATER_NO_DIVING_ALLOWED_II.jpg" width = "45%" align="right" style="padding: 35px;">
+
+I have mentioned object reclaimation a few times in previous blogs:
+* [Memory Leaks](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#memory-leaks) in the [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) blog
+* [Omission of Sin](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html#the-sin-of-omission) in the [Proxy](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern) blog
+* [What the GoF Missed](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html#what-the-gof-missed) in the [Creational Design Patterns Introduction](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) blog
+* (Memory Leaks)[https://jhumelsine.github.io/2025/10/31/singleton.html#memory-leaks] in the [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html) blog
+* (Memory leaks)[https://jhumelsine.github.io/2025/11/14/flyweight.html#memory-leaks] in the [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html) blog
+
+I will continue the theme here as well too. The GoF presented different patterns to create objects, but they address what to do with the object once it was no longer needed. Memory management is critical in C++, which was one of their two example languages.
+
+Memory management isn't quite as critical in Java, since [Garbage Collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)) will tend to handle it for you.
+
+The Object Pool pattern is a different case. We cannot rely upon garbage collection.
 
 # Summary
 
