@@ -5,12 +5,12 @@ unlisted: true
 ---
 
 # Introduction
-The Gang of Four (GoF) omitted __Object Pool__ as a design pattern from their catalog. I'm not sure why, since the concept existed or was emerging at the time of the publication. For example, I found a few [Thread Pool](https://en.wikipedia.org/wiki/Thread_pool) references from around that period as well.
+The Gang of Four (GoF) omitted __Object Pool__ as a design pattern from their catalog. I'm not sure why, since the concept existed or was emerging at the time of the publication.
 
 Even if the GoF had included it in their catalog, they may not have considered it a [Creational Design Pattern](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html), since an object is not created when acquired. However, I would still consider it a creational pattern, since from the client's point of view, the object is being acquired, even if the specific creation mechanism is encapsulated from the client.
 
 # Intent
-Object Pool allows multiple clients to access a set resource intensive objects one at a time without having to instantiate them for each use. By resource intensive, I mean that the objects are expensive to instantiate or they are coupled to a limited resources, such as a hardware constraint.
+Object Pool allows multiple clients to access a set resource intensive objects one at a time without having to instantiate them for each use. By resource intensive, I mean that the objects are expensive to instantiate or they are coupled to a limited resources, such as a hardware constraint, for example, a [Thread Pool](https://en.wikipedia.org/wiki/Thread_pool).
 
 An Object Pool is filled with a fixed number of resource intenstive objects at start up. Then when a client requests one, it acquires it from the pool and then returns it when done so that it's available for another client.
 
@@ -157,24 +157,24 @@ I also cleared the local reference above as an additional safety consideration. 
 ### Empty Pool
 Even if clients release their objects, we can still endup with an empty pool. There may be more requesting clients than pooled objects. For example, the implementation example initilized the object pool with three objects. What if a fourth client requested one? This is an issue that other creational pattern have not had to contend with.
 
-We have several options. NEED MORE
+We have several options.
 
 #### Block Wait
+The code example features this approach. It's basic, but it may be a bit naïve, since it could result in deadlock like situations.
 
-#### Block Waith with Timeout
+#### Block Wait with Timeout Exception
+This is the same as above, but it prevents indefinite postponement. However, the client needs to do something should the timeout exception be thrown or declare the exception so that it can be passed up.
 
 #### Throw Exception
+Don't even way for a timeout. Just throw the exception. The client needs to manage the exception as well.
 
-#### Create a new
+#### Create a New Object On Demand
+We can expand the pool by adding another object to it upon demand.
 
-What to do when an object is requested, but the pool is empty?
-* Block wait.
-* Block wait with timeout.
-* Exception immediately.
-* Create a new object on the spot.
+### Final Thoughts
+My implementation example doesn't keep track of client acquired objects. In addition to `objectPool`, we might want to also maintain a set of acquired objects. We might want to do this for pooled object integrity. My `release(PooledObject)` will allow any object to be added to the pool, including one that might be malicious.
 
-### Final thoughts
-NEED MORE This implementation doesn't keep track of the checked out objects. It could allow other objects to be added to it.
+If the Object Pool maintains all pooled objects whether current being used by clients or waiting to be acquired, then we would be more likely to identify foreign, potentially malicious, objects being injected into the pool via `release(PooledObject)`.
 
 # Summary
 
