@@ -5,7 +5,9 @@ unlisted: true
 ---
 
 # Introduction
-The Gang of Four (GoF) omitted __Object Pool__ as a design pattern from their catalog. I'm not sure why, since I'm sure that the concept existed at the time of the publication. For example,  [Thread Pools](https://en.wikipedia.org/wiki/Thread_pool) should have been 
+The Gang of Four (GoF) omitted __Object Pool__ as a design pattern from their catalog. I'm not sure why, since I'm sure that the concept existed at the time of the publication. For example,  [Thread Pools](https://en.wikipedia.org/wiki/Thread_pool) should have been.
+
+Even if the GoF had included it in their catalog, they may not have considered it a [Creational Design Pattern](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html), since an object is not created when acquired. However, I would still consider it a creational pattern, since from the client's point of view, the object is being acquired, even if the specific creation mechanism is encapsulated from the client.
 
 # Intent
 Object Pool allows multiple clients to access a set resource intensive objects one at a time without having to instantiate them for each use. By resource intensive, I mean that the objects are expensive to instantiate or they are coupled to a limited resources, such as a hardware constraint.
@@ -20,7 +22,9 @@ There are plenty of real world examples of shared [Resource Pools](https://en.wi
 * [Car Rental Agencies](https://en.wikipedia.org/wiki/Car_rental) - Customers rent a car and then return it when done. They aren't pure pools either, but I suspect a car rental of [Model T Fords](https://en.wikipedia.org/wiki/Ford_Model_T) could be a pure pool, since they were mostly identical.
 
 # Flyweight vs Object Pool
-[Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html) and Object Pool have a few similarities:
+Object Pool is structurally similar to [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html), but there are some differences. Here are some of each.
+
+Flyweight and Object Pool have a few similarities:
 * Each maintains a repository of objects
 * Each tends to return an existing object rather than instantiate a new one upon demand
 * Each has concurrency concerns
@@ -54,15 +58,6 @@ Here’s the entire implementation up to this point as one file. Copy and paste 
 
 +++++++++++++++++++++++++++++++++++++
 # NOTES
-
-I consider it a creational pattern even if the objects are not being created. The client is still acquiring them.
-
-Feels similar to Flyweight structurally, but it's different. Both involve collections of objects. Flyweight objects are shared. Object Pool objects are not shared.
-
-Object Pools are used when an object is resource intensive. It make take a lot of time to instantiate, or it may be tied to a limited resource.
-
-Even if most haven't implemented an Object Pool, most have used one. A Thread Pool is an object pool.
-
 Objects need to be returned to the pool otherwise you'll end up with a drained pool. I don't think that work references will work. Need a means to release the object. Maybe something like close() might help.
 
 Objects need to be cleaned of any intrinsic state, otherwise, you could end up with a cess pool.
