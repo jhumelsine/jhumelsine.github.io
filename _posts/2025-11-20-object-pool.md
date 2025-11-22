@@ -116,7 +116,7 @@ PooledObject.release(a);                     // Return it to pool
 a = null;                                    // Local reference cleared
 ```
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/SHALLOW_WATER_NO_DIVING_ALLOWED_II.jpg/960px-SHALLOW_WATER_NO_DIVING_ALLOWED_II.jpg" alt="Empty Pool" title="Image Source: https://commons.wikimedia.org/wiki/File:SHALLOW_WATER_NO_DIVING_ALLOWED_II.jpg" width = "45%" align="right" style="padding: 35px;">
+A complete implementation of the above is availble at [Core Object Pool Implementation](#core-object-pool-implementation).
 
 I have mentioned object reclaimation a few times in previous blogs:
 * [Memory Leaks](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#memory-leaks) in the [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) blog
@@ -129,7 +129,13 @@ I will continue the theme here as well too. The GoF presented different patterns
 
 Memory management isn't quite as critical in Java, since [Garbage Collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)) will tend to handle it for you.
 
-The Object Pool pattern is a different case. We cannot rely upon garbage collection.
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/SHALLOW_WATER_NO_DIVING_ALLOWED_II.jpg/960px-SHALLOW_WATER_NO_DIVING_ALLOWED_II.jpg" alt="Empty Pool" title="Image Source: https://commons.wikimedia.org/wiki/File:SHALLOW_WATER_NO_DIVING_ALLOWED_II.jpg" width = "45%" align="right" style="padding: 35px;">
+
+The Object Pool pattern is a different case. We cannot rely upon garbage collection. In fact, we don't want the object to be collected. They're in the Object Pool, because they are resource intensive; therefore, once created, we want them to remain available for the duration of the system's run.
+
+We need clients to release their object back to the pool when they no longer need them. If they do not, then we run the risk of a drained pool. This would be like clients borrowing library books and never returning them. The library would become filled with empty shelves.
+
+I also cleared the local reference above as an additional safety consideration. Once an object has been released, the client should not reference it subsequently.
 
 # Summary
 
@@ -146,7 +152,11 @@ The Object Pool pattern is a different case. We cannot rely upon garbage collect
 * and for more, Google: [Object Pool Design Pattern](https://www.google.com/search?q=object+pool+design+pattern)
 
 # Complete Demo Code
-Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation.
+Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. 
+
+## Core Object Pool Implementation
+```java
+```
 
 
 +++++++++++++++++++++++++++++++++++++
