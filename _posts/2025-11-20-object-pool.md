@@ -50,7 +50,15 @@ Here are some highlights from the design:
 
 <img src="/assets/ObjectPool1.png" alt="Core Object Pool Design" width = "80%" align="center" style="padding: 35px;">
 
+### PooledObject
 Here is a Java implementation, which fills in more implementation details:
+* The `PooledObject` instances can reside in almost any sort of container. I chose a queue with a fixed size of 3.
+* The `PooledObjects` are added to `objectPool` via a static method. Adding them via `release(PooledObject)` feels like an oddly named method, but the behaviors needed to add the instance initially and the methods to release it when the client is done are the same.
+* I added `id` to `PooledObject` as a means to uniquely identify each object in the pool.
+* `name` is set for each client when acquiring a pooled object.
+* `acquire(String name)` retrives a `PooledObject` from `objectPool`, initializes it with the client provided name and returns it.
+* `release(ObjectPool)` cleans the instance by setting the name to null and adds it back to the `objectPool` queue.
+
 ```java
 interface Feature {
     void doSomething();
@@ -108,6 +116,15 @@ class PooledObject implements Feature {
 }
 ```
 
+A complete implementation of the above is availble at [Core Object Pool Implementation](#core-object-pool-implementation).
+
+<img src="https://live.staticflickr.com/3347/5842100167_d9fe46fe02_b.jpg" alt="Latrine Pit" title="Image Source: https://www.flickr.com/photos/vastateparksstaff/5842100167/" width = "35%" align="right" style="padding: 35px;">
+
+`release(ObjectPool)` cleans the released instance by setting the name to null. If intrinsic data isn't scrubbed in `release(ObjectPool)` then we run the risk of of intrinsic data provided by one client remaining in the intrinsic data of another client. Our Object Pool would become a Cesspool, and no one wants a dirty pool.
+
+This example only has to clean `name`. Pooled objects with more intrinsic state would require more cleaning.
+
+### Client Code
 Here is the client code:
 ```java
 PooledObject a = PooledObject.acquire("A");  // Take one object from pool
@@ -116,7 +133,7 @@ PooledObject.release(a);                     // Return it to pool
 a = null;                                    // Local reference cleared
 ```
 
-A complete implementation of the above is availble at [Core Object Pool Implementation](#core-object-pool-implementation).
+While `PooledObject` provides the release method, it's the client's responsibility to call it.
 
 I have mentioned object reclaimation a few times in previous blogs:
 * [Memory Leaks](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#memory-leaks) in the [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) blog
