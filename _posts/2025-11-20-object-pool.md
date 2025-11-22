@@ -5,7 +5,7 @@ unlisted: true
 ---
 
 # Introduction
-The Gang of Four (GoF) omitted __Object Pool__ as a design pattern from their catalog. I'm not sure why, since I'm sure that the concept existed at the time of the publication, or it may have been emerging. The earliest [Thread Pool](https://en.wikipedia.org/wiki/Thread_pool) references I could find where from around that period as well.
+The Gang of Four (GoF) omitted __Object Pool__ as a design pattern from their catalog. I'm not sure why, since the concept existed or was emerging at the time of the publication. For example, I found a few [Thread Pool](https://en.wikipedia.org/wiki/Thread_pool) references from around that period as well.
 
 Even if the GoF had included it in their catalog, they may not have considered it a [Creational Design Pattern](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html), since an object is not created when acquired. However, I would still consider it a creational pattern, since from the client's point of view, the object is being acquired, even if the specific creation mechanism is encapsulated from the client.
 
@@ -154,6 +154,28 @@ We need clients to release their object back to the pool when they no longer nee
 
 I also cleared the local reference above as an additional safety consideration. Once an object has been released, the client should not reference it subsequently.
 
+### Empty Pool
+Even if clients release their objects, we can still endup with an empty pool. There may be more requesting clients than pooled objects. For example, the implementation example initilized the object pool with three objects. What if a fourth client requested one? This is an issue that other creational pattern have not had to contend with.
+
+We have several options. NEED MORE
+
+#### Block Wait
+
+#### Block Waith with Timeout
+
+#### Throw Exception
+
+#### Create a new
+
+What to do when an object is requested, but the pool is empty?
+* Block wait.
+* Block wait with timeout.
+* Exception immediately.
+* Create a new object on the spot.
+
+### Final thoughts
+NEED MORE This implementation doesn't keep track of the checked out objects. It could allow other objects to be added to it.
+
 # Summary
 
 # References
@@ -181,12 +203,6 @@ Here’s the entire implementation up to this point as one file. Copy and paste 
 Objects need to be returned to the pool otherwise you'll end up with a drained pool. I don't think that work references will work. Need a means to release the object. Maybe something like close() might help.
 
 Objects need to be cleaned of any intrinsic state, otherwise, you could end up with a cess pool.
-
-What to do when an object is requested, but the pool is empty?
-* Block wait.
-* Block wait with timeout.
-* Exception immediately.
-* Create a new object on the spot.
 
 As for an implementation, consider using a Queue. May need an `initialize(arguments)` method as well.
 
