@@ -122,8 +122,8 @@ I have mentioned object reclaimation a few times in previous blogs:
 * [Memory Leaks](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#memory-leaks) in the [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) blog
 * [Omission of Sin](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html#the-sin-of-omission) in the [Proxy](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern) blog
 * [What the GoF Missed](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html#what-the-gof-missed) in the [Creational Design Patterns Introduction](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) blog
-* (Memory Leaks)[https://jhumelsine.github.io/2025/10/31/singleton.html#memory-leaks] in the [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html) blog
-* (Memory leaks)[https://jhumelsine.github.io/2025/11/14/flyweight.html#memory-leaks] in the [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html) blog
+* [Memory Leaks](https://jhumelsine.github.io/2025/10/31/singleton.html#memory-leaks) in the [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html) blog
+* [Memory leaks](https://jhumelsine.github.io/2025/11/14/flyweight.html#memory-leaks) in the [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html) blog
 
 I will continue the theme here as well too. The GoF presented different patterns to create objects, but they address what to do with the object once it was no longer needed. Memory management is critical in C++, which was one of their two example languages.
 
