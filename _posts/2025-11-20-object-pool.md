@@ -234,6 +234,8 @@ try (WrappedObject a = WrappedObject.acquire("A")) {
 }
 ```
 
+I was about to write more about RAII, but since I've already addressed it in [Sin of Omission](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html#the-sin-of-omission), I'll just provide a reference if anyone's interested.
+
 A complete implementation of the above is availble at [Proxy Wrapped Object Pool Design and Implementation](#proxy-wrapped-object-pool-implementation).
 
 # Summary
