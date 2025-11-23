@@ -190,7 +190,7 @@ The proxy wrapper object is instantiated upon the stack. Its constructor is exec
 However, Java doesn't have destructors nor are objects instantiated on the stack. Java doesn't support RAII in the same form that C++ can. But it does support a version of it with its [try-with-resources](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html) statement.
 
 Here's a design that adds a `WrappedObject` in front of the `PooledObject`:
-<img src="/assets/ObjectPool2.png" alt="Core Object Pool Design" width = "80%" align="center" style="padding: 35px;">
+<img src="/assets/ObjectPool2.png" alt="Proxy Wrapped Object Pool Design" width = "80%" align="center" style="padding: 35px;">
 
 `WrappedObject` has taken on the client's release responsibility from the previous design and implementation:
 ```java
@@ -238,6 +238,40 @@ I was about to write more about RAII, but since I've already addressed it in [Si
 
 A complete implementation of the above is availble at [Proxy Wrapped Object Pool Design and Implementation](#proxy-wrapped-object-pool-implementation).
 
+## On Demand Wrapped Object Pool Design and Implementation
+I'll provide one more nuanced Object Pool design and implementation. This one wraps the try-with-resources statement within the method call, such that the client does not even need to be concerned with any implicit resource management. In this example, the client calls `new()` directly.
+
+This is a special case, and it won't work for all Object Pools. It only works as long as the client's use of a pooled object can be scoped to one method call.
+
+<img src="/assets/ObjectPool3.png" alt="On Demand Wrapped Object Pool Design" width = "80%" align="center" style="padding: 35px;">
+
+```java
+class OnDemandWrapper implements Feature {
+    private String name;
+
+    public OnDemandWrapper(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void doSomething() {
+        try (WrappedObject onDemand = WrappedObject.acquire(name)) {
+            onDemand.doSomething();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+```
+
+Here's the client's code, which is barely worth listing:
+```java
+Feature a = new OnDemandWrapper("A");
+a.doSomething();
+```
+
+A complete implementation of the above is availble at [On Demand Wrapped Object Pool Design and Implementation](#on-demand-wrapped-object-pool-implementation).
+
 # Summary
 TBD
 
@@ -264,6 +298,6 @@ Here’s the entire implementation up to this point as one file. Copy and paste 
 ```java
 ```
 
-+++++++++++++++++++++++++++++++++++++
-# NOTES
-Still have to deal with concurrency and state. Memory leaks is a different topic. This pattern will always leak in that objects are added to the pool at start up and they remain as long as the process is running.
+## On Demand Wrapped Object Pool Design and Implementation
+```java
+```
