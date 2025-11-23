@@ -292,12 +292,356 @@ Here’s the entire implementation up to this point as one file. Copy and paste 
 
 ## Core Object Pool Implementation
 ```java
+import java.util.*;
+import java.util.concurrent.*;
+
+public class ObjectPoolDemo1 {
+    public static void main(String[] args) throws Exception {
+        PooledObject a = PooledObject.acquire("A");  // Take one object from pool
+        a.doSomething();                             // Perform some operation
+        PooledObject.release(a);                     // Return it to pool
+        a = null;                                    // Local reference cleared
+
+        // This cycle repeats, showing safe reuse of pooled resources.
+
+        PooledObject b = PooledObject.acquire("B");
+        b.doSomething();
+        PooledObject.release(b);
+        b = null;
+
+        PooledObject c = PooledObject.acquire("C");
+        PooledObject d = PooledObject.acquire("D");
+        c.doSomething();
+        d.doSomething();
+        PooledObject.release(d);
+        d = null;
+        PooledObject.release(c);
+        c = null;
+
+        // This confirms that the local references have been cleared, but the originals are still in the pool.
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+        System.out.println(d);
+
+        PooledObject e = PooledObject.acquire("E");
+        e.doSomething();
+        PooledObject.release(e);
+    }
+}
+
+interface Feature {
+    void doSomething();
+}
+
+class PooledObject implements Feature {
+    private final static int POOL_SIZE = 3;
+    private static BlockingQueue<PooledObject> objectPool = new ArrayBlockingQueue<>(POOL_SIZE);
+
+    static {
+        for (int i = 0; i < POOL_SIZE; i++) {
+            try {
+                release(new PooledObject(i));
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+    }
+
+    private final int idNumber;
+    private String name;
+
+    private PooledObject(int idNumber) {
+        this.idNumber = idNumber;
+
+        System.out.format("Creating PooledObject idNumber=%d\n", idNumber);
+    }
+
+    public static PooledObject acquire(String name) throws InterruptedException {
+        PooledObject pooledObject = objectPool.take(); // Blocks if pool empty
+        pooledObject.setName(name);
+        return pooledObject;
+    }
+
+    public static void release(PooledObject pooledObject) throws Exception {
+        if (objectPool.contains(pooledObject)) throw new IllegalStateException("Object already released");
+        pooledObject.setName(null); // Cleans the object before returning it to the pool.
+        objectPool.put(pooledObject); // Blocks if pool full
+        System.out.format("Release %s by adding it to objectPool\n", pooledObject.toString());
+    }
+
+    private void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void doSomething() {
+        System.out.format("Do something with %s\n", toString());
+    }
+
+    @Override
+    public String toString() {
+        return String.format("PooledObject idNumber=%d, name=%s", idNumber, name);
+    }
+}
 ```
 
 ## Proxy Wrapped Object Pool Design and Implementation
 ```java
+import java.util.*;
+import java.util.concurrent.*;
+import java.io.*;
+
+public class ObjectPoolDemo2 {
+    public static void main(String[] args) throws Exception {
+        try (WrappedObject a = WrappedObject.acquire("A")) {
+            a.doSomething();
+        }
+
+        try (WrappedObject b = WrappedObject.acquire("B")) {
+            b.doSomething();
+        }
+
+        try (WrappedObject c = WrappedObject.acquire("C");
+        WrappedObject d = WrappedObject.acquire("D")) {
+            c.doSomething();
+            d.doSomething(); 
+        }
+
+        try (WrappedObject e = WrappedObject.acquire("E")) {
+            e.doSomething();
+        }
+    }
+}
+
+interface Feature {
+    void doSomething();
+}
+
+class WrappedObject implements Feature, Closeable {
+    private PooledObject pooledObject;
+
+    private WrappedObject(PooledObject pooledObject) {
+        this.pooledObject = pooledObject;
+    }
+
+    public static WrappedObject acquire(String name) throws Exception {
+        return new WrappedObject(PooledObject.acquire(name));
+    }
+
+    @Override
+    public void doSomething() {
+        pooledObject.doSomething();
+    }
+
+    @Override
+    public void close() throws IOException  {
+        if (pooledObject == null) {
+            // Already closed or never initialized - nothing to do.
+            return;
+        }
+        
+        try {
+            PooledObject.release(pooledObject);
+            pooledObject = null;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+}
+
+class PooledObject implements Feature {
+    private final static int POOL_SIZE = 3;
+    private static BlockingQueue<PooledObject> objectPool = new ArrayBlockingQueue<>(POOL_SIZE);
+
+    static {
+        for (int i = 0; i < POOL_SIZE; i++) {
+            try {
+                release(new PooledObject(i));
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+    }
+
+    private final int idNumber;
+    private String name;
+
+    private PooledObject(int idNumber) {
+        this.idNumber = idNumber;
+
+        System.out.format("Creating PooledObject idNumber=%d\n", idNumber);
+    }
+
+    public static PooledObject acquire(String name) throws InterruptedException {
+        PooledObject pooledObject = objectPool.take(); // Blocks if pool empty
+        pooledObject.setName(name);
+        return pooledObject;
+    }
+
+    public static void release(PooledObject pooledObject) throws Exception {
+        if (objectPool.contains(pooledObject)) throw new IllegalStateException("Object already released");
+        pooledObject.setName(null); // Cleans the object before returning it to the pool.
+        objectPool.put(pooledObject); // Blocks if pool full
+        System.out.format("Release %s by adding it to objectPool\n", pooledObject.toString());
+    }
+
+    private void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void doSomething() {
+        System.out.format("Do something with %s\n", toString());
+    }
+
+    @Override
+    public String toString() {
+        return String.format("PooledObject idNumber=%d, name=%s", idNumber, name);
+    }
+}
 ```
 
 ## On Demand Wrapped Object Pool Design and Implementation
 ```java
+import java.util.*;
+import java.util.concurrent.*;
+import java.io.*;
+
+public class ObjectPoolDemo3 {
+    public static void main(String[] args) throws Exception {
+
+        Feature a = new OnDemandWrapper("A");
+        a.doSomething();
+        a.doSomething();
+        a.doSomething();
+        a.doSomething();
+
+        Feature b = new OnDemandWrapper("B");
+        b.doSomething();
+        b.doSomething();
+        a.doSomething();
+
+        Feature c = new OnDemandWrapper("C");
+        Feature d = new OnDemandWrapper("D");
+        Feature e = new OnDemandWrapper("E");
+        Feature f = new OnDemandWrapper("F");
+        Feature g = new OnDemandWrapper("G");
+
+        a.doSomething();
+        b.doSomething();
+        c.doSomething();
+        d.doSomething();
+        e.doSomething();
+        f.doSomething();
+        g.doSomething();
+        a.doSomething();
+    }
+}
+
+interface Feature {
+    void doSomething();
+}
+
+class OnDemandWrapper implements Feature {
+    private String name;
+
+    public OnDemandWrapper(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void doSomething() {
+        try (WrappedObject onDemand = WrappedObject.acquire(name)) {
+            onDemand.doSomething();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+
+class WrappedObject implements Feature, Closeable {
+    private PooledObject pooledObject;
+
+    private WrappedObject(PooledObject pooledObject) {
+        this.pooledObject = pooledObject;
+    }
+
+    public static WrappedObject acquire(String name) throws Exception {
+        return new WrappedObject(PooledObject.acquire(name));
+    }
+
+    @Override
+    public void doSomething() {
+        pooledObject.doSomething();
+    }
+
+    @Override
+    public void close() throws IOException  {
+        if (pooledObject == null) {
+            // Already closed or never initialized - nothing to do.
+            return;
+        }
+        
+        try {
+            PooledObject.release(pooledObject);
+            pooledObject = null;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+}
+
+class PooledObject implements Feature {
+    private final static int POOL_SIZE = 3;
+    private static BlockingQueue<PooledObject> objectPool = new ArrayBlockingQueue<>(POOL_SIZE);
+
+    static {
+        for (int i = 0; i < POOL_SIZE; i++) {
+            try {
+                release(new PooledObject(i));
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+    }
+
+    private final int idNumber;
+    private String name;
+
+    private PooledObject(int idNumber) {
+        this.idNumber = idNumber;
+
+        System.out.format("Creating PooledObject idNumber=%d\n", idNumber);
+    }
+
+    public static PooledObject acquire(String name) throws InterruptedException {
+        PooledObject pooledObject = objectPool.take(); // Blocks if pool empty
+        pooledObject.setName(name);
+        return pooledObject;
+    }
+
+    public static void release(PooledObject pooledObject) throws Exception {
+        if (objectPool.contains(pooledObject)) throw new IllegalStateException("Object already released");
+        pooledObject.setName(null); // Cleans the object before returning it to the pool.
+        objectPool.put(pooledObject); // Blocks if pool full
+        System.out.format("Release %s by adding it to objectPool\n", pooledObject.toString());
+    }
+
+    private void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void doSomething() {
+        System.out.format("Do something with %s\n", toString());
+    }
+
+    @Override
+    public String toString() {
+        return String.format("PooledObject idNumber=%d, name=%s", idNumber, name);
+    }
+}
 ```
