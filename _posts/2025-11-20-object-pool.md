@@ -179,7 +179,7 @@ If the Object Pool maintains all pooled objects whether current being used by cl
 ## Proxy Wrapped Object Pool Design and Implementation
 The core design and implementation places a lot of responsibility upon the client to release the object and clear it locally. I don't trust developers to get that right. I wouldn't even trust myself to geth it right.
 
-When I was a C++ developer I used the [Resource Allocation Is Instantiation](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization) (RAII) idiom to accommodate this. RAII is used for classes that have start and finish operations, such as a mutex lock/unlock and a file system open/close.
+When I was a C++ developer I used the [Resource Allocation Is Instantiation](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization) (RAII) idiom to accommodate this. RAII is used for classes that have start and finish operations, such as a [mutex](https://en.wikipedia.org/wiki/Lock_(computer_science)) lock/unlock and a file system open/close.
 
 RAII is a [Proxy](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html). Its constructor executes the start operation. Its destructor executes the finish operation. 
 
@@ -259,14 +259,6 @@ Here’s the entire implementation up to this point as one file. Copy and paste 
 ```java
 ```
 
-
-
 +++++++++++++++++++++++++++++++++++++
 # NOTES
-Objects need to be returned to the pool otherwise you'll end up with a drained pool. I don't think that work references will work. Need a means to release the object. Maybe something like close() might help.
-
-Objects need to be cleaned of any intrinsic state, otherwise, you could end up with a cess pool.
-
-As for an implementation, consider using a Queue. May need an `initialize(arguments)` method as well.
-
 Still have to deal with concurrency and state. Memory leaks is a different topic. This pattern will always leak in that objects are added to the pool at start up and they remain as long as the process is running.
