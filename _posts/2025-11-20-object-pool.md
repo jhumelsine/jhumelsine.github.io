@@ -1,18 +1,18 @@
 ---
 title: WORK IN PROGRESS – Object Pool Design Pattern
-description: TBD
+description: An exploration of how Object Pools improve performance by reusing costly-to-create objects
 unlisted: true
 ---
 
 # Introduction
-The Gang of Four (GoF) omitted __Object Pool__ as a design pattern from their catalog. I'm not sure why, since the concept existed or was emerging at the time of their publication.
+The Gang of Four (GoF) omitted __Object Pool__ as a design pattern from their catalog. I'm not sure why, but it's possible it was omitted because the concept was too new and it had not gained enough usage to qualify as a design pattern at the time of their publication.
 
 Even if the GoF had included it in their catalog, they may not have considered it a [Creational Design Pattern](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html), since an object is not created when acquired. However, I still consider it a creational pattern, since from the client's point of view, the object is being acquired, even if the specific creation mechanism is encapsulated from the client.
 
 # Intent
-Object Pool allows multiple clients to access a set resource intensive objects without having to instantiate them for each use. By resource intensive, I mean that the objects are expensive to instantiate, such as requiring a lot of time, or they are coupled to a limited resources, such as a hardware constraint. A [Thread Pool](https://en.wikipedia.org/wiki/Thread_pool) is an example of an Object Pool.
+Object Pool allows multiple clients to access a set resource intensive objects without having to instantiate them for each use. By resource intensive, I mean that the objects are expensive to instantiate, such as requiring a lot of time, or they are coupled to a limited resources, such as a hardware constraint.
 
-An Object Pool is allocated with a fixed number of resource intenstive objects at start up. Then when a client requests one, it acquires it from the pool and then returns it when done so that it's available for another client.
+An Object Pool is allocated with a fixed number of resource intensive objects at start up. Then when a client requests one, it acquires it from the pool and then returns it when done so that it's available for another client.
 
 There are many real world examples of shared [Resource Pools](https://en.wikipedia.org/wiki/Pooling_(resource_management)) including:
 <img src="https://heute-at-prod-images.imgix.net/2022/04/21/0d770b26-f233-4039-9a25-4cce88dcc9ec.jpeg?rect=0%2C283%2C3600%2C2025&auto=format" alt="Mad Men" title="Image Source: https://www.heute.at/i/mad-men-star-im-alter-von-90-jahren-gestorben-100202791/doc-1g16gc2ur0" width = "50%" align="right" style="padding: 35px;">
@@ -20,6 +20,11 @@ There are many real world examples of shared [Resource Pools](https://en.wikiped
 * [Libraries](https://en.wikipedia.org/wiki/Library) - Libraries contain a finite number of books. Patrons checkout books and then return them several days or weeks later. Libraries are pool-like, but they are not a perfect fit, since libraries are filled with different books. To be a pure pool, the library would contain multiple copies of only one book.
 * [Bowling Ball Shoe Rentals](https://en.wikipedia.org/wiki/Bowling#Shoes) - Customers rent a pair of shoes while at the bowling lanes and then return them when done. They are pool-ish too, since the shoes come in different sizes.
 * [Car Rental Agencies](https://en.wikipedia.org/wiki/Car_rental) - Customers rent a car and then return it when done. They aren't pure pools either, but I suspect a car rental of [Model T Fords](https://en.wikipedia.org/wiki/Ford_Model_T) could be a pure pool, since they were mostly identical.
+
+Here are a few more aligned with software:
+* [Thread Pools](https://en.wikipedia.org/wiki/Thread_pool)
+* [Database Connection Pools](https://en.wikipedia.org/wiki/Connection_pool)
+* [Memory Pools](https://en.wikipedia.org/wiki/Memory_pool)
 
 # Object Pool Design and Implementation
 I will layer in various Object Pool design and implementation considerations.
@@ -30,12 +35,12 @@ Object Pool is structurally similar to [Flyweight](https://jhumelsine.github.io/
 Flyweight and Object Pool have the following similarities:
 * Each maintains a repository of objects
 * Each tends to return an existing object rather than instantiate a new one upon demand
-* Each has concurrency concerns
+* Each has concurrency concerns, for example you want to ensure that two threads to acquire the same pooled object at the same time
 
 However, they have the following differences:
 * Acquired Flyweight objects are shared by multiple clients at the same time, whereas acquired Object Pool objects are shared by multiple clients, but at most one client per object at any given time.
 * Because Flyweight objects are shared, their intrinsic state must apply to all clients, whereas because Object Pool objects are only used by one client at a time, they can have client specific state
-* The number of Flyweight objects can grow as requested, whereas the number of Object Pool objects are fixed
+* The number of Flyweight objects can grow as requested, whereas the number of Object Pool objects tend to be fixed, but they can also grow and shrink dynamically depending upon utilization
 * Flyweight always returns an object when acquired, whereas an Object Pool might not have any available objects when one is requested
 * Flyweight objects are initialized via [Lazy Initialization](https://en.wikipedia.org/wiki/Lazy_initialization), whereas Object Pool objects are initialized at start up
 * Flyweight object reclamation is optional, whereas Object Pool reclamation is required
@@ -156,7 +161,7 @@ We need clients to release their object back to the pool when they no longer nee
 
 I also had the client clear the local reference above by setting it to null as an additional safety consideration. Once an object has been released, the client should not reference it subsequently, since it may have been acquired by another client.
 
-### Empty Pool
+### Pool Exhaustion
 Even with clients releaseing their objects reliably and consistently, we can still end up with an empty pool. There may be more requesting clients than pooled objects. For example, the implementation example initilized the object pool with three objects. What if a fourth client requested one? This is an issue that other creational pattern have not had to contend with.
 
 We have several options.
@@ -278,8 +283,23 @@ a.doSomething();
 
 A complete implementation of the above is availble at [On Demand Wrapped Object Pool Design and Implementation](#on-demand-wrapped-object-pool-implementation).
 
+# Object Pool Trade-Offs
+There are advantages and disadvantages to Object Pools.
+
+Advantages:
+* Avoid expensive instantiation repeatedly
+* Limit the number of active objects (resource limiting)
+* Performance improvements (GC pressure reduced, especially in GC languages)
+
+Drawbacks and Risks:
+* Complexity: more bookkeeping, acquiring/releasing
+* Memory bloat: pooled objects retain memory even when idle
+* Pool exhaustion risk
+* Clients forgetting to release leading to leaks
+* Overuse, especially when the objects are not resource intensive
+
 # Summary
-TBD
+The Object Pool pattern offers real performance and resource-management benefits—when used for the right reasons. It shines when objects are truly expensive to create and when a system needs predictable, bounded resource usage. But pooling also introduces new responsibilities: careful cleaning, clear ownership rules, and thread-safe coordination. Before adopting it, measure your bottlenecks, understand the trade-offs, and ensure your team is disciplined about the lifecycle of pooled objects. When implemented thoughtfully, Object Pools can be a powerful tool in a software engineer’s design toolbox.
 
 # References
 * [Wikipedia Object Pool Design Pattern](https://en.wikipedia.org/wiki/Object_pool_pattern)
