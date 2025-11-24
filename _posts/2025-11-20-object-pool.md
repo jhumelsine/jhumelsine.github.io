@@ -14,9 +14,9 @@ Even if the GoF had included it in their catalog, they may not have considered i
 # Intent
 Object Pool allows multiple clients to access a set resource intensive objects without having to instantiate them for each use. By resource intensive, I mean that the objects are expensive to instantiate, such as requiring a lot of time, or they are coupled to a limited resources, such as a hardware constraint.
 
-An Object Pool is allocated with a number of resource intensive objects at start up. Then when a client requests one, it acquires it from the pool and then returns it when done so that it's available for another client.
-
 For example, opening a new database connection requires authentication, network I/O, driver negotiation, and often server-side session creation. Creating one for every request would overwhelm the database and the application.
+
+An Object Pool is allocated with a number of resource intensive objects often at start up. Then when a client requests one, it acquires it from the pool and then returns it when done so that it's available for another client.
 
 There are many real world examples of shared [Resource Pools](https://en.wikipedia.org/wiki/Pooling_(resource_management)) including:
 <img src="https://heute-at-prod-images.imgix.net/2022/04/21/0d770b26-f233-4039-9a25-4cce88dcc9ec.jpeg?rect=0%2C283%2C3600%2C2025&auto=format" alt="Mad Men" title="Image Source: https://www.heute.at/i/mad-men-star-im-alter-von-90-jahren-gestorben-100202791/doc-1g16gc2ur0" width = "50%" align="right" style="padding: 35px;">
@@ -47,7 +47,7 @@ However, they have the following differences:
 * Because Flyweight objects are shared, their intrinsic state must apply to all clients, whereas because Object Pool objects are only used by one client at a time, they can have client specific state
 * The number of Flyweight objects can grow as requested, whereas the number of Object Pool objects tend to be fixed, but they can also grow and shrink dynamically depending upon utilization
 * Flyweight always returns an object when acquired, whereas an Object Pool might not have any available objects when one is requested
-* Flyweight objects are initialized via [Lazy Initialization](https://en.wikipedia.org/wiki/Lazy_initialization), whereas Object Pool objects are initialized at start up
+* Flyweight objects are initialized via [Lazy Initialization](https://en.wikipedia.org/wiki/Lazy_initialization), whereas Object Pool objects are initialized at start up using eager initialization, but they can be implemented to use lazy initialization as well
 * Flyweight object reclamation is optional, whereas Object Pool reclamation is required
 
 ## Core Object Pool Design and Implementation
@@ -63,12 +63,12 @@ Here are some highlights from the design:
 ### PooledObject
 Here is a Java implementation, which provides more implementation details:
 * The `PooledObject` instances can reside in almost any sort of container. I chose a queue with a fixed size of 3.
-* The `PooledObjects` are added to `objectPool` via a static method, which is an example of eager initialization. As an alternative, `PooledObjects` could be added only needed until the pool has been filled. Adding them via `release(PooledObject)` feels like an oddly named method. I named `release(PooledObject)` from the client's point of view to be used when releasing the `PooledObject` back into the pool. However, the behaviors needed to add the instance initially and to release it by the client are the same, so I'm using `release(PooledObject)` to initialize the pool at start up.
+* The `PooledObjects` are added to `objectPool` via a static method, which is an example of eager initialization. As an alternative, `PooledObjects` could be added only when needed until the pool has been filled. Adding them via `release(PooledObject)` feels like an oddly named method. I named `release(PooledObject)` from the client's point of view to be used when releasing the `PooledObject` back into the pool. However, the behaviors needed to add the instance initially and to release it by the client are the same, so I'm using `release(PooledObject)` to initialize the pool at start up.
 * [__BlockingQueue__](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html) is thread-safe. 
-* I added `id` to `PooledObject` as a means to uniquely identify each object in the pool.
-* `name` is intrinsic state information provided by the client when acquiring a pooled object.
+* I added `id` to `PooledObject` as a means to uniquely identify each object in the pool. It's not critical to the design.
+* `name` is intrinsic state information provided by the client when acquiring a pooled object. It's provided only as an example for intrinsic state.
 * `acquire(String name)` retrieves a `PooledObject` from `objectPool`, initializes its intrinsic state with the client provided name and returns it.
-* `release(ObjectPool)` cleans the instance by setting the name to null and adds it back to the `objectPool` queue. It also confirms that a double-release doesn't cause difficult to detect subsequent issues.
+* `release(ObjectPool)` cleans the instance by setting the name to null and adds it back to the `objectPool` queue. It also confirms that a double-release won't occur, which could introduce difficult to detect issues subsequently.
 
 ```java
 interface Feature {
@@ -131,11 +131,11 @@ A complete implementation of the above is availble at [Core Object Pool Implemen
 
 <img src="https://live.staticflickr.com/3347/5842100167_d9fe46fe02_b.jpg" alt="Latrine Pit" title="Image Source: https://www.flickr.com/photos/vastateparksstaff/5842100167/" width = "35%" align="right" style="padding: 35px;">
 
-`release(ObjectPool)` cleans the released instance by setting the name to null. If intrinsic data isn't scrubbed in `release(ObjectPool)` then we run the risk of intrinsic data provided by one client remaining in the intrinsic data of another client. Our Object Pool would become a Cesspool, and no one wants a dirty pool.
+`release(ObjectPool)` cleans the released instance by setting the name to null. If intrinsic data isn't scrubbed in `release(ObjectPool)` then we run the risk of intrinsic data provided by one client remaining in the intrinsic statie of the `pooledObject` when acquired by another client. Our Object Pool would become a Cesspool, and no one wants a dirty pool.
 
-This example only has to clean `name`. Pooled objects with more intrinsic state would require more cleaning, and it would probably be extracted into its own method named `reset()` or `clearForReuse()`.
+This example only has to clean `name`. Pooled objects with more intrinsic state would require more cleaning which would probably be extracted into its own method named `reset()` or `clearForReuse()`.
 
-It's like spraying disinfectant into bowling shoes whenthey are returned.
+Cleaning a released object like spraying disinfectant into bowling shoes when they are returned.
 
 ### Client Code
 Here is the client code:
@@ -163,9 +163,9 @@ Memory management isn't quite as critical in Java, since [Garbage Collection](ht
 
 The Object Pool pattern is a different case. We cannot rely upon garbage collection. In fact, we don't want the pooled object to be collected. They're in the Object Pool, because their creation is resource intensive. Once created, we want them to remain available for the duration of the process' execution.
 
-We need clients to release their object back to the pool when they no longer need them. If they do not, then we run the risk of a drained pool. This would be like library patrons borrowing books and never returning them. The library would become filled with empty shelves.
+We need clients to release their objects back to the pool when they no longer need them. If they do not, then we run the risk of a drained pool. This would be like library patrons borrowing books and never returning them. The library would become filled with empty shelves.
 
-I also had the client clear the local reference above by setting it to null as an additional safety consideration. Once an object has been released, the client should not reference it subsequently, since it may have been acquired by another client.
+I also had the client clear the local reference above by setting it to `null` as an additional safety consideration. Once an object has been released, the client should not reference it subsequently, since it may have been acquired by another client.
 
 ### Pool Exhaustion
 Even with clients releasing their objects reliably and consistently, we can still end up with an empty pool. There may be more requesting clients than pooled objects. For example, the implementation example initialized the object pool with three objects. What if a fourth client requested one? This is an issue that other creational pattern have not had to contend with.
@@ -187,19 +187,19 @@ We can expand the pool by adding another object to it upon demand. This is a bit
 #### Fail Fast With Metrics/Logging
 Immediately fail with a detailed log and increment an exhaustion counter. This reinforces modern observability practices.
 
-### Final Thoughts
+### Final Core Design and Implementation Thoughts
 My implementation example doesn't keep track of client acquired objects. In addition to the `objectPool` queue, we might want to also maintain the set of acquired objects. We might want to do this for pooled object integrity. My `release(PooledObject)` will allow any object to be added to the pool, including one that might be malicious.
 
 If the `ObjectPool` maintains all pooled objects whether current being used by clients or waiting to be acquired, then we would be more likely to identify and prevent foreign, potentially malicious, objects being injected into the pool via `release(PooledObject)`.
 
 ## Proxy Wrapped Object Pool Design and Implementation
-The core design and implementation listed above places a lot of responsibility upon the client to release the object and clear it locally. I don't trust developers to get that right. I wouldn't even trust myself to geth it right.
+The core design and implementation listed above places a lot of responsibility upon the client to release the object and clear it locally. I don't trust developers to get that right. I wouldn't even trust myself to get it right.
 
-When I was a C++ developer I used the [Resource Allocation Is Instantiation](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization) (RAII) idiom to accommodate this. RAII is used for classes that have start and finish operations, such as a [mutex](https://en.wikipedia.org/wiki/Lock_(computer_science)) lock/unlock and a database open/close.
+When I was a C++ developer I used the [Resource Allocation Is Instantiation](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization) (RAII) idiom to manage this. RAII is used for classes that have start and finish operations, such as a [mutex](https://en.wikipedia.org/wiki/Lock_(computer_science)) lock/unlock and a database open/close.
 
 RAII is a [Proxy](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html). Its constructor executes the start operation. Its destructor executes the finish operation. 
 
-The proxy wrapper object is instantiated upon the stack. Its constructor is executed, which executes the start operation. When the object exists its current scope whether it reaches the end of the scope, returns or an exception is thrown, the object is popped off the stack, and its destructor is executed, which executes the finish operation. It's a nice way to ensure that start/finish operations always execute in pairs. Once I learned of RAII and started using it, I no longer had to worry about leaving a mutex locked because of an unexpected exception being thrown.
+The proxy wrapper object is instantiated upon the stack. When its constructor is executed, it executes the start operation. When the object exits its current scope whether it reaches the end of the scope, returns or an exception is thrown, the object is popped off the stack, and its destructor is executed, which executes the finish operation. It's a nice way to ensure that start/finish operations always execute in pairs. Once I learned of RAII and started using it, I no longer had to worry about leaving a mutex locked because of an unexpected exception being thrown.
 
 However, Java doesn't have destructors nor are objects instantiated on the stack. Java doesn't support RAII in the same form that C++ can. But it does support a version of it with its [try-with-resources](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html) statement.
 
@@ -253,11 +253,11 @@ try (WrappedObject a = WrappedObject.acquire("A")) {
 A complete implementation of the above is availble at [Proxy Wrapped Object Pool Design and Implementation](#proxy-wrapped-object-pool-implementation).
 
 ### The Sin of Omission Revisted
-I was about to write more about RAII, but since I've already addressed it in [Sin of Omission](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html#the-sin-of-omission), I'll just provide a reference if anyone's interested. Here are the highlights:
+I was about to write more about RAII, but since I've already addressed it in [Sin of Omission](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html#the-sin-of-omission). Here are the highlights:
 * The GoF used different method names for each of their creational design patterns. Their contract method names indicated **how** the object was created, which I felt violated encapsulation.
 * I prefer contract method names that make sense from the client's point of view indicating **what** contract method does rather than **how** it does it. That is, I prefer a contract that's designed from the _outside in_ rather than from the _inside out_. I prefer `acquire()` as my creational contract method name, since the client uses it to ___acquire___ an object without knowing **how** the object is acquired.
 * The GoF didn't address object reclamation or memory clean up. The memory for some creational pattern acquired objects should be reclaimed, such as memory from a [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html), whereas some memory should not be reclaimed, such as memory from a [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html). This is mostly not an issue for memory managed languages with garbage collection, such as Java, but it's an issue for non-garbage collected languages, such as C++. Some of the GoF's creational design pattern example C++ code leaks memory.
-* In addition to using a standard `acquire()` method name, I prefer to include the `release(Reference)` method to reclaim objects when no longer being used by the client. I don't always do this in Java, but I declared `release(Reference)` consistently when I was a C++ developer. I even did this for Singleton, for which its `release(Reference)` would be a no-op, since I wanted consistency in all of my creational contracts. I wanted `acquire()` and `release(Reference)` to be called in pairs.
+* In addition to using a standard `acquire()` method name, I prefer to include the `release(Reference)` method to reclaim objects when no longer being used by the client. I don't always do this in Java, but I declared `release(Reference)` consistently when I was a C++ developer. I even did this for Singleton, for which its `release(Reference)` would be a no-op, since I wanted consistency in all of my creational contracts. I wanted `acquire()` and `release(Reference)` to always be called in pairs.
 * I never trusted developers to call `acquire()` and `release(Reference)` consistently in pairs, since this required them to read and understand the documentation. I knew they would find and call `acquire()` since it was the only mechanism that would acquire an object for them, but I didn't trust them to consistently read and understand that they had to call `release(Reference)` as well. Their code would appear to work even if object references were not released. They would leak memory, but they wouldn't suffer the consequences of their leaked memory until production. Therefore, I provided an RAII wrapper that ensured that `acquire()` and `release(Reference)` were always called in pairs. An added bonus to the RAII wrapper was that no additional reading of the documentation or understanding was needed by the developers. C++ developers could instantiate the RAII wrapper on the stack locally, or they could instantiate it in the heap via a call to `new RaiiWrapper()`, but then they explicitly took on the responsibility to `delete()` the heap reference themselves. I didn't need to document this. It's documented in every C++ book that's ever been published. Since Java doesn't support RAII in the same way as C++, we need to rely upon try-with-resources for the same effect.
 
 ## On Demand Wrapped Object Pool Design and Implementation
@@ -311,7 +311,7 @@ Drawbacks and Risks:
 * If the object is cheap to construct or mostly stateless, pooling is unnecessary and may reduce throughput
 
 # Summary
-The Object Pool pattern offers real performance and resource-management benefits—when used for the right reasons. It shines when objects are truly expensive to create and when a system needs predictable, bounded resource usage. But pooling also introduces new responsibilities: careful cleaning, clear ownership rules, and thread-safe coordination. Before adopting it, measure your bottlenecks, understand the trade-offs, and ensure your team is disciplined about the lifecycle of pooled objects. When implemented thoughtfully, Object Pools can be a powerful tool in a software engineer’s design toolbox.
+The Object Pool pattern offers real performance and resource-management benefits when used for the right reasons. It shines when objects are truly expensive to create and when a system needs predictable, bounded resource usage. But pooling also introduces new responsibilities: careful cleaning, clear ownership rules, and thread-safe coordination. Before adopting it, measure your bottlenecks, understand the trade-offs, and ensure your team is disciplined about the lifecycle of pooled objects. When implemented thoughtfully, Object Pools can be a powerful tool in a software engineer’s design toolbox.
 
 # References
 * [Wikipedia Object Pool Design Pattern](https://en.wikipedia.org/wiki/Object_pool_pattern)
