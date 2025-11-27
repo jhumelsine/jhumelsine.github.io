@@ -128,7 +128,7 @@ class PooledObject implements Feature {
 
 A complete implementation of the above is available at [Core Object Pool Implementation](#core-object-pool-implementation).
 
-<img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnJwbmJlMW9xYnczcnd5N2psbGs5YzBzZmExOHR3cHQ2azh0Y3Q4ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1yMcjnQoYejDQ8AwZN/giphy.gif" alt="Schitts Creek Rewind" title="Image Source: https://giphy.com/gifs/cbc-schittscreek-schitts-creek-1yMcjnQoYejDQ8AwZN" width = "25%" align="right" style="padding: 35px;">
+<img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnJwbmJlMW9xYnczcnd5N2psbGs5YzBzZmExOHR3cHQ2azh0Y3Q4ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1yMcjnQoYejDQ8AwZN/giphy.gif" alt="Schitts Creek Rewind" title="Image Source: https://giphy.com/gifs/cbc-schittscreek-schitts-creek-1yMcjnQoYejDQ8AwZN" width = "35%" align="right" style="padding: 35px;">
 
 `release(ObjectPool)` cleans the released instance by setting the name to null. If object state isn't scrubbed in `release(ObjectPool)` then we run the risk of state provided by one client remaining in the state of the `pooledObject` when acquired by another client. Our Object Pool would become a Cesspool, and no one wants a dirty pool.
 
