@@ -12,16 +12,17 @@ The Gang of Four (GoF) omitted Object Pool as a design pattern from their catalo
 Even if the GoF had included it in their catalog, they may not have considered it a [Creational Design Pattern](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html), since an object is not created when acquired. However, I still consider it a creational pattern, since from the client's point of view, the object is being acquired, even if the specific acquisition mechanism, which is often creation, is encapsulated from the client.
 
 # Intent
-Object Pool allows multiple clients to access a set resource intensive objects without having to instantiate them for each use. By resource intensive, I mean that the objects are expensive to instantiate, such as requiring a lot of time, or they are coupled to a limited resources, such as a hardware constraint.
+Object Pool allows multiple clients to access a set resource-intensive objects without having to instantiate them for each use. Resource intensive may be expensive to instantiate, such as requiring a lot of time, or they are coupled to a limited resources, such as a hardware constraint.
 
 For example, opening a new database connection requires authentication, network I/O, driver negotiation, and often server-side session creation. Creating one for every request would overwhelm the database and the application.
 
-An Object Pool is allocated with a number of resource intensive objects often at start up. Then when a client requests one, the client acquires resource intensive object from the pool and then returns it when done with it so that it's available for another client.
+An Object Pool is allocated with a number of resource intensive objects often at start up. Then when a client requests one, the client acquires a resource intensive object from the pool and then returns it when done with it so that it's available for another client.
 
 There are many real world examples of shared [Resource Pools](https://en.wikipedia.org/wiki/Pooling_(resource_management)) including:
 <img src="https://heute-at-prod-images.imgix.net/2022/04/21/0d770b26-f233-4039-9a25-4cce88dcc9ec.jpeg?rect=0%2C283%2C3600%2C2025&auto=format" alt="Mad Men" title="Image Source: https://www.heute.at/i/mad-men-star-im-alter-von-90-jahren-gestorben-100202791/doc-1g16gc2ur0" width = "50%" align="right" style="padding: 35px;">
-* [Secretarial Pools](https://en.wikipedia.org/wiki/Secretarial_pool) - Though mostly a thing of the past, executives would acquire a secretary from the pool, who could take dictation, type a letter, do filing or perform other secretarial skills. Once done with a task, secretaries would return to the pool for the next executive's task. Secretarial pools are not as prevalent anymore, but they were common before the advent of office computers. Women in the secretarial pool were sometimes featured on the TV Show set in the 1950s or 1960s such as [Mad Men](https://en.wikipedia.org/wiki/Mad_Men).
+* [Secretarial Pools](https://en.wikipedia.org/wiki/Secretarial_pool) - Though mostly a thing of the past, executives would acquire a secretary from the pool, who could take dictation, type a letter, do filing or perform other secretarial skills. Once done with a task, secretaries would release to the pool for the next executive's task. Secretarial pools are not as prevalent today, but they were common before the advent of office computers. Women in the secretarial pool were sometimes featured on the TV Show set in the 1950s or 1960s such as [Mad Men](https://en.wikipedia.org/wiki/Mad_Men).
 * [Libraries](https://en.wikipedia.org/wiki/Library) - Libraries contain a finite number of books. Patrons checkout books and then return them several days or weeks later. Libraries are pool-like, but they are not a perfect fit, since libraries are filled with different books. To be a pure pool, the library would contain multiple copies of only one book.
+* [Video Rental Stores](https://en.wikipedia.org/wiki/Video_rental_shop) - Though mostly a thing of the past as well, video rental stores are similar to libraries. Whereas libraries tend to have one copy of a book on the shelves, video rentals often had multiple copies of a title, especially for the latest hot releases. A video rental is akin to a [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html)/Object-Pool hybrid model of customer-requested titles with multiple physical copies for each title.
 * [Bowling Ball Shoe Rentals](https://en.wikipedia.org/wiki/Bowling#Shoes) - Customers rent a pair of shoes while at the bowling lanes and then return them when done. They are pool-ish too, since the shoes come in different sizes.
 * [Car Rental Agencies](https://en.wikipedia.org/wiki/Car_rental) - Customers rent a car and then return it when done. They aren't pure pools either, but I suspect a car rental of [Model T Fords](https://en.wikipedia.org/wiki/Ford_Model_T) could be a pure pool, since they were mostly identical.
 
@@ -54,7 +55,7 @@ However, they have the following differences:
 As mentioned above, Object Pool's structure is similar to Flyweight's structure. My design and implementation example does not have a specific context in mind, so class and interface names will not indicate what they do within the context of a domain. Their names indicate how they manage pooled objects.
 
 Here are some highlights from the design:
-* `Feature` defines a basic constract with `doSomething()`.
+* `Feature` defines a basic contract with `doSomething()`.
 * `PooledObject`contains the bulk of the Object Pool structure. It maintains a collection of `pooledObjects` along with static `acquire()` and `release()` methods, which manage the objects within `pooledObjects`.
 * `Client` is not part of the pattern design specifically, but it's important to feature how the client interacts with the pattern design.
 
@@ -63,7 +64,7 @@ Here are some highlights from the design:
 ### PooledObject
 Here is a Java implementation, which provides more implementation details:
 * The `PooledObject` instances can reside in almost any sort of container. I chose a queue with a fixed size of 3.
-* The `PooledObjects` are added to `objectPool` via a static method, which is an example of eager initialization. As an alternative, `PooledObjects` could be added only when needed until the pool has been filled. Adding them via `release(PooledObject)` feels like an oddly named method. I named `release(PooledObject)` from the client's point of view to be used when releasing the `PooledObject` back into the pool. However, the behaviors needed to add the instance initially and to release it by the client are the same, so I'm using `release(PooledObject)` to initialize the pool at start up.
+* The `PooledObjects` are added to `objectPool` via a static method, which is an example of eager initialization. As an alternative, `PooledObjects` could be added only when needed until the pool has been filled. Adding them via `release(PooledObject)` since initialization and reclamation share the same _add-to-pool_ behavior, which justifies reusing the same method.
 * [__BlockingQueue__](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html) is thread-safe. 
 * I added `id` to `PooledObject` as a means to uniquely identify each object in the pool. It's not critical to the design.
 * `name` is intrinsic state information provided by the client when acquiring a pooled object. It's provided only as an example for intrinsic state.
@@ -127,15 +128,15 @@ class PooledObject implements Feature {
 }
 ```
 
-A complete implementation of the above is availble at [Core Object Pool Implementation](#core-object-pool-implementation).
+A complete implementation of the above is available at [Core Object Pool Implementation](#core-object-pool-implementation).
 
-<img src="https://live.staticflickr.com/3347/5842100167_d9fe46fe02_b.jpg" alt="Latrine Pit" title="Image Source: https://www.flickr.com/photos/vastateparksstaff/5842100167/" width = "35%" align="right" style="padding: 35px;">
+<img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnJwbmJlMW9xYnczcnd5N2psbGs5YzBzZmExOHR3cHQ2azh0Y3Q4ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1yMcjnQoYejDQ8AwZN/giphy.gif" alt="Schitts Creek Rewind" title="Image Source: https://giphy.com/gifs/cbc-schittscreek-schitts-creek-1yMcjnQoYejDQ8AwZN" width = "25%" align="right" style="padding: 35px;">
 
-`release(ObjectPool)` cleans the released instance by setting the name to null. If intrinsic data isn't scrubbed in `release(ObjectPool)` then we run the risk of intrinsic data provided by one client remaining in the intrinsic statie of the `pooledObject` when acquired by another client. Our Object Pool would become a Cesspool, and no one wants a dirty pool.
+`release(ObjectPool)` cleans the released instance by setting the name to null. If intrinsic data isn't scrubbed in `release(ObjectPool)` then we run the risk of intrinsic data provided by one client remaining in the intrinsic state of the `pooledObject` when acquired by another client. Our Object Pool would become a Cesspool, and no one wants a dirty pool.
 
 This example only has to clean `name`. Pooled objects with more intrinsic state would require more cleaning which would probably be extracted into its own method named `reset()` or `clearForReuse()`.
 
-Cleaning a released object like spraying disinfectant into bowling shoes when they are returned.
+Cleaning a released object like spraying disinfectant into bowling shoes when they are returned or rewinding [VCR cassettes](https://en.wikipedia.org/wiki/Videocassette_recorder) when they are returned. 
 
 ### Client Code
 Here is the client code:
@@ -172,28 +173,21 @@ Even with clients releasing their objects reliably and consistently, we can stil
 
 We have several options.
 
-#### Block Wait
-The code example features this blocking approach. It's basic, but it may be a bit naïve, since it could result in deadlock like situations.
-
-#### Block Wait with Timeout Exception
-This is the same as above, but it prevents indefinite deadlock postponement. However, the client needs to handle the exception or declare it.
-
-#### Throw Exception
-Don't even way for a timeout. Just throw the exception. The client needs to handle or declare the exception as well.
-
-#### Create a New Object On Demand
-We can expand the pool by adding another object to it upon demand. This is a bit counterintuitive, since the point of this pattern is to have a pool of fixed size, but if pool size can adjust based upon utilization, then this would be a good approach.
-
-#### Fail Fast With Metrics/Logging
-Immediately fail with a detailed log and increment an exhaustion counter. This reinforces modern observability practices.
+| Strategy                     | Behavior When Pool Is Empty                                   | Pros                                                     | Cons                                                       | Best Use Cases |
+|------------------------------|---------------------------------------------------------------|----------------------------------------------------------|------------------------------------------------------------|----------------|
+| **Block Wait**               | Caller waits until another client releases an object          | Simple to implement; predictable; no failures           | Can deadlock or stall threads indefinitely                 | Low-contention systems; controlled environments |
+| **Block Wait + Timeout**     | Caller waits up to a specified timeout, then fails            | Prevents indefinite waiting; easier debugging           | Timeout handling adds complexity; still can stall briefly  | Systems needing reliability and bounded latency |
+| **Throw Immediately**        | Pool immediately rejects the request with an exception        | Fast failure; callers react immediately                 | Can cause cascading failures without careful handling      | High-throughput, low-latency systems; circuit-breaker setups |
+| **Create New Object on Demand** | Dynamically grows pool beyond its initial size             | Avoids failures; flexible scaling                       | Can defeat the whole purpose of pooling; potential resource exhaustion | Variable or bursty workloads |
+| **Fail Fast with Metrics/Logging** | Immediately returns error and logs details              | Excellent observability; supports operational awareness | Still fails requests; requires good monitoring responses    | Production systems with SRE/DevOps observability |
 
 ### Final Core Design and Implementation Thoughts
 My implementation example doesn't keep track of client acquired objects. In addition to the `objectPool` queue, we might want to also maintain the set of acquired objects. We might want to do this for pooled object integrity. My `release(PooledObject)` will allow any object to be added to the pool, including one that might be malicious.
 
-If the `ObjectPool` maintains all pooled objects whether current being used by clients or waiting to be acquired, then we would be more likely to identify and prevent foreign, potentially malicious, objects being injected into the pool via `release(PooledObject)`.
+If the `ObjectPool` maintains all pooled objects whether currently being used by clients or waiting to be acquired, then we would be more likely to identify and prevent foreign, potentially malicious, objects being injected into the pool via `release(PooledObject)`.
 
 ## Proxy Wrapped Object Pool Design and Implementation
-The core design and implementation listed above places a lot of responsibility upon the client to release the object and clear it locally. I don't trust developers to get that right. I wouldn't even trust myself to get it right.
+Before we dive into the Proxy-wrapped version, let’s review the limitations of the client-managed cleanup model. The core design and implementation listed above places a lot of responsibility upon the client to release the object and clear it locally. I don't trust developers to get that right. I wouldn't even trust myself to get it right.
 
 When I was a C++ developer I used the [Resource Allocation Is Instantiation](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization) (RAII) idiom to manage this. RAII is used for classes that have start and finish operations, such as a [mutex](https://en.wikipedia.org/wiki/Lock_(computer_science)) lock/unlock and a database open/close.
 
@@ -250,7 +244,7 @@ try (WrappedObject a = WrappedObject.acquire("A")) {
 }
 ```
 
-A complete implementation of the above is availble at [Proxy Wrapped Object Pool Design and Implementation](#proxy-wrapped-object-pool-implementation).
+A complete implementation of the above is available at [Proxy Wrapped Object Pool Design and Implementation](#proxy-wrapped-object-pool-implementation).
 
 ### The Sin of Omission, Revisted
 I was about to write more about RAII, but since I've already addressed it in [Sin of Omission](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html#the-sin-of-omission). Here are the highlights:
@@ -292,7 +286,7 @@ Feature a = new OnDemandWrapper("A");
 a.doSomething();
 ```
 
-A complete implementation of the above is availble at [On Demand Wrapped Object Pool Design and Implementation](#on-demand-wrapped-object-pool-implementation).
+A complete implementation of the above is available at [On Demand Wrapped Object Pool Design and Implementation](#on-demand-wrapped-object-pool-implementation).
 
 # Object Pool Trade-Offs
 There are advantages and disadvantages to Object Pools.
