@@ -12,7 +12,7 @@ The Gang of Four (GoF) omitted Object Pool as a design pattern from their catalo
 Even if the GoF had included it in their catalog, they may not have considered it a [Creational Design Pattern](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html), since an object is not created when acquired. However, I still consider it a creational pattern, since from the client's point of view, the object is being acquired, even if the specific acquisition mechanism, which is often object creation, is encapsulated from the client.
 
 # Intent
-Object Pool allows multiple clients to access a set resource-intensive objects without having to instantiate them for each use. Resource-intensive objects may be expensive to instantiate, such as requiring a lot of time, or they are coupled to a limited resources, such as a hardware constraint.
+Object Pool allows multiple clients to access a set resource-intensive objects without having to instantiate them for each use. Resource-intensive objects may be expensive to instantiate, such as requiring a lot of time, or they are coupled to a limited resource, such as a hardware constraint.
 
 For example, opening a new database connection requires authentication, network I/O, driver negotiation, and often server-side session creation. Creating one for every request would overwhelm the database and the application.
 
@@ -64,7 +64,7 @@ Here is a Java implementation, which provides more implementation details:
 * The `PooledObject` instances can reside in almost any sort of container. I chose a queue with a fixed size of 3.
 * The `PooledObjects` are added to `objectPool` via a static method, which is an example of eager initialization. As an alternative, `PooledObjects` could be added only when needed until the pool has been filled. I am adding them via `release(PooledObject)` since initialization and reclamation share the same _add-to-pool_ behavior, which justifies reusing the same method, even if the term _release_ doesn't scream _initialization_.
 * [__BlockingQueue__](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html) is thread-safe. 
-* I added `id` to `PooledObject` as a means to uniquely identify each object in the pool. It's not critical to the design.
+* I added `id` to `PooledObject` to uniquely identify each object in the pool. It's not critical to the design.
 * `name` is state information provided by the client when acquiring a pooled object. It's provided only as an example for the object's state.
 * `acquire(String name)` retrieves a `PooledObject` from `objectPool`, initializes its state with the client provided name and returns it.
 * `release(PooledObject)` cleans the instance by setting the name to null and adds it back to the `objectPool` queue. It also confirms that a double-release won't occur, which could introduce difficult to detect issues subsequently.
@@ -182,7 +182,7 @@ Object Pool introduces a failure mode that other creational patterns don’t: ex
 ### Final Core Design and Implementation Thoughts
 My implementation example doesn't keep track of client acquired objects. In addition to the `objectPool` queue, we might want to also maintain the set of acquired objects. We might want to do this for pooled object integrity. If your pool accepts arbitrary objects in `release(PooledObject)`, you do not have a pool, you have a vulnerability. My `release(PooledObject)` will allow any object to be added to the pool, including one that might be malicious.
 
-If the `ObjectPool` maintains all pooled objects whether currently being used by clients or waiting to be acquired, then we would be more likely to identify and prevent foreign, potentially malicious, objects being injected into the pool via `release(PooledObject)`. That is, do as I say, not as I do.
+If the `ObjectPool` maintains all pooled objects whether they are currently being used by clients or waiting to be acquired, then we would be more likely to identify and prevent foreign, potentially malicious, objects being injected into the pool via `release(PooledObject)`. That is, do as I say, not as I do.
 
 ## Proxy Wrapped Object Pool Design and Implementation
 Before we dive into the Proxy-wrapped version, let’s review the limitations of the client-managed cleanup model. The core design and implementation listed above places a lot of responsibility upon the client to release the object and clear it locally. I don't trust developers to get that right. I wouldn't even trust myself to get it right.
@@ -244,7 +244,7 @@ try (WrappedObject a = WrappedObject.acquire("A")) {
 
 A complete implementation of the above is available at [Proxy Wrapped Object Pool Design and Implementation](#proxy-wrapped-object-pool-design-and-implementation).
 
-### The Sin of Omission, Revisted
+### The Sin of Omission, Revisited
 I was about to write more about RAII, but since I've already addressed it in [Sin of Omission](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html#the-sin-of-omission), I'll repeat the highlights:
 * The GoF used different method names for each of their creational design patterns. Their contract method names indicated **how** the object was created, which I felt violated encapsulation.
 * I prefer contract method names that make sense from the client's point of view indicating **what** contract method does rather than **how** it does it. That is, I prefer a contract that's designed from the _outside in_ rather than from the _inside out_. I prefer `acquire()` as my creational contract method name, since the client uses it to ___acquire___ an object without knowing **how** the object is acquired.
