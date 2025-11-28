@@ -88,7 +88,7 @@ There are legitimate uses for Singleton. Just make sure you only use it for thos
 [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html) is not listed as a Creational Design Pattern by the GoF. It’s in the Structural Patterns group. It’s like Singleton in that it ensures a single object instance, but it does so based upon a unique key. There can be more than one instance of a class, but there can only be one instance for each unique key. This is why it’s also known as Multiton, which is a play on words with Singleton.
 
 ## Object Pool
-Object Pool is not in the GoF inventory. With an Object Pool, the number of possible Objects for a class is fixed. An Object Pool is usually used for classes where creation of the class is resource intensive. A Thread Pool is a type of Object Pool.
+[Object Pool](https://jhumelsine.github.io/2025/11/28/object-pool.html) is not in the GoF inventory. With an Object Pool, the number of possible Objects for a class is fixed. An Object Pool is usually used for classes where creation of the class is resource intensive. A Thread Pool is a type of Object Pool.
 
 Object Pool has several additional considerations:
 * An object in the pool needs to be sanitized before it can be reused.
