@@ -28,7 +28,7 @@ When a test fails, its context should provide clues as to where the failure migh
 # Complete
 A suite of unit tests should declare and confirm all possible behaviors that the software may encounter. This includes the _this-should-never-happen_ edge cases.
 
-___Hard in Training; Easy in Battle___
+[___Hard in Training; Easy in Battle___](https://jhumelsine.github.io/2024/08/30/test-benefits.html#tests-are-experiments)
 
 I want to subject my code to every conceivable scenario I can imagine, even those that I think are rare or should never happen. I don’t want the first execution of an infrequent edge case to happen in production and ___hope___ that it will work. I want to document and confirm how my code will respond via a unit test.
 
@@ -43,7 +43,7 @@ Large, complicated or ugly unit tests are an indication of a large, complicated 
 If unit tests are an issue, then focus upon the implementation.
 
 # Future Proof
-Unit tests don’t find bugs now. They help prevent bugs from being introduced in the future.
+Unit tests don’t find bugs now. They help [prevent bugs from being introduced in the future](https://jhumelsine.github.io/2024/08/30/test-benefits.html#tests-help-find-and-prevent-future-bugs).
 
 Code tends to work when we first write it when we’re paying attention to every detail. Bug are introduced when the code is subsequently updated and we’re not quite as vigilant. Unit tests confirm that implementation updates are consistent with the existing unit test specified behaviors. Any inconsistencies will result in a failed unit test.
 
@@ -84,7 +84,7 @@ Unit test results should not generate a report or require analysis. The test pas
 Additional analysis should only be needed when a test fails so that the cause of the failed test can be understood and addressed.
 
 # Deterministic
-Unit tests should produce consistent and deterministic results. There’s nothing quite as frustrating as a flaky test, which sometimes passes and sometimes fails even when nothing has changed in the interim.
+Unit tests should produce consistent and deterministic results. There’s nothing quite as frustrating as a [flaky test](https://jhumelsine.github.io/2025/04/14/humble-object.html#flaky-tests), which sometimes passes and sometimes fails even when nothing has changed in the interim.
 
 On the surface, flaky tests cause process problems when they fail in pipeline builds which causes the build to be aborted. You may have to resubmit multiple times until all flaky tests pass. Sometimes it feels like rolling the dice and hoping for a Yahtzee!
 
