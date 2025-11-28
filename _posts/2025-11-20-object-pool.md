@@ -9,7 +9,7 @@ High-throughput systems demand not just speed but predictability. Creating and d
 
 The Gang of Four (GoF) omitted Object Pool as a design pattern from their catalog. It may have been omitted because the pattern had not yet matured or become widely adopted at the time of their publication.
 
-Even if the GoF had included it in their catalog, they may not have considered it a [Creational Design Pattern](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html), since an object is not created when acquired. However, I still consider it a creational pattern, since from the client's point of view, the object is being acquired, even if the specific acquisition mechanism, which is often creation, is encapsulated from the client.
+Even if the GoF had included it in their catalog, they may not have considered it a [Creational Design Pattern](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html), since an object is not created when acquired. However, I still consider it a creational pattern, since from the client's point of view, the object is being acquired, even if the specific acquisition mechanism, which is often object creation, is encapsulated from the client.
 
 # Intent
 Object Pool allows multiple clients to access a set resource-intensive objects without having to instantiate them for each use. Resource-intensive objects may be expensive to instantiate, such as requiring a lot of time, or they are coupled to a limited resources, such as a hardware constraint.
@@ -50,7 +50,7 @@ However, they have the following differences:
 * Flyweight object reclamation is optional, whereas Object Pool reclamation is required
 
 ## Core Object Pool Design and Implementation
-As mentioned above, Object Pool's structure is similar to Flyweight's structure. My design and implementation example does not have a specific context in mind, so class and interface names will not indicate what they do within the context of a domain. Their names indicate how they manage pooled objects.
+As mentioned above, Object Pool's structure is similar to Flyweight's structure. My design and implementation example does not have a specific domain in mind, so class and interface names will not indicate what they do within the context of a domain. Their names indicate how they manage pooled objects.
 
 Here are some highlights from the design:
 * `Feature` defines a basic contract with `doSomething()`.
@@ -62,12 +62,12 @@ Here are some highlights from the design:
 ### PooledObject
 Here is a Java implementation, which provides more implementation details:
 * The `PooledObject` instances can reside in almost any sort of container. I chose a queue with a fixed size of 3.
-* The `PooledObjects` are added to `objectPool` via a static method, which is an example of eager initialization. As an alternative, `PooledObjects` could be added only when needed until the pool has been filled. Adding them via `release(PooledObject)` since initialization and reclamation share the same _add-to-pool_ behavior, which justifies reusing the same method.
+* The `PooledObjects` are added to `objectPool` via a static method, which is an example of eager initialization. As an alternative, `PooledObjects` could be added only when needed until the pool has been filled. I am adding them via `release(PooledObject)` since initialization and reclamation share the same _add-to-pool_ behavior, which justifies reusing the same method, even if the term _release_ doesn't scream _initialization_.
 * [__BlockingQueue__](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html) is thread-safe. 
 * I added `id` to `PooledObject` as a means to uniquely identify each object in the pool. It's not critical to the design.
 * `name` is state information provided by the client when acquiring a pooled object. It's provided only as an example for the object's state.
 * `acquire(String name)` retrieves a `PooledObject` from `objectPool`, initializes its state with the client provided name and returns it.
-* `release(ObjectPool)` cleans the instance by setting the name to null and adds it back to the `objectPool` queue. It also confirms that a double-release won't occur, which could introduce difficult to detect issues subsequently.
+* `release(PooledObject)` cleans the instance by setting the name to null and adds it back to the `objectPool` queue. It also confirms that a double-release won't occur, which could introduce difficult to detect issues subsequently.
 
 ```java
 interface Feature {
@@ -130,7 +130,7 @@ A complete implementation of the above is available at [Core Object Pool Impleme
 
 <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnJwbmJlMW9xYnczcnd5N2psbGs5YzBzZmExOHR3cHQ2azh0Y3Q4ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1yMcjnQoYejDQ8AwZN/giphy.gif" alt="Schitts Creek Rewind" title="Image Source: https://giphy.com/gifs/cbc-schittscreek-schitts-creek-1yMcjnQoYejDQ8AwZN" width = "35%" align="right" style="padding: 35px;">
 
-`release(ObjectPool)` cleans the released instance by setting the name to null. If object state isn't scrubbed in `release(ObjectPool)` then we run the risk of state provided by one client remaining in the state of the `pooledObject` when acquired by another client. Our Object Pool would become a Cesspool, and no one wants a dirty pool.
+`release(PooledObject)` cleans the released instance by setting the name to null. If object state isn't scrubbed in `release(PooledObject)` then we run the risk of state provided by one client remaining in the state of the `pooledObject` when acquired by another client. Our Object Pool would become a Cesspool, and no one wants a dirty pool.
 
 This example only has to clean `name`. Pooled objects with more state would require more cleaning which would probably be extracted into its own method named `reset()` or `clearForReuse()`.
 
@@ -154,7 +154,7 @@ I have mentioned object reclamation a few times in previous blogs:
 * [Memory Leaks](https://jhumelsine.github.io/2025/10/31/singleton.html#memory-leaks) in the [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html) blog
 * [Memory Leaks](https://jhumelsine.github.io/2025/11/14/flyweight.html#memory-leaks) in the [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html) blog
 
-I will continue the theme here as well too. The GoF presented different patterns to create objects, but they did not address what to do with the object once it was no longer needed. Memory management is critical in C++, which was one of their two example languages. Some of their examples leaked memory.
+I will continue the theme here. The GoF presented different patterns to create objects, but they did not address what to do with the object once it was no longer needed. Memory management is critical in C++, which was one of their two example languages. Some of their examples leaked memory.
 
 Memory management isn't quite as critical in Java, since [Garbage Collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)) will tend to handle it for us.
 
@@ -245,12 +245,12 @@ try (WrappedObject a = WrappedObject.acquire("A")) {
 A complete implementation of the above is available at [Proxy Wrapped Object Pool Design and Implementation](#proxy-wrapped-object-pool-implementation).
 
 ### The Sin of Omission, Revisted
-I was about to write more about RAII, but since I've already addressed it in [Sin of Omission](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html#the-sin-of-omission). Here are the highlights:
+I was about to write more about RAII, but since I've already addressed it in [Sin of Omission](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html#the-sin-of-omission), I'll repeat the highlights:
 * The GoF used different method names for each of their creational design patterns. Their contract method names indicated **how** the object was created, which I felt violated encapsulation.
 * I prefer contract method names that make sense from the client's point of view indicating **what** contract method does rather than **how** it does it. That is, I prefer a contract that's designed from the _outside in_ rather than from the _inside out_. I prefer `acquire()` as my creational contract method name, since the client uses it to ___acquire___ an object without knowing **how** the object is acquired.
 * The GoF didn't address object reclamation or memory clean up. The memory for some creational pattern acquired objects should be reclaimed, such as memory from a [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html), whereas some memory should not be reclaimed, such as memory from a [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html). This is mostly not an issue for memory managed languages with garbage collection, such as Java, but it's an issue for non-garbage collected languages, such as C++. Some of the GoF's creational design pattern example C++ code leaks memory.
 * In addition to using a standard `acquire()` method name, I prefer to include the `release(Reference)` method to reclaim objects when they are no longer being used by the client. I don't always do this in Java, but I declared `release(Reference)` consistently when I was a C++ developer. I even did this for Singleton, for which its `release(Reference)` would be a no-op, since I wanted consistency in all of my creational contracts. I wanted `acquire()` and `release(Reference)` to always be called in pairs.
-* I never trusted developers to call `acquire()` and `release(Reference)` consistently in pairs, since this required them to read and understand the documentation. I knew they would find and call `acquire()` since it was the only mechanism that would acquire an object, but I didn't trust them to consistently read and understand that they had to call `release(Reference)` as well. Their code would appear to work even if object references were not released. They would leak memory, but they wouldn't suffer the consequences of their leaked memory until production. Therefore, I provided an RAII wrapper that ensured that `acquire()` and `release(Reference)` were always called in pairs. An added bonus to the RAII wrapper was that no additional reading of the documentation or understanding was needed by the developers. C++ developers could instantiate the RAII wrapper on the stack locally, or they could instantiate it in the heap via a call to `new RaiiWrapper()`, but then they explicitly took on the responsibility to `delete()` the heap reference themselves. I didn't need to document this. It's documented in every C++ book that's ever been published. Since Java doesn't support RAII in the same way as C++, we need to rely upon try-with-resources for the same effect.
+* I never trusted developers to call `acquire()` and `release(Reference)` consistently in pairs, since this required them to read and understand the documentation. I knew they would find and call `acquire()` since it was the only mechanism that would acquire an object, but I didn't trust them to consistently read and understand that they had to call `release(Reference)` as well. Their code would appear to work even if object references were not released. They would leak memory or other resources, but they wouldn't suffer the consequences of their leaking code until production. Therefore, I provided an RAII wrapper that ensured that `acquire()` and `release(Reference)` were always called in pairs. An added bonus to the RAII wrapper was that no additional documentation was needed by the developers. C++ developers could instantiate the RAII wrapper on the stack locally, or they could instantiate it in the heap via a call to `new RaiiWrapper()`, but then they explicitly took on the responsibility to `delete()` the heap reference themselves. I didn't need to document this. It's documented in every C++ book that's ever been published. Since Java doesn't support RAII in the same way as C++, we need to rely upon try-with-resources for the same effect.
 
 ## On Demand Wrapped Object Pool Design and Implementation
 I'll provide one more nuanced Object Pool design and implementation. This one wraps the try-with-resources statement within the method call, such that the client does not even need to be concerned with any implicit resource management. In this example, the client calls `new()` directly.
