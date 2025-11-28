@@ -242,7 +242,7 @@ try (WrappedObject a = WrappedObject.acquire("A")) {
 }
 ```
 
-A complete implementation of the above is available at [Proxy Wrapped Object Pool Design and Implementation](#proxy-wrapped-object-pool-implementation).
+A complete implementation of the above is available at [Proxy Wrapped Object Pool Design and Implementation](#proxy-wrapped-object-pool-design-and-implementation).
 
 ### The Sin of Omission, Revisted
 I was about to write more about RAII, but since I've already addressed it in [Sin of Omission](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html#the-sin-of-omission), I'll repeat the highlights:
@@ -284,7 +284,7 @@ Feature a = new OnDemandWrapper("A");
 a.doSomething();
 ```
 
-A complete implementation of the above is available at [On Demand Wrapped Object Pool Design and Implementation](#on-demand-wrapped-object-pool-implementation).
+A complete implementation of the above is available at [On Demand Wrapped Object Pool Design and Implementation](#on-demand-wrapped-object-pool-design-and-implementation).
 
 # Object Pool Trade-Offs
 There are advantages and disadvantages to Object Pools.
