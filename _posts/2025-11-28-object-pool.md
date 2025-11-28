@@ -1,7 +1,6 @@
 ---
-title: DRAFT OPEN FOR REVIEW AND COMMENTS – Object Pool Design Pattern
+title: Object Pool Design Pattern
 description: An exploration of how Object Pools improve performance by reusing costly-to-create objects
-unlisted: true
 ---
 
 # Introduction
