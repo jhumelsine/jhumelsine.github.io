@@ -305,9 +305,7 @@ ACTION_DEFINITION ::= action ID = ACTION
 
 Likewise, when an ID is referenced, the corresponding `Action` or `Condition` will be retrieved from the appropriate repo collection.
 
-The __Singleton__ Design Pattern will ensure that there’s only one instance of the Repo collection. More details for Singleton can be found at:
-* [Singleton via SourceMaking](https://sourcemaking.com/design_patterns/singleton)
-* [Singleton via Refactoring.guru](https://refactoring.guru/design-patterns/singleton)
+The [__Singleton__](https://jhumelsine.github.io/2025/10/31/singleton.html) Design Pattern will ensure that there’s only one instance of the Repo collection.
 
 ## PrototypeCondition
 I’m going to start with `PrototypeCondition` since it’s less complex than `PrototypeAction`.
