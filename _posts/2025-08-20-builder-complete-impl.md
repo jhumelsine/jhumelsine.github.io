@@ -382,7 +382,7 @@ Here is a table summarizing the evolution of the Builder design from inner-class
 There’s one more aspect of Builder that’s useful. I think it’s the most important aspect of Builder, but the GoF don’t really mention it. I’ll cover that in the next and final Builder blog entry.
 
 # Summary
-__Builder__ isn’t just about chaining setters—it’s about separating the “what” from the “how.” By decoupling the __Builder__ from the __Product__ and introducing a __Director__, we gained flexibility and extensibility. With alternate __Builders__, we opened the door to new ways of representing the same construction steps. This is the difference between a convenience trick and a true design pattern. In the next post, we’ll explore one aspect of __Builder__ which the GoF mostly ignored.
+__Builder__ isn’t just about chaining setters—it’s about separating the “what” from the “how.” By decoupling the __Builder__ from the __Product__ and introducing a __Director__, we gained flexibility and extensibility. With alternate __Builders__, we opened the door to new ways of representing the same construction steps. This is the difference between a convenience trick and a true design pattern. In the [next post](https://jhumelsine.github.io/2025/08/27/builders-director.html), we’ll explore one aspect of __Builder__ which the GoF mostly ignored.
 
 # References
 See: [Previous Blog References](https://jhumelsine.github.io/2025/08/08/builder-introduction.html#references), which provides an extensive list of __Builder__ resources.
