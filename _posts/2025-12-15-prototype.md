@@ -24,9 +24,12 @@ Alphanumerics could be one of three categories in my Project Example's [Domain S
 * **Class Names** - The DSL provided a structural framework organizing behavior across a set of objects identified by their class names. Most of the real work resided in the classes. The parser would need to create object instances for those class types. A [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) would have sufficied, as seen in the `switch` statement in [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#factory-method), but that would mean that when a new class type was added, I would have had to update the `switch` statement in the factory used by the parser. I wanted to avoid updating the parser factory each time we added a class type, and I believe we added at least 50 class types over the lifespan of the project. I used prototype to acquire class named objects, and I never had to update the parser.
 
 # Prototype
+<img src="https://i1.pickpik.com/photos/426/49/136/thumb-favorite-hand-arm-preview.jpg" alt="Thumbs Up" title="Image Source: https://www.pickpik.com/human-right-hand-thumb-sign-favorite-hand-40472" width = "30%" align="right" style="padding: 35px;">
+
+Prototype is completely different than the other [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html). If the other creational design patterns are fingers, then Prototype is a thumb.
 
 ## Factory, Revisted
-Let's briefly review the basic [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) pattern. The client acquires a `Feature` instance without knowing the class type; however, the `FeatureFactory` knows the `FeatureImpl` type. If a new concrete class is added to the design, then `FeatureFactory` will need to be modified.
+Let's briefly review the basic [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) pattern. The client acquires a `Feature` instance without knowing the class type; however, `static Feature FeatureFactory.acquire()` knows the `FeatureImpl` type. If a new concrete class is added to the design, then `FeatureFactory` will need to be modified.
 
 ```java
 interface Feature {
@@ -34,7 +37,10 @@ interface Feature {
 }
 
 class FeatureImpl implements Feature {
-    public void doSometing() {
+    FeatureImpl() {}
+
+    @Override
+    public void doSomething() {
         // Does something
     }
 }
@@ -50,6 +56,44 @@ class FeatureFactory {
 // Client code
 Feature feature = FeatureFactory.acquire();
 ```
+
+## Basic Prototype
+Prototype doesn't use a static method to acquire an object, which is common mechanism in most of the other [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html). Prototype acquires an object from another breeder object directly by having it clone itself. Other creational design patterns encapsulate the constructor by placing the call to `new()` within a static method. Prototype encapsulates the constructor by placing the call to `new()` within the `copy()` method of an object of the desired type.
+
+It's a little disorienting at first, but it's not complicated. A few lines of code demonstrate the fundamental principle.
+
+```java
+interface Feature {
+    Feature copy();
+
+    void doSomething();
+}
+
+class FeatureImpl implements Feature {
+    FeatureImpl(){}
+
+    @Override
+    public Feature copy() {
+        return new FeatureImpl();
+    }
+
+    @Override
+    public void doSomething() {
+        // Does something
+    }
+}
+
+...
+
+// Client Code
+Feature breader = // Origins To Be Determined
+
+Feature feature = breeder.copy();
+```
+
+### Deep vs Shallow Copy
+
+### To Be Determined by Whom?
 
 # Design and Implementation
 
