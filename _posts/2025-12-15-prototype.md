@@ -86,14 +86,86 @@ class FeatureImpl implements Feature {
 ...
 
 // Client Code
-Feature breader = // Origins To Be Determined
+Feature breeder = // Origins To Be Determined
 
 Feature feature = breeder.copy();
 ```
 
 ### Deep vs Shallow Copy
+The `copy()` method above is a shallow copy. No state from the breeder is copied to the new object.
+
+If the newly acquired object has state, then that can be accommodated passing `state` as an argument to `copy(State state)`:
+
+```java
+interface Feature {
+    Feature copy(State state);
+
+    void doSomething();
+}
+
+class FeatureImpl implements Feature {
+    private State state;
+
+    FeatureImpl(State state) {
+        this.state = state;
+    }
+
+    @Override
+    public Feature copy(State state) {
+        return new FeatureImpl(state);
+    }
+
+    @Override
+    public void doSomething() {
+        // Does something
+    }
+}
+
+...
+
+// Client Code
+Feature breeder = // Origins To Be Determined
+
+Feature feature = breeder.copy(state);
+```
+
+We may want a deep copy, which I'll cover in the Use Case. That can be accomplished via an encapsulated copy constructor:
+```java
+interface Feature {
+    Feature copy();
+
+    void doSomething();
+}
+
+class FeatureImpl implements Feature {
+    private State state;
+
+    FeatureImpl(FeatureImpl featureImpl) {
+        this.state = featureImpl.state;
+    }
+
+    @Override
+    public Feature copy() {
+        return new FeatureImpl(this);
+    }
+
+    @Override
+    public void doSomething() {
+        // Does something
+    }
+}
+
+...
+
+// Client Code
+Feature breeder = // Origins To Be Determined
+
+Feature feature = breeder.copy();
+```
 
 ### To Be Determined by Whom?
+But something is still missing. We have a bit of a chicken and egg problem. Prototype only works 
+
 
 # Design and Implementation
 
