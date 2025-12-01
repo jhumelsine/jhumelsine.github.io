@@ -163,9 +163,14 @@ Feature breeder = // Origins To Be Determined
 Feature feature = breeder.copy();
 ```
 
-### To Be Determined by Whom?
-But something is still missing. We have a bit of a chicken and egg problem. Prototype only works 
+### Prototype Registry
+But something is still amiss. We have a bit of a chicken and egg problem. Prototype uses objects to make copies of objects. We still need that first seed object as the first breeder. My examples only provided a comment `// Origins To Be Determined`. Where does it come from and how do clients access it?
 
+A utility of the basic Shallow/Deep Prototype can be expanded by adding a **Prototype Registry**. A Prototype Registry contains a collection of Prototype objects, which can be copied. Each Prototype object in the registry has a key identifier, such as a String name, but any unique set of identifiers will suffice. When the client wants an object, it asks the registry to acquire one by name. The registry gets the object that matches the name, and returns a copy of the object.
+
+The structure is almost identical to [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html), except that instead of returning the key matching object, which we would do with Flyweight, Prototype returns a copy of the matching object.
+
+Examples for all of this will be forthcoming in the Design and Implementation.
 
 # Design and Implementation
 
@@ -200,3 +205,4 @@ Here’s the entire implementation up to this point as one file. Copy and paste 
 * Prototype Factory
 * Shallow or Deep Copy
 * Copy entire composite structures.
+* Closing thoughts. Creational Patterns are not mutually exclusive. A design may incorporate several of them. For example, in Composite trees, the non-terminal composite classes might be acquired via a Factory while the terminal leaf nodes could be acquired via a Singleton, if they are stateless. And Prototype could be used to make a copy of the entire composite structure as seen in the use case.
