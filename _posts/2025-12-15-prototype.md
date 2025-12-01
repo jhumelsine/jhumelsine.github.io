@@ -91,6 +91,11 @@ Feature breeder = // Origins To Be Determined
 Feature feature = breeder.copy();
 ```
 
+### The Name
+<img src="https://live.staticflickr.com/3058/2833972549_6505616f90_b.jpg" alt="Jengo and Boba Fett" title="Image Source: https://www.flickr.com/photos/datarknz/2833972549" width = "30%" align="right" style="padding: 35px;">
+
+I've never been much of a fan of the name ___Prototype___. It's too easy to confuse it with a throwaway _prototype_ implementation. I think that ___Clone___, ___Copy___ or ___Breeder___ would have been better names. But this is the name chosen by the Gang of Four (GoF), so it's the one I'll be using.
+
 ### Deep vs Shallow Copy
 The `copy()` method above is a shallow copy. No state from the breeder is copied to the new object.
 
@@ -172,7 +177,61 @@ The structure is almost identical to [Flyweight](https://jhumelsine.github.io/20
 
 Examples for all of this will be forthcoming in the Design and Implementation.
 
-# Design and Implementation
+# Prototype/Prototype-Registry Design and Implementation
+Let's walk through a Prototype and Prototype Registry design and implementaiton one step at a time.
+
+## Feature
+`Feature` declares a contract interface:
+
+<img src="/assets/Prototype1.png" alt="Feature Interface"  width = "15%" align="center" style="padding-right: 35px;">
+
+The implementation is the same as the examples above, minus `copy()`, which will be in the next portion:
+```java
+interface Feature {
+    void doSomething();
+}
+```
+
+## Prototypical
+`Prototypical` implements `Feature`. Like how [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html) contained a static repository within it, `Prototypical` contains a static repository within it too.
+
+<img src="/assets/Prototype2.png" alt="Prototypical Abstract Class"  width = "60%" align="center" style="padding-right: 35px;">
+
+`register(String name, Prototypical prototypical)` places a named `Prototypical` breeder into the breeders.
+
+`acquire(String name)` searches for the `breeder` by name in the repository. If found, it returns an _acquired_ version of hte object.
+
+I debated this with myself, but I have not used `clone()` or `copy()` names. I've used `acquire()`, which encapsulates the creational mechanism. __Prototype__ has another trick up its sleeve. Once a client has a `Prototypical` object, it can `acquire()` a new object from the acquired object, from which another object can be acquired, etc. There is no limit to how many new objects can be acquired regardless of how many generations they have descended from their repository ensconced breeder ancestor. This is a feature that other creational design patterns do not possess. I will feature this chained acquisition in the Use Case.
+
+I have have decided to use `acquire()`, since clients may use it. `acquire()` is my preferred creation method name as I described in [The Sin of Omission, Revisited](https://jhumelsine.github.io/2025/11/28/object-pool.html#the-sin-of-omission-revisited).
+
+```java
+abstract class Prototypical implements Feature {
+    private static final Map<String, Prototypical> breeders = new ConcurrentHashMap<>();
+
+    public static Optional<Prototypical> acquire(String name) {
+        Prototypical breeder = breeders.get(name);
+        return breeder != null ? Optional.of(breeder.acquire()) : Optional.empty();
+    }
+
+    protected static void register(String name, Prototypical breeder) {
+        if (breeders.containsKey(name)) throw new IllegalStateException("A breeder named '" + name + "' has already been registered");
+        breeders.put(name, breeder);
+    }
+
+    public abstract Prototypical acquire();
+}
+
+```
+
+At this point, the core functionality of the __Prototype/Prototype-Repository__ pattern is complete. Notice that there are no concrete classes. There's only an interface and an abstract class. `new()` is not called. If new classes are added to the design, they are registered to the repository. 
+
+## Concrete Prototype Classes
+
+## Clients
+
+## Review
+
 
 # Summary
 TBD
@@ -206,3 +265,5 @@ Here’s the entire implementation up to this point as one file. Copy and paste 
 * Shallow or Deep Copy
 * Copy entire composite structures.
 * Closing thoughts. Creational Patterns are not mutually exclusive. A design may incorporate several of them. For example, in Composite trees, the non-terminal composite classes might be acquired via a Factory while the terminal leaf nodes could be acquired via a Singleton, if they are stateless. And Prototype could be used to make a copy of the entire composite structure as seen in the use case.
+* named Prototype might not be found.
+* Don't allow for duplicate names.
