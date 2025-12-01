@@ -13,7 +13,7 @@ The [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creatio
 
 We've seen about a half dozen creational pattern mechanisms that encapsulate the class type from the application/client code. One of them will suffice for most of your object instantiation needs, but if we ever desire to add a new class type into the design, which many [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) based patterns support, then when a new concrete class is added to the design, the creational pattern will need to be updated as well.
 
-**Prototype** is our final creational design pattern. It has a trick up its sleeve. It doesn't depend upon or have knowledge of class types either. Prototype acquires a copy of an existing object without depending upon the objects' classes. The constructor call has not disappeared. We've just found another place to stash it. 
+**Prototype** is our final creational design pattern. It has a trick up its sleeve. It doesn't depend upon or have knowledge of class types. Prototype acquires a copy of an existing object without depending upon the objects' classes. The constructor call has not disappeared. We've just found another place to stash it. 
 
 # Interpreter Grammar and Parser, Revisited
 The [Grammar](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#the-grammar) in the [Production Example](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html) for my [Interpreter Design Pattern Series](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) was pretty basic. The Scanner extracted [Keywords and Symbols](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#keywords-and-symbols) as alphanumerics, but it didn't provide any context. The [Parser](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#the-parser) determined the context.
@@ -24,6 +24,32 @@ Alphanumerics could be one of three categories in my Project Example's [Domain S
 * **Class Names** - The DSL provided a structural framework organizing behavior across a set of objects identified by their class names. Most of the real work resided in the classes. The parser would need to create object instances for those class types. A [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) would have sufficied, as seen in the `switch` statement in [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#factory-method), but that would mean that when a new class type was added, I would have had to update the `switch` statement in the factory used by the parser. I wanted to avoid updating the parser factory each time we added a class type, and I believe we added at least 50 class types over the lifespan of the project. I used prototype to acquire class named objects, and I never had to update the parser.
 
 # Prototype
+
+## Factory, Revisted
+Let's briefly review the basic [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) pattern. The client acquires a `Feature` instance without knowing the class type; however, the `FeatureFactory` knows the `FeatureImpl` type. If a new concrete class is added to the design, then `FeatureFactory` will need to be modified.
+
+```java
+interface Feature {
+    void doSomething();
+}
+
+class FeatureImpl implements Feature {
+    public void doSometing() {
+        // Does something
+    }
+}
+
+class FeatureFactory {
+    public static Feature acquire() {
+        return new FeatureImpl();
+    }
+}
+
+...
+
+// Client code
+Feature feature = FeatureFactory.acquire();
+```
 
 # Design and Implementation
 
@@ -54,3 +80,7 @@ Here’s the entire implementation up to this point as one file. Copy and paste 
 * The mechanism does not need to know the class type.
 * Use Interpreter Parser example.
 * I don't like the name Prototype. It's the same as a Prototype version of a produce. Clone, Copy or Breeder would have been better IMHO.
+* Basic copying
+* Prototype Factory
+* Shallow or Deep Copy
+* Copy entire composite structures.
