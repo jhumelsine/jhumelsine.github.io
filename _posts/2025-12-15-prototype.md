@@ -302,6 +302,20 @@ public class PrototypeDemo1 {
 This implementation is close to how I resolved class names with my [Parser](#interpreter-grammar-and-Parser-revisited). When we added a new functional class, we added a static blocked registration, it was in C++, and when the parser encountered an identifier for the class, the Prototype Repository would find the registered breeder and return a copy of it.
 
 # Drawing Tool Use Case
+<img src="/assets/Prototype5.png" alt="PowerPoint Slides"  width = "30%" align="right" style="padding-right: 35px;">
+
+I render all of my UML class diagrams in PowerPoint. I had mentioned this in a previous blog entry where I presented [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html). PowerPoint has it's advantages and disadvantages, but I found that it has been sufficient for my needs. PowerPoint's Drawing feature allows me to create shapes, connect them, color them, add/edit text, etc.
+
+This Prototype Use Case will sketchout a design and implementation for some of the features of a drawing tool. It will include:
+* A design for Shapes
+* Using a __Prototype__ and __Prototype Repository__ to acquire Shames by name. This allows new Shape types to be added without having to update the Prototype portion of the design.
+* The ability to group Shapes together, such as one can do with select in PowerPoint.
+* The ability make copies of any Shapes.
+
+In addition to __Prototype/Prototype-Repository__ this design will also feature elements of [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html), [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html), [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) and [Composite](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html).
+
+## Shape
+The contract is declared in Shape.
 
 # Summary
 TBD
