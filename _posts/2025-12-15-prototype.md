@@ -96,6 +96,18 @@ Feature feature = breeder.copy();
 
 I've never been much of a fan of the name ___Prototype___. It's too easy to confuse it with a throwaway _prototype_ implementation. I think that ___Clone___, ___Copy___ or ___Breeder___ would have been better names. But this is the name chosen by the Gang of Four (GoF), so it's the one I'll be using.
 
+### The Copy
+Each Prototype concrete class implements the `copy()` command as it sees fit. The term ___copy___ implies that the concrete class will make a copy of itself. While that's an option, it's not a requirement. This is one of the reasons while I prefer the method name `acquire()`. It doesn't imply a mechanism. With this in mind ... __COME UP WITH A NEW NAME__
+
+**Here are several techniques. Work them out:**
+* Return this.
+* Ctor()
+* Ctor(State)
+* Ctor(this) - Deep and Shallow.
+* More?
+
+### 
+
 ### Deep vs Shallow Copy
 The `copy()` method above is a shallow copy. No state from the breeder is copied to the new object.
 
