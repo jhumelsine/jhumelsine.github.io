@@ -183,7 +183,7 @@ Let's walk through a Prototype and Prototype Registry design and implementaiton 
 ## Feature
 `Feature` declares a contract interface:
 
-<img src="/assets/Prototype1.png" alt="Feature Interface"  width = "15%" align="center" style="padding-right: 35px;">
+<img src="/assets/Prototype1.png" alt="Feature Interface"  width = "20%" align="center" style="padding-right: 35px;">
 
 The implementation is the same as the examples above, minus `copy()`, which will be in the next portion:
 ```java
@@ -195,7 +195,7 @@ interface Feature {
 ## Prototypical
 `Prototypical` implements `Feature`. Like how [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html) contained a static repository within it, `Prototypical` contains a static repository within it too.
 
-<img src="/assets/Prototype2.png" alt="Prototypical Abstract Class"  width = "60%" align="center" style="padding-right: 35px;">
+<img src="/assets/Prototype2.png" alt="Prototypical Abstract Class"  width = "50%" align="center" style="padding-right: 35px;">
 
 `register(String name, Prototypical prototypical)` places a named `Prototypical` breeder into the breeders.
 
@@ -227,11 +227,81 @@ abstract class Prototypical implements Feature {
 At this point, the core functionality of the __Prototype/Prototype-Repository__ pattern is complete. Notice that there are no concrete classes. There's only an interface and an abstract class. `new()` is not called. If new classes are added to the design, they are registered to the repository. 
 
 ## Concrete Prototype Classes
+While the core functionality is complete, it needs a few more elements. Concrete classes need to implement `Prototypical` and be registered into `Prototypical`.
+
+<img src="/assets/Prototype3.png" alt="Concrete Prototypical Class"  width = "60%" align="center" style="padding-right: 35px;">
+
+The diagram only has enough room to represent one concrete class, but the code sample shows how we can declare more classes. Each `Prototype` class acquires a shallow copy. Each class registers an instance of itself along with its chosen name, which is not the class name.
+
+We can call `register()` from within a static block in C++, which will register an instance when loaded. Java will not do this. A similar static block will only register the instance when the class is referenced, which is a bit too late. An external entity must register `Prototypes` in Java.
+
+```java
+class PrototypeA extends Prototypical {
+    private PrototypeA() {}
+
+    @Override
+    public Prototypical acquire() {
+        return new PrototypeA();
+    }
+
+    public static void register() {
+        register("A", new PrototypeA());
+    }
+
+    @Override
+    public void doSomething() {
+        System.out.println("PrototypeA does something that's A specific");
+    }
+}
+
+class PrototypeB extends Prototypical {
+    private PrototypeB() {}
+
+    @Override
+    public Prototypical acquire() {
+        return new PrototypeB();
+    }
+
+    public static void register() {
+        register("B", new PrototypeB());
+    }
+
+    @Override
+    public void doSomething() {
+        System.out.println("PrototypeB does something that's B specific");
+    }
+}
+```
 
 ## Clients
+Here is the complete design with Clients. I realize the diagram is inconsistent in its use of `Optional`.
+
+<img src="/assets/Prototype4.png" alt="Complete Design with Clients"  width = "70%" align="center" style="padding-right: 35px;">
+
+Here's the implementation, which registers the `Prototypes` statically and acquires them. I've added an unregistered type, __C__, to demonstrate that the repository may not have what you desire:
+```java
+public class PrototypeDemo1 {
+    public static void main(String[] args) throws Exception {
+        for (String name : List.of("A", "B", "C")) {
+            FeatureFactory.acquire(name).ifPresentOrElse(
+                Feature::doSomething,
+                () -> System.out.println("Feature not found for name=" + name));
+
+        }
+    }
+
+    static { // Register the Prototypes. NOTE: C has not been registered intentionally for the demo.
+        PrototypeA.register();
+        PrototypeB.register();
+        // PrototypeA.register(); // This will throw an IllegalStateException since a Prototype named A has already been registered.
+    }
+}
+```
 
 ## Review
+This implementation is close to how I resolved class names with my [Parser](#interpreter-grammar-and-Parser-revisited). When we added a new functional class, we added a static blocked registration, it was in C++, and when the parser encountered an identifier for the class, the Prototype Repository would find the registered breeder and return a copy of it.
 
+# Drawing Tool Use Case
 
 # Summary
 TBD
@@ -251,6 +321,93 @@ TBD
 
 # Complete Demo Code
 Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. Copy and paste the code into Generative AI for analysis and comments.
+
+## Complete Prototype and Prototype Repository Implementation
+```java
+import java.util.*;
+import java.util.concurrent.*;
+
+public class PrototypeDemo1 {
+    public static void main(String[] args) throws Exception {
+        for (String name : List.of("A", "B", "C")) {
+            FeatureFactory.acquire(name).ifPresentOrElse(
+                Feature::doSomething,
+                () -> System.out.println("Feature not found for name=" + name));
+
+        }
+    }
+
+    static { // Register the Prototypes. NOTE: C has not been registered intentionally for the demo.
+        PrototypeA.register();
+        PrototypeB.register();
+        // PrototypeA.register(); // This will throw an IllegalStateException since a Prototype named A has already been registered.
+    }
+}
+
+interface Feature {
+    void doSomething();
+}
+
+class FeatureFactory {
+    private FeatureFactory() {}
+
+    public static Optional<Prototypical> acquire(String name) {
+        return Prototypical.acquire(name);
+    }
+}
+
+abstract class Prototypical implements Feature {
+    private static final Map<String, Prototypical> breeders = new ConcurrentHashMap<>();
+
+    public static Optional<Prototypical> acquire(String name) {
+        Prototypical breeder = breeders.get(name);
+        return breeder != null ? Optional.of(breeder.acquire()) : Optional.empty();
+    }
+
+    protected static void register(String name, Prototypical breeder) {
+        if (breeders.containsKey(name)) throw new IllegalStateException("A breeder named '" + name + "' has already been registered");
+        breeders.put(name, breeder);
+    }
+
+    public abstract Prototypical acquire();
+}
+
+class PrototypeA extends Prototypical {
+    private PrototypeA() {}
+
+    @Override
+    public Prototypical acquire() {
+        return new PrototypeA();
+    }
+
+    public static void register() {
+        register("A", new PrototypeA());
+    }
+
+    @Override
+    public void doSomething() {
+        System.out.println("PrototypeA does something that's A specific");
+    }
+}
+
+class PrototypeB extends Prototypical {
+    private PrototypeB() {}
+
+    @Override
+    public Prototypical acquire() {
+        return new PrototypeB();
+    }
+
+    public static void register() {
+        register("B", new PrototypeB());
+    }
+
+    @Override
+    public void doSomething() {
+        System.out.println("PrototypeB does something that's B specific");
+    }
+}
+```
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
