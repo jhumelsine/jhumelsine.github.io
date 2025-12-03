@@ -96,89 +96,102 @@ Feature feature = breeder.copy();
 
 I've never been much of a fan of the name ___Prototype___. It's too easy to confuse it with a throwaway _prototype_ implementation. I think that ___Clone___, ___Copy___ or ___Breeder___ would have been better names. But this is the name chosen by the Gang of Four (GoF), so it's the one I'll be using.
 
-### The Copy
-Each Prototype concrete class implements the `copy()` command as it sees fit. The term ___copy___ implies that the concrete class will make a copy of itself. While that's an option, it's not a requirement. This is one of the reasons while I prefer the method name `acquire()`. It doesn't imply a mechanism. With this in mind ... __COME UP WITH A NEW NAME__
+Each Prototype concrete class implements the `copy()` command as it sees fit. The term ___copy___ implies that the concrete class will make a copy of itself. While that's an option, it's not a requirement. This is one of the reasons while I prefer the method name `acquire()`. It doesn't imply a mechanism. With this in mind maybe a better name for this pattern could have been __Offshoot__ or __Sprout__ by borrowing botany terms.
 
-**Here are several techniques. Work them out:**
-* Return this.
-* Ctor()
-* Ctor(State)
-* Ctor(this) - Deep and Shallow.
-* More?
+### Acquisition Via Object
+Prototype doesn't acquires an object via an existing object by calling its `acquire()` method. The concrete class can use several mechanisms to implement `acquire()`. I'll provide several examples. Each will implement one of the following interface methods:
+```java
+Feature {
+    Feature acquire();
+    Feature acquire(State state);
+}
+```
 
-### 
-
-### Deep vs Shallow Copy
-The `copy()` method above is a shallow copy. No state from the breeder is copied to the new object.
-
-If the newly acquired object has state, then that can be accommodated passing `state` as an argument to `copy(State state)`:
+#### Returns Object Itself
+This technique returns the the source object itself.
 
 ```java
-interface Feature {
-    Feature copy(State state);
-
-    void doSomething();
+class FeatureImpl implements Feature {
+    public Feature acquire() {
+        return this;
+    }
 }
+```
 
+This is the most simple version, but it only works when `FeatureImpl` is an immutable Value Object (TBD), such as a [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html).
+
+#### Returns Object via Default Constructor
+This technique returns a new default object.
+
+```java
+class FeatureImpl implements Feature {
+    private FeatureImpl() {}
+
+    public Feature acquire() {
+        return new FeatureImpl();
+    }
+}
+```
+
+A new object is instantiated using the default constructor. This will probably suffice in many cases.
+
+#### Returns Object via Copy Constructor
+This technique returns a new copied object.
+
+```java
+class FeatureImpl implements Feature {
+    private FeatureImpl(FeatureImpl feature) {
+        // Copy attributes from feature to this new object.
+    }
+
+    public Feature acquire() {
+        return new FeatureImpl(this);
+    }
+}
+```
+
+This is the closest implementation to what's used in traditional Prototype presentations.
+
+There are two considerations when using the copy constructor. Are the attributes copied via a ___shallow copy___ or ___deep copy___? This will depend upon the context, but I suspect that in most Prototype implementations the deep copy will be desired. A shallow copy will return a reference to the attribute, whereas a deep copy will return a copy of the attribute.
+
+#### Returns Object with State
+This technique returns a new object with state.
+
+```java
 class FeatureImpl implements Feature {
     private State state;
 
-    FeatureImpl(State state) {
+    private FeatureImpl(State state) {
         this.state = state;
     }
 
-    @Override
-    public Feature copy(State state) {
+    public Feature acquire(State state) {
         return new FeatureImpl(state);
     }
-
-    @Override
-    public void doSomething() {
-        // Does something
-    }
 }
-
-...
-
-// Client Code
-Feature breeder = // Origins To Be Determined
-
-Feature feature = breeder.copy(state);
 ```
 
-We may want a deep copy, which I'll cover in the Use Case. That can be accomplished via an encapsulated copy constructor:
+This allows the newly created object to have its own state. `State` is a placeholder type. In an actual implementation, it could be a `String`, another class or even a list of arguments.
+
+#### Returns Object with State via Copy Constructor
+This is a hybrid of the State and Copy Constructor techniques shown above.
 ```java
-interface Feature {
-    Feature copy();
-
-    void doSomething();
-}
-
 class FeatureImpl implements Feature {
     private State state;
 
-    FeatureImpl(FeatureImpl featureImpl) {
-        this.state = featureImpl.state;
+    private FeatureImpl(FeatureImpl feature, State state) {
+        // Copy attributes from feature to this new object.
+
+        this.state = state;
     }
 
-    @Override
-    public Feature copy() {
-        return new FeatureImpl(this);
-    }
-
-    @Override
-    public void doSomething() {
-        // Does something
+    return Feature acquire(State state) {
+        return new FeatureImpl(this, state);
     }
 }
-
-...
-
-// Client Code
-Feature breeder = // Origins To Be Determined
-
-Feature feature = breeder.copy();
 ```
+
+This is the technique that I'll use in the Use Case.
 
 ### Prototype Registry
 But something is still amiss. We have a bit of a chicken and egg problem. Prototype uses objects to make copies of objects. We still need that first seed object as the first breeder. My examples only provided a comment `// Origins To Be Determined`. Where does it come from and how do clients access it?
