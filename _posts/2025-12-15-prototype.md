@@ -9,19 +9,19 @@ unlisted: true
 # Introduction
 In most mainstream Object-Oriented programming languages, objects can only be instantiated through their constructors, which depends upon and requires knowledge of their concrete class types. [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) shifts the burden from the application code to a [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer), but it doesn't eliminate class dependency and knowledge. It just relocates it.
 
-The [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) provide several techniques that encapsulate class details from the application or client code acquiring the object. However, the creation pattern mechanism depends upon and has knowledge of the class type. Each of the previous creational design patterns I've presented depends upon and has knowledge of the class type.
+The [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) provide several techniques that encapsulate class details from the application or client code acquiring the object. However, the creation pattern mechanism itself depends upon and has knowledge of the class type. Each of the previous creational design patterns I've presented depends upon and has knowledge of the class type it is creating.
 
-We've seen about a half dozen creational pattern mechanisms that encapsulate the class type from the application/client code. One of them will suffice for most of your object instantiation needs, but if we ever desire to add a new class type into the design, which many [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) based patterns support, then the creational pattern will need to be updated as well.
+We've seen about a half dozen creational pattern mechanisms that encapsulate the class type from the application/client code. One of these previous patterns will suffice for most of your object creation needs, but if we ever desire to add a new class type into the design, which many [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) based patterns support, then the creational pattern will need to be updated as well.
 
-**Prototype** is our final creational design pattern. It has a trick up its sleeve. It doesn't depend upon or have knowledge of class types. Prototype doesn't acquire an object via a constructor directly. It acquires an object from an existing object of the type it desires. The constructor call has not disappeared. Prototype has found another place to stash it. 
+**Prototype** is our final creational design pattern. It has a trick up its sleeve. It doesn't depend upon or have knowledge of class types. Prototype doesn't acquire an object via a constructor directly. It acquires an object from an existing object of the type it desires. The constructor call has not disappeared. Prototype has found another place to stash it, that is, within the concrete class itself.
 
 # Interpreter Grammar and Parser, Revisited
-The [Grammar](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#the-grammar) in the [Production Example](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html) for my [Interpreter Design Pattern Series](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) was pretty basic. The Scanner extracted [Keywords and Symbols](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#keywords-and-symbols) as alphanumerics, but it didn't provide any context. The [Parser](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#the-parser) determined the context.
+The [Grammar](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#the-grammar) in the [Production Example](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html) for my [Interpreter Design Pattern Series](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) was basic. The Scanner extracted [Keywords and Symbols](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#keywords-and-symbols) as alphanumerics, but it didn't provide any context other than determing an identifier. The [Parser](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#the-parser) determined the semantic context.
 
-Alphanumerics could be one of three categories in my Project Example's [Domain Specific Language](https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html) (DSL). The parser checked for each category in succession:
-* **Keywords** - Such as: `if`, `else`, `and`, `or` and `not`. These were identified and hardcoded directly in the parser. New keywords were very infrequent, but a few were added. I was usually able to add them to the parser implementation easily.
-* **Identifiers** - These were entities defined within the script executing the DSL. They were equivalent to variables or function names in most programming languages. When a new identifier was defined in the script, it along with its definition was added to a symbol table, which the parser subsequently checked.
-* **Class Names** - The DSL provided a structural framework organizing behavior across a set of objects identified by their class names. Most of the real work resided in the classes. The DSL was the structural framework that organized objects of the class types in different configurations allowing a finite set of elements to exhibit a near infinite number of behaviors based upon how they were configured. The parser would need to create object instances for those class types. A [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) would have sufficied, as seen in the `switch` statement in [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#factory-method), but that would mean that when a new class type was added, I would have had to update the `switch` statement in the factory used by the parser. I wanted to avoid updating the parser factory each time we added a class type, and I believe we added at least 50 class types over the lifespan of the project. I used Prototype to acquire class named objects, and I never had to update the parser when we added a new class type.
+Alphanumeric identifiers could be one of three categories in my Project Example's [Domain Specific Language](https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html) (DSL). The parser checked for each category in succession:
+* **Keywords** - Such as: `if`, `else`, `and`, `or` and `not`. These were identified and hardcoded directly in the parser. New keywords were added very infrequent, but a few were subsequently added. I was usually able to add them to the parser implementation easily.
+* **Variable/Function Names** - These were entities defined within the script executing the DSL. They were equivalent to variables or function names in most programming languages. When a new identifier was defined in the script, it along with its definition was added to a symbol table, which the parser subsequently would query. If a name was found in the symbol table then its definition would be used.
+* **Class Names** - The DSL defined a structural framework organizing behavior across a set of objects identified by their class names. Most of the real work resided in the classes. The DSL was the structural framework that organized objects of the class types in different configurations allowing a relatively small set of elements to exhibit a near infinite number of behaviors based upon how they were configured. The parser needed to create object instances for those class types. A [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) would have sufficied, as seen in the `switch` statement in [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#factory-method), but that would mean that when a new class type was added, I would have had to update the `switch` statement in the factory used by the parser. I wanted to avoid updating the parser factory each time we added a class type, and I believe we added at least 50 class types over the lifespan of the project. I used Prototype to acquire class named objects, and I never had to update the parser when we added a new class type.
 
 # Prototype
 <img src="https://i1.pickpik.com/photos/426/49/136/thumb-favorite-hand-arm-preview.jpg" alt="Thumbs Up" title="Image Source: https://www.pickpik.com/human-right-hand-thumb-sign-favorite-hand-40472" width = "30%" align="right" style="padding: 35px;">
@@ -58,7 +58,7 @@ class FeatureFactory {
 If a new `Feature` implementation class is introduced, this won't affect the client, but updates will be needed for `FeatureFactory`.
 
 ## Basic Prototype
-Prototype doesn't use a static method to acquire an object, which is the primary mechanism in most of the other [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html). Prototype acquires an object from breeder object directly by having it clone itself. Other creational design patterns encapsulate the constructor by placing the call to `new()` within a static method. Prototype encapsulates the constructor by placing the call to `new()` within the `acquire()` method of an object of the desired type.
+Prototype doesn't use a static method to acquire an object, which is the primary mechanism in most of the other [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html). Prototype acquires an object from breeder object by having it clone itself. Other creational design patterns encapsulate the constructor by placing the call to `new()` within a class static method. Prototype encapsulates the constructor by placing the call to `new()` within a non-static method accessed via an object instance of that class.
 
 The client code would acquire a `Feature` object using Prototype as follows:
 ```java
@@ -91,19 +91,19 @@ class FeatureImpl implements Feature {
 }
 ```
 
-The constructor is not called from a Factory static method, which is often the case with the other creational patterns. With Prototype, the constructor is in an object method, which can be invoked from an object of the given type.
+The constructor is not called from a Factory static method, which is often the case with the other creational patterns. With Prototype, the constructor is in an object method, which can be invoked from an object of the given type, but it often returns a reference to its interface definition, thereby maintaining encapsulation.
 
 ### The Name
-<img src="https://live.staticflickr.com/3058/2833972549_6505616f90_b.jpg" alt="Jengo and Boba Fett" title="Image Source: https://www.flickr.com/photos/datarknz/2833972549" width = "30%" align="right" style="padding: 35px;">
+<img src="https://live.staticflickr.com/3058/2833972549_6505616f90_b.jpg" alt="Jengo and Boba Fett" title="Image Source: https://www.flickr.com/photos/datarknz/2833972549" width = "40%" align="right" style="padding: 35px;">
 
-I've never been much of a fan of the name ___Prototype___. It's too easy to confuse it with a throwaway _prototype_ implementation. I think that ___Clone___, ___Copy___ or ___Breeder___ would have been better names. But this is the name chosen by the Gang of Four (GoF), so it's the one I'll be using.
+I've never been much of a fan of the name ___Prototype___. It's too easy to confuse it with an early throwaway proof-of-concept _prototype_ implementation. I think that ___Clone___, ___Copy___ or ___Breeder___ would have been better names. But ___Prototype___ is the name chosen by the Gang of Four (GoF), so it's the one I'll be using.
 
-Each Prototype concrete class implements the `copy()` command as it sees fit. The term ___copy___ implies that the concrete class will make a copy of itself. While that's an option, it's not a requirement. This is one of the reasons while I prefer the method name `acquire()`. It doesn't imply a mechanism. It does not convey the creational mechanism as `clone()` or `copy()` would. And `clone` is a reserved word in Java, and using it adds some language baggage that I prefer to avoid. With this in mind maybe a better name for this pattern could have been __Offshoot__ or __Sprout__ by borrowing botany terms.
+Traditionally, each Prototype concrete class implements the `clone()` or `copy()` method as it sees fit. These method names imply that the concrete class will make a copy of itself. While that's an option, it's not a requirement. This is one of the reasons while I prefer the method name `acquire()`. It doesn't imply the creation mechanism. It does not convey the creational mechanism as `clone()` or `copy()` would. Additionally, `clone` is a reserved word in Java, and using it adds some language baggage that I prefer to avoid. With this in mind maybe an even better name for this pattern could have been __Offshoot__ or __Sprout__ by borrowing botany terms.
 
 ### Acquisition Via Object
-Basic Prototype is more of a contract declaration than an implementation. It declares that a class that implements the interface must provide a method that returns an instance of the interface. It doesn't dictate how the class creates the object instance.
+Prototype is more of a contract declaration than an implementation. It declares that a class that implements the interface must provide a method that returns an instance of the interface. It doesn't dictate how the class creates the object instance.
 
-The concrete class can use several mechanisms to implement `acquire()`. I'll provide several examples. Each will implement one of the following interface methods:
+The concrete class has several options to implement `acquire()`. I'll provide several examples. Each will implement one of the following interface methods, but not both, which technically were be required if this were an implemented interface:
 ```java
 Feature {
     Feature acquire();
@@ -112,7 +112,7 @@ Feature {
 ```
 
 #### Returns the Object Itself
-This technique returns the the source object itself.
+This technique returns the source object itself.
 
 ```java
 class FeatureImpl implements Feature {
@@ -198,9 +198,9 @@ class FeatureImpl implements Feature {
 This is the technique that I'll use in the Use Case.
 
 ### Prototype Registry
-But something is still amiss. We have a bit of a chicken and egg problem. Prototype uses objects to make copies of objects. We still need that first seed object as the first breeder. My example above only provided a comment `// Origins To Be Determined`. Where does it come from and how do clients access it?
+But something is still amiss. We have a bit of a chicken and egg problem. Prototype uses objects to make copies of objects. We still need that first seed object as the breeder. My example above only provided a comment `// Origins To Be Determined`. Where does it come from and how do clients access it?
 
-Let's add the concept of a **Prototype Registry**. A Prototype Registry contains a collection of Prototype objects, which of which can be copied via their `acquire` method. Each Prototype object in the registry has a key identifier, such as a String name. When the client wants an object, it asks the registry to acquire one by name. The registry gets the object that matches the name, and returns an acquired copy of the object.
+Let's add a new concept: **Prototype Registry**. A Prototype Registry contains a collection of Prototype objects, which can be copied via their `acquire` method. Each Prototype object in the registry has a key identifier, such as a String name. When the client wants an object, it asks the registry to acquire one by name. The registry gets the object that matches the name, and returns an acquired copy of the object.
 
 The structure is almost identical to [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html), except that instead of returning the key matching object, which is what Flyweight does, Prototype returns an acquired copy of the matching object.
 
@@ -214,7 +214,7 @@ Let's walk through a Prototype and Prototype Registry design and implementaiton 
 
 <img src="/assets/Prototype1.png" alt="Feature Interface"  width = "20%" align="center" style="padding-right: 35px;">
 
-The implementation is the same as the examples above, minus `copy()`, which will be in the next portion:
+The implementation is the same as the examples above, minus `acquire()`, which will be in the next portion:
 ```java
 interface Feature {
     void doSomething();
@@ -230,7 +230,7 @@ interface Feature {
 
 `acquire(String name)` searches for the `breeder` by name in the repository. If found, it returns an _acquired_ version of the object.
 
-__Prototype__ has another trick up its sleeve. Once a client has a `Prototypical` object, it can `acquire()` a new object from the acquired object, from which another object can be acquired, etc. There is no limit to how many new objects can be acquired regardless of how many generations they have descended from their repository ensconced breeder ancestor. This is a feature that other creational design patterns do not possess. I will feature this chained acquisition in the Use Case.
+__Prototype__ has another trick up its sleeve. Once a client has a `Prototypical` object, it can `acquire()` a new object from the acquired object, from which another object can be acquired, etc. There is no limit to how many new objects can be acquired regardless of how many generations they have descended from their repository ensconced initial breeder ancestor. This is a feature that other creational design patterns do not possess. I will feature this chained acquisition in the Use Case. Since there may not be a registered breeder, I have defined `acquire(String name)` to return an `Optional<Prototypical>` if a breeder is not found.
 
 ```java
 abstract class Prototypical implements Feature {
@@ -258,9 +258,9 @@ While the core functionality is complete, it needs a few more elements. Concrete
 
 <img src="/assets/Prototype3.png" alt="Concrete Prototypical Class"  width = "60%" align="center" style="padding-right: 35px;">
 
-The diagram only has enough room to represent one concrete class, but the code sample shows how we can declare more classes. Each class registers an instance of itself along with its chosen name, which is not the class name. Or a class administrator creates the breeder instance and registers it.
+The diagram only has enough room to represent one concrete class, but the code sample shows how we can declare more classes. Each class registers an instance of itself along with its chosen name, which does not need to be the class name. It just needs to be unique in the registry. Rather than class self-registration, a class administrator could create the breeder instance and register it as well.
 
-We can call `register()` from within a static block in C++, which will register an instance when loaded. Java will not do this. A similar static block will only register the instance when the class is referenced, which is a bit too late. An external entity must register `Prototypes` in Java.
+We can call `register()` from within a static block in C++, which will register an instance when loaded. Java will not do this. A similar static block will only register the instance when the class is referenced, which is probably too too late. Therefore, an external entity must register `Prototypes` in Java.
 
 ```java
 class PrototypeA extends Prototypical {
@@ -301,11 +301,11 @@ class PrototypeB extends Prototypical {
 ```
 
 ## Clients
-Here is the complete design with Clients. I realize the diagram is inconsistent in its use of `Optional`.
+Here is the complete design with Clients. I realize the diagram is inconsistent in its use of `Optional`. I had to make a few accommodations due to space constraints.
 
 <img src="/assets/Prototype4.png" alt="Complete Design with Clients"  width = "70%" align="center" style="padding-right: 35px;">
 
-Here's the implementation, which registers the `Prototypes` statically and acquires them. I've added an unregistered type, __C__, to demonstrate that the repository may not have what you desire:
+Here's the implementation, which registers the `Prototypes` statically and acquires them. I went all in with Java's `Optional` syntax. I've added an unregistered type, __C__, to demonstrate that the repository may not have what you desire:
 ```java
 public class PrototypeDemo1 {
     public static void main(String[] args) throws Exception {
@@ -331,7 +331,7 @@ This implementation is close to how I resolved class names with my [Parser](#int
 # Drawing Tool Use Case
 <img src="/assets/Prototype5.png" alt="PowerPoint Slides"  width = "30%" align="right" style="padding-right: 35px;">
 
-I render all of my UML class diagrams in PowerPoint. I had mentioned this in a previous blog entry where I presented [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html). PowerPoint has it's advantages and disadvantages, but I found that it has been sufficient for my needs. PowerPoint's Drawing feature allows me to create shapes, connect them, color them, add/edit text, etc.
+I render all of my UML class diagrams in PowerPoint. I mentioned this in a previous blog entry where I presented [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html). PowerPoint has its advantages and disadvantages, but I found that it has been sufficient for my needs. PowerPoint's Drawing feature allows me to create shapes, connect them, color them, add/edit text, etc.
 
 This Prototype Use Case will sketchout a design and implementation for some of the features of a drawing tool. It will include:
 * A skeleton design and implementation for a drawing tool.
@@ -346,7 +346,7 @@ The contract is declared in Shape.
 
 <img src="/assets/Prototype6.png" alt="PowerPoint Slides"  width = "30%" align="center" style="padding-right: 35px;">
 
-I chose an abstract class rather than an interface, because I want to store some information in `Shape` along with some implementation. It's easier to do that when it's an abstract class.
+I chose an abstract class rather than an interface, because I want to store some information in `Shape` along with some implementation. It's easier to do that when it's an abstract class rather than an interface..
 
 `Shape` only does two things in this design:
 * It acquires a copy of itself
