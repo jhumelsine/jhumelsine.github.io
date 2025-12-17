@@ -9,14 +9,18 @@ unlisted: true
 # Introduction
 In most mainstream Object-Oriented programming languages, objects can only be instantiated through their constructors, which depends upon and requires knowledge of their concrete class types. [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) shifts the burden from the application code to a [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer), but it doesn't eliminate class dependency and knowledge. It just relocates it.
 
-The [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) provide several techniques that encapsulate class details from the application or client code acquiring the object. However, the creation pattern mechanism itself depends upon and has knowledge of the class type. Each of the previous creational design patterns I've presented depends upon and has knowledge of the class type it is creating.
+The [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) provide several techniques that encapsulate class details from the application or client code acquiring the object. However, the creation pattern mechanism itself depends upon and has knowledge of the class type. Each of the previous creational design patterns I've presented depends upon and has knowledge of the class type it is creating. That knowledge becomes a maintenance hotspot as systems grow.
 
 We've seen about a half dozen creational pattern mechanisms that encapsulate the class type from the application/client code. One of these previous patterns will suffice for most of your object creation needs, but if we ever desire to add a new class type into the design, which many [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) based patterns support, then the creational pattern will need to be updated as well.
+
+The problem is not object creation; __it’s ongoing system evolution__.
 
 **Prototype** is our final creational design pattern. It has a trick up its sleeve. It doesn't depend upon or have knowledge of class types. Prototype doesn't acquire an object via a constructor directly. It acquires an object from an existing object of the type it desires. The constructor call has not disappeared. Prototype has found another place to stash it, that is, within the concrete class itself.
 
 # Interpreter Grammar and Parser, Revisited
-The [Grammar](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#the-grammar) in the [Production Example](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html) for my [Interpreter Design Pattern Series](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) was basic. The Scanner extracted [Keywords and Symbols](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#keywords-and-symbols) as alphanumerics, but it didn't provide any context other than determing an identifier. The [Parser](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#the-parser) determined the semantic context.
+Prototype is easiest to understand in systems where _new types are added over time_, often by people who did not write the original framework. My [Interpreter/DSL project](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html) is a concrete example of this pressure.
+
+The Production Example [Grammar](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#the-grammar) for my [Interpreter Design Pattern Series](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) was basic. The Scanner extracted [Keywords and Symbols](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#keywords-and-symbols) as alphanumerics, but it didn't provide any context other than determing an identifier. The [Parser](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#the-parser) determined the semantic context.
 
 Alphanumeric identifiers could be one of three categories in my Project Example's [Domain Specific Language](https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html) (DSL). The parser checked for each category in succession:
 * **Keywords** - Such as: `if`, `else`, `and`, `or` and `not`. These were identified and hardcoded directly in the parser. New keywords were added very infrequent, but a few were subsequently added. I was usually able to add them to the parser implementation easily.
@@ -27,6 +31,12 @@ Alphanumeric identifiers could be one of three categories in my Project Example'
 <img src="https://i1.pickpik.com/photos/426/49/136/thumb-favorite-hand-arm-preview.jpg" alt="Thumbs Up" title="Image Source: https://www.pickpik.com/human-right-hand-thumb-sign-favorite-hand-40472" width = "30%" align="right" style="padding: 35px;">
 
 Prototype is completely different than the other [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html). If the other creational design patterns are fingers, then Prototype is a thumb.
+
+The Prototype _Thumb_ is different from the other creational pattern _Fingers_ in that it does not require:
+* A static factory
+* Switch/map of types
+* Centralized creation logic updates
+* Constructor calls in the creation mechanism
 
 ## Factory, Revisted
 Let's briefly review the basic [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) pattern. The client acquires a `Feature` instance without knowing the class type. For example when the client acquires a `Feature` instance using the `FeatureFactory` as such:
@@ -56,6 +66,8 @@ class FeatureFactory {
 ```
 
 If a new `Feature` implementation class is introduced, this won't affect the client, but updates will be needed for `FeatureFactory`.
+
+Factories encapsulate which class is created; Prototype eliminates the need to even know what the class types.
 
 ## Basic Prototype
 Prototype doesn't use a static method to acquire an object, which is the primary mechanism in most of the other [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html). Prototype acquires an object from breeder object by having it clone itself. Other creational design patterns encapsulate the constructor by placing the call to `new()` within a class static method. Prototype encapsulates the constructor by placing the call to `new()` within a non-static method accessed via an object instance of that class.
@@ -98,7 +110,9 @@ The constructor is not called from a Factory static method, which is often the c
 
 I've never been much of a fan of the name ___Prototype___. It's too easy to confuse it with an early throwaway proof-of-concept _prototype_ implementation. I think that ___Clone___, ___Copy___ or ___Breeder___ would have been better names. But ___Prototype___ is the name chosen by the Gang of Four (GoF), so it's the one I'll be using.
 
-Traditionally, each Prototype concrete class implements the `clone()` or `copy()` method as it sees fit. These method names imply that the concrete class will make a copy of itself. While that's an option, it's not a requirement. This is one of the reasons while I prefer the method name `acquire()`. It doesn't imply the creation mechanism. It does not convey the creational mechanism as `clone()` or `copy()` would. Additionally, `clone` is a reserved word in Java, and using it adds some language baggage that I prefer to avoid. With this in mind maybe an even better name for this pattern could have been __Offshoot__ or __Sprout__ by borrowing botany terms.
+Traditionally, each Prototype concrete class implements the `clone()` or `copy()` method as it sees fit. These method names imply that the concrete class will make a copy of itself. While that's an option, it's not a requirement. This is one of the reasons while I prefer the method name `acquire()`. It doesn't imply the creation mechanism. It does not convey the creational mechanism as `clone()` or `copy()` would. From the client’s point of view, nothing is being ‘cloned.’ Something is being _acquired_. The GoF emphasized cloning mechanics; I emphasize acquisition semantics.
+
+Additionally, `clone` is a reserved word in Java, and using it adds some language baggage that I prefer to avoid. With this in mind maybe an even better name for this pattern could have been __Offshoot__ or __Sprout__ by borrowing botany terms.
 
 ### Acquisition Via Object
 Prototype is more of a contract declaration than an implementation. It declares that a class that implements the interface must provide a method that returns an instance of the interface. It doesn't dictate how the class creates the object instance.
@@ -197,7 +211,17 @@ class FeatureImpl implements Feature {
 
 This is the technique that I'll use in the Use Case (TBD).
 
-### Prototype Registry
+#### Acquisition Summary
+| Acquisition Technique | How It Works | When to Use |
+|----------------------|-------------|-------------|
+| Return `this` (Self) | `acquire()` returns the breeder object itself, not a new instance. | When the object is **immutable**, **stateless**, or a true **value object**. Also appropriate for **Singleton-like** semantics where sharing is intentional and safe. |
+| Default Constructor | `acquire()` creates a new instance using the default constructor. | When the object has **no meaningful internal state**, or when each acquired instance should start from a **clean, identical baseline**. This is the simplest and most common Prototype form. |
+| Copy Constructor | `acquire()` creates a new instance by copying the breeder’s fields. | When the breeder acts as a **template** and the new object should inherit its configuration. Use a **deep copy** when mutable fields are involved. |
+| State-Based Acquisition | `acquire(state)` creates a new instance initialized with external state. | When the client must supply **context-specific data** at acquisition time, and the breeder primarily defines **behavior**, not configuration. |
+| Copy + State Hybrid | `acquire(state)` copies the breeder and then applies additional state. | When the breeder provides a **default configuration**, but each acquired instance needs **customized runtime state**. Common in DSLs, parsers, and rule engines. |
+
+
+# Prototype Registry
 But something is still amiss. We have a bit of a chicken and egg problem. Prototype uses objects to make copies of objects. We still need that first seed object as the breeder. My example above only provided a comment `// Origins To Be Determined`. Where does it come from and how do clients access it?
 
 Let's add a new concept: **Prototype Registry**. A Prototype Registry contains a collection of Prototype objects, which can be copied via their `acquire` method. Each Prototype object in the registry has a key identifier, such as a String name. When the client wants an object, it asks the registry to acquire one by name. The registry gets the object that matches the name and returns an acquired copy of the object.
@@ -212,6 +236,20 @@ There are several features and caveats to this Prototype Registry:
 The structure is almost identical to [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html), except that instead of returning the key matching object, which is what Flyweight does, Prototype returns an acquired copy of the matching object.
 
 Examples for all of this will be forthcoming in the Design and Implementation.
+
+## Prototype Registry Lifecycle
+A Prototype Registry is not just a data structure; it is a __lifecycle decision__. When and how breeders are registered determines the flexibility, safety, and testability of the system. Below are several common lifecycle strategies, each with tradeoffs.
+
+| Registry Lifecycle Strategy | How Registration Occurs | Best Suited For | Key Tradeoffs |
+|-----------------------------|-------------------------|----------------|---------------|
+| Startup-Time Registration | All Prototypes are registered during application startup and remain fixed for the lifetime of the application. | Stable systems, core infrastructure, production deployments. | Least flexible; adding new Prototypes requires restart or redeploy. |
+| Bootstrap / Initializer | A dedicated bootstrap class explicitly registers all Prototypes in a controlled sequence. | Medium to large systems; Java applications needing deterministic registration. | Centralized but can grow large; requires manual maintenance. |
+| Module / Plugin-Based | Each module or plugin registers its own Prototypes when loaded or activated. | Extensible frameworks, plugin architectures, optional features. | Registration order and lifecycle must be carefully managed. |
+| Dependency Injection–Assisted | A DI container creates and registers Prototypes as part of configuration or wiring. | Applications already using DI frameworks; testable, configurable systems. | Adds framework coupling; registry behavior depends on container lifecycle. |
+| Test-Time Registration / Override | Prototypes are registered or replaced during test setup. | Unit, integration, and scenario-based testing. | Must ensure registry isolation between tests. |
+| Dynamic Runtime Registration | Prototypes are added or removed while the system is running. | Long-running systems, rule engines, live-reconfigurable platforms. | Highest complexity; requires strict synchronization and invariant enforcement. |
+| Controlled Global Registry | Registry exists as shared global state accessed via well-defined APIs. | Most Prototype implementations regardless of lifecycle choice. | Global state must remain intentional, documented, and constrained. |
+
 
 # Prototype/Prototype-Registry Design and Implementation
 Let's walk through a Prototype and Prototype Registry design and implementaiton one step at a time.
@@ -229,7 +267,7 @@ interface Feature {
 ```
 
 ## Prototypical
-`Prototypical` implements `Feature`. Just as [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html) contained a static repository within it, `Prototypical` contains a static repository within it too.
+`Prototypical` implements `Feature`. Just as [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html) contained a static repository within it, `Prototypical` contains a static repository within it too. `Prototypical` is both a Prototype _and_ a Registry façade. ``Prototypical` plays two roles: it defines the prototype contract and hosts the registry that manages initial breeders.
 
 <img src="/assets/Prototype2.png" alt="Prototypical Abstract Class"  width = "50%" align="center" style="padding-right: 35px;">
 
@@ -317,7 +355,7 @@ Here's the implementation, which registers the `Prototypes` statically and acqui
 public class PrototypeDemo1 {
     public static void main(String[] args) throws Exception {
         for (String name : List.of("A", "B", "C")) {
-            FeatureFactory.acquire(name).ifPresentOrElse(
+            FeatureProvider.acquire(name).ifPresentOrElse(
                 Feature::doSomething,
                 () -> System.out.println("Feature not found for name=" + name));
 
@@ -336,10 +374,13 @@ public class PrototypeDemo1 {
 This implementation is close to how I resolved class names with my [Parser](#interpreter-grammar-and-Parser-revisited). When we added a new functional class, we added a static blocked registration. It was in C++, so registration happened automatically at start up. When the parser encountered an identifier for the class, the Prototype Repository would find the registered breeder and return a copy of it.
 
 # Summary
-TBD
+Prototype is not about cloning objects; it is about **decoupling object acquisition from concrete class knowledge**. By allowing objects to create other objects of their own kind, Prototype eliminates the need for centralized creation logic that must be updated as systems evolve.
 
+This power comes with responsibility. Prototype introduces a registry, lifecycle decisions, and potential global state. Used carelessly, it can obscure system behavior. Used deliberately, it enables architectures that remain stable even as new types are introduced.
+
+Choose Prototype when the cost of change outweighs the cost of indirection.
 # References
-* [Wikipedia Prototype Design Pattern](https://en.wikipedia.org/wiki/Object_pool_pattern)
+* [Wikipedia Prototype Design Pattern](https://en.wikipedia.org/wiki/Prototype_pattern)
 * [Source Making Prototype Design Pattern](https://sourcemaking.com/design_patterns/prototype)
 * [Refactoring Guru Prototype Design Pattern](https://refactoring.guru/design-patterns/prototype)
 * [Prototype Pattern in Java](https://www.baeldung.com/java-pattern-prototype) - Baeldung blog by Vivek Balasubramaniam
@@ -362,7 +403,7 @@ import java.util.concurrent.*;
 public class PrototypeDemo1 {
     public static void main(String[] args) throws Exception {
         for (String name : List.of("A", "B", "C")) {
-            FeatureFactory.acquire(name).ifPresentOrElse(
+            FeatureProvider.acquire(name).ifPresentOrElse(
                 Feature::doSomething,
                 () -> System.out.println("Feature not found for name=" + name));
 
@@ -380,14 +421,15 @@ interface Feature {
     void doSomething();
 }
 
-class FeatureFactory {
-    private FeatureFactory() {}
+class FeatureProvider {
+    private FeatureProvider() {}
 
     public static Optional<Prototypical> acquire(String name) {
         return Prototypical.acquire(name);
     }
 }
 
+// No switch, no reflection, no class knowledge.
 abstract class Prototypical implements Feature {
     private static final Map<String, Prototypical> breeders = new ConcurrentHashMap<>();
 
