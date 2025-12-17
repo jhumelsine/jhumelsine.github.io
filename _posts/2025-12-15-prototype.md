@@ -195,7 +195,7 @@ class FeatureImpl implements Feature {
 }
 ```
 
-This is the technique that I'll use in the Use Case.
+This is the technique that I'll use in the Use Case (TBD).
 
 ### Prototype Registry
 But something is still amiss. We have a bit of a chicken and egg problem. Prototype uses objects to make copies of objects. We still need that first seed object as the breeder. My example above only provided a comment `// Origins To Be Determined`. Where does it come from and how do clients access it?
@@ -230,7 +230,7 @@ interface Feature {
 
 `acquire(String name)` searches for the `breeder` by name in the repository. If found, it returns an _acquired_ version of the object.
 
-__Prototype__ has another trick up its sleeve. Once a client has a `Prototypical` object, it can `acquire()` a new object from the acquired object, from which another object can be acquired, etc. There is no limit to how many new objects can be acquired regardless of how many generations they have descended from their repository ensconced initial breeder ancestor. This is a feature that other creational design patterns do not possess. I will feature this chained acquisition in the Use Case. Since there may not be a registered breeder, I have defined `acquire(String name)` to return an `Optional<Prototypical>` if a breeder is not found.
+__Prototype__ has another trick up its sleeve. Once a client has a `Prototypical` object, it can `acquire()` a new object from the acquired object, from which another object can be acquired, etc. There is no limit to how many new objects can be acquired regardless of how many generations they have descended from their repository ensconced initial breeder ancestor. This is a feature that other creational design patterns do not possess. I will feature this chained acquisition in the Use Case (TBD). Since there may not be a registered breeder, I have defined `acquire(String name)` to return an `Optional<Prototypical>` if a breeder is not found.
 
 ```java
 abstract class Prototypical implements Feature {
@@ -440,12 +440,5 @@ class PrototypeB extends Prototypical {
 * It might not be a registered breeder.
 * There could be multiple registrations for the same name.
 * The mechanism does not need to know the class type.
-* Use Interpreter Parser example.
-* I don't like the name Prototype. It's the same as a Prototype version of a produce. Clone, Copy or Breeder would have been better IMHO.
-* Basic copying
-* Prototype Factory
-* Shallow or Deep Copy
-* Copy entire composite structures.
-* Closing thoughts. Creational Patterns are not mutually exclusive. A design may incorporate several of them. For example, in Composite trees, the non-terminal composite classes might be acquired via a Factory while the terminal leaf nodes could be acquired via a Singleton, if they are stateless. And Prototype could be used to make a copy of the entire composite structure as seen in the use case.
 * named Prototype might not be found.
 * Don't allow for duplicate names.
