@@ -1,5 +1,5 @@
 ---
-title: WORK IN PROGRESS – Prototype Design Pattern
+title: WORK IN PROGRESS – Prototype Design Pattern: Acquisition Without Class Knowledge
 description: Prototype is not about cloning objects. It’s about surviving change without rewriting factories.
 unlisted: true
 ---
@@ -9,9 +9,7 @@ unlisted: true
 # Introduction
 In most mainstream Object-Oriented programming languages, objects can only be instantiated through their constructors, which depends upon and requires knowledge of their concrete class types. [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) shifts the burden from the application code to a [Configurer](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#configurer), but it doesn't eliminate class dependency and knowledge. It just relocates it.
 
-The [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) provide several techniques that encapsulate class details from the application or client code acquiring the object. However, the creation pattern mechanism itself depends upon and has knowledge of the class type. Each of the previous creational design patterns I've presented depends upon and has knowledge of the class type it is creating. That knowledge becomes a maintenance hotspot as systems grow.
-
-We've seen about a half dozen creational pattern mechanisms that encapsulate the class type from the application/client code. One of these previous patterns will suffice for most of your object creation needs, but if we ever desire to add a new class type into the design, which many [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) based patterns support, then the creational pattern will need to be updated as well.
+The [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) provide several techniques that encapsulate class details from the application or client code acquiring the object. However, the creation pattern mechanism itself depends upon and has knowledge of the class type. That knowledge becomes a maintenance hotspot as systems grow.
 
 The problem is not object creation; __it’s ongoing system evolution__.
 
@@ -20,7 +18,7 @@ The problem is not object creation; __it’s ongoing system evolution__.
 # Interpreter Grammar and Parser, Revisited
 Prototype is easiest to understand in systems where _new types are added over time_, often by people who did not write the original framework. My [Interpreter/DSL project](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html) is a concrete example of this pressure.
 
-The Production Example [Grammar](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#the-grammar) for my [Interpreter Design Pattern Series](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) was basic. The Scanner extracted [Keywords and Symbols](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#keywords-and-symbols) as alphanumerics, but it didn't provide any context other than determing an identifier. The [Parser](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#the-parser) determined the semantic context.
+The Production Example [Grammar](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#the-grammar) for my [Interpreter Design Pattern Series](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) was basic. The Scanner extracted [Keywords and Symbols](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#keywords-and-symbols) as alphanumerics, but it didn't provide any context other than determining an identifier. The [Parser](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#the-parser) determined the semantic context.
 
 Alphanumeric identifiers could be one of three categories in my Project Example's [Domain Specific Language](https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html) (DSL). The parser checked for each category in succession:
 * **Keywords** - Such as: `if`, `else`, `and`, `or` and `not`. These were identified and hardcoded directly in the parser. New keywords were added very infrequent, but a few were subsequently added. I was usually able to add them to the parser implementation easily.
@@ -67,10 +65,10 @@ class FeatureFactory {
 
 If a new `Feature` implementation class is introduced, this won't affect the client, but updates will be needed for `FeatureFactory`.
 
-Factories encapsulate which class is created; Prototype eliminates the need to even know what the class types.
+Factories encapsulate which class is created; Prototype eliminates the need to even know what the class types are.
 
 ## Basic Prototype
-Prototype doesn't use a static method to acquire an object, which is the primary mechanism in most of the other [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html). Prototype acquires an object from breeder object by having it clone itself. Other creational design patterns encapsulate the constructor by placing the call to `new()` within a class static method. Prototype encapsulates the constructor by placing the call to `new()` within a non-static method accessed via an object instance of that class.
+Prototype doesn't use a static method to acquire an object, which is the primary mechanism in most of the other [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html). Prototype acquires an object from a breeder object by having it clone itself. Other creational design patterns encapsulate the constructor by placing the call to `new()` within a class static method. Prototype encapsulates the constructor by placing the call to `new()` within a non-static method accessed via an object instance of that class.
 
 The client code would acquire a `Feature` object using Prototype as follows:
 ```java
@@ -117,7 +115,7 @@ Additionally, `clone` is a reserved word in Java, and using it adds some languag
 ### Acquisition Via Object
 Prototype is more of a contract declaration than an implementation. It declares that a class that implements the interface must provide a method that returns an instance of the interface. It doesn't dictate how the class creates the object instance.
 
-The concrete class has several options to implement `acquire()`. I'll provide several examples. Each will implement one of the following interface methods, but not both, which technically were be required if this were an implemented interface:
+The concrete class has several options to implement `acquire()`. I'll provide several examples. Each will implement one of the following interface methods, but not both, which technically would be required if this were an implemented interface:
 ```java
 Feature {
     Feature acquire();
@@ -205,7 +203,7 @@ class FeatureImpl implements Feature {
         this.state = state;
     }
 
-    return Feature acquire(State state) {
+    public Feature acquire(State state) {
         return new FeatureImpl(this, state);
     }
 }
@@ -269,7 +267,9 @@ interface Feature {
 ```
 
 ## Prototypical
-`Prototypical` implements `Feature`. Just as [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html) contained a static repository within it, `Prototypical` contains a static repository within it too. `Prototypical` is both a Prototype _and_ a Registry façade. ``Prototypical` plays two roles: it defines the prototype contract and hosts the registry that manages initial breeders.
+`Prototypical` implements `Feature`. Just as [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html) contained a static repository within it, `Prototypical` contains a static repository within it too. `Prototypical` is both a Prototype _and_ a Registry façade. `Prototypical` plays two roles: it defines the prototype contract and hosts the registry that manages initial breeders.
+
+In the examples that follow, FeatureProvider serves as a thin client-facing façade over Prototypical to make intent explicit.
 
 <img src="/assets/Prototype2.png" alt="Prototypical Abstract Class"  width = "50%" align="center" style="padding-right: 35px;">
 
@@ -310,7 +310,7 @@ While the core functionality is complete, it needs a few more elements. Concrete
 
 The diagram only has enough room to represent one concrete class, but the code sample shows how we can declare more classes. Each class registers an instance of itself along with its chosen name, which does not need to be the class name. It just needs to be unique in the registry. Rather than class self-registration, a class administrator could create the breeder instance and register it as well.
 
-We can call `register()` from within a static block in C++, which will register an instance when loaded. Java will not do this. A similar static block will only register the instance when the class is referenced, which is probably too too late. Therefore, an external entity must register `Prototypes` in Java.
+We can call `register()` from within a static block in C++, which will register an instance when loaded. Java will not do this. A similar static block will only register the instance when the class is referenced, which is probably too late. Therefore, an external entity must register `Prototypes` in Java.
 
 ```java
 class PrototypeA extends Prototypical {
