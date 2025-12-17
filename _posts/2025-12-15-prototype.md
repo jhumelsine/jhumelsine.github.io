@@ -1,5 +1,5 @@
 ---
-title: WORK IN PROGRESS – Prototype Design Pattern: Acquisition Without Class Knowledge
+title: WORK IN PROGRESS – Prototype Design Pattern; Acquisition Without Class Knowledge
 description: Prototype is not about cloning objects. It’s about surviving change without rewriting factories.
 unlisted: true
 ---
