@@ -88,6 +88,7 @@ Without care, a contract tends to reflect what was implemented rather than what 
 
 Here are some elements of a good contract:
 * It is designed from the user’s point of view to support their intent.
+* As described in [What vs How](#what-vs-how) above, it defines the ___what___ behavior is provided by the contract without conveying ___how___ that behavior is implemented. This includes keeping ___leaky abstractions___ to a minimum.
 * Its elements form a cohesive whole. Add something, and it’s out of place. Remove something, and the remaining elements fall apart.
 * It observes the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment), a principle stating that software should behave in a way users intuitively expect. That is, no surprises or _astonishment_ when its actual behavior is understood.
 * It prefers Value Objects over Primitives:
