@@ -1,6 +1,6 @@
 ---
 title: WORK IN PROGRESS – Prototype Design Pattern
-description: TBD
+description: Prototype is not about cloning objects. It’s about surviving change without rewriting factories.
 unlisted: true
 ---
 
@@ -137,6 +137,8 @@ class FeatureImpl implements Feature {
 ```
 
 This is the most simple version, but it only works when `FeatureImpl` is an immutable Value Object (TBD), such as a [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html).
+
+By _immutable value object_, I mean an object whose observable state cannot change after construction. It holds no mutable fields, exposes no setters, and does not represent an identity that evolves over time. In these cases, returning this is safe because sharing the instance cannot introduce cross-client interference. If mutation is possible—even indirectly—this technique should be avoided.
 
 #### Returns the Object via Default Constructor
 This technique returns a new default object.
@@ -275,7 +277,11 @@ interface Feature {
 
 `acquire(String name)` searches for the `breeder` by name in the repository. If found, it returns an _acquired_ version of the object.
 
-__Prototype__ has another trick up its sleeve. Once a client has a `Prototypical` object, it can `acquire()` a new object from the acquired object, from which another object can be acquired, etc. There is no limit to how many new objects can be acquired regardless of how many generations they have descended from their repository ensconced initial breeder ancestor. This is a feature that other creational design patterns do not possess. I will feature this chained acquisition in the Use Case (TBD). Since there may not be a registered breeder, I have defined `acquire(String name)` to return an `Optional<Prototypical>` if a breeder is not found.
+__Prototype__ has another trick up its sleeve. Once a client has a `Prototypical` object, it can `acquire()` a new object from the acquired object, from which another object can be acquired, etc. There is no limit to how many new objects can be acquired regardless of how many generations they have descended from their repository ensconced initial breeder ancestor. This is a feature that other creational design patterns do not possess. I will feature this chained acquisition in the Use Case (TBD).
+
+Chained acquisition allows objects to act as localized factories for their own variants. Once acquired, an object can refine or specialize itself further without consulting the registry again. This enables hierarchical or progressive specialization, something static factories and builders cannot do without reintroducing class knowledge.
+
+Since there may not be a registered breeder, I have defined `acquire(String name)` to return an `Optional<Prototypical>` if a breeder is not found.
 
 ```java
 abstract class Prototypical implements Feature {
@@ -293,7 +299,6 @@ abstract class Prototypical implements Feature {
 
     public abstract Prototypical acquire();
 }
-
 ```
 
 At this point, the core functionality of the __Prototype/Prototype-Repository__ pattern is complete. Notice that there are no concrete classes. There's only an interface and an abstract class. `new()` is not called. If new classes are added to the design, they are registered to the repository. 
@@ -372,6 +377,13 @@ public class PrototypeDemo1 {
 
 ## Review
 This implementation is close to how I resolved class names with my [Parser](#interpreter-grammar-and-Parser-revisited). When we added a new functional class, we added a static blocked registration. It was in C++, so registration happened automatically at start up. When the parser encountered an identifier for the class, the Prototype Repository would find the registered breeder and return a copy of it.
+
+# Prototype Use Case
+The next blog will feature a Prototype Use Case (TBD).
+
+# When Not to Use Prototype
+Prototype is not a default choice. If your system has a closed set of types, changes infrequently, or prioritizes simplicity over extensibility, a Factory or Builder will usually be clearer and easier to reason about. Prototype earns its complexity only when the cost of change dominates the cost of indirection.
+
 
 # Summary
 Prototype is not about cloning objects; it is about **decoupling object acquisition from concrete class knowledge**. By allowing objects to create other objects of their own kind, Prototype eliminates the need for centralized creation logic that must be updated as systems evolve.
