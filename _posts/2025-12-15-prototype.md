@@ -200,7 +200,14 @@ This is the technique that I'll use in the Use Case (TBD).
 ### Prototype Registry
 But something is still amiss. We have a bit of a chicken and egg problem. Prototype uses objects to make copies of objects. We still need that first seed object as the breeder. My example above only provided a comment `// Origins To Be Determined`. Where does it come from and how do clients access it?
 
-Let's add a new concept: **Prototype Registry**. A Prototype Registry contains a collection of Prototype objects, which can be copied via their `acquire` method. Each Prototype object in the registry has a key identifier, such as a String name. When the client wants an object, it asks the registry to acquire one by name. The registry gets the object that matches the name, and returns an acquired copy of the object.
+Let's add a new concept: **Prototype Registry**. A Prototype Registry contains a collection of Prototype objects, which can be copied via their `acquire` method. Each Prototype object in the registry has a key identifier, such as a String name. When the client wants an object, it asks the registry to acquire one by name. The registry gets the object that matches the name and returns an acquired copy of the object.
+
+There are several features and caveats to this Prototype Registry:
+* The key identifier does not need to match the breeder object's class type name.
+* The key identifier does not need to be a name. Any set of key attributes that uniquely identify a breeder object will suffice.
+* Multiple key identifiers can map to breeder objects of the same class type.
+* A unique key should map to no more than one breeder object.
+* A queried key may not be registered. The registry will need to define how it will respond, which could be a returned `Optional`, `null` or a thrown Exception. The client will need to accommodate these ___Breeder Not Found___ cases.
 
 The structure is almost identical to [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html), except that instead of returning the key matching object, which is what Flyweight does, Prototype returns an acquired copy of the matching object.
 
@@ -433,12 +440,3 @@ class PrototypeB extends Prototypical {
     }
 }
 ```
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-# NOTES
-* It might not be a registered breeder.
-* There could be multiple registrations for the same name.
-* The mechanism does not need to know the class type.
-* named Prototype might not be found.
-* Don't allow for duplicate names.
