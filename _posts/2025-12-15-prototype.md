@@ -21,9 +21,9 @@ Prototype is easiest to understand in systems where _new types are added over ti
 The Production Example [Grammar](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#the-grammar) for my [Interpreter Design Pattern Series](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) was basic. The Scanner extracted [Keywords and Symbols](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#keywords-and-symbols) as alphanumerics, but it didn't provide any context other than determining an identifier. The [Parser](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html#the-parser) determined the semantic context.
 
 Alphanumeric identifiers could be one of three categories in my Project Example's [Domain Specific Language](https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html) (DSL). The parser checked for each category in succession:
-* **Keywords** - Such as: `if`, `else`, `and`, `or` and `not`. These were identified and hardcoded directly in the parser. New keywords were added very infrequent, but a few were subsequently added. I was usually able to add them to the parser implementation easily.
+* **Keywords** - Such as: `if`, `else`, `and`, `or` and `not`. These were identified and hardcoded directly in the parser. New keywords were added very infrequently, but a few were subsequently added. I was usually able to add them to the parser implementation easily.
 * **Variable/Function Names** - These were entities defined within the script executing the DSL. They were equivalent to variables or function names in most programming languages. When a new identifier was defined in the script, it along with its definition was added to a symbol table, which the parser subsequently would query. If a name was found in the symbol table then its definition would be used.
-* **Class Names** - The DSL defined a structural framework organizing behavior across a set of objects identified by their class names. Most of the real work resided in the classes. The DSL was the structural framework that organized objects of the class types in different configurations allowing a relatively small set of elements to exhibit a near infinite number of behaviors based upon how they were configured. The parser needed to create object instances for those class types. A [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) would have sufficied, as seen in the `switch` statement in [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#factory-method), but that would mean that when a new class type was added, I would have had to update the `switch` statement in the factory used by the parser. I wanted to avoid updating the parser factory each time we added a class type, and I believe we added at least 50 class types over the lifespan of the project. I used Prototype to acquire class named objects, and I never had to update the parser when we added a new class type.
+* **Class Names** - The DSL defined a structural framework organizing behavior across a set of objects identified by their class names. Most of the real work resided in the classes. The DSL was the structural framework that organized objects of the class types in different configurations allowing a relatively small set of elements to exhibit a near infinite number of behaviors based upon how they were configured. The parser needed to create object instances for those class types. A [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) would have sufficed, as seen in the `switch` statement in [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#factory-method), but that would mean that when a new class type was added, I would have had to update the `switch` statement in the factory used by the parser. I wanted to avoid updating the parser factory each time we added a class type, and I believe we added at least 50 class types over the lifespan of the project. I used Prototype to acquire class named objects, and I never had to update the parser when we added a new class type.
 
 # Prototype
 <img src="https://i1.pickpik.com/photos/426/49/136/thumb-favorite-hand-arm-preview.jpg" alt="Thumbs Up" title="Image Source: https://www.pickpik.com/human-right-hand-thumb-sign-favorite-hand-40472" width = "30%" align="right" style="padding: 35px;">
@@ -37,7 +37,7 @@ The Prototype _Thumb_ is different from the other creational pattern _Fingers_ i
 * Constructor calls in the creation mechanism
 
 ## Factory, Revisted
-Let's briefly review the basic [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) pattern. The client acquires a `Feature` instance without knowing the class type. For example when the client acquires a `Feature` instance using the `FeatureFactory` as such:
+Let's briefly review the basic [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) pattern. The client acquires a `Feature` instance without knowing the class type. For example, when the client acquires a `Feature` instance using the `FeatureFactory` as such:
 ```java
 Feature feature = FeatureFactory.acquire();
 ```
@@ -72,7 +72,7 @@ Prototype doesn't use a static method to acquire an object, which is the primary
 
 The client code would acquire a `Feature` object using Prototype as follows:
 ```java
-Feature breeder = // Origins To Be Determined
+Feature breeder = // Reference To Be Determined
 
 Feature feature = breeder.acquire();
 ```
@@ -108,9 +108,9 @@ The constructor is not called from a Factory static method, which is often the c
 
 I've never been much of a fan of the name ___Prototype___. It's too easy to confuse it with an early throwaway proof-of-concept _prototype_ implementation. I think that ___Clone___, ___Copy___ or ___Breeder___ would have been better names. But ___Prototype___ is the name chosen by the Gang of Four (GoF), so it's the one I'll be using.
 
-Traditionally, each Prototype concrete class implements the `clone()` or `copy()` method as it sees fit. These method names imply that the concrete class will make a copy of itself. While that's an option, it's not a requirement. This is one of the reasons while I prefer the method name `acquire()`. It doesn't imply the creation mechanism. It does not convey the creational mechanism as `clone()` or `copy()` would. From the client’s point of view, nothing is being ‘cloned.’ Something is being _acquired_. The GoF emphasized cloning mechanics; I emphasize acquisition semantics.
+Traditionally, each Prototype concrete class implements the `clone()` or `copy()` method as it sees fit. These method names imply that the concrete class will make a copy of itself. While that's an option, it's not a requirement. This is one of the reasons while I prefer the method name `acquire()`. It does not convey the creational mechanism as `clone()` or `copy()` would. From the client’s point of view, nothing is being _cloned_. Something is being _acquired_. The GoF emphasized cloning mechanics; I emphasize acquisition semantics.
 
-Additionally, `clone` is a reserved word in Java, and using it adds some language baggage that I prefer to avoid. With this in mind maybe an even better name for this pattern could have been __Offshoot__ or __Sprout__ by borrowing botany terms.
+Additionally, `clone` is a reserved word in Java, and using it adds some language baggage that I prefer to avoid. Maybe an even better name for this pattern could have been __Offshoot__ or __Sprout__ by borrowing botany terms.
 
 ### Acquisition Via Object
 Prototype is more of a contract declaration than an implementation. It declares that a class that implements the interface must provide a method that returns an instance of the interface. It doesn't dictate how the class creates the object instance.
@@ -136,7 +136,7 @@ class FeatureImpl implements Feature {
 
 This is the most simple version, but it only works when `FeatureImpl` is an immutable Value Object (TBD), such as a [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html).
 
-By _immutable value object_, I mean an object whose observable state cannot change after construction. It holds no mutable fields, exposes no setters, and does not represent an identity that evolves over time. In these cases, returning this is safe because sharing the instance cannot introduce cross-client interference. If mutation is possible—even indirectly—this technique should be avoided.
+By _immutable value object_, I mean an object whose observable state cannot change after construction. It holds no mutable fields, exposes no setters, and does not represent an identity that evolves over time. In these cases, returning this is safe because sharing the instance cannot introduce cross-client interference. If mutation is possible, even indirectly, this technique should be avoided.
 
 #### Returns the Object via Default Constructor
 This technique returns a new default object.
@@ -212,6 +212,7 @@ class FeatureImpl implements Feature {
 This is the technique that I'll use in the Use Case (TBD).
 
 #### Acquisition Summary
+
 | Acquisition Technique | How It Works | When to Use |
 |----------------------|-------------|-------------|
 | Return `this` (Self) | `acquire()` returns the breeder object itself, not a new instance. | When the object is **immutable**, **stateless**, or a true **value object**. Also appropriate for **Singleton-like** semantics where sharing is intentional and safe. |
@@ -222,20 +223,20 @@ This is the technique that I'll use in the Use Case (TBD).
 
 
 # Prototype Registry
-But something is still amiss. We have a bit of a chicken and egg problem. Prototype uses objects to make copies of objects. We still need that first seed object as the breeder. My example above only provided a comment `// Origins To Be Determined`. Where does it come from and how do clients access it?
+But something is still amiss. We have a bit of a chicken and egg problem. Prototype uses objects to make copies of objects. We still need that first seed object as the breeder. My example above only provided a comment `// Reference To Be Determined`. Where does it come from and how do clients access it?
 
 Let's add a new concept: **Prototype Registry**. A Prototype Registry contains a collection of Prototype objects, which can be copied via their `acquire` method. Each Prototype object in the registry has a key identifier, such as a String name. When the client wants an object, it asks the registry to acquire one by name. The registry gets the object that matches the name and returns an acquired copy of the object.
 
 There are several features and caveats to this Prototype Registry:
 * The key identifier does not need to match the breeder object's class type name.
 * The key identifier does not need to be a name. Any set of key attributes that uniquely identify a breeder object will suffice.
-* Multiple key identifiers can map to breeder objects of the same class type.
+* Multiple key identifiers can map to a breeder object of the same class type.
 * A unique key should map to no more than one breeder object.
 * A queried key may not be registered. The registry will need to define how it will respond, which could be a returned `Optional`, `null` or a thrown Exception. The client will need to accommodate these ___Breeder Not Found___ cases.
 
 The structure is almost identical to [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html), except that instead of returning the key matching object, which is what Flyweight does, Prototype returns an acquired copy of the matching object.
 
-Examples for all of this will be forthcoming in the Design and Implementation.
+Examples for all of this will be forthcoming in the [Design and Implementation](#prototype-prototype-registry=design-and-implementation).
 
 ## Prototype Registry Lifecycle
 A Prototype Registry is not just a data structure; it is a __lifecycle decision__. When and how breeders are registered determines the flexibility, safety, and testability of the system. Below are several common lifecycle strategies, each with tradeoffs.
@@ -252,7 +253,7 @@ A Prototype Registry is not just a data structure; it is a __lifecycle decision_
 
 
 # Prototype/Prototype-Registry Design and Implementation
-Let's walk through a Prototype and Prototype Registry design and implementaiton one step at a time.
+Let's walk through a Prototype and Prototype Registry design and implementation one step at a time.
 
 ## Feature
 `Feature` declares a contract interface:
@@ -268,8 +269,6 @@ interface Feature {
 
 ## Prototypical
 `Prototypical` implements `Feature`. Just as [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html) contained a static repository within it, `Prototypical` contains a static repository within it too. `Prototypical` is both a Prototype _and_ a Registry façade. `Prototypical` plays two roles: it defines the prototype contract and hosts the registry that manages initial breeders.
-
-In the examples that follow, FeatureProvider serves as a thin client-facing façade over Prototypical to make intent explicit.
 
 <img src="/assets/Prototype2.png" alt="Prototypical Abstract Class"  width = "50%" align="center" style="padding-right: 35px;">
 
