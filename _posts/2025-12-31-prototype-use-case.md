@@ -5,7 +5,7 @@ unlisted: true
 ---
 
 # Introduction
-I introduced the Prototype Design Pattern (TBD) in my previous blog entry. Prototype is a [Creational Design Pattern] (https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) that's different from the other creational design patterns. Most creational patterns involve a static method invoking the constructor of the concrete class type their instantiating. This means that they have knowledge of and depend upon that concrete class type. Should there be any class type updates, then the creational pattern will need to be updated.
+I introduced the Prototype Design Pattern (TBD) in my previous blog entry. Prototype is a [Creational Design Pattern](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) that's different from the other creational design patterns. Most creational patterns involve a static method invoking the constructor of the concrete class type their instantiating. This means that they have knowledge of and depend upon that concrete class type. Should there be any class type updates, then the creational pattern will need to be updated.
 
 Prototype instantiates a new instance by invoking a method of an object of the desired type. This object method is responsible for returning an instance of its own class. This object method vs static method invokation is what separates Prototype from it fellow creational patterns.
 
@@ -14,7 +14,7 @@ This blog entry continues with Prototype with a use case featuring elements of a
 # Drawing Program Use Case
 <img src="/assets/Prototype5.png" alt="PowerPoint Slides"  width = "30%" align="right" style="padding-right: 35px;">
 
-I render all of my UML class diagrams in PowerPoint. I mentioned this in a previous blog entry where I presented [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html). PowerPoint has its advantages and disadvantages, but I found that it has been sufficient for my needs. PowerPoint's Drawing feature allows me to create shapes, connect them, color them, add/edit text, etc.
+I render all of my UML class diagrams in PowerPoint. I mentioned this in a previous blog entry where I presented [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html). PowerPoint has its advantages and disadvantages as a design tool, but I found that it has been sufficient for my needs. PowerPoint's Drawing feature allows me to create shapes, connect them, color them, add/edit text, etc. Almost every UML class diagram in my blog entries has been rendered using PowerPoint.
 
 This Prototype Use Case will sketchout a design and implementation for some of the features of a drawing tool. It will include:
 * A skeleton design and implementation for a drawing tool.
@@ -27,9 +27,9 @@ In addition to __Prototype/Prototype-Repository__ this design will also feature 
 ## Shape
 The contract is declared in Shape.
 
-<img src="/assets/Prototype6.png" alt="PowerPoint Slides"  width = "30%" align="center" style="padding-right: 35px;">
+<img src="/assets/Prototype6.png" alt="PowerPoint Slides"  width = "20%" align="center" style="padding-right: 35px;">
 
-I chose an abstract class rather than an interface, because I want to store some information in `Shape` along with some implementation. It's easier to do that when it's an abstract class rather than an interface..
+I chose an abstract class rather than an interface, because I want to store information in `Shape` along with some implementation. It's easier to do that when it's an abstract class rather than an interface..
 
 `Shape` only does two things in this design:
 * It acquires a copy of itself
@@ -40,7 +40,13 @@ In a real drawing tool, there would be more behavior and state, such as:
 * Rotation
 * Line and Fill formatting
 * Optional Text with its own formatting
-* **PICK IT UP HERE**
+* Etc.
+
+The `Shape` implementation contains some state:
+* `serialNumber` which is an incrementing integer for each newly acquired `Shape` object. I've added it to demonstrate that new objects are being instantiated as they are acquired.
+* `state` which is a placeholder for state within the object. In a production drawing program, state would include position, rotation, formatting details, etc. In my simple demo, it's a simple String.
+
+This demo won't render any images. Rendering will be text that describes what would be rendered if this were an actual drawing program. Rendering in this demo is closer to an integrated `toString()` feature with which it leverages the [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html).
 
 ```java
 abstract class Shape {
@@ -49,7 +55,7 @@ abstract class Shape {
     private static int serialCounter = 0;
     private final int serialNumber;
 
-    // Each object has a stae, which will be copied from the breeder when a new object is acquired.
+    // Each object has a state, which will be copied from the breeder when a new object is acquired.
     // It exists to demonstrate that new objets are created via a deep copy.
     // It's a representational placeholder for all possible Shape state information.
     private final String state;
@@ -82,6 +88,46 @@ abstract class Shape {
     protected final String getShapeDetails() {
         return String.format("serialNumber=%d, state=%s", serialNumber, state);
     }
+}
+```
+
+## Registered Breeder
+The design expands to include `RegisteredBreeder`. It is a Prototye Registry. Contemplated naming it `RegisteredShapeBreeder`, but this felt too long. Maybe `RegisteredShape` would be a better name. Naming things is hard.
+
+It throws an exception if a breeder is not found. It does not protect against duplicate names. **Maybe it should**
+
+<img src="/assets/Prototype6.png" alt="PowerPoint Slides"  width = "30%" align="center" style="padding-right: 35px;">
+
+```java
+abstract class RegisteredBreeder extends Shape {
+    private static final Map<String, Shape> breeders = new ConcurrentHashMap<>();
+
+    public RegisteredBreeder(String state) {
+        super(state);
+    }
+
+    // Acquire the breeder, and return an object acquired from the breeder object.
+    // Pass its state information so the breeder can initialize the new object with it.
+    public static final Shape acquire(String shapeName, String state) {
+        Shape breeder = breeders.get(shapeName.toLowerCase());
+        if (breeder == null) {
+            throw new IllegalArgumentException("No breeder registered for: " + shapeName);
+        }
+        return breeder.acquire(state);
+    }
+
+    // Register the breeder known by its shape name.
+    protected static final void register(String shapeName, Shape breeder) {
+        System.out.format("Registering %s Shape\n", shapeName);
+        breeders.put(shapeName.toLowerCase(), breeder);
+    }
+
+    @Override
+    public final void render(int indentation) {
+        System.out.format("%sRender a %s(%s)\n", getIndentation(indentation), getShapeName(), getShapeDetails());
+    }
+
+    protected abstract String getShapeName();
 }
 ```
 
