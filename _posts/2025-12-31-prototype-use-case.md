@@ -5,9 +5,13 @@ unlisted: true
 ---
 
 # Introduction
-TBD
+I introduced the Prototype Design Pattern (TBD) in my previous blog entry. Prototype is a [Creational Design Pattern] (https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) that's different from the other creational design patterns. Most creational patterns involve a static method invoking the constructor of the concrete class type their instantiating. This means that they have knowledge of and depend upon that concrete class type. Should there be any class type updates, then the creational pattern will need to be updated.
 
-# Drawing Tool Use Case
+Prototype instantiates a new instance by invoking a method of an object of the desired type. This object method is responsible for returning an instance of its own class. This object method vs static method invokation is what separates Prototype from it fellow creational patterns.
+
+This blog entry continues with Prototype with a use case featuring elements of a Drawing program, much like what PowerPoint provides.
+
+# Drawing Program Use Case
 <img src="/assets/Prototype5.png" alt="PowerPoint Slides"  width = "30%" align="right" style="padding-right: 35px;">
 
 I render all of my UML class diagrams in PowerPoint. I mentioned this in a previous blog entry where I presented [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html). PowerPoint has its advantages and disadvantages, but I found that it has been sufficient for my needs. PowerPoint's Drawing feature allows me to create shapes, connect them, color them, add/edit text, etc.
