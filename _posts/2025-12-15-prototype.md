@@ -1,5 +1,5 @@
 ---
-title: DRAFT OPEN FOR REVIEW – Prototype Design Pattern; Acquisition Without Class Knowledge
+title: DRAFT OPEN FOR REVIEW AND COMMENTS – Prototype Design Pattern; Acquisition Without Class Knowledge
 description: Prototype is not about cloning objects. It’s about surviving change without rewriting factories.
 unlisted: true
 ---
