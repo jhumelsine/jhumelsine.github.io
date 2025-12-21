@@ -251,6 +251,9 @@ A Prototype Registry is not just a data structure; it is a __lifecycle decision_
 | Dynamic Runtime Registration | Prototypes are added or removed while the system is running. | Long-running systems, rule engines, live-reconfigurable platforms. | Highest complexity; requires strict synchronization and invariant enforcement. |
 | Controlled Global Registry | Registry exists as shared global state accessed via well-defined APIs. | Most Prototype implementations regardless of lifecycle choice. | Global state must remain intentional, documented, and constrained. |
 
+## NOTE - CLEAN UP THIS IDEA
+
+Prototype can also be in the registry can be individual objects of the same type but with different attributes so for an example if you had a game with different types of playing cards or military campaign with different kinds of pieces but they all had the same basic behaviors just different attribute preferences those could be created entered into the repository with the key word and then access for easier use later on
 
 # Prototype/Prototype-Registry Design and Implementation
 Let's walk through a Prototype and Prototype Registry design and implementation one step at a time.
