@@ -251,9 +251,14 @@ A Prototype Registry is not just a data structure; it is a __lifecycle decision_
 | Dynamic Runtime Registration | Prototypes are added or removed while the system is running. | Long-running systems, rule engines, live-reconfigurable platforms. | Highest complexity; requires strict synchronization and invariant enforcement. |
 | Controlled Global Registry | Registry exists as shared global state accessed via well-defined APIs. | Most Prototype implementations regardless of lifecycle choice. | Global state must remain intentional, documented, and constrained. |
 
-## NOTE - CLEAN UP THIS IDEA
+## Prototype Registry Allows More Granularity
+<img src="https://www.camelotgamestore.com/images/thumbs/0002417_panzer-blitz-quarter-page-of-general-magazine-v13n3-counters_550.jpeg" alt="Panzer Blitz Game Pieces" title="Image Source: https://www.camelotgamestore.com/panzer-blitz-quarter-page-of-general-magazine-v13n3-counters" width = "30%" align="right" style="padding: 35px;">
 
-Prototype can also be in the registry can be individual objects of the same type but with different attributes so for an example if you had a game with different types of playing cards or military campaign with different kinds of pieces but they all had the same basic behaviors just different attribute preferences those could be created entered into the repository with the key word and then access for easier use later on
+A Prototype Registry is a registry of objects. It's not a registry of classes. That means that different objects of the same class type can be registered separately, which allows attribute distinguishing behaviors to be registered and acquired. While this is technically possible with some creational patterns, such as Factory, it feels more natural within a Prototype Registry.
+
+For example, [Magic: The Gathering](https://en.wikipedia.org/wiki/Magic:_The_Gathering) consists of many different cards, but for the most part, they vary based upon attributes. Different types of cards could be configured and registered based upon their name. [Board Wargames](https://en.wikipedia.org/wiki/Board_wargame), such as [Panzer Blitz](https://en.wikipedia.org/wiki/PanzerBlitz), also come to mind, where each piece's abilities depends upon its attributes.
+
+Prototype Object Registry would also work well with [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html), since behavior is defined via the assemble of a set of objects. The named root of the assemble can be registered. I'll provide an example of this in the Use Case (TBD).
 
 # Prototype/Prototype-Registry Design and Implementation
 Let's walk through a Prototype and Prototype Registry design and implementation one step at a time.
