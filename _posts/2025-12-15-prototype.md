@@ -252,7 +252,7 @@ A Prototype Registry is not just a data structure; it is a __lifecycle decision_
 | Controlled Global Registry | Registry exists as shared global state accessed via well-defined APIs. | Most Prototype implementations regardless of lifecycle choice. | Global state must remain intentional, documented, and constrained. |
 
 ## Prototype Registry Allows More Granularity
-<img src="https://www.camelotgamestore.com/images/thumbs/0002417_panzer-blitz-quarter-page-of-general-magazine-v13n3-counters_550.jpeg" alt="Panzer Blitz Game Pieces" title="Image Source: https://www.camelotgamestore.com/panzer-blitz-quarter-page-of-general-magazine-v13n3-counters" width = "30%" align="right" style="padding: 35px;">
+<img src="https://www.camelotgamestore.com/images/thumbs/0002417_panzer-blitz-quarter-page-of-general-magazine-v13n3-counters_550.jpeg" alt="Panzer Blitz Game Pieces" title="Image Source: https://www.camelotgamestore.com/panzer-blitz-quarter-page-of-general-magazine-v13n3-counters" width = "40%" align="right" style="padding: 35px;">
 
 A Prototype Registry is a registry of objects. It's not a registry of classes. That means that different objects of the same class type can be registered separately, which allows attribute distinguishing behaviors to be registered and acquired. While this is technically possible with some creational patterns, such as Factory, it feels more natural within a Prototype Registry.
 
