@@ -36,7 +36,7 @@ The Prototype _Thumb_ is different from the other creational pattern _Fingers_ i
 * Centralized creation logic updates
 * Constructor calls in the creation mechanism
 
-## Factory, Revisted
+## Factory, Revisited
 Let's briefly review the basic [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) pattern. The client acquires a `Feature` instance without knowing the class type. For example, when the client acquires a `Feature` instance using the `FeatureFactory` as such:
 ```java
 Feature feature = FeatureFactory.acquire();
@@ -65,7 +65,7 @@ class FeatureFactory {
 
 If a new `Feature` implementation class is introduced, this won't affect the client, but updates will be needed for `FeatureFactory`.
 
-Factories encapsulate which class is created; Prototype eliminates the need to even know what the class types are.
+**Factories encapsulate which class is created; Prototype eliminates the need to even know what the class types are.**
 
 ## Basic Prototype
 Prototype doesn't use a static method to acquire an object, which is the primary mechanism in most of the other [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html). Prototype acquires an object from a breeder object by having it clone itself. Other creational design patterns encapsulate the constructor by placing the call to `new()` within a class static method. Prototype encapsulates the constructor by placing the call to `new()` within a non-static method accessed via an object instance of that class.
@@ -115,7 +115,7 @@ Additionally, `clone` is a reserved word in Java, and using it adds some languag
 ### Acquisition Via Object
 Prototype is more of a contract declaration than an implementation. It declares that a class that implements the interface must provide a method that returns an instance of the interface. It doesn't dictate how the class creates the object instance.
 
-The concrete class has several options to implement `acquire()`. I'll provide several examples. Each will implement one of the following interface methods, but not both, which technically would be required if this were an implemented interface:
+The concrete class has several options to implement `acquire()`. I'll provide several examples. Each will implement one of the following interface methods, but not both. his is a conceptual interface sketch, not a literal Java interface:
 ```java
 Feature {
     Feature acquire();
@@ -383,7 +383,7 @@ public class PrototypeDemo1 {
 ```
 
 ## Review
-This implementation is close to how I resolved class names with my [Parser](#interpreter-grammar-and-Parser-revisited). When we added a new functional class, we added a static blocked registration. It was in C++, so registration happened automatically at start up. When the parser encountered an identifier for the class, the Prototype Repository would find the registered breeder and return a copy of it.
+This implementation is close to how I resolved class names with my [Parser](#interpreter-grammar-and-Parser-revisited). When we added a new functional class, we added a static blocked registration. It was in C++, so registration happened automatically at start up. When the parser encountered an identifier for the class, the Prototype Registry would find the registered breeder and return a copy of it.
 
 # Prototype Use Case
 The next blog will feature a Prototype Use Case (TBD).
@@ -414,7 +414,7 @@ Choose Prototype when the cost of change outweighs the cost of indirection.
 # Complete Demo Code
 Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. Copy and paste the code into Generative AI for analysis and comments.
 
-## Complete Prototype and Prototype Repository Implementation
+## Complete Prototype and Prototype Registry Implementation
 ```java
 import java.util.*;
 import java.util.concurrent.*;
