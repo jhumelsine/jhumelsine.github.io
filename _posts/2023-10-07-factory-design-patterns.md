@@ -104,7 +104,7 @@ The GoF [Abstract Factory](https://jhumelsine.github.io/2025/07/30/abstract-fact
 Abstract Factory is a Factory of Factory of Factory Methods.
 
 ## Prototype
-Prototype is different from Factories. Factory patterns often encapsulate `new` within a static method. Factories still need to know the class type. Prototype's mechanism encapsulates `new` within a non-static method. A new object is acquired with Prototype by calling the non-static method of an existing object, which calls its own constructor via `new` and returns a new object instance.
+[Prototype](https://jhumelsine.github.io/2025/12/23/prototype.html) is different from Factories. Factory patterns often encapsulate `new` within a static method. Factories still need to know the class type. Prototype's mechanism encapsulates `new` within a non-static method. A new object is acquired with Prototype by calling the non-static method of an existing object, which calls its own constructor via `new` and returns a new object instance.
 
 Prototype includes a repository. _Breeder_ objects are created and added to the Prototype repository. Each object is identifiable via a key, which could be a name or any unique key. When a new object is needed, the repository is searched using the key. If a breeder object is found for that key, then its non-static method is called, and the object it instantiates is returned.
 
