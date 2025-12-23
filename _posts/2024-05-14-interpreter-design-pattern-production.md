@@ -276,7 +276,7 @@ My Scanner supported comments and when parsing hit an unexpected token, it would
 The design I had sketched on the whiteboard was close, but it needed a few elements for the Parser, specifically how to resolve the Pseudo Keywords, `Action`/`Command` identifiers, and Decomposed Packages concerns listed above.
 
 I added the following to the design. Most are Design Patterns not yet covered in my blogs:
-* __Prototype__ (TBD)
+* [__Prototype__](https://jhumelsine.github.io/2025/12/23/prototype.html)
 * [__Singleton__](https://jhumelsine.github.io/2025/10/31/singleton.html)
 * [__Decorator__](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html)
 
@@ -314,9 +314,7 @@ The __Prototype__ Design Pattern is not a proof-of-concept implementation. This 
 
 The __Prototype__ Design Pattern is a [Creational Design Pattern](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html), but it’s unlike the other Creational Design Patterns. In most creational patterns, the pattern’s implementation knows the class type, which it uses to create an object without the client code knowing the class type or having direct access to the constructor. Prototype does not know the class type or have direct access to the constructor either.
 
-Prototype creates and returns a new object without class knowledge, because it does not create the object via a class constructor. It creates the object by asking an object of that class to make a copy of itself. Constructors are still used, but they are encapsulated in the copy method and unknown to the Prototype implementation. See:
-* [Prototype via SourceMaking](https://sourcemaking.com/design_patterns/prototype)
-* [Prototype via Refactoring.guru](https://refactoring.guru/design-patterns/prototype)
+Prototype creates and returns a new object without class knowledge, because it does not create the object via a class constructor. It creates the object by asking an object of that class to make a copy of itself. Constructors are still used, but they are encapsulated in the copy method and unknown to the Prototype implementation. See: [Prototype Design Pattern](https://jhumelsine.github.io/2025/12/23/prototype.html).
 
 The GoF use the method name `clone()`, but since `clone` has additional baggage in Java, I’ll use `copy()` in my diagrams.
 
