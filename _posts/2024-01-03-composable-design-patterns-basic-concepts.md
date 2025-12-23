@@ -68,7 +68,7 @@ Regardless of the name, here are the patterns, which I feel most highlight the c
 
 Additionally, there are some two additional [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html), which I may include in this series as well, since they are useful for these patterns:
 * [Builder](https://jhumelsine.github.io/2025/08/08/builder-introduction.html) - Parse a complex representation, create one of several targets.
-* [Prototype](https://sourcemaking.com/design_patterns/prototype) - Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.
+* [Prototype](https://jhumelsine.github.io/2025/12/23/prototype.html) - Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.
 
 # Composition Structure
 Object composition is more than just making a single method call to another object. With Composable Design Patterns, behavior aggregates across multiple objects organized within basic data structures, such as linked lists or trees. However, there's one slight data structure variation. Traditional data structures contain data. Composable Design Patterns data structures contain functional behaviors as we’ve seen with [Command](https://jhumelsine.github.io/2023/09/18/command-design-pattern.html)/[Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html). Composition isn’t about the classes. It’s about the composition of the objects instantiated from the classes. Different compositions of objects yield different behaviors.
