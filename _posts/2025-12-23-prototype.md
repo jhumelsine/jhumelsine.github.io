@@ -1,7 +1,6 @@
 ---
-title: DRAFT OPEN FOR REVIEW AND COMMENTS – Prototype Design Pattern; Acquisition Without Class Knowledge
+title: Prototype Design Pattern; Acquisition Without Class Knowledge
 description: Prototype is not about cloning objects. It’s about surviving change without rewriting factories.
-unlisted: true
 ---
 
 <img src="https://live.staticflickr.com/3069/2856121959_e773ec796c_b.jpg" alt="Lego Clone Troopers" title="Image Source: https://www.flickr.com/photos/adactio/2856121959" width = "50%" align="center" style="padding: 35px;">
