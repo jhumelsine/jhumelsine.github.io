@@ -5,7 +5,7 @@ unlisted: true
 ---
 
 # Introduction
-I introduced the Prototype Design Pattern (TBD) in my previous blog entry. Prototype is a [Creational Design Pattern](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) that's different from the other creational design patterns. Most creational patterns involve a static method invoking the constructor of the concrete class type their instantiating. This means that they have knowledge of and depend upon that concrete class type. Should there be any class type updates, then the creational pattern will need to be updated.
+I introduced the [Prototype Design Pattern](https://jhumelsine.github.io/2025/12/23/prototype.html) in my previous blog entry. Prototype is a [Creational Design Pattern](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) that's different from the other creational design patterns. Most creational patterns involve a static method invoking the constructor of the concrete class type their instantiating. This means that they have knowledge of and depend upon that concrete class type. Should there be any class type updates, then the creational pattern will need to be updated.
 
 Prototype instantiates a new instance by invoking a method of an object of the desired type. This object method is responsible for returning an instance of its own class. This object method vs static method invokation is what separates Prototype from it fellow creational patterns.
 
