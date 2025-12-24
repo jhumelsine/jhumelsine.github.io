@@ -72,7 +72,7 @@ TBD
 ```
 
 ## Concrete Classes
-<img src="https://img.goodfon.com/wallpaper/nbig/2/9e/igra-kalmara-serial-squid-game.webp" alt="Squid Game" title="Image Source: https://www.goodfon.com/films/wallpaper-igra-kalmara-serial-squid-game.html" width = "30%" align="right" style="padding: 35px;">
+<img src="https://img.goodfon.com/wallpaper/nbig/2/9e/igra-kalmara-serial-squid-game.webp" alt="Squid Game" title="Image Source: https://www.goodfon.com/films/wallpaper-igra-kalmara-serial-squid-game.html" width = "40%" align="right" style="padding: 35px;">
 
 This design expansion adds concrete classes to the previous abstract classes. They include: `Triangle`, `Rectangle` and `Circle`. I wasn't thinking of ___Squid Game___ when I chose these shapes, but similarity is pretty striking.
 
@@ -100,6 +100,38 @@ Here is some sample code to acquire and render shapes;
 ```java
 TBD
 ```
+
+## Composite Shapes 
+This extension will expand beyond traditional [Prototype](https://jhumelsine.github.io/2025/12/23/prototype.html) and into [Composite](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html).
+
+Composites will allow the design to group a set of `Shape` objects into a composite entity, which I'm calling `Shapes` in this design. Since `Shapes` extends `Shape` it must implement `acquire` and `render` as well. The design also includes `ShapesFactory`.
+
+Here is the design:
+<img src="/assets/Prototype9.png" alt="Shapes UML"  width = "80%" align="center" style="padding-right: 35px;">
+
+Notice that a `Shape` object can reside within `RegisteredBreeder` as well as `Shapes`. This can feel a bit disorienting as well, since I don't think we've seen this type of relationship before. It's fine because `RegisteredBreeder` maintains an object instance as part of the creational portion of the design, and `Shapes` maintains an object instance as part of the structural portion of the design.
+
+I also noticed that when a shape is acquired in `Shapes` it tends to make a temporary copy, which is not used. It becomes orphaned immediately, which makes it a candidate for garbage collection. There may be a way to avoid this, but I didn't investigate it.
+
+Here is the implemenation for `Shapes`:
+```java
+TBD
+```
+
+Here is the implementation for `ShapeFactory`:
+```java
+TBD
+```
+
+Here is code that creates `Shapes`:
+```java
+```
+
+## Non-Factory/Registry Acquisition
+
+## Register Composites
+
+## Register Object Variances
 
 # Summary
 TBD
