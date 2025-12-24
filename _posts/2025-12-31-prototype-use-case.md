@@ -27,7 +27,7 @@ In addition to __Prototype/Prototype-Registry__, this design will also feature e
 ## Shape
 The contract is declared in Shape.
 
-<img src="/assets/Prototype6.png" alt="PowerPoint Slides"  width = "20%" align="center" style="padding-right: 35px;">
+<img src="/assets/Prototype6.png" alt="Shape UML"  width = "20%" align="center" style="padding-right: 35px;">
 
 I chose an abstract class rather than an interface, because I want to store information in `Shape` along with some implementation. It's easier to do that when it's an abstract class rather than an interface.
 
@@ -96,7 +96,7 @@ The design expands to include `RegisteredBreeder`. It is a Prototye Registry. I 
 
 It throws an exception if a breeder is not found, and it also throws an exception if a newly `RegisteredBreeder` use the same key of an existing `RegisteredBreeder`.
 
-<img src="/assets/Prototype6.png" alt="PowerPoint Slides"  width = "30%" align="center" style="padding-right: 35px;">
+<img src="/assets/Prototype7.png" alt="Registered Breeder UML"  width = "30%" align="center" style="padding-right: 35px;">
 
 ```java
 abstract class RegisteredBreeder extends Shape {
