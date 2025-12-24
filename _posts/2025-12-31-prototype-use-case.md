@@ -1,6 +1,6 @@
 ---
-title: WORK IN PROGRESS – Prototype Design Pattern
-description: TBD
+title: WORK IN PROGRESS – Prototype Design Pattern Use Case
+description: Demonstrating a Prototype Design in the Context of a Drawing Program
 unlisted: true
 ---
 
@@ -12,22 +12,26 @@ Prototype instantiates a new instance by invoking a method of an object of the d
 This blog entry continues with Prototype with a Drawing Program Use Case example, much like what PowerPoint provides to render shapes.
 
 # Drawing Program Use Case
-<img src="/assets/Prototype5.png" alt="PowerPoint Slides"  width = "40%" align="right" style="padding-right: 35px;">
+<img src="/assets/Prototype5.png" alt="PowerPoint Slides"  width = "50%" align="right" style="padding-right: 35px;">
 
 I render all of my UML class diagrams in PowerPoint. I mentioned this in a previous blog entry where I presented [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html). PowerPoint has its advantages and disadvantages as a design tool, but I found that it has been sufficient for my needs. PowerPoint's Drawing feature allows me to create shapes, connect them, color them, add/edit text, etc. Almost every UML class diagram in my blog entries has been rendered using PowerPoint.
 
 This Prototype Use Case will sketchout a design and implementation for some of the features of a drawing tool. It will include:
 * A skeleton design and implementation for a drawing tool illustrating the basic shape organization structure.
-* Using a __Prototype__ and __Prototype Registry__ to acquire `Shapes` by name. This allows new `Shape` types to be added without having to update the Prototype portion of the design.
+* Using a __Prototype__ and __Prototype Registry__ to acquire `Shape` objects by name. This allows new concrete `Shape` types to be added without having to update the Prototype portion of the design.
 * The ability to group `Shapes` together, such as one can do with the __Group__ feature in PowerPoint.
 * The ability make copies of any `Shapes` such as one can do with _Copy-and-Paste_ in PowerPoint.
 
 In addition to __Prototype/Prototype-Registry__, this design will also feature elements of [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html), [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html), [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) and [Composite](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html).
 
+I will present the design starting with a `Shape` contract and then expand the design into extending classes.
+
+I'm also fond of declaring attributes and methods as `final` when possible. Since the design features Template Method, I want to ensure that extending classes don't violate Template Method behaviors by overriding them, even if unintentionally.
+
 ## Shape
 The contract is declared in Shape.
 
-<img src="/assets/Prototype6.png" alt="Shape UML"  width = "20%" align="center" style="padding-right: 35px;">
+<img src="/assets/Prototype6.png" alt="Shape UML"  width = "40%" align="center" style="padding-right: 35px;">
 
 I chose an abstract class rather than an interface, because I want to store information in `Shape` along with some implementation. It's easier to do that when it's an abstract class rather than an interface.
 
@@ -49,46 +53,7 @@ The `Shape` implementation contains some state:
 This demo won't render any images. Text will be a substitute for rendering if this were an actual drawing program. Rendering in this demo is closer to a sophisticated `toString()` feature, which leverages the [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html).
 
 ```java
-abstract class Shape {
-    // Each newly created object will have a unique serialNumber initialized from an incrementing serialCounter.
-    // It exists only to demonstrate that new objects are being created when acquired.
-    private static int serialCounter = 0;
-    private final int serialNumber;
-
-    // Each object has a state, which will be copied from the breeder when a new object is acquired.
-    // It exists to demonstrate that new objets are created via a deep copy.
-    // It's a representational placeholder for all possible Shape state information.
-    private final String state;
-
-    protected Shape(String state) {
-        this.serialNumber = serialCounter++;
-        this.state = state;
-        System.out.format("Creating Shape serialNumber=%d, state=%s\n", serialNumber, state);
-
-    }
-
-    public final Shape acquire() {
-        return acquire(state);
-    }
-
-    protected abstract Shape acquire(String state);
-
-    // This example isn't rendering shapes. It demonstrates where they could be rendered.
-    // This version of render() is closer to toString().
-    public final void render() {
-        render(0);
-    }
-
-    protected abstract void render(int indentation);
-
-    protected final String getIndentation(int indentation) {
-        return " ".repeat(indentation);
-    }
-
-    protected final String getShapeDetails() {
-        return String.format("serialNumber=%d, state=%s", serialNumber, state);
-    }
-}
+TBD
 ```
 
 ## Registered Breeder
@@ -96,40 +61,10 @@ The design expands to include `RegisteredBreeder`. It is a Prototye Registry. I 
 
 It throws an exception if a breeder is not found, and it also throws an exception if a newly `RegisteredBreeder` use the same key of an existing `RegisteredBreeder`.
 
-<img src="/assets/Prototype7.png" alt="Registered Breeder UML"  width = "30%" align="center" style="padding-right: 35px;">
+<img src="/assets/Prototype7.png" alt="Registered Breeder UML"  width = "40%" align="center" style="padding-right: 35px;">
 
 ```java
-abstract class RegisteredBreeder extends Shape {
-    private static final Map<String, Shape> breeders = new ConcurrentHashMap<>();
-
-    public RegisteredBreeder(String state) {
-        super(state);
-    }
-
-    // Acquire the breeder, and return an object acquired from the breeder object.
-    // Pass its state information so the breeder can initialize the new object with it.
-    public static final Shape acquire(String shapeName, String state) {
-        Shape breeder = breeders.get(shapeName.toLowerCase());
-        if (breeder == null) {
-            throw new IllegalArgumentException("No breeder registered for: " + shapeName);
-        }
-        return breeder.acquire(state);
-    }
-
-    // Register the breeder known by its shape name.
-    protected static final void register(String shapeName, Shape breeder) {
-        if (breeders.containsKey(shapeName)) throw new IllegalArgumentException("Registration exists for: " + shapeName);
-        System.out.format("Registering %s Shape\n", shapeName);
-        breeders.put(shapeName.toLowerCase(), breeder);
-    }
-
-    @Override
-    public final void render(int indentation) {
-        System.out.format("%sRender a %s(%s)\n", getIndentation(indentation), getShapeName(), getShapeDetails());
-    }
-
-    protected abstract String getShapeName();
-}
+TBD
 ```
 
 # Summary
