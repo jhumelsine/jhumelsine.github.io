@@ -128,8 +128,17 @@ Here is code that creates `Shapes`:
 ```
 
 ## Non-Factory/Registry Acquisition
+As mentioned in [Acquisition via Object](https://jhumelsine.github.io/2025/12/23/prototype.html#acquisition-via-object), once a Prototype object is acquired, we can acquire more objects from it.
+
+Here are a few examples of acquiring a new object from an existing object:
+```java
+TBD
+```
 
 ## Register Composites
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/The_Olympic_Rings_in_Tokyo_01.jpg/960px-The_Olympic_Rings_in_Tokyo_01.jpg?20210723080534" alt="Olympic Rings" title="Image Source: https://commons.wikimedia.org/wiki/File:The_Olympic_Rings_in_Tokyo_01.jpg" width = "40%" align="right" style="padding: 35px;">
+
+Drawing programs often provide many basic shapes. I've shown that we can easily add `Triangle`, `Rectangle` and `Circle`. What if we want to provide more complex shape, such as the [Olympic Rings](https://en.wikipedia.org/wiki/Olympic_symbols)?
 
 ## Register Object Variances
 
