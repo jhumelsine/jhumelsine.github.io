@@ -373,17 +373,36 @@ shapesH.render();
 
 Drawing programs often provide many basic shapes. I've shown that we can easily add `Triangle`, `Rectangle` and `Circle`. What if we want to provide more complex shape, such as the [Olympic Rings](https://en.wikipedia.org/wiki/Olympic_symbols)?
 
-I started with an `OlypicRings` class that extended `RegisteredBreeder`. Since I already had its essential building blocks. I implemented `OlympicRings` internally as a `Shapes` of five `Circles` where each `circle` declared one of the five Olympic colors as its state. It worked, but it felt off.
+I started with an `OlypicRings` class that extended `RegisteredBreeder`. Since I already had its essential building blocks, I implemented `OlympicRings` internally as a `Shapes` of five `Circles` where each `circle` declared one of the five Olympic colors as its state. It worked, but it felt off.
 
 The previous _Squid Game_ classes aren't large. Most of their implementation focuses upon the infrastructure declared by the **Prototype/Template-Method** framework in which they reside. Their `render()` methods would have more substance if they actually rendered images rather than return text that describes what they are doing. But when I implemented `OlympicRings`, it felt redundant. Even its `render()` method didn't add anything substantial, since it delegated to its `Shapes` attribute.
 
 Then it occurred to me. I don't need an `OlympicsRings` class. I only need to create a breeder composite and register it. Here's all that's needed to create an ___Olympic Rings___ breeder composite:
 ```java
-TBD
+RegisteredBreeder.register("OlympicRings", ShapeFactory.acquire("Breeder OlympicRings")
+    .with(ShapeFactory.acquire("Circle", "Blue"))
+    .with(ShapeFactory.acquire("Circle", "Yellow"))
+    .with(ShapeFactory.acquire("Circle", "Black"))
+    .with(ShapeFactory.acquire("Circle", "Green"))
+    .with(ShapeFactory.acquire("Circle", "Red")));
 ```
 
 Here is an example of how it can be acquired and rendered:
 ```java
+System.out.println("\nAcquire and Render OlympicRings OR-A ->");
+Shape olympicRingsA = ShapeFactory.acquire("OlympicRings", "OR-A");
+olympicRingsA.render();
+
+System.out.println("\nAcquire and Render OlympicRings OR-B, with an acquired deep copy of olympicRingsA ->");
+Shape olympicRingsB = olympicRingsA.acquire("OR-B");
+olympicRingsB.render();
+
+System.out.println("\nAcquire and Render Shapes I, with an acquired deep copy of Olympic Rings A and B with an acquired Triangle between them. ->");
+Shapes shapesI = ShapeFactory.acquire("I")
+    .with(olympicRingsA)
+    .with(ShapeFactory.acquire("Triangle", "Separating Triangle"))
+    .with(olympicRingsB);
+shapesI.render();
 ```
 
 This demonstrates what I described in my previous blog in the [Prototype Registry Allows More Granularity](https://jhumelsine.github.io/2025/12/23/prototype.html#prototype-registry-allows-more-granularity) section:
@@ -396,20 +415,49 @@ What else can I do? `Triangle` and `Rectangle` are _Polygons_. Can I reduce two 
 
 I created a `Polygon` class, which I extended from `RegisteredBreeder`. It's similar to `Triangle` and `Rectangle`, except that the number of its sides is an attribute.
 ```java
-TBD
+class Polygon extends RegisteredBreeder {
+    private final String shapeName;
+    private final int sides;
+
+    Polygon(String shapeName, int sides, String state) {
+        super(state);
+        this.shapeName = shapeName;
+        this.sides = sides;
+    }
+
+    @Override
+    public final Shape acquire(String state) {
+        return new Polygon(shapeName, sides, state);
+    }
+
+    @Override
+    protected final String getShapeName() {
+        return String.format("%s of %d sides with ", shapeName, sides);
+    }
+}
 ```
 
-Since I want to retain `Triangle` and `Rectangle` for the demonstration code, I registered a _Pentagon_, _Hexagon_ and _Centagon_ as follows:
+Since I want to retain `Triangle` and `Rectangle` for the demonstration code, I registered a _Pentagon_, _Hexagon_ and _Centagon_ as follows. Notice that I can't call `register()`, since this is not a class registration; this is a specific object registration:
 ```java
-TBD
+RegisteredBreeder.register("Pentagon", new Polygon("Pentagon", 5, "Breeder Pentagon"));
+RegisteredBreeder.register("Hexagon", new Polygon("Hexagon", 6, "Breeder Hexagon"));
+RegisteredBreeder.register("Centagon", new Polygon("Centagon", 100, "Breeder Centagon"));
 ```
 
 Here's an example showing how they are acquired:
 ```java
+System.out.println("\nAcquire and Render Shapes J, with Pentagon K, Hexagon L and Centagon M ->");
+Shapes shapesJ = ShapeFactory.acquire("J")
+    .with(ShapeFactory.acquire("Pentagon", "K"))
+    .with(ShapeFactory.acquire("Hexagon", "L"))
+    .with(ShapeFactory.acquire("Centagon", "M"));
+shapesJ.render();
 ```
 
 If this were not a demo, I would have replace `Triangle` and `Rectangle` with:
 ```java
+RegisteredBreeder.register("Triangle", new Polygon("Triangle", 3, "Breeder Triangle"));
+RegisteredBreeder.register("Rectangle", new Polygon("Rectangle", 4, "Breeder Rectangle"));
 ```
 
 This demonstrates what I described in my previous blog in the [Prototype Registry Allows More Granularity](https://jhumelsine.github.io/2025/12/23/prototype.html#prototype-registry-allows-more-granularity) section:
@@ -447,13 +495,318 @@ Once we've build a library of shapes, we can expand even further. A simple _Hous
 # Summary
 TBD
 
-# References
-TBD
-
 # Complete Demo Code
 Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. Copy and paste the code into Generative AI for analysis and comments.
 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+```java
+import java.util.*;
+import java.util.concurrent.*;
 
-# NOTES
-* Closing thoughts. Creational Patterns are not mutually exclusive. A design may incorporate several of them. For example, in Composite trees, the non-terminal composite classes might be acquired via a Factory while the terminal leaf nodes could be acquired via a Singleton, if they are stateless. And Prototype could be used to make a copy of the entire composite structure as seen in the use case.
+public class PrototypeDemo2 {
+    public static void main(String[] args) throws Exception {
+        // main() acquires and renders Shapes of different types without knowing types.
+
+        System.out.println("\nAcquire and Render Triangle A ->");
+        Shape triangleA = ShapeFactory.acquire("Triangle", "A");
+        triangleA.render();
+
+        System.out.println("\nAcquire and Render Triangle B ->");
+        Shape rectangleB = ShapeFactory.acquire("Rectangle", "B");
+        rectangleB.render();
+
+        System.out.println("\nAcquire and Render Shapes C, with acquired copies of Triangle A and Triangle B");
+        Shapes shapesC = ShapeFactory.acquire("C")
+            .with(triangleA)
+            .with(rectangleB);
+        shapesC.render();
+
+        System.out.println("\nNull original Triangle A and Triangle B ->");
+        triangleA = null;
+        rectangleB = null;
+
+        System.out.println("\nAcquire and Render Shapes D, with an acquired deep copy of the contents of Shapes C ->");
+        Shape shapesD = shapesC.acquire("D");
+        shapesD.render();
+
+        System.out.println("\nAcquire and Render Shapes E, with an acquired deep copy of Shapes D ->");
+        Shapes shapesE = ShapeFactory.acquire("E")
+            .with(shapesD);
+        shapesE.render();
+
+        System.out.println("\nAcquire and Render Shapes G, with Triangle H and Shapes I with Triangle J and Rectangle K ->");
+        Shapes shapesG = ShapeFactory.acquire("G")
+            .with(ShapeFactory.acquire("Triangle", "H"))
+            .with(ShapeFactory.acquire("I")
+                .with(ShapeFactory.acquire("Triangle", "J"))
+                .with(ShapeFactory.acquire("Rectangle", "K")));
+        shapesG.render();
+
+        System.out.println("\nAcquire and Render Shapes H, with an acquired deep copy of Shapes G ->");
+        Shape shapesH = shapesG.acquire("H");
+        shapesH.render();
+
+        System.out.println("\nAcquire and Render OlympicRings OR-A ->");
+        Shape olympicRingsA = ShapeFactory.acquire("OlympicRings", "OR-A");
+        olympicRingsA.render();
+
+        System.out.println("\nAcquire and Render OlympicRings OR-B, with an acquired deep copy of olympicRingsA ->");
+        Shape olympicRingsB = olympicRingsA.acquire("OR-B");
+        olympicRingsB.render();
+
+        System.out.println("\nAcquire and Render Shapes I, with an acquired deep copy of Olympic Rings A and B with an acquired Triangle between them. ->");
+        Shapes shapesI = ShapeFactory.acquire("I")
+            .with(olympicRingsA)
+            .with(ShapeFactory.acquire("Triangle", "Separating Triangle"))
+            .with(olympicRingsB);
+        shapesI.render();
+
+        System.out.println("\nAcquire and Render Shapes J, with Pentagon K, Hexagon L and Centagon M ->");
+        Shapes shapesJ = ShapeFactory.acquire("J")
+            .with(ShapeFactory.acquire("Pentagon", "K"))
+            .with(ShapeFactory.acquire("Hexagon", "L"))
+            .with(ShapeFactory.acquire("Centagon", "M"));
+        shapesJ.render();
+    }
+
+    static {
+        System.out.println("START BREEDER REGISTRATION");
+
+        // Register breeders for specific classes
+        Triangle.register();
+        Rectangle.register();
+        Circle.register();
+
+        // Register a composite breeder
+        RegisteredBreeder.register("OlympicRings", ShapeFactory.acquire("Breeder OlympicRings")
+            .with(ShapeFactory.acquire("Circle", "Blue"))
+            .with(ShapeFactory.acquire("Circle", "Yellow"))
+            .with(ShapeFactory.acquire("Circle", "Black"))
+            .with(ShapeFactory.acquire("Circle", "Green"))
+            .with(ShapeFactory.acquire("Circle", "Red")));
+
+        // Register different instances of the same Polygon type
+        RegisteredBreeder.register("Pentagon", new Polygon("Pentagon", 5, "Breeder Pentagon"));
+        RegisteredBreeder.register("Hexagon", new Polygon("Hexagon", 6, "Breeder Hexagon"));
+        RegisteredBreeder.register("Centagon", new Polygon("Centagon", 100, "Breeder Centagon"));
+
+        System.out.println("FINISH BREEDER REGISTRATION");
+    }
+}
+
+class ShapeFactory {
+    // Shield the application from having to know when to acquire a Shape or Shapes
+    // From the Registry or from the composite directly.
+    private ShapeFactory() {}
+
+    public static final Shape acquire(String shapeName, String state) {
+        return RegisteredBreeder.acquire(shapeName, state);
+    }
+
+    public static final Shapes acquire(String state) {
+        return new Shapes(state);
+    }
+}
+
+abstract class Shape {
+    // Each newly created object will have a unique serialNumber initialized from an incrementing serialCounter.
+    // It exists only to demonstrate that new objects are being created when acquired.
+    private static int serialCounter = 0;
+    private final int serialNumber;
+
+    // Each object has a state, which will be copied from the breeder when a new object is acquired.
+    // It exists to demonstrate that new objets are created via a deep copy.
+    // It's a representational placeholder for all possible Shape state information.
+    private final String state;
+
+    protected Shape(String state) {
+        this.serialNumber = serialCounter++;
+        this.state = state;
+        // Printing only to demonstrate that a Shape object is being created.
+        System.out.format("Creating Shape serialNumber=%d, state=%s\n", serialNumber, state);
+    }
+
+    public final Shape acquire() {
+        return acquire(state);
+    }
+
+    // Delegate state acquistion to extending classes.
+    protected abstract Shape acquire(String state);
+
+    // This example isn't rendering shapes. It demonstrates where they could be rendered.
+    // This version of render() is closer to toString().
+    public final void render() {
+        render(0);
+    }
+
+    // Delegate indented rendering to extending classes.
+    protected abstract void render(int indentation);
+
+    protected final String getIndentation(int indentation) {
+        return " ".repeat(indentation);
+    }
+
+    protected final String getShapeDetails() {
+        return String.format("serialNumber=%d, state=%s", serialNumber, state);
+    }
+}
+
+abstract class RegisteredBreeder extends Shape {
+    private static final Map<String, Shape> breeders = new ConcurrentHashMap<>();
+
+    public RegisteredBreeder(String state) {
+        super(state);
+    }
+
+    // Acquire the breeder, and return an object acquired from the breeder object.
+    // Pass its state information so the breeder can initialize the new object with it.
+    public static final Shape acquire(String shapeName, String state) {
+        Shape breeder = breeders.get(shapeName.toLowerCase());
+        if (breeder == null) {
+            throw new IllegalArgumentException("No breeder registered for: " + shapeName);
+        }
+        return breeder.acquire(state);
+    }
+
+    // Register the breeder known by its shape name.
+    protected static final void register(String shapeName, Shape breeder) {
+        if (breeders.containsKey(shapeName)) {
+            throw new IllegalArgumentException("Registration exists for: " + shapeName);
+        }
+        // Printing only to demonstrate that a Shape object is being registered.
+        System.out.format("Registering %s Shape\n", shapeName);
+        breeders.put(shapeName.toLowerCase(), breeder);
+    }
+
+    @Override
+    public final void render(int indentation) {
+        System.out.format("%sRender a %s(%s)\n", getIndentation(indentation), getShapeName(), getShapeDetails());
+    }
+
+    protected abstract String getShapeName();
+}
+
+class Triangle extends RegisteredBreeder {
+    private final static String SHAPE_NAME = "Triangle";
+
+    private Triangle(String state) {
+        super(state);
+    }
+
+    @Override
+    public final Shape acquire(String state) {
+        return new Triangle(state);
+    }
+
+    public final static void register() {
+        register(SHAPE_NAME, new Triangle("Breeder Triangle"));
+    }
+
+    @Override
+    protected final String getShapeName() {
+        return SHAPE_NAME;
+    }
+}
+
+class Rectangle extends RegisteredBreeder {
+    private final static String SHAPE_NAME = "Rectangle";
+
+    Rectangle(String state) {
+        super(state);
+    }
+
+    @Override
+    public final Shape acquire(String state) {
+        return new Rectangle(state);
+    }
+
+    public final static void register() {
+        register(SHAPE_NAME, new Rectangle("Breeder Rectangle"));
+    }
+
+    @Override
+    protected final String getShapeName() {
+        return SHAPE_NAME;
+    }
+}
+
+class Circle extends RegisteredBreeder {
+    private final static String SHAPE_NAME = "Circle";
+
+    private Circle(String state) {
+        super(state);
+    }
+
+    @Override
+    public final Shape acquire(String state) {
+        return new Circle(state);
+    }
+
+    public final static void register() {
+        register(SHAPE_NAME, new Circle("Breeder Circle"));
+    }
+
+    @Override
+    protected final String getShapeName() {
+        return SHAPE_NAME;
+    }
+}
+
+class Polygon extends RegisteredBreeder {
+    private final String shapeName;
+    private final int sides;
+
+    Polygon(String shapeName, int sides, String state) {
+        super(state);
+        this.shapeName = shapeName;
+        this.sides = sides;
+    }
+
+    @Override
+    public final Shape acquire(String state) {
+        return new Polygon(shapeName, sides, state);
+    }
+
+    @Override
+    protected final String getShapeName() {
+        return String.format("%s of %d sides with ", shapeName, sides);
+    }
+}
+
+// This class maintains is a composite of Shapes instances.
+class Shapes extends Shape {
+    private final List<Shape> shapes = new LinkedList<>();
+
+    public Shapes(String state) {
+        super(state);
+    }
+
+    // Initialize the new Shapes object with a deep copy of Shape objects within the sourceShape.
+    private Shapes(Shapes sourceShapes, String state) {
+        this(state);
+        for (Shape shape : sourceShapes.shapes) {
+            shapes.add(shape.acquire());
+        }
+    }
+
+    @Override
+    public final Shapes acquire(String state) {
+        return new Shapes(this, state);
+    }
+
+    // Returning this Shapes object so that calls to with can be chained.
+    public final Shapes with(Shape shape) {
+        shapes.add(shape.acquire());
+        return this;
+    }
+
+    // Render this object and propagate rendering to the composite shapes while increasing indentation.
+    // Indentation exists only to show nesting when "rendering" Shape objects.
+    @Override
+    public final void render(int indentation) {
+        System.out.format("%sRender Shapes(%s):\n", getIndentation(indentation), getShapeDetails());
+        for (Shape shape : shapes) {
+            shape.render(indentation + 1);
+        }
+    }
+}
+```
