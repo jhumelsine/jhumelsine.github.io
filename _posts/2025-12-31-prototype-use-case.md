@@ -9,6 +9,8 @@ I introduced the [Prototype Design Pattern](https://jhumelsine.github.io/2025/12
 
 Prototype instantiates a new instance by invoking a method of an object without having to know the object's concrete class type. This object method is responsible for returning an instance of its own class for which it has this knowledge. This object method vs static method invocation is what allows the implementation to be more flexible to class type updates and is what separates Prototype from it fellow creational patterns.
 
+Factories centralize change around construction logic; Prototype distributes it across the objects that already know how to reproduce themselves.
+
 This blog entry continues with Prototype with a Drawing Program Use Case example, much like what PowerPoint provides to render shapes.
 
 # Drawing Program Use Case
@@ -28,7 +30,7 @@ I will present the design starting with a `Shape` contract and then expand the d
 
 The code examples includes details that are not presented in the UML class diagrams. Keep this in mind when comparing them. The implementation takes precedence over the design.
 
-I'm also fond of declaring attributes and methods as `final` when possible. Since the design features Template Method, I want to ensure that extending classes don't violate Template Method behaviors by overriding them, even if unintentionally.
+I'm also fond of declaring attributes and methods as `final` when possible. Since the design features Template Method, I want to ensure that extending classes don't violate Template Method behaviors by overriding them, even if unintentionally. This becomes important later when composites and registries interact, and without `final`, subtle overrides would silently break acquisition semantics.
 
 ## Shape
 The contract is declared in Shape.
@@ -49,7 +51,7 @@ In a real drawing tool, there would be more behavior and state, such as:
 * Etc.
 
 The `Shape` implementation contains state:
-* `serialNumber` which is an incrementing integer for each newly acquired `Shape` object. I've added it to demonstrate that new objects are being instantiated as they are acquired.
+* `serialNumber` which is an incrementing integer for each newly acquired `Shape` object. I've added it to demonstrate that new objects are being instantiated as they are acquired. It is not a required attribute for object acquisition.
 * `state` which is a placeholder for state within the object. In a production drawing program, state would include position, rotation, formatting details, etc. In my simple demo, it's a simple String.
 
 This demo won't render any images. Text will be a substitute for rendering if this were an actual drawing program. Rendering in this demo is closer to a sophisticated `toString()` feature, which leverages the [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html).
@@ -100,7 +102,7 @@ abstract class Shape {
 ```
 
 ## Registered Breeder
-The design expands to include `RegisteredBreeder`. It is a Prototye Registry. I contemplated naming it `RegisteredShapeBreeder`, but this felt too long. Maybe `RegisteredShape` would be a better name. Naming things is hard.
+The design expands to include `RegisteredBreeder`. It is a Prototye Registry. I contemplated naming it `RegisteredShapeBreeder`, but this felt too long. Maybe `RegisteredShape` would be a better name. Naming things is hard. A `RegisteredBreeder` is not a factory; it is a named prototype root capable of acquiring equivalent objects.
 
 It throws an exception if a breeder is not found, and it also throws an exception if a newly `RegisteredBreeder` uses the same key of an existing `RegisteredBreeder`.
 
@@ -272,7 +274,7 @@ Notice that a `Shape` object can reside within `RegisteredBreeder` as well as `S
 
 The `Shapes with(Shape shape)` method returns a reference to `this` so that `Shape` objects an be added in a chain.
 
-I also noticed that when a shape is acquired in `Shapes` it tends to make a temporary copy, which is not used. It becomes orphaned immediately, which makes it a candidate for garbage collection. There may be a way to avoid this, but I didn't investigate it.
+I also noticed that when a shape is acquired in `Shapes` it tends to make a temporary copy, which is not used. It becomes orphaned immediately, which makes it a candidate for garbage collection. This design prioritizes correctness and clarity over allocation minimization. A production system might optimize this, but doing so would obscure the intent of acquisition semantics.
 
 Here is the implemenation for `Shapes`:
 ```java
@@ -368,7 +370,7 @@ Shape shapesH = shapesG.acquire("H");
 shapesH.render();
 ```
 
-## Register Composites
+## Registered Composites
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/The_Olympic_Rings_in_Tokyo_01.jpg/960px-The_Olympic_Rings_in_Tokyo_01.jpg?20210723080534" alt="Olympic Rings" title="Image Source: https://commons.wikimedia.org/wiki/File:The_Olympic_Rings_in_Tokyo_01.jpg" width = "40%" align="right" style="padding: 35px;">
 
 Drawing programs often provide many basic shapes. I've shown that we can easily add `Triangle`, `Rectangle` and `Circle`. What if we want to provide more complex shape, such as the [Olympic Rings](https://en.wikipedia.org/wiki/Olympic_symbols)?
@@ -407,6 +409,10 @@ shapesI.render();
 
 This demonstrates what I described in my previous blog in the [Prototype Registry Allows More Granularity](https://jhumelsine.github.io/2025/12/23/prototype.html#prototype-registry-allows-more-granularity) section:
 >Prototype Registry would work well with [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html), since their behavior is defined via the assembly of a set of objects. The named root of the assembled objects can be registered.
+
+**Key realization**: Anything that implements `Shape` is eligible to become a prototype whether it represents a leaf, a composite, or a previously acquired instance. Once composites become registrable prototypes, _complex shapes_ stop being special cases. They become named configurations.
+
+In the previous blog in the [Interpreter Grammar and Parser, Revisited](https://jhumelsine.github.io/2025/12/23/prototype.html#interpreter-grammar-and-parser-revisited) section, I mentioned __Variable/Function Names__ and __Class Names__ as two types of Alphanumerics in my Domain-Specific Language. I had managed them in two different registries at the time. I now realize that I could have probably managed them in one registry with a little care.
 
 ## Register Object Variances
 The _Olympic Rings_ insight opened new ideas in my mind. The Prototype Regisry doesn't mandate exactly one registered object for each `RegisteredBreeder`. The registered _Olympic Rings_ object isn't even a `RegisteredBreeder`. It's a `Shapes`, which extendes `Shape`. The reason I can register the _Olympic Rings_ object is because the Prototype Registry registers `Shape` objects by name, and almost every object instance in this design is a `Shape`.
