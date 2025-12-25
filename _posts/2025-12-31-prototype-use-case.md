@@ -107,7 +107,8 @@ This extension will expand beyond traditional [Prototype](https://jhumelsine.git
 Composites will allow the design to group a set of `Shape` objects into a composite entity, which I'm calling `Shapes` in this design. Since `Shapes` extends `Shape` it must implement `acquire` and `render` as well. The design also includes `ShapesFactory`.
 
 Here is the design:
-<img src="/assets/Prototype9.png" alt="Shapes UML"  width = "80%" align="center" style="padding-right: 35px;">
+
+<img src="/assets/Prototype9.png" alt="Shapes UML"  width = "90%" align="center" style="padding-right: 35px;">
 
 Notice that a `Shape` object can reside within `RegisteredBreeder` as well as `Shapes`. This can feel a bit disorienting as well, since I don't think we've seen this type of relationship before. It's fine because `RegisteredBreeder` maintains an object instance as part of the creational portion of the design, and `Shapes` maintains an object instance as part of the structural portion of the design.
 
@@ -140,7 +141,76 @@ TBD
 
 Drawing programs often provide many basic shapes. I've shown that we can easily add `Triangle`, `Rectangle` and `Circle`. What if we want to provide more complex shape, such as the [Olympic Rings](https://en.wikipedia.org/wiki/Olympic_symbols)?
 
+I started with an `OlypicRings` class that extended `RegisteredBreeder`. Since I already had its essential building blocks. I implemented `OlympicRings` internally as a `Shapes` of five `Circles` where each `circle` declared one of the five Olympic colors as its state. It worked, but it felt off.
+
+The previous _Squid Game_ classes aren't large. Most of their implementation focuses upon the infrastructure declared by the **Prototype/Template-Method** framework in which they reside. Their `render()` methods would have more substance if they actually rendered images rather than return text that describes what they are doing. But when I implemented `OlympicRings`, it felt redundant. Even its `render()` method didn't add anything substantial, since it delegated to its `Shapes` attribute.
+
+Then it occurred to me. I don't need an `OlympicsRings` class. I only need to create a breeder composite and register it. Here's all that's needed to create an ___Olympic Rings___ breeder composite:
+```java
+TBD
+```
+
+Here is an example of how it can be acquired and rendered:
+```java
+```
+
+This demonstrates what I described in my previous blog in the [Prototype Registry Allows More Granularity](https://jhumelsine.github.io/2025/12/23/prototype.html#prototype-registry-allows-more-granularity) section:
+>Prototype Registry would work well with [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html), since their behavior is defined via the assembly of a set of objects. The named root of the assembled objects can be registered.
+
 ## Register Object Variances
+The _Olympic Rings_ insight opened new ideas in my mind. The Prototype Regisry doesn't mandate exactly one registered object for each `RegisteredBreeder`. The registered _Olympic Rings_ object isn't even a `RegisteredBreeder`. It's a `Shapes`, which extendes `Shape`. The reason I can register the _Olympic Rings_ object is because the Prototype Registry registers `Shape` objects by name, and almost every object instance in this design is a `Shape`.
+
+What else can I do? `Triangle` and `Rectangle` are _Polygons_. Can I reduce two classes to one?
+
+I created a `Polygon` class, which I extended from `RegisteredBreeder`. It's similar to `Triangle` and `Rectangle`, except that the number of its sides is an attribute.
+```java
+TBD
+```
+
+Since I want to retain `Triangle` and `Rectangle` for the demonstration code, I registered a _Pentagon_, _Hexagon_ and _Centagon_ as follows:
+```java
+TBD
+```
+
+Here's an example showing how they are acquired:
+```java
+```
+
+If this were not a demo, I would have replace `Triangle` and `Rectangle` with:
+```java
+```
+
+This demonstrates what I described in my previous blog in the [Prototype Registry Allows More Granularity](https://jhumelsine.github.io/2025/12/23/prototype.html#prototype-registry-allows-more-granularity) section:
+>A Prototype Registry is a registry of objects. It’s not a registry of classes. That means that the same class can be represented as different registered objects that vary in behavior based upon distinguishing attributes or their configuration.
+
+I did not model or implement this next idea. it only exists in my mind, and now in the following words. If this were an actual project, I would follow this idea further to see if it works, but for now, I'll describe it.
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/PolygonsSet_EN.svg/960px-PolygonsSet_EN.svg.png?20250917193057" alt="Polygons" title="Image Source: https://commons.wikimedia.org/wiki/File:PolygonsSet_EN.svg" width = "40%" align="right" style="padding: 35px;">
+
+The `Polygon.render()` method doesn't provide details, but it feels like it would only render regular polygons. What if I wanted irregular polygons, such as _diamond_, _trapizoid_, _rhombus_, etc. Would I need to define a class type for each?
+
+All polygons are comprised of line segments. What if I defined a `LineSegment` class, which defined a [_line segment_](https://en.wikipedia.org/wiki/Line_segment) going back to Euclid as:
+>... a line segment is a part of a straight line that is bounded by two distinct endpoints (its extreme points), and contains every point on the line that is between its endpoints.
+
+Then just as my original `OlympicRings` class became redundant, the `Polygon` class would become redundant. Polygons could be registered as a composite of lines as such:
+* ___Triangle___ would be a `Shapes` composite of 3 lines segments.
+* ___Rectangle___ would be a `Shapes` composite of 4 lines segments.
+* ___Pentagon___ would be a `Shapes` composite of 5 lines segments.
+* ___Hexagon___ would be a `Shapes` composite of 6 lines segments.
+* ___Centagon___ would be a `Shapes` composite of 100 lines segments.
+* ...
+* ___Circle___ would be a `Shapes` composite of 1,000 lines segments. I'm not 100% sure about this. It might work for proof-of-concept, but fail in production. A _circle_ and a _milligon_ might render close enough to fool the eye, but would it be exacting enough. Additionally, 1,000 lines segments might take too long to render, whereas a calculation dedicated to the geometry of circles might render much faster.
+
+Moving to irregular polygons:
+* ___Trapizoid___ would be a `Shapes` composite of 4 lines positioned where the top and bottom lines would be parallel, but not necessarily the same length.
+*  ___Rhombus___ would be a `Shapes` composite of 4 lines positioned where the opposite sides would be parallel.
+*  ___Diamond___ would be a `Shapes` composite of 4 lines positioned in a _rhombus_ shape where all sides would be same length.
+
+<img src="https://i.ytimg.com/vi/y6M5ApZ-Ugg/sddefault.jpg" alt="Child's House Drawing" title="Image Source: https://www.youtube.com/watch?v=y6M5ApZ-Ugg" width = "30%" align="right" style="padding: 35px;">
+
+Notice that ___Diamond___ is defined in terms of a ___Rhombus___. I haven't thought through completely, but maybe some of the composites could be defined in terms of other composites as well.
+
+Once we've build a library of shapes, we can expand even further. A simple _House_ can be defined as a composite of several _Rectangles_, _Trianges_ and maybe even a _Circle_ and _Trapizoid_ or two.
 
 # Summary
 TBD
