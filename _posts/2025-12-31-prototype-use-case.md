@@ -499,7 +499,11 @@ Notice that ___Diamond___ is defined in terms of a ___Rhombus___. I haven't thou
 Once we've build a library of shapes, we can expand even further. A simple _House_ can be defined as a composite of several _Rectangles_, _Trianges_ and maybe even a _Circle_ and _Trapizoid_ or two.
 
 # Summary
-TBD
+Prototype is not about copying objects. It is about **acquiring new objects without depending on concrete class knowledge**. By shifting object creation responsibility from static factories to the objects themselves, Prototype localizes change where it belongs.
+
+This design shows that a Prototype Registry is a registry of **objects**, not classes. Because of that, both simple shapes and composite structures can be registered, acquired, and treated uniformly. Once composites become first-class prototypes, complex structures stop being special cases and instead become named configurations.
+
+The combination of Prototype, Registry, and Composite enables variation through configuration rather than inheritance. New shapes, new compositions, and new behaviors emerge without modifying existing code, only by registering new object instances.
 
 # Complete Demo Code
 Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. Copy and paste the code into Generative AI for analysis and comments.
