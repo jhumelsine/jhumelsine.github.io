@@ -24,16 +24,16 @@ This Prototype Use Case will sketchout a design and implementation for some of t
 
 In addition to __Prototype/Prototype-Registry__, this design will also feature elements of [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html), [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html), [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) and [Composite](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html).
 
-I will present the design starting with a `Shape` contract and then expand the design into extending classes.
+I will present the design starting with a `Shape` contract and then expand the design with extending classes as it progresses.
 
-The implementation includes details that are not presented in the UML class diagrams. Keep this in mind when comparing them. The implementation takes precidence over the design.
+The code examples includes details that are not presented in the UML class diagrams. Keep this in mind when comparing them. The implementation takes precedence over the design.
 
 I'm also fond of declaring attributes and methods as `final` when possible. Since the design features Template Method, I want to ensure that extending classes don't violate Template Method behaviors by overriding them, even if unintentionally.
 
 ## Shape
 The contract is declared in Shape.
 
-<img src="/assets/Prototype6.png" alt="Shape UML"  width = "20%" align="center" style="padding-right: 35px;">
+<img src="/assets/Prototype6.png" alt="Shape UML"  width = "30%" align="center" style="padding-right: 35px;">
 
 I chose an abstract class rather than an interface, because I want to store information in `Shape` along with some implementation. It's easier to do that when it's an abstract class rather than an interface.
 
@@ -48,14 +48,55 @@ In a real drawing tool, there would be more behavior and state, such as:
 * Optional Text with its own formatting
 * Etc.
 
-The `Shape` implementation contains some state:
+The `Shape` implementation contains state:
 * `serialNumber` which is an incrementing integer for each newly acquired `Shape` object. I've added it to demonstrate that new objects are being instantiated as they are acquired.
 * `state` which is a placeholder for state within the object. In a production drawing program, state would include position, rotation, formatting details, etc. In my simple demo, it's a simple String.
 
 This demo won't render any images. Text will be a substitute for rendering if this were an actual drawing program. Rendering in this demo is closer to a sophisticated `toString()` feature, which leverages the [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html).
 
 ```java
-TBD
+abstract class Shape {
+    // Each newly created object will have a unique serialNumber initialized from an incrementing serialCounter.
+    // It exists only to demonstrate that new objects are being created when acquired.
+    private static int serialCounter = 0;
+    private final int serialNumber;
+
+    // Each object has a state, which will be copied from the breeder when a new object is acquired.
+    // It exists to demonstrate that new objets are created via a deep copy.
+    // It's a representational placeholder for all possible Shape state information.
+    private final String state;
+
+    protected Shape(String state) {
+        this.serialNumber = serialCounter++;
+        this.state = state;
+        // Printing only to demonstrate that a Shape object is being created.
+        System.out.format("Creating Shape serialNumber=%d, state=%s\n", serialNumber, state);
+    }
+
+    public final Shape acquire() {
+        return acquire(state);
+    }
+
+    // Delegate state acquistion to extending classes.
+    protected abstract Shape acquire(String state);
+
+    // This example isn't rendering shapes. It demonstrates where they could be rendered.
+    // This version of render() is closer to toString().
+    public final void render() {
+        render(0);
+    }
+
+    // Delegate indented rendering to extending classes.
+    protected abstract void render(int indentation);
+
+    protected final String getIndentation(int indentation) {
+        return " ".repeat(indentation);
+    }
+
+    protected final String getShapeDetails() {
+        return String.format("serialNumber=%d, state=%s", serialNumber, state);
+    }
+}
 ```
 
 ## Registered Breeder
