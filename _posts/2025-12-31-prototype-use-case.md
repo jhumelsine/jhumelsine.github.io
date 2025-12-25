@@ -258,26 +258,100 @@ This extension will expand beyond traditional [Prototype](https://jhumelsine.git
 
 Composites will allow the design to group a set of `Shape` objects into a composite entity, which I'm calling `Shapes` in this design. Since `Shapes` extends `Shape` it must implement `acquire` and `render` as well. The design also includes `ShapesFactory`.
 
+`Shapes` doesn't add new rendering features or new individual shapes. It's a structural class that allows us to group other shapes and treat them as a single entity. Its `acquire` and `render` implementations propagates acquistion and rendering to the shape grouped within it.
+
+`Shapes` groups individual `Shape` objects. Since `Shapes` extends `Shape`, this means that `Shapes` can contain `Shapes`. Since `Shapes` can contain any number of `Shape` objects, and `Shapes` can contain `Shapes`, a single composite object tree is unbounded in width or depth. The self-referencial definition, means that the `acquire` and `render` are recursive calls, so all objects in the composite tree will be acquired or rendered when executed from the tree root object.
+
+It's astounding how so much can be accomplished with so little code.
+
 Here is the design:
 
 <img src="/assets/Prototype9.png" alt="Shapes UML"  width = "90%" align="center" style="padding-right: 35px;">
 
 Notice that a `Shape` object can reside within `RegisteredBreeder` as well as `Shapes`. This can feel a bit disorienting as well, since I don't think we've seen this type of relationship before. It's fine because `RegisteredBreeder` maintains an object instance as part of the creational portion of the design, and `Shapes` maintains an object instance as part of the structural portion of the design.
 
+The `Shapes with(Shape shape)` method returns a reference to `this` so that `Shape` objects an be added in a chain.
+
 I also noticed that when a shape is acquired in `Shapes` it tends to make a temporary copy, which is not used. It becomes orphaned immediately, which makes it a candidate for garbage collection. There may be a way to avoid this, but I didn't investigate it.
 
 Here is the implemenation for `Shapes`:
 ```java
-TBD
+// This class maintains is a composite of Shapes instances.
+class Shapes extends Shape {
+    private final List<Shape> shapes = new LinkedList<>();
+
+    public Shapes(String state) {
+        super(state);
+    }
+
+    // Initialize the new Shapes object with a deep copy of Shape objects within the sourceShape.
+    private Shapes(Shapes sourceShapes, String state) {
+        this(state);
+        for (Shape shape : sourceShapes.shapes) {
+            shapes.add(shape.acquire());
+        }
+    }
+
+    @Override
+    public final Shapes acquire(String state) {
+        return new Shapes(this, state);
+    }
+
+    // Returning this Shapes object so that calls to with can be chained.
+    public final Shapes with(Shape shape) {
+        shapes.add(shape.acquire());
+        return this;
+    }
+
+    // Render this object and propagate rendering to the composite shapes while increasing indentation.
+    // Indentation exists only to show nesting when "rendering" Shape objects.
+    @Override
+    public final void render(int indentation) {
+        System.out.format("%sRender Shapes(%s):\n", getIndentation(indentation), getShapeDetails());
+        for (Shape shape : shapes) {
+            shape.render(indentation + 1);
+        }
+    }
+}
 ```
 
-Here is the implementation for `ShapeFactory`:
+Here is the complete implementation for `ShapeFactory`, which includes the ability to acquire `Shapes`:
 ```java
-TBD
+class ShapeFactory {
+    // Shield the application from having to know when to acquire a Shape or Shapes
+    // From the Registry or from the composite directly.
+    private ShapeFactory() {}
+
+    public static final Shape acquire(String shapeName, String state) {
+        return RegisteredBreeder.acquire(shapeName, state);
+    }
+
+    public static final Shapes acquire(String state) {
+        return new Shapes(state);
+    }
+}
 ```
 
-Here is code that creates `Shapes`:
+Here is code that creates and renders `Shapes`:
 ```java
+System.out.println("\nAcquire and Render Shapes C, with acquired copies of Triangle A and Triangle B");
+Shapes shapesC = ShapeFactory.acquire("C")
+    .with(triangleA)
+    .with(rectangleB);
+shapesC.render();
+
+System.out.println("\nAcquire and Render Shapes E, with an acquired deep copy of Shapes D ->");
+Shapes shapesE = ShapeFactory.acquire("E")
+    .with(shapesD);
+shapesE.render();
+
+System.out.println("\nAcquire and Render Shapes G, with Triangle H and Shapes I with Triangle J and Rectangle K ->");
+Shapes shapesG = ShapeFactory.acquire("G")
+    .with(ShapeFactory.acquire("Triangle", "H"))
+    .with(ShapeFactory.acquire("I")
+        .with(ShapeFactory.acquire("Triangle", "J"))
+        .with(ShapeFactory.acquire("Rectangle", "K")));
+shapesG.render();
 ```
 
 ## Non-Factory/Registry Acquisition
@@ -285,7 +359,13 @@ As mentioned in [Acquisition via Object](https://jhumelsine.github.io/2025/12/23
 
 Here are a few examples of acquiring a new object from an existing object:
 ```java
-TBD
+System.out.println("\nAcquire and Render Shapes D, with an acquired deep copy of the contents of Shapes C ->");
+Shape shapesD = shapesC.acquire("D");
+shapesD.render();
+
+System.out.println("\nAcquire and Render Shapes H, with an acquired deep copy of Shapes G ->");
+Shape shapesH = shapesG.acquire("H");
+shapesH.render();
 ```
 
 ## Register Composites
@@ -376,5 +456,4 @@ Here’s the entire implementation up to this point as one file. Copy and paste 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # NOTES
-* Copy entire composite structures.
 * Closing thoughts. Creational Patterns are not mutually exclusive. A design may incorporate several of them. For example, in Composite trees, the non-terminal composite classes might be acquired via a Factory while the terminal leaf nodes could be acquired via a Singleton, if they are stateless. And Prototype could be used to make a copy of the entire composite structure as seen in the use case.
