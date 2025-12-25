@@ -102,44 +102,155 @@ abstract class Shape {
 ## Registered Breeder
 The design expands to include `RegisteredBreeder`. It is a Prototye Registry. I contemplated naming it `RegisteredShapeBreeder`, but this felt too long. Maybe `RegisteredShape` would be a better name. Naming things is hard.
 
-It throws an exception if a breeder is not found, and it also throws an exception if a newly `RegisteredBreeder` use the same key of an existing `RegisteredBreeder`.
+It throws an exception if a breeder is not found, and it also throws an exception if a newly `RegisteredBreeder` uses the same key of an existing `RegisteredBreeder`.
 
 The design mirrors the basic Prototype design from the [previous blog entry](https://jhumelsine.github.io/2025/12/23/prototype.html).
 
-<img src="/assets/Prototype7.png" alt="Registered Breeder UML"  width = "50%" align="center" style="padding-right: 35px;">
+<img src="/assets/Prototype7.png" alt="Registered Breeder UML"  width = "60%" align="center" style="padding-right: 35px;">
 
 ```java
-TBD
+abstract class RegisteredBreeder extends Shape {
+    private static final Map<String, Shape> breeders = new ConcurrentHashMap<>();
+
+    public RegisteredBreeder(String state) {
+        super(state);
+    }
+
+    // Acquire the breeder, and return an object acquired from the breeder object.
+    // Pass its state information so the breeder can initialize the new object with it.
+    public static final Shape acquire(String shapeName, String state) {
+        Shape breeder = breeders.get(shapeName.toLowerCase());
+        if (breeder == null) {
+            throw new IllegalArgumentException("No breeder registered for: " + shapeName);
+        }
+        return breeder.acquire(state);
+    }
+
+    // Register the breeder known by its shape name.
+    protected static final void register(String shapeName, Shape breeder) {
+        if (breeders.containsKey(shapeName)) {
+            throw new IllegalArgumentException("Registration exists for: " + shapeName);
+        }
+        // Printing only to demonstrate that a Shape object is being registered.
+        System.out.format("Registering %s Shape\n", shapeName);
+        breeders.put(shapeName.toLowerCase(), breeder);
+    }
+
+    @Override
+    public final void render(int indentation) {
+        System.out.format("%sRender a %s(%s)\n", getIndentation(indentation), getShapeName(), getShapeDetails());
+    }
+
+    protected abstract String getShapeName();
+}
 ```
 
 ## Concrete Classes
 <img src="https://img.goodfon.com/wallpaper/nbig/2/9e/igra-kalmara-serial-squid-game.webp" alt="Squid Game" title="Image Source: https://www.goodfon.com/films/wallpaper-igra-kalmara-serial-squid-game.html" width = "40%" align="right" style="padding: 35px;">
 
-This design expansion adds concrete classes to the previous abstract classes. They include: `Triangle`, `Rectangle` and `Circle`. I wasn't thinking of ___Squid Game___ when I chose these shapes, but similarity is pretty striking.
+This design expansion adds concrete classes to the previous abstract classes. They include: `Triangle`, `Rectangle` and `Circle`. I wasn't thinking of ___Squid Game___ when I chose these shapes, but I have been watching the reality show version recently.
 
 The design easily expands to accommodate these concrete classes:
 <img src="/assets/Prototype8.png" alt="concrete class UML"  width = "80%" align="center" style="padding-right: 35px;">
 
 Here are their implementation:
 ```java
-TBD
+class Triangle extends RegisteredBreeder {
+    private final static String SHAPE_NAME = "Triangle";
+
+    private Triangle(String state) {
+        super(state);
+    }
+
+    @Override
+    public final Shape acquire(String state) {
+        return new Triangle(state);
+    }
+
+    public final static void register() {
+        register(SHAPE_NAME, new Triangle("Breeder Triangle"));
+    }
+
+    @Override
+    protected final String getShapeName() {
+        return SHAPE_NAME;
+    }
+}
+
+class Rectangle extends RegisteredBreeder {
+    private final static String SHAPE_NAME = "Rectangle";
+
+    Rectangle(String state) {
+        super(state);
+    }
+
+    @Override
+    public final Shape acquire(String state) {
+        return new Rectangle(state);
+    }
+
+    public final static void register() {
+        register(SHAPE_NAME, new Rectangle("Breeder Rectangle"));
+    }
+
+    @Override
+    protected final String getShapeName() {
+        return SHAPE_NAME;
+    }
+}
+
+class Circle extends RegisteredBreeder {
+    private final static String SHAPE_NAME = "Circle";
+
+    private Circle(String state) {
+        super(state);
+    }
+
+    @Override
+    public final Shape acquire(String state) {
+        return new Circle(state);
+    }
+
+    public final static void register() {
+        register(SHAPE_NAME, new Circle("Breeder Circle"));
+    }
+
+    @Override
+    protected final String getShapeName() {
+        return SHAPE_NAME;
+    }
+}
 ```
 
 A breeder object for each type must be registered. Here's the registration code:
 ```java
-TBD
+Triangle.register();
+Rectangle.register();
+Circle.register();
 ```
 
 ## Acquiring and Rendering Shapes
 I created a `ShapeFactory` to shield the application from interacting with the `RegisteredBreeder` class directly.
 
 ```java
-TBD
+class ShapeFactory {
+    private ShapeFactory() {}
+
+    public static final Shape acquire(String shapeName, String state) {
+        return RegisteredBreeder.acquire(shapeName, state);
+    }
+}
 ```
 
 Here is some sample code to acquire and render shapes;
 ```java
-TBD
+System.out.println("\nAcquire and Render Triangle A ->");
+Shape triangleA = ShapeFactory.acquire("Triangle", "A");
+triangleA.render();
+
+System.out.println("\nAcquire and Render Triangle B ->");
+Shape rectangleB = ShapeFactory.acquire("Rectangle", "B");
+rectangleB.render();
 ```
 
 ## Composite Shapes 
