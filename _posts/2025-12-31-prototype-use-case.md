@@ -109,7 +109,7 @@ The design expands to include `RegisteredBreeder`. It is a Prototype Registry. I
 
 It throws an exception if a breeder is not found, and it also throws an exception if a newly `RegisteredBreeder` uses the same key of an existing `RegisteredBreeder`.
 
-The design mirrors the basic Prototype design from the [previous blog entry](https://jhumelsine.github.io/2025/12/23/prototype.html).
+The design mirrors the basic Prototype design from the [previous blog entry](https://jhumelsine.github.io/2025/12/23/prototype.html#prototypical).
 
 <img src="/assets/Prototype7.png" alt="Registered Breeder UML"  width = "60%" align="center" style="padding-right: 35px;">
 
@@ -474,34 +474,35 @@ RegisteredBreeder.register("Rectangle", new Polygon("Rectangle", 4, "Breeder Rec
 This demonstrates what I described in my previous blog in the [Prototype Registry Allows More Granularity](https://jhumelsine.github.io/2025/12/23/prototype.html#prototype-registry-allows-more-granularity) section:
 >A Prototype Registry is a registry of objects. It’s not a registry of classes. That means that the same class can be represented as different registered objects that vary in behavior based upon distinguishing attributes or their configuration.
 
+## Additional Musings
 What follows is a thought experiment rather than implemented code, but it highlights where this design naturally leads.
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/PolygonsSet_EN.svg/960px-PolygonsSet_EN.svg.png?20250917193057" alt="Polygons" title="Image Source: https://commons.wikimedia.org/wiki/File:PolygonsSet_EN.svg" width = "40%" align="right" style="padding: 35px;">
 
-The `Polygon.render()` method doesn't provide details, but it feels like it would only render regular polygons. What if I wanted irregular polygons, such as _diamond_, _trapezoid_, _rhombus_, etc. Would I need to define a class type for each?
+The `Polygon.render()` method doesn't specify rendering details, but it feels like it would only render regular polygons. What if I wanted irregular polygons, such as _diamond_, _trapezoid_, _rhombus_, etc. Would I need to define a class type for each?
 
-All polygons are comprised of line segments. What if I defined a `LineSegment` class, which defined a [_line segment_](https://en.wikipedia.org/wiki/Line_segment) going back to Euclid as:
+All polygons are comprised of line segments. What if I defined a `LineSegment` class, which defined a [_line segment_](https://en.wikipedia.org/wiki/Line_segment) as Euclid would:
 >... a line segment is a part of a straight line that is bounded by two distinct endpoints (its extreme points), and contains every point on the line that is between its endpoints.
 
 Then just as my original `OlympicRings` class became redundant, the `Polygon` class would become redundant. Polygons could be registered as a composite of lines as such:
-* ___Triangle___ would be a `Shapes` composite of 3 lines segments.
-* ___Rectangle___ would be a `Shapes` composite of 4 lines segments.
-* ___Pentagon___ would be a `Shapes` composite of 5 lines segments.
-* ___Hexagon___ would be a `Shapes` composite of 6 lines segments.
-* ___Centagon___ would be a `Shapes` composite of 100 lines segments.
+* ___Triangle___ would be a `Shapes` composite of 3 properly connected lines segments.
+* ___Rectangle___ would be a `Shapes` composite of 4 properly connected lines segments.
+* ___Pentagon___ would be a `Shapes` composite of 5 properly connected lines segments.
+* ___Hexagon___ would be a `Shapes` composite of 6 properly connected lines segments.
+* ___Centagon___ would be a `Shapes` composite of 100 properly connected lines segments.
 * ...
-* ___Circle___ would be a `Shapes` composite of 1,000 lines segments. I'm not 100% sure about this. It might work for proof-of-concept, but fail in production. A _circle_ and a _milligon_ might render close enough to fool the eye, but would it be exacting enough. Additionally, 1,000 lines segments might take too long to render, whereas a calculation dedicated to the geometry of circles might render much faster.
+* ___Circle___ would be a `Shapes` composite of 1,000 properly connected lines segments. I'm not 100% sure that this would be the final implementation. It might work for proof-of-concept, but fail in production. A _circle_ and a _milligon_ might render close enough to fool the eye, but would it be exacting enough. Additionally, 1,000 lines segments might take too long to render, whereas a calculation dedicated to the geometry of circles might render much faster.
 
 Moving to irregular polygons:
-* ___Trapezoid___ would be a `Shapes` composite of 4 lines positioned where the top and bottom lines would be parallel, but not necessarily the same length.
-*  ___Rhombus___ would be a `Shapes` composite of 4 lines positioned where the opposite sides would be parallel.
-*  ___Diamond___ would be a `Shapes` composite of 4 lines positioned in a _rhombus_ shape where all sides would be same length.
+* ___Trapezoid___ would be a `Shapes` composite of 4 properly connected lines positioned where the top and bottom lines would be parallel, but not necessarily the same length.
+*  ___Rhombus___ would be a `Shapes` composite of 4 properly connected lines positioned where the opposite sides would be parallel.
+*  ___Diamond___ would be a `Shapes` composite of 4 properly connected lines positioned in a _rhombus_ shape where all sides would be same length.
 
 <img src="https://i.ytimg.com/vi/y6M5ApZ-Ugg/sddefault.jpg" alt="Child's House Drawing" title="Image Source: https://www.youtube.com/watch?v=y6M5ApZ-Ugg" width = "30%" align="right" style="padding: 35px;">
 
 Notice that ___Diamond___ is defined in terms of a ___Rhombus___. I haven't thought through completely, but maybe some of the composites could be defined in terms of other composites as well.
 
-Once we've build a library of shapes, we can expand even further. A simple _House_ can be defined as a composite of several _Rectangles_, _Triangles_ and maybe even a _Circle_ and _Trapezoid_ or two.
+Once we've build a library of shapes, we can expand even further. A simple ___House___ can be defined as a `Shapes` composite of several properly connected other `Shapes` objects such as: ___Rectangles___, ___Triangles___ and maybe even a ___Circle___ and ___Trapezoid___ or two.
 
 # Summary
 Prototype is not about copying objects. It is about **acquiring new objects without depending on concrete class knowledge**. By shifting object creation responsibility from static factories to the objects themselves, Prototype localizes change where it belongs.
