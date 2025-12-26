@@ -2,7 +2,7 @@
 title: Composite Design Pattern
 description: Configure behavior emerging from a group of snippet behavior objects organized in a tree structure.
 ---
-<img src="https://live.staticflickr.com/7154/6838743675_d5c4b4e6cd_b.jpg" alt="Jet Engine Cutaway" title="Image Source: https://www.flickr.com/photos/multiplyleadership/6838743675" width = "60%" align="center" style="padding-right: 20px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/J85_ge_17a_turbojet_engine.jpg/960px-J85_ge_17a_turbojet_engine.jpg?20080603023201" alt="Jet Engine Cutaway" title="Image Source: https://commons.wikimedia.org/wiki/File:J85_ge_17a_turbojet_engine.jpg" width = "60%" align="center" style="padding-right: 20px;">
 
 # Introduction
 The Composite Design Pattern is the next of the [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html)  series.
@@ -39,7 +39,7 @@ Like the previous composable design patterns, Composite is not difficult to impl
 
 ## Jet Engine
 I featured this jet engine cutaway at the top. It’s a sophisticated piece of machinery. I’m not a mechanical engineer, so I asked ChatGPT to list some parts of a jet engine:
-<img src="https://live.staticflickr.com/7154/6838743675_d5c4b4e6cd_b.jpg" alt="Jet Engine Cutaway" title="Image Source: https://www.flickr.com/photos/multiplyleadership/6838743675" width = "40%" align="right" style="padding-right: 20px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/J85_ge_17a_turbojet_engine.jpg/960px-J85_ge_17a_turbojet_engine.jpg?20080603023201" alt="Jet Engine Cutaway" title="Image Source: https://commons.wikimedia.org/wiki/File:J85_ge_17a_turbojet_engine.jpg" width = "40%" align="right" style="padding-right: 20px;">
 * Inlet
 * Compressor
 * Combustion Chamber
