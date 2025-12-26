@@ -7,7 +7,7 @@ unlisted: true
 # Introduction
 I introduced the [Prototype Design Pattern](https://jhumelsine.github.io/2025/12/23/prototype.html) in my previous blog entry. Prototype is a [Creational Design Pattern](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) that's different from the other creational design patterns. Most creational patterns involve a static method invoking the constructor of the concrete class type they're instantiating. This means that they have knowledge of and depend upon that concrete class type. Should there be any class type updates to the design, then the creational pattern implementation will need to be updated.
 
-Prototype instantiates a new instance by invoking a method of an object without having to know the object's concrete class type. This object method is responsible for returning an instance of its own class for which it has this knowledge. This distinction, object method invocation rather than static construction, is what gives Prototype its resilience to class evolution and separates it from its fellow creational patterns.
+Prototype instantiates a new instance by invoking a method of an object without having to know the object's concrete class type. This object method is responsible for returning an instance of its own class for which it has this knowledge.
 
 Factories centralize change around construction logic; Prototype distributes it across the objects that already know how to reproduce themselves. This object-method invocation (rather than a static factory method) shifts construction knowledge from centralized code into the objects themselves. That shift is what allows Prototype to remain resilient to class evolution and separates it from its fellow creational patterns.
 
@@ -18,17 +18,17 @@ This blog entry continues with Prototype with a Drawing Program Use Case example
 
 I render my UML class diagrams in PowerPoint. I mentioned this in a previous blog entry where I presented [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html). PowerPoint has its advantages and disadvantages as a design tool, but I found that it has been sufficient for my needs. PowerPoint's Drawing feature allows me to create shapes, connect them, color them, add/edit text, etc. Almost every UML class diagram in my blog entries has been rendered using PowerPoint.
 
-This Prototype Use Case will sketchout a design and implementation for some of the features of a drawing tool. It will include:
+This Prototype Use Case will sketch out a design and implementation for some of the features of a drawing tool. It will include:
 * A skeleton design and implementation for a drawing tool illustrating the basic shape organization structure.
 * Using a __Prototype__ and __Prototype Registry__ to acquire `Shape` objects by name. This allows new concrete `Shape` types to be added without having to update the Prototype portion of the design. The only addition required is to register a breeder object of the new type.
 * The ability to group `Shapes` together, such as one can do with the __Group__ feature in PowerPoint.
-* The ability make copies of any `Shapes` such as one can do with _Copy-and-Paste_ in PowerPoint.
+* The ability to make copies of any `Shapes` such as one can do with _Copy-and-Paste_ in PowerPoint.
 
 In addition to __Prototype/Prototype-Registry__, this design will also feature elements of [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html), [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html), [Factory Method](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) and [Composite](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html).
 
 I will present the design starting with a `Shape` contract and then expand the design with extending classes as it progresses.
 
-The code examples includes details that are not presented in the UML class diagrams. Keep this in mind when comparing them. The implementation takes precedence over the design, and the UML diagrams are intended to explain structure, not to be a complete specification.
+The code examples include details that are not presented in the UML class diagrams. Keep this in mind when comparing them. The implementation takes precedence over the design, and the UML diagrams are intended to explain structure, not to be a complete specification.
 
 I'm also fond of declaring attributes and methods as `final` when possible. Since the design features Template Method, I want to ensure that extending classes don't violate Template Method behaviors by overriding them, even if unintentionally. This becomes important later when composites and registries interact, and without `final`, subtle overrides could silently violate Prototype acquisition semantics while still compiling correctly.
 
@@ -40,7 +40,7 @@ The contract is declared in Shape.
 I chose an abstract class rather than an interface, because I want to store information in `Shape` along with some implementation. It's easier to do that when it's an abstract class rather than an interface.
 
 `Shape` only does two things in this design:
-* It acquires a copy of itself
+* It acquires a new instance of itself
 * It renders itself
 
 In a real drawing tool, there would be more behavior and state, such as:
@@ -263,7 +263,7 @@ This extension will expand beyond traditional [Prototype](https://jhumelsine.git
 
 Composites will allow the design to group a set of `Shape` objects into a composite entity, which I'm calling `Shapes` in this design. Since `Shapes` extends `Shape` it must implement `acquire` and `render` as well. The design also includes `ShapesFactory`.
 
-`Shapes` doesn't add new rendering features or new individual shapes. It's a structural class that allows us to group other shapes and treat them as a single entity. Its `acquire` and `render` implementations propagates acquisition and rendering to the shape grouped within it.
+`Shapes` doesn't add new rendering features or new individual shapes. It's a structural class that allows us to group other shapes and treat them as a single entity. Its `acquire` and `render` implementations propagate acquisition and rendering to the shape grouped within it.
 
 `Shapes` groups individual `Shape` objects. Since `Shapes` extends `Shape`, this means that `Shapes` can contain `Shapes`. Since `Shapes` can contain any number of `Shape` objects, and `Shapes` can contain `Shapes`, a single composite object tree is unbounded in width or depth. The self-referencial definition, means that the `acquire` and `render` are recursive calls, so all objects in the composite tree will be acquired or rendered when executed from the tree root object.
 
@@ -275,13 +275,13 @@ Here is the design:
 
 Notice that a `Shape` object can reside within `RegisteredBreeder` as well as `Shapes`. This can feel a bit disorienting as well, since I don't think we've seen this type of relationship before. It's fine because `RegisteredBreeder` maintains an object instance as part of the creational portion of the design, and `Shapes` maintains an object instance as part of the structural portion of the design.
 
-The `Shapes with(Shape shape)` method returns a reference to `this` so that `Shape` objects an be added in a chain.
+The `Shapes with(Shape shape)` method returns a reference to `this` so that `Shape` objects can be added in a chain.
 
-I also noticed that when a shape is acquired in `Shapes` it tends to make a temporary copy, which is not used. It becomes orphaned immediately, which makes it a candidate for garbage collection. This design deliberately prioritizes correctness and clarity over allocation minimization. A production system might optimize this, but doing so would obscure the intent of acquisition semantics.
+I also noticed that when a shape is acquired in `Shapes` it tends to make a temporary copy, which is not used. It becomes orphaned immediately, which makes it a candidate for garbage collection. This design intentionally prioritizes correctness and clarity over allocation minimization. A production system might optimize this, but doing so would obscure the intent of acquisition semantics.
 
 Here is the implementation for `Shapes`:
 ```java
-// This class maintains is a composite of Shapes instances.
+// This class maintains a composite of Shapes instances.
 class Shapes extends Shape {
     private final List<Shape> shapes = new LinkedList<>();
 
@@ -289,7 +289,7 @@ class Shapes extends Shape {
         super(state);
     }
 
-    // Initialize the new Shapes object with a deep copy of Shape objects within the sourceShape.
+    // Initialize the new Shapes object with a deep copy of Shape objects within the source composite.
     private Shapes(Shapes sourceShapes, String state) {
         this(state);
         for (Shape shape : sourceShapes.shapes) {
@@ -323,8 +323,8 @@ class Shapes extends Shape {
 Here is the complete implementation for `ShapeFactory`, which includes the ability to acquire `Shapes`:
 ```java
 class ShapeFactory {
-    // Shield the application from having to know when to acquire a Shape or Shapes
-    // From the Registry or from the composite directly.
+    /// Shield the application from having to know whether to acquire
+    // from the registry or from a composite directly.
     private ShapeFactory() {}
 
     public static final Shape acquire(String shapeName, String state) {
@@ -376,13 +376,13 @@ shapesH.render();
 ## Registered Composites
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/The_Olympic_Rings_in_Tokyo_01.jpg/960px-The_Olympic_Rings_in_Tokyo_01.jpg?20210723080534" alt="Olympic Rings" title="Image Source: https://commons.wikimedia.org/wiki/File:The_Olympic_Rings_in_Tokyo_01.jpg" width = "40%" align="right" style="padding: 35px;">
 
-Drawing programs often provide many basic shapes. I've shown that we can easily add `Triangle`, `Rectangle` and `Circle`. What if we want to provide more complex shape, such as the [Olympic Rings](https://en.wikipedia.org/wiki/Olympic_symbols)?
+Drawing programs often provide many basic shapes. I've shown that we can easily add `Triangle`, `Rectangle` and `Circle`. What if we want to provide more a complex shape, such as the [Olympic Rings](https://en.wikipedia.org/wiki/Olympic_symbols)?
 
-I started with an `OlypicRings` class that extended `RegisteredBreeder`. Since I already had its essential building blocks, I implemented `OlympicRings` internally as a `Shapes` of five `Circles` where each `circle` declared one of the five Olympic colors as its state. It worked, but it felt off.
+I started with an `OlympicRings` class that extended `RegisteredBreeder`. Since I already had its essential building blocks, I implemented `OlympicRings` internally as a `Shapes` of five `Circles` where each `circle` declared one of the five Olympic colors as its state. It worked, but it felt off.
 
 The previous _Squid Game_ classes aren't large. Most of their implementation focuses upon the infrastructure declared by the **Prototype/Template-Method** framework in which they reside. Their `render()` methods would have more substance if they actually rendered images rather than return text that describes what they are doing. But when I implemented `OlympicRings`, it felt redundant. Even its `render()` method didn't add anything substantial, since it delegated to its `Shapes` attribute.
 
-Then it occurred to me. I don't need an `OlympicsRings` class. I only need to create a breeder composite and register it. Here's all that's needed to create an ___Olympic Rings___ breeder composite:
+Then it occurred to me. I don't need an `OlympicRings` class. I only need to create a breeder composite and register it. Here's all that's needed to create an ___Olympic Rings___ breeder composite:
 ```java
 RegisteredBreeder.register("OlympicRings", ShapeFactory.acquire("Breeder OlympicRings")
     .with(ShapeFactory.acquire("Circle", "Blue"))
@@ -413,12 +413,12 @@ shapesI.render();
 This demonstrates what I described in my previous blog in the [Prototype Registry Allows More Granularity](https://jhumelsine.github.io/2025/12/23/prototype.html#prototype-registry-allows-more-granularity) section:
 >Prototype Registry would work well with [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html), since their behavior is defined via the assembly of a set of objects. The named root of the assembled objects can be registered.
 
-**Key realization**: Anything that implements `Shape` is eligible to become a prototype whether it represents a leaf, a composite, or a previously acquired instance. Once composites become registrable prototypes, _complex shapes_ stop being special cases. They become named configurations. This collapses the distinction between _primitive_ and _complex_ shapes at the registry level.
+**Key realization**: Anything that implements `Shape` is eligible to become a prototype, whether it is a leaf, a composite, or a previously acquired instance. Once composites become registrable prototypes, _complex shapes_ stop being special cases. They become named configurations. This collapses the distinction between _primitive_ and _complex_ shapes at the registry level.
 
 In the previous blog in the [Interpreter Grammar and Parser, Revisited](https://jhumelsine.github.io/2025/12/23/prototype.html#interpreter-grammar-and-parser-revisited) section, I mentioned __Variable/Function Names__ and __Class Names__ as two types of Alphanumerics in my Domain-Specific Language. I had managed them in two different registries at the time. I now realize that I could have probably managed them in one registry with a little care.
 
 ## Register Object Variances
-The _Olympic Rings_ insight opened new ideas in my mind. The Prototype Regisry doesn't mandate exactly one registered object for each `RegisteredBreeder`. The registered _Olympic Rings_ object isn't even a `RegisteredBreeder`. It's a `Shapes`, which extendes `Shape`. The reason I can register the _Olympic Rings_ object is because the Prototype Registry registers `Shape` objects by name, and almost every object instance in this design is a `Shape`.
+The _Olympic Rings_ insight opened new ideas in my mind. The Prototype Registry doesn't mandate exactly one registered object for each `RegisteredBreeder`. The registered _Olympic Rings_ object isn't even a `RegisteredBreeder`. It's a `Shapes`, which extends `Shape`. The reason I can register the _Olympic Rings_ object is because the Prototype Registry registers `Shape` objects by name, and almost every object instance in this design is a `Shape`.
 
 What else can I do? `Triangle` and `Rectangle` are _Polygons_. Can I reduce two classes to one?
 
@@ -465,7 +465,7 @@ Shapes shapesJ = ShapeFactory.acquire("J")
 shapesJ.render();
 ```
 
-If this were not a demo, I would have replace `Triangle` and `Rectangle` with:
+If this were not a demo, I would have replace `Triangle` and `Rectangle` classes with:
 ```java
 RegisteredBreeder.register("Triangle", new Polygon("Triangle", 3, "Breeder Triangle"));
 RegisteredBreeder.register("Rectangle", new Polygon("Rectangle", 4, "Breeder Rectangle"));
@@ -485,13 +485,13 @@ All polygons are comprised of line segments. What if I defined a `LineSegment` c
 >... a line segment is a part of a straight line that is bounded by two distinct endpoints (its extreme points), and contains every point on the line that is between its endpoints.
 
 Then just as my original `OlympicRings` class became redundant, the `Polygon` class would become redundant. Polygons could be registered as a composite of lines as such:
-* ___Triangle___ would be a `Shapes` composite of 3 properly connected lines segments.
-* ___Rectangle___ would be a `Shapes` composite of 4 properly connected lines segments.
-* ___Pentagon___ would be a `Shapes` composite of 5 properly connected lines segments.
-* ___Hexagon___ would be a `Shapes` composite of 6 properly connected lines segments.
-* ___Centagon___ would be a `Shapes` composite of 100 properly connected lines segments.
+* ___Triangle___ would be a `Shapes` composite of 3 properly connected line segments.
+* ___Rectangle___ would be a `Shapes` composite of 4 properly connected line segments.
+* ___Pentagon___ would be a `Shapes` composite of 5 properly connected line segments.
+* ___Hexagon___ would be a `Shapes` composite of 6 properly connected line segments.
+* ___Centagon___ would be a `Shapes` composite of 100 properly connected line segments.
 * ...
-* ___Circle___ would be a `Shapes` composite of 1,000 properly connected lines segments. I'm not 100% sure that this would be the final implementation. It might work for proof-of-concept, but fail in production. A _circle_ and a _milligon_ might render close enough to fool the eye, but would it be exacting enough. Additionally, 1,000 lines segments might take too long to render, whereas a calculation dedicated to the geometry of circles might render much faster.
+* ___Circle___ would be a `Shapes` composite of 1,000 properly connected line segments. I'm not 100% sure that this would be the final implementation. It might work for proof-of-concept, but fail in production. A _circle_ and a _milligon_ might render close enough to fool the eye, but would it be exacting enough. Additionally, 1,000 line segments might take too long to render, whereas a calculation dedicated to the geometry of circles might render much faster.
 
 Moving to irregular polygons:
 * ___Trapezoid___ would be a `Shapes` composite of 4 properly connected lines positioned where the top and bottom lines would be parallel, but not necessarily the same length.
@@ -512,6 +512,23 @@ This design shows that a Prototype Registry is a registry of **objects**, not cl
 The combination of Prototype, Registry, and Composite enables variation through configuration rather than inheritance. New shapes, new compositions, and new behaviors emerge without modifying existing code, only by registering new object instances.
 
 Once acquisition becomes object-driven and registries become instance-based, systems begin to grow by assembly rather than refactoring.
+
+# Creational Design Patterns Epilog
+I was planning a final ___Creational Design Patterns Series Summary___ blog, but while gathering my ideas, I realized that I had already written everything in other blog entries. Rather than rehash everything in a new blog, I've decided to mention them once more here with links to the previous references.
+
+I introduced __Creational Design Patterns__ in [An Introduction to Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) over five months ago. This is the only grouping of design pattern theme that I have in common with the Gang of Four's groupings, and even then, my set is slightly different from theirs.
+
+Creational Design Patterns have two primary responsibilities:
+* Encapsulating the creation mechanism from application code
+* Resource management, especially when a new object isn't always required
+
+Everything else is context and technique. I provided a [table summary](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html#summary) to help understand the context and know which technique to use.
+
+The Gang of Four missed a few things in their presentation (See: [What the GoF Missed](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html#what-the-gof-missed) and [Creational Design Pattern … Goofs?](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#creational-design-pattern--goofs)):
+* Their method names suggested the creational pattern technique. I prefer `acquire()`, which uses a method name that indicates what the user desires rather than what the implementation provides. See: [What Happened to Encapsulation?](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#what-happened-to-encapsulation)
+* Their implementation leaks memory, especially in languages where memory management is the responsibility of the developer, such as C++. In addition to `acquire()`, and I would declare `release(AcquiredObject)` for memory management and encapsulate both methods using [RAII](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization). See: [Memory Leaks?](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#memory-leaks), [What Other Tools Are in our Toolbox?](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html#the-sin-of-omission) and [Proxy Wrapped Object Pool Design and Implementation](https://jhumelsine.github.io/2025/11/28/object-pool.html#proxy-wrapped-object-pool-design-and-implementation).
+
+Different Creational Design Patterns can be used in the same design. They can even be nested as illustrated in the demo code where a Factory wraps the Prototype. See: [Creational Design Patterns Are Not Mutually Exclusive](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html#creational-design-patterns-are-not-mutually-exclusive).
 
 # Complete Demo Code
 Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. Copy and paste the code into Generative AI for analysis and comments.
@@ -612,8 +629,8 @@ public class PrototypeDemo2 {
 }
 
 class ShapeFactory {
-    // Shield the application from having to know when to acquire a Shape or Shapes
-    // From the Registry or from the composite directly.
+    // Shield the application from having to know whether to acquire
+    // from the registry or from a composite directly.
     private ShapeFactory() {}
 
     public static final Shape acquire(String shapeName, String state) {
@@ -790,7 +807,7 @@ class Polygon extends RegisteredBreeder {
     }
 }
 
-// This class maintains is a composite of Shapes instances.
+// This class maintains a composite of Shapes instances.
 class Shapes extends Shape {
     private final List<Shape> shapes = new LinkedList<>();
 
@@ -798,7 +815,7 @@ class Shapes extends Shape {
         super(state);
     }
 
-    // Initialize the new Shapes object with a deep copy of Shape objects within the sourceShape.
+    // Initialize the new Shapes object with a deep copy of Shape objects within the source composite.
     private Shapes(Shapes sourceShapes, String state) {
         this(state);
         for (Shape shape : sourceShapes.shapes) {
