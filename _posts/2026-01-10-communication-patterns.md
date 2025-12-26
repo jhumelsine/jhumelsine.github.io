@@ -20,15 +20,26 @@ A few years later, I had moved to another company. This time I was the requester
 One of the __Communication Design Patterns__ would have solve my communication issues smoothly regardless of whether I was providing information or requesting it.
 
 # Communication Design Patterns
-Unlike the Captain in [___Cool Hand Luke___](https://en.wikipedia.org/wiki/Cool_Hand_Luke), who blames the inmates for their inability to follow his rigid authority as communication failure, the Communication Design Patterns foster communication, but in a decoupled way. Coupling was the problem I encountered decades ago as described above. Had I known them them, I could have saved myself and others a lot of headaches.
+Unlike the Captain in [___Cool Hand Luke___](https://en.wikipedia.org/wiki/Cool_Hand_Luke), who blames the inmates for their inability to follow his rigid authority as communication failure, the Communication Design Patterns foster communication, but in a decoupled way. Coupling was the problem I encountered decades ago as described above. Had I known these patterns, I could have saved myself and others a lot of headaches.
 
 I only classify two Gang of Four (GoF) design patterns as communication patterns:
-* Observer (TBD), which allows any number of interested parties to receive update notifications
-* Mediator (TBD), which describes a communication network of Domain Events (TBD)
+* __Observer__ (TBD), which allows any number of interested parties to receive update notifications
+* __Mediator__ (TBD), which describes a communication network of Domain Events (TBD)
 
 One would think that there would be more than two communication patterns. One can also argue that many if not all of the GoF's design patterns are about communication. However, up to this point, that communication has been a side-effect of delegation and propagation. Services define a [contract](https://jhumelsine.github.io/2025/06/10/contracts.html) and client code calls it. The service is passive. In the communication patterns, the service takes on a more active role.
 
 I will briefly introduce the two Communication Design Patterns here and provide details in subsequent blog entries.
+
+## Observer
+__Observer__ would have solve both problems I described in the [Introduction](#introduction). In Observer, any number of interested parties will receive notifications when the information they're interested has been updated. It requires a minor enhancment made by the developer whose code is reponsible for that information, and then that developer is out of the loop.
+
+The interested parties can subscribe to and unsubscribe from update notifications as needed without an impact upon the code that manages the updates. The may only be several subscribers, thousands of them or zero. It's of no consequence to the managing code.
+
+There are several variations to consider when implementing Observer, and I'll illustrate them in subsequent blog entries.
+
+This pattern is also called [___Pub/Sub___](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) because the information manager publishes notifications to subscribers.
+
+## Mediator
 
 # Summary
 TBD
