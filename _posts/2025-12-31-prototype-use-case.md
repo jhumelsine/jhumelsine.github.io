@@ -9,17 +9,17 @@ I introduced the [Prototype Design Pattern](https://jhumelsine.github.io/2025/12
 
 Prototype instantiates a new instance by invoking a method of an object without having to know the object's concrete class type. This object method is responsible for returning an instance of its own class for which it has this knowledge.
 
-Factories centralize change around construction logic; Prototype distributes it across the objects that already know how to reproduce themselves. This object-method invocation (rather than a static factory method) shifts construction knowledge from centralized code into the objects themselves. That shift is what allows Prototype to remain resilient to class evolution and separates it from its fellow creational patterns.
+Factories centralize change around construction logic. Prototype distributes it across the objects that already know how to reproduce themselves. This object-method invocation (rather than a static factory method) shifts construction knowledge from centralized code into the objects themselves. That shift is what allows Prototype to remain resilient to class evolution and separates it from its fellow creational patterns.
 
-This blog entry continues with Prototype with a Drawing Program Use Case example, much like what PowerPoint provides to render shapes.
+This blog entry continues with Prototype with a Drawing Program Use Case example.
 
 # Drawing Program Use Case
 <img src="/assets/Prototype5.png" alt="PowerPoint Slides"  width = "50%" align="right" style="padding-right: 35px;">
 
 I render my UML class diagrams in PowerPoint. I mentioned this in a previous blog entry where I presented [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html). PowerPoint has its advantages and disadvantages as a design tool, but I found that it has been sufficient for my needs. PowerPoint's Drawing feature allows me to create shapes, connect them, color them, add/edit text, etc. Almost every UML class diagram in my blog entries has been rendered using PowerPoint.
 
-This Prototype Use Case will sketch out a design and implementation for some of the features of a drawing tool. It will include:
-* A skeleton design and implementation for a drawing tool illustrating the basic shape organization structure.
+This Prototype Use Case will sketch out a design and implementation for some of the features of a drawing program. It will include:
+* A skeleton design and implementation for a drawing program illustrating the basic shape organization structure.
 * Using a __Prototype__ and __Prototype Registry__ to acquire `Shape` objects by name. This allows new concrete `Shape` types to be added without having to update the Prototype portion of the design. The only addition required is to register a breeder object of the new type.
 * The ability to group `Shapes` together, such as one can do with the __Group__ feature in PowerPoint.
 * The ability to make copies of any `Shapes` such as one can do with _Copy-and-Paste_ in PowerPoint.
@@ -28,7 +28,7 @@ In addition to __Prototype/Prototype-Registry__, this design will also feature e
 
 I will present the design starting with a `Shape` contract and then expand the design with extending classes as it progresses.
 
-The code examples include details that are not presented in the UML class diagrams. Keep this in mind when comparing them. The implementation takes precedence over the design, and the UML diagrams are intended to explain structure, not to be a complete specification.
+The code examples include details that are not presented in the UML class diagrams. Keep this in mind when comparing them. The implementation takes precedence over the design, and the UML diagrams are intended to explain structure. They are not a complete specification.
 
 I'm also fond of declaring attributes and methods as `final` when possible. Since the design features Template Method, I want to ensure that extending classes don't violate Template Method behaviors by overriding them, even if unintentionally. This becomes important later when composites and registries interact, and without `final`, subtle overrides could silently violate Prototype acquisition semantics while still compiling correctly.
 
@@ -43,19 +43,19 @@ I chose an abstract class rather than an interface, because I want to store info
 * It acquires a new instance of itself
 * It renders itself
 
-In a real drawing tool, there would be more behavior and state, such as:
+In a real drawing program, there would be more behavior and state, such as:
 * Position
 * Rotation
-* Expansion and contraction
+* Expansion and Contraction
 * Line and Fill formatting
 * Optional Text with its own formatting
 * Etc.
 
-The `Shape` implementation contains state:
+The `Shape` implementation contains private attributes:
 * `serialNumber` which is an incrementing integer for each newly acquired `Shape` object. I've added it to demonstrate that new objects are being instantiated as they are acquired. It exists only to demonstrate that new objects are being created when acquired and should not be interpreted as part of a production-quality identity or lifecycle mechanism.
-* `state` which is a placeholder for state within the object. In a production drawing program, state would include position, rotation, formatting details, etc. In my simple demo, it's a simple String.
+* `state` which is a placeholder for state within the object. In a production drawing program, state would include position, rotation, formatting details, etc. In my simple demo, it's a String.
 
-This demo won't render any images. Text will be a substitute for rendering if this were an actual drawing program. Rendering in this demo is closer to a sophisticated `toString()` feature, which leverages the [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html).
+This demo won't render any images. Text content will be a substitute for rendering in the demo. Rendering in this demo is closer to a sophisticated `toString()` feature, which leverages the [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html).
 
 ```java
 abstract class Shape {
@@ -158,7 +158,7 @@ This design expansion adds concrete classes to the previous abstract classes. Th
 The design easily expands to accommodate these concrete classes:
 <img src="/assets/Prototype8.png" alt="concrete class UML"  width = "80%" align="center" style="padding-right: 35px;">
 
-Here are their implementation:
+Here are their implementation. (**NOTE**: This is one of the UML/Implementation exceptions. The UML places `render()` in the concrete classes, but in the final implementation, `render()` resides in `RegisteredBreeder` with support in the concrete classes via `getShapeName()`):
 ```java
 class Triangle extends RegisteredBreeder {
     private final static String SHAPE_NAME = "Triangle";
@@ -259,11 +259,11 @@ rectangleB.render();
 ```
 
 ## Composite Shapes 
-This extension will expand beyond traditional [Prototype](https://jhumelsine.github.io/2025/12/23/prototype.html) and into [Composite](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html).
+This next extension will expand beyond traditional [Prototype](https://jhumelsine.github.io/2025/12/23/prototype.html) and into [Composite](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html).
 
-Composites will allow the design to group a set of `Shape` objects into a composite entity, which I'm calling `Shapes` in this design. Since `Shapes` extends `Shape` it must implement `acquire` and `render` as well. The design also includes `ShapesFactory`.
+Composites will allow the design to group a set of `Shape` objects into a composite entity, which I'm calling `Shapes` in this design. Since `Shapes` extends `Shape` it must implement `acquire` and `render` as well. The design expands `ShapesFactory` to accommodate `Shapes`.
 
-`Shapes` doesn't add new rendering features or new individual shapes. It's a structural class that allows us to group other shapes and treat them as a single entity. Its `acquire` and `render` implementations propagate acquisition and rendering to the shape grouped within it.
+`Shapes` doesn't add new rendering features or new individual shapes. It's a structural class that allows us to group other `Shape` objects and treat them as a single entity. Its `acquire` and `render` implementations propagate acquisition and rendering to the `Shape` objects grouped within it.
 
 `Shapes` groups individual `Shape` objects. Since `Shapes` extends `Shape`, this means that `Shapes` can contain `Shapes`. Since `Shapes` can contain any number of `Shape` objects, and `Shapes` can contain `Shapes`, a single composite object tree is unbounded in width or depth. The self-referencial definition, means that the `acquire` and `render` are recursive calls, so all objects in the composite tree will be acquired or rendered when executed from the tree root object.
 
@@ -273,11 +273,11 @@ Here is the design:
 
 <img src="/assets/Prototype9.png" alt="Shapes UML"  width = "90%" align="center" style="padding-right: 35px;">
 
-Notice that a `Shape` object can reside within `RegisteredBreeder` as well as `Shapes`. This can feel a bit disorienting as well, since I don't think we've seen this type of relationship before. It's fine because `RegisteredBreeder` maintains an object instance as part of the creational portion of the design, and `Shapes` maintains an object instance as part of the structural portion of the design.
+Notice that a `Shape` object can reside within `RegisteredBreeder` with a [__HAS-A__](https://jhumelsine.github.io/2023/09/01/parts-is-parts.html#has-a) relationship as well as reside within `Shapes` with its own __HAS-A__ relationship. This can feel a bit disorienting, since I don't think we've seen this type of double __HAS-A__ relationship before. It's fine because `RegisteredBreeder` maintains an object instance as part of its registry, and `Shapes` maintains an object instance as part of the structural behaviors.
 
-The `Shapes with(Shape shape)` method returns a reference to `this` so that `Shape` objects can be added in a chain.
+The `Shapes with(Shape shape)` method returns a reference to `this` so that `Shape` objects can be added as a chain.
 
-I also noticed that when a shape is acquired in `Shapes` it tends to make a temporary copy, which is not used. It becomes orphaned immediately, which makes it a candidate for garbage collection. This design intentionally prioritizes correctness and clarity over allocation minimization. A production system might optimize this, but doing so would obscure the intent of acquisition semantics.
+I also noticed that when a `Shape` is acquired in `Shapes` it tends to make a temporary copy, which is not preserved. It becomes orphaned immediately, which makes it a candidate for garbage collection. This design intentionally prioritizes correctness and clarity over allocation minimization. A production system might optimize this, but doing so would obscure the intent of acquisition semantics.
 
 Here is the implementation for `Shapes`:
 ```java
@@ -323,7 +323,7 @@ class Shapes extends Shape {
 Here is the complete implementation for `ShapeFactory`, which includes the ability to acquire `Shapes`:
 ```java
 class ShapeFactory {
-    /// Shield the application from having to know whether to acquire
+    // Shield the application from having to know whether to acquire
     // from the registry or from a composite directly.
     private ShapeFactory() {}
 
@@ -415,7 +415,7 @@ This demonstrates what I described in my previous blog in the [Prototype Registr
 
 **Key realization**: Anything that implements `Shape` is eligible to become a prototype, whether it is a leaf, a composite, or a previously acquired instance. Once composites become registrable prototypes, _complex shapes_ stop being special cases. They become named configurations. This collapses the distinction between _primitive_ and _complex_ shapes at the registry level.
 
-In the previous blog in the [Interpreter Grammar and Parser, Revisited](https://jhumelsine.github.io/2025/12/23/prototype.html#interpreter-grammar-and-parser-revisited) section, I mentioned __Variable/Function Names__ and __Class Names__ as two types of Alphanumerics in my Domain-Specific Language. I had managed them in two different registries at the time. I now realize that I could have probably managed them in one registry with a little care.
+In the previous blog in the [Interpreter Grammar and Parser, Revisited](https://jhumelsine.github.io/2025/12/23/prototype.html#interpreter-grammar-and-parser-revisited) section, I mentioned __Variable/Function Names__ and __Class Names__ as two types of Alphanumerics in my Domain-Specific Language. I had managed them in two different registries at the time. I now realize that I could have probably managed them in one registry.
 
 ## Register Object Variances
 The _Olympic Rings_ insight opened new ideas in my mind. The Prototype Registry doesn't mandate exactly one registered object for each `RegisteredBreeder`. The registered _Olympic Rings_ object isn't even a `RegisteredBreeder`. It's a `Shapes`, which extends `Shape`. The reason I can register the _Olympic Rings_ object is because the Prototype Registry registers `Shape` objects by name, and almost every object instance in this design is a `Shape`.
@@ -446,16 +446,16 @@ class Polygon extends RegisteredBreeder {
 }
 ```
 
-Since I want to retain `Triangle` and `Rectangle` for the demonstration code, I registered a _Pentagon_, _Hexagon_ and _Centagon_ as follows. Notice that I can't call `register()`, since this is not a class registration; this is a specific object registration:
+Since I want to retain `Triangle` and `Rectangle` for the demonstration code, I left them as is and registered a _Pentagon_, _Hexagon_ and _Centagon_ as follows. Notice that I can't call a concrete class `register()` method, since these new `Shape` breeders is not a classes. This is a registration different attribute specified breeder objects of the same concrete `Polygon` class:
 ```java
 RegisteredBreeder.register("Pentagon", new Polygon("Pentagon", 5, "Breeder Pentagon"));
 RegisteredBreeder.register("Hexagon", new Polygon("Hexagon", 6, "Breeder Hexagon"));
 RegisteredBreeder.register("Centagon", new Polygon("Centagon", 100, "Breeder Centagon"));
 ```
 
-In a traditional hierarchy-heavy design, this would likely result in multiple subclasses. Here, it results in multiple registered objects of the same class.
+a traditional hierarchy-heavy design not using this technique would likely result in multiple concrete subclasses. Here, it results in multiple registered objects of one class.
 
-Here's an example showing how they are acquired:
+Here's an example showing how these new objects are acquired:
 ```java
 System.out.println("\nAcquire and Render Shapes J, with Pentagon K, Hexagon L and Centagon M ->");
 Shapes shapesJ = ShapeFactory.acquire("J")
@@ -475,16 +475,16 @@ This demonstrates what I described in my previous blog in the [Prototype Registr
 >A Prototype Registry is a registry of objects. It’s not a registry of classes. That means that the same class can be represented as different registered objects that vary in behavior based upon distinguishing attributes or their configuration.
 
 ## Additional Musings
-What follows is a thought experiment rather than implemented code, but it highlights where this design naturally leads.
+What follows is a thought experiment rather than a fleshed out design and implementation, but it highlights where this design naturally leads.
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/PolygonsSet_EN.svg/960px-PolygonsSet_EN.svg.png?20250917193057" alt="Polygons" title="Image Source: https://commons.wikimedia.org/wiki/File:PolygonsSet_EN.svg" width = "40%" align="right" style="padding: 35px;">
 
 The `Polygon.render()` method doesn't specify rendering details, but it feels like it would only render regular polygons. What if I wanted irregular polygons, such as _diamond_, _trapezoid_, _rhombus_, etc. Would I need to define a class type for each?
 
-All polygons are comprised of line segments. What if I defined a `LineSegment` class, which defined a [_line segment_](https://en.wikipedia.org/wiki/Line_segment) as Euclid would:
+All polygons are comprised of line segments. What if I defined a `LineSegment` class as [_Euclid_](https://en.wikipedia.org/wiki/Line_segment) would have:
 >... a line segment is a part of a straight line that is bounded by two distinct endpoints (its extreme points), and contains every point on the line that is between its endpoints.
 
-Then just as my original `OlympicRings` class became redundant, the `Polygon` class would become redundant. Polygons could be registered as a composite of lines as such:
+Then just as my original `OlympicRings` class became redundant as a concrete class and could be replaced a composite breeder, the `Polygon` class would also become redundant. Polygons could be registered as a composite of lines as such:
 * ___Triangle___ would be a `Shapes` composite of 3 properly connected line segments.
 * ___Rectangle___ would be a `Shapes` composite of 4 properly connected line segments.
 * ___Pentagon___ would be a `Shapes` composite of 5 properly connected line segments.
@@ -509,9 +509,9 @@ Prototype is not about copying objects. It is about **acquiring new objects with
 
 This design shows that a Prototype Registry is a registry of **objects**, not classes. Because of that, both simple shapes and composite structures can be registered, acquired, and treated uniformly. Once composites become first-class prototypes, complex structures stop being special cases and instead become named configurations.
 
-The combination of Prototype, Registry, and Composite enables variation through configuration rather than inheritance. New shapes, new compositions, and new behaviors emerge without modifying existing code, only by registering new object instances.
+The combination of Prototype, Registry, and Composite enables variation through configuration rather than inheritance. New shapes, new compositions, and new behaviors emerge without modifying existing code. Their creation only requires registering new object instances.
 
-Once acquisition becomes object-driven and registries become instance-based, systems begin to grow by assembly rather than refactoring.
+Once acquisition becomes object-driven and registries become instance-based, systems begin to grow by assembly rather than adding new classes to the design.
 
 # Creational Design Patterns Epilog
 I was planning a final ___Creational Design Patterns Series Summary___ blog, but while gathering my ideas, I realized that I had already written everything in other blog entries. Rather than rehash everything in a new blog, I've decided to mention them once more here with links to the previous references.
