@@ -156,11 +156,15 @@ _We build our computer (systems) the way we build our cities: over time, without
 
 _Software and cathedrals are much the same — first we build them, then we pray._ — Anonymous
 
+_I called this onion architecture, as it had lots of layers and made me cry when we had to cut through it._ ― Sam Newman
+
 _If a change to the requirements breaks your architecture, then your architecture sucks._ ― Robert C. Martin
 
 _If you think good architecture is expensive, try bad architecture._ — Brian Foote and Joseph Yoder
 
 _Good architecture makes the system easy to understand, easy to develop, easy to maintain, and easy to deploy. The ultimate goal is to minimize the lifetime cost of the system and to maximize programmer productivity._ ― Robert C. Martin
+
+_Building a microservice is easy. Building a system of microservices is hard_ ― Attributed to Sam Newman
 
 _Architecture is the decisions that you wish you could get right early in a project, but that you are not necessarily more likely to get them right than any other._ — Ralph Johnson
 
