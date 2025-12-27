@@ -4,7 +4,7 @@ description: TBD
 unlisted: true
 ---
 
-<img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2ZzcWdvbXQ1ajM0dWFjY2xiZjN4dHBjcDdjZG45NW13bTFlaG4wNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oEjHLFk88eqsmJ5F6/giphy.gif" alt="Cool Hand Luke Failure To Communicate" title="Image Source: https://giphy.com/gifs/3oEjHLFk88eqsmJ5F6" width = "45%" align="center" style="padding-right: 20px;">
+<img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2ZzcWdvbXQ1ajM0dWFjY2xiZjN4dHBjcDdjZG45NW13bTFlaG4wNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oEjHLFk88eqsmJ5F6/giphy.gif" alt="Cool Hand Luke Failure To Communicate" title="Image Source: https://giphy.com/gifs/3oEjHLFk88eqsmJ5F6" width = "60%" align="center" style="padding-right: 20px;">
 
 # Introduction
 About three decades ago, I worked on a project and someone asked me, "Can you call my function when this thing happens in your code?"
@@ -69,3 +69,13 @@ TBD
 
 # Complete Demo Code
 Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. Copy and paste the code into Generative AI for analysis and comments.
+
+# NOTES
+* Observer: If using threads and sending content, need to ensure that notifications are not processed in the wrong order. Need a queue of some type.
+* Observer: If Observer is storing state, then need to address the possibility of stale state information:
+    * Query then Subscribe and run the risk of an update in between.
+    * Subscribe then Query and run the risk of ... not sure. Need to think about this to remember the risk.
+* Mediator: Event Message order so definitely need a queue.
+* Mediator: Event Message guarantee:
+    * If not guaranteed, such as with UDP, then there's a risk of the it being lost.
+    * If guaranteed, then there's the risk of multiple occurrences of the same Event Message so the receiver has to be idempotent.  
