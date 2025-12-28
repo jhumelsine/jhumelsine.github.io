@@ -75,6 +75,7 @@ Here’s the entire implementation up to this point as one file. Copy and paste 
 * Observer: If Observer is storing state, then need to address the possibility of stale state information:
     * Query then Subscribe and run the risk of an update in between.
     * Subscribe then Query and run the risk of ... not sure. Need to think about this to remember the risk.
+* POLA - Pub/Sub. Sub with Critical, Major and Minor and how it listed with the subscribe but it applied to all subscribers. 
 * Mediator: Event Message order so definitely need a queue.
 * Mediator: Event Message guarantee:
     * If not guaranteed, such as with UDP, then there's a risk of the it being lost.
