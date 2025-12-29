@@ -19,8 +19,8 @@ This blog entry continues with Prototype with a Drawing Program Use Case example
 I render my UML class diagrams in PowerPoint. I mentioned this in a previous blog entry where I presented [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html). PowerPoint has its advantages and disadvantages as a design tool, but I found that it has been sufficient for my needs. PowerPoint's Drawing feature allows me to create shapes, connect them, color them, add/edit text, etc. Almost every UML class diagram in my blog entries has been rendered using PowerPoint.
 
 This Prototype Use Case will sketch out a design and implementation for some of the features of a drawing program. It will include:
-* A skeleton design and implementation for a drawing program illustrating the basic shape organization structure.
-* Using a __Prototype__ and __Prototype Registry__ to acquire `Shape` objects by name. This allows new concrete `Shape` types to be added without having to update the Prototype portion of the design. The only addition required is to register a breeder object of the new type.
+* A skeleton design and implementation for a drawing program illustrating the basic `Shape` organization structure.
+* A __Prototype__ and __Prototype Registry__ to acquire `Shape` objects by name. This allows new concrete `Shape` types to be added without having to update the Prototype portion of the design. The only addition required is to register a breeder object of the new type.
 * The ability to group `Shapes` together, such as one can do with the __Group__ feature in PowerPoint.
 * The ability to make copies of any `Shapes` such as one can do with _Copy-and-Paste_ in PowerPoint.
 
@@ -33,7 +33,7 @@ The code examples include details that are not presented in the UML class diagra
 I'm also fond of declaring attributes and methods as `final` when possible. Since the design features Template Method, I want to ensure that extending classes don't violate Template Method behaviors by overriding them, even if unintentionally. This becomes important later when composites and registries interact, and without `final`, subtle overrides could silently violate Prototype acquisition semantics while still compiling correctly.
 
 ## Shape
-The contract is declared in Shape.
+The contract is declared in `Shape`.
 
 <img src="/assets/Prototype6.png" alt="Shape UML"  width = "30%" align="center" style="padding-right: 35px;">
 
@@ -153,12 +153,12 @@ abstract class RegisteredBreeder extends Shape {
 ## Concrete Classes
 <img src="https://img.goodfon.com/wallpaper/nbig/2/9e/igra-kalmara-serial-squid-game.webp" alt="Squid Game" title="Image Source: https://www.goodfon.com/films/wallpaper-igra-kalmara-serial-squid-game.html" width = "40%" align="right" style="padding: 35px;">
 
-This design expansion adds concrete classes to the previous abstract classes. They include: `Triangle`, `Rectangle` and `Circle`. I wasn't thinking of ___Squid Game___ when I chose these shapes, but I have been watching the reality show version recently.
+This design expansion adds concrete classes to the previous abstract classes. They include: `Triangle`, `Rectangle` and `Circle`. I wasn't thinking of ___Squid Game___ when I chose these shapes, but I have been watching the reality version of the show recently.
 
 The design easily expands to accommodate these concrete classes:
 <img src="/assets/Prototype8.png" alt="concrete class UML"  width = "80%" align="center" style="padding-right: 35px;">
 
-Here are their implementation. (**NOTE**: This is one of the UML/Implementation exceptions. The UML places `render()` in the concrete classes, but in the final implementation, `render()` resides in `RegisteredBreeder` with support in the concrete classes via `getShapeName()`):
+Here are their implementations. (**NOTE**: This is one of the UML/Implementation differences I mentioned previously. The UML places `render()` in the concrete classes, but in the final implementation, `render()` resides in `RegisteredBreeder` with support from the concrete classes via `getShapeName()`):
 ```java
 class Triangle extends RegisteredBreeder {
     private final static String SHAPE_NAME = "Triangle";
@@ -261,7 +261,7 @@ rectangleB.render();
 ## Composite Shapes 
 This next extension will expand beyond traditional [Prototype](https://jhumelsine.github.io/2025/12/23/prototype.html) and into [Composite](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html).
 
-Composites will allow the design to group a set of `Shape` objects into a composite entity, which I'm calling `Shapes` in this design. Since `Shapes` extends `Shape` it must implement `acquire` and `render` as well. The design expands `ShapesFactory` to accommodate `Shapes`.
+Composites will allow the design to group a set of `Shape` objects into a composite entity, which I'm calling `Shapes` in this design. Since `Shapes` extends `Shape` it must implement `acquire` and `render` as well. `ShapesFactory` extends to accommodate `Shapes`.
 
 `Shapes` doesn't add new rendering features or new individual shapes. It's a structural class that allows us to group other `Shape` objects and treat them as a single entity. Its `acquire` and `render` implementations propagate acquisition and rendering to the `Shape` objects grouped within it.
 
@@ -376,7 +376,7 @@ shapesH.render();
 ## Registered Composites
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/The_Olympic_Rings_in_Tokyo_01.jpg/960px-The_Olympic_Rings_in_Tokyo_01.jpg?20210723080534" alt="Olympic Rings" title="Image Source: https://commons.wikimedia.org/wiki/File:The_Olympic_Rings_in_Tokyo_01.jpg" width = "40%" align="right" style="padding: 35px;">
 
-Drawing programs often provide many basic shapes. I've shown that we can easily add `Triangle`, `Rectangle` and `Circle`. What if we want to provide more a complex shape, such as the [Olympic Rings](https://en.wikipedia.org/wiki/Olympic_symbols)?
+Drawing programs often provide many basic shapes. I've shown that we can easily add `Triangle`, `Rectangle` and `Circle`. What if we want to provide a more complex shape, such as the [Olympic Rings](https://en.wikipedia.org/wiki/Olympic_symbols)?
 
 I started with an `OlympicRings` class that extended `RegisteredBreeder`. Since I already had its essential building blocks, I implemented `OlympicRings` internally as a `Shapes` of five `Circles` where each `circle` declared one of the five Olympic colors as its state. It worked, but it felt off.
 
@@ -446,14 +446,14 @@ class Polygon extends RegisteredBreeder {
 }
 ```
 
-Since I want to retain `Triangle` and `Rectangle` for the demonstration code, I left them as is and registered a _Pentagon_, _Hexagon_ and _Centagon_ as follows. Notice that I can't call a concrete class `register()` method, since these new `Shape` breeders is not a classes. This is a registration different attribute specified breeder objects of the same concrete `Polygon` class:
+Since I want to retain `Triangle` and `Rectangle` for the demonstration code, I left them as is and registered a _Pentagon_, _Hexagon_ and _Centagon_ as follows. Notice that I can't call a concrete class `register()` method, since these new `Shape` breeder objects anbd not new classes. This is a registration different attribute-specified breeder objects of the same concrete `Polygon` class:
 ```java
 RegisteredBreeder.register("Pentagon", new Polygon("Pentagon", 5, "Breeder Pentagon"));
 RegisteredBreeder.register("Hexagon", new Polygon("Hexagon", 6, "Breeder Hexagon"));
 RegisteredBreeder.register("Centagon", new Polygon("Centagon", 100, "Breeder Centagon"));
 ```
 
-a traditional hierarchy-heavy design not using this technique would likely result in multiple concrete subclasses. Here, it results in multiple registered objects of one class.
+A traditional hierarchy-heavy design, not using this object registration technique, would likely result in multiple concrete subclasses. Here, it results in multiple registered objects of one class.
 
 Here's an example showing how these new objects are acquired:
 ```java
