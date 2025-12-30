@@ -208,7 +208,7 @@ class FeatureImpl implements Feature {
 }
 ```
 
-This is the technique that I'll use in the Use Case (TBD).
+This is the technique that I'll use in the [Use Case](https://jhumelsine.github.io/2025/12/23/prototype.html).
 
 #### Acquisition Summary
 
@@ -253,7 +253,7 @@ A Prototype Registry is not just a data structure; it is a __lifecycle decision_
 ## Prototype Registry Allows More Granularity
 <img src="https://www.camelotgamestore.com/images/thumbs/0002417_panzer-blitz-quarter-page-of-general-magazine-v13n3-counters_550.jpeg" alt="Panzer Blitz Game Pieces" title="Image Source: https://www.camelotgamestore.com/panzer-blitz-quarter-page-of-general-magazine-v13n3-counters" width = "40%" align="right" style="padding: 35px;">
 
-A Prototype Registry is a registry of objects. It's not a registry of classes. That means that the same class can be represented as different registered objects that vary in behavior based upon distinguishing attributes or their configuration. Prototype Registry would work well with [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html), since their behavior is defined via the assembly of a set of objects. The named root of the assembled objects can be registered. I'll provide an example of this in the Use Case (TBD).  While this is technically possible with some creational patterns, such as [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html), it feels more natural within a Prototype Registry.
+A Prototype Registry is a registry of objects. It's not a registry of classes. That means that the same class can be represented as different registered objects that vary in behavior based upon distinguishing attributes or their configuration. Prototype Registry would work well with [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html), since their behavior is defined via the assembly of a set of objects. The named root of the assembled objects can be registered. I'll provide an example of this in the [Use Case](https://jhumelsine.github.io/2025/12/30/prototype-use-case.html#registered-composites).  While this is technically possible with some creational patterns, such as [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html), it feels more natural within a Prototype Registry.
 
 Acquisition from this type of Prototype Registry should probably return a reference to the [breeder object](#returns-the-object-itself) or acquire a new one using the [copy constructor](#returns-the-object-via-copy-constructor) since its behavior is based upon its attributes.
 
@@ -283,7 +283,7 @@ interface Feature {
 
 `acquire(String name)` searches for the `breeder` by name in the repository. If found, it returns an _acquired_ version of the object.
 
-__Prototype__ has another trick up its sleeve. Once a client has a `Prototypical` object, it can `acquire()` a new object from the acquired object, from which another object can be acquired, etc. There is no limit to how many new objects can be acquired regardless of how many generations they have descended from their repository ensconced initial breeder ancestor. This is a feature that other creational design patterns do not possess. I will feature this chained acquisition in the Use Case (TBD).
+__Prototype__ has another trick up its sleeve. Once a client has a `Prototypical` object, it can `acquire()` a new object from the acquired object, from which another object can be acquired, etc. There is no limit to how many new objects can be acquired regardless of how many generations they have descended from their repository ensconced initial breeder ancestor. This is a feature that other creational design patterns do not possess. I will feature this chained acquisition in the [Use Case](https://jhumelsine.github.io/2025/12/30/prototype-use-case.html#composite-shapes).
 
 Chained acquisition allows objects to act as localized factories for their own variants. Once acquired, an object can refine or specialize itself further without consulting the registry again. This enables hierarchical or progressive specialization, something static factories and builders cannot do without reintroducing class knowledge.
 
@@ -385,7 +385,7 @@ public class PrototypeDemo1 {
 This implementation is close to how I resolved class names with my [Parser](#interpreter-grammar-and-Parser-revisited). When we added a new functional class, we added a static blocked registration. It was in C++, so registration happened automatically at start up. When the parser encountered an identifier for the class, the Prototype Registry would find the registered breeder and return a copy of it.
 
 # Prototype Use Case
-The next blog will feature a Prototype Use Case (TBD).
+The next blog will feature a [Prototype Use Case](https://jhumelsine.github.io/2025/12/30/prototype-use-case.html).
 
 # When Not to Use Prototype
 Prototype is not a default choice. If your system has a closed set of types, changes infrequently, or prioritizes simplicity over extensibility, a Factory or Builder will usually be clearer and easier to reason about. Prototype earns its complexity only when the cost of change dominates the cost of indirection.
