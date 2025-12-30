@@ -1,6 +1,6 @@
 ---
 title: Table of Contents
-description: A little bit of order to organize the chaos.
+description: Organizing various blog entries by common themes
 ---
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Long_Room_Interior%2C_Trinity_College_Dublin%2C_Ireland_-_Diliff.jpg/1017px-Long_Room_Interior%2C_Trinity_College_Dublin%2C_Ireland_-_Diliff.jpg" alt="Trinity College Library" title="Image Source: https://commons.wikimedia.org/wiki/File:Long_Room_Interior,_Trinity_College_Dublin,_Ireland_-_Diliff.jpg" width = "50%" align="center" style="padding-right: 20px;">
 
@@ -16,6 +16,7 @@ This meta-blog entry organizes the themes of my blog entries. __NOTE:__ This pag
     * [Miscellaneous](#se-miscellaneous) 
 * [Design Patterns](#design-patterns)
     * [Design Pattern Foundations](#design-pattern-foundations)
+    * [Creational Design Patterns](#creational-design-patterns)
     * [Essential Design Patterns](#essential-design-patterns)
     * [Composable Design Patterns](#composable-design-patterns) 
 * [Hexagonal Architecture AKA Ports and Adapters](#hexagonal-architecture-aka-ports-and-adapters-design)
@@ -33,6 +34,7 @@ __NOTE:__ I think that a Google account may be required to access the AI/Google 
 AI/Google Notebooks:
 * [Abstraction](https://notebooklm.google.com/notebook/94884f00-c719-471f-87f6-9225b67922be?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 * [Design Pattern Foundations](https://notebooklm.google.com/notebook/ec8ed593-cd93-4a65-8615-2233bef3d910?_gl=1*u5eebw*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzAkdDE3NDk1NjA5MjQkajYwJGwwJGgw)
+* [Creational Design Patterns](https://notebooklm.google.com/notebook/8453e55f-55b0-4995-9ca2-5eaca6eef48c)
 * [Essential Design Patterns](https://notebooklm.google.com/notebook/a4db6342-c117-4664-b0ed-1aa79d720db7?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 * [Composable Design Patterns](https://notebooklm.google.com/notebook/bc19b872-144e-4218-8622-023e963becdf?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 * [Interpreter Design Pattern](https://notebooklm.google.com/notebook/452441d7-f9d9-4a31-9084-a02621271099?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
@@ -73,6 +75,18 @@ Design Patterns are not technically challenging, but they do require a slight pa
 * [Design Pattern Principles](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html) - There are only two Design Pattern Principles. Understanding them will help in understanding the underlying structures that reappear in Design Patterns.
 
 See: [Design Pattern Foundations AI Agent](https://notebooklm.google.com/notebook/ec8ed593-cd93-4a65-8615-2233bef3d910?_gl=1*u5eebw*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzAkdDE3NDk1NjA5MjQkajYwJGwwJGgw)
+
+## Creational Design Patterns
+The [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) define techniques to acquire objects while encapsulating the object's concrete class type. They also provide object management techniques when a new object is not always needed.
+
+* [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) – Allows an application to acquire an object reference without knowing class type and without having to call a `new()` constructor directly.
+* [Abstract Factory](https://jhumelsine.github.io/2025/07/30/abstract-factory.html) – This is a factory of factories. It helps ensure that a set of factories are returning objects in the same environment.
+* [Builder](https://jhumelsine.github.io/2025/08/08/builder-introduction.html) – Creates, assembles and returns a set of cohesive objects based upon a plan much like a blueprint. Builder is often used with [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html). The Builder pattern supports abstraction since different concrete Builders can resolve the abstraction within the same design allowing them to create and assemble different concrete instances of the same structure.
+* [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html) – Ensures that __only__ one object is created for a class type.
+* [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html) (Also Known As _Multiton_) – Ensures that only one instance of an object will be created for a given set of intrinsic attributes.
+* [Object Pool](https://jhumelsine.github.io/2025/11/28/object-pool.html) – Objects are created at start up and lent to the caller when requested.
+* [Prototype](https://jhumelsine.github.io/2025/12/23/prototype.html) – Acquires a new object instance from an exsting object instance.
+* [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) – Removes all dependency resolution from an application by transfering that responsibility to another entity whose sole responsibility is to configure and resolve object references for the application.
 
 ## Essential Design Patterns
 The Seven [Essential Design Patterns](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html) are the design patterns that will be used repeatedly in designs. They are the hammer and screwdriver of a software developers design pattern toolbox.
