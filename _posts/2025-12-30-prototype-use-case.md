@@ -1,7 +1,6 @@
 ---
-title: DRAFT OPEN FOR REVIEW AND COMMENTS – Prototype Design Pattern Use Case
+title: Prototype Design Pattern Use Case
 description: ... where I realized that prototype registration is more than just one object for one class
-unlisted: true
 ---
 
 # Introduction
