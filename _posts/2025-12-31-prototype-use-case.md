@@ -1,6 +1,6 @@
 ---
 title: DRAFT OPEN FOR REVIEW AND COMMENTS – Prototype Design Pattern Use Case
-description: Where I realized that a prototype registration is more than one object for one class
+description: Where I realized that a prototype registration is more than just one object for one class
 unlisted: true
 ---
 
@@ -158,7 +158,10 @@ This design expansion adds concrete classes to the previous abstract classes. Th
 The design easily expands to accommodate these concrete classes:
 <img src="/assets/Prototype8.png" alt="concrete class UML"  width = "80%" align="center" style="padding-right: 35px;">
 
-Here are their implementations. (**NOTE**: This is one of the UML/Implementation differences I mentioned previously. The UML places `render()` in the concrete classes, but in the final implementation, `render()` resides in `RegisteredBreeder` with support from the concrete classes via `getShapeName()`):
+Here are their implementations. 
+
+**NOTE**: This is one of the UML/Implementation differences I mentioned previously. The UML places `render()` in the concrete classes, but in the final implementation, `render()` resides in `RegisteredBreeder` with support from the concrete classes via `getShapeName()`:
+
 ```java
 class Triangle extends RegisteredBreeder {
     private final static String SHAPE_NAME = "Triangle";
@@ -446,7 +449,7 @@ class Polygon extends RegisteredBreeder {
 }
 ```
 
-Since I want to retain `Triangle` and `Rectangle` for the demonstration code, I left them as is and registered a _Pentagon_, _Hexagon_ and _Centagon_ as follows. Notice that I can't call a concrete class `register()` method, since these new `Shape` breeder objects anbd not new classes. This is a registration different attribute-specified breeder objects of the same concrete `Polygon` class:
+Since I want to retain `Triangle` and `Rectangle` for the demonstration code, I left them as is and registered a _Pentagon_, _Hexagon_ and _Centagon_ as follows. Notice that I can't call a concrete class `register()` method, since these new `Shape` breeder objects and not new classes. This is a registration of different attribute-specified breeder objects of the same concrete `Polygon` class:
 ```java
 RegisteredBreeder.register("Pentagon", new Polygon("Pentagon", 5, "Breeder Pentagon"));
 RegisteredBreeder.register("Hexagon", new Polygon("Hexagon", 6, "Breeder Hexagon"));
@@ -491,7 +494,7 @@ Then just as my original `OlympicRings` class became redundant as a concrete cla
 * ___Hexagon___ would be a `Shapes` composite of 6 properly connected line segments.
 * ___Centagon___ would be a `Shapes` composite of 100 properly connected line segments.
 * ...
-* ___Circle___ would be a `Shapes` composite of 1,000 properly connected line segments. I'm not 100% sure that this would be the final implementation. It might work for proof-of-concept, but fail in production. A _circle_ and a _milligon_ might render close enough to fool the eye, but would it be exacting enough. Additionally, 1,000 line segments might take too long to render, whereas a calculation dedicated to the geometry of circles might render much faster.
+* ___Circle___ would be a `Shapes` composite of 1,000 properly connected line segments. I'm not 100% sure that this would be the final implementation. It might work for proof-of-concept, but fail in production. A _circle_ and a _milligon_ might render close enough to fool the eye, but would it be exacting enough. Additionally, 1,000 line segments might take too long to render, whereas a calculation dedicated to the geometry of circles might render much faster. If this proves to be the case, then a non-line-segment based `Circle` class would be justifed. However, it would still be a named breeder object in the repository, which would not affect how application code acquires or renders it.
 
 Moving to irregular polygons:
 * ___Trapezoid___ would be a `Shapes` composite of 4 properly connected lines positioned where the top and bottom lines would be parallel, but not necessarily the same length.
@@ -514,9 +517,9 @@ The combination of Prototype, Registry, and Composite enables variation through 
 Once acquisition becomes object-driven and registries become instance-based, systems begin to grow by assembly rather than adding new classes to the design.
 
 # Creational Design Patterns Epilog
-I was planning a final ___Creational Design Patterns Series Summary___ blog, but while gathering my ideas, I realized that I had already written everything in other blog entries. Rather than rehash everything in a new blog, I've decided to mention them once more here with links to the previous references.
+I was planning a final ___Creational Design Patterns Series Summary___ blog, but while gathering my ideas, I realized that I had already written everything I planned to state in other blog entries. Rather than rehash everything in a new blog, I've decided to mention them once more here with links to the previous references.
 
-I introduced __Creational Design Patterns__ in [An Introduction to Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) over five months ago. This is the only grouping of design pattern theme that I have in common with the Gang of Four's groupings, and even then, my set is slightly different from theirs.
+I introduced __Creational Design Patterns__ in [An Introduction to Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) over five months ago. This is the only grouping of design pattern theme that I have in common with the Gang of Four's groupings, and even then, my set of creational design patterns is slightly different from theirs.
 
 Creational Design Patterns have two primary responsibilities:
 * Encapsulating the creation mechanism from application code
