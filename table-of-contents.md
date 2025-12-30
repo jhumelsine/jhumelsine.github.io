@@ -219,6 +219,7 @@ This is for blog entries that were one-offs, and weren't part of series
       <th>Year</th>
       <th>Blogs</th>
       <th>Words</th>
+      <th>Countries Reached</th>
       <th>Most Views</th>
       <th>Comments</th>
     </tr>
@@ -228,6 +229,7 @@ This is for blog entries that were one-offs, and weren't part of series
       <td><strong>2021</strong></td>
       <td style="text-align: right;">1</td>
       <td style="text-align: right;">1,278</td>
+      <td>N/A</td>
       <td><a href="https://jhumelsine.github.io/2021/06/22/uml.html">What is UML and why you may want to care</a></td>
       <td>First prototype blog about UML to set up the environment on GitHub.</td>
     </tr>
@@ -236,12 +238,14 @@ This is for blog entries that were one-offs, and weren't part of series
       <td style="text-align: right;">0</td>
       <td style="text-align: right;">0</td>
       <td>N/A</td>
+      <td>N/A</td>
       <td>Still employed; did not start blogging yet.</td>
     </tr>
     <tr>
       <td><strong>2023</strong></td>
       <td style="text-align: right;">21</td>
       <td style="text-align: right;">38,229</td>
+      <td style="text-align: right;">46</td>
       <td><a href="https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html">Hexagonal Architecture – An Introduction</a></td>
       <td>Topics covered were Design Pattern Introduction, Essential Design Patterns and Hexagonal Architecture.</td>
     </tr>
@@ -249,13 +253,24 @@ This is for blog entries that were one-offs, and weren't part of series
       <td><strong>2024</strong></td>
       <td style="text-align: right;">35</td>
       <td style="text-align: right;">109,944</td>
+      <td style="text-align: right;">73</td>
       <td><a href="https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html">Interpreter Design Pattern – Domain-Specific Languages</a></td>
       <td>Topics covered were Composable Design Patterns, Interpreter Design Pattern, Automated Testing, LLMs/GenAIs and Abstraction.</td>
     </tr>
     <tr>
+      <td><strong>2025</strong></td>
+      <td style="text-align: right;">21</td>
+      <td style="text-align: right;">71,033</td>
+      <td style="text-align: right;">98</td>
+      <td><a href="https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html">Specification Design Pattern – Allow a Client to select or filter objects with specific attribute property values as specified by the Client.
+</a></td>
+      <td>Specification is from early 2024, but it was by far the most viewed page. I think it's in first page results of a few search engines.
+      </td>
+    </tr>
+    <tr>
       <td><strong>Totals</strong></td>
-      <td style="text-align: right;"><strong>57</strong></td>
-      <td style="text-align: right;"><strong>149,451</strong></td>
+      <td style="text-align: right;"><strong>78</strong></td>
+      <td style="text-align: right;"><strong>220,484</strong></td>
       <td></td>
       <td></td>
     </tr>
