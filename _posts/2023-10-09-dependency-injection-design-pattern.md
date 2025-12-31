@@ -56,7 +56,7 @@ But this only part of the story. We inverted the dependencies in our project, mo
 
 <img src="/assets/DependencyInjectionSetUp.png" alt="Dependency Injection Set Up" title = "Image Source: https://en.wikipedia.org/wiki/File:DIPLayersPattern.png"  width = "75%" align="center" style="padding-right: 20px;">
 
-One path is across the top and then down. That path is inverted, and not the problem. The second path is down and across the bottom. That one is the problem. Follow the arrows. There's a dependency chain from `ClientApplication` to `MyInterfaceFactory` to `MyClass` in the object resolution. `ClientApplication` still depends upon `MyClass`, but it's just not quite as obvious. I had not inverted all the dependencies.
+One path is across the top and then down. This is the flow of execution path. That path is inverted from `MyInterface` to `MyClass`, and not the problem. The second path is down and across the bottom. This is the reference resolution. That one is the problem. Follow the arrows. There's a dependency chain from `ClientApplication` to `MyInterfaceFactory` to `MyClass` in the object resolution. `ClientApplication` still depends upon `MyClass`, but it's just not quite as obvious. I had not inverted all the dependencies.
 
 # Dependency Injection
 <img src="https://m.media-amazon.com/images/I/A1d1xag7ZeL._SL1500_.jpg" alt="API Design for C++" title="Image Source: https://www.amazon.com/API-Design-C-Martin-Reddy/dp/0123850037" width = "20%" align="right" style="padding-right: 20px;">
