@@ -36,7 +36,7 @@ The **self-referential** relationship is both **IS-A** and **HAS-A**. This happe
 
 Self-referential structures are common in data structures. A Tree is comprised of nodes, where each node has a reference to a left sub-Tree and a right sub-Tree.
 
-Self-referential structures are not unheard of in OO design, but I don’t recall seeing their use before encountering them with the GoF. It’s an extremely powerful concept, which I’ll detail more when writing about composition-based patterns.
+Self-referential structures are not unheard of in OO design, but I don’t recall seeing their use before encountering them with the GoF. It’s an extremely powerful concept, which I’ll detail more when writing about [composition-based patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html).
 ## Object Interaction
 Classes don’t just have reference relationships. The objects of those classes invoke one another along these lines via those references. While it should be obvious, the same knowledge directions with class relationships applies here as well, with one exception noted below.
 ### HAS-A Object Interaction
@@ -48,7 +48,7 @@ Here are typical method invocations in the **HAS-A** relationships:
 Each of the above examples is one class calling the method of a reference that it knows. I view **Delegation** as passing responsibility to another method, possibly in another class, to complete. I view **Propagation** more like tipping dominoes, especially when they fan out. It’s still delegating, but it’s delegating the same theme throughout the Container structure.
 ### IS-A Object Interaction
 Here are typical method invocations in the **IS-A** relationships:
-* **Polymorphism** – This is when the client is calling a method declared in an interface or abstract base class, but the method implementation being executed resides in a concrete class implementing or extending the interface or base class. This is the noted knowledge direction exception that I mentioned above. The client should only know the interface or base class. It shouldn’t know the concrete class type where the method being executed resides. There are ways to resolve the paradox of a client being able to acquire a reference to a class it does not know, but I’ll write about that later.
+* **Polymorphism** – This is when the client is calling a method declared in an interface or abstract base class, but the method implementation being executed resides in a concrete class implementing or extending the interface or base class. This is the noted knowledge direction exception that I mentioned above. The client should only know the interface or base class. It shouldn’t know the concrete class type where the method being executed resides. There are ways to resolve the paradox of a client being able to acquire a reference to a class it does not know, but I’ll write about that later. See: [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html).
 * **Tradition** (my term) – This is when a reference to an extended class executes a method declared in one of the base classes. This could be by default, or it could be the case where the child class method explicitly calls the method of a parent class in the inheritance hierarchy. I chose this term because I view inheritance as familial. Tradition indicates that the child class behavior is the same as one of its parent class behaviors. It follows the tradition of its ancestors.
   
 ### Static Method Invocation
