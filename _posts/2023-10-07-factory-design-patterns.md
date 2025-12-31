@@ -111,13 +111,13 @@ Prototype includes a repository. _Breeder_ objects are created and added to the 
 Prototype doesn't know class types. It can return a new object for any breeder object in its repository. This makes it a flexible creational pattern when the set of possible class types aren't known in advance.
 
 ## Builder
-I don’t think I can describe Builder in a paragraph or two and give it justice. I’ll just state that it’s useful when you need to initialize and assemble a composite of objects rather than a single object instance.
+I don’t think I can describe Builder in a paragraph or two and give it justice. I’ll just state that it’s useful when you need to initialize and assemble a [composite of objects](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html) rather than a single object instance.
 
 Builder is the second design pattern in the GoF book. If Abstract Factory doesn’t confuse the casual reader, then Builder will. This is usually around the place where I put the book back on the shelf the first few times that I tried to read it.
 
 See: [Builder Design Pattern Introduction](https://jhumelsine.github.io/2025/08/08/builder-introduction.html).
 
-# Creational Design Patterns Not Always Used In Isolation.
+# Creational Design Patterns Are Not Always Used In Isolation.
 The creation techniques and the Creational Design Patterns can be used in combination. For example, in the Factory Method or Factory Class examples above, the statements for each `case` in the `switch` block called `new`. Each of these could be resolved with another creational design pattern. It might look something like this:
 ```java
 public MyInterface acquire(Kind kind) throws NotFound {
