@@ -16,8 +16,8 @@ This meta-blog entry organizes the themes of my blog entries. __NOTE:__ This pag
     * [Miscellaneous](#se-miscellaneous) 
 * [Design Patterns](#design-patterns)
     * [Design Pattern Foundations](#design-pattern-foundations)
-    * [Creational Design Patterns](#creational-design-patterns)
     * [Essential Design Patterns](#essential-design-patterns)
+    * [Creational Design Patterns](#creational-design-patterns)
     * [Composable Design Patterns](#composable-design-patterns) 
 * [Hexagonal Architecture AKA Ports and Adapters](#hexagonal-architecture-aka-ports-and-adapters-design)
 * [Automated Testing](#automated-testing)
@@ -48,11 +48,11 @@ A degree in Computer Science has been the initial exposure to software for many 
 ## Abstraction
 Abstraction is a core software engineering concept, and it's more challenging to describe abstraction concretely than I originally thought.
 
-* [What is Abstraction?](https://jhumelsine.github.io/2024/10/30/abstraction.html) - An introduction to Abstraction.
-* [Cohesion and Coupling](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html) - My first attempt to describe Cohesion and Coupling.
-* [Cohesion and Coupling - Take 2](https://jhumelsine.github.io/2024/11/22/coupling-and-cohesion-2.html) - My second attempt to describe Cohesion and Coupling.
-* [What is Cohesive Construction?](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html) - How to configure cohesive abstractions consistently.
-* [Getting the Right Abstraction is Hard](https://jhumelsine.github.io/2023/09/22/right-abstraction-is-hard.html) - How I adjusted the abstraction in a design I inherited.
+* [What is Abstraction?](https://jhumelsine.github.io/2024/10/30/abstraction.html) - An introduction to Abstraction
+* [Cohesion and Coupling](https://jhumelsine.github.io/2024/11/07/cohesion-coupling.html) - My first attempt to describe Cohesion and Coupling
+* [Cohesion and Coupling - Take 2](https://jhumelsine.github.io/2024/11/22/coupling-and-cohesion-2.html) - My second attempt to describe Cohesion and Coupling
+* [What is Cohesive Construction?](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html) - How to configure cohesive abstractions consistently
+* [Getting the Right Abstraction is Hard](https://jhumelsine.github.io/2023/09/22/right-abstraction-is-hard.html) - How I adjusted the abstraction in a design I inherited
 
 See: [Abstraction AI Agent](https://notebooklm.google.com/notebook/94884f00-c719-471f-87f6-9225b67922be?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 
@@ -63,52 +63,54 @@ See: [Abstraction AI Agent](https://notebooklm.google.com/notebook/94884f00-c719
 # Design Patterns
 Design Patterns changed how I approach software. I feel that every Software Engineer should have some degree of competence and comfort with design patterns.
 
+**NOTE**: Some patterns appear in multiple groups.
+
 ## Design Pattern Foundations
 Design Patterns are not technically challenging, but they do require a slight paradigm shift in thinking. These blog entries lay some foundations toward that shift in thinking.
 
 * [Are you a cook or a chef?](https://jhumelsine.github.io/2023/08/21/knock-knock-whos-there.html) - Are you following the recipe or creating something new?
 * [Rules of the Game](https://jhumelsine.github.io/2023/08/24/its-your-move.html) - Do you know more than just the rules of the game? Do you know strategy and tactics to win the game?
-* [Problem Solvers](https://jhumelsine.github.io/2023/08/26/problem-solvers.html) - We solve problems, usually in the form of code.
+* [Problem Solvers](https://jhumelsine.github.io/2023/08/26/problem-solvers.html) - We solve problems, usually in the form of code
 * [Design Patterns are Everywhere](https://jhumelsine.github.io/2023/08/28/wheels.html) - Design Patterns are not limited to Software Engineering. They are ubiquitous in most domains.
 * [Toolbox](https://jhumelsine.github.io/2023/08/29/toolbox.html) - Design Patterns are tools in your toolbox. Like most tools, we have mastered them when we not only know when to use them, but when not to use them.
-* [Parts is Parts](https://jhumelsine.github.io/2023/09/01/parts-is-parts.html) - Most Object-Oriented Design Patterns are different combinations of the same set of OO constructs.
+* [Parts is Parts](https://jhumelsine.github.io/2023/09/01/parts-is-parts.html) - Most Object-Oriented Design Patterns are different combinations of the same set of OO constructs
 * [Design Pattern Principles](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html) - There are only two Design Pattern Principles. Understanding them will help in understanding the underlying structures that reappear in Design Patterns.
 
 See: [Design Pattern Foundations AI Agent](https://notebooklm.google.com/notebook/ec8ed593-cd93-4a65-8615-2233bef3d910?_gl=1*u5eebw*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzAkdDE3NDk1NjA5MjQkajYwJGwwJGgw)
 
-## Creational Design Patterns
-The [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) define techniques to acquire objects while encapsulating the object's concrete class type. They also provide object management techniques when a new object is not always needed.
-
-* [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) – Allows an application to acquire an object reference without knowing class type and without having to call a `new()` constructor directly.
-* [Abstract Factory](https://jhumelsine.github.io/2025/07/30/abstract-factory.html) – This is a factory of factories. It helps ensure that a set of factories are returning objects in the same environment.
-* [Builder](https://jhumelsine.github.io/2025/08/08/builder-introduction.html) – Creates, assembles and returns a set of cohesive objects based upon a plan much like a blueprint. Builder is often used with [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html). The Builder pattern supports abstraction since different concrete Builders can resolve the abstraction within the same design allowing them to create and assemble different concrete instances of the same structure.
-* [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html) – Ensures that __only__ one object is created for a class type.
-* [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html) (Also Known As _Multiton_) – Ensures that only one instance of an object will be created for a given set of intrinsic attributes.
-* [Object Pool](https://jhumelsine.github.io/2025/11/28/object-pool.html) – Objects are created at start up and lent to the caller when requested.
-* [Prototype](https://jhumelsine.github.io/2025/12/23/prototype.html) – Acquires a new object instance from an exsting object instance.
-* [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) – Removes all dependency resolution from an application by transfering that responsibility to another entity whose sole responsibility is to configure and resolve object references for the application.
-
 ## Essential Design Patterns
 The Seven [Essential Design Patterns](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html) are the design patterns that will be used repeatedly in designs. They are the hammer and screwdriver of a software developers design pattern toolbox.
 
-* [Command](https://jhumelsine.github.io/2023/09/18/command-design-pattern.html) - Objectify a function so that it becomes a first-class citizen in an Object-Oriented paradigm.
-* [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) - A variant of Command with multiple implementations for an interface.
+* [Command](https://jhumelsine.github.io/2023/09/18/command-design-pattern.html) - Objectify a function so that it becomes a first-class citizen in an Object-Oriented paradigm
+* [Strategy](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html) - A variant of Command with multiple implementations for an interface
 * [Template Method](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html) - Similar to Strategy, except the interface is replaced with an abstract base class, which houses the implementation for common behavior that applies in all cases.
 * [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) - A translation helper class that allows other classes to interact indirectly when they cannot interact directly due to different protocols and/or method signatures.
-* [Façade](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html) - Similar to Adapter in concept, but rather than performing basic translation, it shields the client application of its dependency upon a particularly nasty or complex class or set of classes.
-* [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) - Allows an application to acquire an object reference without knowing class type and without having to call a `new()` constructor directly.
-* [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) - Removes all dependency resolution from an application by transfering that responsibility to another entity whose sole responsibility is to configure and resolve object references for the application.
+* [Façade](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html) - Similar to Adapter in concept, but rather than performing basic translation, it shields the client application of its dependency upon a particularly nasty or complex class or set of classes
+* [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) - Allows an application to acquire an object reference without knowing class type and without having to call a `new()` constructor directly
+* [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) - Removes all dependency resolution from an application by transfering that responsibility to another entity whose sole responsibility is to configure and resolve object references for the application
 
 See: [Essential Design Patterns AI Agent](https://notebooklm.google.com/notebook/a4db6342-c117-4664-b0ed-1aa79d720db7?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
+
+## Creational Design Patterns
+The [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) define techniques to acquire objects while encapsulating the object's concrete class type. They also provide object management techniques when a new object is not always needed.
+
+* [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) – Allows an application to acquire an object reference without knowing class type and without having to call a `new()` constructor directly
+* [Abstract Factory](https://jhumelsine.github.io/2025/07/30/abstract-factory.html) – Applications often have multiple dependencies often resolved via a Factory. It's critical for these factory dependencies to be consistent within their environment. For example, resolving dependencies with some factories producing production references while other factories produce test references could lead to disaster. Abstract factory helps ensure that a set of factories return consistent depenency references.
+* [Builder](https://jhumelsine.github.io/2025/08/08/builder-introduction.html) – Creates, assembles and returns a set of cohesive objects based upon a plan much like a blueprint. Builder is often used with [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html) to create and assemble the objects in the composition. The Builder pattern supports abstraction as well since different concrete Builders can resolve the abstraction within the same design allowing them to create and assemble different concrete instances of the same structure.
+* [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html) – Ensures that __only__ one object is created for a class type
+* [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html) (Also Known As _Multiton_) – Ensures that only one instance of an object will be created for a given set of intrinsic attributes
+* [Object Pool](https://jhumelsine.github.io/2025/11/28/object-pool.html) – Objects are created at start up and lent to the caller when requested
+* [Prototype](https://jhumelsine.github.io/2025/12/23/prototype.html) – Acquires a new object instance from an exsting object instance
+* [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) – Removes all dependency resolution from an application by transfering that responsibility to another entity whose sole responsibility is to configure and resolve object references for the application
 
 ## Composable Design Patterns
 The [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html) focus upon behavior emerging from the composition of objects and their interaction in a structured formation rather than implemented within an individual class.
 
-* [Proxy](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html) - Place administrative wrapper objects around objects often to help manage their complexity or resources.
-* [Decorator](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html) -Layer additional behaviors upon core features.
-* [Chain of Responsibility](https://jhumelsine.github.io/2024/02/20/chain-of-responsibility-design-pattern.html) - Delegate a request through a linked chain of handlers until one of the handlers can complete the request.
-* [Composite](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html) - Configure behavior emerging from a group of snippet behavior objects organized in a tree structure.
-* [Specification](https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html) – Allow a Client to select or filter objects with specific attribute property values as specified by the Client.
+* [Proxy](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html) - Place administrative wrapper objects around objects often to help manage their complexity or resources
+* [Decorator](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html) -Layer additional behaviors upon core features
+* [Chain of Responsibility](https://jhumelsine.github.io/2024/02/20/chain-of-responsibility-design-pattern.html) - Delegate a request through a linked chain of handlers until one of the handlers can complete the request
+* [Composite](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html) - Configure behavior emerging from a group of snippet behavior objects organized in a tree structure
+* [Specification](https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html) – Allow a Client to select or filter objects with specific attribute property values as specified by the Client
 * [Interpreter](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) – Given a language, define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language. This pattern will require several blog entries.
 
 See: [Composable Design Patterns AI Agent](https://notebooklm.google.com/notebook/bc19b872-144e-4218-8622-023e963becdf?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
@@ -120,14 +122,14 @@ Interpreter allows software developers to design and implement their own Domain-
 
 Interpreter is not a difficult pattern to design or implement, but it's a difficult pattern comprehend. Interpreter required multiple blog entries to do it justice. 
 
-* [Interpreter](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) - Introduction and overview.
-* [Domain-Specific Languages](https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html) - Domain-Specific Languages solve domain-specific problems.
-* [Programming Language Grammars](https://jhumelsine.github.io/2024/04/02/interpreter-design-pattern-grammars.html) - Grammars define the structure rules for natural and programming languages.
-* [Grammars to Design](https://jhumelsine.github.io/2024/04/07/interpreter-design-pattern-design.html) - The Interpreter Design emerges from the Grammar.
-* [Design to Implementation](https://jhumelsine.github.io/2024/04/17/interpreter-design-pattern-implementation.html) - Implementing the Interpreter Design Pattern based upon a Design.Implementing the Interpreter Design Pattern based upon a Design.
-* [Scanners and Parsers, Theory and Practice](https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html) - The basics of Scanner and Parser theory and practice.
+* [Interpreter](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) - Introduction and overview
+* [Domain-Specific Languages](https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html) - Domain-Specific Languages solve domain-specific problems
+* [Programming Language Grammars](https://jhumelsine.github.io/2024/04/02/interpreter-design-pattern-grammars.html) - Grammars define the structure rules for natural and programming languages
+* [Grammars to Design](https://jhumelsine.github.io/2024/04/07/interpreter-design-pattern-design.html) - The Interpreter Design emerges from the Grammar
+* [Design to Implementation](https://jhumelsine.github.io/2024/04/17/interpreter-design-pattern-implementation.html) - Implementing the Interpreter Design Pattern based upon a Design.Implementing the Interpreter Design Pattern based upon a Design
+* [Scanners and Parsers, Theory and Practice](https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html) - The basics of Scanner and Parser theory and practice
 * [Scanners and Parsers, Implementation: Rational Expression Implementation Example Completed](https://jhumelsine.github.io/2024/04/30/interpreter-design-pattern-parser-implementation.html) - Implementing the Scanner and Parser for the Rational Expression Evaluator Use Case
-* [Interpreter Design Pattern – Production Example: My Experience Using Interpreter on a Work Project](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html) - My Experience Using Interpreter on a Work Project.
+* [Interpreter Design Pattern – Production Example: My Experience Using Interpreter on a Work Project](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html) - My Experience Using Interpreter on a Work Project
 
 See: [Interpreter Design Pattern AI Agent](https://notebooklm.google.com/notebook/452441d7-f9d9-4a31-9084-a02621271099?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 
@@ -136,10 +138,10 @@ The [Hexagonal Architecture (AKA Ports and Adapters)](https://jhumelsine.github.
 It showcases how different [Essential Design Patterns](#design-patterns) can work as a cohesive design.
 
 * [Hexagonal Architecture Introduction](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html)  - Introduces Hexagonal Architecture
-* [Hexagonal Architecture - Structure](https://jhumelsine.github.io/2023/10/28/hexagonal-architecture-structure.html) - This describes the structure of the Hexagonal Architecture design, and how it's really a pattern or design patterns.
+* [Hexagonal Architecture - Structure](https://jhumelsine.github.io/2023/10/28/hexagonal-architecture-structure.html) - This describes the structure of the Hexagonal Architecture design, and how it's really a pattern or design patterns
 * [Hexagonal Architecture - Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html) - This describes why I feel that the Hexagonal Architecture design works so well. It's based upon dependency and knowledge management. I feel that dependency and knowledge management applies to all OO based designs, and not just within the context of Hexagonal Architecture.
-* [Hexagonal Architecture - How it compares and contrasts with Clean Architecture](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html) - The two designs are mostly the same, but there are some differences worth pointing out.
-* [Hexagonal Architecture - Adapter Flexibility](https://jhumelsine.github.io/2023/11/30/hexagonal-architecture-adapter-flexibility.html) - We have quite a bit of flexibility with this design in the Adapter layer.
+* [Hexagonal Architecture - How it compares and contrasts with Clean Architecture](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html) - The two designs are mostly the same, but there are some differences worth pointing out
+* [Hexagonal Architecture - Adapter Flexibility](https://jhumelsine.github.io/2023/11/30/hexagonal-architecture-adapter-flexibility.html) - We have quite a bit of flexibility with this design in the Adapter layer
 
 See: [Hexagonal Architecture AKA Ports and Adapters AI Agent](https://notebooklm.google.com/notebook/224c31b5-fac9-441a-9886-8ed071bf1d52?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 
@@ -147,7 +149,7 @@ See: [Hexagonal Architecture AKA Ports and Adapters AI Agent](https://notebooklm
 I didn't appreciate automated testing until late in my career. My automated testing series begins with my [Conversion](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html) from automated testing non-believer to almost a zealot. The series grew larger than I imagined. I ended up writing a short book on the topic.
 
 Here is the complete Automated Test series:
-* [The Conversion of a Unit Test Denier or … How I Learned to Stop Worrying and Love Unit Testing](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html) - This is a summary of my journey from avoidance to introduction to acceptance of automated testing.
+* [The Conversion of a Unit Test Denier or … How I Learned to Stop Worrying and Love Unit Testing](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html) - This is a summary of my journey from avoidance to introduction to acceptance of automated testing
 * [Attributes of Effective Unit Tests](https://jhumelsine.github.io/2024/06/14/unit-test-attributes.html) - Unit Test properties that make them more useful than not
 * [Basic Elements of Automated Unit Tests](https://jhumelsine.github.io/2024/06/23/unit-test-elements.html) - Elevating automated tests to first-class citizen status
 * [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) - Emulate dependencies without depending upon dependencies
@@ -164,8 +166,8 @@ Here is the complete Automated Test series:
 * [Approval Testing - A Test Strategy for those who are reluctant to try Test-Driven Development](https://jhumelsine.github.io/2025/04/02/approval-testing.html) - A testint strategy that's in the intersection of Unit Testing and Characterization Testing
 * [Mastering Time in Software Testing - Strategies for Temporal Behavior Verification](https://jhumelsine.github.io/2025/04/08/time-lord.html) - Become a Time Lord and control time in your tests
 * [Humble Objects - Designing Code You Don’t Hate Testing](https://jhumelsine.github.io/2025/04/14/humble-object.html) - A pattern to help test code that's difficult to test
-* [Test Layers: From Unit to System - Building Confidence with the Right Tests at the Right Level](https://jhumelsine.github.io/2025/06/23/test-layers.html) - There's more to testing than Unit Tests.
-* [Consumer-Driven Contract Testing - Giving the consumer exactly what they asked for](https://jhumelsine.github.io/2025/07/14/cdc-testing.html) - When the Consumer supplies the Test Specifications to its Provider.
+* [Test Layers: From Unit to System - Building Confidence with the Right Tests at the Right Level](https://jhumelsine.github.io/2025/06/23/test-layers.html) - There's more to testing than Unit Tests
+* [Consumer-Driven Contract Testing - Giving the consumer exactly what they asked for](https://jhumelsine.github.io/2025/07/14/cdc-testing.html) - When the Consumer supplies the Test Specifications to its Provider
 
 See: [Automated Testing AI Agent](https://notebooklm.google.com/notebook/cdead562-a40d-4f5c-84cb-4368812f4347?_gl=1*uicl85*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDg2Mjk1NzckbzMkZzAkdDE3NDg2Mjk1NzckajYwJGwwJGgw)
 
@@ -175,7 +177,7 @@ AI has become a major topic since late 2022 with the introduction of ChatGPT amo
 See: [Large Language Models and Generative AI AI Agent](https://notebooklm.google.com/notebook/36b181b7-07b1-443e-86d3-038adc3400ed?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 
 ## LLM/GenAI Introduction
-[LLM/GenAI Introduction](https://jhumelsine.github.io/2024/09/18/llm-genai.html) - Like it or not, the AI Genie is out of the  bottle.
+[LLM/GenAI Introduction](https://jhumelsine.github.io/2024/09/18/llm-genai.html) - Like it or not, the AI Genie is out of the  bottle
 
 ## Prompt Engineering Patterns
 Prompt Engineering Patterns are the key to getting the best results from Generative AI. These blogs present a few patterns I learned via online courses.
@@ -188,26 +190,26 @@ The following blog entries feature a few __True Stories__, or maybe they should 
 
 I keep my previous employers and others anonymous. If I do mention someone by name, I only use their first name, and I get their permission, or I use a pseudonym.
 
-* [What is UML and why you may want to care](https://jhumelsine.github.io/2021/06/22/uml.html) - When [I realized](https://jhumelsine.github.io/2021/06/22/uml.html#when-i-realized-how-to-use-them), in an ___Aha!___ moment, that OMT, the predecessor of UML, is more than just a design tool. It's a way to model the problem that based upon the domain elements and their relationships.
-* [It's Your Move](https://jhumelsine.github.io/2023/08/24/its-your-move.html) - When I realized that software engineering was more than just knowing the rules of a programming language.
-* [Getting the Right Abstraction is Hard](https://jhumelsine.github.io/2023/09/22/right-abstraction-is-hard.html) - Where I had one of my [first experiences](https://jhumelsine.github.io/2023/09/22/right-abstraction-is-hard.html#fiber-optic-switch) of working with someone else's code and realizing that it could be designed better.
-* [Façade Design Pattern](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html) - Where I encapsulated a really [nasty API](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html#i-have-to-implement-how-many-classes) away from the rest of my codebase.
-* [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) - Where tightly coupled code limited my team's testing abilities.
-* [Hexagonal Architecture – Adapter Flexibility](https://jhumelsine.github.io/2023/11/30/hexagonal-architecture-adapter-flexibility.html) - Where adopting [Hexagonal Architecture and an Adapter Dispatcher](https://jhumelsine.github.io/2023/11/30/hexagonal-architecture-adapter-flexibility.html#inspired-by-true-events) provided the flexibility we needed to solve a rather challenging design problem.
+* [What is UML and why you may want to care](https://jhumelsine.github.io/2021/06/22/uml.html) - When [I realized](https://jhumelsine.github.io/2021/06/22/uml.html#when-i-realized-how-to-use-them), in an ___Aha!___ moment, that OMT, the predecessor of UML, is more than just a design tool. It's a way to model the problem that based upon the domain elements and their relationships
+* [It's Your Move](https://jhumelsine.github.io/2023/08/24/its-your-move.html) - When I realized that software engineering was more than just knowing the rules of a programming language
+* [Getting the Right Abstraction is Hard](https://jhumelsine.github.io/2023/09/22/right-abstraction-is-hard.html) - Where I had one of my [first experiences](https://jhumelsine.github.io/2023/09/22/right-abstraction-is-hard.html#fiber-optic-switch) of working with someone else's code and realizing that it could be designed better
+* [Façade Design Pattern](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html) - Where I encapsulated a really [nasty API](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html#i-have-to-implement-how-many-classes) away from the rest of my codebase
+* [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) - Where tightly coupled code limited my team's testing abilities
+* [Hexagonal Architecture – Adapter Flexibility](https://jhumelsine.github.io/2023/11/30/hexagonal-architecture-adapter-flexibility.html) - Where adopting [Hexagonal Architecture and an Adapter Dispatcher](https://jhumelsine.github.io/2023/11/30/hexagonal-architecture-adapter-flexibility.html#inspired-by-true-events) provided the flexibility we needed to solve a rather challenging design problem
 * [Chain of Responsibility Design Pattern](https://jhumelsine.github.io/2024/02/20/chain-of-responsibility-design-pattern.html) - Where a Chain of Responsibility design solved a problem of different configurations of [Address Books](https://jhumelsine.github.io/2024/02/20/chain-of-responsibility-design-pattern.html#use-case--address-book).
-* [Interpreter Design Pattern – Production Example](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html) - Where I created a Domain-Specific Language, even when that was not my original intent.
-* [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html) - How I evolve my designs.
-* [The Conversion of a Unit Test Denier](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html) ... or How I Learned to Stop Worrying and Love Unit Testing.
-* [Suril, the Semaphore and Me](https://jhumelsine.github.io/2024/07/08/suril-semaphore.html) - How I learned the true meaning of Software Under Test.
-* [Yuri, the Programming Assignment and Me](https://jhumelsine.github.io/2024/07/22/yuri-evaluator.html) - When I indoctrinated a young mind with TDD.
-* [Losing Your Job Stinks](https://jhumelsine.github.io/2024/08/11/jobsearch.html) - Where I describe my unemployment experience during a down market after the dot-com bubble burst in the early 2000s.
-* [Testing Concerns](https://jhumelsine.github.io/2024/09/08/test-concerns.html) - Where I list the lessons I learned when I was on the [QA team](https://jhumelsine.github.io/2024/09/08/test-concerns.html#manual-test-code).
-* [Abstraction](https://jhumelsine.github.io/2024/10/30/abstraction.html) - Where I describe the conversation, I had with a mentee at my college alma mater, which inspired this blog.
-* [What Is Cohesive Abstraction?](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html) - Where I describe my experience with [Safety Critial Code](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html#safety-critical) as well as provide [A Cautionary Tale](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html#a-cautionary-tale), which darn near cost me my job.
-* [A House Divided Against Itself Will Not Stand](https://jhumelsine.github.io/2025/03/07/house-divided.html) - Where I resolve the conflict between [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html) and [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) blog entries.
+* [Interpreter Design Pattern – Production Example](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html) - Where I created a Domain-Specific Language, even when that was not my original intent
+* [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html) - How I evolve my designs
+* [The Conversion of a Unit Test Denier](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html) ... or How I Learned to Stop Worrying and Love Unit Testing
+* [Suril, the Semaphore and Me](https://jhumelsine.github.io/2024/07/08/suril-semaphore.html) - How I learned the true meaning of Software Under Test
+* [Yuri, the Programming Assignment and Me](https://jhumelsine.github.io/2024/07/22/yuri-evaluator.html) - When I indoctrinated a young mind with TDD
+* [Losing Your Job Stinks](https://jhumelsine.github.io/2024/08/11/jobsearch.html) - Where I describe my unemployment experience during a down market after the dot-com bubble burst in the early 2000s
+* [Testing Concerns](https://jhumelsine.github.io/2024/09/08/test-concerns.html) - Where I list the lessons I learned when I was on the [QA team](https://jhumelsine.github.io/2024/09/08/test-concerns.html#manual-test-code)
+* [Abstraction](https://jhumelsine.github.io/2024/10/30/abstraction.html) - Where I describe the conversation, I had with a mentee at my college alma mater, which inspired this blog
+* [What Is Cohesive Abstraction?](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html) - Where I describe my experience with [Safety Critial Code](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html#safety-critical) as well as provide [A Cautionary Tale](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html#a-cautionary-tale), which darn near cost me my job
+* [A House Divided Against Itself Will Not Stand](https://jhumelsine.github.io/2025/03/07/house-divided.html) - Where I resolve the conflict between [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html) and [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) blog entries
 
 # Miscellaneous
-This is for blog entries that were one-offs, and weren't part of series
+This is for blog entries that were one-offs, and weren't part of series:
 
 * [Job Loss](https://jhumelsine.github.io/2024/08/11/jobsearch.html) - Software Engineering has been a great career for me, but it wasn't without a few bumps in the road. I wrote this blog when others I knew in the industry were running into the same bumpy road in their careers.
 
