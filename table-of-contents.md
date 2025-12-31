@@ -205,8 +205,13 @@ I keep my previous employers and others anonymous. If I do mention someone by na
 * [Losing Your Job Stinks](https://jhumelsine.github.io/2024/08/11/jobsearch.html) - Where I describe my unemployment experience during a down market after the dot-com bubble burst in the early 2000s
 * [Testing Concerns](https://jhumelsine.github.io/2024/09/08/test-concerns.html) - Where I list the lessons I learned when I was on the [QA team](https://jhumelsine.github.io/2024/09/08/test-concerns.html#manual-test-code)
 * [Abstraction](https://jhumelsine.github.io/2024/10/30/abstraction.html) - Where I describe the conversation, I had with a mentee at my college alma mater, which inspired this blog
-* [What Is Cohesive Abstraction?](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html) - Where I describe my experience with [Safety Critial Code](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html#safety-critical) as well as provide [A Cautionary Tale](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html#a-cautionary-tale), which darn near cost me my job
+* [What Is Cohesive Abstraction?](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html) - Where I describe my experience with [Safety Critial Code](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html#safety-critical)
 * [A House Divided Against Itself Will Not Stand](https://jhumelsine.github.io/2025/03/07/house-divided.html) - Where I resolve the conflict between [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html) and [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) blog entries
+
+## Cautionary Tales and Principle of Least Astonishment
+Cautonary Tales may help others avoid some poor choices I encountered, some of my own making. This section will also contain a few examples of violations of the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment) (POLA):
+
+* [What Is Cohesive Abstraction?](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html) - Where I describe a [A Cautionary Tale](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html#a-cautionary-tale), which darn near cost me my job
 
 # Miscellaneous
 This is for blog entries that were one-offs, and weren't part of series:
