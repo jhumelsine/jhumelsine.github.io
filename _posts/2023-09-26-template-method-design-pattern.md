@@ -40,7 +40,7 @@ In this example:
     * `PourInCup` - Never Changes
     * `AddCondiments` - Changes depending upon Coffee or Tea
 
-![HotDrink UML Class Diagram](https://www.codeproject.com/KB/architecture/TMDPvsLambda/image002.jpg "Source Image: https://www.codeproject.com/Articles/21221/Template-Method-Design-Pattern-vs-Functional-Progr")
+![HotDrink UML Class Diagram](https://www.codeproject.com/_next/image?url=https%3A%2F%2Fcloudfront.codeproject.com%2Farchitecture%2Ftmdpvslambda%2Fimage002.jpg&w=640&q=75 "Source Image: https://www.codeproject.com/Articles/21221/Template-Method-Design-Pattern-vs-Functional-Progr")
  
 Imagine how this would be updated to make `HotCocoa`. Assume that the Cocoa powder does not require heated milk. What would be the condiments?
 
