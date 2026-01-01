@@ -80,7 +80,7 @@ It’s not just that the Business Logic depends upon an Interface, which is most
  
 A Port is a design element with Hexagonal Architecture. An Interface is an implementation detail. The methods declared within it are a Contract. A Contract declares the expectations and obligations of both the user and provider of the methods without indicating implementation details. The Contract should honor the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) and the [Interface Segregation Principle](https://en.wikipedia.org/wiki/Interface_segregation_principle) by being a cohesive set of methods.
 
-<img src="https://basinelectric.files.wordpress.com/2016/11/2016-0910-basin-electric-adds-flexibility-to-member-load-forecast.jpg" alt="Etch-A-Sketch" title="Image Source: https://basinelectric.wordpress.com/2016/11/28/shaking-the-etch-a-sketch-basin-electric-adds-flexibility-to-member-load-forecast/" width = "50%" align="right" style="padding-right: 35px;">
+<img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExajRiamN3dzYwaWtiMHNzanBrczg4NXg1dTV3ZnhoZzE4eXVsejN3dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ePy6IaY2p13ji/giphy.gif" alt="Etch-A-Sketch" title="Image Source: https://giphy.com/gifs/vintage-commercial-ePy6IaY2p13ji" width = "50%" align="right" style="padding-right: 35px;">
 
 External Dependency APIs are often thrust upon us. They aren’t always a cohesive set of methods that honor the principles listed above. In this Port focused design, we have the opportunity to shake the Etch-A-Sketch.
 
