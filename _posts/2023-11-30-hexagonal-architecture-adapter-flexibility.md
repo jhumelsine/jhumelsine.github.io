@@ -189,7 +189,7 @@ Imagine you're working with this straightforward design:
 
 Your architect declares that the system is going to be more distributed, and that **Domain Events** will be added. So, when `Stuff` is persisted, then a Domain Event, such as `PersistedStuff`, needs to be created and disseminated on a Message Service.
 
-The diagram in the **Breadth and Behavior** section above shows how this could be done with a new contract for Publishing Events, but is this really a Behavior update? Is the Customer or even the Product Manager asking for Domain Events? Probably not. Consider Cockburn's quote above, this is not a requirement. It's a design decision. We'd like to be able to add **Domain Events** without touching anything inside the Red Hexagon.
+The diagram in the [**Behavior and Breadth**](#behavior-and-breadth) section above shows how this could be done with a new contract for Publishing Events, but is this really a Behavior update? Is the Customer or even the Product Manager asking for Domain Events? Probably not. Consider Cockburn's quote above, this is not a requirement. It's a design decision. We'd like to be able to add **Domain Events** without touching anything inside the Red Hexagon.
 
 The first consideration may be to update, or really replace, `PersistStuffViaDB` with a new Adapter that persists and sends event notifications, possibly with the name: `PersistStuffViaDBAndNotifyStuffViaMessageService`. This is one of the reasons that we favor Adapters. They allow us to swap one out for another one smoothly.
 
@@ -298,7 +298,7 @@ Composite is one of my favorite design patterns. So little code and yet so many 
 # Inspired By True Events
 I've mostly been doing a lot of verbal handwaving so far. Let's get into a real scenario. This story is inspired by true events, but I'm going to reduce it to its core elements.
 
-I worked on a project where one of the features stored Documents for people. These Documents could be Word documents, PDFs, etc. For years, they were stored in a traditional database as a blob of bytes, because that was the only storage mechanism we had. The simplified diagram would look like this:
+I worked on a project where one of the features stored Documents related to people. These Documents could be Word documents, PDFs, etc. For years, they were stored in a traditional database as a blob of bytes, because that was the only storage mechanism we had. The simplified diagram would look like this:
 
 <img src="/assets/HexArchDocument1.png" alt="Basic Hexagonal Architecture with Document with DB" width = "80%" align="center" style="padding-right: 35px;">
 
@@ -308,7 +308,7 @@ We couldn't do a flash cut, because the product already had hundreds of millions
 
 We embarked on something called **Dual Reads and Writes**. Basically, the feature would delegate to two sets of datastores, DB and Cloud Storage, during the migration period. Documents would be managed in both. This is a structural choice, not a behavior choice. So, we don't to avoid updates to the Red Hexagon as much as possible.
 
-I'm going to simplify this and sanitize it quite a bit. The product contained 20 years of legacy code. It wasn't as clean as the diagram above suggests. I'll omit the trials and tribulations until we converged upon a design much like this.
+I'm going to simplify this and sanitize it quite a bit. The product contained 20 years of legacy code. It wasn't as clean as the diagram above suggests. I'll omit the trials and tribulations until we converged upon a design much like this. I provided a bit of the trials and tribulations in the [Implicit Hexagons May Already Exist In Legacy Code](https://www.youtube.com/watch?v=aayl6FysZ_U&t=1755s) section of an online presentation several years ago about Hexagonal Architecture.
 
 <img src="/assets/HexArchDocument2.png" alt="Basic Hexagonal Architecture with Document with Dispatcher" width = "90%" align="center" style="padding-right: 35px;">
 
