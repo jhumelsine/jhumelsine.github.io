@@ -6,9 +6,9 @@ description: Wit and wisdom of Computer Science and Software Engineering in itty
 ![404 Bumper Sticker](http://farm4.static.flickr.com/3020/3001989571_df57e6cd19_o.jpg "Image Source: https://www.pingdom.com/blog/a-gallery-of-extremely-geeky-bumper-stickers/")
 
 # Introduction
-[Jon Bentley](https://en.wikipedia.org/wiki/Jon_Bentley_(computer_scientist)) wrote a series of articles in the **Communications of ACM** in the 1980s called _Programming Pearls_. He bundled those articles into two books of the same title.
+[Jon Bentley](https://en.wikipedia.org/wiki/Jon_Bentley_(computer_scientist)) wrote a series of articles in the [***Communications of ACM***](https://cacm.acm.org/) in the 1980s called _Programming Pearls_. He bundled those articles into two books of the same title.
 
-One of my favorite articles was [Bumper-Sticker Computer Science](https://moss.cs.iit.edu/cs100/Bentley_BumperSticker.pdf) published in September 1985. It's filled with pithy quotes by those in the industry almost 40 years ago. It's still a great read, and many of the quotes are as valid today as they were back then. And sadly, some are just as ignored. I highly recommend it.
+One of my favorite articles was [Bumper-Sticker Computer Science](https://dl.acm.org/doi/epdf/10.1145/4284.315122) published in September 1985. It's filled with pithy quotes by those in the industry almost 40 years ago. It's still a great read, and many of the quotes are as valid today as they were back then. And sadly, some are just as ignored. I highly recommend it.
 
 I've always liked quotes, and some Computer Scientists and Software Engineers do know how to craft a good phrase.
 
