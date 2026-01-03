@@ -58,7 +58,7 @@ The lyrics define the specification: `(build==slender AND complexion==pale AND e
 ## Collectors
 The TV show __American Pickers__ featured antique collectors Mike and Frank driving around rural American looking for trash that they could convert into treasures and sell at their antique store in the Midwest.
 
-<img src="https://cdn18.picryl.com/photo/2019/11/06/lonnie-flanagans-junk-barn-a-collection-of-mechanical-sculpture-art-in-beaumont-eb1af4-1024.jpg" alt="Junk Barn" title="Image Source: https://loc.getarchive.net/media/lonnie-flanagans-junk-barn-a-collection-of-mechanical-sculpture-art-in-beaumont-1" width = "50%" align="right" style="padding-right: 20px;">
+<img src="https://live.staticflickr.com/4083/5180513438_8f4144ec71_b.jpg" alt="Junk Barn" title="Image Source: https://www.flickr.com/photos/theresearchman/5180513438" width = "50%" align="right" style="padding-right: 20px;">
 
 The show focused upon the interesting characters they encountered on the road, the items these characters had collected, and Mike and Frank negotiating a price.
 
