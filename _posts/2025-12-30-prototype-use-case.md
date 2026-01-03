@@ -415,6 +415,8 @@ shapesI.render();
 This demonstrates what I described in my previous blog in the [Prototype Registry Allows More Granularity](https://jhumelsine.github.io/2025/12/23/prototype.html#prototype-registry-allows-more-granularity) section:
 >Prototype Registry would work well with [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html), since their behavior is defined via the assembly of a set of objects. The named root of the assembled objects can be registered.
 
+I didn't save my original `OlympicRings` class, but it was similar to my [`Cheeseburger` Composite](https://jhumelsine.github.io/2024/02/29/composite-design-pattern-use-case.html#cheeseburger) example from almost two years ago.
+
 **Key realization**: Anything that implements `Shape` is eligible to become a prototype, whether it is a leaf, a composite, or a previously acquired instance. Once composites become registrable prototypes, _complex shapes_ stop being special cases. They become named configurations. This collapses the distinction between _primitive_ and _complex_ shapes at the registry level.
 
 In the previous blog in the [Interpreter Grammar and Parser, Revisited](https://jhumelsine.github.io/2025/12/23/prototype.html#interpreter-grammar-and-parser-revisited) section, I mentioned __Variable/Function Names__ and __Class Names__ as two types of Alphanumerics in my Domain-Specific Language. I had managed them in two different registries at the time. I now realize that I could have probably managed them in one registry.
