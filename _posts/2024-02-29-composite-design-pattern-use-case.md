@@ -106,7 +106,7 @@ Each line represents the a call to `getCalories()`:
 * `cheeseburger:FoodComposite`’s calorie count is the sum of its `FoodItem`s.
 * Each leaf `FoodItem` returns its calorie value.
 * The final `Cheeseburger` calorie value will be the sum of the leaf node calories.
-* The number in each object node shows the value returned from `getCalories()` for that object. The `+` indicates that there are more calories for the `FoodItem`s now shown, such as `Tomato` and `Lettuce`.
+* The number in each object node shows the value returned from `getCalories()` for that object. The `+` indicates that there are more calories for the `FoodItem`s not shown, such as `Tomato` and `Lettuce`.
 
 This same propagation strategy replicates in the subsequent object trees, so I won’t repeat the verbiage.
 
@@ -223,6 +223,9 @@ Beware of bugs in the above design; I have only proved it correct, not tried, or
 #### Flexibility
 This design is quite flexible. In-N-Out Burger Corporate could easily add this to their secret menu:
 * `BigMac => Burger|Burger|SpecialSauce|Lettuce|Cheese|Pickles|Onions|SesameBun`
+
+#### More Configuration Options
+There are several [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) that help to build composites such as [Builder](https://jhumelsine.github.io/2025/08/08/builder-introduction.html) and [Prototype](https://jhumelsine.github.io/2025/12/23/prototype.html).
 
 # Summary
 This Use Case shows how Composite can accommodate In-N-Out Burger's Secret Menu, but it could accommodate the regular menu as well, plus customer customization.
