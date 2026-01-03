@@ -16,17 +16,17 @@ Let’s review the composable patterns we’ve seen so far:
 
 The previous composable design patterns are based upon a linear structure. They use single delegation or a list as their data structure mechanism. Each tends to focus upon one core feature class, which is enhanced by other supporting classes composed around it.
 
-Composite is almost exclusively about composition. There is no single core feature class. Composite features multiple classes with each providing a snippet of behavior. Objects implementing those snippets of behavior are composed into _a core_ behavior that’s emerges from an aggregation of those object snippets organized via Composite. There could be many behaviors depending upon the organization of the object snippets.
+Composite is almost exclusively about composition. There is no single core feature class. Composite features multiple classes with each providing a snippet of behavior. Objects implementing those snippets of behavior are composed into _a core_ behavior that emerges from an aggregation of those object snippets organized via Composite. There could be many behaviors depending upon the organization of the object snippets.
 
 Composite breaks the shackles of a linear structure. Composite’s underlying data structure is a self-referential tree. One codebase can accommodate any number of Composite object trees that are as wide or as deep as needed for each given situation. A Composite tree could be one object or thousands of objects.
 
-Composition is not a foreign concept in OO. It’s the HAS-A relationship, as in:
+Composition is not a foreign concept in OO. It’s the [**HAS-A**](https://jhumelsine.github.io/2023/09/01/parts-is-parts.html#has-a) relationship, as in:
 * A Car HAS-A(n) Engine.
 * A Chordate HAS-A Spine.
 * A Public Company HAS-A set of C Suite Officers.
 
 HAS-A relationships are often rendered in OO programming language as a private field attribute class or a collection of classes.
-The other primary OO relationship is IS-A, which is traditionally rendered with inheritance.
+The other primary OO relationship is [**IS-A**](https://jhumelsine.github.io/2023/09/01/parts-is-parts.html#is-a), which is traditionally rendered with inheritance.
 
 Just as Decorator is a dynamically composable alternative to rendering IS-A using inheritance, Composite is a dynamically composable alternative to traditional rendering of HAS-A relationships in OO design.
 
@@ -152,7 +152,7 @@ Here is the Gang of Four’s (GoF) Composite design:
 * The number of `components` within the `Composite` is not fixed, so the tree structure can expand as deep or as wide as needed. I only showed one mechanism for adding `components` to the `Composite`. There could be others. I also didn’t show additional mechanisms to read, update or delete `components`. A production quality design may want them as well.
 * If more composite context is desired, then additional domain specific `Composite` classes could extend `Composite` or delegate to it, as we’ll see in the Use Case example.
 * The `Client` does not know nor care whether its `Component` reference is a single `Leaf` object or a `Composite` object at the root of a tree with thousands of objects within it.
-* There is no `Configurer` in the GoF’s design. This is probably my sole issue, since I feel this is a near perfect design pattern. Most `Leaf` classes have limited agency. They will provide a snippet functionality, but probably not too much. An individual Lego Brick has limited agency. A logic gate limited agency. But when configured appropriately, form and function emerge, such as the Lego Millennium Falcon or a fully functioning computer. The `Composite` may be the heart of the design, but the `Configurer` is the brain.
+* There is no `Configurer` in the GoF’s design. This is probably my sole issue, since I feel this is a near perfect design pattern. Most `Leaf` classes have limited agency. They will provide a snippet functionality, but probably not too much. An individual Lego Brick has limited agency. A logic gate limited agency. But when configured appropriately, form and function emerge, such as the Lego Millennium Falcon or a fully functioning computer. The `Composite` may be the heart of the design, but the `Configurer` is the brain. For a little ___brain science___ See: [Builder Design Pattern: Complex Object](https://jhumelsine.github.io/2025/08/08/builder-introduction.html#complex-object).
 
 <img src="/assets/CompositeGoF.png" alt="GoF Composite Design Pattern"  width = "90%" align="center" style="padding-right: 35px;">
  
