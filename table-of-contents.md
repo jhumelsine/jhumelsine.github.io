@@ -24,6 +24,7 @@ This meta-blog entry organizes the themes of my blog entries. __NOTE:__ This pag
 * [Large Language Models and Generative AI](#large-language-models-and-generative-ai)
 * [True Stories](#true-stories)
 * [Miscellaneous](#miscellaneous)
+* [Complete Code Demos](#complete-code-demos)
 * [Blog Statistics](#statistics)
 
 # AI Notebooks
@@ -217,6 +218,15 @@ Cautonary Tales may help others avoid some poor choices I encountered, some of m
 This is for blog entries that were one-offs, and weren't part of series:
 
 * [Job Loss](https://jhumelsine.github.io/2024/08/11/jobsearch.html) - Software Engineering has been a great career for me, but it wasn't without a few bumps in the road. I wrote this blog when others I knew in the industry were running into the same bumpy road in their careers.
+
+# Complete Code Demos
+Many blogs have complete code examples to demo the principles. They are in Java and collected into one file, even if the file contains many multiple interfaces and classes. All examples are self contained within Java. There are not external dependencies to inport.
+
+Copy the demo into a Java environment and run it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/).
+
+Play with the implementation. Add tests. Refactor the demo. Copy the demo into Generative AI platform for analysis and comments.
+
+* [Command Design Pattern](https://jhumelsine.github.io/2023/09/18/command-design-pattern.html#complete-demo-code)
 
 # Statistics
 
