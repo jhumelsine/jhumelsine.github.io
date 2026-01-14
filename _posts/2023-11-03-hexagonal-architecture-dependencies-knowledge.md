@@ -210,6 +210,5 @@ I mentioned Bob Martin's Component Coupling materials in the Introduction. Unfor
 * [Principles of Component Coupling](https://devlead.io/DevTips/PrinciplesOfComponentCoupling) - A blog, which covers what Martin covers in his book and video.
 * [The Principles of OOD](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod) - A blog by Bob Martin.
 * [Clean Architecture – How to Quantify Component Coupling](https://www.codingblocks.net/podcast/clean-architecture-how-to-quantify-component-coupling/) - Landing page for the CodingBlocks.net podcast where they covered Component Coupling.
-* [Robert C Martin Clean Design, Components Principles](https://www.youtube.com/watch?v=N7agCpAYp1Q&t=1951s) - A presentation by Bob Martin where he discusses Component Coupling. It's queued to start the principles listed above. The video/audio quality isn't great, but it's adequate.
 
 See previous blog [References]( https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html#references).
