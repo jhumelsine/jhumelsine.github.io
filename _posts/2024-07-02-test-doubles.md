@@ -104,7 +104,7 @@ We want to design tests that confirm authorization without knowing the implement
 
 We also don't know how `CustomerRepo` and `Authorization` are implemented. The production implementations of these interfaces are probably substantial. At a minimum they would include persistence. In my test examples below, I'll provide Test Doubles for `CustomerRepo` and `Authorization`, which won't have any substance or persistence.
 
-NOTE: A complete demo can be found at [Complete Code Demo](#complete-code-demo).
+NOTE: A complete demo can be found at [Complete Demo Code](#complete-demo-code).
 
 ## Null or Dummy
 Sometimes you don’t need anything. Even if the SUT contains dependencies, you may not need to provide Test Doubles. The flow of execution through the SUT may not reference those dependencies, so there’s no need for a Test Double.
