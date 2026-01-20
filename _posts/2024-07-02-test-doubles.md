@@ -104,6 +104,8 @@ We want to design tests that confirm authorization without knowing the implement
 
 We also don't know how `CustomerRepo` and `Authorization` are implemented. The production implementations of these interfaces are probably substantial. At a minimum they would include persistence. In my test examples below, I'll provide Test Doubles for `CustomerRepo` and `Authorization`, which won't have any substance or persistence.
 
+NOTE: A complete demo can be found at [Complete Code Demo](#complete-code-demo).
+
 ## Null or Dummy
 Sometimes you don’t need anything. Even if the SUT contains dependencies, you may not need to provide Test Doubles. The flow of execution through the SUT may not reference those dependencies, so there’s no need for a Test Double.
 A Dummy is an implementation that mostly provides default implementations or an implementation that throws a `NotImplementedException`. Default implementations given the following return types could be:
@@ -471,3 +473,217 @@ Future blogs will introduce additional concepts that will coalesce as well. I fe
 * [Mokito's Mock Methods](https://www.baeldung.com/mockito-mock-methods) on Baeldung
 * [Mocking Static Methods With Mockito](https://www.baeldung.com/mockito-mock-static-methods) on Baeldung
 * [Clean Unit Tests with Mockito](https://reflectoring.io/clean-unit-tests-with-mockito/) on Refactoring.io
+
+# Complete Demo Code
+Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. Copy and paste the code into Generative AI for analysis and comments.
+
+```java
+import java.util.*;
+import java.io.*;
+
+public class Test {
+    public static void main(String []args) throws Exception {
+        T.getCustomer_ThrowsUnauthorizedException_WhenUserIsNotAuthorized();
+        T.getCustomer_ReturnsCustomer_WhenUserIsAuthorized();
+        T.getCustomer_ReturnsCustomer_WhenConfirmedUserIsAuthorized();
+        T.getCustomer_ReturnsCustomer_WhenExpectedConfirmedUserIsAuthorized();
+
+        System.out.print("Tests Pass");
+    }
+}
+
+interface CustomerRepo {
+    Customer getCustomer(CustomerId customerId);
+}
+
+interface Authorization {
+    boolean isAuthorized(User user);
+}
+
+class CustomerService {
+    private CustomerRepo customerRepo;
+    private Authorization authorization;
+
+    public CustomerService(CustomerRepo customerRepo, Authorization authorization) {
+        this.customerRepo = customerRepo;
+        this.authorization = authorization;
+    }
+
+    public Customer getCustomer(CustomerId customerId, User user) throws UnauthorizedException {
+        if (authorization.isAuthorized(user)) {
+            return customerRepo.getCustomer(customerId);
+        }
+        throw new UnauthorizedException();
+    }
+}
+
+class Customer {
+    // No behavior needed for this demo. I just want a dummy type.
+}
+
+class CustomerId {
+    private final String id;
+
+    public CustomerId(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+}
+
+class User {
+    // No behavior needed for this demo. I just want a dummy type.
+}
+
+class UnauthorizedException extends Exception {
+    // No behavior needed for this demo. I just want a dummy type.
+}
+
+class T {
+    public static void getCustomer_ThrowsUnauthorizedException_WhenUserIsNotAuthorized() throws Exception {
+        // Given
+        Authorization auth = new Authorization() {
+            @Override
+            public boolean isAuthorized(User user) {
+                return false;
+            }
+        };
+
+        CustomerService customerService = new CustomerService(null, auth);
+
+        try {
+            // When
+            Customer customer = customerService.getCustomer(new CustomerId("123"), null);
+            fail("Expecting thrown UnauthorizedException");
+        } catch (UnauthorizedException e) {
+            // Then passes
+        }
+    }
+
+    public static void getCustomer_ReturnsCustomer_WhenUserIsAuthorized() throws Exception {
+        // Given
+        Customer persistedCustomer = new Customer();
+        CustomerRepo repo = new CustomerRepo() {
+            @Override
+            public Customer getCustomer(CustomerId customerId) {
+                return persistedCustomer;
+            }
+        };
+    
+        Authorization auth = new Authorization() {
+            @Override
+            public boolean isAuthorized(User user) {
+                return true;
+            }
+        };
+        CustomerService customerService = new CustomerService(repo, auth);
+        
+        // When
+        Customer foundCustomer = customerService.getCustomer(new CustomerId("123"), null);
+        
+        // Then
+        assertEquals(persistedCustomer, foundCustomer);
+    }
+
+    public static void getCustomer_ReturnsCustomer_WhenConfirmedUserIsAuthorized() throws Exception {
+        // Given
+        Customer persistedCustomer = new Customer();
+        User requestingUser = new User();
+        CustomerRepo repo = new CustomerRepo() {
+            @Override
+            public Customer getCustomer(CustomerId customerId) {
+                if (!"123".equals(customerId.getId())) {
+                    fail(String.format("customerId Mismatch! expectedId=123, actualId=%s", customerId.getId()));
+                }
+                return persistedCustomer;
+            }
+        };
+    
+        Authorization auth = new Authorization() {
+            @Override
+            public boolean isAuthorized(User user) {
+                if (user != requestingUser) {
+                    fail(String.format("User Mismatch! expectedUser=%s, actualUser=%s", requestingUser.toString(), user.toString()));
+                }
+                return true;
+            }
+        };
+        CustomerService customerService = new CustomerService(repo, auth);
+        
+        // When
+        Customer foundCustomer = customerService.getCustomer(new CustomerId("123"), requestingUser);
+        
+        // Then
+        assertEquals(persistedCustomer, foundCustomer);
+    }
+
+    static class AuthorizationSpy implements Authorization {
+        private User requestingUser;
+        private List<String> actions = new LinkedList<>();
+
+        public AuthorizationSpy(User requestingUser) {
+            this.requestingUser = requestingUser;
+        }
+
+        @Override
+        public boolean isAuthorized(User user) {
+            actions.add(String.format("isAuthorized with user=%s", user.toString()));
+            if (user != requestingUser) {
+                fail(String.format("User Mismatch! expectedUser=%s, actualUser=%s", requestingUser.toString(), user.toString()));
+            }
+            return true;
+        }
+    
+        public List<String> getActions() {
+            return actions;
+        }
+    }
+    
+    public static void getCustomer_ReturnsCustomer_WhenExpectedConfirmedUserIsAuthorized() throws Exception {
+        // Given
+        User requestingUser = new User() {
+            @Override
+            public String toString() {
+                return "requestedUser";
+            }
+        };
+
+        Customer persistedCustomer = new Customer();
+        CustomerRepo repo = new CustomerRepo() {
+            @Override
+            public Customer getCustomer(CustomerId customerId) {
+                if (!"123".equals(customerId.getId())) {
+                    fail(String.format("customerId Mismatch! expectedId=123, actualId=%s", customerId.getId()));
+                }
+                return persistedCustomer;
+            }
+        };
+    
+        AuthorizationSpy authSpy = new AuthorizationSpy(requestingUser);
+        CustomerService customerService = new CustomerService(repo, authSpy);
+        
+        // When
+        Customer foundCustomer = customerService.getCustomer(new CustomerId("123"), requestingUser);
+        
+        // Then
+        assertEquals(persistedCustomer, foundCustomer);
+        assertEquals("[isAuthorized with user=requestedUser]", authSpy.getActions().toString());
+    }
+    
+
+    public static void assertEquals(Customer c1, Customer c2) {
+        if (c1 != c2) System.out.println("assertEquals failed for Customers");
+    }
+
+    public static void assertEquals(String s1, String s2) {
+        if (!s1.equals(s2)) System.out.format("assertEquals failed for Strings s1=%s\n                                s2=%s\n", s1, s2);
+    }
+
+    public static void fail(String fail) {
+        System.out.format("Fail = %s\n", fail);
+    }
+}
+```
