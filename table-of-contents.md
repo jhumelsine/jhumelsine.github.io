@@ -227,6 +227,7 @@ Copy the demo into a Java environment and run it. If you don’t have Java, try 
 Play with the implementation. Add tests. Refactor the demo. Copy the demo into Generative AI platform for analysis and comments.
 
 * [Command Design Pattern](https://jhumelsine.github.io/2023/09/18/command-design-pattern.html#complete-demo-code)
+* [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html#complete-demo-code)
 * [Yuri, the Programming Assignment and Me](https://jhumelsine.github.io/2024/07/22/yuri-evaluator.html#the-complete-implementation), which features a recursive implementaiton for an arithetic expression evaluator.
 
 # Statistics
