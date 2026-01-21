@@ -262,8 +262,6 @@ This is an interesting example, since it will pull information from websites, an
 >* https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html 
 >* https://jhumelsine.github.io/2023/10/28/hexagonal-architecture-structure.html 
 >* https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html 
->* https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html 
->* https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html 
 >* https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html 
 >* https://jhumelsine.github.io/2023/11/30/hexagonal-architecture-adapter-flexibility.html, 
 >
