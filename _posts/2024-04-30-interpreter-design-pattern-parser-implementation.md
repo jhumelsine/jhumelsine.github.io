@@ -556,7 +556,7 @@ I have one more follow up Interpreter blog, but it will feature the DSL I design
 See: [Interpreter Design Pattern Introduction/References](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html#references) for overall references.
 
 ## The Complete Implementation
-Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment]( https://www.tutorialspoint.com/java/online-java-compiler.php). However, it's a little glitchy with the REPL interface. I've gotten a few bash errors where I shouldn't be getting them.
+Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). However, it's a little glitchy with the REPL interface. I've gotten a few bash errors where I shouldn't be getting them. Copy and paste the code into Generative AI for analysis and comments.
 
 A few highlights:
 * The REPL portion accommodates expressions across multiple lines.
