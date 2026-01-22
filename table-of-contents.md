@@ -231,6 +231,8 @@ Play with the implementation. Add tests. Refactor the demo. Copy the demo into G
 * [Command Design Pattern](https://jhumelsine.github.io/2023/09/18/command-design-pattern.html#complete-demo-code)
 * [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html#references), which includes a Circuit Design implementation for the design featured in the blog.
 * [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html#complete-demo-code)
+* [Rational Expression Evaluator](https://jhumelsine.github.io/2024/04/17/interpreter-design-pattern-implementation.html#the-complete-implementation)
+* [Interactive Rational Expression Evaluator](https://jhumelsine.github.io/2024/04/30/interpreter-design-pattern-parser-implementation.html#the-complete-implementation)
 * [Yuri, the Programming Assignment and Me](https://jhumelsine.github.io/2024/07/22/yuri-evaluator.html#the-complete-implementation), which features a recursive implementaiton for an arithetic expression evaluator.
 
 # Statistics
