@@ -390,7 +390,7 @@ Here are some resources that can be purchased or are included in a subscription 
 * ___Working Effectively with Legacy Code___ ([O'Reilly](https://learning.oreilly.com/library/view/working-effectively-with/0131177052/) and [Amazon](https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052))
 
 # Complete Code Example
-Here's the complete Java code for the iterating tests. I haven't used a test framework. You should be able to copy-and-paste the entire Java program into any Java environment and run it:
+Here’s the complete Java code for iterating tests as one file. I haven't  used a test framework. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. Copy and paste the code into Generative AI for analysis and comments:
 ```java
 import java.util.*;
 
