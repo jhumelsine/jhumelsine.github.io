@@ -521,7 +521,7 @@ Christopher Okhravi
 * Google Video Search: [Abstract Factory Design Pattern Video](https://www.google.com/search?q=abstract+factory+design+pattern+video)
 
 # Complete Demo Code
-Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Add more tests. Play with the implementation. Refactor some of the code.
+Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Add more tests. Play with the implementation. Refactor some of the code. Copy and paste the code into Generative AI for analysis and comments.
 
 ```java
 import java.util.*;
