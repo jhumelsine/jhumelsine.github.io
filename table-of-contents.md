@@ -234,6 +234,7 @@ Play with the implementation. Add tests. Refactor the demo. Copy the demo into G
 * [Rational Expression Evaluator](https://jhumelsine.github.io/2024/04/17/interpreter-design-pattern-implementation.html#the-complete-implementation)
 * [Interactive Rational Expression Evaluator](https://jhumelsine.github.io/2024/04/30/interpreter-design-pattern-parser-implementation.html#the-complete-implementation)
 * [Yuri, the Programming Assignment and Me](https://jhumelsine.github.io/2024/07/22/yuri-evaluator.html#the-complete-implementation), which features a recursive implementaiton for an arithetic expression evaluator.
+* [Working Effectively with Legacy Code](https://jhumelsine.github.io/2025/03/24/legacy-code.html#complete-code-example), which features a small example of iterating through all possible arguments for a legacy method so it can be refactored safely.
 
 # Statistics
 
