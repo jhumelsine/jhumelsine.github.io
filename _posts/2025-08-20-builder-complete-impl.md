@@ -388,7 +388,7 @@ __Builder__ isn’t just about chaining setters—it’s about separating the �
 See: [Previous Blog References](https://jhumelsine.github.io/2025/08/08/builder-introduction.html#references), which provides an extensive list of __Builder__ resources.
 
 # Complete Demo Code
-Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Add more tests. Play with the implementation. Refactor some of the code.
+Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Add more tests. Play with the implementation. Refactor some of the code. Copy and paste the code into Generative AI for analysis and comments.
 
 ## Addressing Tight Coupling
 
