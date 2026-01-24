@@ -244,6 +244,9 @@ Play with the implementation. Add tests. Refactor the demo. Copy the demo into G
 * [Singleton Design Pattern](https://jhumelsine.github.io/2025/10/31/singleton.html#complete-demo-code), which features several versions of Singleton demonstrating incorrect use, correct use, state injection, etc.
 * [Flyweight Design Pattern](https://jhumelsine.github.io/2025/11/14/flyweight.html#complete-demo-code), which features a cloud DVR example.
 * [Object Pool Design Pattern](https://jhumelsine.github.io/2025/11/28/object-pool.html#complete-demo-code), which features several versions of an Object Pool.
+* [Prototype Design Pattern](https://jhumelsine.github.io/2025/12/23/prototype.html) required a couple blogs, each with its own code example:
+    * [Prototype Basics](https://jhumelsine.github.io/2025/12/23/prototype.html#complete-demo-code), which featured a Prototype implementation.
+    * [Prototype Shape Rendering Use Case](https://jhumelsine.github.io/2025/12/30/prototype-use-case.html#complete-demo-code), which featured a Shape Rendering example demonstrating how Prototype and Composite can work together.
 
 # Statistics
 
