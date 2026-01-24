@@ -412,7 +412,7 @@ Christopher Okhravi
 * and for more, Google: [Singleton Design Pattern](https://www.google.com/search?q=singleton+design+pattern)
 
 # Complete Demo Code
-Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. Refactor some of the code.
+Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. Refactor some of the code. Copy and paste the code into Generative AI for analysis and comments.
 
 ## Singleton Implementations
 The following code is a program containing all the Singleton implementation snippets, which appeared in [Singleton Implementation](#singleton-implementation) and [First Design Principle](#first-design-principle).
