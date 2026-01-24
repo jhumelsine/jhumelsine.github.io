@@ -54,8 +54,9 @@ Other than name changes, this is identical to the [Specification Composite Desig
 Let's say you wanted the following Smart Playlist Specification:
 > Alternative, Rock, or New Wave 5-star tracks as long as they are not The Rolling Stones or U2.
 
-You’d be able to design this Smart Playlist with this GUI specification:
-<img src="https://core0.staticworld.net/images/article/2013/05/smart-playlist3-new-100036189-orig.png" alt="Smart Playlist" title="Image Source: https://core0.staticworld.net/images/article/2013/05/smart-playlist3-new-100036189-orig.png" width = "80%" align="center" style="padding-right: 35px;">
+You’d be able to design this Smart Playlist with this GUI specification along the lines of this:
+
+<img src="https://www.macinstruct.com/images/new/columns/itunesstart/itunesstart11.jpg?auto=compress,format&dpr=1" alt="Smart Playlist" title="Image Source: https://www.macinstruct.com/tutorials/how-to-use-itunes-getting-started/" width = "40%" align="center" style="padding-right: 35px;">
 
 The code that might construct this Specification could look something like:
 ```java
