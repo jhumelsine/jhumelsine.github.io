@@ -236,11 +236,12 @@ Play with the implementation. Add tests. Refactor the demo. Copy the demo into G
 * [Yuri, the Programming Assignment and Me](https://jhumelsine.github.io/2024/07/22/yuri-evaluator.html#the-complete-implementation), which features a recursive implementaiton for an arithetic expression evaluator.
 * [Working Effectively with Legacy Code](https://jhumelsine.github.io/2025/03/24/legacy-code.html#complete-code-example), which features a small example of iterating through all possible arguments for a legacy method so it can be refactored safely.
 * [Mastering Time in Software Testing - Strategies for Temporal Behavior Verification](https://jhumelsine.github.io/2025/04/08/time-lord.html#complete-demo-code), which features an injected `Clock` to take control of time.
-* [Abstract Factory](https://jhumelsine.github.io/2025/07/30/abstract-factory.html#complete-demo-code), which features a weapon system consistent with launcher/project pairs, such as rifle/bullet, bow/arrow, etc.
+* [Abstract Factory] Design Pattern(https://jhumelsine.github.io/2025/07/30/abstract-factory.html#complete-demo-code), which features a weapon system consistent with launcher/project pairs, such as rifle/bullet, bow/arrow, etc.
 * The [Build Design Pattern](https://jhumelsine.github.io/2025/08/08/builder-introduction.html) required several blogs with several complete phases showing its evolution:
     * [Builder Design Pattern - Basic Implementation](https://jhumelsine.github.io/2025/08/13/builder-basic-impl.html#complete-demo-code), which features building a Pizza using several techniques.
     * [Builder Design Pattern - Complete Implementation](https://jhumelsine.github.io/2025/08/20/builder-complete-impl.html#complete-demo-code), which competes the Pizza Builder example.
     * [Director](https://jhumelsine.github.io/2025/08/27/builders-director.html#complete-demo-code), which champions the Director component of the Builder Pattern as its own pattern featuring a Coffee Shop Drink example.
+* [Singleton Design Pattern](https://jhumelsine.github.io/2025/10/31/singleton.html#complete-demo-code), which features several versions of Singleton demonstrating incorrect use, correct use, state injection, etc.
 
 # Statistics
 
