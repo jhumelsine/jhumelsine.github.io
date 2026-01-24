@@ -125,9 +125,7 @@ The __OR__ operation is denoted by `|`. The __AND__ operation is assumed, much l
 NOTE: Grammar rules originate from automata theory. Their use in defining programming languages is a practical application.
 
 ## Smart Playlist Specification
-We’re going to start with the [Specification Smart Playlist Use Case](https://jhumelsine.github.io/2024/03/07/specification-design-pattern-use-case.html) and specifically this smart playlist:
-
-<img src="https://core0.staticworld.net/images/article/2013/05/smart-playlist3-new-100036189-orig.png" alt="Smart Playlist" title="Image Source: https://core0.staticworld.net/images/article/2013/05/smart-playlist3-new-100036189-orig.png" width = "70%" align="center" style="padding-right: 35px;">
+We’re going to start with the [Specification Smart Playlist Use Case](https://jhumelsine.github.io/2024/03/07/specification-design-pattern-use-case.html) and specifically the smart playlist that specifies Five Star ratings for Alternative, Rock and New Wave tracks as long as they are not The Rolling Stones or U2.
 
 iTunes provides a GUI for the user. Interpreters tend to be text based. If iTunes had instead provided a text-based version to specify smart playlists, then the above GUI representation might look more like this text specification, which mirrors the GUI image above, but with text rather than graphics:
 ```
