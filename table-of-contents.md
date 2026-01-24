@@ -226,7 +226,7 @@ Copy the demo into a Java environment and run it. If you don’t have Java, try 
 
 Play with the implementation. Add tests. Refactor the demo. Copy the demo into Generative AI platform for analysis and comments.
 
-**NOTE:** While developing this section, it became obvious to me that I had not provided as many complete code demos as I should have. I will slowly add them retroactively and provide references here when provided.
+**NOTE:** While developing this section, it became obvious to me that I had not provided as many complete code demos as I should have. I will slowly add them retroactively and provide references here when provided. I may also reorganize the list once it gets more content.
 
 * [Command Design Pattern](https://jhumelsine.github.io/2023/09/18/command-design-pattern.html#complete-demo-code)
 * [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html#references), which includes a Circuit Design implementation for the design featured in the blog.
