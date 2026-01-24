@@ -243,6 +243,7 @@ Play with the implementation. Add tests. Refactor the demo. Copy the demo into G
     * [Director](https://jhumelsine.github.io/2025/08/27/builders-director.html#complete-demo-code), which champions the Director component of the Builder Pattern as its own pattern featuring a Coffee Shop Drink example.
 * [Singleton Design Pattern](https://jhumelsine.github.io/2025/10/31/singleton.html#complete-demo-code), which features several versions of Singleton demonstrating incorrect use, correct use, state injection, etc.
 * [Flyweight Design Pattern](https://jhumelsine.github.io/2025/11/14/flyweight.html#complete-demo-code), which features a cloud DVR example.
+* [Object Pool Design Pattern](https://jhumelsine.github.io/2025/11/28/object-pool.html#complete-demo-code), which features several versions of an Object Pool.
 
 # Statistics
 
