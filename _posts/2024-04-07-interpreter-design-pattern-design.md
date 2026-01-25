@@ -158,7 +158,7 @@ Design refactoring is the perfect time to do a lot of thinking and coming up wit
 If I find that my implementation ideas don’t work out, I can easily revert to a previous design or modify the existing one. I may find that some of these design ideas are wrong and require modification. That still should not be a major issue since the design is modular and modifications in one area won’t tend to have much of a ripple effect upon the others.
 
 # Design to Grammar
-<img src="https://cdn2.picryl.com/photo/1939/06/24/runners-in-a-relay-race-brisbane-1939-4d7dce-640.jpg" alt="Runners Passing the Baton" title="Image Source: https://garystockbridge617.getarchive.net/amp/media/runners-in-a-relay-race-brisbane-1939-4d7dce" width = "30%" align="right" style="padding-right: 35px;">
+<img src="/assets/InterpreterBaton.png" alt="Runners Passing the Baton"  width = "30%" align="right" style="padding-right: 35px;">
 
 I’ve been presenting Interpreter as a process of __Domain => Domain-Specific Language => Grammar => Design => Implementation__. In practice, the process may not be discrete steps with handoffs like runners passing the baton. The journey from Domain to Implementation may progress in bits, possibly with all stages having active work at the same time.
 
