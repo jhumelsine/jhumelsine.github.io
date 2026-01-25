@@ -58,7 +58,7 @@ Automata Theory defines these machines and proves what they can and cannot compu
 ### Finite Automata
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Deterministic_Finite-state_Automaton.svg/1029px-Deterministic_Finite-state_Automaton.svg.png?20150524185635" alt="Finite Automata" title="Image Source: https://commons.wikimedia.org/wiki/File:Deterministic_Finite-state_Automaton.svg" width = "40%" align="right" style="padding-right: 35px;">
 
-A [Finite Automaton](https://en.wikipedia.org/wiki/Finite-state_machine) is a state machine. It consists of a set of states with transitions that move from state to state. From a start state, it reads a list of symbols, often characters, i.e., the list is a string. They are event triggers that move the machine from one state to another. Each read symbol triggers one state transition.
+A [Finite Automaton](https://en.wikipedia.org/wiki/Finite-state_machine) is a state machine. It consists of a set of states with transitions that move from state to state. From a start state, it reads a list of symbols, often characters, i.e., the list is a string. The list of symbols is often described as a tape, like a paper tape. They are event triggers that move the machine from one state to another. Each read symbol triggers one state transition until there no more symbols to be read on the tape or there is no event transition for the symbol on the tape.
 
 After all the symbols have been read with their corresponding state transitions applied, the Finite Automaton will be in an _Accepting_ state (double circle in the diagram) or a _Rejecting_ state (single circle in the diagram). If _Accepting_, then the list symbols, i.e., the string, are part of a language that the Finite Automaton accepts. Otherwise, it is not part of that language.
 
@@ -101,11 +101,16 @@ The main difference between a Finite Automata and a Turing Machine is how each i
 * Change the current symbol to another symbol.
 * Move one position forward in the list or backward in the list.
 
-That relatively simple list change of upgrading Finite Automata to Turing Machines unlocks all known forms of computation. See: [Church-Turing Thesis](https://en.wikipedia.org/wiki/Church%E2%80%93Turing_thesis). Turing proved that even when you try to define a more powerful Turing Machine, he could still use a basic Turing Machine to emulate the more “powerful” version. No matter what new direction we go into, we return to where we started. For example, a Turing Machine with multiple lists of symbols is no more powerful than a Turing Machine with one list of symbols. That is, given any multiple list Turing machine, we can always create a single list Turing Machine that returns the same computable results. The single list Turing Machine will have more components, and it will probably take more cycles to complete, but it can still compute everything the multiple list Turing Machine can compute.
+That relatively simple list change of upgrading Finite Automata to Turing Machines unlocks all known forms of computation. See: [Church-Turing Thesis](https://en.wikipedia.org/wiki/Church%E2%80%93Turing_thesis).
+Turing proved that even when you try to define a more powerful Turing Machine, he could still use a basic Turing Machine to emulate the more “powerful” version.
+No matter what new direction we go into, we return to where we started.
+For example, a Turing Machine with multiple tapes of symbols is no more powerful than a Turing Machine with one tape of symbols.
+That is, given any multiple tape Turing machine, we can always create a single tape Turing Machine that returns the same computable results.
+The single tape Turing Machine will have more components, and it will probably take more cycles to complete, but it can still compute everything the multiple tape Turing Machine can compute.
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Breadboard.JPG" alt="Breadboard" title="Image Source: https://commons.wikimedia.org/wiki/File:Breadboard.JPG" width = "25%" align="right" style="padding-right: 35px;">
 
-Turing Machines are hardcoded. They are the mathematical equivalent of breadboards. Turing proved there existed a Turing Machine that could read the configuration specification of any hardcoded Turing Machine and emulate its behavior. It’s known as a [Universal Turing Machine](https://en.wikipedia.org/wiki/Universal_Turing_machine). A Universal Turing Machine can be programmed, not just wired! All modern computers are Universal Turing Machines.
+Turing Machines are hardcoded. They are the mathematical equivalent of breadboards. Turing proved there existed a Turing Machine that could read the configuration specification of any hardcoded Turing Machine as specified on a symbol tape and emulate its behavior. It’s known as a [Universal Turing Machine](https://en.wikipedia.org/wiki/Universal_Turing_machine). A Universal Turing Machine can be programmed, not just wired! All modern computers are Universal Turing Machines.
 
 Turing also proved that some problems are not computable. That is, there is no solution to them. The most famous unsolvable problem is the [Halting Problem](https://en.wikipedia.org/wiki/Halting_problem).
 
@@ -169,7 +174,7 @@ Pushdown Automata are an ideal implementation choice for Parsers, but we general
 
 The GoF use the phrase: _hand-crafted (usually __recursive descent__) parser_. A [Recursive Descend Parser](https://en.wikipedia.org/wiki/Recursive_descent_parser) is a [top-down parser](https://en.wikipedia.org/wiki/Top-down_parsing). More specifically, I’ll describe an [LL(k) Parser](https://en.wikipedia.org/wiki/LL_parser) which parses rules __Left__ to Right applying the __Leftmost__ rule looking no more than __k__ tokens ahead.
 
-That all sounds more intimidating than it really is. It's mostly a set of methods that call each other. The implementation derives from the grammar about as easily as the design derived from the grammar. Sometimes the implementation needs to look a few tokens ahead to know which methods to call.
+That all sounds more intimidating than it really is. It's mostly a set of methods that call each other recursively. The implementation derives from the grammar about as easily as the design derived from the grammar. Sometimes the implementation needs to look a few tokens ahead to know which methods to call.
 
 These parsers basically work this way:
 * Each grammar rule will have its own method.
