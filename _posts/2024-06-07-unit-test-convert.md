@@ -86,7 +86,7 @@ I was part of a weekly technical book club at the office.
 ## The Forgotten Unit Testing Book
 We read a Unit Testing book, whose title and author I don’t remember. It didn’t convince me that I should be writing unit tests. I think this may have been the first place where I read about the unit testing process of writing a failing test before implementing the code. _Write a test before writing the code? That’s weird._ And then make the failing test pass by the quickest means possible, such as hardcoding what the test expects. _That makes even less sense._
 
-The only part that made an impression on me was the section on Test Doubles.
+The only part that made an impression on me was the section on [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html).
 
 __Update:__ The forgotten book has been found while I was cleaning out some old boxes. The book is ___Developer Testing: Building Quality into Software___ by Alexander Tarlinder. I suspect I'd get more out of it if I were to read it now. At a minimum, I'd be able to compare it against what I've since learned.
 
@@ -104,7 +104,7 @@ I’m currently of the opinion that code becomes legacy as soon as it’s been c
 
 Feathers defines legacy code as code without unit tests. He describes the typical process of updating legacy code as __edit and pray__. I could relate to that. 
 
-Feathers devotes the first five chapters of his book to the value of unit tests, which can basically be summarized as moving the legacy code modification process from __edit and pray__ to __cover and modify__. Unit tests provide a _safety net_ so that changes can be made confidently. I think unit tests do much more than that, but I was just starting to gain a new appreciation for unit testing at the time.
+Feathers devotes the first five chapters of his book to the value of unit tests, which can basically be summarized as moving the legacy code modification process from __edit and pray__ to __cover and modify__. Unit tests provide a _safety net_ so that changes can be made confidently. I think unit tests do [much more than that](https://jhumelsine.github.io/2024/08/30/test-benefits.html), but I was just starting to gain a new appreciation for unit testing at the time.
 
 Legacy code is obdurate to having unit tests added to it. We often must modify legacy code before it can accommodate unit tests. We can’t confidently update legacy code without unit tests, and we can’t add unit tests without updating the legacy code. We have a _Catch-22_ situation.
 
