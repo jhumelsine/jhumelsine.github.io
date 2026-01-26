@@ -56,7 +56,7 @@ Each test focuses upon a specific SUT. The SUT may be limited to an object or se
 
 Ideally, we’d like to treat the SUT as a black box. The test should not know SUT implementation details. The test should not know the number of objects in the SUT. The test should only know the public method/function, i.e., the API, being invoked and the expected behavior. We should be able to [refactor](https://en.wikipedia.org/wiki/Code_refactoring) the SUT implementation without causing any unit tests to fail.
 
-Automated tests for the SUT typically consist of three (sometimes four) parts. I will use generic terms here. However, the first three parts are often called [__Arrange/Act/Assert__](https://wiki.c2.com/?ArrangeActAssert) or [__Given/When/Then__](https://en.wikipedia.org/wiki/Given-When-Then). I’ll present these practices in greater detail in further blogs ((Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) and [Behavior-Driven Development](https://jhumelsine.github.io/2024/08/08/bdd.html)) with additional context as to how they apply to a test strategy.
+Automated tests for the SUT typically consist of three (sometimes four) parts. I will use generic terms here. However, the first three parts are often called [__Arrange/Act/Assert__](https://wiki.c2.com/?ArrangeActAssert) or [__Given/When/Then__](https://en.wikipedia.org/wiki/Given-When-Then). I’ll present these practices in greater detail in further blogs [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) and [Behavior-Driven Development](https://jhumelsine.github.io/2024/08/08/bdd.html)) with additional context as to how they apply to a test strategy.
 
 ## Set Up – I.e., Arrange/Given
 We want to test the SUT in [isolation](https://jhumelsine.github.io/2024/06/14/unit-test-attributes.html#isolated) from the rest of the codebase without the SUT knowing that it’s been isolated. Isolation focuses and limits the scope of SUT being tested. It also limits the complexity of the test. When the test fails, debugging tends to be easier, since the failure often resides within the bounds of the isolated SUT.
@@ -104,7 +104,7 @@ Passing tests does not guarantee bug free code.
 
 _Testing can show the presence of bugs, but not their absence!_ — Edsger W. Dijkstra
 
-A test case scenario may be missing. A test may need additional assertions or verifications. I’ll address some of these issues in subsequent blog ([How Do We Know Our Code Is Correct?](https://jhumelsine.github.io/2024/08/08/bdd.html#how-do-we-know-our-code-is-correct)) posts.
+A test case scenario may be missing. A test may need additional assertions or verifications. I’ll address some of these issues in [How Do We Know Our Code Is Correct?](https://jhumelsine.github.io/2024/08/08/bdd.html#how-do-we-know-our-code-is-correct)).
 
 # Summary
 This is the first step toward making tests first-class citizens. These are foundational elements automated tests. Subsequent blogs will add more context with these automated test elements.
