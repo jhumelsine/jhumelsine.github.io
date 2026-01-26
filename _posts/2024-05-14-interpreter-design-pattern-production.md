@@ -275,10 +275,10 @@ My Scanner supported comments and when parsing hit an unexpected token, it would
 # The Design
 The design I had sketched on the whiteboard was close, but it needed a few elements for the Parser, specifically how to resolve the Pseudo Keywords, `Action`/`Command` identifiers, and Decomposed Packages concerns listed above.
 
-I added the following to the design. Most are Design Patterns not yet covered in my blogs:
-* [__Prototype__](https://jhumelsine.github.io/2025/12/23/prototype.html)
-* [__Singleton__](https://jhumelsine.github.io/2025/10/31/singleton.html)
-* [__Decorator__](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html)
+I added the following to the design:
+* [__Prototype__](https://jhumelsine.github.io/2025/12/23/prototype.html) creates new objects by instructing another object to create a copy of itself.
+* [__Singleton__](https://jhumelsine.github.io/2025/10/31/singleton.html) ensures that only one object is created for a class type.
+* [__Decorator__](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html) layers additional behaviors upon core features.
 
 ## Enhancements
 Here is the enhanced design:
