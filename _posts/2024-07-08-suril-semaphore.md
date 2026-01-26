@@ -217,6 +217,7 @@ Final diagram:
  
 ## Method Override Summary
 Rather than needing half a day to get the tests written and working, it was more like half an hour. We had coverage for everything except the package-protected `isPermitAcquired(…)` method. And if we had not overridden it in the first test, it might have worked without issues with the package-private `isPermitAcquired(...)` method.
+**NOTE**: This is an example of the [Humble Object Pattern](https://jhumelsine.github.io/2025/04/14/humble-object.html).
 
 However, our efficiency came at a cost. Our tests had implementation knowledge. They were a bit more brittle. But given how few and small they were, we were willing to accept that price.
 
