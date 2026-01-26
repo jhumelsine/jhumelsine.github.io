@@ -60,7 +60,7 @@ The GoF did not define a set of Composable Design Patterns per-se. This is my gr
 
 Regardless of the name, here are the patterns, which I feel most highlight the concept of composability. They are listed in order of generally least complexity to most complexity. Several patterns expand upon concepts that first appear in previous ones as well. I will feature each of these in this blog series:
 * [Proxy](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html) - Place administrative wrapper objects around objects often to help manage their complexity or resources.
-* [Decorator](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html) -Layer additional behaviors upon core features.
+* [Decorator](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html) - Layer additional behaviors upon core features.
 * [Chain of Responsibility](https://jhumelsine.github.io/2024/02/20/chain-of-responsibility-design-pattern.html) - Delegate a request through a linked chain of handlers until one of the handlers can complete the request.
 * [Composite](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html) - Configure behavior emerging from a group of snippet behavior objects organized in a tree structure.
 * [Specification](https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html) – Allow a Client to select or filter objects with specific attribute property values as specified by the Client.
