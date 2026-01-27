@@ -95,7 +95,7 @@ I'm a member of a developer Slack group, and here's a post from a contributor th
 > A story from a few years ago: a colleague of mine was maintaining some code I had originally written. He noticed an asymmetry in the persistence layer: one field was persisted only when the entity was created but not when it was updated. So he added that field to the list of updated fields. Then a test failed with the message “creation timestamp cannot be changed after the entity is created”. He undid his change and told me this story.
 
 # Tests May Identify Concurrency Issues
-Flaky tests are the worst. Flaky tests produce inconsistent results. Sometimes they pass. Sometimes they fail. While it’s annoying that they can foul up CI/CD pipeline submissions, the real issue is that we can’t trust them. Are their results false positives or false negatives?
+[Flaky tests](https://jhumelsine.github.io/2025/04/14/humble-object.html#flaky-tests) are the worst. Flaky tests produce inconsistent results. Sometimes they pass. Sometimes they fail. While it’s annoying that they can foul up CI/CD pipeline submissions, the real issue is that we can’t trust them. Are their results false positives or false negatives?
 
 If behavior is inconsistent in testing, it will be inconsistent in production.
 
@@ -108,7 +108,7 @@ I don’t know how to use the debugger on my IDE.
 
 _If you're good at the debugger it means you spent a lot of time debugging. I don't want you to be good at the debugger._ — [Bob Martin](https://www.goodreads.com/quotes/812031-if-you-re-good-at-the-debugger-it-means-you-spent)
 
-If practicing TDD, you’re in a tight __Red-Green-Refactor__ cycle, which should take no more than a few minutes to complete. The code should never be more than a few minutes from having been in a working state.
+If practicing [TDD](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development), you’re in a tight __Red-Green-Refactor__ cycle, which should take no more than a few minutes to complete. The code should never be more than a few minutes from having been in a working state.
 
 <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdG84NDFhaGVnNHEwYmFsODJocmh2OGxiMm8ybnJ1MHRvdTIxdHBxYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NHIecaiSc7YjK/giphy.gif" alt="Robot Debugging" title="Image Source: https://media.giphy.com" width = "25%" align="right" style="padding-right: 20px;">
 
