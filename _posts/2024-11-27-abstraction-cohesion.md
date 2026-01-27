@@ -43,13 +43,9 @@ I think this is the first time in any of my blogs where I show one interface ref
 The concrete implementations for `Launcher` and `Projectile` must be consistent matching pairs.
 
 ## Abstract Factory Design Pattern
-One way to ensure consistent matching pairs is via the __Abstract Factory Design Pattern__. I wrote about this pattern briefly in the [Abstract Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#abstract-factory) section of the [Factory Design Patterns blog](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html).
+One way to ensure consistent matching pairs is via the __Abstract Factory Design Pattern__. I wrote about this pattern briefly in the [Abstract Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#abstract-factory) section of the [Factory Design Patterns blog](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html). And it appears in a future blog: [Abstract Factory Design Pattern](https://jhumelsine.github.io/2025/07/30/abstract-factory.html).
 
 The __Abstract Factory Design Pattern__ is the first pattern presented by the Gang of Four (GoF) in their Design Pattern book, because it’s alphabetically first. It’s a tough pattern to understand, which is one reason why I think the GoF’s book is difficult to learn design patterns.
-
-Here are two good Abstract Factory Design Pattern online resources:
-* [Abstract Factory via Sourcemaking](https://sourcemaking.com/design_patterns/abstract_factory)
-* [Abstract Factory via Refactoring.guru](https://refactoring.guru/design-patterns/abstract-factory)
 
 ## The Abstraction of the Abstract Factory Pattern
 An Abstract Factory Pattern is an extension of the [Factory Pattern]( https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#factories) concept.
