@@ -216,7 +216,7 @@ __Exactly! That is an excellent question.__
 # TDD is Introduced Too Late
 I don’t know why TDD is not presented in introductory programming classes. I suspect that academia doesn’t know or understand the practice. Some students might be exposed to it in a Software Engineering class, but by then, I think it’s too late.
 
-By the time most developers are first exposed to TDD, they’ve spent years programming. It’s not part of their discipline. The window of receptiveness slams shut quickly. And then the practice might only progress slowly in our industry, one promotion to management, one retirement, or one funeral at a time.
+By the time most developers are first exposed to TDD, they’ve spent years programming. It’s not part of their discipline. The window of receptiveness slams shut quickly. And then the practice might only progress slowly in our industry as the old guard leaves, one promotion to management, one retirement, or one funeral at a time.
 
 The absence of TDD in introductory programming classes is the third reason I alluded to in the [previous blog]( https://jhumelsine.github.io/2024/07/15/tdd.html#why-are-developers-so-reluctant-to-write-tests-first) as to why developers are reluctant to try TDD. It was never taught to them during their formative years, and there’s a lot of reluctance for them to change how they’ve been doing things from the start.
 
