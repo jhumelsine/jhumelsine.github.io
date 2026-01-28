@@ -215,6 +215,7 @@ I keep my previous employers and others anonymous. If I do mention someone by na
 Cautonary Tales may help others avoid some poor choices I encountered, some of my own making. This section will also contain a few examples of violations of the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment) (POLA):
 
 * [What Is Cohesive Abstraction?](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html) - Where I describe a [A Cautionary Tale](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html#a-cautionary-tale), which darn near cost me my job
+* [Working Effectively with Legacy Code](https://jhumelsine.github.io/2025/03/24/legacy-code.html) - Where an _obvious_ error lurked in the code for months due to the lack of testing in [Hey. This doesn't look right.](https://jhumelsine.github.io/2025/03/24/legacy-code.html#hey-this-doesnt-look-right)
 
 # Miscellaneous
 This is for blog entries that were one-offs, and weren't part of series:
