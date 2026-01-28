@@ -210,6 +210,7 @@ I keep my previous employers and others anonymous. If I do mention someone by na
 * [Abstraction](https://jhumelsine.github.io/2024/10/30/abstraction.html) - Where I describe the conversation, I had with a mentee at my college alma mater, which inspired this blog
 * [What Is Cohesive Abstraction?](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html) - Where I describe my experience with [Safety Critial Code](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html#safety-critical)
 * [A House Divided Against Itself Will Not Stand](https://jhumelsine.github.io/2025/03/07/house-divided.html) - Where I resolve the conflict between [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html) and [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) blog entries
+* [Prepping for a demo](https://jhumelsine.github.io/2025/03/28/mutation-testing.html#prepping-for-a-demo) - Where I describe how I stumbled onto [Mutation Testing](https://jhumelsine.github.io/2025/03/28/mutation-testing.html) by accident.
 
 ## Cautionary Tales and Principle of Least Astonishment
 Cautonary Tales may help others avoid some poor choices I encountered, some of my own making. This section will also contain a few examples of violations of the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment) (POLA):
