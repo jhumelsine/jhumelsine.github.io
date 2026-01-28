@@ -49,8 +49,7 @@ We don’t always have the luxury of letting sleep dogs lie when it comes to leg
 Few things strike fear in the hearts of developers more than being assigned a ticket that forces them to descend into the bowels of unfamiliar legacy code.
 
 # Working Effectively with Legacy Code
-<img src="https://cdn2.picryl.com/photo/2012/02/16/an-explosive-ordnance-disposal-specialist-with-56th-464bc7-1024.jpg" alt="Bomb Squad" title="Image Source: https://nara.getarchive.net/media/an-explosive-ordnance-disposal-specialist-with-56th-464bc7
-" width = "35%" align="left" style="padding-right: 20px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/%C3%9Cbung_Northern_Coast.jpg/960px-%C3%9Cbung_Northern_Coast.jpg?20101018184233" alt="Bomb Squad" title="Image Source: https://commons.wikimedia.org/wiki/File:%C3%9Cbung_Northern_Coast.jpg" width = "35%" align="left" style="padding-right: 20px;">
 
 Working with legacy code is challenging. The implementation may be opaque. Many behaviors may not be well understood or documented. The challenge isn’t so much in updating legacy code to support new or updated behaviors. The challenge is in doing so without breaking any existing behaviors that the user depends upon. Updating legacy code can feel like the software equivalent of being on the bomb squad and hoping that you don’t cut the wrong wire.
 
@@ -214,7 +213,7 @@ Here’s an example of a test and test driver that iterates through all possible
     }
 ```
 
-When there were thousands of iterations, it might also take a long time to reach the failing combination. When that occurred, I would create a separate method that called the test driver with the failed combination so I could more easily isolate it. run the failing combination immediately and focus upon getting it to pass.
+When there were thousands of iterations, it might also take a long time to reach the failing combination. When that occurred, I would create a separate method that called the test driver with the failed combination so I could more easily isolate it, run the failing combination immediately and focus upon getting it to pass.
 
 Here’s an example of running the test driver for one specific iteration, which isolates the combination, __a=true, b=false, c=false__, if it were failing:
 ```java
