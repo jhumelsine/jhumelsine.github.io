@@ -316,7 +316,7 @@ The refactored `move` method is mostly an extension of the Part 1 method but exp
 
 It took a little time to get this code working, but I had a clear path in mind as I made every adjustment with TDD keeping me on track. I didn’t spend much time debugging or figuring out the next step, since each update progressed logically.
 
-# Bob Martin and John Osterhout Debate
+# Bob Martin and John Ousterhout Debate
 I was still procrastinating on this blog entry, even if I felt I had resolved my contradictions. I wasn’t sure if I could justify my resolutions to an audience even if they felt right to me. Was I resolving the conflict or rationalizing it?
 
 While procrastinating, I noticed a [post](https://x.com/unclebobmartin/status/1893659113525023115) on Twitter/X that featured a link to an online [Debate](https://github.com/johnousterhout/aposd-vs-clean-code/blob/main/README.md) between [Robert “Uncle Bob” Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) and [John Ousterhout](https://en.wikipedia.org/wiki/John_Ousterhout) regarding the differences in their software design philosophies. Their debate focused upon three topics:
