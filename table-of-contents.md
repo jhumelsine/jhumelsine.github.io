@@ -104,6 +104,8 @@ The [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creatio
 * [Prototype](https://jhumelsine.github.io/2025/12/23/prototype.html) – Acquires a new object instance from an exsting object instance
 * [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) – Removes all dependency resolution from an application by transfering that responsibility to another entity whose sole responsibility is to configure and resolve object references for the application
 
+See: [Creational Design Patterns AI Agent](https://notebooklm.google.com/notebook/8453e55f-55b0-4995-9ca2-5eaca6eef48c)
+
 ## Composable Design Patterns
 The [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html) focus upon behavior emerging from the composition of objects and their interaction in a structured formation rather than implemented within an individual class.
 
