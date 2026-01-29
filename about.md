@@ -34,7 +34,7 @@ It may take me a whole to find my own style, but here are some guidelines that I
 * [Legacy Code Rocks! Slack](http://slack.legacycode.rocks/): **Jim Humelsine**
 * [We Do TDD Slack](http://wedotdd.slack.com): **Jim Humelsine**
 * [Software Crafters Slack](http://softwarecrafters.slack.com): **Jim Humelsine**
-* [Tabs and Spaces Discord](https://discord.com/channels/863824308904132608/863838701305987082): **Design Pattern Evangelist (Jim)**
+* [Tabs and Spaces Discord](https://discord.gg/depv5npMTj): **Design Pattern Evangelist (Jim)**
 * [Linkedin](https://www.linkedin.com/in/james-humelsine-16b0749/)
 
 # Links
