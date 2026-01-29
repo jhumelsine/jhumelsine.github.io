@@ -24,7 +24,7 @@ My [Automated Test Series](https://jhumelsine.github.io/table-of-contents#automa
 ## Why Unit Tests Aren’t Enough
 
 ### Nut and Bolt Thinking: Strong, but Incomplete
-<img src="https://live.staticflickr.com/3719/9051059498_a84dfa949f_b.jpg" alt="Nut and Bolt" title="Image Source: https://www.flickr.com/photos/tudedude/9051059498" width = "25%" align="right" style="padding: 35px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/M4_Inbusschraube_focusstacked.jpg/1280px-M4_Inbusschraube_focusstacked.jpg" alt="Nut and Bolt" title="Image Source: https://commons.wikihttps://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/M4_Inbusschraube_focusstacked.jpg/960px-M4_Inbusschraube_focusstacked.jpg?20090520220425media.org/wiki/File:M4_Inbusschraube_focusstacked.jpg" width = "25%" align="right" style="padding: 35px;">
 
 Unit testing is like confirming what stresses a nut and bolt can withstand separately. While this is important, we also need to confirm that the nut and bolt are the same size with the same thread count. If the nut and bolt don’t screw together securely, it doesn’t matter how much stress each can withstand individually. 
 
@@ -157,7 +157,7 @@ Manual System Testing was all we had before we had test frameworks that supporte
 
 While System Testing exclusively may no longer be in vogue, there can be some benefits; mainly, interacting with the system like the user would. The goal isn’t to test the system to find bugs, even if we might find a few that have slipped through the automated testing. The goal of this exploratory manual testing is to allow anyone to tap into their human intuition when interacting with it. Explore the system. Is it easy to navigate? Does it make sense? Is it clunky?
 
-Since this isn’t QA focused, everyone should consider doing this: domain experts, developers and testers. It should expand beyond individual contributors to management and executives too. If you can’t easily use your system, your customer and user won’t be able to easily use it either.
+Since this isn’t QA focused, everyone should consider exploratory testing: domain experts, developers and testers. It should expand beyond individual contributors to management and executives too. If you can’t easily use your system, your customer and user won’t be able to easily use it either.
 
 __TIP:__ If you have desktop video recording capability, such as Zoom, share and record your screen and narrate what you're doing. Describe your intent. Point out what you see. Point out what you expect to see, but don't. Point out anything that's odd or confusing. If you have access to logs, databases or any other relevant technical information, show it in the video as well. If you identify a poor user experience or a failure, then a five-minute video will provide more context and takes less time to produce than filling out an extensive _How-To-Reproduce_ documentation in the ticket. Personally, I've found video descriptions of issues found by others more useful to me than reading a step-by-step document.
 
@@ -231,7 +231,7 @@ I tend to prefer the Pyramid Test Strategy, but I’m not averse to the Trophy T
 It can be the best of all worlds.
 
 # The Achilles Heel: When Test Layers Aren’t Enough
-<img src="https://live.staticflickr.com/8252/8664532341_d14ea6045e.jpg" alt="Achilles Heel" title="Image Source: https://www.flickr.com/photos/eltpics/8664532341" width = "45%" align="right" style="padding: 35px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Detail_of_Achilles_thniskon.JPG/1280px-Detail_of_Achilles_thniskon.JPG" alt="Achilles Heel" title="Image Source: https://en.wikipedia.org/wiki/Achilles%27_heel#/media/File:Detail_of_Achilles_thniskon.JPG" width = "45%" align="right" style="padding: 35px;">
 
 There is one vulnerability.
 
