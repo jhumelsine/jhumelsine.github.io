@@ -82,7 +82,7 @@ Well-designed things scream how they are intended to be used. Contracts should b
 
 If contracts contain a good naming design, then their use within the client code should feel natural. That is, it should feel like the contract was designed specifically for the client’s domain. The class, methods and parameters of a contract should be self-explanatory.
 
-Ideally your user should not need to read the documentation or comments to use your contract. This won't always be the case, but hopefully your contract names are expressive enough that someone reading code that accesses your contract can understand it in how it's being used. Contract documentation and comments won’t appear in client code that references the contract. Ideally, anyone reading the client code should not have to pause and look up contract documentation or comments when encountering contract elements in how it's being referenced.
+Ideally your user should not need to read the documentation or comments to use your contract. This won't always be the case, but hopefully your contract names are expressive enough that someone reading code that accesses your contract can understand how it's being used. Contract documentation and comments won’t appear in client code that references the contract. Ideally, anyone reading the client code should not have to pause and look up contract documentation or comments when encountering contract elements in how it's being referenced.
 
 Without care, a contract tends to reflect what was implemented rather than what the client wants or needs. Contracts like these feel like an afterthought, and that’s one reason why so many of them are difficult to use. Worse yet they may leak implementation details, known as a [Leaky Abstraction](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html#leaky-abstraction).
 
@@ -112,7 +112,7 @@ Since contracts do not depend upon their implementations, contract specification
 
 Contracts are [Fixed/Stable Elements](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#stable-or-fixed-design-elements) in most designs. In UML class diagrams other design elements depend upon the contracts rather than the contracts depending upon those elements. This is visually represented by the dependency arrowheads modeling the relationship between elements consistently pointing inward toward contract elements and rarely away from them. The only time contracts depend upon other elements is when they depend upon other contracts. For example, Java Interfaces can only extend other Interfaces.
 
-__NOTE:__ Technically interfaces depend upon their parameters, which can be other classes, but these tend to be core Business Elements that are implemented as Value Objects.
+__NOTE:__ Technically interfaces depend upon their parameters, which can be other classes, but these tend to be core Business Elements that ideally are implemented as Value Objects.
 
 What code is being executed in contract tests that confirm expectations and obligations? This is going to sound counter intuitive, but there is no code that’s being executed. There is no implementation for the contract. The _code_ being executed will be [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html).
 
