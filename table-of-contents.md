@@ -23,6 +23,7 @@ This meta-blog entry organizes the themes of my blog entries. __NOTE:__ This pag
 * [Automated Testing](#automated-testing)
 * [Large Language Models and Generative AI](#large-language-models-and-generative-ai)
 * [True Stories](#true-stories)
+    * [Cautionary Tales and Principle of Least Astonishment](#cautionary-tales-and-principle-of-least-astonishment)
 * [Miscellaneous](#miscellaneous)
 * [Complete Code Demos](#complete-code-demos)
 * [Blog Statistics](#statistics)
@@ -221,6 +222,7 @@ Cautonary Tales may help others avoid some poor choices I encountered, some of m
 * [What Is Cohesive Abstraction?](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html) - Where I describe a [A Cautionary Tale](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html#a-cautionary-tale), which darn near cost me my job
 * [Working Effectively with Legacy Code](https://jhumelsine.github.io/2025/03/24/legacy-code.html) - Where an _obvious_ error lurked in the code for months due to the lack of testing in [Hey. This doesn't look right.](https://jhumelsine.github.io/2025/03/24/legacy-code.html#hey-this-doesnt-look-right)
 * [Consumer-Driven Contract Testing](https://jhumelsine.github.io/2025/07/14/cdc-testing.html) - Where I describe in [Why Bother?](https://jhumelsine.github.io/2025/07/14/cdc-testing.html#why-bother) that an external provider changed their [contract](https://jhumelsine.github.io/2025/06/10/contracts.html), and we didn't realize it until our customers started to complain.
+* [Singleton Design Pattern](https://jhumelsine.github.io/2025/10/31/singleton.html) - Where I describe a Singleton in [You Did What? Why?](https://jhumelsine.github.io/2025/10/31/singleton.html#you-did-what-why-a-real-world-cautionary-tale) that allowed anyone with a reference to it to change its intrinsic state.
 
 # Miscellaneous
 This is for blog entries that were one-offs, and weren't part of series:
