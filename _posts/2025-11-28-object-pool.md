@@ -56,7 +56,7 @@ Here are some highlights from the design:
 * `PooledObject`contains the bulk of the Object Pool structure. It maintains a collection of `pooledObjects` along with static `acquire()` and `release()` methods, which manage the objects within `pooledObjects`.
 * `Client` is not part of the pattern design specifically, but it's important to feature how the client interacts with the pattern design.
 
-<img src="/assets/ObjectPool1.png" alt="Core Object Pool Design" width = "80%" align="center" style="padding: 35px;">
+<img src="/assets/ObjectPool1.png" alt="Core Object Pool Design" width = "90%" align="center" style="padding: 35px;">
 
 ### PooledObject
 Here is a Java implementation, which provides more implementation details:
@@ -244,7 +244,7 @@ try (WrappedObject a = WrappedObject.acquire("A")) {
 A complete implementation of the above is available at [Proxy Wrapped Object Pool Design and Implementation](#proxy-wrapped-object-pool-design-and-implementation).
 
 ### The Sin of Omission, Revisited
-I was about to write more about RAII, but since I've already addressed it in [Sin of Omission](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html#the-sin-of-omission), I'll repeat the highlights:
+I was about to write more about RAII, but since I've already addressed it in [Sin of Omission](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html#the-sin-of-omission), I'll only repeat the highlights:
 * The GoF used different method names for each of their creational design patterns. Their contract method names indicated **how** the object was created, which I felt violated encapsulation.
 * I prefer contract method names that make sense from the client's point of view indicating **what** contract method does rather than **how** it does it. That is, I prefer a contract that's designed from the _outside in_ rather than from the _inside out_. I prefer `acquire()` as my creational contract method name, since the client uses it to ___acquire___ an object without knowing **how** the object is acquired.
 * The GoF didn't address object reclamation or memory clean up. The memory for some creational pattern acquired objects should be reclaimed, such as memory from a [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html), whereas some memory should not be reclaimed, such as memory from a [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html). This is mostly not an issue for memory managed languages with garbage collection, such as Java, but it's an issue for non-garbage collected languages, such as C++. Some of the GoF's creational design pattern example C++ code leaks memory.
