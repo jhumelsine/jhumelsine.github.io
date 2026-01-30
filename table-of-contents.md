@@ -97,11 +97,11 @@ See: [Essential Design Patterns AI Agent](https://notebooklm.google.com/notebook
 The [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) define techniques to acquire objects while encapsulating the object's concrete class type. They also provide object management techniques when a new object is not always needed.
 
 * [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) – Allows an application to acquire an object reference without knowing class type and without having to call a `new()` constructor directly
-* [Abstract Factory](https://jhumelsine.github.io/2025/07/30/abstract-factory.html) – Applications often have multiple dependencies often resolved via a Factory. It's critical for these factory dependencies to be consistent within their environment. For example, resolving dependencies with some factories producing production references while other factories produce test references could lead to disaster. Abstract factory helps ensure that a set of factories return consistent depenency references.
+* [Abstract Factory](https://jhumelsine.github.io/2025/07/30/abstract-factory.html) – Applications often have multiple dependencies often resolved via a Factory. It's critical for these factory dependencies to be consistent within their environment. For example, resolving dependencies with some factories producing production references while other factories produce test references could lead to disaster. Abstract Factory helps ensure that a set of factories return consistent depenency references.
 * [Builder](https://jhumelsine.github.io/2025/08/08/builder-introduction.html) – Creates, assembles and returns a set of cohesive objects based upon a plan much like a blueprint. Builder is often used with [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html) to create and assemble the objects in the composition. The Builder pattern supports abstraction as well since different concrete Builders can resolve the abstraction within the same design allowing them to create and assemble different concrete instances of the same structure.
 * [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html) – Ensures that __only__ one object is created for a class type
 * [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html) (Also Known As _Multiton_) – Ensures that only one instance of an object will be created for a given set of intrinsic attributes
-* [Object Pool](https://jhumelsine.github.io/2025/11/28/object-pool.html) – Objects are created at start up and lent to the caller when requested
+* [Object Pool](https://jhumelsine.github.io/2025/11/28/object-pool.html) – Objects are created at start up and lent to the caller when requested, much like borrowing books from a public library
 * [Prototype](https://jhumelsine.github.io/2025/12/23/prototype.html) – Acquires a new object instance from an exsting object instance
 * [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) – Removes all dependency resolution from an application by transfering that responsibility to another entity whose sole responsibility is to configure and resolve object references for the application
 
@@ -111,7 +111,7 @@ See: [Creational Design Patterns AI Agent](https://notebooklm.google.com/noteboo
 The [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html) focus upon behavior emerging from the composition of objects and their interaction in a structured formation rather than implemented within an individual class.
 
 * [Proxy](https://jhumelsine.github.io/2024/02/01/proxy-design-pattern.html) - Place administrative wrapper objects around objects often to help manage their complexity or resources
-* [Decorator](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html) -Layer additional behaviors upon core features
+* [Decorator](https://jhumelsine.github.io/2024/02/08/decorator-design-pattern.html) - Layer additional behaviors upon a core feature via a list of linked wrapper objects
 * [Chain of Responsibility](https://jhumelsine.github.io/2024/02/20/chain-of-responsibility-design-pattern.html) - Delegate a request through a linked chain of handlers until one of the handlers can complete the request
 * [Composite](https://jhumelsine.github.io/2024/02/27/composite-design-pattern.html) - Configure behavior emerging from a group of snippet behavior objects organized in a tree structure
 * [Specification](https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html) – Allow a Client to select or filter objects with specific attribute property values as specified by the Client
@@ -122,17 +122,17 @@ See: [Composable Design Patterns AI Agent](https://notebooklm.google.com/noteboo
 ### Interpreter Design Pattern
 The [Interpreter](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) required its own series.
 
-Interpreter allows software developers to design and implement their own Domain-Specific Languages. Interpreter is not just the pinnacle of Composable Design Patterns, but I feel it shares the top spot of all design patterns along with the Visitor Design Pattern.
+Interpreter allows software developers to design and implement their own Domain-Specific Languages (DSLs). Interpreter is not just the pinnacle of Composable Design Patterns, but I feel it shares the top spot of all design patterns along with the Visitor Design Pattern.
 
 Interpreter is not a difficult pattern to design or implement, but it's a difficult pattern comprehend. Interpreter required multiple blog entries to do it justice. 
 
 * [Interpreter](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) - Introduction and overview
-* [Domain-Specific Languages](https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html) - Domain-Specific Languages solve domain-specific problems
-* [Programming Language Grammars](https://jhumelsine.github.io/2024/04/02/interpreter-design-pattern-grammars.html) - Grammars define the structure rules for natural and programming languages
+* [Domain-Specific Languages](https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html) - Domain-Specific Languages solve domain-specific problems succinctly
+* [Programming Language Grammars](https://jhumelsine.github.io/2024/04/02/interpreter-design-pattern-grammars.html) - Grammars define the structure rules for natural and programming languages, including Domain-Specific Languages
 * [Grammars to Design](https://jhumelsine.github.io/2024/04/07/interpreter-design-pattern-design.html) - The Interpreter Design emerges from the Grammar
-* [Design to Implementation](https://jhumelsine.github.io/2024/04/17/interpreter-design-pattern-implementation.html) - Implementing the Interpreter Design Pattern based upon a Design.Implementing the Interpreter Design Pattern based upon a Design
+* [Design to Implementation](https://jhumelsine.github.io/2024/04/17/interpreter-design-pattern-implementation.html) - Implementing the Interpreter Design Pattern based upon a Design.
 * [Scanners and Parsers, Theory and Practice](https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html) - The basics of Scanner and Parser theory and practice
-* [Scanners and Parsers, Implementation: Rational Expression Implementation Example Completed](https://jhumelsine.github.io/2024/04/30/interpreter-design-pattern-parser-implementation.html) - Implementing the Scanner and Parser for the Rational Expression Evaluator Use Case
+* [Scanners and Parsers, Implementation: Rational Expression Implementation Example Completed](https://jhumelsine.github.io/2024/04/30/interpreter-design-pattern-parser-implementation.html) - Implementing the Scanner and Parser for the Rational Expression Evaluator DSL Use Case
 * [Interpreter Design Pattern – Production Example: My Experience Using Interpreter on a Work Project](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html) - My Experience Using Interpreter on a Work Project
 
 See: [Interpreter Design Pattern AI Agent](https://notebooklm.google.com/notebook/452441d7-f9d9-4a31-9084-a02621271099?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
@@ -142,7 +142,7 @@ The [Hexagonal Architecture (AKA Ports and Adapters)](https://jhumelsine.github.
 It showcases how different [Essential Design Patterns](#design-patterns) can work as a cohesive design.
 
 * [Hexagonal Architecture Introduction](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html)  - Introduces Hexagonal Architecture
-* [Hexagonal Architecture - Structure](https://jhumelsine.github.io/2023/10/28/hexagonal-architecture-structure.html) - This describes the structure of the Hexagonal Architecture design, and how it's really a pattern or design patterns
+* [Hexagonal Architecture - Structure](https://jhumelsine.github.io/2023/10/28/hexagonal-architecture-structure.html) - This describes the structure of the Hexagonal Architecture design, and how it's really a pattern of design patterns
 * [Hexagonal Architecture - Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html) - This describes why I feel that the Hexagonal Architecture design works so well. It's based upon dependency and knowledge management. I feel that dependency and knowledge management applies to all OO based designs, and not just within the context of Hexagonal Architecture.
 * [Hexagonal Architecture - How it compares and contrasts with Clean Architecture](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html) - The two designs are mostly the same, but there are some differences worth pointing out
 * [Hexagonal Architecture - Adapter Flexibility](https://jhumelsine.github.io/2023/11/30/hexagonal-architecture-adapter-flexibility.html) - We have quite a bit of flexibility with this design in the Adapter layer
@@ -150,24 +150,24 @@ It showcases how different [Essential Design Patterns](#design-patterns) can wor
 See: [Hexagonal Architecture AKA Ports and Adapters AI Agent](https://notebooklm.google.com/notebook/224c31b5-fac9-441a-9886-8ed071bf1d52?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 
 # Automated Testing
-I didn't appreciate automated testing until late in my career. My automated testing series begins with my [Conversion](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html) from automated testing non-believer to almost a zealot. The series grew larger than I imagined. I ended up writing a short book on the topic.
+I didn't appreciate automated testing until late in my career. My automated testing series begins with my [Conversion](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html) from automated testing non-believer to almost a zealot. The series grew larger than I originally imagined. I ended up writing a short book on the topic.
 
 Here is the complete Automated Test series:
-* [The Conversion of a Unit Test Denier or … How I Learned to Stop Worrying and Love Unit Testing](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html) - This is a summary of my journey from avoidance to introduction to acceptance of automated testing
+* [The Conversion of a Unit Test Denier or … How I Learned to Stop Worrying and Love Unit Testing](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html) - This is a summary of my journey from avoidance to introduction to acceptance and advocate of automated testing
 * [Attributes of Effective Unit Tests](https://jhumelsine.github.io/2024/06/14/unit-test-attributes.html) - Unit Test properties that make them more useful than not
 * [Basic Elements of Automated Unit Tests](https://jhumelsine.github.io/2024/06/23/unit-test-elements.html) - Elevating automated tests to first-class citizen status
 * [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html) - Emulate dependencies without depending upon dependencies
 * [Suril, the Semaphore and Me](https://jhumelsine.github.io/2024/07/08/suril-semaphore.html) - When the theory became practice for me
 * [Test-Driven Development - Writing Tests Before the Implementation](https://jhumelsine.github.io/2024/07/15/tdd.html) - I know it sounds completely backwards, but please give it some consideration
 * [Yuri, the Programming Assignment and Me](https://jhumelsine.github.io/2024/07/22/yuri-evaluator.html) - My evening introducing [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html) to a young Computer Science student
-* [Be On Your Best Behavior](https://jhumelsine.github.io/2024/08/08/bdd.html) - Test-Driven Development - How to create tests; Behavior-Driven Development - What tests to create
+* [Be On Your Best Behavior](https://jhumelsine.github.io/2024/08/08/bdd.html) - Test-Driven Development: How to create tests. Behavior-Driven Development: What tests to create.
 * [What is Behavior in Behavior-Driven Development](https://jhumelsine.github.io/2024/08/20/behavior.html) - More details about the nature of behavior
 * [Testing Benefits](https://jhumelsine.github.io/2024/08/30/test-benefits.html) - Spoiler Alert – It’s not really about testing the code
 * [Testing Concerns](https://jhumelsine.github.io/2024/09/08/test-concerns.html) - Test concerns may be a result of previous bad test experiences; there are ways to accommodate them
 * [A House Divided Against Itself Will Not Stand](https://jhumelsine.github.io/2025/03/07/house-divided.html) - Resolving the conflict between [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html) and [Test-Driven Development](https://jhumelsine.github.io/2024/07/15/tdd.html#test-driven-development) blog entries
 * [Working Effectively with Legacy Code](https://jhumelsine.github.io/2025/03/24/legacy-code.html) - How to leverage automated test techniques when working with Legacy Code
 * [How do you know if your test code is really testing your code?](https://jhumelsine.github.io/2025/03/28/mutation-testing.html) - How Mutation Testing can help test your test suite
-* [Approval Testing - A Test Strategy for those who are reluctant to try Test-Driven Development](https://jhumelsine.github.io/2025/04/02/approval-testing.html) - A testint strategy that's in the intersection of Unit Testing and Characterization Testing
+* [Approval Testing - A Test Strategy for those who are reluctant to try Test-Driven Development](https://jhumelsine.github.io/2025/04/02/approval-testing.html) - A testing strategy that's in the intersection of Unit Testing and Characterization Testing
 * [Mastering Time in Software Testing - Strategies for Temporal Behavior Verification](https://jhumelsine.github.io/2025/04/08/time-lord.html) - Become a Time Lord and control time in your tests
 * [Humble Objects - Designing Code You Don’t Hate Testing](https://jhumelsine.github.io/2025/04/14/humble-object.html) - A pattern to help test code that's difficult to test
 * [Test Layers: From Unit to System - Building Confidence with the Right Tests at the Right Level](https://jhumelsine.github.io/2025/06/23/test-layers.html) - There's more to testing than Unit Tests
@@ -194,7 +194,7 @@ The following blog entries feature a few __True Stories__, or maybe they should 
 
 I keep my previous employers and others anonymous. If I do mention someone by name, I only use their first name, and I get their permission, or I use a pseudonym.
 
-* [What is UML and why you may want to care](https://jhumelsine.github.io/2021/06/22/uml.html) - When [I realized](https://jhumelsine.github.io/2021/06/22/uml.html#when-i-realized-how-to-use-them), in an ___Aha!___ moment, that OMT, the predecessor of UML, is more than just a design tool. It's a way to model the problem that based upon the domain elements and their relationships
+* [What is UML and why you may want to care](https://jhumelsine.github.io/2021/06/22/uml.html) - When [I realized, in an ___Aha!___ moment](https://jhumelsine.github.io/2021/06/22/uml.html#when-i-realized-how-to-use-them), that OMT, the predecessor of UML, is more than just a design tool. It's a way to model the problem that based upon the domain elements and their relationships
 * [It's Your Move](https://jhumelsine.github.io/2023/08/24/its-your-move.html) - When I realized that software engineering was more than just knowing the rules of a programming language
 * [Getting the Right Abstraction is Hard](https://jhumelsine.github.io/2023/09/22/right-abstraction-is-hard.html) - Where I had one of my [first experiences](https://jhumelsine.github.io/2023/09/22/right-abstraction-is-hard.html#fiber-optic-switch) of working with someone else's code and realizing that it could be designed better
 * [Façade Design Pattern](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html) - Where I encapsulated a really [nasty API](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html#i-have-to-implement-how-many-classes) away from the rest of my codebase
@@ -202,7 +202,7 @@ I keep my previous employers and others anonymous. If I do mention someone by na
 * [Hexagonal Architecture – Adapter Flexibility](https://jhumelsine.github.io/2023/11/30/hexagonal-architecture-adapter-flexibility.html) - Where adopting [Hexagonal Architecture and an Adapter Dispatcher](https://jhumelsine.github.io/2023/11/30/hexagonal-architecture-adapter-flexibility.html#inspired-by-true-events) provided the flexibility we needed to solve a rather challenging design problem
 * [Chain of Responsibility Design Pattern](https://jhumelsine.github.io/2024/02/20/chain-of-responsibility-design-pattern.html) - Where a Chain of Responsibility design solved a problem of different configurations of [Address Books](https://jhumelsine.github.io/2024/02/20/chain-of-responsibility-design-pattern.html#use-case--address-book).
 * [Interpreter Design Pattern - Domain-Specific Languages (DSLs)](https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html#my-domain-specific-language-experiences) - Where I briefly summarize a few DSL experiences in my career.
-* [Interpreter Design Pattern - Parser and Scanner Theory and Practice](https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html#parser-and-scanner-theory-and-practice) - Where I describe my experience of taking Automata Theory and Compiler Design and Implementation in the same semester at college. I was exposed to the same problem space from theory and its practice in two separate courses simultaneously.
+* [Interpreter Design Pattern - Parser and Scanner Theory and Practice](https://jhumelsine.github.io/2024/04/25/interpreter-design-pattern-parser.html#parser-and-scanner-theory-and-practice) - Where I describe my experience of taking Automata Theory and Compiler Design and Implementation in the same semester at college. I was exposed to the same problem, first as theory and then as practice in two separate courses, literally on the same day.
 * [Interpreter Design Pattern – Production Example](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html) - Where I created a Domain-Specific Language, even when that was not my original intent
 * [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html) - How I evolve my designs
 * [The Conversion of a Unit Test Denier](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html) ... or How I Learned to Stop Worrying and Love Unit Testing
@@ -230,7 +230,7 @@ This is for blog entries that were one-offs, and weren't part of series:
 * [Job Loss](https://jhumelsine.github.io/2024/08/11/jobsearch.html) - Software Engineering has been a great career for me, but it wasn't without a few bumps in the road. I wrote this blog when others I knew in the industry were running into the same bumpy road in their careers.
 
 # Complete Code Demos
-Many blogs have complete code examples to demo the principles. They are in Java and collected into one file, even if the file contains many multiple interfaces and classes. All examples are self contained within Java. There are not external dependencies to inport.
+Many blogs have complete code examples to demo the principles. They are in Java and collected into one file, even if the file contains many multiple interfaces and classes. All examples are self contained within Java. There are not external dependencies to import.
 
 Copy the demo into a Java environment and run it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/).
 
