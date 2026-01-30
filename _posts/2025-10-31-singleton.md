@@ -338,7 +338,7 @@ I wanted to modify the timeout on a communication channel to something like 15 s
 >
 >__CM Dev__: _Silence_
 
-This is an excellent example of the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment) (POLA). The code did something that absolutely astonished me once I was alerted of the actual behavior. This project was the poster child for POLA. I'm sure I'll include more POLA examples in the future. (TBD)
+This is an excellent example of the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment) (POLA). The code did something that absolutely astonished me once I was alerted of the actual behavior. This project was the poster child for POLA. More POLA and other Cautionary Tales can be found at [Cautionary Tales and Principle of Least Astonishment](https://jhumelsine.github.io/table-of-contents#cautionary-tales-and-principle-of-least-astonishment).
 
 The only way to get around this issue was to create a bespoke XML file with my own TimeOut value. It was a pain, since the XML grammar rules were extremely confusing. I never figured them out. The XML parser developer was on my team. Whenever I needed a new XML file, I would describe what I needed to him, and he'd guide me. I have no idea how our application developers would ever figure out how to use it.
 
