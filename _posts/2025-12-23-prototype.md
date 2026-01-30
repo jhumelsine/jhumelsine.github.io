@@ -114,7 +114,7 @@ Additionally, `clone` is a reserved word in Java, and using it adds some languag
 ### Acquisition Via Object
 Prototype is more of a contract declaration than an implementation. It declares that a class that implements the interface must provide a method that returns an instance of the interface. It doesn't dictate how the class creates the object instance.
 
-The concrete class has several options to implement `acquire()`. I'll provide several examples. Each will implement one of the following interface methods, but not both. his is a conceptual interface sketch, not a literal Java interface:
+The concrete class has several options to implement `acquire()`. I'll provide several examples. Each will implement one of the following interface methods, but not both. This is a conceptual interface sketch, not a literal Java interface:
 ```java
 Feature {
     Feature acquire();
@@ -275,7 +275,7 @@ interface Feature {
 ```
 
 ## Prototypical
-`Prototypical` implements `Feature`. Just as [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html) contained a static repository within it, `Prototypical` contains a static repository within it too. `Prototypical` is both a Prototype _and_ a Registry façade. `Prototypical` plays two roles: it defines the prototype contract and hosts the registry that manages initial breeders.
+`Prototypical` implements `Feature`. Just as [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html) contained a static repository within it, `Prototypical` contains a static repository within it too. `Prototypical` is both a Prototype _and_ a Registry façade. `Prototypical` plays two roles: it defines the prototype contract and hosts the registry that manages initial breeders. I know this violates the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle), but we're not bound to it. _Learn the rules, and then break the rules_.
 
 <img src="/assets/Prototype2.png" alt="Prototypical Abstract Class"  width = "50%" align="center" style="padding-right: 35px;">
 
