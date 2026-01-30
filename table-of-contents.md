@@ -9,43 +9,43 @@ I began this blog in earnest as a retirement project in the fall of 2023. The bl
 
 This meta-blog entry organizes the themes of my blog entries. __NOTE:__ This page will be updated as new blog entries are added to existing themes and new themes are introduced.
 
+## How to Use This Page
+* **New readers**: Start with [Design Pattern Foundations](#design-pattern-foundations) or [Abstraction](#abstraction).
+* **Practicing engineers**: Jump directly to [Essential Design Patterns](#essential-design-patterns), [Automated Testing](#automated-testing), or [Hexagonal Architecture](#hexagonal-architecture-aka-ports-and-adapters-design).
+* **Advanced readers**: Explore [Composable Design Patterns](#composable-design-patterns), [Interpreter](#interpreter-design-pattern), or [Working Effectively with Legacy Code](https://jhumelsine.github.io/2025/03/24/legacy-code.html).
+* **Readers looking for wisdom, inspiration and a few laughs**: Try [Bumper Sticker Computer Science and Software Engineering](https://jhumelsine.github.io/2023/12/15/bumper-sticker-computer-science-software-engineering.html) and [Cautionary Tales and Principle of Least Astonishment](#cautionary-tales-and-principle-of-least-astonishment)
+
 # Table of Contents
-* [AI Notebooks](#ai-notebooks)
-* [Software Engineering](#software-engineering)
+* [Core Concepts](#core-concepts)
+    * [Software Engineering](#software-engineering)
+        * [SE Miscellaneous](#se-miscellaneous)
     * [Abstraction](#abstraction)
-    * [Miscellaneous](#se-miscellaneous) 
-* [Design Patterns](#design-patterns)
     * [Design Pattern Foundations](#design-pattern-foundations)
+* [Design Patterns and Architecture](#design-patterns-and-architecture)
     * [Essential Design Patterns](#essential-design-patterns)
     * [Creational Design Patterns](#creational-design-patterns)
     * [Composable Design Patterns](#composable-design-patterns) 
-* [Hexagonal Architecture AKA Ports and Adapters](#hexagonal-architecture-aka-ports-and-adapters-design)
-* [Automated Testing](#automated-testing)
-* [Large Language Models and Generative AI](#large-language-models-and-generative-ai)
-* [True Stories](#true-stories)
+    * [Hexagonal Architecture AKA Ports and Adapters](#hexagonal-architecture-aka-ports-and-adapters-design)
+* [Quality and Testing](#quality-and-testing)
+    * [Automated Testing](#automated-testing)
+* [AI and Emerging Topics](#ai-and-emerging-topics)
+  * [Large Language Models and Generative AI](#large-language-models-and-generative-ai)
+  * [AI Notebooks](#ai-notebooks)
+* [Experience and Reflection](#experience-and-reflection)
+    * [True Stories](#true-stories)
     * [Cautionary Tales and Principle of Least Astonishment](#cautionary-tales-and-principle-of-least-astonishment)
 * [Miscellaneous](#miscellaneous)
-* [Complete Code Demos](#complete-code-demos)
-* [Blog Statistics](#statistics)
+* [Reference](#reference)
+    * [Complete Code Demos](#complete-code-demos)
+    * [Blog Statistics](#statistics)
 
-# AI Notebooks
-I have created AI/Google Notebooks for several of my blog series. Each provides an AI interactive experience with some of my central themes. There are several artifacts including an AI generated two-host podcast formatted summary. You can also interact with the generated AI hosts to some degree.
-
-__NOTE:__ I think that a Google account may be required to access the AI/Google Notebooks.
-
-AI/Google Notebooks:
-* [Abstraction](https://notebooklm.google.com/notebook/94884f00-c719-471f-87f6-9225b67922be?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
-* [Design Pattern Foundations](https://notebooklm.google.com/notebook/ec8ed593-cd93-4a65-8615-2233bef3d910?_gl=1*u5eebw*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzAkdDE3NDk1NjA5MjQkajYwJGwwJGgw)
-* [Creational Design Patterns](https://notebooklm.google.com/notebook/8453e55f-55b0-4995-9ca2-5eaca6eef48c)
-* [Essential Design Patterns](https://notebooklm.google.com/notebook/a4db6342-c117-4664-b0ed-1aa79d720db7?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
-* [Composable Design Patterns](https://notebooklm.google.com/notebook/bc19b872-144e-4218-8622-023e963becdf?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
-* [Interpreter Design Pattern](https://notebooklm.google.com/notebook/452441d7-f9d9-4a31-9084-a02621271099?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
-* [Hexagonal Architecture AKA Ports and Adapters](https://notebooklm.google.com/notebook/224c31b5-fac9-441a-9886-8ed071bf1d52?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
-* [Automated Testing](https://notebooklm.google.com/notebook/cdead562-a40d-4f5c-84cb-4368812f4347?_gl=1*uicl85*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDg2Mjk1NzckbzMkZzAkdDE3NDg2Mjk1NzckajYwJGwwJGgw)
-* [Large Language Models and Generative AI](https://notebooklm.google.com/notebook/36b181b7-07b1-443e-86d3-038adc3400ed?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
-
-# Software Engineering
+# Core Concepts
+## Software Engineering
 A degree in Computer Science has been the initial exposure to software for many developers; however, Computer Science is not the same as Software Engineering.
+
+### SE Miscellaneous
+* [Bumper Sticker Computer Science and Software Engineering](https://jhumelsine.github.io/2023/12/15/bumper-sticker-computer-science-software-engineering.html) - I think this is my favorite entry.
+* [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html) - Everyone has their own way to approach design problems. This entry describes mine.
 
 ## Abstraction
 Abstraction is a core software engineering concept, and it's more challenging to describe abstraction concretely than I originally thought.
@@ -58,16 +58,9 @@ Abstraction is a core software engineering concept, and it's more challenging to
 
 See: [Abstraction AI Agent](https://notebooklm.google.com/notebook/94884f00-c719-471f-87f6-9225b67922be?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 
-## SE Miscellaneous
-* [Bumper Sticker Computer Science and Software Engineering](https://jhumelsine.github.io/2023/12/15/bumper-sticker-computer-science-software-engineering.html) - I think this is my favorite entry.
-* [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html) - Everyone has their own way to approach design problems. This entry describes mine.
-
-# Design Patterns
+## Design Pattern Foundations
 Design Patterns changed how I approach software. I feel that every Software Engineer should have some degree of competence and comfort with design patterns.
 
-**NOTE**: Some patterns appear in multiple groups.
-
-## Design Pattern Foundations
 Design Patterns are not technically challenging, but they do require a slight paradigm shift in thinking. These blog entries lay some foundations toward that shift in thinking.
 
 * [Are you a cook or a chef?](https://jhumelsine.github.io/2023/08/21/knock-knock-whos-there.html) - Are you following the recipe or creating something new?
@@ -79,6 +72,9 @@ Design Patterns are not technically challenging, but they do require a slight pa
 * [Design Pattern Principles](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html) - There are only two Design Pattern Principles. Understanding them will help in understanding the underlying structures that reappear in Design Patterns.
 
 See: [Design Pattern Foundations AI Agent](https://notebooklm.google.com/notebook/ec8ed593-cd93-4a65-8615-2233bef3d910?_gl=1*u5eebw*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzAkdDE3NDk1NjA5MjQkajYwJGwwJGgw)
+
+# Design Patterns and Architecture
+**NOTE**: Some patterns appear in multiple groups.
 
 ## Essential Design Patterns
 The Seven [Essential Design Patterns](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html) are the design patterns that will be used repeatedly in designs. They are the hammer and screwdriver of a software developers design pattern toolbox.
@@ -137,7 +133,7 @@ Interpreter is not a difficult pattern to design or implement, but it's a diffic
 
 See: [Interpreter Design Pattern AI Agent](https://notebooklm.google.com/notebook/452441d7-f9d9-4a31-9084-a02621271099?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 
-# Hexagonal Architecture AKA Ports and Adapters Design
+## Hexagonal Architecture AKA Ports and Adapters Design
 The [Hexagonal Architecture (AKA Ports and Adapters)](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html) is a design that all software developers should know.
 It showcases how different [Essential Design Patterns](#design-patterns) can work as a cohesive design.
 
@@ -149,7 +145,8 @@ It showcases how different [Essential Design Patterns](#design-patterns) can wor
 
 See: [Hexagonal Architecture AKA Ports and Adapters AI Agent](https://notebooklm.google.com/notebook/224c31b5-fac9-441a-9886-8ed071bf1d52?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 
-# Automated Testing
+# Quality and Testing
+## Automated Testing
 I didn't appreciate automated testing until late in my career. My automated testing series begins with my [Conversion](https://jhumelsine.github.io/2024/06/07/unit-test-convert.html) from automated testing non-believer to almost a zealot. The series grew larger than I originally imagined. I ended up writing a short book on the topic.
 
 Here is the complete Automated Test series:
@@ -175,21 +172,39 @@ Here is the complete Automated Test series:
 
 See: [Automated Testing AI Agent](https://notebooklm.google.com/notebook/cdead562-a40d-4f5c-84cb-4368812f4347?_gl=1*uicl85*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDg2Mjk1NzckbzMkZzAkdDE3NDg2Mjk1NzckajYwJGwwJGgw)
 
-# Large Language Models and Generative AI
+# AI and Emerging Topics
+## Large Language Models and Generative AI
 AI has become a major topic since late 2022 with the introduction of ChatGPT among others. I learn a bit more about how to use them almost daily.
 
 See: [Large Language Models and Generative AI AI Agent](https://notebooklm.google.com/notebook/36b181b7-07b1-443e-86d3-038adc3400ed?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 
-## LLM/GenAI Introduction
+### LLM/GenAI Introduction
 [LLM/GenAI Introduction](https://jhumelsine.github.io/2024/09/18/llm-genai.html) - Like it or not, the AI Genie is out of the  bottle
 
-## Prompt Engineering Patterns
+### Prompt Engineering Patterns
 Prompt Engineering Patterns are the key to getting the best results from Generative AI. These blogs present a few patterns I learned via online courses.
 
 * [Prompt Engineering Patterns 1](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html)
 * [Prompt Engineering Patterns 2](https://jhumelsine.github.io/2024/10/18/prompt-engineering-patterns2.html)
 
-# True Stories
+## AI Notebooks
+I have created AI/Google Notebooks for several of my blog series. Each provides an AI interactive experience with some of my central themes. There are several artifacts including an AI generated two-host podcast formatted summary. You can also interact with the generated AI hosts to some degree.
+
+__NOTE:__ I think that a Google account may be required to access the AI/Google Notebooks.
+
+AI/Google Notebooks:
+* [Abstraction](https://notebooklm.google.com/notebook/94884f00-c719-471f-87f6-9225b67922be?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
+* [Design Pattern Foundations](https://notebooklm.google.com/notebook/ec8ed593-cd93-4a65-8615-2233bef3d910?_gl=1*u5eebw*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzAkdDE3NDk1NjA5MjQkajYwJGwwJGgw)
+* [Creational Design Patterns](https://notebooklm.google.com/notebook/8453e55f-55b0-4995-9ca2-5eaca6eef48c)
+* [Essential Design Patterns](https://notebooklm.google.com/notebook/a4db6342-c117-4664-b0ed-1aa79d720db7?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
+* [Composable Design Patterns](https://notebooklm.google.com/notebook/bc19b872-144e-4218-8622-023e963becdf?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
+* [Interpreter Design Pattern](https://notebooklm.google.com/notebook/452441d7-f9d9-4a31-9084-a02621271099?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
+* [Hexagonal Architecture AKA Ports and Adapters](https://notebooklm.google.com/notebook/224c31b5-fac9-441a-9886-8ed071bf1d52?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
+* [Automated Testing](https://notebooklm.google.com/notebook/cdead562-a40d-4f5c-84cb-4368812f4347?_gl=1*uicl85*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDg2Mjk1NzckbzMkZzAkdDE3NDg2Mjk1NzckajYwJGwwJGgw)
+* [Large Language Models and Generative AI](https://notebooklm.google.com/notebook/36b181b7-07b1-443e-86d3-038adc3400ed?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
+
+# Experience and Reflection
+## True Stories
 The following blog entries feature a few __True Stories__, or maybe they should be called: __True Confessions__. I try to include personal experiences where I can in my blog entries. Sometimes story is the entire blog entry. Sometimes it's just a part of the blog entry.
 
 I keep my previous employers and others anonymous. If I do mention someone by name, I only use their first name, and I get their permission, or I use a pseudonym.
@@ -229,7 +244,8 @@ This is for blog entries that were one-offs, and weren't part of series:
 
 * [Job Loss](https://jhumelsine.github.io/2024/08/11/jobsearch.html) - Software Engineering has been a great career for me, but it wasn't without a few bumps in the road. I wrote this blog when others I knew in the industry were running into the same bumpy road in their careers.
 
-# Complete Code Demos
+# Reference
+## Complete Code Demos
 Many blogs have complete code examples to demo the principles. They are in Java and collected into one file, even if the file contains many multiple interfaces and classes. All examples are self contained within Java. There are not external dependencies to import.
 
 Copy the demo into a Java environment and run it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/).
@@ -261,7 +277,7 @@ Play with the implementation. Add tests. Refactor the demo. Copy the demo into G
     * [Prototype Basics](https://jhumelsine.github.io/2025/12/23/prototype.html#complete-demo-code), which featured a Prototype implementation.
     * [Prototype Shape Rendering Use Case](https://jhumelsine.github.io/2025/12/30/prototype-use-case.html#complete-demo-code), which featured a Shape Rendering example demonstrating how Prototype and Composite can work together.
 
-# Statistics
+## Statistics
 
 <table border="1">
   <thead>
