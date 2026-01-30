@@ -335,6 +335,10 @@ class AddOnFactory {
     }
 }
 ```
+
+## A Peek Ahead
+Jumping the gun a bit, but we can clean up some of this implementation even a bit more using the next pattern, [Prototype](https://jhumelsine.github.io/2025/12/23/prototype.html), as described in the [Register Object Variances](https://jhumelsine.github.io/2025/12/30/prototype-use-case.html#register-object-variances) section of the [Prototype Design Pattern Use Case](https://jhumelsine.github.io/2025/12/30/prototype-use-case.html).
+
 # Builder and Director Comparison
 
 Builder and Director are closely related and often work together. Here's a closing table comparing their features:
