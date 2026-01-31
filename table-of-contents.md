@@ -30,7 +30,7 @@ This meta-blog entry organizes the themes of my blog entries. __NOTE:__ This pag
     * [Automated Testing](#automated-testing)
 * [AI and Emerging Topics](#ai-and-emerging-topics)
   * [Large Language Models and Generative AI](#large-language-models-and-generative-ai)
-  * [AI Notebooks](#ai-notebooks)
+  * [Interactive AI Notebooks](#interactive-ai-notebooks)
 * [Experience and Reflection](#experience-and-reflection)
     * [True Stories](#true-stories)
     * [Cautionary Tales and Principle of Least Astonishment](#cautionary-tales-and-principle-of-least-astonishment)
@@ -56,7 +56,7 @@ Abstraction is a core software engineering concept, and it's more challenging to
 * [What is Cohesive Construction?](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html) - How to configure cohesive abstractions consistently
 * [Getting the Right Abstraction is Hard](https://jhumelsine.github.io/2023/09/22/right-abstraction-is-hard.html) - How I adjusted the abstraction in a design I inherited
 
-See: [Abstraction AI Agent](https://notebooklm.google.com/notebook/94884f00-c719-471f-87f6-9225b67922be?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
+See: [Abstraction Interactive Interactive AI Notebook](https://notebooklm.google.com/notebook/94884f00-c719-471f-87f6-9225b67922be?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 
 ## Design Pattern Foundations
 Design Patterns changed how I approach software. I feel that every Software Engineer should have some degree of competence and comfort with design patterns.
@@ -71,7 +71,7 @@ Design Patterns are not technically challenging, but they do require a slight pa
 * [Parts is Parts](https://jhumelsine.github.io/2023/09/01/parts-is-parts.html) - Most Object-Oriented Design Patterns are different combinations of the same set of OO constructs
 * [Design Pattern Principles](https://jhumelsine.github.io/2023/09/06/design-pattern-principles.html) - There are only two Design Pattern Principles. Understanding them will help in understanding the underlying structures that reappear in Design Patterns.
 
-See: [Design Pattern Foundations AI Agent](https://notebooklm.google.com/notebook/ec8ed593-cd93-4a65-8615-2233bef3d910?_gl=1*u5eebw*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzAkdDE3NDk1NjA5MjQkajYwJGwwJGgw)
+See: [Design Pattern Foundations Interactive AI Notebook](https://notebooklm.google.com/notebook/ec8ed593-cd93-4a65-8615-2233bef3d910?_gl=1*u5eebw*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzAkdDE3NDk1NjA5MjQkajYwJGwwJGgw)
 
 # Design Patterns and Architecture
 Patterns are grouped in cohesive groups, often as a series where the next pattern builds upon the previous one. They are not grouped by a rigid taxonomy. Some patterns naturally belong in more than one category, since the cohesive groups don't have strict boundaries, and there's some degree of overlap.
@@ -87,7 +87,7 @@ The Seven [Essential Design Patterns](https://jhumelsine.github.io/2023/09/07/es
 * [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) - Allows an application to acquire an object reference without knowing class type and without having to call a `new()` constructor directly
 * [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) - Removes all dependency resolution from an application by transfering that responsibility to another entity whose sole responsibility is to configure and resolve object references for the application
 
-See: [Essential Design Patterns AI Agent](https://notebooklm.google.com/notebook/a4db6342-c117-4664-b0ed-1aa79d720db7?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
+See: [Essential Design Patterns Interactive AI Notebook](https://notebooklm.google.com/notebook/a4db6342-c117-4664-b0ed-1aa79d720db7?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 
 ## Creational Design Patterns
 The [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) define techniques to acquire objects while encapsulating the object's concrete class type. They also provide object management techniques when a new object is not always needed.
@@ -101,7 +101,7 @@ The [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creatio
 * [Prototype](https://jhumelsine.github.io/2025/12/23/prototype.html) – Acquires a new object instance from an exsting object instance
 * [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) – Removes all dependency resolution from an application by transfering that responsibility to another entity whose sole responsibility is to configure and resolve object references for the application
 
-See: [Creational Design Patterns AI Agent](https://notebooklm.google.com/notebook/8453e55f-55b0-4995-9ca2-5eaca6eef48c)
+See: [Creational Design Patterns Interactive AI Notebook](https://notebooklm.google.com/notebook/8453e55f-55b0-4995-9ca2-5eaca6eef48c)
 
 ## Composable Design Patterns
 The [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html) focus upon behavior emerging from the composition of objects and their interaction in a structured formation rather than implemented within an individual class.
@@ -113,7 +113,7 @@ The [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composa
 * [Specification](https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html) – Allow a Client to select or filter objects with specific attribute property values as specified by the Client
 * [Interpreter](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) – Given a language, define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language. This pattern will require several blog entries.
 
-See: [Composable Design Patterns AI Agent](https://notebooklm.google.com/notebook/bc19b872-144e-4218-8622-023e963becdf?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
+See: [Composable Design Patterns Interactive AI Notebook](https://notebooklm.google.com/notebook/bc19b872-144e-4218-8622-023e963becdf?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 
 ### Interpreter Design Pattern
 The [Interpreter](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) required its own series.
@@ -132,7 +132,7 @@ Interpreter is not a difficult pattern to design or implement, but it's a diffic
 * [Scanners and Parsers, Implementation: Rational Expression Implementation Example Completed](https://jhumelsine.github.io/2024/04/30/interpreter-design-pattern-parser-implementation.html) - Implementing the Scanner and Parser for the Rational Expression Evaluator DSL Use Case
 * [Interpreter Design Pattern – Production Example: My Experience Using Interpreter on a Work Project](https://jhumelsine.github.io/2024/05/14/interpreter-design-pattern-production.html) - My Experience Using Interpreter on a Work Project
 
-See: [Interpreter Design Pattern AI Agent](https://notebooklm.google.com/notebook/452441d7-f9d9-4a31-9084-a02621271099?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
+See: [Interpreter Design Pattern Interactive AI Notebook](https://notebooklm.google.com/notebook/452441d7-f9d9-4a31-9084-a02621271099?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 
 ## Hexagonal Architecture AKA Ports and Adapters Design
 The [Hexagonal Architecture (AKA Ports and Adapters)](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html) is a design that all software developers should know.
@@ -144,7 +144,7 @@ It showcases how different [Essential Design Patterns](#design-patterns) can wor
 * [Hexagonal Architecture - How it compares and contrasts with Clean Architecture](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html) - The two designs are mostly the same, but there are some differences worth pointing out
 * [Hexagonal Architecture - Adapter Flexibility](https://jhumelsine.github.io/2023/11/30/hexagonal-architecture-adapter-flexibility.html) - We have quite a bit of flexibility with this design in the Adapter layer
 
-See: [Hexagonal Architecture AKA Ports and Adapters AI Agent](https://notebooklm.google.com/notebook/224c31b5-fac9-441a-9886-8ed071bf1d52?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
+See: [Hexagonal Architecture AKA Ports and Adapters Interactive AI Notebook](https://notebooklm.google.com/notebook/224c31b5-fac9-441a-9886-8ed071bf1d52?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 
 # Quality and Testing
 ## Automated Testing
@@ -171,13 +171,13 @@ Here is the complete Automated Test series:
 * [Test Layers: From Unit to System - Building Confidence with the Right Tests at the Right Level](https://jhumelsine.github.io/2025/06/23/test-layers.html) - There's more to testing than Unit Tests
 * [Consumer-Driven Contract Testing - Giving the consumer exactly what they asked for](https://jhumelsine.github.io/2025/07/14/cdc-testing.html) - When the Consumer supplies the Test Specifications to its Provider
 
-See: [Automated Testing AI Agent](https://notebooklm.google.com/notebook/cdead562-a40d-4f5c-84cb-4368812f4347?_gl=1*uicl85*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDg2Mjk1NzckbzMkZzAkdDE3NDg2Mjk1NzckajYwJGwwJGgw)
+See: [Automated Testing Interactive AI Notebook](https://notebooklm.google.com/notebook/cdead562-a40d-4f5c-84cb-4368812f4347?_gl=1*uicl85*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDg2Mjk1NzckbzMkZzAkdDE3NDg2Mjk1NzckajYwJGwwJGgw)
 
 # AI and Emerging Topics
 ## Large Language Models and Generative AI
 AI has become a major topic since late 2022 with the introduction of ChatGPT among others. I learn a bit more about how to use them almost daily.
 
-See: [Large Language Models and Generative AI AI Agent](https://notebooklm.google.com/notebook/36b181b7-07b1-443e-86d3-038adc3400ed?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
+See: [Large Language Models and Generative Interactive AI Notebook](https://notebooklm.google.com/notebook/36b181b7-07b1-443e-86d3-038adc3400ed?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 
 ### LLM/GenAI Introduction
 [LLM/GenAI Introduction](https://jhumelsine.github.io/2024/09/18/llm-genai.html) - Like it or not, the AI Genie is out of the  bottle
@@ -188,7 +188,7 @@ Prompt Engineering Patterns are the key to getting the best results from Generat
 * [Prompt Engineering Patterns 1](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html)
 * [Prompt Engineering Patterns 2](https://jhumelsine.github.io/2024/10/18/prompt-engineering-patterns2.html)
 
-## AI Notebooks
+## Interactive AI Notebooks
 I have created AI/Google Notebooks for several of my blog series. Each provides an AI interactive experience with some of my central themes. There are several artifacts including an AI generated two-host podcast formatted summary. You can also interact with the generated AI hosts to some degree.
 
 __NOTE:__ I think that a Google account may be required to access the AI/Google Notebooks.
