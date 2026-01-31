@@ -11,7 +11,7 @@ This meta-blog entry organizes the themes of my blog entries. __NOTE:__ This pag
 
 ## How to Use This Page
 * **New readers**: Start with [Design Pattern Foundations](#design-pattern-foundations) or [Abstraction](#abstraction).
-* **Practicing engineers**: Jump directly to [Essential Design Patterns](#essential-design-patterns), [Automated Testing](#automated-testing), or [Hexagonal Architecture](#hexagonal-architecture-aka-ports-and-adapters-design).
+* **Practicing engineers**: Jump directly to [Essential Design Patterns](#essential-design-patterns), [Automated Testing](#automated-testing), or [Hexagonal Architecture](#hexagonal-architecture).
 * **Advanced readers**: Explore [Composable Design Patterns](#composable-design-patterns), [Interpreter](#interpreter-design-pattern), or [Working Effectively with Legacy Code](https://jhumelsine.github.io/2025/03/24/legacy-code.html).
 * **Readers looking for wisdom, inspiration and a few laughs**: Try [Bumper Sticker Computer Science and Software Engineering](https://jhumelsine.github.io/2023/12/15/bumper-sticker-computer-science-software-engineering.html) and [Cautionary Tales and Principle of Least Astonishment](#cautionary-tales-and-principle-of-least-astonishment)
 
@@ -25,12 +25,12 @@ This meta-blog entry organizes the themes of my blog entries. __NOTE:__ This pag
     * [Essential Design Patterns](#essential-design-patterns)
     * [Creational Design Patterns](#creational-design-patterns)
     * [Composable Design Patterns](#composable-design-patterns) 
-    * [Hexagonal Architecture AKA Ports and Adapters](#hexagonal-architecture-aka-ports-and-adapters-design)
+    * [Hexagonal Architecture](#hexagonal-architecture)
 * [Quality and Testing](#quality-and-testing)
     * [Automated Testing](#automated-testing)
 * [AI and Emerging Topics](#ai-and-emerging-topics)
   * [Large Language Models and Generative AI](#large-language-models-and-generative-ai)
-  * [Interactive AI Notebooks](#interactive-ai-notebooks)
+  * [Interactive AI Notebooks](#interactive-ai-notebooks-google-notebooklm)
 * [Experience and Reflection](#experience-and-reflection)
     * [True Stories](#true-stories)
     * [Cautionary Tales and Principle of Least Astonishment](#cautionary-tales-and-principle-of-least-astonishment)
@@ -93,7 +93,7 @@ See: [Essential Design Patterns Interactive AI Notebook](https://notebooklm.goog
 The [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creational-design-patterns.html) define techniques to acquire objects while encapsulating the object's concrete class type. They also provide object management techniques when a new object is not always needed.
 
 * [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) – Allows an application to acquire an object reference without knowing class type and without having to call a `new()` constructor directly
-* [Abstract Factory](https://jhumelsine.github.io/2025/07/30/abstract-factory.html) – Applications often have multiple dependencies often resolved via a Factory. It's critical for these factory dependencies to be consistent within their environment. For example, resolving dependencies with some factories producing production references while other factories produce test references could lead to disaster. Abstract Factory helps ensure that a set of factories return consistent depenency references.
+* [Abstract Factory](https://jhumelsine.github.io/2025/07/30/abstract-factory.html) – Applications often have multiple dependencies often resolved via a Factory. It's critical for these factory dependencies to be consistent within their environment. For example, resolving dependencies with some factories producing production references while other factories produce test references could lead to disaster. Abstract Factory helps ensure that a set of factories return consistent dependency references.
 * [Builder](https://jhumelsine.github.io/2025/08/08/builder-introduction.html) – Creates, assembles and returns a set of cohesive objects based upon a plan much like a blueprint. Builder is often used with [Composable Design Patterns](https://jhumelsine.github.io/2024/01/03/composable-design-patterns-basic-concepts.html) to create and assemble the objects in the composition. The Builder pattern supports abstraction as well since different concrete Builders can resolve the abstraction within the same design allowing them to create and assemble different concrete instances of the same structure.
 * [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html) – Ensures that __only__ one object is created for a class type
 * [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html) (Also Known As _Multiton_) – Ensures that only one instance of an object will be created for a given set of intrinsic attributes
@@ -121,7 +121,7 @@ It moves from language theory to production through a single evolving example.
 
 Interpreter allows software developers to design and implement their own Domain-Specific Languages (DSLs). Interpreter is not just the pinnacle of Composable Design Patterns, but I feel it shares the top spot of all design patterns along with the Visitor Design Pattern.
 
-Interpreter is not a difficult pattern to design or implement, but it's a difficult pattern comprehend. Interpreter required multiple blog entries to do it justice. 
+Interpreter is not a difficult pattern to design or implement, but it's a difficult pattern to comprehend. Interpreter required multiple blog entries to do it justice. 
 
 * [Interpreter](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) - Introduction and overview
 * [Domain-Specific Languages](https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html) - Domain-Specific Languages solve domain-specific problems succinctly
@@ -134,7 +134,7 @@ Interpreter is not a difficult pattern to design or implement, but it's a diffic
 
 See: [Interpreter Design Pattern Interactive AI Notebook](https://notebooklm.google.com/notebook/452441d7-f9d9-4a31-9084-a02621271099?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 
-## Hexagonal Architecture AKA Ports and Adapters Design
+## Hexagonal Architecture
 The [Hexagonal Architecture (AKA Ports and Adapters)](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html) is a design that all software developers should know.
 It showcases how different [Essential Design Patterns](#design-patterns) can work as a cohesive design.
 
@@ -144,7 +144,7 @@ It showcases how different [Essential Design Patterns](#design-patterns) can wor
 * [Hexagonal Architecture - How it compares and contrasts with Clean Architecture](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html) - The two designs are mostly the same, but there are some differences worth pointing out
 * [Hexagonal Architecture - Adapter Flexibility](https://jhumelsine.github.io/2023/11/30/hexagonal-architecture-adapter-flexibility.html) - We have quite a bit of flexibility with this design in the Adapter layer
 
-See: [Hexagonal Architecture AKA Ports and Adapters Interactive AI Notebook](https://notebooklm.google.com/notebook/224c31b5-fac9-441a-9886-8ed071bf1d52?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
+See: [Hexagonal Architecture Interactive AI Notebook](https://notebooklm.google.com/notebook/224c31b5-fac9-441a-9886-8ed071bf1d52?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 
 # Quality and Testing
 ## Automated Testing
@@ -188,19 +188,19 @@ Prompt Engineering Patterns are the key to getting the best results from Generat
 * [Prompt Engineering Patterns 1](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html)
 * [Prompt Engineering Patterns 2](https://jhumelsine.github.io/2024/10/18/prompt-engineering-patterns2.html)
 
-## Interactive AI Notebooks
-I have created AI/Google Notebooks for several of my blog series. Each provides an AI interactive experience with some of my central themes. There are several artifacts including an AI generated two-host podcast formatted summary. You can also interact with the generated AI hosts to some degree.
+## Interactive AI Notebooks (Google NotebookLM)
+I have created interactive AI notebooks for several of my blog series. Each provides an AI interactive experience with some of my central themes. There are several artifacts including an AI generated two-host podcast formatted summary. You can also interact with the generated AI hosts to some degree.
 
-__NOTE:__ I think that a Google account may be required to access the AI/Google Notebooks.
+__NOTE:__ I think that a Google account may be required to access Google NotebookLM.
 
-AI/Google Notebooks:
+Interactive AI Notebooks:
 * [Abstraction](https://notebooklm.google.com/notebook/94884f00-c719-471f-87f6-9225b67922be?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 * [Design Pattern Foundations](https://notebooklm.google.com/notebook/ec8ed593-cd93-4a65-8615-2233bef3d910?_gl=1*u5eebw*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzAkdDE3NDk1NjA5MjQkajYwJGwwJGgw)
 * [Creational Design Patterns](https://notebooklm.google.com/notebook/8453e55f-55b0-4995-9ca2-5eaca6eef48c)
 * [Essential Design Patterns](https://notebooklm.google.com/notebook/a4db6342-c117-4664-b0ed-1aa79d720db7?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 * [Composable Design Patterns](https://notebooklm.google.com/notebook/bc19b872-144e-4218-8622-023e963becdf?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 * [Interpreter Design Pattern](https://notebooklm.google.com/notebook/452441d7-f9d9-4a31-9084-a02621271099?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
-* [Hexagonal Architecture AKA Ports and Adapters](https://notebooklm.google.com/notebook/224c31b5-fac9-441a-9886-8ed071bf1d52?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
+* [Hexagonal Architecture](https://notebooklm.google.com/notebook/224c31b5-fac9-441a-9886-8ed071bf1d52?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 * [Automated Testing](https://notebooklm.google.com/notebook/cdead562-a40d-4f5c-84cb-4368812f4347?_gl=1*uicl85*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDg2Mjk1NzckbzMkZzAkdDE3NDg2Mjk1NzckajYwJGwwJGgw)
 * [Large Language Models and Generative AI](https://notebooklm.google.com/notebook/36b181b7-07b1-443e-86d3-038adc3400ed?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 
@@ -247,7 +247,7 @@ This is for blog entries that were one-offs, and weren't part of series:
 
 # Reference
 ## Complete Code Demos
-Many blogs have complete code examples to demo the principles. They are in Java and collected into one file, even if the file contains many multiple interfaces and classes. All examples are self contained within Java. There are not external dependencies to import.
+Many blogs have complete code examples to demo the principles. They are in Java and collected into one file, even if the file contains many interfaces and classes. All examples are self contained within Java. There are not external dependencies to import.
 
 Copy the demo into a Java environment and run it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/).
 
@@ -269,7 +269,7 @@ Play with the implementation. Add tests. Refactor the demo. Copy the demo into G
 * [Abstract Factory Design Pattern](https://jhumelsine.github.io/2025/07/30/abstract-factory.html#complete-demo-code), which features a weapon system consistent with launcher/project pairs, such as rifle/bullet, bow/arrow, etc.
 * The [Build Design Pattern](https://jhumelsine.github.io/2025/08/08/builder-introduction.html) required several blogs with several complete phases showing its evolution:
     * [Builder Design Pattern - Basic Implementation](https://jhumelsine.github.io/2025/08/13/builder-basic-impl.html#complete-demo-code), which features building a Pizza using several techniques.
-    * [Builder Design Pattern - Complete Implementation](https://jhumelsine.github.io/2025/08/20/builder-complete-impl.html#complete-demo-code), which competes the Pizza Builder example.
+    * [Builder Design Pattern - Complete Implementation](https://jhumelsine.github.io/2025/08/20/builder-complete-impl.html#complete-demo-code), which completes the Pizza Builder example.
     * [Director](https://jhumelsine.github.io/2025/08/27/builders-director.html#complete-demo-code), which champions the Director component of the Builder Pattern as its own pattern featuring a Coffee Shop Drink example.
 * [Singleton Design Pattern](https://jhumelsine.github.io/2025/10/31/singleton.html#complete-demo-code), which features several versions of Singleton demonstrating incorrect use, correct use, state injection, etc.
 * [Flyweight Design Pattern](https://jhumelsine.github.io/2025/11/14/flyweight.html#complete-demo-code), which features a cloud DVR example.
