@@ -45,7 +45,7 @@ Some articles link to [**Interactive AI Notebooks**](#interactive-ai-notebooks-g
 Not every section will be relevant to every reader. Skipping ahead, skimming, or reading selectively is expected. The goal is not to finish pages, but to **build understanding over time**.
 
 * **New readers**: Start with [Design Pattern Foundations](#design-pattern-foundations) or [Abstraction](#abstraction).
-* **Practicing engineers**: Jump directly to [Essential Design Patterns](##essential-design-patterns), [Automated Testing](#automated-testing), or [Hexagonal Architecture](#hexagonal-architecture).
+* **Practicing engineers**: Jump directly to [Essential Design Patterns](#essential-design-patterns), [Automated Testing](#automated-testing), or [Hexagonal Architecture](#hexagonal-architecture).
 * **Advanced readers**: Explore [Composable Design Patterns](#composable-design-patterns), [Interpreter](#interpreter-design-pattern), or [Working Effectively with Legacy Code](https://jhumelsine.github.io/2025/03/24/legacy-code.html).
 * **Readers looking for wisdom, inspiration and a few laughs**: Try [Bumper Sticker Computer Science and Software Engineering](https://jhumelsine.github.io/2023/12/15/bumper-sticker-computer-science-software-engineering.html) and [Cautionary Tales and Principle of Least Astonishment](#cautionary-tales-and-principle-of-least-astonishment)
 
@@ -56,7 +56,7 @@ Not every section will be relevant to every reader. Skipping ahead, skimming, or
     * [Abstraction](#abstraction)
     * [Design Pattern Foundations](#design-pattern-foundations)
 * [Design Patterns and Architecture](#design-patterns-and-architecture)
-    * [Essential Design Patterns](##essential-design-patterns)
+    * [Essential Design Patterns](#essential-design-patterns)
     * [Creational Design Patterns](#creational-design-patterns)
     * [Composable Design Patterns](#composable-design-patterns) 
     * [Hexagonal Architecture](#hexagonal-architecture)
