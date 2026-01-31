@@ -9,7 +9,7 @@ I began this blog in earnest as a retirement project in the fall of 2023. The bl
 
 Just as a library organizes books to make this accessible, as seen in the Trinty College Library above, this meta-blog entry organizes the themes of my blog entries making them more accessible.
 
-This page is a curated collection of essays, examples, and experiments on **software design, testing, and architecture**, written from the perspective of a practicing engineer with decades of industry experience.
+This page is a curated collection of essays, examples, and experiments on **software design, testing, and architecture**, written from the perspective of a retired software engineer with decades of industry experience.
 
 The focus here is on **durable ideas**: design patterns, abstractions, tradeoffs, and mental models that hold up across languages, frameworks, and architectural fashions. Many entries are intentionally long and exploratory. They are meant to be read slowly, revisited, and occasionally argued with.
 
@@ -38,7 +38,7 @@ This repetition is deliberate. Important ideas tend to reappear as systems grow 
 
 ### Interactive Notebooks
 
-Some articles link to [**Interactive AI Notebooks**](#interactive-ai-notebooks) that expand on the written material. These are optional, but they often explore edge cases, alternate implementations, or “what if?” scenarios that don’t fit cleanly into a static article.
+Some articles link to [**Interactive AI Notebooks**](#interactive-ai-notebooks-google-notebooklm) that expand on the written material. These are optional, but they often explore edge cases, alternate implementations, or “what if?” scenarios that don’t fit cleanly into a static article.
 
 ### A Note on Depth
 Not every section will be relevant to every reader. Skipping ahead, skimming, or reading selectively is expected. The goal is not to finish pages, but to **build understanding over time**.
