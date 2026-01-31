@@ -85,7 +85,7 @@ The Seven [Essential Design Patterns](https://jhumelsine.github.io/2023/09/07/es
 * [Adapter](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html) - A translation helper class that allows other classes to interact indirectly when they cannot interact directly due to different protocols and/or method signatures.
 * [Façade](https://jhumelsine.github.io/2023/10/03/facade-design-pattern.html) - Similar to Adapter in concept, but rather than performing basic translation, it shields the client application of its dependency upon a particularly nasty or complex class or set of classes
 * [Factory](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html) - Allows an application to acquire an object reference without knowing class type and without having to call a `new()` constructor directly
-* [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) - Removes all dependency resolution from an application by transfering that responsibility to another entity whose sole responsibility is to configure and resolve object references for the application
+* [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) - Removes all dependency resolution from an application by transferring that responsibility to another entity whose sole responsibility is to configure and resolve object references for the application
 
 See: [Essential Design Patterns Interactive AI Notebook](https://notebooklm.google.com/notebook/a4db6342-c117-4664-b0ed-1aa79d720db7?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 
@@ -98,8 +98,8 @@ The [Creational Design Patterns](https://jhumelsine.github.io/2025/07/18/creatio
 * [Singleton](https://jhumelsine.github.io/2025/10/31/singleton.html) – Ensures that __only__ one object is created for a class type
 * [Flyweight](https://jhumelsine.github.io/2025/11/14/flyweight.html) (Also Known As _Multiton_) – Ensures that only one instance of an object will be created for a given set of intrinsic attributes
 * [Object Pool](https://jhumelsine.github.io/2025/11/28/object-pool.html) – Objects are created at start up and lent to the caller when requested, much like borrowing books from a public library
-* [Prototype](https://jhumelsine.github.io/2025/12/23/prototype.html) – Acquires a new object instance from an exsting object instance
-* [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) – Removes all dependency resolution from an application by transfering that responsibility to another entity whose sole responsibility is to configure and resolve object references for the application
+* [Prototype](https://jhumelsine.github.io/2025/12/23/prototype.html) – Acquires a new object instance from an existing object instance
+* [Dependency Injection](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html) – Removes all dependency resolution from an application by transferring that responsibility to another entity whose sole responsibility is to configure and resolve object references for the application
 
 See: [Creational Design Patterns Interactive AI Notebook](https://notebooklm.google.com/notebook/8453e55f-55b0-4995-9ca2-5eaca6eef48c)
 
@@ -233,7 +233,7 @@ I keep my previous employers and others anonymous. If I do mention someone by na
 * [Heartbeat or Heart Attack?](https://jhumelsine.github.io/2025/04/08/time-lord.html#heartbeat-or-heart-attack) - Where I describe a bug that took 42 days of continuous execution before it manifested itself in [Mastering Time in Software Testing - Strategies for Temporal Behavior Verification](https://jhumelsine.github.io/2025/04/08/time-lord.html).
 
 ## Cautionary Tales and Principle of Least Astonishment
-Cautonary Tales may help others avoid some poor choices I encountered, some of my own making. This section will also contain a few examples of violations of the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment) (POLA):
+Cautionary Tales may help others avoid some poor choices I encountered, some of my own making. This section will also contain a few examples of violations of the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment) (POLA):
 
 * [What Is Cohesive Abstraction?](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html) - Where I describe a [A Cautionary Tale](https://jhumelsine.github.io/2024/11/27/abstraction-cohesion.html#a-cautionary-tale), which darn near cost me my job
 * [Working Effectively with Legacy Code](https://jhumelsine.github.io/2025/03/24/legacy-code.html) - Where an _obvious_ error lurked in the code for months due to the lack of testing in [Hey. This doesn't look right.](https://jhumelsine.github.io/2025/03/24/legacy-code.html#hey-this-doesnt-look-right)
@@ -263,7 +263,7 @@ Play with the implementation. Add tests. Refactor the demo. Copy the demo into G
     * [Rational Expression Evaluator Grammar to Design](https://jhumelsine.github.io/2024/04/07/interpreter-design-pattern-design.html#grammar-to-design-via-use-case), which defines an OO design that emerges directly from the grammar.
     * [Rational Expression Evaluator](https://jhumelsine.github.io/2024/04/17/interpreter-design-pattern-implementation.html#the-complete-implementation), which is a complete Rational Expression Evaluator implementation, but it does not have a reasonable interface with the user.
     * [Interactive Rational Expression Evaluator](https://jhumelsine.github.io/2024/04/30/interpreter-design-pattern-parser-implementation.html#the-complete-implementation), which defines a Scanner and Parser that evaluates the Rational Expression DSL and executes it via a Read-Eval-Print Loop.
-* [Yuri, the Programming Assignment and Me](https://jhumelsine.github.io/2024/07/22/yuri-evaluator.html#the-complete-implementation), which features a recursive implementaiton for an arithetic expression evaluator.
+* [Yuri, the Programming Assignment and Me](https://jhumelsine.github.io/2024/07/22/yuri-evaluator.html#the-complete-implementation), which features a recursive implementation for an arithmetic expression evaluator.
 * [Working Effectively with Legacy Code](https://jhumelsine.github.io/2025/03/24/legacy-code.html#complete-code-example), which features a small example of iterating through all possible arguments for a legacy method so it can be refactored safely.
 * [Mastering Time in Software Testing - Strategies for Temporal Behavior Verification](https://jhumelsine.github.io/2025/04/08/time-lord.html#complete-demo-code), which features an injected `Clock` to take control of time.
 * [Abstract Factory Design Pattern](https://jhumelsine.github.io/2025/07/30/abstract-factory.html#complete-demo-code), which features a weapon system consistent with launcher/project pairs, such as rifle/bullet, bow/arrow, etc.
