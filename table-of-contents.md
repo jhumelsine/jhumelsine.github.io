@@ -59,7 +59,7 @@ Abstraction is a core software engineering concept, and it's more challenging to
 See: [Abstraction Interactive Interactive AI Notebook](https://notebooklm.google.com/notebook/94884f00-c719-471f-87f6-9225b67922be?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
 
 ## Design Pattern Foundations
-Design Patterns changed how I approach software. I feel that every Software Engineer should have some degree of competence and comfort with design patterns.
+Design Patterns changed how I approach software. This section argues that every Software Engineer would benefit from having some degree of competence and comfort with design patterns.
 
 Design Patterns are not technically challenging, but they do require a slight paradigm shift in thinking. These blog entries lay some foundations toward that shift in thinking.
 
