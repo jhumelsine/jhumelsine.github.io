@@ -5,9 +5,10 @@ description: Organizing various blog entries by common themes
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Long_Room_Interior%2C_Trinity_College_Dublin%2C_Ireland_-_Diliff.jpg/1017px-Long_Room_Interior%2C_Trinity_College_Dublin%2C_Ireland_-_Diliff.jpg" alt="Trinity College Library" title="Image Source: https://commons.wikimedia.org/wiki/File:Long_Room_Interior,_Trinity_College_Dublin,_Ireland_-_Diliff.jpg" width = "50%" align="center" style="padding-right: 20px;">
 
 # Introduction
-I began this blog in earnest as a retirement project in the fall of 2023. The blog's [home page](https://jhumelsine.github.io/) lists the entries chronologically from newest to oldest. Blog entries are often part of a series focused upon a theme. The first blog entry of a series is usually an introduction to the series and acts as a landing page to the other blogs in the series. There are crossover reference links to other blog entries as well.
+I began this blog in earnest as a retirement project in the fall of 2023. The blog's [home page](https://jhumelsine.github.io/) lists the entries chronologically from newest to oldest. Blog entries are often part of a series focused upon a theme. The first blog entry of a series is usually an introduction to the series and acts as a landing page to the other blogs in the series. There are crossover reference links to other blog entries as well. 
 
-Just as a library organizes books to make this accessible, as seen in the Trinty College Library above, this meta-blog entry organizes the themes of my blog entries making them more accessible.
+Beyond chronology and series structure, there is a deeper organizing principle at work.
+Just as a library organizes books to make this accessible, as seen in the Trinity College Library above, this meta-blog entry organizes the themes of my blog entries making them more accessible.
 
 This page is a curated collection of essays, examples, and experiments on **software design, testing, and architecture**, written from the perspective of a retired software engineer with decades of industry experience.
 
@@ -44,7 +45,7 @@ Some articles link to [**Interactive AI Notebooks**](#interactive-ai-notebooks-g
 Not every section will be relevant to every reader. Skipping ahead, skimming, or reading selectively is expected. The goal is not to finish pages, but to **build understanding over time**.
 
 * **New readers**: Start with [Design Pattern Foundations](#design-pattern-foundations) or [Abstraction](#abstraction).
-* **Practicing engineers**: Jump directly to [Essential Design Patterns](#essential-design-patterns), [Automated Testing](#automated-testing), or [Hexagonal Architecture](#hexagonal-architecture).
+* **Practicing engineers**: Jump directly to [Essential Design Patterns](##essential-design-patterns), [Automated Testing](#automated-testing), or [Hexagonal Architecture](#hexagonal-architecture).
 * **Advanced readers**: Explore [Composable Design Patterns](#composable-design-patterns), [Interpreter](#interpreter-design-pattern), or [Working Effectively with Legacy Code](https://jhumelsine.github.io/2025/03/24/legacy-code.html).
 * **Readers looking for wisdom, inspiration and a few laughs**: Try [Bumper Sticker Computer Science and Software Engineering](https://jhumelsine.github.io/2023/12/15/bumper-sticker-computer-science-software-engineering.html) and [Cautionary Tales and Principle of Least Astonishment](#cautionary-tales-and-principle-of-least-astonishment)
 
@@ -55,7 +56,7 @@ Not every section will be relevant to every reader. Skipping ahead, skimming, or
     * [Abstraction](#abstraction)
     * [Design Pattern Foundations](#design-pattern-foundations)
 * [Design Patterns and Architecture](#design-patterns-and-architecture)
-    * [Essential Design Patterns](#essential-design-patterns)
+    * [Essential Design Patterns](##essential-design-patterns)
     * [Creational Design Patterns](#creational-design-patterns)
     * [Composable Design Patterns](#composable-design-patterns) 
     * [Hexagonal Architecture](#hexagonal-architecture)
