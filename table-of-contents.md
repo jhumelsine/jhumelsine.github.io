@@ -7,9 +7,42 @@ description: Organizing various blog entries by common themes
 # Introduction
 I began this blog in earnest as a retirement project in the fall of 2023. The blog's [home page](https://jhumelsine.github.io/) lists the entries chronologically from newest to oldest. Blog entries are often part of a series focused upon a theme. The first blog entry of a series is usually an introduction to the series and acts as a landing page to the other blogs in the series. There are crossover reference links to other blog entries as well.
 
-This meta-blog entry organizes the themes of my blog entries. __NOTE:__ This page will be updated as new blog entries are added to existing themes and new themes are introduced.
+Just as a library organizes books to make this accessible, as seen in the Trinty College Library above, this meta-blog entry organizes the themes of my blog entries making them more accessible.
+
+This page is a curated collection of essays, examples, and experiments on **software design, testing, and architecture**, written from the perspective of a practicing engineer with decades of industry experience.
+
+The focus here is on **durable ideas**: design patterns, abstractions, tradeoffs, and mental models that hold up across languages, frameworks, and architectural fashions. Many entries are intentionally long and exploratory. They are meant to be read slowly, revisited, and occasionally argued with.
+
+This is not a framework tutorial site, and it is not a stream of short-form commentary. Most articles aim to answer questions like _Why does this pattern exist?, What problem is it actually solving?, and Where do people get confused when applying it in real systems?_
+
+Think of this site less as a blog and more as a **living technical notebook**—one that continues to evolve as ideas are tested, refined, and sometimes reconsidered.
+
+__NOTE:__ This page will be updated as new blog entries are added to existing themes and new themes are introduced.
 
 ## How to Use This Page
+This page serves as an **index and entry point** into the material on the site. You do not need to read it from top to bottom.
+
+### Ways to Navigate
+* **Browse by topic** if you are exploring or refreshing a concept
+* **Jump directly to an article** if you arrived here from search
+* **Return to specific entries** as reference material while working
+
+Many articles are designed to support **non-linear reading**. If a post includes a table of contents or reader’s guide, it is intentional—use it.
+
+### What to Expect from Articles
+* Explanations favor _conceptual clarity_ over brevity
+* Code examples are illustrative, not copy-paste recipes
+* Some posts revisit the same idea from different angles
+
+This repetition is deliberate. Important ideas tend to reappear as systems grow more complex.
+
+### Interactive Notebooks
+
+Some articles link to [**Interactive AI Notebooks**](#interactive-ai-notebooks) that expand on the written material. These are optional, but they often explore edge cases, alternate implementations, or “what if?” scenarios that don’t fit cleanly into a static article.
+
+### A Note on Depth
+Not every section will be relevant to every reader. Skipping ahead, skimming, or reading selectively is expected. The goal is not to finish pages, but to **build understanding over time**.
+
 * **New readers**: Start with [Design Pattern Foundations](#design-pattern-foundations) or [Abstraction](#abstraction).
 * **Practicing engineers**: Jump directly to [Essential Design Patterns](#essential-design-patterns), [Automated Testing](#automated-testing), or [Hexagonal Architecture](#hexagonal-architecture).
 * **Advanced readers**: Explore [Composable Design Patterns](#composable-design-patterns), [Interpreter](#interpreter-design-pattern), or [Working Effectively with Legacy Code](https://jhumelsine.github.io/2025/03/24/legacy-code.html).
@@ -44,7 +77,7 @@ This meta-blog entry organizes the themes of my blog entries. __NOTE:__ This pag
 A degree in Computer Science has been the initial exposure to software for many developers; however, Computer Science is not the same as Software Engineering.
 
 ### SE Miscellaneous
-* [Bumper Sticker Computer Science and Software Engineering](https://jhumelsine.github.io/2023/12/15/bumper-sticker-computer-science-software-engineering.html) - I think this is my favorite entry.
+* [Bumper Sticker Computer Science and Software Engineering](https://jhumelsine.github.io/2023/12/15/bumper-sticker-computer-science-software-engineering.html) - This is my favorite entry.
 * [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html) - Everyone has their own way to approach design problems. This entry describes mine.
 
 ## Abstraction
@@ -119,7 +152,7 @@ See: [Composable Design Patterns Interactive AI Notebook](https://notebooklm.goo
 The [Interpreter](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) required its own series.
 It moves from language theory to production through a single evolving example.
 
-Interpreter allows software developers to design and implement their own Domain-Specific Languages (DSLs). Interpreter is not just the pinnacle of Composable Design Patterns, but I feel it shares the top spot of all design patterns along with the Visitor Design Pattern.
+Interpreter allows software developers to design and implement their own Domain-Specific Languages (DSLs). Interpreter is not just the pinnacle of Composable Design Patterns, but it shares the top spot of all design patterns along with the Visitor Design Pattern.
 
 Interpreter is not a difficult pattern to design or implement, but it's a difficult pattern to comprehend. Interpreter required multiple blog entries to do it justice. 
 
@@ -140,7 +173,7 @@ It showcases how different [Essential Design Patterns](#design-patterns) can wor
 
 * [Hexagonal Architecture Introduction](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html)  - Introduces Hexagonal Architecture
 * [Hexagonal Architecture - Structure](https://jhumelsine.github.io/2023/10/28/hexagonal-architecture-structure.html) - This describes the structure of the Hexagonal Architecture design, and how it's really a pattern of design patterns
-* [Hexagonal Architecture - Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html) - This describes why I feel that the Hexagonal Architecture design works so well. It's based upon dependency and knowledge management. I feel that dependency and knowledge management applies to all OO based designs, and not just within the context of Hexagonal Architecture.
+* [Hexagonal Architecture - Why it works](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html) - This describes why I feel that the Hexagonal Architecture design works so well. It's based upon dependency and knowledge management. Dependency and knowledge management applies to all OO based designs, and not just within the context of Hexagonal Architecture.
 * [Hexagonal Architecture - How it compares and contrasts with Clean Architecture](https://jhumelsine.github.io/2023/11/13/hexagonal-architecture-clean-architecture.html) - The two designs are mostly the same, but there are some differences worth pointing out
 * [Hexagonal Architecture - Adapter Flexibility](https://jhumelsine.github.io/2023/11/30/hexagonal-architecture-adapter-flexibility.html) - We have quite a bit of flexibility with this design in the Adapter layer
 
@@ -191,7 +224,7 @@ Prompt Engineering Patterns are the key to getting the best results from Generat
 ## Interactive AI Notebooks (Google NotebookLM)
 I have created interactive AI notebooks for several of my blog series. Each provides an AI interactive experience with some of my central themes. There are several artifacts including an AI generated two-host podcast formatted summary. You can also interact with the generated AI hosts to some degree.
 
-__NOTE:__ I think that a Google account may be required to access Google NotebookLM.
+__NOTE:__ A Google account may be required to access Google NotebookLM.
 
 Interactive AI Notebooks:
 * [Abstraction](https://notebooklm.google.com/notebook/94884f00-c719-471f-87f6-9225b67922be?_gl=1*1dhb7x1*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzEkdDE3NDk1NjEzMjQkajYwJGwwJGgw)
@@ -279,6 +312,7 @@ Play with the implementation. Add tests. Refactor the demo. Copy the demo into G
     * [Prototype Shape Rendering Use Case](https://jhumelsine.github.io/2025/12/30/prototype-use-case.html#complete-demo-code), which featured a Shape Rendering example demonstrating how Prototype and Composite can work together.
 
 ## Statistics
+This started as a retirement project. It quietly became something else.
 
 <table border="1">
   <thead>
@@ -331,7 +365,7 @@ Play with the implementation. Add tests. Refactor the demo. Copy the demo into G
       <td style="text-align: right;">98</td>
       <td><a href="https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html">Specification Design Pattern – Allow a Client to select or filter objects with specific attribute property values as specified by the Client.
 </a></td>
-      <td>Specification is from early 2024, but it was by far the most viewed page. I think it's in first page results of a few search engines.
+      <td>Specification is from early 2024, but it was by far the most viewed page. It's in first page results of a few search engines.
       </td>
     </tr>
     <tr>
