@@ -74,7 +74,7 @@ Design Patterns are not technically challenging, but they do require a slight pa
 See: [Design Pattern Foundations AI Agent](https://notebooklm.google.com/notebook/ec8ed593-cd93-4a65-8615-2233bef3d910?_gl=1*u5eebw*_ga*NjM2MjkwMzI5LjE3NDg1MzE4MjM.*_ga_W0LDH41ZCB*czE3NDk1NjA5MjQkbzUkZzAkdDE3NDk1NjA5MjQkajYwJGwwJGgw)
 
 # Design Patterns and Architecture
-**NOTE**: Some patterns appear in multiple groups.
+Patterns are grouped in cohesive groups, often as a series where the next pattern builds upon the previous one. They are not grouped by a rigid taxonomy. Some patterns naturally belong in more than one category, since the cohesive groups don't have strict boundaries, and there's some degree of overlap.
 
 ## Essential Design Patterns
 The Seven [Essential Design Patterns](https://jhumelsine.github.io/2023/09/07/essential-design-patterns.html) are the design patterns that will be used repeatedly in designs. They are the hammer and screwdriver of a software developers design pattern toolbox.
