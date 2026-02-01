@@ -290,6 +290,7 @@ Play with the implementation. Add tests. Refactor the demo. Copy the demo into G
 **NOTE:** While developing this section, it became obvious to me that I had not provided as many complete code demos as I should have. I will slowly add them retroactively and provide references here when provided. I may also reorganize the list once it gets more content.
 
 * [Command Design Pattern](https://jhumelsine.github.io/2023/09/18/command-design-pattern.html#complete-demo-code)
+* [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html#complete-demo-code), even if ChatGPT thinks it's a better example for Command.
 * [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html#references), which includes a Circuit Design implementation for the design featured in the blog.
 * [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html#complete-demo-code)
 * I featured a **Rational Expression Evaluator** as a use case example in the [Interpreter Design Pattern](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) series. I developed the evaluator across several Interpreter blogs:
