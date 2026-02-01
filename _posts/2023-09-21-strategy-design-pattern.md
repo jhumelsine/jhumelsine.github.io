@@ -102,3 +102,124 @@ Here are some resources that can be purchased or are included in a subscription 
 * Agile Principles, Patterns, and Practices in C#, Chapter 22 ([O'Reilly](https://learning.oreilly.com/library/view/agile-principles-patterns/0131857258/) and [Amazon](https://www.amazon.com/Agile-Principles-Patterns-Practices-C/dp/0131857258))
 * Clean Code: Design Patterns, Episode 27 video ([Clean Coders](https://cleancoders.com/episode/clean-code-episode-27) and [O'Reilly](https://learning.oreilly.com/videos/clean-code-fundamentals/9780134661742/9780134661742-code_03_27_00/))
 * Head First Design Patterns ([O'Reilly](https://learning.oreilly.com/library/view/head-first-design/9781492077992/ch01.html) and [Amazon](https://www.amazon.com/Head-First-Design-Patterns-Object-Oriented-ebook/dp/B08P3X99QP))
+
+# Complete Demo Code
+Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. Copy and paste the code into Generative AI for analysis and comments.
+
+I wrote this demo code two and a half years after writing this blog. I asked ChatGPT for comments. It told me that it was closer to the [Command Design Pattern](https://jhumelsine.github.io/2023/09/18/command-design-pattern.html) than Strategy. Its main suggestion was to declare this Strategy interface:
+```java
+interface DrawStrategy {
+    void draw(ShapeData data);
+}
+```
+
+The main difference is that my Strategy interface defines `Shape`. Other than that, they're the same. I think my version still demonstrates multiple implementations for the same interface, so I'm sticking with it.
+
+```java
+import java.util.*;
+
+public class StrategyDemo {
+    public static void main(String[] args) throws Exception {
+        Test.test();
+
+        ComputerAidedDesign cad = new ComputerAidedDesign();
+
+        cad.add(new Circle());
+        cad.add(new Triangle());
+        cad.add(new Rectangle());
+
+        cad.render();
+    }
+
+}
+
+class ComputerAidedDesign {
+    private List<Shape> shapes = new LinkedList<>();
+
+    public void render() {
+        for (Shape shape : shapes) {
+            shape.draw();
+        }
+    }
+
+    public void add(Shape shape) {
+        shapes.add(shape);
+    }
+
+}
+
+////////// STRATEGY CONTRACT /////////
+interface Shape {
+    void draw();
+}
+
+////// STRATEGY CONCRETE CLASSES /////
+
+class Circle implements Shape {
+    @Override
+    public void draw() {
+        System.out.println("Draw a Circle");
+    }
+}
+
+class Triangle implements Shape {
+    @Override
+    public void draw() {
+        System.out.println("Draw a Triangle");
+    }
+}
+
+class Rectangle implements Shape {
+    @Override
+    public void draw() {
+        System.out.println("Draw a Rectangle");
+    }
+}
+
+/////////////// TESTS ////////////////
+
+class TestDoubleShape implements Shape {
+    private boolean isDrawn = false;
+
+    @Override
+    public void draw() {
+        isDrawn = true;
+    }
+
+    public boolean isDrawn() {
+        return isDrawn;
+    }
+}
+
+class Test {
+    public static void test() throws Exception {
+        drawsShapes();
+
+        System.out.println("Tests Passed");
+    }
+
+    private static void drawsShapes() throws Exception {
+        // Given
+        ComputerAidedDesign cad = new ComputerAidedDesign();
+        TestDoubleShape shape1 = new TestDoubleShape();
+        cad.add(shape1);
+        TestDoubleShape shape2 = new TestDoubleShape();
+        cad.add(shape2);
+
+        // When
+        cad.render();
+
+        // Then
+        assertEquals(true, shape1.isDrawn());
+        assertEquals(true, shape2.isDrawn());
+    }
+
+    private static void assertEquals(boolean expected, boolean actual) throws Exception {
+        if (expected != actual) {
+            System.out.format("expected=%b, actual=%b\n", expected, actual);
+            throw new Exception();
+        }
+    }
+}
+
+```
