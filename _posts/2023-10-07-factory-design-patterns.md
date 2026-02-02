@@ -61,6 +61,8 @@ The GoF tend to feature the Factory Method technique, but I prefer the Factory C
 * I prefer the separation of concerns with this design. The interface [contract](https://jhumelsine.github.io/2025/06/10/contracts.html) and its concrete implementations are separate from the mechanism that creates the object instances.
 
 <img src="/assets/FactoryClass.png" alt="Factory Class" width = "90%" align="center" style="padding-right: 20px;">
+
+A complete code example is provided at [Complete Demo Code](#complete-demo-code).
  
 ## Abstract Factory
 [Abstract Factory](https://jhumelsine.github.io/2025/07/30/abstract-factory.html) is the first one you encounter in detail when reading the GoF book. It’s a bit overwhelming as the first pattern encountered. I’ve presented it here as a modification to the Factory Class:
@@ -175,3 +177,55 @@ Here are some resources that can be purchased or are included in a subscription 
 * Agile Principles, Patterns, and Practices in C#, Chapter 29 ([O'Reilly](https://learning.oreilly.com/library/view/agile-principles-patterns/0131857258/) and [Amazon](https://www.amazon.com/Agile-Principles-Patterns-Practices-C/dp/0131857258))
 * Clean Code: Design Patterns, Episode 26 video ([Clean Coders](https://cleancoders.com/episode/clean-code-episode-26) and [O'Reilly](https://learning.oreilly.com/videos/clean-code-fundamentals/9780134661742/9780134661742-code_03_26_00/))
 * Head First Design Patterns, Chapter 4 ([O'Reilly](https://learning.oreilly.com/library/view/head-first-design/9781492077992/ch04.html) and [Amazon](https://www.amazon.com/Head-First-Design-Patterns-Object-Oriented-ebook/dp/B08P3X99QP))
+
+# Complete Demo Code
+Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. Copy and paste the code into Generative AI for analysis and comments.
+```java
+public class FactoryDemo {
+    public static void main(String[] args) throws Exception {
+        try {
+            MyInterface referenceA = MyInterfaceFactory.acquire("A");
+            referenceA.doThis();
+
+            MyInterface referenceB = MyInterfaceFactory.acquire("B");
+            referenceB.doThis();
+
+            MyInterface referenceC = MyInterfaceFactory.acquire("C");
+            referenceC.doThis();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+///// MyInterface Contract ////
+interface MyInterface {
+    void doThis();
+}
+
+///// Factory that returns a MyInterface reference based upon kind /////
+class MyInterfaceFactory {
+    public static MyInterface acquire(String kind) throws Exception {
+        switch (kind) {
+            case "A": return new MyClassA();
+            case "B": return new MyClassB();
+            default: throw new Exception(String.format("Unsupported kind=%s", kind));
+        } 
+    }
+}
+
+///// MyInterface Concrete Classes //////
+class MyClassA implements MyInterface {
+    @Override
+    public void doThis() {
+        System.out.println("Doing This from MyClassA.");
+    }
+}
+
+class MyClassB implements MyInterface {
+    @Override
+    public void doThis() {
+        System.out.println("Doing This Other Thing from MyClassB.");
+    }
+}
+```
