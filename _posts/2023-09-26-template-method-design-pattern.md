@@ -44,6 +44,8 @@ In this example:
  
 Imagine how this would be updated to make `HotCocoa`. Assume that the Cocoa powder does not require heated milk. What would be the condiments?
 
+A complete implementation can be found at: [Complete Demo Code](#complete-demo-code).
+
 # Situations Where Template Method Could Be Useful
 Template Method manages more implementation than the Command and Strategy design patterns. There are some behaviors that the client application cannot avoid. For example, in the `HotDrink` example above there are exactly four steps, and the extended classes are unable to affect them.
 
@@ -143,3 +145,86 @@ Here are some resources that can be purchased or are included in a subscription 
 * Agile Principles, Patterns, and Practices in C#, Chapter 22 ([O'Reilly](https://learning.oreilly.com/library/view/agile-principles-patterns/0131857258/) and [Amazon](https://www.amazon.com/Agile-Principles-Patterns-Practices-C/dp/0131857258))
 * Clean Code: Design Patterns, Episode 27 video ([Clean Coders](https://cleancoders.com/episode/clean-code-episode-27) and [O'Reilly](https://learning.oreilly.com/videos/clean-code-fundamentals/9780134661742/9780134661742-code_03_27_00/))
 * Head First Design Patterns, Chapter 8 ([O'Reilly](https://learning.oreilly.com/library/view/head-first-design/9781492077992/ch08.html) and [Amazon](https://www.amazon.com/Head-First-Design-Patterns-Object-Oriented-ebook/dp/B08P3X99QP))
+
+# Complete Demo Code
+Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. Copy and paste the code into Generative AI for analysis and comments.
+
+```java
+public class TemplateMethodDemo {
+    public static void main(String[] args) throws Exception {
+        System.out.println("Making a cup of coffee");
+        Coffee coffee = new Coffee();
+        coffee.makeRecipe();
+        System.out.println();
+
+        System.out.println("Making a cup of tea");
+        Tea tea = new Tea();
+        tea.makeRecipe();
+        System.out.println();
+
+        System.out.println("Making a mug of hot cocoa");
+        HotCocoa hotCocoa = new HotCocoa();
+        hotCocoa.makeRecipe();
+    }
+
+}
+
+////////// HOT DRINK TEMPLATE METHOD FRAMEWORK CONTRACT /////////
+abstract class HotDrink {
+    public final void makeRecipe() {
+        boilWater();
+        brew();
+        pourInCup();
+        addCondiments();
+    }
+
+    private final void boilWater() {
+        System.out.println("Boil Water");
+    }
+
+    abstract protected void brew();
+
+    private final void pourInCup() {
+        System.out.println("Pour In Cup");
+    }
+
+    abstract protected void addCondiments();
+}
+
+/////// HOT DRINK CONCRETE CLASSES //////
+class Coffee extends HotDrink {
+    @Override
+    public void brew() {
+        System.out.println("Brew Coffee");
+    }
+
+    @Override
+    public void addCondiments() {
+        System.out.println("Add cream and sugar");
+    }
+}
+
+class Tea extends HotDrink {
+    @Override
+    public void brew() {
+        System.out.println("Steep Tea");
+    }
+
+    @Override
+    public void addCondiments() {
+        System.out.println("Add lemon and sugar");
+    }
+}
+
+class HotCocoa extends HotDrink {
+    @Override
+    public void brew() {
+        System.out.println("Add hot cocoa powder mix to hot water");
+    }
+
+    @Override
+    public void addCondiments() {
+        System.out.println("Add mini marshmallows");
+    }
+}
+```
