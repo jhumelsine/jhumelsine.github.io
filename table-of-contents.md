@@ -289,12 +289,13 @@ Play with the implementation. Add tests. Refactor the demo. Copy the demo into G
 
 **NOTE:** While developing this section, it became obvious to me that I had not provided as many complete code demos as I should have. I will slowly add them retroactively and provide references here when provided. I may also reorganize the list once it gets more content.
 
-* [Command Design Pattern](https://jhumelsine.github.io/2023/09/18/command-design-pattern.html#complete-demo-code)
+* [Command Design Pattern](https://jhumelsine.github.io/2023/09/18/command-design-pattern.html#complete-demo-code), which includes an example using [Runnable](https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html) and [ExecutorService](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html).
 * [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html#complete-demo-code), even if ChatGPT thinks it's a better example for Command.
 * [Template Method Design Pattern](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html#complete-demo-code), which includes the Hot Drink Template Method to create Coffee, Tea and Hot Cocoa.
 * [Adapter Design Pattern](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html#complete-demo-code), which includes code examples for both Object Adapter and Class Adapter variants.
+* [Factory Design Pattern](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#complete-demo-code), which includes a simple static class Factory.
 * [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html#references), which includes a Circuit Design implementation for the design featured in the blog.
-* [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html#complete-demo-code)
+* [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html#complete-demo-code), which includes several hand-crafted Test Doubles.
 * I featured a **Rational Expression Evaluator** as a use case example in the [Interpreter Design Pattern](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) series. I developed the evaluator across several Interpreter blogs:
     * [Rational Expression Evaluator Grammar Rules](https://jhumelsine.github.io/2024/04/02/interpreter-design-pattern-grammars.html#rational-number-evaluator-grammar-use-case), which define the grammar for my rational expression evaluator example.
     * [Rational Expression Evaluator Grammar to Design](https://jhumelsine.github.io/2024/04/07/interpreter-design-pattern-design.html#grammar-to-design-via-use-case), which defines an OO design that emerges directly from the grammar.
