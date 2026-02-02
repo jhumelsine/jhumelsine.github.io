@@ -292,6 +292,7 @@ Play with the implementation. Add tests. Refactor the demo. Copy the demo into G
 * [Command Design Pattern](https://jhumelsine.github.io/2023/09/18/command-design-pattern.html#complete-demo-code)
 * [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html#complete-demo-code), even if ChatGPT thinks it's a better example for Command.
 * [Template Method Design Pattern](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html#complete-demo-code), which includes the Hot Drink Template Method to create Coffee, Tea and Hot Cocoa.
+* [Adapter Design Pattern](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html#complete-demo-code), which includes code examples for both Object Adapter and Class Adapter variants.
 * [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html#references), which includes a Circuit Design implementation for the design featured in the blog.
 * [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html#complete-demo-code)
 * I featured a **Rational Expression Evaluator** as a use case example in the [Interpreter Design Pattern](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) series. I developed the evaluator across several Interpreter blogs:
