@@ -52,6 +52,8 @@ Neither is necessarily better or worse than the other. Both mechanisms have thei
 
 Regardless of the technique, Adapter allows two classes to communicate when they are not designed to communicate. In our scenario, the `Client` ultimately wants to access `Service`, but `Service` doesn’t fit in the `Client`/`Target` ecosystem. Adapters are translators. They translate the nomenclature of the `Client` with the nomenclature of the `Service`.
 
+Implementations for both Adapters can be found at [Complete Demo Code](#complete-demo-code).
+
 ### Object Adapter
 The Object Adapter is based upon composition and delegation. Here are the basic elements:
 * `Target` is the interface contract. It declares `request()`.
@@ -102,3 +104,68 @@ Here are some resources that can be purchased or are included in a subscription 
 * Agile Principles, Patterns, and Practices in C#, Chapter 33 ([O'Reilly](https://learning.oreilly.com/library/view/agile-principles-patterns/0131857258/) and [Amazon](https://www.amazon.com/Agile-Principles-Patterns-Practices-C/dp/0131857258))
 * Clean Code: Design Patterns, Episode 34 video ([Clean Coders](https://cleancoders.com/episode/clean-code-episode-34) and [O'Reilly](https://learning.oreilly.com/videos/clean-code-fundamentals/9780134661742/9780134661742-code_03_34_00/))
 * Head First Design Patterns, Chapter 7 ([O'Reilly](https://learning.oreilly.com/library/view/head-first-design/9781492077992/ch07.html#adapter_pattern_defined) and [Amazon](https://www.amazon.com/Head-First-Design-Patterns-Object-Oriented-ebook/dp/B08P3X99QP))
+
+# Complete Demo Code
+Here are both Adapter implementations up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. Copy and paste the code into Generative AI for analysis and comments.
+
+## Object Adapter
+```java
+public class ObjectAdapterDemo {
+    public static void main(String[] args) throws Exception {
+        Target target = new Adapter();
+        target.request();
+    }
+}
+
+///// Target Interface Contract ////
+interface Target {
+    void request();
+}
+
+///// Adapter honors Target's Contract by delegating to Service /////
+class Adapter implements Target {
+    private Service service = new Service();
+
+    @Override
+    public void request() {
+        service.action();
+    }
+}
+
+///// Service is mostly external to the pattern //////
+class Service {
+    public void action() {
+        System.out.println("Perform Service's action.");
+    }
+}
+```
+
+## Class Adapter
+```java
+public class ClassAdapterDemo {
+    public static void main(String[] args) throws Exception {
+        Target target = new Adapter();
+        target.request();
+    }
+}
+
+///// Target Interface Contract ////
+interface Target {
+    void request();
+}
+
+///// Adapter honors Target's Contract by being a Service /////
+class Adapter extends Service implements Target {
+    @Override
+    public void request() {
+        action();
+    }
+}
+
+///// Service is mostly external to the pattern //////
+class Service {
+    public void action() {
+        System.out.println("Perform Service's action.");
+    }
+}
+```
