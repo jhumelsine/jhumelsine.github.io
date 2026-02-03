@@ -108,6 +108,8 @@ And here’s how I could test the Exception case. I would not have needed to cha
 <img src="/assets/DependencyInjectionTesting.png" alt="Dependency Injection Testing" width = "95%" align="center" style="padding-right: 20px;">
  
 There’s a lot in both diagrams. I need to clarify some details.
+
+A complete implementation can be found at [Complete Demo Code](#complete-demo-code).
 ## `MyInterface` and `ClientApplication`
 `MyInterface` is the same in all these diagrams in this blog. It's an interface [contract](https://jhumelsine.github.io/2025/06/10/contracts.html). It has no external knowledge of how it's used or how it's implemented.
 
@@ -238,3 +240,188 @@ Here are some free resources:
 Here are some resources that can be purchased or are included in a subscription service:
 * **API Design in C++** Chapter 3 by Martin Reddy ([O'Reilly](https://learning.oreilly.com/library/view/api-design-for/9780123850034/xhtml/chp003.xhtml) and [Amazon](https://www.amazon.com/API-Design-C-Martin-Reddy/dp/0123850037/))
 * **Clean Architecture** Chapter 11 by Robert Martin ([O'Reilly](https://learning.oreilly.com/library/view/clean-architecture-a/9780134494272/ch11.xhtml) and [Amazon](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164/))
+
+# Complete Demo Code
+Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. Copy and paste the code into Generative AI for analysis and comments.
+```java
+public class DependencyInjectionDemo {
+    public static void main(String[] args) throws Exception {
+        Test.test();
+
+        try {
+            // These constructor invocations act as Configurers.
+
+            ClientApplication clientApplicationA = new ClientApplication(MyInterfaceFactory.acquire("A"));
+            clientApplicationA.execute();
+
+            ClientApplication clientApplicationB = new ClientApplication(MyInterfaceFactory.acquire("B"));
+            clientApplicationB.execute();
+
+            // Included to illustrate that we can still have configuration issues.
+            ClientApplication clientApplicationC = new ClientApplication(MyInterfaceFactory.acquire("C"));
+            clientApplicationC.execute();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+// Client Application only depends upon the interface.
+// It has no dependencies upon any concrete classes, not even indirectly via a Factory.
+class ClientApplication {
+    private MyInterface myInterface;
+
+    public ClientApplication(MyInterface myInterface) {
+        this.myInterface = myInterface;
+    }
+
+    public void execute() throws Exception {
+        myInterface.doThis();
+    }
+
+}
+
+// The MyInterface code is identical to the example in the Factory blog,
+// except for the additional Exception declaration.
+// Dependency Injection does not exclude the Factory.
+// It extends the abilities with the Factory, especially adding the ability
+// to test the ClientApplication.
+// The Factory is now a convenience. Dependency Injection uses it, but it is
+// not tightly coupled to it. The Dependency Injection design supports
+// a MyInterface reference from any origin, Factory, Spring or otherwise.
+// We'll see an example of this in the test.
+
+///// MyInterface Contract ////
+interface MyInterface {
+    void doThis() throws Exception;
+}
+
+///// Factory that returns a MyInterface reference based upon kind /////
+class MyInterfaceFactory {
+    public static MyInterface acquire(String kind) throws Exception {
+        switch (kind) {
+            case "A": return new MyClassA();
+            case "B": return new MyClassB();
+            default: throw new Exception(String.format("Unsupported kind=%s", kind));
+        } 
+    }
+}
+
+///// MyInterface Concrete Classes //////
+class MyClassA implements MyInterface {
+    @Override
+    public void doThis() {
+        System.out.println("Doing This from MyClassA.");
+    }
+}
+
+class MyClassB implements MyInterface {
+    @Override
+    public void doThis() {
+        System.out.println("Doing This Other Thing from MyClassB.");
+    }
+}
+
+/////////////// TESTS ////////////////
+
+// Using Dependency Injection allows us to easily test ClientApplication
+// since we can inject a Test Double for MyInterface. This is something
+// That was not easy to do in the previous Factory blog code.
+//
+// The first test confirms that an Exception is passed up to ClientApplication.
+// If ClientApplication had more behaviors, it most likely would have caught
+// and handled the Exception. But since ClientApplication is barebones, this
+// test mostly demonstrates how a potentially difficult to induce Exception
+// can be easily injected into a test.
+//
+// In the second test, MyInterfaceTestDoubleSpy only records that it's
+// been executed when doThis() has been called. No other behavior needs
+// to be emulated.
+//
+// NOTE: The tests do not use the Factory. This reinforces the claim
+// that ClientApplication has no knowledge of nor depends upon the Factory.
+// We could change the Factory to another creation pattern if desired without
+// affecting ClientApplication or this test. Only the Configurer code would
+// be affected, since it will resolve the MyInterface reference via a different
+// mechanism.
+//
+// The tests below, injects the test doubles, calls clientApplication.execute() and
+// confirms that an Exception was thrown or the spy was called.
+//
+// These is not great tests, since they are confirming implementation rather
+// than behavior, but there is no meaningful behavior to confirm in this
+// demo.
+//
+// More details on Test Doubles, Exceptions, Spys, Behavior, etc. are provided
+// in the Automated Testing blog series.
+//
+// Dependency Injection doesn’t just make success easier to test.
+// It makes failure cheap, precise, and intentional.
+
+class MyInterfaceTestDoubleSpy implements MyInterface {
+    private boolean isExecuted = false;
+
+    @Override
+    public void doThis() {
+        isExecuted = true;
+    }
+
+    public boolean isExecuted() {
+        return isExecuted;
+    }
+}
+
+class Test {
+    public static void test() throws Exception {
+        testExceptionPropagation();
+        testClientApplication();
+
+        System.out.println("Tests Passed");
+    }
+
+    private static void testExceptionPropagation() throws Exception {
+        // Given
+        ClientApplication clientApplication = new ClientApplication(new MyInterface() {
+            @Override
+            public void doThis() throws Exception {
+                throw new Exception("Throwing an exception");
+            }
+        });
+
+        try {
+            // When
+            clientApplication.execute();
+            throw new Exception("Should not reach this statement. Thrown exception expected.");
+        } catch (Exception e) {
+            // Then
+            assertEquals("Throwing an exception", e.getMessage());
+        }
+    }
+
+    private static void testClientApplication() throws Exception {
+        // Given
+        MyInterfaceTestDoubleSpy myInterfaceTestDoubleSpy = new MyInterfaceTestDoubleSpy();
+        ClientApplication clientApplication = new ClientApplication(myInterfaceTestDoubleSpy);
+
+        // When
+        clientApplication.execute();
+
+        // Then
+        assertEquals(true, myInterfaceTestDoubleSpy.isExecuted());
+    }
+
+    private static void assertEquals(boolean expected, boolean actual) throws Exception {
+        if (expected != actual) {
+            System.out.format("expected=%b, actual=%b\n", expected, actual);
+            throw new Exception();
+        }
+    }
+
+    private static void assertEquals(String expected, String actual) throws Exception {
+        if (!expected.equals(actual)) {
+            System.out.format("expected=%s, actual=%s\n", expected, actual);
+            throw new Exception();
+        }
+    }
+}
+```
