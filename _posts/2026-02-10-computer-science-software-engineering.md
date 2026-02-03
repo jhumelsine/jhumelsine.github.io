@@ -46,6 +46,18 @@ I hope so.
 
 _In science if you know what you are doing you should not be doing it. In engineering if you do not know what you are doing you should not be doing it._ — Richard Hamming
 
+Computer Science addresses well defined problems of bounded scope/domain that don't tend to change over time.
+These problems tend to have provable solutions.
+I'm specifically thinking of things like data structures, algorithms, discrete mathematics, programming language design, etc.
+
+Software Engineering addresses vaguely defined problems of fuzzier scope/domain that do tend to change over time.
+These problems tend to have testable solutions.
+I'm specifically thinking of applications that paying customers request.
+
+Computer Science is a hard science. Its hard science cousin would be mathematics.
+
+Software Engineering is a soft science. It's about working with other people to solve problems often with computers. Its soft science cousin would be sociology, with maybe a bit of economics mixed in.
+
 # Summary
 TBD
 
@@ -55,15 +67,3 @@ TBD
 # NOTES
 
 https://www.youtube.com/watch?v=aIkqNiBASfI – George Carlin Baseball vs Football
-
-Computer Science addresses well defined problems of bounded scope/domain that don't tend to change over time. These problems tend to have provable solutions. I'm specifically thinking of things like data structures, algorithms, discrete mathematics, programming language design, etc.
-
-Software Engineering addresses vaguely defined problems of fuzzier scope/domain that do tend to change over time. These problems tend to have testable solutions. I'm specifically thinking of applications that paying customers request.
-
-Computer Science is how we get the computer to do what we want it to do.
-
-Software Engineering is how we get the computer to do what we think our customer wants it to do, and do it in such a way so that we or others on our team can easily change it when the customer sees what we've provided and they tell us that what we got the computer to do isn't exactly what they wanted it to do.
-
-Computer Science is a hard science. Its hard science cousin would be mathematics.
-
-Software Engineering is a soft science. It's about working with other people to solve problems often with computers. Its soft science cousin would be sociology, with maybe a bit of economics mixed in.
