@@ -294,6 +294,7 @@ Play with the implementation. Add tests. Refactor the demo. Copy the demo into G
 * [Template Method Design Pattern](https://jhumelsine.github.io/2023/09/26/template-method-design-pattern.html#complete-demo-code), which includes the Hot Drink Template Method to create Coffee, Tea and Hot Cocoa.
 * [Adapter Design Pattern](https://jhumelsine.github.io/2023/09/29/adapter-design-pattern.html#complete-demo-code), which includes code examples for both Object Adapter and Class Adapter variants.
 * [Factory Design Pattern](https://jhumelsine.github.io/2023/10/07/factory-design-patterns.html#complete-demo-code), which includes a simple static class Factory.
+* [Dependency Injection Design Pattern](https://jhumelsine.github.io/2023/10/09/dependency-injection-design-pattern.html#complete-demo-code), which expands upon the Factory example by injecting the Factory acquired interface reference into the application, which allows us to easily test the application.
 * [My Design Process](https://jhumelsine.github.io/2024/05/28/design-process.html#references), which includes a Circuit Design implementation for the design featured in the blog.
 * [Test Doubles](https://jhumelsine.github.io/2024/07/02/test-doubles.html#complete-demo-code), which includes several hand-crafted Test Doubles.
 * I featured a **Rational Expression Evaluator** as a use case example in the [Interpreter Design Pattern](https://jhumelsine.github.io/2024/03/12/interpreter-design-pattern-introduction.html) series. I developed the evaluator across several Interpreter blogs:
