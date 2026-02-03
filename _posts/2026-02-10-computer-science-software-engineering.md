@@ -5,7 +5,19 @@ unlisted: true
 ---
 
 # Introduction
-TBD
+I mentor several Computer Science undergraduates attending the university where I received my Bachelors in Computer Science almost 45 years ago.
+
+Many of them ask me the same questions about internships, getting their first job and onboarding. Addressing these questions will be my next series about your career. I think the final blog entry of the series already exists, which I wrote about a year and a half ago with [Losing Your Job Stinks](https://jhumelsine.github.io/2024/08/11/jobsearch.html).
+
+This series won't be as technical as other blogs. It will represent my own opinions career development and I know that many others will have their own opinions as well. My opinions may be out of date, since [Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) was just coming onto the scene when I retired in 2023.
+
+I plan to include the following in this series. This is just a working list. None of these are set in stone yet:
+* Getting an Internship (TBD)
+* Getting Your First Job (TBD)
+* Onboarding (TBD)
+* Your Career Journey (TBD)
+* [Losing Your Job Stinks](TBD)
+* Retiring (TBD)
 
 # Summary
 TBD
