@@ -1,6 +1,6 @@
 ---
 title: WORK IN PROGRESS – Career Path Introduction
-description: Computer Science and Software Engineering
+description: You studied Computer Science, but your career will be Software Engineering
 unlisted: true
 ---
 
@@ -118,7 +118,7 @@ Throughout my career I had to pick up new technology, such as:
 * [Containers](https://en.wikipedia.org/wiki/Containerization_(computing))
 * [NoSQLs](https://en.wikipedia.org/wiki/NoSQL)
 
-But there's more than changes to technology too. 
+But there's more than changes to technology too. Since Software Engineering is ....
 
 Software Engineering is a soft science. It's about working with other people to solve problems often with computers. Its soft science cousin would be sociology, with maybe a bit of economics mixed in.
 
