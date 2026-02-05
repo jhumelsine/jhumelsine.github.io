@@ -146,7 +146,7 @@ None of these are set in stone yet:
 * Getting Your First Job (TBD)
 * Onboarding (TBD)
 * Your Career Journey (TBD)
-* [Losing Your Job Stinks](TBD)
+* [Losing Your Job Stinks](https://jhumelsine.github.io/2024/08/11/jobsearch.html)
 * Retiring (TBD)
 
 # Summary
