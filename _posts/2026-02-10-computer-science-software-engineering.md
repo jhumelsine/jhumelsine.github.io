@@ -1,5 +1,5 @@
 ---
-title: WORK IN PROGRESS – You Studied Computer Science. Your Career Will Be Software Engineering.
+title: DRAFT OPEN FOR REVIEW AND COMMENTS – You Studied Computer Science. Your Career Will Be Software Engineering.
 description: An Introduction to a Software Engineering Career Path
 unlisted: true
 ---
@@ -41,7 +41,7 @@ They tend to be relatively small, well defined, static, implemented completely b
 They tend to be large, a bit ill-defined, dynamic, implemented by teams and require constant maintenance.
 
 **Computer Science** is about technology and mathematical rigor. It focuses upon precision, correctness, and individual mastery. 
-**Software Engineering** is about communication with others. It's a social science. It manages coordination, change and ambiguity.
+**Software Engineering** is about communication with others. It's a social science. It manages coordination, change, and ambiguity.
 
 One needs some knowledge of **Computer Science** to practice **Software Engineering**.
 They are related yet different disciplines.
@@ -125,7 +125,7 @@ Throughout my career I had to pick up new technology, such as:
 * [Containers](https://en.wikipedia.org/wiki/Containerization_(computing))
 * [NoSQLs](https://en.wikipedia.org/wiki/NoSQL)
 
-But there's more than changes to technology too.
+But Software Engineering involves more than just changing technology.
 Software Engineering is a social endeavor.
 It involves process, patterns, policies and practices such as:
 * [Design Patterns](https://jhumelsine.github.io/table-of-contents#design-patterns-and-architecture), which has been a major topic in my blog
@@ -162,4 +162,4 @@ Learning more about computers in college only reinforced my desire.
 But when I started my career at 24, I started to realize that industry wasn't exactly like college.
 This wasn't necessarily bad.
 It meant that there was a whole new world of computers and software out there ready for me to learn about and explore.
-Most new Software Engineers will take a similar journey.
+Most new Software Engineers will take a similar journey, even if it doesn’t look exactly the same.
