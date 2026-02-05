@@ -7,12 +7,12 @@ unlisted: true
 # Introduction
 I mentor several Computer Science undergraduates attending the university where I received my Bachelor's degree in Computer Science almost 45 years ago.
 
-I keep getting the same questions: How do I get an internship? How do I land my first job? What happens when I start?
+I keep getting the same questions: _How do I get an internship? How do I land my first job? What happens when I start?_
 Addressing these career path questions will be the theme of my next series.
 One of the entries already exists, which I wrote about a year and a half ago with [Losing Your Job Stinks](https://jhumelsine.github.io/2024/08/11/jobsearch.html).
 
 This series focuses upon career advice.
-It won't be as technical.
+It won't be technical.
 It's based upon my own lived experiences.
 Since each person's journey is unique, my advice is not universal.
 Others will have their own opinions and advice, some of which may conflict with mine.
@@ -97,7 +97,7 @@ Computer Science is a hard science. Its closest hard-science cousin would be mat
 ## Software Engineering Problems
 Software Engineering addresses vaguely defined problems with fuzzier scope/domain that do tend to change over time.
 These problems are too complex for proofs, but tend to rely upon testing to gain confidence that they solve customer problems.
-I'm specifically thinking of applications that paying customers request and pay for.
+I'm specifically thinking of applications that customers request and pay for.
 
 A Computer Science degree creates a good foundation, but a degree alone is insufficient for Software Engineering.
 **The degree is not the end of your education, it's the beginning.**
@@ -158,6 +158,8 @@ None of these are set in stone yet:
 I was fascinated with computers for about as long as I can remember.
 I knew I wanted a career with computers when I saw [my first real program](https://jhumelsine.github.io/about#about-jim) execute.
 Learning more about computers in college only reinforced my desire.
+
 But when I started my career at 24, I started to realize that industry wasn't exactly like college.
 This wasn't necessarily bad.
 It meant that there was a whole new world of computers and software out there ready for me to learn about and explore.
+Most new Software Engineers will take a similar journey.
