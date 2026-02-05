@@ -1,6 +1,6 @@
 ---
 title: WORK IN PROGRESS – Career Path Introduction
-description: You studied Computer Science, but your career will be Software Engineering
+description: You studied Computer Science, but your career will be in Software Engineering
 unlisted: true
 ---
 
@@ -23,7 +23,7 @@ My mentees' degrees will be in **Computer Science**. But what we practice in ind
 
 **Computer Science** and **Software Engineering** are related yet different.
 ***Computer Science is to Software Engineering and Chemistry is to Chemical Engineering***.
-They have a lot in common, but the former of each pair is about the science and the latter is about the application.
+They have a lot in common, but the former of each pair is the science and the latter is the application.
 
 **Computer Science** is how to get the computer to do what you want it to do.
 **Software Engineering** is how a group of people get the computer to do what they think the customer wants the computer to do in such a way that they can easily change it when the customer tells them that what it does isn't what they wanted.
@@ -32,14 +32,14 @@ In a **Computer Science** degree, you're usually expected and often required to 
 In a **Software Engineering** career, you're usually expected to work with a team.
 
 **Computer Science** programs tend to have a lifespan of one to two weeks.
-They tend to be relatively small, well defined, static, written completely by the student and once handed in, never revisted.
+They tend to be relatively small, well defined, static, implemented completely by the student and once handed in, never revisted.
 **Software Engineering** programs tend to have a lifespan of months to years to decades.
-They tend to be large, a bit ill-defined, dynamic, written by teams and require constant maintenance.
+They tend to be large, a bit ill-defined, dynamic, implemented by teams and require constant maintenance.
 
 **Computer Science** is about technology and mathematical rigor.
 **Software Engineering** is about communication with others. It's a social science.
 
-One needs some degree of **Computer Science** to practice **Software Engineering**.
+One needs some knowledge of **Computer Science** to practice **Software Engineering**.
 They are related yet different disciplines.
 I don't know that academia necessarily conveys that distinction these days.
 I think it's getting better with the introduction of **Software Engineering** courses, but I don't think academia has a full grasp on the distinction between **Computer Science** and **Software Engineering** quite yet.
@@ -52,7 +52,7 @@ These problems tend to have provable solutions.
 
 Typical problems and topics include data structures, algorithms, discrete mathematics, programming language design, etc.
 Computer Science curriculums introduce students to the entire computer tech stack from logic gates at the bottom up to applications at the top.
-I used to chuckle to myself that the title of every college Computer Science text book I had through my undergraduate degree (and some of my graduate degree) often began with _An Introduction to ..._.
+I used to chuckle to myself that the title of every college Computer Science text book I had through my undergraduate degree (and some of my graduate degree) often began with _An Introduction to ..._ .
 When were we going to get past the introduction?
 
 These are foundational concepts.
@@ -64,11 +64,11 @@ Most careers tend to narrow and focus upon a specific section of the tech stack.
 For most of us, I suspect it tends to be at the application layer.
 For others, it's lower in the stack.
 
-Knowledge of the operationg system is useful to an application developer, but it's usually not necessary.
+Knowledge of the operating system is useful to an application developer, but it's usually not necessary.
 Additional layers of abstraction, such as [Virtual Machines](https://en.wikipedia.org/wiki/Virtual_machine) and [Containers](https://en.wikipedia.org/wiki/Containerization_(computing)) make lower level details even less relevant.
 
 This lack of relevance doesn't restrict itself to tech stack layers.
-Data Structures was a major prerequesite course in the early 1980s.
+Data Structures was a major course in the early 1980s.
 If you needed a data structure, you had to build it yourself.
 Now almost every major data structure is either built into the language or available via a utility library.
 If not, then there's probably an open source library that provides it.
@@ -91,12 +91,12 @@ Computer Science is a hard science. Its hard science cousin would be mathematics
 **Sadly, the types of problems you learn to solve in academia are rarely the types of problems you'll encounter in your career.**
 
 ## Software Engineering Problems
-Software Engineering addresses vaguely defined problems of fuzzier scope/domain that do tend to change over time.
+Software Engineering addresses vaguely defined problems with fuzzier scope/domain that do tend to change over time.
 These problems are too complex for proofs, but tend to rely upon testing to gain confidence that they solve customer problems.
 I'm specifically thinking of applications that paying customers request and pay for.
 
 A Computer Science degree creates a good foundation, but a degree alone is insufficient for Software Engineering.
-A degree is not the end of your education, it's the beginning.
+The degree is not the end of your education, it's the beginning.
 
 The half-life for technology in the Computer Science field is about three to five years and possibly even shorter with the advent of [Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html).
 All technology I learned in college was mostly obsolete a decade or so into my career.
@@ -104,7 +104,7 @@ All technology I learned in college was mostly obsolete a decade or so into my c
 The primary programming language at my university was [PL/C](https://en.wikipedia.org/wiki/PL/C), which was a Cornell derived subset of [PL/I](https://en.wikipedia.org/wiki/PL/I), which stood for _Programming Language One_.
 We also had a brief foray into [Fortran](https://en.wikipedia.org/wiki/Fortran) 77.
 My Programming Languages course introduced us to [LISP](https://en.wikipedia.org/wiki/Lisp_(programming_language)), [SNOBOL](https://en.wikipedia.org/wiki/SNOBOL) and [APL](https://en.wikipedia.org/wiki/APL_(programming_language)), which always felt like reading Greek from right to left.
-The source language for my Compiler class was [Pascal](https://en.wikipedia.org/wiki/Pascal_(programming_language)), the new and upcoming programming language at the time.
+The source language for my Compiler class was [Pascal](https://en.wikipedia.org/wiki/Pascal_(programming_language)), which was the new and upcoming programming language at the time.
 
 The only courses that retained their relevance through my career were not technology intensive. These were the theory and general principle courses, such as [Graph Theory](https://en.wikipedia.org/wiki/Graph_theory), [Automata Theory](https://en.wikipedia.org/wiki/Automata_theory) and [Data Structures](https://en.wikipedia.org/wiki/Data_structure) and [Algorithms](https://en.wikipedia.org/wiki/Algorithm).
 Since they're based upon mathematical rigor, they tend to be evergreen.
@@ -118,12 +118,30 @@ Throughout my career I had to pick up new technology, such as:
 * [Containers](https://en.wikipedia.org/wiki/Containerization_(computing))
 * [NoSQLs](https://en.wikipedia.org/wiki/NoSQL)
 
-But there's more than changes to technology too. Since Software Engineering is ....
+But there's more than changes to technology too.
+Software Engineering is a social endevour.
+It involves process, patterns, policies and practices such as:
+* [Design Patterns](https://jhumelsine.github.io/table-of-contents#design-patterns-and-architecture), which has been a major topic in my blog
+* [Automated Testing](https://jhumelsine.github.io/table-of-contents#automated-testing), which has been another major topic
+* Modularity, Abstraction and a few other related concepts
+* Technical Debt and Cruft
+* Domain-Driven Design
+* Observability
+* Agile
+* and more
+
+I plan to blog about most of these topics in the future, but you don't have to wait for me.
+Many of these Software Engineering topics are covered by others through blogs, videos, podcasts, etc.
 
 Software Engineering is a soft science. It's about working with other people to solve problems often with computers. Its soft science cousin would be sociology, with maybe a bit of economics mixed in.
 
 # Career Path Series
-I plan to include the following in this series. This is just a working list. None of these are set in stone yet:
+The Computer Science and Software Engineering comparison sets the stage.
+I'll get to many of these additional topics eventually.
+For now, I plan to focus upon career path advice.
+Here is what I'm considering so far.
+This is just a working list. 
+None of these are set in stone yet:
 * Getting an Internship (TBD)
 * Getting Your First Job (TBD)
 * Onboarding (TBD)
@@ -132,7 +150,4 @@ I plan to include the following in this series. This is just a working list. Non
 * Retiring (TBD)
 
 # Summary
-TBD
-
-# References
 TBD
