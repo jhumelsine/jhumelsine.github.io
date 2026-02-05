@@ -1,6 +1,6 @@
 ---
 title: WORK IN PROGRESS – You Studied Computer Science. Your Career Will Be Software Engineering.
-description: An Introduction Toward a Career Path
+description: An Introduction to a Software Engineering Career Path
 unlisted: true
 ---
 
@@ -15,7 +15,7 @@ This series focuses upon career advice.
 It won't be as technical.
 It's based upon my own lived experiences.
 Since each person's journey is unique, my advice is not universal.
-Others will have their own advice opinions some of which may conflict with mine.
+Others will have their own opinions and advice, some of which may conflict with mine.
 Some of my advice may be losing its significance, since [Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) was just coming onto the scene when I retired in 2023.
 
 # Computer Science is not Software Engineering
@@ -27,7 +27,7 @@ My mentees' degrees will be in **Computer Science**. But what we practice in ind
 **Computer Science** and **Software Engineering** are related yet different.
 ***Computer Science is to Software Engineering and Chemistry is to Chemical Engineering***.
 They have a lot in common, but the former of each pair is the science and the latter is the application.
-Even professional blur this distinction.
+Even professionals blur this distinction.
 
 **Computer Science** is how you get the computer to do what you want it to do.
 **Software Engineering** is how a team gets the computer to do what they think the customer wants the computer to do in such a way that they can easily change it when the customer tells them that what it does isn't what they wanted.
@@ -40,7 +40,7 @@ They tend to be relatively small, well defined, static, implemented completely b
 **Software Engineering** programs tend to have a lifespan of months to years to decades.
 They tend to be large, a bit ill-defined, dynamic, implemented by teams and require constant maintenance.
 
-**Computer Science** is about technology and mathematical rigor. It focuses upon precision, correctness and individual mastery. 
+**Computer Science** is about technology and mathematical rigor. It focuses upon precision, correctness, and individual mastery. 
 **Software Engineering** is about communication with others. It's a social science. It manages coordination, change and ambiguity.
 
 One needs some knowledge of **Computer Science** to practice **Software Engineering**.
@@ -55,7 +55,7 @@ Computer Science addresses well defined problems of bounded scope/domain that do
 These problems tend to have provable solutions.
 
 Typical problems and topics include data structures, algorithms, discrete mathematics, programming language design, etc.
-Computer Science curriculums introduce students to the entire computer tech stack from logic gates at the bottom up to applications at the top.
+Computer Science curricula introduce students to the entire computer tech stack from logic gates at the bottom up to applications at the top.
 I used to chuckle to myself that the title of every college Computer Science text book I had through my undergraduate degree (and some of my graduate degree) often began with _An Introduction to ..._ .
 When were we going to get past the introduction?
 
@@ -69,14 +69,14 @@ For most of us, I suspect it tends to be at the application layer.
 For others, it's lower in the stack.
 
 Knowledge of the operating system is useful to an application developer, but it's usually not necessary.
-Additional layers of abstraction, such as [Virtual Machines](https://en.wikipedia.org/wiki/Virtual_machine) and [Containers](https://en.wikipedia.org/wiki/Containerization_(computing)) make lower level details even less relevant.
+Additional layers of abstraction, such as [Virtual Machines](https://en.wikipedia.org/wiki/Virtual_machine) and [Containers](https://en.wikipedia.org/wiki/Containerization_(computing)) make lower-level details even less relevant.
 
 This lack of relevance doesn't restrict itself to tech stack layers.
 Data Structures was a major course in the early 1980s.
 If you needed a data structure, you had to build it yourself.
 Now almost every major data structure is either built into the language or available via a utility library.
 If not, then there's probably an open source library that provides it.
-However, the knowledge I learned in being able to build my own data structures has greatly aided me in understanding the behaviors and complexity performance of language and library provided data structures.
+However, the knowledge I learned in being able to build my own data structures has greatly aided me in understanding the behaviors and performance characteristics of language and library provided data structures.
 
 Sorting is a major topic of study.
 I **never** had to implement `sort()` in my 38 year career.
@@ -92,7 +92,7 @@ Just as I have never been required to write a `sort()` program, design a data st
 
 Computer Science is a hard science. Its closest hard-science cousin would be mathematics.
 
-**Don't be rattled when the types of problems you learned to solve in academia are rarely the types of problems you'll encounter in your career.** Disorentation is typical, and we all have to make the adjustment.
+**Don't be rattled when the types of problems you learned to solve in academia are rarely the types of problems you'll encounter in your career.** Disorientation is typical, and we all have to make the adjustment.
 
 ## Software Engineering Problems
 Software Engineering addresses vaguely defined problems with fuzzier scope/domain that do tend to change over time.
@@ -113,7 +113,7 @@ The source language for my Compiler class was [Pascal](https://en.wikipedia.org/
 Though I've not seriously thought about these languages in decades, many share common properties making it easier to learn new languages as needed.
 It builds a knowledge base that allows you to adapt.
 
-The only courses that retained their relevance through my career were not technology intensive. These were the theory and general principle courses, such as [Graph Theory](https://en.wikipedia.org/wiki/Graph_theory), [Automata Theory](https://en.wikipedia.org/wiki/Automata_theory) and [Data Structures](https://en.wikipedia.org/wiki/Data_structure) and [Algorithms](https://en.wikipedia.org/wiki/Algorithm).
+The only courses that retained their relevance through my career were not technology intensive. These were the theory and general principle courses, such as [Graph Theory](https://en.wikipedia.org/wiki/Graph_theory), [Automata Theory](https://en.wikipedia.org/wiki/Automata_theory), [Data Structures](https://en.wikipedia.org/wiki/Data_structure) and [Algorithms](https://en.wikipedia.org/wiki/Algorithm).
 Since they're based upon mathematical rigor, they tend to be evergreen.
 While I didn't use content from these courses directly, they provided a solid foundation upon which I could continue to learn as the field advanced.
 
@@ -155,7 +155,7 @@ None of these are set in stone yet:
 * Retiring (TBD)
 
 # Summary
-I was fascinating with computers for about as long as I can remember.
+I was fascinated with computers for about as long as I can remember.
 I knew I wanted a career with computers when I saw [my first real program](https://jhumelsine.github.io/about#about-jim) execute.
 Learning more about computers in college only reinforced my desire.
 But when I started my career at 24, I started to realize that industry wasn't exactly like college.
