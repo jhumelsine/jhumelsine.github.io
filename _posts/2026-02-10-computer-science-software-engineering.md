@@ -14,7 +14,7 @@ One of the entries already exists, which I wrote about a year and a half ago wit
 This series focuses upon career advice.
 It won't be technical.
 It's based upon my own lived experiences.
-Since each person's journey is unique, my advice is not universal.
+Since each person's journey is unique, my advice will not universal.
 Others will have their own opinions and advice, some of which may conflict with mine.
 Some of my advice may be losing its significance, since [Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) was just coming onto the scene when I retired in 2023.
 
@@ -25,22 +25,28 @@ My degrees are in [**Computer Science**](https://en.wikipedia.org/wiki/Computer_
 My mentees' degrees will be in **Computer Science**. But what we practice in industry is [**Software Engineering**](https://en.wikipedia.org/wiki/Software_engineering).
 
 **Computer Science** and **Software Engineering** are related yet different.
+
 ***Computer Science is to Software Engineering and Chemistry is to Chemical Engineering***.
+
 They have a lot in common, but the former of each pair is the science and the latter is the application.
 Even professionals blur this distinction.
 
 **Computer Science** is how you get the computer to do what you want it to do.
+
 **Software Engineering** is how a team gets the computer to do what they think the customer wants the computer to do in such a way that they can easily change it when the customer tells them that what it does isn't what they wanted.
 
 In a **Computer Science** degree, you're usually expected and often required to do your own work alone.
+
 In a **Software Engineering** career, you're usually expected to work with a team.
 
 **Computer Science** programs tend to have a lifespan of days to weeks.
 They tend to be relatively small, well defined, static, implemented completely by the student and once handed in, never revisited.
+
 **Software Engineering** programs tend to have a lifespan of months to years to decades.
 They tend to be large, a bit ill-defined, dynamic, implemented by teams and require constant maintenance.
 
-**Computer Science** is about technology and mathematical rigor. It focuses upon precision, correctness, and individual mastery. 
+**Computer Science** is about technology and mathematical rigor. It focuses upon precision, correctness, and individual mastery.
+
 **Software Engineering** is about communication with others. It's a social science. It manages coordination, change, and ambiguity.
 
 One needs some knowledge of **Computer Science** to practice **Software Engineering**.
@@ -56,7 +62,7 @@ These problems tend to have provable solutions.
 
 Typical problems and topics include data structures, algorithms, discrete mathematics, programming language design, etc.
 Computer Science curricula introduce students to the entire computer tech stack from logic gates at the bottom up to applications at the top.
-I used to chuckle to myself that the title of every college Computer Science text book I had through my undergraduate degree (and some of my graduate degree) often began with _An Introduction to ..._ .
+I used to chuckle to myself that the title of every college Computer Science text book I had through my undergraduate degree (and some in my graduate degree) often began with _An Introduction to ..._ .
 When were we going to get past the introduction?
 
 These are foundational concepts.
@@ -111,7 +117,7 @@ My Programming Languages course introduced us to [SNOBOL](https://en.wikipedia.o
 The source language for my Compiler class was [Pascal](https://en.wikipedia.org/wiki/Pascal_(programming_language)), which was the new and upcoming programming language at the time.
 
 Though I've not seriously thought about these languages in decades, many share common properties making it easier to learn new languages as needed.
-It builds a knowledge base that allows you to adapt.
+It creates a knowledge base that allows you to build upon and adapt.
 
 The only courses that retained their relevance through my career were not technology intensive. These were the theory and general principle courses, such as [Graph Theory](https://en.wikipedia.org/wiki/Graph_theory), [Automata Theory](https://en.wikipedia.org/wiki/Automata_theory), [Data Structures](https://en.wikipedia.org/wiki/Data_structure) and [Algorithms](https://en.wikipedia.org/wiki/Algorithm).
 Since they're based upon mathematical rigor, they tend to be evergreen.
@@ -155,7 +161,7 @@ None of these are set in stone yet:
 * Retiring (TBD)
 
 # Summary
-I was fascinated with computers for about as long as I can remember.
+I have been fascinated with computers for about as long as I can remember.
 I knew I wanted a career with computers when I saw [my first real program](https://jhumelsine.github.io/about#about-jim) execute.
 Learning more about computers in college only reinforced my desire.
 
