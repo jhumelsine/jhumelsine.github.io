@@ -26,9 +26,9 @@ My mentees' degrees will be in **Computer Science**. But what we practice in ind
 
 **Computer Science** and **Software Engineering** are related yet different.
 
-***Computer Science is to Software Engineering and Chemistry is to Chemical Engineering***.
+***Computer Science is to Software Engineering as Chemistry is to Chemical Engineering***.
 
-They have a lot in common, but the former of each pair is the science and the latter is the application.
+They have a lot in common, but the former of each pair is the science, and the latter is the application.
 Even professionals blur this distinction.
 
 **Computer Science** is how you get the computer to do what you want it to do.
@@ -81,17 +81,17 @@ This lack of relevance doesn't restrict itself to tech stack layers.
 Data Structures was a major course in the early 1980s.
 If you needed a data structure, you had to build it yourself.
 Now almost every major data structure is either built into the language or available via a utility library.
-If not, then there's probably an open source library that provides it.
+If not, then there's probably an open-source library that provides it.
 However, the knowledge I learned in being able to build my own data structures has greatly aided me in understanding the behaviors and performance characteristics of language and library provided data structures.
 
 Sorting is a major topic of study.
-I **never** had to implement `sort()` in my 38 year career.
+I **never** had to implement `sort()` in my 38-year career.
 The only time I have ever been required to implement [Quick Sort](https://en.wikipedia.org/wiki/Quicksort) has been when it was a programming assignment for a Computer Science course.
 
 I suspect that sorting is still a major topic in Computer Science because:
 * It was a major problem to solve in its day.
 * It's tradition/inertia. That is, they've always been teaching it, and they're going to continue teaching it.
-* It's a well defined problem that students can understand.
+* It's a well-defined problem that students can understand.
 * It's a good teaching tool, since there are many approaches that solve sorting with different space and time efficiencies. It's a good model to teach algorithms, complexity analysis, etc.
 
 Just as I have never been required to write a `sort()` program, design a data structure or provide [Big-O](https://en.wikipedia.org/wiki/Big_O_notation) analysis, the knowledge of how to do these served me well throughout my career.
@@ -102,7 +102,7 @@ Computer Science is a hard science. Its closest hard-science cousin would be mat
 
 ## Software Engineering Problems
 Software Engineering addresses vaguely defined problems with fuzzier scope/domain that do tend to change over time.
-These problems are too complex for proofs, but tend to rely upon testing to gain confidence that they solve customer problems.
+These problems are too complex for proofs but tend to rely upon testing to gain confidence that they solve customer problems.
 I'm specifically thinking of applications that customers request and pay for.
 
 A Computer Science degree creates a good foundation, but a degree alone is insufficient for Software Engineering.
