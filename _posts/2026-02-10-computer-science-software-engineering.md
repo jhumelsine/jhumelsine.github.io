@@ -14,7 +14,7 @@ One of the entries already exists, which I wrote about a year and a half ago wit
 This series focuses upon career advice.
 It won't be technical.
 It's based upon my own lived experiences.
-Since each person's journey is unique, my advice will not universal.
+Since each person's journey is unique, my advice will not be universal.
 Others will have their own opinions and advice, some of which may conflict with mine.
 Some of my advice may be losing its significance, since [Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) was just coming onto the scene when I retired in 2023.
 
@@ -133,7 +133,7 @@ Throughout my career I had to pick up new technology, such as:
 
 But Software Engineering involves more than just changing technology.
 Software Engineering is a social endeavor.
-It involves process, patterns, policies and practices such as:
+It involves process, patterns, policies, and practices such as:
 * [Design Patterns](https://jhumelsine.github.io/table-of-contents#design-patterns-and-architecture), which has been a major topic in my blog
 * [Automated Testing](https://jhumelsine.github.io/table-of-contents#automated-testing), which has been another major topic
 * Modularity, Abstraction and a few other related concepts
