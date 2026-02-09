@@ -126,7 +126,7 @@ While I didn't use content from these courses directly, they provided a solid fo
 Throughout my career I had to pick up new technology, such as:
 * [Object-Oriented Programming](https://en.wikipedia.org/wiki/Object-oriented_programming)
 * [The Internet](https://en.wikipedia.org/wiki/Internet)
-* [Cloud Computing](https://en.wikipedia.org/wiki/Cloud_computing)
+* [Cloud Computing](https://en.wikipedia.org/wiki/Cloud_computing)/[Distributed Computing](https://en.wikipedia.org/wiki/Distributed_computing)
 * [Mobile Apps](https://en.wikipedia.org/wiki/Mobile_app)
 * [Containers](https://en.wikipedia.org/wiki/Containerization_(computing))
 * [NoSQLs](https://en.wikipedia.org/wiki/NoSQL)
