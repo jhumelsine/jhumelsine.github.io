@@ -1,7 +1,6 @@
 ---
-title: DRAFT OPEN FOR REVIEW AND COMMENTS – You Studied Computer Science. Your Career Will Be Software Engineering.
+title: You Studied Computer Science. Your Career Will Be Software Engineering.
 description: An Introduction to a Software Engineering Career Path
-unlisted: true
 ---
 
 # Introduction
@@ -28,7 +27,7 @@ My mentees' degrees will be in **Computer Science**. But what we practice in ind
 
 ***Computer Science is to Software Engineering as Chemistry is to Chemical Engineering***.
 
-They have a lot in common, but the former of each pair is the science, and the latter is the application.
+They have a lot in common, but the former of each pair is the science, and the latter of each pair is the application.
 Even professionals blur this distinction.
 
 **Computer Science** is how you get the computer to do what you want it to do.
