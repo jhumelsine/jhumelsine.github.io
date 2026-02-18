@@ -61,14 +61,31 @@ These problems tend to have provable solutions.
 
 Typical problems and topics include data structures, algorithms, discrete mathematics, programming language design, etc.
 Computer Science curricula introduce students to the entire computer tech stack from logic gates at the bottom up to applications at the top.
-I used to chuckle to myself that the title of every college Computer Science text book I had through my undergraduate degree (and some in my graduate degree) often began with _An Introduction to ..._ .
-When were we going to get past the introduction?
 
+<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDlxNHN2d2g1N2xhN3NjMG1mYmRxaThtMWdpeGVtbGwxaWNmb3c1YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/99aniB2u9OztK/giphy.gif" alt="Electrons Dancing Among Rocks" title="Image Source: https://giphy.com/gifs/circuit-99aniB2u9OztK" width = "35%" align="right" style="padding: 0 20px;">
+We make electrons dance among rocks.
+Each additional layer on the tech stack is for the benefit of humans, not the computer.
+The computer is just as content to execute machine code written by a human as it is to execute machine code generated from a compiler from source code written by a human.
+However, a human will almost certainly find reading program written in a higher level language easier to understand than machine code.
+
+Each new layer adds an additional layer of [Abstraction](https://jhumelsine.github.io/2024/10/30/abstraction.html) removing us further from the dancing electrons and rocks.
+This separation gives us greater ability to specify **what** we want the computer to do without knowing the specific details of **how** it's going to do it.
+
+_Abstraction is the elimination of the irrelevant and the amplification of the essential._ ― Robert C. Martin
+
+The Computer Science curriculum explains these layers and shows how each layer interacts with the layers above and below it.
 These are foundational concepts.
 They lift the veil of mystery.
 A computer isn't a magical black box.
 We obtain some level of understanding as to what's going on under the hood.
 
+Even so, most courses just scratch the surface.
+I used to chuckle to myself that the title of every college Computer Science text book I had through my undergraduate degree (and some in my graduate degree) often began with _An Introduction to ..._ .
+When were we going to get past the introduction?
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/47/River_terrapin.jpg" alt="Turtles All the Way Down" title="Image Source: https://en.wikipedia.org/wiki/File:River_terrapin.jpg" width = "25%" align="left" style="padding: 0 20px;">
+
+There are so many layers of abstraction in the tech stack that it's sometimes referred to as [turtles all the way down](https://en.wikipedia.org/wiki/Turtles_all_the_way_down).
 Most careers tend to narrow and focus upon a specific section of the tech stack.
 For most of us, I suspect it tends to be at the application layer.
 For others, it's lower in the stack.
