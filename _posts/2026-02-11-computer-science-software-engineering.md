@@ -15,7 +15,8 @@ It won't be technical.
 It's based upon my own lived experiences.
 Since each person's journey is unique, my advice will not be universal.
 Others will have their own opinions and advice, some of which may conflict with mine.
-Some of my advice may be losing its significance, since [Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) was just coming onto the scene when I retired in 2023.
+Some of my advice may age quickly.
+[Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) was just coming onto the scene when I retired in 2023.
 
 # Computer Science is not Software Engineering
 _In science if you know what you are doing you should not be doing it. In engineering if you do not know what you are doing you should not be doing it._ — Richard Hamming
@@ -42,13 +43,13 @@ In a **Software Engineering** career, you're usually expected to work with a tea
 They tend to be relatively small, well defined, static, implemented completely by the student and once handed in, never revisited.
 
 **Software Engineering** programs tend to have a lifespan of months to years to decades.
-They tend to be large, a bit ill-defined, dynamic, implemented by teams and require constant maintenance.
+They tend to be large, a bit ill-defined, dynamic, implemented by teams, and require constant maintenance.
 
 **Computer Science** is about technology and mathematical rigor. It focuses upon precision, correctness, and individual mastery.
 
 **Software Engineering** is about communication with others. It's a social science. It manages coordination, change, and ambiguity.
 
-One needs some knowledge of **Computer Science** to practice **Software Engineering**.
+You need a foundation in **Computer Science** to practice **Software Engineering**.
 They are related yet different disciplines.
 I don't know that academia necessarily conveys that distinction these days.
 I think it's getting better with the introduction of **Software Engineering** courses, but I don't think academia has a full grasp on the distinction between **Computer Science** and **Software Engineering** quite yet.
@@ -56,32 +57,65 @@ Maybe I'm wrong.
 I hope so.
 
 ## Computer Science Problems
-Computer Science addresses well defined problems of bounded scope/domain that don't tend to change over time.
+In academia, Computer Science courses typically address well-defined problems of bounded scope/domain that don't tend to change over time.
 These problems tend to have provable solutions.
 
 Typical problems and topics include data structures, algorithms, discrete mathematics, programming language design, etc.
 Computer Science curricula introduce students to the entire computer tech stack from logic gates at the bottom up to applications at the top.
 
 <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDlxNHN2d2g1N2xhN3NjMG1mYmRxaThtMWdpeGVtbGwxaWNmb3c1YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/99aniB2u9OztK/giphy.gif" alt="Electrons Dancing Among Rocks" title="Image Source: https://giphy.com/gifs/circuit-99aniB2u9OztK" width = "35%" align="right" style="padding: 0 20px;">
-We make electrons dance among rocks.
+
+**We make electrons dance among rocks.**
 Each additional layer on the tech stack is for the benefit of humans, not the computer.
 The computer is just as content to execute machine code written by a human as it is to execute machine code generated from a compiler from source code written by a human.
-However, a human will almost certainly find reading program written in a higher level language easier to understand than machine code.
+However, a human will almost certainly find reading a program written in a higher-level language easier than reading machine code.
+
+My first paying job as a software developer was a summer position between my sophomore and junior years in college.
+It was the closest I ever came to coding on bare metal.
+I hand wrote my programs in an assembly language on paper and then converted the assembly code into machine code by hand.
+I loaded machine code into the machine using a Hexadecimal keypad.
+
+The programs weren't complex, but I needed to divide numbers with decimal results.
+The chip only supported integers, and it did not have a divide operation.
+It took me several days to find a divide routine for the machine and figure out how to eke out decimals via remainders from the division.
+Even the most basic higher-level language would have supported float division, which would have reduced several days of assembly code development to: `rate = distance / time`.
 
 Each new layer adds an additional layer of [Abstraction](https://jhumelsine.github.io/2024/10/30/abstraction.html) removing us further from the dancing electrons and rocks.
 This separation gives us greater ability to specify **what** we want the computer to do without knowing the specific details of **how** it's going to do it.
+It shields us from low level toil.
 
 _Abstraction is the elimination of the irrelevant and the amplification of the essential._ ― Robert C. Martin
+
+There's an additional advantage.
+The tech stack is not a single column.
+It's more like a brick wall.
+There may be multiple options to support an abstraction layer.
+
+The programming language in my first professional position was C.
+The project debated different hardware vendors.
+The eventual vendor was not an issue, because our C code would compile to object code that would execute upon any vendors' machines.
+In contrast, my summer job machine code could only execute on hardware that used the same chip set as my machine.
 
 The Computer Science curriculum explains these layers and shows how each layer interacts with the layers above and below it.
 These are foundational concepts.
 They lift the veil of mystery.
 A computer isn't a magical black box.
-We obtain some level of understanding as to what's going on under the hood.
+We gain some understanding of what’s going on under the hood.
+But knowing how the layers work is different from knowing how to build and evolve a system that spans many of them with other people.
+Abstraction doesn't just make things easier; it makes large systems possible by limiting how much any one human has to understand at a time.
 
 Even so, most courses just scratch the surface.
 I used to chuckle to myself that the title of every college Computer Science text book I had through my undergraduate degree (and some in my graduate degree) often began with _An Introduction to ..._ .
 When were we going to get past the introduction?
+
+This was the case until recently.
+The transitions between layers of abstraction were well understood, deterministic, and often provable.
+[Large Language Models and Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) (LLMs & GenAI) are changing the landscape rapidly.
+They are adding an additional layer of abstraction on top of application coding.
+Higher-level languages removed the toil of assembly code.
+Will LLMs and GenAI remove the toil of traditional programming?
+I don’t know.
+But I do know that those who learn to leverage them effectively will have an advantage over those who do not.
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/River_terrapin.jpg" alt="Turtles All the Way Down" title="Image Source: https://en.wikipedia.org/wiki/File:River_terrapin.jpg" width = "25%" align="left" style="padding: 0 20px;">
 
@@ -112,7 +146,8 @@ I suspect that sorting is still a major topic in Computer Science because:
 
 Just as I have never been required to write a `sort()` program, design a data structure or provide [Big-O](https://en.wikipedia.org/wiki/Big_O_notation) analysis, the knowledge of how to do these served me well throughout my career.
 
-Computer Science is a hard science. Its closest hard-science cousin would be mathematics.
+Computer Science is closer to a hard science.
+Its closest hard-science cousin would be mathematics.
 
 **Don't be rattled when the types of problems you learned to solve in academia are rarely the types of problems you'll encounter in your career.** Disorientation is typical, and we all have to make the adjustment.
 
@@ -132,11 +167,11 @@ We also had a brief foray into [Fortran](https://en.wikipedia.org/wiki/Fortran) 
 My Programming Languages course introduced us to [SNOBOL](https://en.wikipedia.org/wiki/SNOBOL) and [APL](https://en.wikipedia.org/wiki/APL_(programming_language)), which always felt like reading Greek from right to left.
 The source language for my Compiler class was [Pascal](https://en.wikipedia.org/wiki/Pascal_(programming_language)), which was the new and upcoming programming language at the time.
 
-Though I've not seriously thought about these languages in decades, many share common properties making it easier to learn new languages as needed.
-It creates a knowledge base that allows you to build upon and adapt.
+Though I've not seriously thought about these languages in decades, many share common properties that made it easier to learn new languages as needed.
+They created a knowledge base I could build upon and adapt.
 
 The only courses that retained their relevance through my career were not technology intensive. These were the theory and general principle courses, such as [Graph Theory](https://en.wikipedia.org/wiki/Graph_theory), [Automata Theory](https://en.wikipedia.org/wiki/Automata_theory), [Data Structures](https://en.wikipedia.org/wiki/Data_structure) and [Algorithms](https://en.wikipedia.org/wiki/Algorithm).
-Since they're based upon mathematical rigor, they tend to be evergreen.
+Since they're based on mathematical rigor, they tend to be evergreen.
 While I didn't use content from these courses directly, they provided a solid foundation upon which I could continue to learn as the field advanced.
 
 Throughout my career I had to pick up new technology, such as:
@@ -162,7 +197,8 @@ It involves process, patterns, policies, and practices such as:
 I plan to blog about most of these topics in the future, but you don't have to wait for me.
 Many of these Software Engineering topics are covered by others through blogs, videos, podcasts, etc.
 
-Software Engineering is a soft science in many ways. It's about working with other people to solve problems often with computers. Its closest soft-science cousin would be sociology, with maybe a bit of economics mixed in.
+Software Engineering is a soft science in many ways. It is fundamentally about working with other people to solve problems, often using computers.
+Its closest soft-science cousin would be sociology, with maybe a bit of economics mixed in.
 
 # Career Path Series
 The Computer Science and Software Engineering comparison sets the stage for career path development.
@@ -185,3 +221,4 @@ But when I started my career at 24, I started to realize that industry wasn't ex
 This wasn't necessarily bad.
 It meant that there was a whole new world of computers and software out there ready for me to learn about and explore.
 Most new Software Engineers will take a similar journey, even if it doesn’t look exactly the same.
+And that journey begins the day you realize your education didn’t end at graduation.
