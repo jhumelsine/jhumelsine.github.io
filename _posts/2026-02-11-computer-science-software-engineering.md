@@ -115,6 +115,8 @@ They are adding an additional layer of abstraction on top of application coding.
 Higher-level languages removed the toil of assembly code.
 Will LLMs and GenAI remove the toil of traditional programming?
 I don’t know.
+This new layer of abstraction is not like previous layers of abstraction.
+LLMs/GenAIs are not well understood, deterministic or provable.
 But I do know that those who learn to leverage them effectively will have an advantage over those who do not.
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/River_terrapin.jpg" alt="Turtles All the Way Down" title="Image Source: https://en.wikipedia.org/wiki/File:River_terrapin.jpg" width = "25%" align="left" style="padding: 0 20px;">
