@@ -5,7 +5,74 @@ unlisted: true
 ---
 
 # Introduction
-TBD
+In the first blog entry of this series, [You Studied Computer Science. Your Career Will Be Software Engineering](https://jhumelsine.github.io/2026/02/11/computer-science-software-engineering.html), I highlighted that Software Engineering is related to, but separate from Computer Science.
+An intership is often the first place where a fledgling software developer first encounters that.
+
+Interships are a great opportunity to:
+* Experience Software Engineering
+* Make a little money
+* Possibly be considered for a full-time position upon graduation
+
+The trick is being able to get the intership in the first place.
+
+# Preparation
+You need to prepare before seeking out an intership.
+
+## Your Résumé
+You should have a solid [résumé](https://en.wikipedia.org/wiki/R%C3%A9sum%C3%A9).
+A good résumé provides just enough information for a recruiter to want to have conversation with you.
+It's sort of like a profile on a dating app.
+
+A résumé generally contains your:
+* Name
+* Contact information
+* Linkedin profile, if you have one
+* GitHub address, if you have one
+* Education
+* Skills, possibly divide
+* Previous work history
+* Leadership roles
+* Etc
+
+It generally won't contain other social media accounts, hobbies, favorite movies, TV shows, etc.
+
+It should not be more than one page in length.
+
+If you're not sure where to start, there are many examples online.
+
+If your university has a Career Center, ask someone there to take a look at your résumé.
+
+Here's a tip. 
+Everyone has an opinion when it comes to résumé.
+If you ask ten people to look over your résumé, you're likely to get 11 different opinions.
+Take all recommendations with a grain of salt.
+If you feel comfortable with and like a suggestion, then do it. 
+If you don't, then you don't have to do it. 
+This is your résumé. 
+It's your story.
+You have the final say.
+You have to feel comfortable with it.
+
+## Your Elevator Pitch
+In addition to a résumé, you should also have a 30-second [elevator pitch](https://en.wikipedia.org/wiki/Elevator_pitch).
+
+An elevator pitch is the quick response to the question, "Can you tell me a bit about yourself?"
+The term "elevator pitch" is inspired by the scenario where you step onto an elevator to realize that you're sharing the space with the CEO of your dream company. 
+You have about 30 seconds before reaching the CEO's floor. 
+How can you pitch yourself succinctly before reaching the floor?
+This is similar to the 2-minute pitch where a filmmaker has two minutes to convince a producer to support his/her passion project.
+
+You should be prepared, but don't memorize it.
+That is, you want it to sound natural.
+
+Here's a generic example:
+>_I'm John Smith at State University.
+>I'm a rising junior majoring in Computer Science with a minor in Mathematics.
+>My favorite classes have been Data Structures and Algorithms, Programming Languages and Game Theory.
+>I am interested in an intership so that I can better learn how the skills I'm obtaining at State U. can be used in industry._
+
+## Your Research
+
 
 # Summary
 TBD
@@ -13,13 +80,8 @@ TBD
 # References
 TBD
 
-# Complete Demo Code
-Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. Copy and paste the code into Generative AI for analysis and comments.
-
 # NOTES
 Let's get the ball rolling with internships first:
-•	Your resume is probably the most important thing. ...
-•	You may also want to ask someone at the Career Center to take a look at your resume. Here's a heads up tip. Everyone has an opinion when it comes to resumes. If you ask 10 people to look over your resume, you're likely to get 11 different opinions. Haha. Take all recommendations with a grain of salt. If you feel comfortable with a suggestion, then do it. If you don't, then you don't have to do it. This is your resume. You have the final say. You have to feel comfortable with it.
 •	Attend any on-campus or virtual career day. These are companies looking for interns. That's your best bet. You just need to convince them that you're the best person to fill one of their slots. If you know which companies are attending, look over the list. Find a few that look interesting and make sure you visit their tables, but keep your eyes open for other interesting opportunities too.
 •	If going in person, look professional. You don't need to dress like a lawyer, but don't look like you just rolled out of bed. I would suggest a dress shirt and tie and possibly a sports jacket if you have one. Be well groomed as well.
 •	I worked with interns at my last company. Our college recruiter said that there were two traits she was always looking for in interns:
