@@ -41,8 +41,7 @@ It should not be more than one page in length.
 If you're not sure where to start, there are many examples online.
 
 If your university has a Career Center, ask someone there to take a look at your résumé.
-
-Here's a tip. 
+But be prepared.
 Everyone has an opinion when it comes to résumé.
 If you ask ten people to look over your résumé, you're likely to get 11 different opinions.
 Take all recommendations with a grain of salt.
@@ -61,6 +60,7 @@ The term "elevator pitch" is inspired by the scenario where you step onto an ele
 You have about 30 seconds before reaching the CEO's floor. 
 How can you pitch yourself succinctly before reaching the floor?
 This is similar to the 2-minute pitch where a filmmaker has two minutes to convince a producer to support his/her passion project.
+If a résumé is like a dating profile, then an elevator pitch is like a speed dating pitch.
 
 You should be prepared, but don't memorize it.
 That is, you want it to sound natural.
@@ -72,7 +72,15 @@ Here's a generic example:
 >I am interested in an intership so that I can better learn how the skills I'm obtaining at State U. can be used in industry._
 
 ## Your Research
+Intership offers won't come out of the blue.
+You'll have some time research the company that may offer you an intership.
+Research the company.
+The internet has made this much easier than when I was a student.
+I suspect that most companies have a public website with some information about their industry.
 
+This research will help you prioritize which companies to approach for intership offers.
+
+It will also ++++++
 
 # Summary
 TBD
