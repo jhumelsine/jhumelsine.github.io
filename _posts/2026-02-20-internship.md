@@ -6,7 +6,7 @@ unlisted: true
 
 # Introduction
 In the first blog entry of this series, [You Studied Computer Science. Your Career Will Be Software Engineering](https://jhumelsine.github.io/2026/02/11/computer-science-software-engineering.html), I highlighted that Software Engineering is related to, but separate from Computer Science.
-An internship is often the first place where a fledgling software developer first encounters that.
+An internship is often the first place where a fledgling software developer first encounters Software Engineering.
 
 Internships are a great opportunity to:
 * Gain exposure to Software Engineering
@@ -45,9 +45,8 @@ It should not be more than one page in length.
 
 If you're not sure where to start, there are many résumé examples and templates online.
 
-If your university has a Career Center, ask someone there to take a look at your résumé.
-But be prepared.
-Everyone has an opinion when it comes to résumé.
+If your university has a Career Center, ask someone there to take a look at your résumé, but be prepared.
+Everyone has an opinion when it comes to résumés.
 If you ask ten people to look over your résumé, you're likely to get 11 different opinions.
 
 Take all recommendations with a grain of salt.
@@ -76,10 +75,11 @@ Here's a generic example:
 >_I'm John Smith at State University.
 >I'm a rising junior majoring in Computer Science with a minor in Mathematics.
 >My favorite classes have been Data Structures and Algorithms, Programming Languages and Game Theory.
->I am interested in an internship so that I can better learn how the skills I'm obtaining at State U. can be used in industry as well as learning practical Software Engineering skills that aren't necessarily taught in a university setting._
+>
+>I am interested in an internship so that I can better learn how the skills I'm obtaining at State can be used in industry as well as learning practical Software Engineering skills that aren't necessarily taught in a university setting._
 
 ## Company Research
-Internship offers won't come out of the blue.
+Internship offers generally won't come out of the blue on short notice.
 You'll have some time research the company that may offer you an internship.
 The internet has made this much easier than when I was a student.
 I suspect that most companies have a public website with some information about their industry.
@@ -94,7 +94,7 @@ This research will help you prioritize which companies to approach for internshi
 It will also help you narrow your search.
 For example, strong personal beliefs may eliminate companies in some industries, such as tobacco, fire arms, non-environmentally friendly energy, and defense industries.
 
-## Prepare Questions
+## Prepared Questions
 Most interviewers will ask you if you have any questions at some point during the interview.
 Always have a few questions ready to ask.
 
@@ -119,10 +119,10 @@ Here are some possible questions about the internship:
 * _If a team, will the team be comprised of other interns or will I join an existing team of employees?_
 * _Will the project be a separate stand-alone project, or will it be integrated within your product?_
 * _Will I get exposure to Generative and Agentic AI? If so, how much?_
-* _If so, then which ones and to what degree?_
+* _If so, then which ones do you use and to what degree do you use them?_
 * _How will this internship make me a better Software Engineer?_
 
-Search for internship questions on the internet as well as [Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html).
+Search for internship questions on the internet as well as ask [Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) to generate a few for you.
 You'll need to weed through these results to find questions that feel comfortable to you, but you may find a few that you really like.
 
 If the interviewer repeatedly asks you if you have any additional questions, you can usually decline after they have already answered a few.
@@ -132,9 +132,9 @@ Don't ask questions that have already been addressed, unless it's a follow up qu
 
 # Practice
 When I was wrapping my Master's degree and interviewing for jobs, I noticed that several of my fellow Teaching Assistants were freaking out about their interviews, especially with major companies.
-They were practically having panic attacks.
+Some were practically having panic attacks.
 
-These were just the initial on-campus mostly informal interviews.
+These were mostly the initial on-campus informal interviews.
 What was wrong with them?
 An interview just felt like a natural conversation to me.
 
@@ -142,18 +142,18 @@ It was a few years later when I realized that I had years of interview practice 
 I had advanced through the ranks in the Boy Scouts of America.
 Each new rank promotion included two interviews:
 * A one-on-one intervew with your Scoutmaster.
-* A group interview with the Board of Review, which varied based upon your next rank including:
+* A group interview with the Board of Review, which varied based upon your next rank, including:
     * Your Troop's Patrol Leaders, who were your fellow Scouts, but a few years older
     * The Troop Committee, which was usually a few fathers of boys in the Troop
-    * For the top rank of Eagle, a District Committee of people you generally did not know.
+    * For the top rank of Eagle, a District Committee of people you generally did not know
 
 Most kids passed, but a few had to regroup and try again.
 
 A question about any previous Scout achievement was fair game:
-* The Patrol Leaders could be viscious in trying to stump you.
+* The Patrol Leader could be viscious in trying to stump you.
 * The Troop Committe reviews were usually pretty easy. The dads generally asked generic Scouting questions or how school was going.
 * The District Committee review wasn't viscious, but it was through.
-There was usually a question about personal character rather than a Scouting achievement.
+There was usually a question about personal character.
 I was asked how my fellow classmates would know that I was an Eagle in school even when I wasn't wearing my Scout uniform.
 
 When you've gone through a process like this as a teenager, job interviews don't feel nearly as intimidating.
@@ -171,11 +171,47 @@ If your university has a Career Center, they will often offer mock interviews.
 Schedule one or more there.
 
 ## Generative AI
-This is a relatively 
+Consider leveraging an LLM, such as ChatGPT, to research the companies.
+Here is a potential prompt script, where you can insert any company you desire. I used ***IBM*** as an example:
+>You are a campus recruiter for IBM seeking software engineering summer interns.
+>
+>I am a computer science sophomore who wishes to land an internship with your company.
+>
+>Interview me in mock interview for a software internship position.
+>
+>When the interview is over, summarize my performance.
 
 # Career Fair
+Attend any on-campus or virtual career day.
+These are companies looking for interns.
+That's your best bet to find an internship.
+You just need to convince them that you're the best person to fill one of their slots.
+If you know which companies are attending, look over the list.
+Find a few that look interesting and make sure you visit their tables, but keep your eyes open for other interesting opportunities too.
 
-# Google Search
+If going in person, look professional.
+You don't need to dress like a lawyer, but don't look like you just rolled out of bed.
+For men, I would suggest a dress shirt and tie and possibly a sports jacket if you have one.
+For women, the equivalent business attire.
+Be well groomed as well.
+
+Interactions tend to be quick.
+This is where a good résumé and a solid elevator pitch are useful.
+
+Be ready for the question, "Why do you want to intern here?"
+I **HATE** this question.
+The real answer for most is, "Because I want a paying job for the summer," but you can't really say that.
+
+Here is one possible answer, but it's a bit stilted too, "I'm learning the theoretical aspect of computer science. I want to see how it applies to software engineering in real world practice. The practice will provide context to understand the theory, and a better understanding of the theory will lay down the path toward better practice."
+
+You don't need a canned memorized answer, but just be prepared for something like this.
+If your answer includes something specific about the company, then that's the best type of answer.
+
+Your main goal at the career fair is to schedule a follow up interview.
+Once you the career fair recruiter has confirmed their interest, thank them and move on.
+
+# Automate Your Internship Search
+
 
 # Interview Workflow
 ## Cultural Fit
@@ -191,9 +227,6 @@ TBD
 TBD
 
 # NOTES
-•	Attend any on-campus or virtual career day. These are companies looking for interns. That's your best bet. You just need to convince them that you're the best person to fill one of their slots. If you know which companies are attending, look over the list. Find a few that look interesting and make sure you visit their tables, but keep your eyes open for other interesting opportunities too.
-•	If going in person, look professional. You don't need to dress like a lawyer, but don't look like you just rolled out of bed. I would suggest a dress shirt and tie and possibly a sports jacket if you have one. Be well groomed as well.
-
 •	Be ready for the question, "Why do you want to intern here?" I HATE this question. The real answer for most is, "Because I want a paying job for the summer," but you can't really say that. Here's one possible answer, but it's a bit stilted too, "I'm learning the theoretical aspect of computer science. I want to see how it applies to software engineering in real world practice. The practice will provide context to understand the theory, and a better understanding of the theory will lay down the path toward better practice." You don't need a canned memorized answer, but just be prepared for something like this. If your answer includes something about the company, then that's the best type of answer.
 •	Consider leveraging an LLM, such as ChatGPT, to research the companies. Here is a potential prompt script, where you can insert any company you desire. I used IBM as an example:
 You are a campus recruiter seeking software engineering summer interns. I will identify your company shortly.
