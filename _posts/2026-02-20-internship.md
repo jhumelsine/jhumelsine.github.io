@@ -6,47 +6,53 @@ unlisted: true
 
 # Introduction
 In the first blog entry of this series, [You Studied Computer Science. Your Career Will Be Software Engineering](https://jhumelsine.github.io/2026/02/11/computer-science-software-engineering.html), I highlighted that Software Engineering is related to, but separate from Computer Science.
-An intership is often the first place where a fledgling software developer first encounters that.
+An internship is often the first place where a fledgling software developer first encounters that.
 
-Interships are a great opportunity to:
+Internships are a great opportunity to:
 * Gain exposure to Software Engineering
 * Make a little money
 * Possibly be considered for a full-time position upon graduation
 
-The trick is being able to get the intership in the first place.
+The trick is being able to get the internship in the first place.
 
 # Preparation
-Be prepare before seeking out an intership.
+Be prepare before seeking out an internship.
 
 ## Your Résumé
 You should have a solid [résumé](https://en.wikipedia.org/wiki/R%C3%A9sum%C3%A9).
 A good résumé provides just enough information for a recruiter to want to have conversation with you.
 It's sort of like a profile on a dating app.
+You want to be interesting enough for someone to contact you.
 
 A résumé generally contains your:
 * Name
 * Contact information
-* Linkedin profile, if you have one
-* GitHub address, if you have one
 * Education
 * Skills, possibly divide
 * Previous work history
 * Leadership roles
+* Linkedin profile, if you have one
+* GitHub address, if you have one
 * Etc
 
-It generally won't contain other social media accounts, hobbies, favorite movies, TV shows, etc.
+It generally won't contain personal information, such as other social media accounts, hobbies, favorite movies, TV shows, etc.
+Definitely do not include religious beliefs or gender or sexual preferences.
+
+Listing preferred pronouns is a gray area.
+if you feel strongly about your preferred pronouns, then list them; otherwise, don't.
 
 It should not be more than one page in length.
 
-If you're not sure where to start, there are many examples online.
+If you're not sure where to start, there are many résumé examples and templates online.
 
 If your university has a Career Center, ask someone there to take a look at your résumé.
 But be prepared.
 Everyone has an opinion when it comes to résumé.
 If you ask ten people to look over your résumé, you're likely to get 11 different opinions.
+
 Take all recommendations with a grain of salt.
-If you feel comfortable with and like a suggestion, then do it. 
-If you don't, then you don't have to do it. 
+If you feel comfortable with and like a suggestion, then use it. 
+If you don't, then ignore it.
 This is your résumé. 
 It's your story.
 You have the final say.
@@ -60,7 +66,8 @@ The term "elevator pitch" is inspired by the scenario where you step onto an ele
 You have about 30 seconds before reaching the CEO's floor. 
 How can you pitch yourself succinctly before reaching the floor?
 This is similar to the 2-minute pitch where a filmmaker has two minutes to convince a producer to support his/her passion project.
-If a résumé is like a dating profile, then an elevator pitch is like a speed dating pitch.
+
+If a résumé is like a dating profile, then an elevator pitch is like a speed dating conversation.
 
 You should be prepared, but don't memorize it.
 That is, you want it to sound natural.
@@ -69,15 +76,13 @@ Here's a generic example:
 >_I'm John Smith at State University.
 >I'm a rising junior majoring in Computer Science with a minor in Mathematics.
 >My favorite classes have been Data Structures and Algorithms, Programming Languages and Game Theory.
->I am interested in an intership so that I can better learn how the skills I'm obtaining at State U. can be used in industry._
+>I am interested in an internship so that I can better learn how the skills I'm obtaining at State U. can be used in industry as well as learning practical Software Engineering skills that aren't necessarily taught in a university setting._
 
 ## Company Research
-Intership offers won't come out of the blue.
-You'll have some time research the company that may offer you an intership.
+Internship offers won't come out of the blue.
+You'll have some time research the company that may offer you an internship.
 The internet has made this much easier than when I was a student.
 I suspect that most companies have a public website with some information about their industry.
-
-This research will help you prioritize which companies to approach for intership offers.
 
 I worked with interns at my last company. Our college recruiter said that there were two traits she was always looking for in interns:
 * A passion for software engineering
@@ -85,13 +90,17 @@ I worked with interns at my last company. Our college recruiter said that there 
 
 Being able to talk to an interviewer about their company or industry shows that you have an interest in them.
 
+This research will help you prioritize which companies to approach for internship offers.
+It will also help you narrow your search.
+For example, strong personal beliefs may eliminate companies in some industries, such as tobacco, fire arms, non-environmentally friendly energy, and defense industries.
+
 ## Prepare Questions
-Most interviewers will ask you if you have any questions.
+Most interviewers will ask you if you have any questions at some point during the interview.
 Always have a few questions ready to ask.
 
 The best questions are those that arise naturally from your conversation with the interviewer.
 For example, they may describe something about their industry, and if you can ask a good follow up question, that's great.
-It shows an interest and it also demonstrates that you're actively involved in the interview.
+It shows interest, and it also demonstrates that you're actively involved in the interview.
 
 However, organic questions don't always materialize in the interview.
 The next best type of questions would be those you come up with ahead of time based upon your company research.
@@ -99,25 +108,67 @@ These could be questions about their products, customers, challenges, etc.
 
 The final type of questions are generic, but still valuable.
 You can easily catalog a set of these to use on multiple interviews.
-Here are some possibilities:
+Here are some possible questions about business domain:
+* _How does your company standout amoung your competition? Why do customers keep returning?_
+* _What are your company's opportunities and challenges?_
+* _How do you adjust to the every changing technology and market landscape?_
+
+Here are some possible questions about the internship:
 * _Will I have a dedicated mentor?_
 * _Will I work on a solo project or will I be part of a team?_
 * _If a team, will the team be comprised of other interns or will I join an existing team of employees?_
 * _Will the project be a separate stand-alone project, or will it be integrated within your product?_
 * _Will I get exposure to Generative and Agentic AI? If so, how much?_
+* _If so, then which ones and to what degree?_
+* _How will this internship make me a better Software Engineer?_
 
 If the interviewer repeatedly asks you if you have any additional questions, you can usually decline after they have already answered a few.
 You don't have to keep asking questions indefinitely just to ask questions.
 
-# Generative AI Practice
+Don't ask questions that have already been addressed, unless it's a follow up question for additional detail or clarification.
+
+# Practice
+When I was wrapping my Master's degree and interviewing for jobs, I noticed that several of my fellow Teaching Assistants were freaking out about their interviews, especially with major companies.
+They were practically having panic attacks.
+
+These were just the initial on-campus mostly informal interviews.
+What was wrong with them?
+An interview just felt like a natural conversation to me.
+
+It was a few years later when I realized that I had years of interview practice under my belt without realizing it.
+I had advanced through the ranks in the Boy Scouts of America.
+Each new rank promotion included two interviews:
+* A one-on-one intervew with your Scoutmaster.
+* A group interview with the Board of Review, which varied from your Troop's Patrol Leaders, who were your fellow Scouts, but a few years older, the Troop Committee, which was usually a few fathers of boys in the Troop, and for the top rank of Eagle, a District Committee of people you generally did not know.
+
+Most kids passed, but a few had to regroup and try again.
+
+A question about any previous Scout achievement was fair game.
+The Patrol Leaders could be viscious in trying to stump you.
+The Troop Committe reviews were usually pretty easy. The dads generally asked generic Scouting questions or about how school was going.
+The District Committee review wasn't viscious, but it was through.
+There was usually a question about personal character rather than a Scouting achievement.
+I was asked how my fellow classmates would know that I was an Eagle in school even when I wasn't wearing my Scout uniform.
+
+When you've gone through a process like this as a teenager, job interviews don't feel nearly as intimidating.
+
+Not everyone goes through this process, but practice makes perfect.
+
+## Friends
+
+## Career Center
+## Generative AI Practice
 
 # Career Fair
 
 # Google Search
 
 # Interview Workflow
+## Cultural Fit
+## Technical Interview
+## Likeability
 
-# You Didn't Land an Intership
+# You Didn't Land an Internship
 
 # Summary
 TBD
