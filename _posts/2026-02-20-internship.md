@@ -9,14 +9,14 @@ In the first blog entry of this series, [You Studied Computer Science. Your Care
 An intership is often the first place where a fledgling software developer first encounters that.
 
 Interships are a great opportunity to:
-* Experience Software Engineering
+* Gain exposure to Software Engineering
 * Make a little money
 * Possibly be considered for a full-time position upon graduation
 
 The trick is being able to get the intership in the first place.
 
 # Preparation
-You need to prepare before seeking out an intership.
+Be prepare before seeking out an intership.
 
 ## Your Résumé
 You should have a solid [résumé](https://en.wikipedia.org/wiki/R%C3%A9sum%C3%A9).
@@ -71,16 +71,53 @@ Here's a generic example:
 >My favorite classes have been Data Structures and Algorithms, Programming Languages and Game Theory.
 >I am interested in an intership so that I can better learn how the skills I'm obtaining at State U. can be used in industry._
 
-## Your Research
+## Company Research
 Intership offers won't come out of the blue.
 You'll have some time research the company that may offer you an intership.
-Research the company.
 The internet has made this much easier than when I was a student.
 I suspect that most companies have a public website with some information about their industry.
 
 This research will help you prioritize which companies to approach for intership offers.
 
-It will also ++++++
+I worked with interns at my last company. Our college recruiter said that there were two traits she was always looking for in interns:
+* A passion for software engineering
+* An interest in the company
+
+Being able to talk to an interviewer about their company or industry shows that you have an interest in them.
+
+## Prepare Questions
+Most interviewers will ask you if you have any questions.
+Always have a few questions ready to ask.
+
+The best questions are those that arise naturally from your conversation with the interviewer.
+For example, they may describe something about their industry, and if you can ask a good follow up question, that's great.
+It shows an interest and it also demonstrates that you're actively involved in the interview.
+
+However, organic questions don't always materialize in the interview.
+The next best type of questions would be those you come up with ahead of time based upon your company research.
+These could be questions about their products, customers, challenges, etc.
+
+The final type of questions are generic, but still valuable.
+You can easily catalog a set of these to use on multiple interviews.
+Here are some possibilities:
+* _Will I have a dedicated mentor?_
+* _Will I work on a solo project or will I be part of a team?_
+* _If a team, will the team be comprised of other interns or will I join an existing team of employees?_
+* _Will the project be a separate stand-alone project, or will it be integrated within your product?_
+* _Will I get exposure to Generative and Agentic AI? If so, how much?_
+
+If the interviewer repeatedly asks you if you have any additional questions, you can usually decline after they have already answered a few.
+You don't have to keep asking questions indefinitely just to ask questions.
+
+# Generative AI Practice
+
+# Career Fair
+
+# Google Search
+
+# Interview Workflow
+
+# You Didn't Land an Intership
 
 # Summary
 TBD
@@ -89,15 +126,10 @@ TBD
 TBD
 
 # NOTES
-Let's get the ball rolling with internships first:
 •	Attend any on-campus or virtual career day. These are companies looking for interns. That's your best bet. You just need to convince them that you're the best person to fill one of their slots. If you know which companies are attending, look over the list. Find a few that look interesting and make sure you visit their tables, but keep your eyes open for other interesting opportunities too.
 •	If going in person, look professional. You don't need to dress like a lawyer, but don't look like you just rolled out of bed. I would suggest a dress shirt and tie and possibly a sports jacket if you have one. Be well groomed as well.
-•	I worked with interns at my last company. Our college recruiter said that there were two traits she was always looking for in interns:
-o	A passion for software engineering.
-o	An interest in the company.
-•	An interest in the company is the reason I suggested finding a few companies that interest you. This gives you some time to research them before you meet the recruiters.
+
 •	Be ready for the question, "Why do you want to intern here?" I HATE this question. The real answer for most is, "Because I want a paying job for the summer," but you can't really say that. Here's one possible answer, but it's a bit stilted too, "I'm learning the theoretical aspect of computer science. I want to see how it applies to software engineering in real world practice. The practice will provide context to understand the theory, and a better understanding of the theory will lay down the path toward better practice." You don't need a canned memorized answer, but just be prepared for something like this. If your answer includes something about the company, then that's the best type of answer.
-•	You also need a 30-second elevator pitch. This is the quick response to the question, "Tell me a bit about yourself." The term "elevator pitch" is inspired by the scenario where you step onto an elevator to realize that you're sharing the space with the CEO of your dream company. You have about 30 seconds before reaching the CEO's floor. How can you pitch yourself succinctly before reaching the floor? This is similar to the 2-minute pitch where a filmmaker has two minutes to convince a producer to support his/her passion project.
 •	Consider leveraging an LLM, such as ChatGPT, to research the companies. Here is a potential prompt script, where you can insert any company you desire. I used IBM as an example:
 You are a campus recruiter seeking software engineering summer interns. I will identify your company shortly.
 
