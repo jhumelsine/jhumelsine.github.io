@@ -79,7 +79,7 @@ Here's a generic example:
 >
 >_I am interested in an internship so that I can better learn how the skills I'm obtaining at State can be used in industry as well as learning practical Software Engineering skills that aren't necessarily taught in a university setting._
 
-Here's an intersting TED talk take: [How to Introduct Yourself and Get Hired](https://www.ted.com/talks/rebecca_okamoto_how_to_introduce_yourself_and_get_hired) by Rebecca Okatomo from April 2025.
+Here's an intersting TED talk take on the elevator pitch: [How to Introduct Yourself and Get Hired](https://www.ted.com/talks/rebecca_okamoto_how_to_introduce_yourself_and_get_hired) by Rebecca Okatomo from April 2025.
 
 ## Company Research
 Internship offers generally won't appear of the blue on short notice.
@@ -217,7 +217,7 @@ You don't need a canned memorized answer, but just be prepared for something lik
 If your answer includes something specific about the company, then that's the best type of answer.
 
 Your main goal at the career fair is to schedule a follow up interview.
-Once you the career fair recruiter has confirmed their interest, thank them and move on.
+Once the career fair recruiter has confirmed their interest, thank them and move on.
 
 # Automate Your Internship Search
 If the career fair didn't pan out, you can turn to the internet.
@@ -257,8 +257,7 @@ No one likes to work with an arrogant jerk even if they are a coding genius.
 
 _The hardest problem in computer science is not being an opinionated jerk about everything._ ― Nick Takayama
 
-Don't be the arrogant/opinionated jerk.
-You don't need to be _life of the party_.
+Don't be the arrogant/opinionated jerk, but you don't need to be _life of the party_ either.
 
 Be kind, respectful and helpful.
 The rest will fall into place.
@@ -267,7 +266,8 @@ The rest will fall into place.
 The other type of interview is the Technical Interview.
 
 The industry still doesn't know how to conduct a good technical interview, and I was part of that dismal practice during my career when I was an interviewer as well.
-However, internship interviews tend to be more forgiving.
+
+Internship interviews tend to be more forgiving.
 When I interviewed interns, I was looking for someone with passion.
 I also knew that even if we made a mistake in hiring the wrong kid, they would only be with us for about three months.
 This wasn't as much of an investment as it was with a permanent hire.
@@ -275,7 +275,7 @@ This wasn't as much of an investment as it was with a permanent hire.
 It's very difficult to get a sense of someone's technical expertise in a single interview, especially for an intership when we only have about 30 minutes.
 
 You may be asked to _whiteboard_ a problem.
-This involves describing how you would approach a problem while standing at a whiteboard so that you can provide freehand illustrations, and possibly even code.
+This involves describing how you would approach a problem while standing at a whiteboard so that you can provide freehand illustrations, and possibly even hand-written code.
 
 Whiteboarding in this form is not how problems are generally solved.
 We will use whiteboards when working as a team to discuss and consider potential solutions together.
@@ -289,15 +289,15 @@ Whiteboarding in technical interviews is unnatural, because in real Software Eng
 * The ability to experiment with soltuions
 
 The interviewer may throw you a curve ball.
-It may be a problem, for which don't even know how or were to start.
+It may be a problem, for which don't even know how or where to start.
 
 **Don't Panic!**
 
 Here's what to do:
 * Take a little time to think.
 * Restate the problem in your own words to the interviewer and ask if it's accurate.
-* Ask questions about the problem. Sometimes they are vague on purpose to see whether you ask for clarification.
-* Verbalize your thought process. Interviewers want to see how you go about solving a problem. They don't care about the specific problem.
+* Ask questions about the problem. Sometimes technical problems are vague on purpose to see whether you ask for clarification.
+* Verbalize your thought process. Interviewers want to see how you go about solving a problem. They don't care about a solution to the specific problem.
 * State what you know. State what assumptions you're making. Break the problem down into smaller problems.
 * You may know what to do, but how how to do it. State what you know and that you'd use Google, Stack Overflow or Generative AI to fill in the gaps. It's more important to identify a problem and know how to address it than it is to have that knowledge directly in your head.
 * Ask if the problem can be restated or whether the interviewer can provide an example.
@@ -309,8 +309,31 @@ Let's use the LLM once more. You may want to be more specific, such as telling t
 >
 >Continue until I ask for a summary, and then provide a summary of our interview.
 
+# Multiple Internship Offers
+You might receive multiple internship offers.
+Each offer is different.
+List the pros and cons of each offer.
+Decide which aspects are important to you.
+
+You can't go wrong.
+You'll learn something new regardless.
+It's only a three month commitment.
+
 # Landing the Internship
-MORE TO COME.
+Congratulations.
+You got the intership.
+
+In most of my experience with interns, their experience is more Software Engineering adjacent.
+They were given independent projects rather than working directly with a team.
+This isn't bad, but it's not quite the same experience as regular team member.
+
+As for what to do during your internship:
+* Show up
+* Focus upon your assignment
+* Ask questions
+* Eat lunch with employees and your fellow interns
+* Make connections, and send invites on Linkedin
+* Have fun
 
 # You Didn't Land an Internship
 Sometimes the job market is like a game of musical chairs.
