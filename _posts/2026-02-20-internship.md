@@ -122,6 +122,9 @@ Here are some possible questions about the internship:
 * _If so, then which ones and to what degree?_
 * _How will this internship make me a better Software Engineer?_
 
+Search for internship questions on the internet as well as [Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html).
+You'll need to weed through these results to find questions that feel comfortable to you, but you may find a few that you really like.
+
 If the interviewer repeatedly asks you if you have any additional questions, you can usually decline after they have already answered a few.
 You don't have to keep asking questions indefinitely just to ask questions.
 
@@ -139,25 +142,36 @@ It was a few years later when I realized that I had years of interview practice 
 I had advanced through the ranks in the Boy Scouts of America.
 Each new rank promotion included two interviews:
 * A one-on-one intervew with your Scoutmaster.
-* A group interview with the Board of Review, which varied from your Troop's Patrol Leaders, who were your fellow Scouts, but a few years older, the Troop Committee, which was usually a few fathers of boys in the Troop, and for the top rank of Eagle, a District Committee of people you generally did not know.
+* A group interview with the Board of Review, which varied based upon your next rank including:
+    * Your Troop's Patrol Leaders, who were your fellow Scouts, but a few years older
+    * The Troop Committee, which was usually a few fathers of boys in the Troop
+    * For the top rank of Eagle, a District Committee of people you generally did not know.
 
 Most kids passed, but a few had to regroup and try again.
 
-A question about any previous Scout achievement was fair game.
-The Patrol Leaders could be viscious in trying to stump you.
-The Troop Committe reviews were usually pretty easy. The dads generally asked generic Scouting questions or about how school was going.
-The District Committee review wasn't viscious, but it was through.
+A question about any previous Scout achievement was fair game:
+* The Patrol Leaders could be viscious in trying to stump you.
+* The Troop Committe reviews were usually pretty easy. The dads generally asked generic Scouting questions or how school was going.
+* The District Committee review wasn't viscious, but it was through.
 There was usually a question about personal character rather than a Scouting achievement.
 I was asked how my fellow classmates would know that I was an Eagle in school even when I wasn't wearing my Scout uniform.
 
 When you've gone through a process like this as a teenager, job interviews don't feel nearly as intimidating.
 
-Not everyone goes through this process, but practice makes perfect.
+**Practice makes perfect.**
+Not everyone goes through the Scouting process.
+There are other alternatives.
 
 ## Friends
+Many of your classmates are going through the same internship interview process with you.
+Set up mock interviews among each other.
 
 ## Career Center
-## Generative AI Practice
+If your university has a Career Center, they will often offer mock interviews.
+Schedule one or more there.
+
+## Generative AI
+This is a relatively 
 
 # Career Fair
 
