@@ -16,7 +16,7 @@ Internships are a great opportunity to:
 
 The trick is being able to get the internship in the first place.
 
-In several ways, finding an intership, or any job for that matter, is a lot like _dating_.
+In several ways, finding an internship, or any job for that matter, is a lot like _dating_.
 
 
 # Preparation
@@ -33,7 +33,7 @@ A résumé generally contains your:
 * Name
 * Contact information
 * Education
-* Skills, possibly divide
+* Skills, possibly divided by category or level of expertise
 * Previous work history
 * Leadership roles
 * Side projects
@@ -160,7 +160,7 @@ Most kids passed, but a few had to regroup and try again.
 
 A question about any previous Scout achievement was fair game:
 * The Patrol Leader could be vicious in trying to stump you.
-* The Troop Committe reviews were usually pretty easy. The dads generally asked generic Scouting questions or how school was going.
+* The Troop Committee reviews were usually pretty easy. The dads generally asked generic Scouting questions or how school was going.
 * The District Committee review wasn't vicious, but it was thorough.
 There was usually a question about personal character.
 I was asked how my fellow classmates would know that I was an Eagle in school even when I wasn't wearing my Scout uniform.
@@ -170,6 +170,18 @@ When you've gone through a process like this as a teenager, job interviews don't
 **Practice makes perfect.**
 Not everyone goes through the Scouting process.
 There are other alternatives.
+
+Even with confidence things go wrong.
+I was thrown off during two interviews.
+For one, I got lost on the way to the hotel the evening before and arrived after midnight.
+For the second one, my luggage, including my interview suit, was lost by the airlines.
+It arrived at 6:00 AM.
+Unfortunately, my interviewer didn't arrive.
+A scheduling mixup on their end left me stranded until midmorning.
+
+Neither of those interviews went well.
+I was not extended offers.
+It was not the end of the world.
 
 ### Friends
 Many of your classmates are going through the same internship interview process with you.
@@ -259,7 +271,7 @@ The interview is an opportunity for both recruiter and candidate to get to know 
 You are both evaluating each other.
 
 The level of commitment isn't as great for an internship as it is for a full-time position.
-An internship tends to last no more than ten to 12 weeks.
+An internship tends to last no more than ten to twelve weeks.
 Therefore, the bar isn't quite as high for interns.
 
 The interview process tends to be shorter.
@@ -291,7 +303,7 @@ The rest will fall into place.
 Likeability is more than just being pleasant.
 Software Engineering is a social discipline.
 **Likeability is the grease that keeps the gears moving smoothly.**
-Clear communication, humility, and responsiveness often matter more than raw algorithmic knowledge.
+Clear communication, humility, and responsiveness often matter more than raw algorithmic expertise.
 
 It's building relationships.
 It's helping others with a technical issue who will return the favor when you need it.
@@ -325,7 +337,7 @@ Whiteboarding in technical interviews is a bit unnatural, because in real Softwa
 * The ability to experiment with solutions
 
 The interviewer may throw you a curve ball.
-It may be a problem, for which don't even know how or where to start.
+It may be a problem, for which you don't even know how or where to start.
 
 **Don't Panic!**
 
@@ -369,7 +381,7 @@ Do follow up about compensation with the intern recruiter, but it's not a topic 
 
 You can't go wrong.
 You'll learn something new regardless.
-It's only a three month commitment.
+It's only a three-month commitment.
 
 # Success
 Congratulations.
