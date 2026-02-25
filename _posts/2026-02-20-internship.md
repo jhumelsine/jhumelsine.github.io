@@ -1,10 +1,11 @@
 ---
-title: WORK IN PROGRESS – Internship
+title: WORK IN PROGRESS – How to get a Software Engineering Intership
 description: TBD
 unlisted: true
 ---
 
 # Introduction
+This post is for Computer Science undergraduates seeking their first Software Engineering internship.
 In the first blog entry of this series, [You Studied Computer Science. Your Career Will Be Software Engineering](https://jhumelsine.github.io/2026/02/11/computer-science-software-engineering.html), I highlighted that Software Engineering is related to, but separate from Computer Science.
 An internship is often the first place where a fledgling software developer first encounters Software Engineering.
 
@@ -23,6 +24,8 @@ You should have a solid [résumé](https://en.wikipedia.org/wiki/R%C3%A9sum%C3%A
 A good résumé provides just enough information for a recruiter to want to have conversation with you.
 It's sort of like a profile on a dating app.
 You want to be interesting enough for someone to contact you.
+
+_Dating_ will be a metaphor for your internship search throughout this blog entry.
 
 A résumé generally contains your:
 * Name
@@ -136,7 +139,7 @@ You don't have to keep asking questions indefinitely just to ask questions.
 
 Don't ask questions that have already been addressed, unless it's a follow up question for additional detail or clarification.
 
-# Practice
+## Practice
 When I was wrapping my Master's degree and interviewing for jobs, I noticed that several of my fellow Teaching Assistants were freaking out about their interviews, especially with major companies.
 Some were practically having panic attacks.
 
@@ -168,15 +171,15 @@ When you've gone through a process like this as a teenager, job interviews don't
 Not everyone goes through the Scouting process.
 There are other alternatives.
 
-## Friends
+### Friends
 Many of your classmates are going through the same internship interview process with you.
 Set up mock interviews among each other.
 
-## Career Center
+### Career Center
 If your university has a Career Center, they will often offer mock interviews.
 Schedule one or more there.
 
-## Generative AI
+### Generative AI
 Consider leveraging an LLM, such as ChatGPT, to research the companies.
 Here is a potential prompt script, where you can insert any company you desire. I used ***IBM*** as an example:
 >You are a campus recruiter for IBM seeking software engineering summer interns.
@@ -190,13 +193,22 @@ Here is a potential prompt script, where you can insert any company you desire. 
 This may not be the best prompt, but it can easily be adjusted.
 The LLM may not know anything about the company, but at a minimum, it gives you a chance to practice for an interview.
 
-# Career Fair
+# Exposure
+One you've prepared your materials, the next step is exposure.
+
+Much like the dating world, the trick is finding each other.
+
+## Attend Career Fairs
 Attend any on-campus or virtual career day.
 These are companies looking for interns.
 That's your best bet to find an internship.
 You just need to convince them that you're the best person to fill one of their slots.
 If you know which companies are attending, look over the list.
 Find a few that look interesting and make sure you visit their tables, but keep your eyes open for other interesting opportunities too.
+
+The career fair is a bit like a speed dating event.
+Everyone there knows what they're interested in.
+It can be a bit chaotic.
 
 Look professional.
 You don't need to dress like a lawyer, but don't look like you just rolled out of bed.
@@ -219,15 +231,27 @@ If your answer includes something specific about the company, then that's the be
 Your main goal at the career fair is to schedule a follow up interview.
 Once the career fair recruiter has confirmed their interest, thank them and move on.
 
-# Automate Your Internship Search
+## Leverage Your Network
+My mother used to say, "It's not what you know. It's who you know."
+Internal references and recommandations often help.
+My first summer job happened because my father worked at the company.
+
+If you have friends or family in the industry, let them know you're interested in an internship ask if they know of any opportunities.
+
+This is the dating equivalent of asking your friends or family if they know anyone who could be a potential match to date.
+
+## Automate Your Internship Search
 If the career fair didn't pan out, you can turn to the internet.
 Google provides a _Jobs API_, which I described in [Automate Your Job Search](https://jhumelsine.github.io/2024/08/11/jobsearch.html#automate-your-job-search).
 The only distinction is that you'd want to include ***Internship*** within your Job query.
 
 Once set up, Google will email you Internship opportunities that match your criteria.
 
-# Interview Workflow
-If your résumé is like your dating profile, and your elevator pitch is like your speed dating conversation, then the interview is like going out on a date.
+This is the dating equivalent of signing up for a dating app.
+
+# Interview
+You've found a company that's interested in you.
+The next step is the interview.
 
 The interview is an opportunity for both recruiter and candidate to get to know each other.
 You are both evaluating each other.
@@ -239,6 +263,8 @@ Therefore, the bar isn't quite as high for interns.
 The interview process tends to be shorter.
 A typical full-time interview process can easily include up to four interviews with each being an hour long.
 The internship process may only include two interviews usually less than an hour long.
+
+If your résumé is like your dating profile, and your elevator pitch is like your speed dating conversation, then the interview is like going out on a date.
 
 ## Cultural Fit
 One of the interviews will be a cultural fit.
@@ -262,8 +288,13 @@ Don't be the arrogant/opinionated jerk, but you don't need to be _life of the pa
 Be kind, respectful and helpful.
 The rest will fall into place.
 
+This is the dating equivalent of being a decent person that someone would want to invest a relationship with you.
+
 ## Technical Interview
 The other type of interview is the Technical Interview.
+
+The Technical Interview determines whether you have the skills for the job.
+The dating equivalent would be whether someone has a job, car, good apartment, etc.
 
 The industry still doesn't know how to conduct a good technical interview, and I was part of that dismal practice during my career when I was an interviewer as well.
 
@@ -309,7 +340,7 @@ Let's use the LLM once more. You may want to be more specific, such as telling t
 >
 >Continue until I ask for a summary, and then provide a summary of our interview.
 
-# Multiple Internship Offers
+# Decision
 You might receive multiple internship offers.
 Each offer is different.
 List the pros and cons of each offer.
@@ -319,7 +350,10 @@ You can't go wrong.
 You'll learn something new regardless.
 It's only a three month commitment.
 
-# Landing the Internship
+This is the dating equivalent of causually dating and more than one starts to develop.
+You'll need to choose one of the others, and often without much information.
+
+# Success
 Congratulations.
 You got the internship.
 
@@ -335,7 +369,9 @@ As for what to do during your internship:
 * Make connections, and send invites on Linkedin
 * Have fun
 
-# You Didn't Land an Internship
+You've moved from initial dating to a hopefully stable and happy relationship.
+
+# Alternative Path
 Sometimes the job market is like a game of musical chairs.
 The song stops, there's a mad scramble, you're left standing.
 
@@ -346,7 +382,12 @@ Companies may be struggling financially.
 If you find yourself without a traditional internship, look for opportunities with faculty.
 A professor may have some grant money to hire a research assistant.
 
-Another option is to treat this period as an opportunity for independent study.
+Many have dry spells during their dating life.
+Do things you enjoy, even if on your own.
+Read. Travel. Etc.
+Invest in yourself and make yourself a bit more interesting for when you do meet that special someone.
+
+Treat this period without an internship similarly as an opportunity for independent study.
 Some possibilities are:
 * Learn more about Software Engineering on your own. This blog is mostly about Software Engineering, with topics including:
     * [Design Patterns](https://jhumelsine.github.io/table-of-contents#design-patterns-and-architecture)
@@ -354,12 +395,16 @@ Some possibilities are:
 * Learn how to code with Generative/Agentic AI:
     * Build your own AI Agent to solve a problem for you.
     * Learn how to code with Generative/Agentic AI. You may not be allowed to leverage these tools in your academic career yet, but you will be expected to use them in your career. Any experience you can gain would be worth the investment. Recode some of your previous course assignments with the assistance of AI. Find out what works and what doesn't work.
-* Work on any type of software project.
+* Work on any type of software project whether it's your own or an open source project.
 * Learn a new programming language, programming paradigm, or framework, such as [Spring](https://en.wikipedia.org/wiki/Spring_Framework).
+
+These ideas are not mutually exclusive.
+Many support one another.
 
 There are countless often free resources for all of these on the internet.
 
-Document what you produce in GitHub.
+Include what you learned and accomplished in your résumé.
+Document what you produced in GitHub.
 
 # Full-Time Position Pipeline
 Sometimes an internship is a three-month long interview.
@@ -368,6 +413,7 @@ My wife's company had an extensive internship program, but they never extended f
 
 # Summary
 I've used dating as a metaphor for the internship process.
+Maybe I've used it a bit too much.
 Receiving an internship offer is like starting a serious dating relationship with someone new.
 It may be a bit awkward at first, but you'll settle into a routine.
 
