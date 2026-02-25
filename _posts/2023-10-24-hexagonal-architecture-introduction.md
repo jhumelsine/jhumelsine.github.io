@@ -110,6 +110,7 @@ Here are some free online video resources:
 * [Alistair in the "Hexagone" 1/3](https://www.youtube.com/watch?v=th4AgBcrEHA)
 * [Alistair in the "Hexagone" 2/3](https://www.youtube.com/watch?v=iALcE8BPs94)
 * [Alistair in the "Hexagone" 3/3](https://www.youtube.com/watch?v=DAe0Bmcyt-4)
+* [The Hexagonal - Ports & Adapters Architecture - Keynote at SAG 2025 by Alistair Cockburn](https://www.youtube.com/watch?v=ChUlRa0xsWo)
 * [Hexagonal Architecture: What You Need To Know - Simple Explanation](https://www.youtube.com/watch?v=bDWApqAUjEI)
 * [Hexagonal Architecture and Clean Architecture (with examples)](https://www.youtube.com/watch?v=bRl-sTvLbsI)
 * [Hexagonal Architecture (Ports and Adapters) with Alistair Cockburn](https://www.youtube.com/watch?v=AOIWUPjal60)
