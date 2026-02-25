@@ -1,6 +1,6 @@
 ---
 title: WORK IN PROGRESS – Steps to Gain a Software Engineering Internship
-description: Getting a Internship is a Lot Like Dating
+description: Getting an Internship is a Lot Like Dating
 unlisted: true
 ---
 
@@ -37,7 +37,7 @@ A résumé generally contains your:
 * Previous work history
 * Leadership roles
 * Side projects
-* Linkedin profile, if you have one
+* LinkedIn profile, if you have one
 * GitHub address, if you have one
 * Etc
 
@@ -46,7 +46,7 @@ Follow current industry norms and your university’s guidance.
 It should be no more than one page in length.
 
 If you're not sure where to start, there are many résumé examples and templates online.
-[Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) can help you some ideas as well.
+[Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) can help give you some ideas as well.
 (**NOTE:** Generative AI recommendations will appear repeatedly in this blog.)
 
 If your university has a Career Center, ask someone there to take a look at your résumé, but be prepared.
@@ -82,11 +82,11 @@ Here's a generic example:
 >
 >_I am interested in an internship so that I can better learn how the skills I'm obtaining at State can be used in industry as well as learning practical Software Engineering skills that aren't necessarily taught in a university setting._
 
-Here's an interesting TED talk take on the elevator pitch: [How to Introduct Yourself and Get Hired](https://www.ted.com/talks/rebecca_okamoto_how_to_introduce_yourself_and_get_hired) by Rebecca Okatomo from April 2025.
+Here's an interesting TED talk take on the elevator pitch: [How to Introduce Yourself and Get Hired](https://www.ted.com/talks/rebecca_okamoto_how_to_introduce_yourself_and_get_hired) by Rebecca Okatomo from April 2025.
 
 ## Company Research
 Internship offers generally won't appear out of the blue on short notice.
-You'll have some time research the company that may offer you an internship.
+You'll have some time to research the company that may offer you an internship.
 The internet has made this much easier than when I was a student.
 I suspect that most companies have a public website with some information about their industry.
 
@@ -99,7 +99,7 @@ Being able to talk to an interviewer about their company or industry shows that 
 This research will help you prioritize which companies to approach for internship offers.
 
 It will also help you narrow your search.
-For example, strong personal beliefs may eliminate companies in some industries, such as tobacco, fire arms, non-environmentally friendly energy, and defense industries.
+For example, strong personal beliefs may eliminate companies in some industries, such as tobacco, firearms, non-environmentally friendly energy, and defense industries.
 
 ## Prepared Questions
 Most interviewers will ask you if you have any questions at some point during the interview.
@@ -194,13 +194,17 @@ This may not be the best prompt, but it can easily be adjusted.
 The LLM may not know anything about the company, but at a minimum, it gives you a chance to practice for an interview.
 
 # Exposure
-One you've prepared your materials, the next step is exposure.
+Once you've prepared your materials, the next step is exposure.
 
-Larger companies will tend to recruit in the fall for summer positions.
-Smaller companies will tend to recruit in the sprint.
+Larger companies will tend to recruit in early fall, September-November, for summer positions.
+Some positions are filled by December.
+Smaller companies will tend to recruit in winter and early spring, January–April.
 Apply broadly and keep your eyes open for potential opportunities throughout the year.
 
 Much like the dating world, the trick is finding each other.
+
+You may apply to several dozen internships before landing one interview.
+That’s normal.
 
 ## Attend Career Fairs
 Attend any on-campus or virtual career day.
@@ -232,10 +236,11 @@ Once the career fair recruiter has confirmed their interest, thank them and move
 
 ## Leverage Your Network
 My mother used to say, "It's not what you know. It's who you know."
-Internal references and recommandations often help.
+Internal references and recommendations often help.
 My first summer job happened because my father worked at the company.
 
-If you have friends or family in the industry, let them know you're interested in an internship ask if they know of any opportunities.
+If you have friends or family in the industry, let them know you're interested in an internship. 
+Ask if they know of any opportunities.
 
 ## Automate Your Internship Search
 If the career fair didn't pan out, you can turn to the internet.
@@ -285,10 +290,12 @@ The rest will fall into place.
 
 Likeability is more than just being pleasant.
 Software Engineering is a social discipline.
-Likeability is the grease that keeps the gears moving smoothly.
+**Likeability is the grease that keeps the gears moving smoothly.**
+Clear communication, humility, and responsiveness often matter more than raw algorithmic knowledge.
+
 It's building relationships.
 It's helping others with a technical issue who will return the favor when you need it.
-It's former coworker who lets you know about a great opportunity at their current company and thought of you.
+It's the former coworker who lets you know about a great opportunity at their current company and thought of you.
 
 ## Technical Interview
 The other type of interview is the Technical Interview.
@@ -328,7 +335,7 @@ Here's what to do:
 * Ask questions about the problem. Sometimes technical problems are vague on purpose to see whether you ask for clarification.
 * Verbalize your thought process. Interviewers want to see how you go about solving a problem. They don't care about a solution to the specific problem.
 * State what you know. State what assumptions you're making. Break the problem down into smaller problems.
-* You may know what to do, but how to do it. State what you know and that you'd use Google, Stack Overflow or Generative AI to fill in the gaps. It's more important to identify a problem and know how to address it than it is to have that knowledge directly in your head.
+* You may know what to do, but not exactly how to do it. State what you know and that you'd use Google, Stack Overflow or Generative AI to fill in the gaps. It's more important to identify a problem and know how to address it than it is to have that knowledge directly in your head.
 * Ask if the problem can be restated or whether the interviewer can provide an example.
 
 Let's use the LLM once more. You may want to be more specific, such as telling the LLM to focus upon Web based questions, or AI questions, or Computer Security questions, etc.:
@@ -346,11 +353,19 @@ Decide which aspects are important to you.
 
 Here are some factors to consider:
 * Location
+* Onsite or remote
 * Compensation
-* Tech stack relevance
-* Conversation rate to full-time
-* Company size: small start up to large established company
 * Opportunity to learn
+* Tech stack relevance
+* The ability to return for subsequent internships
+* Conversion rate of interns to full-time upon graduation
+* Company size: small startup to large established company
+* Whether the internship includes shipping code to production or a separate internal project
+* Whether interns present their work at the end of the internship
+
+If these are important, ask about them in the interview, except for compensation.
+Most technical internships compensate interns, but it's usually a flat rate and generally not negotiated.
+Do follow up about compensation with the intern recruiter, but it's not a topic for the interview.
 
 You can't go wrong.
 You'll learn something new regardless.
@@ -362,14 +377,14 @@ You received and accepted an internship offer.
 
 In most of my experience with interns, their experience is more Software Engineering adjacent.
 They were given independent projects rather than working directly with a team.
-This isn't bad, but it's not quite the same experience as regular team member.
+This isn't bad, but it's not quite the same experience as a regular team member.
 
 As for what to do during your internship:
 * Show up
 * Focus upon your assignment
 * Ask questions
 * Eat lunch with employees and your fellow interns
-* Make connections, and send invites on Linkedin
+* Make connections, and send invites on LinkedIn
 * Have fun
 
 # Alternative Path
