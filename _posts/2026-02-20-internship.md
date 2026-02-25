@@ -16,7 +16,7 @@ Internships are a great opportunity to:
 The trick is being able to get the internship in the first place.
 
 # Preparation
-Be prepare before seeking out an internship.
+Be prepared before seeking out an internship.
 
 ## Your Résumé
 You should have a solid [résumé](https://en.wikipedia.org/wiki/R%C3%A9sum%C3%A9).
@@ -79,16 +79,16 @@ Here's a generic example:
 >
 >_I am interested in an internship so that I can better learn how the skills I'm obtaining at State can be used in industry as well as learning practical Software Engineering skills that aren't necessarily taught in a university setting._
 
-Here's an intersting TED talk take on the elevator pitch: [How to Introduct Yourself and Get Hired](https://www.ted.com/talks/rebecca_okamoto_how_to_introduce_yourself_and_get_hired) by Rebecca Okatomo from April 2025.
+Here's an interesting TED talk take on the elevator pitch: [How to Introduct Yourself and Get Hired](https://www.ted.com/talks/rebecca_okamoto_how_to_introduce_yourself_and_get_hired) by Rebecca Okatomo from April 2025.
 
 ## Company Research
-Internship offers generally won't appear of the blue on short notice.
+Internship offers generally won't appear out of the blue on short notice.
 You'll have some time research the company that may offer you an internship.
 The internet has made this much easier than when I was a student.
 I suspect that most companies have a public website with some information about their industry.
 
 I worked with interns at my last company. Our college recruiter said that there were two traits she was always looking for in interns:
-* A passion for software engineering
+* A passion for Software Engineering
 * An interest in the company
 
 Being able to talk to an interviewer about their company or industry shows that you have an interest in them.
@@ -114,9 +114,9 @@ These could be questions about their products, customers, challenges, etc.
 The final type of questions are generic, but still valuable.
 You can easily catalog a set of these to use on multiple interviews.
 Here are some possible questions about business domain:
-* _How does your company standout amoung your competition? Why do customers keep returning?_
+* _How does your company stand out among your competition? Why do customers keep returning?_
 * _What are your company's opportunities and challenges?_
-* _How do you adjust to the every changing technology and market landscape?_
+* _How do you adjust to the ever-changing technology and market landscape?_
 
 Here are some possible questions about the internship:
 * _Will I have a dedicated mentor?_
@@ -126,7 +126,7 @@ Here are some possible questions about the internship:
 * _Will I get exposure to Generative and Agentic AI? If so, how much?_
 * _If so, then which ones do you use and to what degree do you use them?_
 * _How will this internship make me a better Software Engineer?_
-* _Are qualifed interns given full-time offers upon graduation?_
+* _Are qualified interns given full-time offers upon graduation?_
 
 Search for internship questions on the internet as well as ask [Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) to generate a few for you.
 You'll need to weed through these results to find questions that feel comfortable to you, but you may find a few that you really like.
@@ -147,7 +147,7 @@ An interview just felt like a natural conversation to me.
 It was a few years later when I realized that I had years of interview practice under my belt without realizing it.
 I had advanced through the ranks in the Boy Scouts of America.
 Each new rank promotion included two interviews:
-* A one-on-one intervew with your Scoutmaster.
+* A one-on-one interview with your Scoutmaster.
 * A group interview with the Board of Review, which varied based upon your next rank, including:
     * Your Troop's Patrol Leaders, who were your fellow Scouts, but a few years older
     * The Troop Committee, which was usually a few fathers of boys in the Troop
@@ -156,9 +156,9 @@ Each new rank promotion included two interviews:
 Most kids passed, but a few had to regroup and try again.
 
 A question about any previous Scout achievement was fair game:
-* The Patrol Leader could be viscious in trying to stump you.
+* The Patrol Leader could be vicious in trying to stump you.
 * The Troop Committe reviews were usually pretty easy. The dads generally asked generic Scouting questions or how school was going.
-* The District Committee review wasn't viscious, but it was through.
+* The District Committee review wasn't vicious, but it was thorough.
 There was usually a question about personal character.
 I was asked how my fellow classmates would know that I was an Eagle in school even when I wasn't wearing my Scout uniform.
 
@@ -227,7 +227,7 @@ The only distinction is that you'd want to include ***Internship*** within your 
 Once set up, Google will email you Internship opportunities that match your criteria.
 
 # Interview Workflow
-If your résumé is like your dating profile, and your elevator pitch is like your speed dating converation, then the interview is like going out on a date.
+If your résumé is like your dating profile, and your elevator pitch is like your speed dating conversation, then the interview is like going out on a date.
 
 The interview is an opportunity for both recruiter and candidate to get to know each other.
 You are both evaluating each other.
@@ -272,7 +272,7 @@ When I interviewed interns, I was looking for someone with passion.
 I also knew that even if we made a mistake in hiring the wrong kid, they would only be with us for about three months.
 This wasn't as much of an investment as it was with a permanent hire.
 
-It's very difficult to get a sense of someone's technical expertise in a single interview, especially for an intership when we only have about 30 minutes.
+It's very difficult to get a sense of someone's technical expertise in a single interview, especially for an internship when we only have about 30 minutes.
 
 You may be asked to _whiteboard_ a problem.
 This involves describing how you would approach a problem while standing at a whiteboard so that you can provide freehand illustrations, and possibly even hand-written code.
@@ -286,7 +286,7 @@ Whiteboarding in technical interviews is unnatural, because in real Software Eng
 * Access to the internet for all of its resources
 * Time to think, design and implement
 * An IDE that will catch our syntax errors immediately
-* The ability to experiment with soltuions
+* The ability to experiment with solutions
 
 The interviewer may throw you a curve ball.
 It may be a problem, for which don't even know how or where to start.
@@ -299,7 +299,7 @@ Here's what to do:
 * Ask questions about the problem. Sometimes technical problems are vague on purpose to see whether you ask for clarification.
 * Verbalize your thought process. Interviewers want to see how you go about solving a problem. They don't care about a solution to the specific problem.
 * State what you know. State what assumptions you're making. Break the problem down into smaller problems.
-* You may know what to do, but how how to do it. State what you know and that you'd use Google, Stack Overflow or Generative AI to fill in the gaps. It's more important to identify a problem and know how to address it than it is to have that knowledge directly in your head.
+* You may know what to do, but how to do it. State what you know and that you'd use Google, Stack Overflow or Generative AI to fill in the gaps. It's more important to identify a problem and know how to address it than it is to have that knowledge directly in your head.
 * Ask if the problem can be restated or whether the interviewer can provide an example.
 
 Let's use the LLM once more. You may want to be more specific, such as telling the LLM to focus upon Web based questions, or AI questions, or Computer Security questions, etc.:
@@ -321,7 +321,7 @@ It's only a three month commitment.
 
 # Landing the Internship
 Congratulations.
-You got the intership.
+You got the internship.
 
 In most of my experience with interns, their experience is more Software Engineering adjacent.
 They were given independent projects rather than working directly with a team.
@@ -354,7 +354,7 @@ Some possibilities are:
 * Learn how to code with Generative/Agentic AI:
     * Build your own AI Agent to solve a problem for you.
     * Learn how to code with Generative/Agentic AI. You may not be allowed to leverage these tools in your academic career yet, but you will be expected to use them in your career. Any experience you can gain would be worth the investment. Recode some of your previous course assignments with the assistance of AI. Find out what works and what doesn't work.
-* Work on any type of softare project.
+* Work on any type of software project.
 * Learn a new programming language, programming paradigm, or framework, such as [Spring](https://en.wikipedia.org/wiki/Spring_Framework).
 
 There are countless often free resources for all of these on the internet.
@@ -368,7 +368,7 @@ My wife's company had an extensive internship program, but they never extended f
 
 # Summary
 I've used dating as a metaphor for the internship process.
-Receiving an internship offer starting a serious dating relationship with someone new.
+Receiving an internship offer is like starting a serious dating relationship with someone new.
 It may be a bit awkward at first, but you'll settle into a routine.
 
 And much like dating, the internship process can be a bit depressing.
