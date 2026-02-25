@@ -16,6 +16,9 @@ Internships are a great opportunity to:
 
 The trick is being able to get the internship in the first place.
 
+In several ways, finding an intership, or any job for that matter, is a lot like _dating_.
+
+
 # Preparation
 Be prepared before seeking out an internship.
 
@@ -25,8 +28,6 @@ Your résumé does not get you the job.
 It gets you the interview.
 It's sort of like a profile on a dating app.
 You want to be interesting enough for someone to contact you.
-
-_Dating_ will be a metaphor for your internship search throughout this blog entry.
 
 A résumé generally contains your:
 * Name
@@ -209,10 +210,6 @@ You just need to convince them that you're the best person to fill one of their 
 If you know which companies are attending, look over the list.
 Find a few that look interesting and make sure you visit their tables, but keep your eyes open for other interesting opportunities too.
 
-The career fair is a bit like a speed dating event.
-Everyone there knows what they're interested in.
-It can be a bit chaotic.
-
 Look professional.
 You don't need to dress like a lawyer, but don't look like you just rolled out of bed.
 For men, I would suggest a dress shirt and tie and possibly a sports jacket if you have one.
@@ -240,8 +237,6 @@ My first summer job happened because my father worked at the company.
 
 If you have friends or family in the industry, let them know you're interested in an internship ask if they know of any opportunities.
 
-This is the dating equivalent of asking your friends or family if they know anyone who could be a potential match to date.
-
 ## Automate Your Internship Search
 If the career fair didn't pan out, you can turn to the internet.
 Google provides a _Jobs API_, which I described in [Automate Your Job Search](https://jhumelsine.github.io/2024/08/11/jobsearch.html#automate-your-job-search).
@@ -249,11 +244,11 @@ The only distinction is that you'd want to include ***Internship*** within your 
 
 Once set up, Google will email you Internship opportunities that match your criteria.
 
-This is the dating equivalent of signing up for a dating app.
-
 # Interview
 You've found a company that's interested in you.
 The next step is the interview.
+
+If your résumé is like your dating profile, and your elevator pitch is like your speed dating conversation, then the interview is like going out on a date.
 
 The interview is an opportunity for both recruiter and candidate to get to know each other.
 You are both evaluating each other.
@@ -265,8 +260,6 @@ Therefore, the bar isn't quite as high for interns.
 The interview process tends to be shorter.
 A typical full-time interview process can easily include up to four interviews with each being an hour long.
 The internship process may only include two interviews usually less than an hour long.
-
-If your résumé is like your dating profile, and your elevator pitch is like your speed dating conversation, then the interview is like going out on a date.
 
 ## Cultural Fit
 One of the interviews will be a cultural fit.
@@ -297,13 +290,10 @@ It's building relationships.
 It's helping others with a technical issue who will return the favor when you need it.
 It's former coworker who lets you know about a great opportunity at their current company and thought of you.
 
-This is the dating equivalent of being a decent person that someone would want to invest a relationship with you.
-
 ## Technical Interview
 The other type of interview is the Technical Interview.
 
 The Technical Interview determines whether you have the skills for the job.
-The dating equivalent would be whether someone has a job, car, good apartment, etc.
 
 The industry still doesn't know how to conduct a good technical interview, and I was part of that dismal practice during my career when I was an interviewer as well.
 
@@ -366,9 +356,6 @@ You can't go wrong.
 You'll learn something new regardless.
 It's only a three month commitment.
 
-This is the dating equivalent of causually dating and more than one starts to develop.
-You'll need to choose one of the others, and often without much information.
-
 # Success
 Congratulations.
 You received and accepted an internship offer.
@@ -385,8 +372,6 @@ As for what to do during your internship:
 * Make connections, and send invites on Linkedin
 * Have fun
 
-You've moved from initial dating to a hopefully stable and happy relationship.
-
 # Alternative Path
 Sometimes the job market is like a game of musical chairs.
 The song stops, there's a mad scramble, you're left standing.
@@ -397,11 +382,6 @@ Companies may be struggling financially.
 
 If you find yourself without a traditional internship, look for opportunities with faculty.
 A professor may have some grant money to hire a research assistant.
-
-Many have dry spells during their dating life.
-Do things you enjoy, even if on your own.
-Read. Travel. Etc.
-Invest in yourself and make yourself a bit more interesting for when you do meet that special someone.
 
 Treat this period without an internship similarly as an opportunity for independent study.
 Some possibilities are:
@@ -429,7 +409,6 @@ My wife's company had an extensive internship program, but they never extended f
 
 # Summary
 I've used dating as a metaphor for the internship process.
-Maybe I've used it a bit too much.
 Receiving an internship offer is like starting a serious dating relationship with someone new.
 It may be a bit awkward at first, but you'll settle into a routine.
 
