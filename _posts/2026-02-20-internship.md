@@ -1,6 +1,6 @@
 ---
-title: WORK IN PROGRESS – How to get a Software Engineering Intership
-description: TBD
+title: WORK IN PROGRESS – Steps to Gain a Software Engineering Internship
+description: Getting a Internship is a Lot Like Dating
 unlisted: true
 ---
 
@@ -21,7 +21,8 @@ Be prepared before seeking out an internship.
 
 ## Your Résumé
 You should have a solid [résumé](https://en.wikipedia.org/wiki/R%C3%A9sum%C3%A9).
-A good résumé provides just enough information for a recruiter to want to have conversation with you.
+Your résumé does not get you the job.
+It gets you the interview.
 It's sort of like a profile on a dating app.
 You want to be interesting enough for someone to contact you.
 
@@ -34,20 +35,18 @@ A résumé generally contains your:
 * Skills, possibly divide
 * Previous work history
 * Leadership roles
+* Side projects
 * Linkedin profile, if you have one
 * GitHub address, if you have one
 * Etc
 
-It generally won't contain personal information, such as other social media accounts, hobbies, favorite movies, TV shows, etc.
-Definitely do not include religious beliefs or gender or sexual preferences.
-
-Listing preferred pronouns is a gray area.
-If you feel strongly about your preferred pronouns, then list them; otherwise, don't.
+Follow current industry norms and your university’s guidance.
 
 It should be no more than one page in length.
 
 If you're not sure where to start, there are many résumé examples and templates online.
 [Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) can help you some ideas as well.
+(**NOTE:** Generative AI recommendations will appear repeatedly in this blog.)
 
 If your university has a Career Center, ask someone there to take a look at your résumé, but be prepared.
 Everyone has an opinion when it comes to résumés.
@@ -196,6 +195,10 @@ The LLM may not know anything about the company, but at a minimum, it gives you 
 # Exposure
 One you've prepared your materials, the next step is exposure.
 
+Larger companies will tend to recruit in the fall for summer positions.
+Smaller companies will tend to recruit in the sprint.
+Apply broadly and keep your eyes open for potential opportunities throughout the year.
+
 Much like the dating world, the trick is finding each other.
 
 ## Attend Career Fairs
@@ -220,8 +223,7 @@ Interactions tend to be quick.
 This is where a good résumé and a solid elevator pitch are useful.
 
 Be ready for the question, "Why do you want to intern here?"
-I **HATE** this question.
-The real answer for most is, "Because I want a paying job for the summer," but you can't really say that.
+I dislike this question because the honest answer is usually, "I want a paying job for the summer," but you can't really say that.
 
 Here is one possible answer, but it's a bit stilted too, "I'm learning the theoretical aspect of computer science. I want to see how it applies to software engineering in real world practice. The practice will provide context to understand the theory, and a better understanding of the theory will lay down the path toward better practice."
 
@@ -283,10 +285,17 @@ No one likes to work with an arrogant jerk even if they are a coding genius.
 
 _The hardest problem in computer science is not being an opinionated jerk about everything._ ― Nick Takayama
 
-Don't be the arrogant/opinionated jerk, but you don't need to be _life of the party_ either.
+Don't be the arrogant/opinionated jerk, but you don't need to be _the life of the party_ either.
 
 Be kind, respectful and helpful.
 The rest will fall into place.
+
+Likeability is more than just being pleasant.
+Software Engineering is a social discipline.
+Likeability is the grease that keeps the gears moving smoothly.
+It's building relationships.
+It's helping others with a technical issue who will return the favor when you need it.
+It's former coworker who lets you know about a great opportunity at their current company and thought of you.
 
 This is the dating equivalent of being a decent person that someone would want to invest a relationship with you.
 
@@ -308,11 +317,10 @@ It's very difficult to get a sense of someone's technical expertise in a single 
 You may be asked to _whiteboard_ a problem.
 This involves describing how you would approach a problem while standing at a whiteboard so that you can provide freehand illustrations, and possibly even hand-written code.
 
-Whiteboarding in this form is not how problems are generally solved.
-We will use whiteboards when working as a team to discuss and consider potential solutions together.
-Often someone will take the lead and present, but it's never forced upon someone to take the lead.
+Whiteboarding is not about perfection in solving a problem.
+It is about structured thinking under mild pressure.
 
-Whiteboarding in technical interviews is unnatural, because in real Software Engineering we have:
+Whiteboarding in technical interviews is a bit unnatural, because in real Software Engineering we have:
 * Others on the team to help us
 * Access to the internet for all of its resources
 * Time to think, design and implement
@@ -346,6 +354,14 @@ Each offer is different.
 List the pros and cons of each offer.
 Decide which aspects are important to you.
 
+Here are some factors to consider:
+* Location
+* Compensation
+* Tech stack relevance
+* Conversation rate to full-time
+* Company size: small start up to large established company
+* Opportunity to learn
+
 You can't go wrong.
 You'll learn something new regardless.
 It's only a three month commitment.
@@ -355,7 +371,7 @@ You'll need to choose one of the others, and often without much information.
 
 # Success
 Congratulations.
-You got the internship.
+You received and accepted an internship offer.
 
 In most of my experience with interns, their experience is more Software Engineering adjacent.
 They were given independent projects rather than working directly with a team.
@@ -419,3 +435,9 @@ It may be a bit awkward at first, but you'll settle into a routine.
 
 And much like dating, the internship process can be a bit depressing.
 There can be a lot of rejection, but remember that in both dating and internships, you only need to find one match.
+You do not need every company to say yes.
+You only need one door to open.
+Prepare well. 
+Show up. 
+Keep improving. 
+Your opportunity will come.
