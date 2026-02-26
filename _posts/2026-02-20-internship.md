@@ -1,5 +1,5 @@
 ---
-title: WORK IN PROGRESS – Steps to Gain a Software Engineering Internship
+title: OPEN FOR REVIEW AND COMMENTS – Steps to Gain a Software Engineering Internship
 description: Getting an Internship is a Lot Like Dating
 unlisted: true
 ---
@@ -82,10 +82,10 @@ Here's a generic example:
 >
 >_I am interested in an internship so that I can better learn how the skills I'm obtaining at State can be used in industry as well as learning practical Software Engineering skills that aren't necessarily taught in a university setting._
 
-Here's an interesting TED talk take on the elevator pitch: [How to Introduce Yourself and Get Hired](https://www.ted.com/talks/rebecca_okamoto_how_to_introduce_yourself_and_get_hired) by Rebecca Okatomo from April 2025.
+Here's an interesting TED talk take on the elevator pitch: [How to Introduce Yourself and Get Hired](https://www.ted.com/talks/rebecca_okamoto_how_to_introduce_yourself_and_get_hired) by Rebecca Okamoto from April 2025.
 
 ## Company Research
-Internship offers generally won't appear out of the blue on short notice.
+Internship offers generally won't appear out of the blue.
 You'll have some time to research the company that may offer you an internship.
 The internet has made this much easier than when I was a student.
 I suspect that most companies have a public website with some information about their industry.
@@ -195,7 +195,7 @@ Schedule one or more there.
 
 ### Generative AI
 Consider leveraging an LLM, such as ChatGPT, to research the companies.
-Here is a potential prompt script, where you can insert any company you desire. I used ***IBM*** as an example:
+Here is a potential prompt script, where you can insert any company you desire:
 >You are a campus recruiter for IBM seeking software engineering summer interns.
 >
 >I am a computer science sophomore who wishes to land an internship with your company.
@@ -205,7 +205,7 @@ Here is a potential prompt script, where you can insert any company you desire. 
 >When the interview is over, summarize my performance.
 
 This may not be the best prompt, but it can easily be adjusted.
-The LLM may not know anything about the company, but at a minimum, it gives you a chance to practice for an interview.
+Even if imperfect, it gives you a safe environment to practice.
 
 # Exposure
 Once you've prepared your materials, the next step is exposure.
@@ -217,8 +217,10 @@ Apply broadly and keep your eyes open for potential opportunities throughout the
 
 Much like the dating world, the trick is finding each other.
 
-You may apply to several dozen internships before landing one interview.
+You may apply to dozens of internships before landing an interview.
 That’s normal.
+Do not interpret silence as failure.
+Companies receive hundreds of applications for a handful of spots.
 
 ## Attend Career Fairs
 Attend any on-campus or virtual career day.
@@ -240,7 +242,7 @@ This is where a good résumé and a solid elevator pitch are useful.
 Be ready for the question, "Why do you want to intern here?"
 I dislike this question because the honest answer is usually, "I want a paying job for the summer," but you can't really say that.
 
-Here is one possible answer, but it's a bit stilted too, "I'm learning the theoretical aspect of computer science. I want to see how it applies to software engineering in real world practice. The practice will provide context to understand the theory, and a better understanding of the theory will lay down the path toward better practice."
+Here is one possible answer: "I'm learning the theoretical aspect of computer science. I want to see how it applies to software engineering in real world practice. The practice will provide context to understand the theory, and a better understanding of the theory will lay down the path toward better practice."
 
 You don't need a canned memorized answer, but just be prepared for something like this.
 If your answer includes something specific about the company, then that's the best type of answer.
@@ -278,7 +280,7 @@ Therefore, the bar isn't quite as high for interns.
 
 The interview process tends to be shorter.
 A typical full-time interview process can easily include up to four interviews with each being an hour long.
-The internship process may only include two interviews usually less than an hour long.
+The internship process may only include two interviews, usually less than an hour long.
 
 ## Cultural Fit
 One of the interviews will be a cultural fit.
@@ -299,7 +301,7 @@ _The hardest problem in computer science is not being an opinionated jerk about 
 
 Don't be the arrogant/opinionated jerk, but you don't need to be _the life of the party_ either.
 
-Be kind, respectful and helpful.
+Be kind, respectful, and helpful.
 The rest will fall into place.
 
 Likeability is more than just being pleasant.
@@ -308,7 +310,7 @@ Software Engineering is a social discipline.
 Clear communication, humility, and responsiveness often matter more than raw algorithmic brilliance.
 
 It's building relationships.
-It's helping others with a technical issue who will return the favor when you need it.
+It's helping others with a technical issue who may return the favor when you need it.
 It's the former coworker who lets you know about a great opportunity at their current company and thought of you.
 
 ## Technical Interview
@@ -316,18 +318,18 @@ The other type of interview is the Technical Interview.
 
 The Technical Interview determines whether you have the skills for the job.
 
-The industry still struggles with how to conduct a truly effective technical interview, and I was part of that imperfect process during my career as an interviewer.
+The industry still debates how to conduct a truly effective technical interview, and I was part of that imperfect process during my career as an interviewer.
 
-Internship interviews tend to be more forgiving.
+Internship interviews tend to emphasize potential over polish.
 Interns are not expected to know everything.
-They are expected to be teachable.
-Curiosity, coachability, and steady thinking under pressure often matter more than perfect answers.
+They are expected to be teachable, curious, and dependable.
+Coachability and steady thinking under pressure often matter more than perfect answers.
 
 When I interviewed interns, I was looking for someone with passion.
 I also knew that even if we made a mistake in hiring the wrong kid, they would only be with us for about three months.
 This wasn't as much of an investment as it was with a permanent hire.
 
-It's very difficult to get a sense of someone's technical expertise in a single interview, especially for an internship when we only have about 30 minutes.
+It's very difficult to assess someone's technical depth in a single 30-minute internship interview.
 
 You may be asked to _whiteboard_ a problem.
 This involves describing how you would approach a problem while standing at a whiteboard so that you can provide freehand illustrations, and possibly even hand-written code.
@@ -343,7 +345,7 @@ Whiteboarding in technical interviews is a bit unnatural, because in real Softwa
 * The ability to experiment with solutions
 
 The interviewer may throw you a curve ball.
-It may be a problem, for which you don't even know how or where to start.
+It may be a problem for which you don’t even know where to start.
 
 **Don't Panic!**
 
@@ -382,7 +384,7 @@ Here are some factors to consider:
 * Whether interns present their work at the end of the internship
 
 If these are important, ask about them in the interview, except for compensation.
-Most technical internships compensate interns, but it's usually a flat rate and generally not negotiated.
+Most technical internships compensate interns, usually at a flat rate that is not negotiated.
 Do follow up about compensation with the intern recruiter, but it's not a topic for the interview.
 
 You can't go wrong.
@@ -412,7 +414,7 @@ The song stops, there's a mad scramble, you're left standing.
 
 Not everyone gets an internship.
 No one had internships in the summer of 2020 when COVID first hit.
-Companies may be struggling financially.
+Companies may be struggling financially or reducing headcount.
 
 An internship is valuable, but it is not the only path to becoming a strong Software Engineer.
 
@@ -431,7 +433,7 @@ Some possibilities are:
 * Learn a new programming language, programming paradigm, or framework, such as [Spring](https://en.wikipedia.org/wiki/Spring_Framework).
 
 These ideas are not mutually exclusive.
-Many support one another.
+Many reinforce one another.
 
 There are countless often free resources for all of these on the internet.
 
