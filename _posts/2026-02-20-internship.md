@@ -159,9 +159,9 @@ Each new rank promotion included two interviews:
 Most kids passed, but a few had to regroup and try again.
 
 A question about any previous Scout achievement was fair game:
-* The Patrol Leader could be vicious in trying to stump you.
+* The Patrol Leader could be relentless in trying to stump you.
 * The Troop Committee reviews were usually pretty easy. The dads generally asked generic Scouting questions or how school was going.
-* The District Committee review wasn't vicious, but it was thorough.
+* The District Committee review wasn't relentless, but it was thorough.
 There was usually a question about personal character.
 I was asked how my fellow classmates would know that I was an Eagle in school even when I wasn't wearing my Scout uniform.
 
@@ -177,8 +177,10 @@ For one, I got lost on the way to the hotel the evening before and arrived after
 For the second one, my luggage, including my interview suit, was lost by the airlines.
 It arrived at 6:00 AM.
 Unfortunately, my interviewer didn't arrive.
-A scheduling mixup on their end left me stranded until midmorning.
+A scheduling mixup on their end left me stranded until mid-morning.
 
+Both issues had limited my sleep.
+I was exhausted.
 Neither of those interviews went well.
 I was not extended offers.
 It was not the end of the world.
@@ -271,7 +273,7 @@ The interview is an opportunity for both recruiter and candidate to get to know 
 You are both evaluating each other.
 
 The level of commitment isn't as great for an internship as it is for a full-time position.
-An internship tends to last no more than ten to twelve weeks.
+An internship tends to last no more than 10-12 weeks.
 Therefore, the bar isn't quite as high for interns.
 
 The interview process tends to be shorter.
@@ -289,7 +291,7 @@ I can't tell you how many times I was in a candidate evaluation, and the decisio
 
 Many of us spend more time with our coworkers than we do with our families.
 Some of my closest friends are coworkers I met years and even decades ago.
-We don't become close friends will all of our coworkers, but genuinely liking and respecting each other helps the team gel and work as a unit.
+We don't become close friends with all of our coworkers, but genuinely liking and respecting each other helps the team gel and work as a unit.
 
 No one likes to work with an arrogant jerk even if they are a coding genius.
 
@@ -303,7 +305,7 @@ The rest will fall into place.
 Likeability is more than just being pleasant.
 Software Engineering is a social discipline.
 **Likeability is the grease that keeps the gears moving smoothly.**
-Clear communication, humility, and responsiveness often matter more than raw algorithmic expertise.
+Clear communication, humility, and responsiveness often matter more than raw algorithmic brilliance.
 
 It's building relationships.
 It's helping others with a technical issue who will return the favor when you need it.
@@ -314,9 +316,13 @@ The other type of interview is the Technical Interview.
 
 The Technical Interview determines whether you have the skills for the job.
 
-The industry still doesn't know how to conduct a good technical interview, and I was part of that dismal practice during my career when I was an interviewer as well.
+The industry still struggles with how to conduct a truly effective technical interview, and I was part of that imperfect process during my career as an interviewer.
 
 Internship interviews tend to be more forgiving.
+Interns are not expected to know everything.
+They are expected to be teachable.
+Curiosity, coachability, and steady thinking under pressure often matter more than perfect answers.
+
 When I interviewed interns, I was looking for someone with passion.
 I also knew that even if we made a mistake in hiring the wrong kid, they would only be with us for about three months.
 This wasn't as much of an investment as it was with a permanent hire.
@@ -343,11 +349,11 @@ It may be a problem, for which you don't even know how or where to start.
 
 Here's what to do:
 * Take a little time to think.
-* Restate the problem in your own words to the interviewer and ask if it's accurate.
+* Restate the problem in your own words to the interviewer and ask if that's accurate.
 * Ask questions about the problem. Sometimes technical problems are vague on purpose to see whether you ask for clarification.
 * Verbalize your thought process. Interviewers want to see how you go about solving a problem. They don't care about a solution to the specific problem.
 * State what you know. State what assumptions you're making. Break the problem down into smaller problems.
-* You may know what to do, but not exactly how to do it. State what you know and that you'd use Google, Stack Overflow or Generative AI to fill in the gaps. It's more important to identify a problem and know how to address it than it is to have that knowledge directly in your head.
+* You may know what to do, but not exactly how to do it. State what you know, and explain how you would use documentation, search engines, or Generative AI to fill in the gaps. It's more important to identify a problem and know how to address it than it is to have that knowledge directly in your head.
 * Ask if the problem can be restated or whether the interviewer can provide an example.
 
 Let's use the LLM once more. You may want to be more specific, such as telling the LLM to focus upon Web based questions, or AI questions, or Computer Security questions, etc.:
@@ -396,6 +402,7 @@ As for what to do during your internship:
 * Focus upon your assignment
 * Ask questions
 * Eat lunch with employees and your fellow interns
+* Ask for feedback from your mentor and/or manager
 * Make connections, and send invites on LinkedIn
 * Have fun
 
@@ -406,6 +413,8 @@ The song stops, there's a mad scramble, you're left standing.
 Not everyone gets an internship.
 No one had internships in the summer of 2020 when COVID first hit.
 Companies may be struggling financially.
+
+An internship is valuable, but it is not the only path to becoming a strong Software Engineer.
 
 If you find yourself without a traditional internship, look for opportunities with faculty.
 A professor may have some grant money to hire a research assistant.
@@ -432,7 +441,13 @@ Document what you produced in GitHub.
 # Full-Time Position Pipeline
 Sometimes an internship is a three-month long interview.
 Many interns were given full-time offers upon graduation, but this isn't always the case.
-My wife's company had an extensive internship program, but they never extended full-time offers.
+
+If you are interested in a full-time offer, make that known professionally toward the end of the internship.
+Do not assume they know.
+Express appreciation for the experience and ask what you would need to improve to be considered for a full-time role.
+
+Many interns were offered full-time positions at my last company.
+My wife's company, on the other hand, had an extensive internship program, but they never extended full-time offers.
 
 # Summary
 I've used dating as a metaphor for the internship process.
