@@ -68,6 +68,11 @@ Do not keyword-stuff, but ensure relevant skills are clearly stated.
 Some companies use GPA as a screening tool.
 If yours is lower, emphasize projects, experience, and growth.
 
+Final checklist:
+* Can you explain every line on your résumé?
+* Can you discuss one project deeply?
+* Can you solve a basic coding problem without Google?
+
 ## Social Media
 Clean up your social media.
 
@@ -112,6 +117,10 @@ This research will help you prioritize which companies to approach for internshi
 
 It will also help you narrow your search.
 For example, strong personal beliefs may eliminate companies in some industries, such as tobacco, firearms, non-environmentally friendly energy, and defense industries.
+
+Customize your résumé for roles you care about most.
+Don’t blindly mass-apply without reading the job descriptions.
+Track which résumé version you used.
 
 ## Prepared Questions
 Most interviewers will ask you if you have any questions at some point during the interview.
@@ -221,13 +230,18 @@ Here is a potential prompt script, where you can insert any company you desire:
 This may not be the best prompt, but it can easily be adjusted.
 Even if imperfect, it gives you a safe environment to practice.
 
+Consider adding these to the practice prompt:
+* Data structures and algorithms
+* Time/space complexity
+* Writing code by hand
+
 ### Online Mock Interviews
 Search for mock interview videos online.
 They won't be interactive, but they will give you a sense as to what to expect.
 
 ### Public Speaking
 Interviews can be a bit nerve rattling.
-Mock interviews not only allow you to simulate an interviews, but they also allow you to become more comfortable speaking in front of others.
+Mock interviews not only allow you to simulate interviews, but they also help you become more comfortable speaking in front of others.
 
 Another path to take is public speaking.
 If you can stand in front of multiple people and make your case, then you can certainly do it for an interview.
@@ -343,7 +357,7 @@ Software Engineering is a social discipline.
 Clear communication, humility, and responsiveness often matter more than raw algorithmic brilliance.
 
 It's building relationships.
-It's helping others with a technical issue who may return the favor when you need it.
+It's helping others with technical issues who may return the favor when you need it.
 It's the former coworker who lets you know about a great opportunity at their current company and thought of you.
 
 ## Technical Interview
@@ -401,7 +415,7 @@ Let's use the LLM once more. You may want to be more specific, such as telling t
 Some companies require an online assessment before interviews. 
 Treat these seriously and practice beforehand on common coding platforms.
 
-## Story Time
+## Behavioral Interview (Story Time)
 Interviewers will ask you about things you mention on your resume, especially your past experiences.
 
 A good way to make a favorable impression is to tell a good story.
@@ -409,12 +423,12 @@ Have a story or two about your experience in teamwork, conflict, failure, leader
 
 Sometimes the interviewer may not reference a specific experience, but they may ask more generally, such as, "Tell me about a conflict you had and how you resolved it."
 
-An open question like can feel more disorienting than a specific question, but its openness gives you flexibility gives you more options.
+An open question like this can feel more disorienting than a specific question, but its openness gives you flexibility and more options.
 It could be something that happened in your academic career, a previous job, team sport, etc.
 You may also be able to pivot the original request to the story you wish to tell.
 This is your story so make sure you're the main character.
 
-Interviewers may stump you even if unintentially.
+Interviewers may stump you even if unintentionally.
 You may be asked about something for which you don't have a good story in mind.
 Take note of that deficit and try to come up with a story should you be asked a similar question in a future interview.
 
@@ -426,10 +440,27 @@ Follow up afterwards:
 * Reaffirm interest.
 * Reference something specific discussed.
 
+There may be additional interaction with the recruiter:
+* Respond to emails promptly
+* Be polite in recruiter communication
+* Check spelling and grammar in emails
+* Do not ghost recruiters
+
 # Decision
+You may interact with a number of companies during your internship process.
+Consider an `Internship` folder on your computer with subfolders for each company you've interacted with.
+The company subfolders could include artifacts such as:
+* Company information
+* Correspondence with recruiters and interviewers
+* Schedule of interviews
+* Your notes and impressions
+* Pros and cons
+* Résumé version
+
 You might receive multiple internship offers.
 Each offer is different.
 List the pros and cons of each offer.
+The company subfolders will help organize your thoughts.
 Decide which aspects are important to you.
 
 Here are some factors to consider:
@@ -437,6 +468,7 @@ Here are some factors to consider:
 * Onsite or remote
 * Compensation
 * Opportunity to learn
+* Quality of manager and mentor
 * Tech stack relevance
 * The ability to return for subsequent internships
 * Conversion rate of interns to full-time upon graduation
@@ -444,14 +476,14 @@ Here are some factors to consider:
 * Whether the internship includes shipping code to production or a separate internal project
 * Whether interns present their work at the end of the internship
 
-If these are important, ask about them in the interview, except for compensation.
+If these factors are important, ask about them during the interview, except for compensation.
 Most technical internships compensate interns, usually at a flat rate that is not negotiated.
 Do follow up about compensation with the intern recruiter, but it's not a topic for the interview.
 
 Sometimes the stars don't align.
 You may get an offer that is an adjacent field.
-For example, one of my Computer Science mentees, Tommy, recevied an internship that was closer to Data Science.
-Given the dearth internship offers, I encouraged him to take it.
+For example, Tommy, one of my Computer Science mentees, received an internship that was closer to Data Science.
+Given the dearth of internship offers, I encouraged him to take it.
 
 I asked him to review this blog entry, and I'm expanding this section based upon his reply, which included:
 >One thing I think I've learned would be to accept anything relatively related to what you want, even if it's not the textbook "perfect opportunity". For example, I took that offer which ended up giving me a great experience, a job offer and arguably most importantly, something I could talk in depth about in any potential future interview.
@@ -460,7 +492,7 @@ I asked him to review this blog entry, and I'm expanding this section based upon
 >
 >I guess what I'm really trying to say is that the biggest piece of advice I wish I was told when I was starting is to **take advantage of any and all opportunities that come your way**. Whether it was just being a Resident Assistant (RA) in the dorms, or something as genuine as my internships, I have been able to really talk myself up during interviews from them.  
 
-Even if it's an unpaid internship like Tommy's has value.
+Even an unpaid internship like Tommy's has value.
 Most undergrads are paying thousands of dollars each semester to learn Computer Science.
 An unpaid internship is still a free education.
 
@@ -537,6 +569,9 @@ And much like dating, the internship process can be a bit depressing.
 There can be a lot of rejection, but remember that in both dating and internships, you only need to find one match.
 You do not need every company to say yes.
 You only need one door to open.
+
+Most strong students are rejected multiple times.
+Rejection is normal and rarely personal.
 Prepare well. 
 Show up. 
 Keep improving. 
