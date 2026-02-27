@@ -387,9 +387,23 @@ If these are important, ask about them in the interview, except for compensation
 Most technical internships compensate interns, usually at a flat rate that is not negotiated.
 Do follow up about compensation with the intern recruiter, but it's not a topic for the interview.
 
-You can't go wrong.
-You'll learn something new regardless.
-It's only a three-month commitment.
+Sometimes the stars don't align.
+You may get an offer that is an adjacent field.
+For example, one of my Computer Science mentees, Tommy, recevied an internship that was closer to Data Science.
+Given the dearth internship offers, I encouraged him to take it.
+
+I asked him to review this blog entry, and I'm expanding this section based upon his reply, which included:
+>One thing I think I've learned would be to accept anything relatively related to what you want, even if it's not the textbook "perfect opportunity". For example, I took that offer which ended up giving me a great experience, a job offer and arguably most importantly, something I could talk in depth about in any potential future interview.
+>
+>I technically also took a software engineering internship that wasn't paid. Although it was a start up, which didn't even get to officially release the app, my resume says software engineering internship, and I can talk about it as if it was "the perfect opportunity" in interviews. I guess what I'm really trying to say is that the biggest piece of advice I wish I was told when I was starting is to **take advantage of any and all opportunities that come your way**. Whether it was just being a Resident Assistant (RA) in the dorms, or something as genuine as my internships, I have been able to really talk myself up during interviews from them.  
+
+Even if it's an unpaid internship like Tommy's has value.
+Most undergrads are paying thousands of dollars each semester to learn Computer Science.
+An unpaid internship is still a free education.
+
+Regardless of what you choose, you can't go wrong.
+You'll learn something new.
+Even if it's not a perfect fit, it's only a three-month commitment.
 
 # Success
 Congratulations.
