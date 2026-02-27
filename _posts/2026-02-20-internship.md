@@ -16,7 +16,7 @@ Internships are a great opportunity to:
 
 The trick is being able to get the internship in the first place.
 
-In several ways, finding an internship, or any job for that matter, is a lot like _dating_.
+In several ways, obtaining an internship, or any job for that matter, is a lot like _dating_.
 
 
 # Preparation
@@ -51,7 +51,7 @@ If you're not sure where to start, there are many résumé examples and template
 
 If your university has a Career Center, ask someone there to take a look at your résumé, but be prepared.
 Everyone has an opinion when it comes to résumés.
-If you ask ten people to look over your résumé, you're likely to get 11 different opinions.
+If you ask ten people to look over your résumé, you're likely to get eleven different opinions.
 
 Take all recommendations with a grain of salt.
 If you feel comfortable with and like a suggestion, then use it. 
@@ -63,7 +63,7 @@ You have to feel comfortable with it.
 
 Many companies use Applicant Tracking Systems to filter résumés.
 Align your résumé with the language in the job description when appropriate.
-Do not keyword-stuff, but ensure relevant skills are clearly stated.
+Do not keyword-stuff your résumé, but ensure relevant skills are clearly stated.
 
 Some companies use GPA as a screening tool.
 If yours is lower, emphasize projects, experience, and growth.
@@ -150,6 +150,7 @@ Here are some possible questions about the internship:
 * _Will I get exposure to Generative and Agentic AI? If so, how much?_
 * _If so, then which ones do you use and to what degree do you use them?_
 * _How will this internship make me a better Software Engineer?_
+* _How can my internship contribute to your company?_
 * _Are qualified interns given full-time offers upon graduation?_
 
 Search for internship questions on the internet as well as ask [Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) to generate a few for you.
@@ -197,7 +198,7 @@ I was thrown off during two interviews.
 For one, I got lost on the way to the hotel the evening before and arrived after midnight.
 For the second one, my luggage, including my interview suit, was lost by the airlines.
 It arrived at 6:00 AM.
-Unfortunately, my interviewer didn't arrive.
+Additionally, my interviewer didn't arrive when expected.
 A scheduling mixup on their end left me stranded until mid-morning.
 
 Both issues had limited my sleep.
@@ -237,7 +238,7 @@ Consider adding these to the practice prompt:
 
 ### Online Mock Interviews
 Search for mock interview videos online.
-They won't be interactive, but they will give you a sense as to what to expect.
+They won't be interactive, but they will give you a sense of what to expect.
 
 ### Public Speaking
 Interviews can be a bit nerve rattling.
@@ -257,6 +258,7 @@ Many internship roles are filled on a rolling basis.
 Some positions may be filled by September.
 
 Smaller companies will tend to recruit in winter and early spring, January–April.
+
 Apply broadly and keep your eyes open for potential opportunities throughout the year.
 
 Much like the dating world, the trick is finding each other.
@@ -333,14 +335,14 @@ The internship process may only include two interviews, usually less than an hou
 One of the interviews will be a cultural fit.
 Every company, and even many teams, in my career had their own culture to them.
 Those who meshed with the culture tended to do well.
-Those who didn't mesh tended to struggle.
+Those who didn't mesh tended to feel out of place.
 
 Likeability goes a long way.
 I can't tell you how many times I was in a candidate evaluation, and the decision to offer or reject reduced to the candidate's likeability.
 
 Many of us spend more time with our coworkers than we do with our families.
 Some of my closest friends are coworkers I met years and even decades ago.
-We don't become close friends with all of our coworkers, but genuinely liking and respecting each other helps the team gel and work as a unit.
+We don't always become close friends with our coworkers, but genuinely liking and respecting each other helps the team gel and work as a unit.
 
 No one likes to work with an arrogant jerk even if they are a coding genius.
 
@@ -357,11 +359,11 @@ Software Engineering is a social discipline.
 Clear communication, humility, and responsiveness often matter more than raw algorithmic brilliance.
 
 It's building relationships.
-It's helping others with technical issues who may return the favor when you need it.
+It's helping others with technical issues who may return the favor when you need help.
 It's the former coworker who lets you know about a great opportunity at their current company and thought of you.
 
 ## Technical Interview
-The other type of interview is the Technical Interview.
+Another type of interview is the Technical Interview.
 
 The Technical Interview determines whether you have the skills for the job.
 
@@ -416,7 +418,7 @@ Some companies require an online assessment before interviews.
 Treat these seriously and practice beforehand on common coding platforms.
 
 ## Behavioral Interview (Story Time)
-Interviewers will ask you about things you mention on your resume, especially your past experiences.
+Interviewers will ask you about things you mention on your resume, especially your past work experiences.
 
 A good way to make a favorable impression is to tell a good story.
 Have a story or two about your experience in teamwork, conflict, failure, leadership.
@@ -436,9 +438,9 @@ If you're not sure how to tell your story, consider the [STAR: Situation, Task, 
 
 ## Follow Up
 Follow up afterwards:
-* Send a brief thank-you email within 24 hours.
-* Reaffirm interest.
-* Reference something specific discussed.
+* Send a brief thank-you email within 24 hours
+* Reaffirm interest
+* Reference something specific discussed
 
 There may be additional interaction with the recruiter:
 * Respond to emails promptly
@@ -459,7 +461,7 @@ The company subfolders could include artifacts such as:
 
 You might receive multiple internship offers.
 Each offer is different.
-List the pros and cons of each offer.
+Consider the pros and cons of each offer.
 The company subfolders will help organize your thoughts.
 Decide which aspects are important to you.
 
@@ -488,13 +490,13 @@ Given the dearth of internship offers, I encouraged him to take it.
 I asked him to review this blog entry, and I'm expanding this section based upon his reply, which included:
 >One thing I think I've learned would be to accept anything relatively related to what you want, even if it's not the textbook "perfect opportunity". For example, I took that offer which ended up giving me a great experience, a job offer and arguably most importantly, something I could talk in depth about in any potential future interview.
 >
->I technically also took a software engineering internship that wasn't paid. Although it was a start up, which didn't even get to officially release the app, my resume says software engineering internship, and I can talk about it as if it was "the perfect opportunity" in interviews.
+>I technically also took a software engineering internship that wasn't paid. Although it was a start up, which didn't even get to officially release the app, my résumé says software engineering internship, and I can talk about it as if it was "the perfect opportunity" in interviews.
 >
 >I guess what I'm really trying to say is that the biggest piece of advice I wish I was told when I was starting is to **take advantage of any and all opportunities that come your way**. Whether it was just being a Resident Assistant (RA) in the dorms, or something as genuine as my internships, I have been able to really talk myself up during interviews from them.  
 
 Even an unpaid internship like Tommy's has value.
-Most undergrads are paying thousands of dollars each semester to learn Computer Science.
-An unpaid internship is still a free education.
+Most undergrads pay thousands of dollars each semester to learn Computer Science.
+Think of an unpaid internship is still a free education.
 
 Regardless of what you choose, you can't go wrong.
 You'll learn something new.
@@ -504,8 +506,8 @@ Even if it's not a perfect fit, it's only a three-month commitment.
 Congratulations.
 You received and accepted an internship offer.
 
-In most of my experience with interns, their experience is more Software Engineering adjacent.
-They were given independent projects rather than working directly with a team.
+In most of my experience with interns, their intership didn't immerse them into a complete Software Engineering experience.
+They were given independent projects rather than working directly with a production team.
 This isn't bad, but it's not quite the same experience as a regular team member.
 
 As for what to do during your internship:
@@ -514,12 +516,12 @@ As for what to do during your internship:
 * Ask questions
 * Eat lunch with employees and your fellow interns
 * Ask for feedback from your mentor and/or manager
-* Make connections, and send invites on LinkedIn
+* Make connections, and send invites on LinkedIn to stay connected
 * Have fun
 
 # Alternative Path
 Sometimes the job market is like a game of musical chairs.
-The song stops, there's a mad scramble, you're left standing.
+The song stops, there's a mad scramble, and you're left standing.
 
 Not everyone gets an internship.
 No one had internships in the summer of 2020 when COVID first hit.
@@ -528,14 +530,15 @@ Companies may be struggling financially or reducing headcount.
 An internship is valuable, but it is not the only path to becoming a strong Software Engineer.
 
 If you find yourself without a traditional internship, look for opportunities with faculty.
-A professor may have some grant money to hire a research assistant.
+A professor may have some grant money to hire a research assistant for a semester.
 
-Treat this period without an internship similarly as an opportunity for independent study.
+Treat this period without an internship as an opportunity for independent study.
 Some possibilities are:
 * Learn more about Software Engineering on your own. This blog is mostly about Software Engineering, with topics including:
     * [Design Patterns](https://jhumelsine.github.io/table-of-contents#design-patterns-and-architecture)
     * [Automated Testing](https://jhumelsine.github.io/table-of-contents#automated-testing)
 * Learn how to code with Generative/Agentic AI:
+    * Developers who learn how to leverage Generative/Agentic AI will have an advantage over those who do not.
     * Build your own AI Agent to solve a problem for you.
     * Learn how to code with Generative/Agentic AI. You may not be allowed to leverage these tools in your academic career yet, but you will be expected to use them in your career. Any experience you can gain would be worth the investment. Recode some of your previous course assignments with the assistance of AI. Find out what works and what doesn't work.
 * Work on any type of software project whether it's your own or an open source project.
@@ -551,7 +554,7 @@ Document what you produced in GitHub.
 
 # Full-Time Position Pipeline
 Sometimes an internship is a three-month long interview.
-Many interns were given full-time offers upon graduation, but this isn't always the case.
+Many interns are given full-time offers upon graduation, but this isn't always the case.
 
 If you are interested in a full-time offer, make that known professionally toward the end of the internship.
 Do not assume they know.
