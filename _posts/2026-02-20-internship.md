@@ -32,13 +32,13 @@ You want to be interesting enough for someone to contact you.
 A résumé generally contains your:
 * Name
 * Contact information
-* Education
+* Education with GPA
 * Skills, possibly divided by category or level of expertise
 * Previous work history
 * Leadership roles
 * Side projects
 * LinkedIn profile, if you have one
-* GitHub address, if you have one
+* GitHub address, if you have one. A GitHub account with thoughtful, documented projects can distinguish you more than a list of coursework.
 * Etc
 
 Follow current industry norms and your university’s guidance.
@@ -60,6 +60,18 @@ This is your résumé.
 It's your story.
 You have the final say.
 You have to feel comfortable with it.
+
+Many companies use Applicant Tracking Systems to filter résumés.
+Align your résumé with the language in the job description when appropriate.
+Do not keyword-stuff, but ensure relevant skills are clearly stated.
+
+Some companies use GPA as a screening tool.
+If yours is lower, emphasize projects, experience, and growth.
+
+## Social Media
+Clean up your social media.
+
+Complete your LinkedIn profile and make sure it's up to date.
 
 ## Your Elevator Pitch
 In addition to a résumé, you should also have a 30-second [elevator pitch](https://en.wikipedia.org/wiki/Elevator_pitch).
@@ -189,6 +201,8 @@ It was not the end of the world.
 Many of your classmates are going through the same internship interview process with you.
 Set up mock interviews among each other.
 
+If you know someone in your major who's a year or two older than you and has already been through the process, then see if that person is willing to do a mock interview with you.
+
 ### Career Center
 If your university has a Career Center, they will often offer mock interviews.
 Schedule one or more there.
@@ -207,11 +221,27 @@ Here is a potential prompt script, where you can insert any company you desire:
 This may not be the best prompt, but it can easily be adjusted.
 Even if imperfect, it gives you a safe environment to practice.
 
+### Online Mock Interviews
+Search for mock interview videos online.
+They won't be interactive, but they will give you a sense as to what to expect.
+
+### Public Speaking
+Interviews can be a bit nerve rattling.
+Mock interviews not only allow you to simulate an interviews, but they also allow you to become more comfortable speaking in front of others.
+
+Another path to take is public speaking.
+If you can stand in front of multiple people and make your case, then you can certainly do it for an interview.
+
+Consider public speaking opportunities.
+
 # Exposure
 Once you've prepared your materials, the next step is exposure.
 
 Larger companies will tend to recruit in early fall, September-November, for summer positions.
-Some positions are filled by December.
+Apply early.
+Many internship roles are filled on a rolling basis.
+Some positions may be filled by September.
+
 Smaller companies will tend to recruit in winter and early spring, January–April.
 Apply broadly and keep your eyes open for potential opportunities throughout the year.
 
@@ -220,6 +250,9 @@ Much like the dating world, the trick is finding each other.
 You may apply to dozens of internships before landing an interview.
 That’s normal.
 Do not interpret silence as failure.
+Keep a simple tracking spreadsheet.
+Treat it like a pipeline.
+Do not emotionally attach to any single application.
 Companies receive hundreds of applications for a handful of spots.
 
 ## Attend Career Fairs
@@ -365,6 +398,34 @@ Let's use the LLM once more. You may want to be more specific, such as telling t
 >
 >Continue until I ask for a summary, and then provide a summary of our interview.
 
+Some companies require an online assessment before interviews. 
+Treat these seriously and practice beforehand on common coding platforms.
+
+## Story Time
+Interviewers will ask you about things you mention on your resume, especially your past experiences.
+
+A good way to make a favorable impression is to tell a good story.
+Have a story or two about your experience in teamwork, conflict, failure, leadership.
+
+Sometimes the interviewer may not reference a specific experience, but they may ask more generally, such as, "Tell me about a conflict you had and how you resolved it."
+
+An open question like can feel more disorienting than a specific question, but its openness gives you flexibility gives you more options.
+It could be something that happened in your academic career, a previous job, team sport, etc.
+You may also be able to pivot the original request to the story you wish to tell.
+This is your story so make sure you're the main character.
+
+Interviewers may stump you even if unintentially.
+You may be asked about something for which you don't have a good story in mind.
+Take note of that deficit and try to come up with a story should you be asked a similar question in a future interview.
+
+If you're not sure how to tell your story, consider the [STAR: Situation, Task, Action, Result](https://en.wikipedia.org/wiki/Situation,_task,_action,_result) method.
+
+## Follow Up
+Follow up afterwards:
+* Send a brief thank-you email within 24 hours.
+* Reaffirm interest.
+* Reference something specific discussed.
+
 # Decision
 You might receive multiple internship offers.
 Each offer is different.
@@ -395,7 +456,9 @@ Given the dearth internship offers, I encouraged him to take it.
 I asked him to review this blog entry, and I'm expanding this section based upon his reply, which included:
 >One thing I think I've learned would be to accept anything relatively related to what you want, even if it's not the textbook "perfect opportunity". For example, I took that offer which ended up giving me a great experience, a job offer and arguably most importantly, something I could talk in depth about in any potential future interview.
 >
->I technically also took a software engineering internship that wasn't paid. Although it was a start up, which didn't even get to officially release the app, my resume says software engineering internship, and I can talk about it as if it was "the perfect opportunity" in interviews. I guess what I'm really trying to say is that the biggest piece of advice I wish I was told when I was starting is to **take advantage of any and all opportunities that come your way**. Whether it was just being a Resident Assistant (RA) in the dorms, or something as genuine as my internships, I have been able to really talk myself up during interviews from them.  
+>I technically also took a software engineering internship that wasn't paid. Although it was a start up, which didn't even get to officially release the app, my resume says software engineering internship, and I can talk about it as if it was "the perfect opportunity" in interviews.
+>
+>I guess what I'm really trying to say is that the biggest piece of advice I wish I was told when I was starting is to **take advantage of any and all opportunities that come your way**. Whether it was just being a Resident Assistant (RA) in the dorms, or something as genuine as my internships, I have been able to really talk myself up during interviews from them.  
 
 Even if it's an unpaid internship like Tommy's has value.
 Most undergrads are paying thousands of dollars each semester to learn Computer Science.
