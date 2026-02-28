@@ -39,7 +39,7 @@ A résumé generally contains your:
 * Side projects
 * LinkedIn profile, if you have one
 * GitHub address, if you have one. A GitHub account with thoughtful, documented projects can distinguish you more than a list of coursework.
-* Etc
+* Etc.
 
 Follow current industry norms and your university’s guidance.
 
@@ -47,7 +47,8 @@ It should be no more than one page in length.
 
 If you're not sure where to start, there are many résumé examples and templates online.
 [Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) can help give you some ideas as well.
-(**NOTE:** Generative AI recommendations will appear repeatedly in this blog.)
+
+**NOTE:** Generative AI recommendations will appear repeatedly in this blog.
 
 If your university has a Career Center, ask someone there to take a look at your résumé, but be prepared.
 Everyone has an opinion when it comes to résumés.
@@ -63,7 +64,7 @@ You have to feel comfortable with it.
 
 Many companies use Applicant Tracking Systems to filter résumés.
 Align your résumé with the language in the job description when appropriate.
-Do not keyword-stuff your résumé, but ensure relevant skills are clearly stated.
+Do not stuff every keyword/buzzword in the job description in your résumé, but ensure relevant skills are clearly stated.
 
 Some companies use GPA as a screening tool.
 If yours is lower, emphasize projects, experience, and growth.
@@ -127,7 +128,7 @@ Most interviewers will ask you if you have any questions at some point during th
 Always have a few questions ready to ask.
 
 The best questions are those that arise naturally from your conversation with the interviewer.
-For example, they may describe something about their industry.
+For example, they may describe something about their company or industry.
 If you can ask a good follow up question, that's great.
 It shows interest, and it also demonstrates that you're actively involved in the interview.
 
@@ -147,8 +148,7 @@ Here are some possible questions about the internship:
 * _Will I work on a solo project or will I be part of a team?_
 * _If a team, will the team be comprised of other interns or will I join an existing team of employees?_
 * _Will the project be a separate stand-alone project, or will it be integrated within your product?_
-* _Will I get exposure to Generative and Agentic AI? If so, how much?_
-* _If so, then which ones do you use and to what degree do you use them?_
+* _Will I get exposure to Generative and Agentic AI? If so, how much, which ones do you use and to what degree do you use them?_
 * _How will this internship make me a better Software Engineer?_
 * _How can my internship contribute to your company?_
 * _Are qualified interns given full-time offers upon graduation?_
@@ -173,7 +173,7 @@ It was a few years later when I realized that I had years of interview practice 
 I had advanced through the ranks in the Boy Scouts of America.
 Each new rank promotion included two interviews:
 * A one-on-one interview with your Scoutmaster.
-* A group interview with the Board of Review, which varied based upon your next rank, including:
+* A group interview with the Board of Review, which varied based upon your next rank. The Board of Review was one of these three groups:
     * Your Troop's Patrol Leaders, who were your fellow Scouts, but a few years older
     * The Troop Committee, which was usually a few fathers of boys in the Troop
     * For the top rank of Eagle, a District Committee of people you generally did not know
@@ -192,20 +192,6 @@ When you've gone through a process like this as a teenager, job interviews don't
 **Practice makes perfect.**
 Not everyone goes through the Scouting process.
 There are other alternatives.
-
-Even with confidence things go wrong.
-I was thrown off during two interviews.
-For one, I got lost on the way to the hotel the evening before and arrived after midnight.
-For the second one, my luggage, including my interview suit, was lost by the airlines.
-It arrived at 6:00 AM.
-Additionally, my interviewer didn't arrive when expected.
-A scheduling mixup on their end left me stranded until mid-morning.
-
-Both issues had limited my sleep.
-I was exhausted.
-Neither of those interviews went well.
-I was not extended offers.
-It was not the end of the world.
 
 ### Friends
 Many of your classmates are going through the same internship interview process with you.
@@ -241,13 +227,29 @@ Search for mock interview videos online.
 They won't be interactive, but they will give you a sense of what to expect.
 
 ### Public Speaking
-Interviews can be a bit nerve rattling.
+Interviews can be a bit nerve wracking.
 Mock interviews not only allow you to simulate interviews, but they also help you become more comfortable speaking in front of others.
 
 Another path to take is public speaking.
 If you can stand in front of multiple people and make your case, then you can certainly do it for an interview.
 
 Consider public speaking opportunities.
+
+### Things Go Wrong
+Even with practice and confidence things go wrong.
+I was thrown off during two interviews.
+For one, I got lost on the way to the hotel the evening before and arrived well after midnight.
+For the second one, my luggage, including my interview suit, was lost by the airlines.
+It arrived at 6:00 AM.
+Additionally, my interviewer didn't arrive when expected.
+A scheduling mixup on their end left me stranded until mid-morning.
+
+Both interview days started early for me.
+Both issues had limited my sleep.
+I was exhausted.
+Neither of those interviews went well.
+I was not extended offers.
+It was not the end of the world.
 
 # Exposure
 Once you've prepared your materials, the next step is exposure.
@@ -277,7 +279,7 @@ These are companies looking for interns.
 That's your best bet to find an internship.
 You just need to convince them that you're the best person to fill one of their slots.
 If you know which companies are attending, look over the list.
-Find a few that look interesting and make sure you visit their tables, but keep your eyes open for other interesting opportunities too.
+Find a few that look interesting and make sure you visit their recruiters, but keep your eyes open for other interesting opportunities too.
 
 Look professional.
 You don't need to dress like a lawyer, but don't look like you just rolled out of bed.
@@ -333,7 +335,7 @@ The internship process may only include two interviews, usually less than an hou
 
 ## Cultural Fit
 One of the interviews will be a cultural fit.
-Every company, and even many teams, in my career had their own culture to them.
+Every company, and even many teams, in my career had their own culture.
 Those who meshed with the culture tended to do well.
 Those who didn't mesh tended to feel out of place.
 
@@ -388,7 +390,7 @@ It is about structured thinking under mild pressure.
 
 Whiteboarding in technical interviews is a bit unnatural, because in real Software Engineering we have:
 * Others on the team to help us
-* Access to the internet for all of its resources
+* Access to the internet with all of its resources
 * Time to think, design and implement
 * An IDE that will catch our syntax errors immediately
 * The ability to experiment with solutions
@@ -421,9 +423,9 @@ Treat these seriously and practice beforehand on common coding platforms.
 Interviewers will ask you about things you mention on your resume, especially your past work experiences.
 
 A good way to make a favorable impression is to tell a good story.
-Have a story or two about your experience in teamwork, conflict, failure, leadership.
+Have a story or two about your experience in teamwork, conflict, failure, leadership, etc.
 
-Sometimes the interviewer may not reference a specific experience, but they may ask more generally, such as, "Tell me about a conflict you had and how you resolved it."
+Sometimes the interviewer may not reference a specific experience, but they may ask you something more generally, such as, "Tell me about a conflict you had and how you resolved it."
 
 An open question like this can feel more disorienting than a specific question, but its openness gives you flexibility and more options.
 It could be something that happened in your academic career, a previous job, team sport, etc.
@@ -442,7 +444,7 @@ Follow up afterwards:
 * Reaffirm interest
 * Reference something specific discussed
 
-There may be additional interaction with the recruiter:
+There may be additional interaction with recruiters:
 * Respond to emails promptly
 * Be polite in recruiter communication
 * Check spelling and grammar in emails
@@ -496,7 +498,7 @@ I asked him to review this blog entry, and I'm expanding this section based upon
 
 Even an unpaid internship like Tommy's has value.
 Most undergrads pay thousands of dollars each semester to learn Computer Science.
-Think of an unpaid internship is still a free education.
+Think of an unpaid internship as a free education.
 
 Regardless of what you choose, you can't go wrong.
 You'll learn something new.
