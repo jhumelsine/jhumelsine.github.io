@@ -6,7 +6,7 @@ unlisted: true
 
 # Introduction
 This post is for Computer Science undergraduates seeking their first Software Engineering internship.
-In the first blog entry of this series, [You Studied Computer Science. Your Career Will Be Software Engineering](https://jhumelsine.github.io/2026/02/11/computer-science-software-engineering.html), I highlighted that Software Engineering is related to, but separate from Computer Science.
+In the first blog entry of this series, [You Studied Computer Science. Your Career Will Be Software Engineering](https://jhumelsine.github.io/2026/02/11/computer-science-software-engineering.html), I highlighted that Software Engineering is related to but separate from Computer Science.
 An internship is often the first place where a fledgling software developer first encounters Software Engineering.
 
 Internships are a great opportunity to:
@@ -60,7 +60,7 @@ If you don't, then ignore it.
 This is your résumé. 
 It's your story.
 You have the final say.
-You have to feel comfortable with it.
+You must feel comfortable with it.
 
 Many companies use Applicant Tracking Systems to filter résumés.
 Align your résumé with the language in the job description when appropriate.
@@ -86,7 +86,7 @@ An elevator pitch is the quick response to the question, "Can you tell me a bit 
 The term "elevator pitch" is inspired by the scenario where you step onto an elevator to realize that you're sharing the space with the CEO of your dream company. 
 You have about 30 seconds before reaching the CEO's floor. 
 How can you pitch yourself succinctly before reaching the floor?
-This is similar to the 2-minute pitch where a filmmaker has two minutes to convince a producer to support his/her passion project.
+This is like the 2-minute pitch where a filmmaker has two minutes to convince a producer to support his/her passion project.
 
 If a résumé is like a dating profile, then an elevator pitch is like a speed dating conversation.
 
@@ -136,7 +136,7 @@ Organic questions don't always materialize in the interview.
 The next best type of questions would be those you come up with ahead of time based upon your company research.
 These could be questions about their products, customers, challenges, etc.
 
-The final type of questions are generic, but still valuable.
+The final type of questions is generic, but still valuable.
 You can easily catalog a set of these to use on multiple interviews.
 Here are some possible questions about business domain:
 * _How does your company stand out among your competition? Why do customers keep returning?_
@@ -145,7 +145,7 @@ Here are some possible questions about business domain:
 
 Here are some possible questions about the internship:
 * _Will I have a dedicated mentor?_
-* _Will I work on a solo project or will I be part of a team?_
+* _Will I work on a solo project, or will I be part of a team?_
 * _If a team, will the team be comprised of other interns or will I join an existing team of employees?_
 * _Will the project be a separate stand-alone project, or will it be integrated within your product?_
 * _Will I get exposure to Generative and Agentic AI? If so, how much, which ones do you use and to what degree do you use them?_
@@ -162,7 +162,7 @@ You don't have to keep asking questions indefinitely just to ask questions.
 Don't ask questions that have already been addressed, unless it's a follow up question for additional detail or clarification.
 
 ## Practice
-When I was wrapping my Master's degree and interviewing for jobs, I noticed that several of my fellow Teaching Assistants were freaking out about their interviews, especially with major companies.
+When I was wrapping my master's degree and interviewing for jobs, I noticed that several of my fellow Teaching Assistants were freaking out about their interviews, especially with major companies.
 Some were practically having panic attacks.
 
 These were mostly the initial on-campus informal interviews.
@@ -182,7 +182,7 @@ Most kids passed, but a few had to regroup and try again.
 
 A question about any previous Scout achievement was fair game:
 * The Patrol Leader could be relentless in trying to stump you.
-* The Troop Committee reviews were usually pretty easy. The dads generally asked generic Scouting questions or how school was going.
+* The Troop Committee reviews were usually easy. The dads generally asked generic Scouting questions or how school was going.
 * The District Committee review wasn't relentless, but it was thorough.
 There was usually a question about personal character.
 I was asked how my fellow classmates would know that I was an Eagle in school even when I wasn't wearing my Scout uniform.
@@ -194,7 +194,7 @@ Not everyone goes through the Scouting process.
 There are other alternatives.
 
 ### Friends
-Many of your classmates are going through the same internship interview process with you.
+Many of your classmates are going through the same internship interview process as you.
 Set up mock interviews among each other.
 
 If you know someone in your major who's a year or two older than you and has already been through the process, then see if that person is willing to do a mock interview with you.
@@ -210,7 +210,7 @@ Here is a potential prompt script, where you can insert any company you desire:
 >
 >I am a computer science sophomore who wishes to land an internship with your company.
 >
->Interview me in mock interview for a software internship position.
+>Interview me in a mock interview for a software internship position.
 >
 >When the interview is over, summarize my performance.
 
@@ -239,10 +239,10 @@ Consider public speaking opportunities.
 Even with practice and confidence things go wrong.
 I was thrown off during two interviews.
 For one, I got lost on the way to the hotel the evening before and arrived well after midnight.
-For the second one, my luggage, including my interview suit, was lost by the airlines.
+For the second one, my luggage, including my interview suit, was lost by the airline.
 It arrived at 6:00 AM.
 Additionally, my interviewer didn't arrive when expected.
-A scheduling mixup on their end left me stranded until mid-morning.
+A scheduling mix-up on their end left me stranded until mid-morning.
 
 Both interview days started early for me.
 Both issues had limited my sleep.
@@ -279,7 +279,7 @@ These are companies looking for interns.
 That's your best bet to find an internship.
 You just need to convince them that you're the best person to fill one of their slots.
 If you know which companies are attending, look over the list.
-Find a few that look interesting and make sure you visit their recruiters, but keep your eyes open for other interesting opportunities too.
+Find a few that look interesting and make sure you visit their recruiters but keep your eyes open for other interesting opportunities too.
 
 Look professional.
 You don't need to dress like a lawyer, but don't look like you just rolled out of bed.
@@ -295,10 +295,10 @@ I dislike this question because the honest answer is usually, "I want a paying j
 
 Here is one possible answer: "I'm learning the theoretical aspect of computer science. I want to see how it applies to software engineering in real world practice. The practice will provide context to understand the theory, and a better understanding of the theory will lay down the path toward better practice."
 
-You don't need a canned memorized answer, but just be prepared for something like this.
+You don't need a canned memorized answer but just be prepared for something like this.
 If your answer includes something specific about the company, then that's the best type of answer.
 
-Your main goal at the career fair is to schedule a follow up interview.
+Your main goal at the career fair is to schedule a follow-up interview.
 Once the career fair recruiter has confirmed their interest, thank them and move on.
 
 ## Leverage Your Network
@@ -310,7 +310,7 @@ If you have friends or family in the industry, let them know you're interested i
 Ask if they know of any opportunities.
 
 ## Automate Your Internship Search
-If the career fair didn't pan out, you can turn to the internet.
+If the career fair doesn't pan out, you can turn to the internet.
 Google provides a _Jobs API_, which I described in [Automate Your Job Search](https://jhumelsine.github.io/2024/08/11/jobsearch.html#automate-your-job-search).
 The only distinction is that you'd want to include ***Internship*** within your Job query.
 
@@ -414,7 +414,7 @@ Let's use the LLM once more. You may want to be more specific, such as telling t
 >
 >Ask me appropriate technical questions, one at a time. Provide feedback on my answers.
 >
->Continue until I ask for a summary, and then provide a summary of our interview.
+>Continue until I ask for a summary and then provide a summary of our interview.
 
 Some companies require an online assessment before interviews. 
 Treat these seriously and practice beforehand on common coding platforms.
@@ -451,7 +451,7 @@ There may be additional interaction with recruiters:
 * Do not ghost recruiters
 
 # Decision
-You may interact with a number of companies during your internship process.
+You may interact with several companies during your internship process.
 Consider an `Internship` folder on your computer with subfolders for each company you've interacted with.
 The company subfolders could include artifacts such as:
 * Company information
@@ -486,7 +486,7 @@ Do follow up about compensation with the intern recruiter, but it's not a topic 
 
 Sometimes the stars don't align.
 You may get an offer that is an adjacent field.
-For example, Tommy, one of my Computer Science mentees, received an internship that was closer to Data Science.
+For example, Tommy, one of my Computer Science undergraduate mentees, received an internship that was closer to Data Science.
 Given the dearth of internship offers, I encouraged him to take it.
 
 I asked him to review this blog entry, and I'm expanding this section based upon his reply, which included:
@@ -508,7 +508,7 @@ Even if it's not a perfect fit, it's only a three-month commitment.
 Congratulations.
 You received and accepted an internship offer.
 
-In most of my experience with interns, their intership didn't immerse them into a complete Software Engineering experience.
+In most of my experience with interns, their internship didn't immerse them in a complete Software Engineering experience.
 They were given independent projects rather than working directly with a production team.
 This isn't bad, but it's not quite the same experience as a regular team member.
 
@@ -543,13 +543,13 @@ Some possibilities are:
     * Developers who learn how to leverage Generative/Agentic AI will have an advantage over those who do not.
     * Build your own AI Agent to solve a problem for you.
     * Learn how to code with Generative/Agentic AI. You may not be allowed to leverage these tools in your academic career yet, but you will be expected to use them in your career. Any experience you can gain would be worth the investment. Recode some of your previous course assignments with the assistance of AI. Find out what works and what doesn't work.
-* Work on any type of software project whether it's your own or an open source project.
+* Work on any type of software project whether it's your own or an open-source project.
 * Learn a new programming language, programming paradigm, or framework, such as [Spring](https://en.wikipedia.org/wiki/Spring_Framework).
 
 These ideas are not mutually exclusive.
 Many reinforce one another.
 
-There are countless often free resources for all of these on the internet.
+There are countless, often free, resources for all of these on the internet.
 
 Include what you learned and accomplished in your résumé.
 Document what you produced in GitHub.
