@@ -213,9 +213,8 @@ The Computer Science and Software Engineering comparison sets the stage for care
 Here is what I'm considering so far in the series.
 This is just a working list. 
 None of these are set in stone:
-* Getting an Internship (TBD)
-* Getting Your First Job (TBD)
-* Onboarding (TBD)
+* [Getting an Internship](https://jhumelsine.github.io/2026/03/03/internship.html)
+* Getting and Onboarding Your First Job (TBD)
 * Your Career Journey (TBD)
 * [Losing Your Job Stinks](https://jhumelsine.github.io/2024/08/11/jobsearch.html)
 * Retiring (TBD)
