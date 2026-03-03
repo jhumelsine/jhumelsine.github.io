@@ -1,7 +1,6 @@
 ---
-title: OPEN FOR REVIEW AND COMMENTS – Steps to Obtain a Software Engineering Internship
+title: Steps to Obtain a Software Engineering Internship
 description: Getting an Internship is a Lot Like Dating
-unlisted: true
 ---
 
 # Introduction
