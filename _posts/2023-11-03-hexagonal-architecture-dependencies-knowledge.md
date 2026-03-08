@@ -14,7 +14,7 @@ Martin was mostly addressing component dependencies and their implications with 
 
 # The Theory
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Don%27t_Panic.svg/768px-Don%27t_Panic.svg.png" alt="Don't Panic" title="Image Source: https://commons.wikimedia.org/wiki/File:Don%27t_Panic.svg" width = "17%" align="right" style="padding-right: 35px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Don%27t_Panic.svg/1280px-Don%27t_Panic.svg.png" alt="Don't Panic" title="Image Source: https://commons.wikimedia.org/wiki/File:Don%27t_Panic.svg" width = "17%" align="right" style="padding-right: 35px;">
 
 **Don’t Panic!** There isn't much theory. This is mostly going to be a few straightforward definitions, implications, and principles.
 
