@@ -2,7 +2,7 @@
 title: Table of Contents
 description: Organizing various blog entries by common themes
 ---
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Long_Room_Interior%2C_Trinity_College_Dublin%2C_Ireland_-_Diliff.jpg/1017px-Long_Room_Interior%2C_Trinity_College_Dublin%2C_Ireland_-_Diliff.jpg" alt="Trinity College Library" title="Image Source: https://commons.wikimedia.org/wiki/File:Long_Room_Interior,_Trinity_College_Dublin,_Ireland_-_Diliff.jpg" width = "50%" align="center" style="padding-right: 20px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Long_Room_Interior%2C_Trinity_College_Dublin%2C_Ireland_-_Diliff.jpg/3840px-Long_Room_Interior%2C_Trinity_College_Dublin%2C_Ireland_-_Diliff.jpg" alt="Trinity College Library" title="Image Source: https://commons.wikimedia.org/wiki/File:Long_Room_Interior,_Trinity_College_Dublin,_Ireland_-_Diliff.jpg" width = "50%" align="center" style="padding-right: 20px;">
 
 # Introduction
 I began this blog in earnest as a retirement project in the fall of 2023. The blog's [home page](https://jhumelsine.github.io/) lists the entries chronologically from newest to oldest. Blog entries are often part of a series focused upon a theme. The first blog entry of a series is usually an introduction to the series and acts as a landing page to the other blogs in the series. There are crossover reference links to other blog entries as well. 
