@@ -2,7 +2,7 @@
 title: Software Contracts
 description: Specifying the obligations and expectations between client and provider
 ---
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Sales_contract_Shuruppak_Louvre_AO3766.jpg/953px-Sales_contract_Shuruppak_Louvre_AO3766.jpg" alt="Sumerian Cuneiform Contract" title="Image Source: https://en.wikipedia.org/wiki/File:Sales_contract_Shuruppak_Louvre_AO3766.jpg" width = "50%" align="center" style="padding: 35px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Sales_contract_Shuruppak_Louvre_AO3766.jpg/1280px-Sales_contract_Shuruppak_Louvre_AO3766.jpg" alt="Sumerian Cuneiform Contract" title="Image Source: https://en.wikipedia.org/wiki/File:Sales_contract_Shuruppak_Louvre_AO3766.jpg" width = "50%" align="center" style="padding: 35px;">
 
 # Introduction
 [Contracts](https://en.wikipedia.org/wiki/Contract) have existed for millennia, shaping agreements across civilizations. The image above is a Sumerian contract circa 2600 BCE specifying the terms of selling a field and house.
