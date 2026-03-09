@@ -62,9 +62,22 @@ The scope of software contracts can be broad or narrow. Software contracts conne
 Regardless of scope, the principles of a good contract specify the contract’s obligations and expectations in a meaningful way.
 
 ## What vs How
-A well-crafted software contract defines __what__ a component does, not __how__ it does it. This distinction is critical: the contract outlines the expected behavior—inputs, outputs, and side effects—while deliberately hiding implementation details. By decoupling the _interface_ from the _implementation_, contracts enable flexibility, testability, and the possibility of multiple solutions that fulfill the same promises. Whether sorting data or retrieving a user record, the contract ensures consistency of outcome, allowing the underlying logic to evolve without breaking client expectations.
+A well-crafted software contract defines __what__ a component does, not __how__ it does it.
+This distinction is critical: the contract outlines the expected behavior—inputs, outputs, and side effects—while deliberately hiding implementation details.
+By decoupling the _interface_ from the _implementation_, contracts enable flexibility, testability, and the possibility of multiple solutions that fulfill the same promises.
+Whether sorting data or retrieving a user record, the contract ensures consistency of outcome, allowing the underlying logic to evolve without breaking client expectations.
 
-This separation is the essence of the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html).
+Contracts are [Fixed/Stable Elements](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#stable-or-fixed-design-elements) in most designs.
+In UML class diagrams other design elements depend upon the contracts rather than the contracts depending upon those elements.
+This is visually represented by the dependency arrowheads modeling the relationship between elements consistently pointing inward toward contract elements and rarely away from them.
+The only time contracts depend upon other elements is when they depend upon other contracts.
+For example, Java Interfaces can only extend other Interfaces.
+This decoupling is the essence of the [Strategy Design Pattern](https://jhumelsine.github.io/2023/09/21/strategy-design-pattern.html).
+
+Dependency and knowledge flow into contracts but rarely through them.
+Therefore, classes and other software elements that interact or implement the contract do not depend upon nor have knowledge of one another.
+As long as the contracts are stable, these other software elements can be designed and implemented by different teams and in parallel if needed.
+Their only dependency is upon the contract and not each other.
 
 # Client Point of View
 <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386924139i/16867.jpg" alt="The Design of Everyday Things" title="Image Source: https://www.goodreads.com/book/show/16867" width = "30%" align="right" style="padding: 35px;">
@@ -109,8 +122,6 @@ We want our contracts to make sense to our users. BDD and TDD techniques allow u
 Traditionally BDD and TDD confirm behavior within code, but this case is a bit different. There is no code associated with a contract. A contract only specifies Obligations and Expectations. It doesn't implement them. This also allows you to define the contract before implementation details may influence it.
 
 Since contracts do not depend upon their implementations, contract specification tests will tend to be _higher_ tests, possibly [Acceptance Tests](https://jhumelsine.github.io/2025/06/23/test-layers.html#integration--acceptance-tests-confirming-cooperation) (AT). While ATs still follow the principles of BDD and TDD, they may feel more like complete user scenarios. This can be useful to gain a better understanding of how the user may interact with the contract rather than being concerned about the implementation of the contract.
-
-Contracts are [Fixed/Stable Elements](https://jhumelsine.github.io/2023/11/03/hexagonal-architecture-dependencies-knowledge.html#stable-or-fixed-design-elements) in most designs. In UML class diagrams other design elements depend upon the contracts rather than the contracts depending upon those elements. This is visually represented by the dependency arrowheads modeling the relationship between elements consistently pointing inward toward contract elements and rarely away from them. The only time contracts depend upon other elements is when they depend upon other contracts. For example, Java Interfaces can only extend other Interfaces.
 
 __NOTE:__ Technically interfaces depend upon their parameters, which can be other classes, but these tend to be core Business Elements that ideally are implemented as Value Objects.
 
