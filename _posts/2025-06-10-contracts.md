@@ -15,7 +15,7 @@ ___Software Contracts___ allow developers of a software component to communicate
 Software Contracts specify the __Obligations__  and  __Expectations__ of behaviors of software components independent of the implementation.
 
 ## Contract by Design
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Design_by_contract.svg/768px-Design_by_contract.svg.png" alt="Contract by Design" title="Image Source: https://en.wikipedia.org/wiki/File:Design_by_contract.svg" width = "40%" align="right" style="padding: 35px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Design_by_contract.svg/1280px-Design_by_contract.svg.png" alt="Contract by Design" title="Image Source: https://en.wikipedia.org/wiki/File:Design_by_contract.svg" width = "40%" align="right" style="padding: 35px;">
  
 [Bertrand Meyer](https://en.wikipedia.org/wiki/Bertrand_Meyer) created [Contract by Design](https://en.wikipedia.org/wiki/Design_by_contract) (DbC) as a concept for the [Eiffel Programming Language](https://en.wikipedia.org/wiki/Eiffel_(programming_language)).
 
