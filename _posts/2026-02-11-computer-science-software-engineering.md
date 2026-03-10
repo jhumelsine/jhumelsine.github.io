@@ -214,8 +214,8 @@ Here is what I'm considering so far in the series.
 This is just a working list. 
 None of these are set in stone:
 * [Getting an Internship](https://jhumelsine.github.io/2026/03/03/internship.html)
-* Getting and Onboarding Your First Job (TBD)
-* Your Career Journey (TBD)
+* [Getting and Onboarding Your First Job](https://jhumelsine.github.io/2026/03/10/first-job.html)
+* Continuing Your Career Journey (TBD)
 * [Losing Your Job Stinks](https://jhumelsine.github.io/2024/08/11/jobsearch.html)
 * Retiring (TBD)
 
