@@ -130,7 +130,7 @@ Software is the same. As the reader descends into method implementations, each m
 
 Layers of abstractions in Wikipedia and software are fractal. Regardless of where you reside in the layers of abstraction, it all tends to look the same.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Fractal_Julia.jpg/1199px-Fractal_Julia.jpg" alt="Fractal" title="Image Source: https://commons.wikimedia.org/wiki/File:Fractal_Julia.jpg" width = "35%" align="right" style="padding-right: 20px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Fractal_Julia.jpg/1280px-Fractal_Julia.jpg" alt="Fractal" title="Image Source: https://commons.wikimedia.org/wiki/File:Fractal_Julia.jpg" width = "35%" align="right" style="padding-right: 20px;">
  
 The fractal nature of software is a double-edged sword. On the positive side, our abstractions are not constrained by the physical world. On the negative side, our abstractions are not constrained by the physical world. We can design our abstractions anyway we desire. We do not have any real-world guardrails to keep our abstractions in check.
 
