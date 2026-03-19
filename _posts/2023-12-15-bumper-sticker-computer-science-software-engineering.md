@@ -256,6 +256,8 @@ _Legacy code isn't the problem. It's all the cruft and technical debt in the leg
 
 _The cost of technical debt and cruft is not in their abatement. The cost of technical debt and cruft is having to work around them while they're still in the system._ ― Jim Humelsine, not my original thought, but my phrasing.
 
+_All race conditions, deadlock conditions, and concurrent update problems are due to mutable variables._ ― Robert C. Martin
+
 # Readable/Comprehensible Code
 
 _Software is like poetry. Most of it probably should not have been written._ — Anonymous
@@ -284,7 +286,7 @@ _Write code as if you had to support it for the rest of your life._ ― Kevlin H
 
 _Well designed and written code doesn't require much maintenance. Software developers are constantly thrust into the poorly designed and written code to fix bugs and add new features. Thus is our curse. We're constantly exposed to bad code but rarely good code._ ― Jim Humelsine
 
-_No matter how slow you are writing clean code, you will always be slower if you make a mess._ — Bob Martin
+_No matter how slow you are writing clean code, you will always be slower if you make a mess._ — Robert C. Martin
 
 _All public elements of a design together make up its interface, and the name of each of those elements presents an opportunity to reveal the intention of the design._ ― Eric Evans
 
@@ -324,33 +326,19 @@ _Every time you write a comment, you should grimace and feel the failure of your
 
 _Comments are like apologies to the next programmer._ ― Unknown
 
-# Testing and Debugging
+# Testing
 
 _Testing can show the presence of bugs, but not their absence!_ — Edsger W. Dijkstra
 
-_Sometimes it pays to stay in bed on Monday, rather than spending the rest of the week debugging Monday’s code._ — Dan Salomon
-
-_If debugging is the process of removing software bugs, then programming must be the process of putting them in._ ― Edsger W. Dijkstra
-
-_Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it._ — Brian Kernighan
-
-_The first step in fixing a broken program is getting it to fail repeatably._ — Tom Duff
-
-_Debugging is like being the detective in a crime movie where you are also the murderer._ — @fortes
-
-_When programmers do their jobs, testers find nothing._ — Bob Martin
+_When programmers do their jobs, testers find nothing._ — Robert C. Martin
 
 _Hardware eventually fails. Software eventually works._ — Michael Hartung
 
-_As the tests get more specific, the code gets more generic._ — Bob Martin
+_As the tests get more specific, the code gets more generic._ — Robert C. Martin
 
 _Our end users are our best and most expensive testers._ — Jim Humelsine
 
-_The most effective debugging tool is still careful thought, coupled with judiciously placed print statements._ — Brian Kernighan
-
-_Test-driven development is double-entry bookkeeping._ — Bob Martin
-
-_The art of debugging is figuring out what you really told your program to do rather than what you thought you told it to do._ — Andrew Singer
+_Test-driven development is double-entry bookkeeping._ — Robert C. Martin
 
 _Tests don't break your code; they break your illusions about the quality of that code._ — Maaret Pyhäjärvi
 
@@ -366,11 +354,25 @@ _The unit tests are documents. They describe the lowest-level design of the syst
 
 _Rather than apply minutes of suspect reasoning, we can just ask the computer by making the change and running the tests._ ― Kent Beck
 
-_All race conditions, deadlock conditions, and concurrent update problems are due to mutable variables._ ― Robert C. Martin
-
 _The earlier you catch defects, the cheaper they are to fix._ ― David Farley
 
 _Tests are a reflection of the code. If tests are ugly or difficult to write, then the issue resides in the implementation, not the test. Refactor the implementation._ — Jim Humelsine
+
+# Debugging
+
+_Sometimes it pays to stay in bed on Monday, rather than spending the rest of the week debugging Monday’s code._ — Dan Salomon
+
+_If debugging is the process of removing software bugs, then programming must be the process of putting them in._ ― Edsger W. Dijkstra
+
+_Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it._ — Brian Kernighan
+
+_The first step in fixing a broken program is getting it to fail repeatably._ — Tom Duff
+
+_Debugging is like being the detective in a crime movie where you are also the murderer._ — @fortes
+
+_The most effective debugging tool is still careful thought, coupled with judiciously placed print statements._ — Brian Kernighan
+
+_The art of debugging is figuring out what you really told your program to do rather than what you thought you told it to do._ — Andrew Singer
 
 _If you're good at the debugger it means you spent a lot of time debugging. I don't want you to be good at the debugger._ ― Robert C. Martin
 
