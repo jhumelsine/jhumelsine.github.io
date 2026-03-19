@@ -338,7 +338,7 @@ This started as a retirement project. It quietly became something else.
       <td style="text-align: right;">1</td>
       <td style="text-align: right;">1,278</td>
       <td>N/A</td>
-      <td><a href="https://jhumelsine.github.io/2021/06/22/uml.html">What is UML and why you may want to care</a></td>
+      <td><a href="https://jhumelsine.github.io/2021/06/22/uml.html">What is UML</a></td>
       <td>First prototype blog about UML to set up the environment on GitHub.</td>
     </tr>
     <tr>
@@ -354,7 +354,12 @@ This started as a retirement project. It quietly became something else.
       <td style="text-align: right;">21</td>
       <td style="text-align: right;">38,229</td>
       <td style="text-align: right;">46</td>
-      <td><a href="https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html">Hexagonal Architecture – An Introduction</a></td>
+      <td><a href="https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html">Hexagonal Architecture Introduction</a>
+         <br><br>
+         <a href="https://jhumelsine.github.io/2023/09/22/right-abstraction-is-hard.html">Getting the Right Abstraction is Hard</a>
+         <br><br>
+         <a href="https://jhumelsine.github.io/2023/12/15/bumper-sticker-computer-science-software-engineering.html">Bumper Sticker Computer Science and Software Engineering</a>
+      </td>
       <td>Topics covered were Design Pattern Introduction, Essential Design Patterns and Hexagonal Architecture.</td>
     </tr>
     <tr>
@@ -362,7 +367,12 @@ This started as a retirement project. It quietly became something else.
       <td style="text-align: right;">35</td>
       <td style="text-align: right;">109,944</td>
       <td style="text-align: right;">73</td>
-      <td><a href="https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html">Interpreter Design Pattern – Domain-Specific Languages</a></td>
+      <td><a href="https://jhumelsine.github.io/2024/03/18/interpreter-design-pattern-dsls.html">Domain Specific Languages</a>
+         <br><br>
+         <a href="https://jhumelsine.github.io/2024/07/15/tdd.html">Test-Driven Development</a>
+         <br><br>
+         <a href="https://jhumelsine.github.io/2024/06/07/unit-test-convert.html">The Conversion of a Unit Test Denier</a>
+      </td>
       <td>Topics covered were Composable Design Patterns, Interpreter Design Pattern, Automated Testing, LLMs/GenAIs and Abstraction.</td>
     </tr>
     <tr>
@@ -370,9 +380,15 @@ This started as a retirement project. It quietly became something else.
       <td style="text-align: right;">21</td>
       <td style="text-align: right;">71,033</td>
       <td style="text-align: right;">98</td>
-      <td><a href="https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html">Specification Design Pattern – Allow a Client to select or filter objects with specific attribute property values as specified by the Client.
-</a></td>
+      <td><a href="https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html">Specification Design Pattern</a>
+         <br><br>
+         <a href="https://jhumelsine.github.io/2024/06/07/unit-test-convert.html">The Conversion of a Unit Test Denier</a>
+         <br><br>
+         <a href="https://jhumelsine.github.io/2025/03/24/legacy-code.html">Working Effectively with Legacy Code</a>
+      </td>
       <td>Specification is from early 2024, but it was by far the most viewed page. It's in first page results of a few search engines.
+         <br><br>
+         2025 completed Automated Testing and covered Creational Design Patterns
       </td>
     </tr>
     <tr>
