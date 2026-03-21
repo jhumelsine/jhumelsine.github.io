@@ -264,7 +264,7 @@ _All race conditions, deadlock conditions, and concurrent update problems are du
 
 # Generative AI
 
-_AI is a force multiplier. It makes good developers better and bad developers worse._ ― Jim Humelsine
+_AI is a tool. It's a force multiplier. It makes good developers better and bad developers worse. A power saw allows the skilled carpenter to build a cabinet faster. A power saw allows the knucklehead to cut off his thumb faster._ ― Jim Humelsine
 
 # Readable/Comprehensible Code
 
