@@ -138,6 +138,8 @@ _... crucial discoveries always emerge during the design/implementation effort._
 
 _Some folks think that Agile is about going fast. It’s not. It’s never been about going fast. Agile is about knowing, as early as possible, just how screwed we are._ ― Robert C. Martin
 
+_Velocity is a vector, not a scalor. If an organization on focuses on speed and not direction, it just gets lost faster._ ― Jim Humelsine
+
 # Requirements
 
 _The act of describing a program in unambiguous detail and the act of programming are one and the same._ — Kevlin Henney
@@ -254,9 +256,15 @@ _TDD applies a pressure to create code that is objectively “higher quality.”
 
 _Legacy code isn't the problem. It's all the cruft and technical debt in the legacy code that's the problem._ ― Jim Humelsine
 
+_The only way to go fast, is to go well._ ― Robert C. Martin
+
 _The cost of technical debt and cruft is not in their abatement. The cost of technical debt and cruft is having to work around them while they're still in the system._ ― Jim Humelsine, not my original thought, but my phrasing.
 
 _All race conditions, deadlock conditions, and concurrent update problems are due to mutable variables._ ― Robert C. Martin
+
+# Generative AI
+
+_AI is a force multiplier. It makes good developers better and bad developers worse._ ― Jim Humelsine
 
 # Readable/Comprehensible Code
 
