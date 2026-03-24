@@ -150,7 +150,7 @@ This zone is like the DMZ as shown by J. B. Rainsberger in this Universal Archit
 
 ## Event Horizons
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Event_horizon_-_Flickr_-_Ghost_of_Kuji.jpg/900px-Event_horizon_-_Flickr_-_Ghost_of_Kuji.jpg?20200709011403" alt="Event Horizon" title="Image Source: https://commons.wikimedia.org/wiki/File:Event_horizon_-_Flickr_-_Ghost_of_Kuji.jpg" width = "20%" align="right" style="padding-right: 35px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Event_horizon_-_Flickr_-_Ghost_of_Kuji.jpg" alt="Event Horizon" title="Image Source: https://commons.wikimedia.org/wiki/File:Event_horizon_-_Flickr_-_Ghost_of_Kuji.jpg" width = "20%" align="right" style="padding-right: 35px;">
 
 My use of [_Event Horizon_](https://en.wikipedia.org/wiki/Event_horizon) is inspired by Black Holes, but the metaphor is not exactly the same behavior as an event horizon for a black hole.
 
