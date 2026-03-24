@@ -92,3 +92,11 @@ In order to have bounded contexts, you're going to need to architect and design 
 I suspect that AI could help with this too. The trick is to limit it to the bounded context and its contract. Don't allow it to cross the Bounded Context Event Horizon.
 
 Then we have something sort of interesting. We have the higher level system at the Bounded Context and Context Map level, and then we have the individual lower level Bounded Contexts. We can use AI to craft each, but I think these should all be separate AI sessions.
+
+https://ian-cooper.writeas.com/coding-is-dead-long-live-programming
+
+https://martinfowler.com/articles/reduce-friction-ai/context-anchoring.html
+
+https://beyond.minimumcd.org/docs/agentic-cd/operations/tokenomics/
+
+https://coding-is-like-cooking.info/2026/03/test-driven-development-with-agentic-ai/
