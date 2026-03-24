@@ -1,105 +1,12 @@
 ---
-title: WORK IN PROGRESS – Career
+title: WORK IN PROGRESS – AI and the Single Developer
 description: TBD
 unlisted: true
 ---
 
 # Introduction
-Onboarding might last for several days or several weeks as I described in [Acquiring and Onboarding Your First Job](https://jhumelsine.github.io/2026/03/10/first-job.html), but then what?
 
-This blog will continue with past onboarding and into your career.
 
-This are my personal thoughts.
-They won't apply to everyone.
-They may even be outdated.
-
-As they say in financial disclaimers: ***Past performance is not indicative of future results***
-
-# The First-Year Learning Curve
-
-It often takes several months before a new developer feels comfortable and productive in a professional codebase.
-
-You are learning the product, the tools, the architecture, the business domain, and the team’s development practices all at the same time.
-That is a lot to absorb.
-
-Feeling slow or overwhelmed during the first few months is normal. 
-Stay curious, keep asking good questions, and focus on steady progress rather than immediate mastery.
-
-# Continuing Education
-Your Computer Science degree is not the end of your education.
-It is just the beginning of your education.
-
-You've been studying Computer Science. 
-Your career will be Software Engineering.
-They are related, but different as I described in [You Studied Computer Science. Your Career Will Be Software Engineering.](https://jhumelsine.github.io/2026/02/11/computer-science-software-engineering.html)
-
-Here are some broad areas for your continued learning.
-
-## Domain
-As I mentioned in [Paradigm Shift](https://jhumelsine.github.io/2026/03/10/first-job.html#paradigm-shift), data structures and algorithms aren't enough.
-You will need to know how to apply these to your customer's domain, which might cause a new software developer to ask, "What's the customer's domain?"
-
-_Domain_ is a major concept in [Domain-Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design), which is a concept I'll be covering in detail in the future (TBD).
-For now, it's sufficient to know that domain is the customer's business.
-It's the nature of their business.
-Netflix's domain is streaming video content to subscribers.
-Linkedin's domain is allowing users to create a network of professional connections.
-Amazon's original domain was selling books, but it's expanded beyond that.
-
-Knowing how to code is insufficient.
-Knowing how to code to solve a problem in the customer's domain is what's required.
-
-Most software engineers learn their customer's domain on the job.
-This takes time.
-However, once you've learned the domain for one customer, it will become easier to learn the domain for another customer.
-It's similar to how people who learn two natural languages growing up find it easier to learn additional languages than those who only learned one native language.
-My first customer domain was telecommunications.
-My second customer domain was military applications.
-I used to joke that there wasn't much difference in the C++ code between telecom network elements and military tanks, except that network elements didn't tend to roam around fields firing shells.
-
-## Building Production Software
-Production software is different than programming assignments.
-Production software is larger.
-It takes more staff and time to develop.
-It must be maintained for months and even years.
-It has paying customers and actual users.
-
-Here are some of the concepts you'll learn as your career matures.
-Whole books have been written about these topics.
-I'll briefly describe them.
-I'll provide links to my blog entries that cover any of these topics, and if I haven't blogged about them yet, I'll include an external referece.
-I'll update these lists as needed, even after publication.
-
-Topics associated with production software includes:
-* [SOLID Design Principles](https://en.wikipedia.org/wiki/SOLID)
-* [CUPID Design Principles](https://dannorth.net/blog/cupid-for-joyful-coding/)
-* CLAMS from Modern Softare Engineering Design Principles. Cohesion, Low Coupling, Abstraction, Modularity and Separation of Concerns.
-* [Software Design Patterns](https://jhumelsine.github.io/table-of-contents#design-patterns-and-architecture) and their [Foundations](https://jhumelsine.github.io/table-of-contents#design-pattern-foundations)
-* [Domain-Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design)
-* [Observability](https://en.wikipedia.org/wiki/Observability_(software))
-* [Reading Code](https://en.wikipedia.org/wiki/Code_Reading)
-* [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
-* [YAGNI](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it)
-* [Waterfall Model](https://en.wikipedia.org/wiki/Waterfall_model)
-* [Agile Software Development](https://en.wikipedia.org/wiki/Agile_software_development)
-* [Event Storming](https://en.wikipedia.org/wiki/Event_storming)
-* [Pair Programming](https://en.wikipedia.org/wiki/Pair_programming)
-* [Version Control](https://en.wikipedia.org/wiki/Version_control)
-* [CI/CD Pipelines](https://en.wikipedia.org/wiki/CI/CD)
-* [Test-Driven Development/Behavior-Driven Development](https://jhumelsine.github.io/table-of-contents#automated-testing)
-* [Issue Tracking Tickets](https://jhumelsine.github.io/table-of-contents#automated-testing)
-* [Code Reviews](https://en.wikipedia.org/wiki/Code_review)
-* Meetings:
-    * **John Cleese** classic video from 1976 in [Meetings, Bloody Meetings](https://www.youtube.com/watch?v=dsChGa-Dako)
-    * ***Freakonomics*** podcast from 2019 in [How to Make Meetings Less Terrible](https://freakonomics.com/podcast/how-to-make-meetings-less-terrible-ep-389/)
-    * ***No Stupid Questions*** podcast from 2021 in [If Everyone Hates Meetings, Why Do We Have So Many of Them?](https://freakonomics.com/podcast/if-everyone-hates-meetings-why-do-we-have-so-many-of-them/)
-
-## New Technology
-I stated in [Software Engineering Problems](https://jhumelsine.github.io/2026/02/11/computer-science-software-engineering.html#software-engineering-problems):
->The half-life for technology in the Computer Science field is about three to five years and possibly even shorter with the advent of [Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html). All technology I learned in college was mostly obsolete a decade or so into my career.
-
-Technology becomes obsolete because new technology superceeds it.
-Much like learning the customer domain on the job, you'll need to learn the new technology on the job.
 
 Right now the greatest disruptive technology is Generative AI.
 Those who learn how to leverage it will have an advantage over those who do not.
@@ -137,8 +44,6 @@ Cleaner code => fewer tokens. Reference: https://beyond.minimumcd.org/docs/agent
 
 How to maintain context better. https://martinfowler.com/articles/reduce-friction-ai/context-anchoring.html
 
-# New Assignments
-
 # Summary
 TBD
 
@@ -146,9 +51,6 @@ TBD
 TBD
 
 # NOTES
-* Learning. O’Reilly. Modern Software Engineering. Blogs.
-* Fortune is when preparation meets opportunity - Seneca
-* https://missing.csail.mit.edu/ 
 * Focus upon AI.
     * I missed the AI paradigm shift. ChatGPT was released a few months before I retired. My comments are speculative and without any experience to back them up. Take everything I write here with a grain of salt.
     * AI – https://www.youtube.com/watch?v=lJiDBRh96oU
@@ -156,40 +58,6 @@ TBD
     * Directing it like an Architect or Tech Lead.
     * If directing, you’ll need to learn Software Engineering skills, such as Design Patterns, Practices/Procedures like TDD, BDD, etc. Organization such as DDD. You may not have to know how to do these directly, but you may need to know how to do them well enough to direct the AI and evaluation what it has produced. I suspect you'll need these, in which case most of my blog entries will be useful and possibly even more important. However, if AI learns and understands these on its own, much like Data Structure implementation specifics or details lower in the stack, they may not be as important day-to-day. Maybe instead of supporting future software engineers, my blogs become an archive of what we used to do before Ai took over.
     * https://ian-cooper.writeas.com/coding-is-dead-long-live-programming
-* Take new assignments:
-    * Could be internal, such as my rotations into QA and BA.
-    * Could be external. Consider moving to a new company when there's a good opportunity. Remember, you're a mercenary. I've worked in companies the size of a few dozen to over 100,000. The dynamics are different. At the behemoth, I used to joke that if the various departments and divisions focused as much upon the competition as they did upon each other, then we would have completely annihilated the competition rather than being concerned that another division got the credit for something that probably didn't matter in the broader market. Then I moved to a start up as employee 200. So much organizational overhead disappeared. We were all rowing in the same direction ... in one very small boat. Eventually that boat sank. The behemoth is still lumbering along.
-* Keep list of accomplishments.
-* Stories. What you have done. Good for your current job and the future job too.
-* You’re a mercenary
-* Don’t expect loyalty from your employer. Follow up to finding a job. It’s not personal, just business.
-* You’ll learn more by teaching or explaining something. The Pitt – See one. Do one. Teach one. (SODOTO). It places you in a different frame of mine, much like Rubber Ducking. You may be surprised by how much you actually know or understand something. You may get questions or feedback that makes you think even more about something that helps you gain even better understanding. This applies to almost anything, technology, processes, patterns, business domain, etc.
-* When accepting a position, try to stay for at least a year.
-
-# Continuing Education
-Use LLMs thoughtfully and strategically to understand the business and technology but verify anything it produces. They hallucinate/confabulate results.
-
-Use LLMs to summarize complex online company documents.
-Use LLMs to give you an understanding of what some legacy code does.
-However, do not put any company proprietary content, documentation or code, in a generic LLM, such as ChatGPT.
-We don't know how it might absorb that content and redistribute it.
-Ask your mentor/manager which LLMs you can safely use.
-Hopefully, your new employer has a company-approved LLM that you can use safely.
-
-For the most part, process in obtaining a Computer Science degree is basically getting a scoped and well-defined problem assignment, completing it, and then handing it in the following week.
-You tend the be the only person doing the implementation.
-The main goal is to get the right answer.
-You'll may never look at it again.
-
-Things will change from your academic career to your business career.
-The questions will be broader and less well defined.
-The answers will be fuzzy.
-The customer won't be able to describe what they want, but they'll know it when they see it.
-Or more likely, they tell you that what they see isn't what they wanted.
-You’re not in it alone.
-You’re part of a team.
-Solve problems together.
-You can look for solutions anywhere.
 
 MORE:
 AI will remove toil, and I think that writing the code is or will considered toil.
