@@ -100,3 +100,5 @@ https://martinfowler.com/articles/reduce-friction-ai/context-anchoring.html
 https://beyond.minimumcd.org/docs/agentic-cd/operations/tokenomics/
 
 https://coding-is-like-cooking.info/2026/03/test-driven-development-with-agentic-ai/
+
+https://www.youtube.com/watch?v=Wcv0600V5q4
