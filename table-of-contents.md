@@ -392,10 +392,17 @@ This started as a retirement project. It quietly became something else.
       </td>
     </tr>
     <tr>
-      <td><strong>Totals</strong></td>
+      <td><strong>Cumulative</strong></td>
       <td style="text-align: right;"><strong>78</strong></td>
       <td style="text-align: right;"><strong>220,484</strong></td>
-      <td></td>
+      <td style="text-align: right;"><strong>106</strong></td>
+      <td>
+         <a href="https://jhumelsine.github.io/2024/03/06/specification-design-pattern.html">Specification Design Pattern</a>
+         <br><br>
+         <a href="https://jhumelsine.github.io/2024/06/07/unit-test-convert.html">The Conversion of a Unit Test Denier</a>
+         <br><br>
+         <a href="https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html">Hexagonal Architecture Introduction</a>
+      </td>
       <td></td>
     </tr>
   </tbody>
