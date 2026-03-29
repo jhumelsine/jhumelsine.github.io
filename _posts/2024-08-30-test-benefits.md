@@ -51,7 +51,7 @@ Testing cannot prove that our code is correct especially for large and complex s
 
 Specification tests define behavior, but we should also consider tests that challenge behavior. Tests are experiments. We should always be thinking of ways to specify behavior in a test that challenges the implementation and attempts to make it fail. When we can no longer create failing tests, then our code is probably good enough to release.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Suvorov_by_Schteiben.jpg/741px-Suvorov_by_Schteiben.jpg" alt="Alexander Suvorov" title="Image Source: https://en.wikipedia.org/wiki/File:Suvorov_by_Schteiben.jpg" width = "35%" align="right" style="padding-right: 20px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Suvorov_by_Schteiben.jpg/960px-Suvorov_by_Schteiben.jpg" alt="Alexander Suvorov" title="Image Source: https://en.wikipedia.org/wiki/File:Suvorov_by_Schteiben.jpg" width = "35%" align="right" style="padding-right: 20px;">
  
 ___Hard in training; easy in battle.___ — [Alexander Suvorov](https://en.wikipedia.org/wiki/Alexander_Suvorov), 18th century Russian General.
 
