@@ -5,8 +5,7 @@ unlisted: true
 ---
 
 # Introduction
-
-
+I have no business writing this blog.
 
 Right now the greatest disruptive technology is Generative AI.
 Those who learn how to leverage it will have an advantage over those who do not.
@@ -36,6 +35,7 @@ https://martinfowler.com/articles/reduce-friction-ai/context-anchoring.html
 Let's examine several ways to leverage Generative AI.
 
 ### Vibe Coding
+You can never put too much water into the nuclear reactor. https://www.instagram.com/reel/C8xj8C1y7n1/
 
 ### Boilerplate Coding
 
