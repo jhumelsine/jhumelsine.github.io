@@ -34,6 +34,12 @@ https://martinfowler.com/articles/reduce-friction-ai/context-anchoring.html
 
 Let's examine several ways to leverage Generative AI.
 
+Two kinds of concerns for developers
+* Those who care about the clarity and structure of the code.
+* Those who care about delivering something to the customer/user as quickly as possible.
+
+The first concern may not be as critical as before ... or maybe it's even more critical.
+
 ### Vibe Coding
 You can never put too much water into the nuclear reactor. https://www.instagram.com/reel/C8xj8C1y7n1/
 
@@ -102,3 +108,5 @@ https://beyond.minimumcd.org/docs/agentic-cd/operations/tokenomics/
 https://coding-is-like-cooking.info/2026/03/test-driven-development-with-agentic-ai/
 
 https://www.youtube.com/watch?v=Wcv0600V5q4
+
+https://www.thoughtworks.com/en-us/insights/podcasts/technology-podcasts - early April about AI and Software Engineering.
