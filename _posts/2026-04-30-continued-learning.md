@@ -18,32 +18,6 @@ Here’s the entire implementation up to this point as one file. Copy and paste 
 
 # NOTES
 
-# Continuing Education
-Your Computer Science degree is not the end of your education.
-It is just the beginning of your education.
-
-You've been studying Computer Science. 
-Your career will be Software Engineering.
-They are related, but different as I described in [You Studied Computer Science. Your Career Will Be Software Engineering.](https://jhumelsine.github.io/2026/02/11/computer-science-software-engineering.html)
-
-For the most part, an academic Computer Science assignment is basically a scoped and well-defined problem to be completed and handed in the following week.
-Sometimes you are organized into small teams for larger projects, but for the most part, you tend the be the only person working on your assignment.
-The main goal is for the code to produce the right answer.
-You'll may never look at program again.
-
-Things will change in your business career.
-The problems will be broader and less well defined.
-The customer won't be able to describe what they want, but they'll know it when they see it.
-Or more likely, they tell you that what they see isn't what they wanted.
-
-You’re not in it alone.
-You’re part of a team.
-Solve problems together.
-You can look for solutions anywhere.
-The solution, in whatever form it may take, may need to be maintained for years as the customer requests new features and modifications.
-
-Here are some broad areas for your continued learning.
-
 ## Educational Resources
 Fortunately the internet is filled with educational resources for Software Engineering.
 Most are free or a reasonable price.
