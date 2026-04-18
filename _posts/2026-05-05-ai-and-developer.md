@@ -112,3 +112,5 @@ https://www.youtube.com/watch?v=Wcv0600V5q4
 https://www.thoughtworks.com/en-us/insights/podcasts/technology-podcasts - early April about AI and Software Engineering.
 
 https://cacm.acm.org/opinion/redefining-the-software-engineering-profession-for-ai/
+
+Add the concept of a chunk.
