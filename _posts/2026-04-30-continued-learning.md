@@ -5,24 +5,14 @@ unlisted: true
 ---
 
 # Introduction
-TBD
+This blog entry is a follow up to the previous Career (TBD) blog.
 
-# Summary
-TBD
+It's a set of references for your continuing education.
 
-# References
-TBD
-
-# Complete Demo Code
-Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. Copy and paste the code into Generative AI for analysis and comments.
-
-# NOTES
-
-## Educational Resources
 Fortunately the internet is filled with educational resources for Software Engineering.
 Most are free or a reasonable price.
 
-### O'Reilly
+# O'Reilly
 O'Reilly gained a reputation for publishing technical books.
 Their brand usually includes a drawing of an animal on the front cover.
 
@@ -34,11 +24,11 @@ Here are a few subsription options:
 * Subscribe yourself from their various [Plans](https://www.oreilly.com/online-learning/pricing.html); however, it's a bit pricey. You can try a [Free 10-Day Trial](https://www.oreilly.com/start-trial/?type=individual) to see if you like it.
 * Join the [Association for Computing Machinery](https://www.acm.org/) (ACM) and sign up for their [Skills Bundle Add-On](https://learning.acm.org/skills-bundle), which includes a partial O'Reilly subscription plan along with a [Skillsoft Percipio](https://www.skillsoft.com/) subscription. The ACM O'Reilly plan is not the full O'Reilly experience, but it includes the entire O'Reilly 60,000 book and video collection, plus Skillsoft Percipio, for about half the price of a complete O'Reilly subscription. The ACM and O'Reilly relationship has been ... fluid over the past ten years. [ACM membership benefits](https://www.acm.org/membership/membership-benefits) used to include restricted access O'Reilly subscription by default. Then it transitioned to full access with basic ACM membership, which was an incredible deal. Then it transititioned to limited book/video access with basic membership, which still an incredible deal. Then it disappeared completely, which was very disappointing. And now the current availability is back to book/video access, but only with the addition of the Skills Bundle Add-On, which is still a good deal. I'm sure it will change again in a few years.
 
-### Blogs
+# Blogs
 Many software professional share their experience and knowledge via blogs.
 Search for almost any software topic on the internet, and it will surely yield many blog references.
 
-### Videos
+# Videos
 Some software professional share their experience and knowledge via online videos.
 
 Videos span many types from how-to videos to educational videos.
@@ -62,18 +52,18 @@ Here are a few suggestions:
 * Design Ops Summit
 * InfoQ's QCon
 
-### Conferences
+# Conferences
 * [O'Reily](https://www.youtube.com/@oreilly/featured)
 * [GOTO Conferences](https://www.youtube.com/@GOTO-/featured)
 * [DEVOXX](https://www.youtube.com/@DevoxxForever/featured)
 * [GeeCon](https://vimeo.com/geecon/videos)
 
-### Webinars
+# Webinars
 * ACM
 * O'Reilly
 * Lightbend
 
-### Podcasts
+# Podcasts
 Podcasts allow you pick up new information on the go.
 You can listen to them in the car, while exercising or elsewhere.
 
@@ -86,9 +76,12 @@ Here are several of my favorites:
 * Tabs and Spaces
 * ...
 
-### Online Communities via Slack, Discord, etc.
+# Online Communities via Slack, Discord, etc.
 ...
 
-### MOOCs
+# MOOCs
 
-* https://missing.csail.mit.edu/ 
+* https://missing.csail.mit.edu/
+
+# Summary
+TBD
