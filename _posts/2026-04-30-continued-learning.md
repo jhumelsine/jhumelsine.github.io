@@ -81,7 +81,12 @@ Here are several of my favorites:
 * ...
 
 # Online Communities via Slack, Discord, etc.
-...
+Share your experiences and learn from others. Here are a few Software Engineering social media groups I'm a member of along with my user name:
+* [Coding Blocks Slack](https://www.codingblocks.net/slack/): **Design Pattern Evangelist (Jim)**
+* [Legacy Code Rocks! Slack](http://slack.legacycode.rocks/): **Jim Humelsine**
+* [We Do TDD Slack](http://wedotdd.slack.com): **Jim Humelsine**
+* [Software Crafters Slack](http://softwarecrafters.slack.com): **Jim Humelsine**
+* [Tabs and Spaces Discord](https://discord.gg/depv5npMTj): **Design Pattern Evangelist (Jim)**
 
 # MOOCs
 
