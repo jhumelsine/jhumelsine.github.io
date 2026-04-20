@@ -1,5 +1,5 @@
 ---
-title: WORK IN PROGRESS – 
+title: WORK IN PROGRESS – Educational Resources for Continued Learning
 description: TBD
 unlisted: true
 ---
@@ -36,12 +36,22 @@ Many conferences have a video channel posting their content as well.
 
 Here are a few suggestions:
 * [Modern Software Engineering Channel](https://www.youtube.com/@ModernSoftwareEngineeringYT)
-* The Legacy of SoCraTes
-* Alpha Code
-* Tim Roughgarden Lectures
-* Vaughn Vernon
-* Emily Bache
-* XP Days
+* [The Legacy of SoCraTes](https://www.youtube.com/@TheLegacyofSoCraTes)
+* [Alpha Code](https://www.youtube.com/@AlphaCode8) - Stopped abruptly.
+* [Tim Roughgarden Lectures](https://www.youtube.com/@timroughgardenlectures1861)
+* [Vaughn Vernon](https://www.youtube.com/@VaughnVernon)
+* [Emily Bache](https://www.youtube.com/@EmilyBache-tech-coach)
+* [Easy Theory](https://www.youtube.com/@EasyTheory)
+* [Alistair Cockburn](https://www.youtube.com/@totheralistair)
+* [Code Aesthetic](https://www.youtube.com/@CodeAesthetic)
+* [Reducible](https://www.youtube.com/@Reducible)
+* [Coding Blocks](https://www.youtube.com/@codingblocks)
+
+# Conferences
+* [O'Reilly](https://www.youtube.com/@oreilly/featured)
+* [GOTO Conferences](https://www.youtube.com/@GOTO-/featured)
+* [DEVOXX](https://www.youtube.com/@DevoxxForever/featured)
+* [GeeCon](https://vimeo.com/geecon/videos)
 * Nordic APIs
 * Jfokus
 * WOW!
@@ -51,12 +61,6 @@ Here are a few suggestions:
 * Microservices Summit
 * Design Ops Summit
 * InfoQ's QCon
-
-# Conferences
-* [O'Reily](https://www.youtube.com/@oreilly/featured)
-* [GOTO Conferences](https://www.youtube.com/@GOTO-/featured)
-* [DEVOXX](https://www.youtube.com/@DevoxxForever/featured)
-* [GeeCon](https://vimeo.com/geecon/videos)
 
 # Webinars
 * ACM
