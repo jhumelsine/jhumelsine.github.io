@@ -62,11 +62,6 @@ Here are a few suggestions:
 * Design Ops Summit
 * InfoQ's QCon
 
-# Webinars
-* ACM
-* O'Reilly
-* Lightbend
-
 # Podcasts
 Podcasts allow you pick up new information on the go.
 You can listen to them in the car, while exercising or elsewhere.
@@ -74,11 +69,26 @@ You can listen to them in the car, while exercising or elsewhere.
 Their main limitation is a lack of visuals, but this doesn't seem to be a major issue for most good podcasts.
 Many podcasts also have websites for subsequent reference.
 
-Here are several of my favorites:
-* [Soft Skills Engineer](https://softskills.audio/)
-* Coding Blocks
-* Tabs and Spaces
-* ...
+Here are some I follow on my playlist. Some of them are still active. Some have retired. Most were evergreen, but with the advent of AI maybe not quite so much:
+* [Soft Skills Engineer](https://softskills.audio/) - A weekly advice podcast where the two hosts answer questions about careers and less about technology.
+* [Coding Blocks](https://www.codingblocks.net/) - Conversational style among three softare developer friends and coworkers. They retired it a couple years ago, but several of us on their [Slack](https://www.codingblocks.net/slack/) group are doing a relisten.
+* [Tabs and Spaces](https://open.spotify.com/show/05xweMLT3cConDizrKFIgR) - The British version of Coding Blocks. The podcast has also been retired. I was a guest on three episodes:
+    *  [What They Didn't Teach You in University](https://open.spotify.com/episode/75q4sE0Qs5RnMl7ECVmRZc) - Where we discussed what you learn and don't learn about computers in academia. It's similar to what I wrote in [You Studied Computer Science. Your Career Will Be Software Engineering.](https://jhumelsine.github.io/2026/02/11/computer-science-software-engineering.html)
+    *  [Do you-ou-ou a-wanna test like me-e-e?](https://open.spotify.com/episode/1nktoh5QzNtiNpN2VoHR7g) - We were discussed automated testing. It's similar to what I wrote in my [Automated Testing Blog Series](https://jhumelsine.github.io/table-of-contents#automated-testing).
+    *  [Jim's Greatest Hits](https://open.spotify.com/episode/7odjsvlJFX8LbTdZ8C3AsL) - I thought were were going to discuss [Software Contracts](https://jhumelsine.github.io/2025/06/10/contracts.html), but since we recorded three days I retired, we pivoted a day or two before recording to talk about my career.
+* [The Engineering Room](https://rss.com/podcasts/theengineeringroom/) - Interview formatted podcast with industry leaders interviewed by Dave Farley
+* [Legacy Code Rocks!](https://www.legacycode.rocks/) - Interview formatted podcast focusing upon legacy code. I was a guest in [Economics of Technical Debt with Jim Humelsine
+](https://podcasts.apple.com/us/podcast/economics-of-technical-debt-with-jim-humelsine/id1146634772?i=1000523667734), where we discussed why legacy code is inevitable.
+* [Level-Up Engineering](https://www.apexlab.io/podcast/1/) - Interview formatted podcast about the industry. Each episode has a great landing page.
+* [Pragmatism in Practice](https://www.thoughtworks.com/en-us/insights/podcasts/pragmatism-in-practice) - General discussion about the industry from Thoughtworks.
+* [Technology Podcast](https://www.thoughtworks.com/en-us/insights/podcasts/technology-podcasts) - Technology discussion about the industry from Thoughtworks.
+* [Smart Talks with IBM](https://www.ibm.com/think/podcasts/smart-talks) - Cutting edge work at IBM.
+* [Clean Coders](https://podcasts.apple.com/us/podcast/clean-coders-podcast/id1497337173) - General industry discussion.
+
+# Webinars
+* ACM
+* O'Reilly
+* Lightbend
 
 # Online Communities via Slack, Discord, etc.
 Share your experiences and learn from others. Here are a few Software Engineering social media groups I'm a member of along with my user name:
