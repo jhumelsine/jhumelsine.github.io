@@ -98,6 +98,9 @@ Share your experiences and learn from others. Here are a few Software Engineerin
 * [Software Crafters Slack](http://softwarecrafters.slack.com): **Jim Humelsine**
 * [Tabs and Spaces Discord](https://discord.gg/depv5npMTj): **Design Pattern Evangelist (Jim)**
 
+# Social Media
+My Slack and Bluesky examples. Linkedin, etc.
+
 # MOOCs
 
 * https://missing.csail.mit.edu/
