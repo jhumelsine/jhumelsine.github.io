@@ -32,6 +32,8 @@ _Make it work, make it right, make it fast._ — Kent Beck
 
 _Make it correct, make it clear, make it concise, make it fast. In that order._ — Wes Dyer
 
+_First do it, then do it right, then do it better. [...] Write the messy first draft of the design doc. Ship the MVP that embarrasses you slightly. You’ll learn more from one week of real feedback than a month of theoretical debate._ — Addy Osmani
+
 _I’m not a great programmer. I’m just a good programmer with great habits._ — Kent Beck
 
 _Learning to program teaches you how to think. Computer science is a liberal art._ — Steve Jobs
