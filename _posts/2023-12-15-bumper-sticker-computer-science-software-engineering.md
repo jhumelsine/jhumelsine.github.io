@@ -42,6 +42,8 @@ _[A] computer science education cannot make anybody an expert programmer any mor
 
 _Just because you've implemented something doesn't mean you understand it._ — Brian Cantwell Smit
 
+_Any code of your own that you haven't looked at for six or more months might as well have been written by someone else._ — Eagleson's law
+
 _You see, programmers tend to be arrogant, self-absorbed introverts. We didn’t get into this business because we like people._ ― Robert C. Martin
 
 _Programming is a social activity._ ― Robert C. Martin
