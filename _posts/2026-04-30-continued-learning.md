@@ -61,6 +61,7 @@ Here are a few suggestions:
 * Microservices Summit
 * Design Ops Summit
 * InfoQ's QCon
+* https://www.youtube.com/@mendercon
 
 # Podcasts
 Podcasts allow you pick up new information on the go.
@@ -104,6 +105,14 @@ My Slack and Bluesky examples. Linkedin, etc.
 # MOOCs
 
 * https://missing.csail.mit.edu/
+
+# Others ...
+
+https://www.thoughtworks.com/en-us/insights/podcasts/technology-podcasts/themes-technology-radar-34
+
+https://www.thoughtworks.com/radar
+
+https://matt.might.net/articles/books-papers-materials-for-graduate-students/
 
 # Summary
 TBD
