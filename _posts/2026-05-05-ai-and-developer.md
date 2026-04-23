@@ -113,4 +113,14 @@ https://www.thoughtworks.com/en-us/insights/podcasts/technology-podcasts - early
 
 https://cacm.acm.org/opinion/redefining-the-software-engineering-profession-for-ai/
 
-Add the concept of a chunk.
+https://www.thoughtworks.com/en-us/insights/podcasts/technology-podcasts/how-feels-software-engineer-ai-changing-relationship-code
+
+Add the concept of a chunk. It's more efficient with memory.
+
+Reference good software practices. You don't need to invent, design or implement practices. You only need to reference them.
+
+Mythical Man Month - Surgical Team. https://herbertograca.com/2018/09/10/3-the-surgical-team/
+
+What is CRAP in software complexity?
+
+https://www.thoughtworks.com/en-us/insights/podcasts/pragmatism-in-practice around April 10-23. AI and the Workforce. Not posted when I'm writing this.
