@@ -128,3 +128,7 @@ https://www.thoughtworks.com/en-us/insights/podcasts/pragmatism-in-practice arou
 CRAP - https://testing.googleblog.com/2011/02/this-code-is-crap.html
 
 Use agents to find the signal from the noise in log files. Connects to observability. See: https://x.com/unclebobmartin/status/2047679611752862121
+
+Dave Farily new AI playlist - https://www.youtube.com/watch?v=8WJ1XVBh8NA&list=PLwLLcwQlnXBxEN_e5gfzfKmUS9XW2U8Jz
+
+What about an agent that represents the user? It could use the product and provide feedback. It wouldn't be a pass/fail test. It would be a sounding board. I don't know if one could prompt a user well enough to make this useful, but it feels like an interesting idea.
