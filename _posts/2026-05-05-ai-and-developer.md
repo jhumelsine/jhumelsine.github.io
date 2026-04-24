@@ -126,3 +126,5 @@ What is CRAP in software complexity?
 https://www.thoughtworks.com/en-us/insights/podcasts/pragmatism-in-practice around April 10-23. AI and the Workforce. Not posted when I'm writing this.
 
 CRAP - https://testing.googleblog.com/2011/02/this-code-is-crap.html
+
+Use agents to find the signal from the noise in log files. Connects to observability. See: https://x.com/unclebobmartin/status/2047679611752862121
