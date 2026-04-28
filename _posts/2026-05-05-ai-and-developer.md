@@ -132,3 +132,67 @@ Use agents to find the signal from the noise in log files. Connects to observabi
 Dave Farily new AI playlist - https://www.youtube.com/watch?v=8WJ1XVBh8NA&list=PLwLLcwQlnXBxEN_e5gfzfKmUS9XW2U8Jz
 
 What about an agent that represents the user? It could use the product and provide feedback. It wouldn't be a pass/fail test. It would be a sounding board. I don't know if one could prompt a user well enough to make this useful, but it feels like an interesting idea.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+https://www.youtube.com/watch?v=v4F1gFy-hqg
+
+Vibe coding is fine for prototypes and small personal projects where you're the only user. But it's probably not suitable ... yet ... for production code.
+GenAI is great for filling in boilerplate code. This could be via autocomplete features or just telling it to create the equals() method for a Java class. It saves some typing and removes some toil, but it's not going to yield a huge performance improvement.
+I think the Goldilocks sweet spot is somewhere between.
+
+Deep vs Shallow is not a situation of either/or. It's yes/and.
+
+Ousterhout has the right idea, but it's the wrong presentation or at least focusing upon the wrong attribute.
+
+It's about contracts and interfaces ... period. It's not about how much code is needed to implement the behaviors defined in those contracts and interfaces.
+
+Therefore, it's completely possible, and I think quite reasonable, for a deep contract's implementation to be composed of other deep-ish classes, each with their own contracts, which help realize the behavior for the deep contract in which they reside.
+
+This isn't small set of several large monolithic blocks versus a large set of small blocks. It's more akin to a composition tree structure.
+
+Therefore, we could indeed have a deep class that's small, because it delegates its sub-behaviors to other classes. It's like the contractor on a construction site. He doesn't do all of the work, but he manages the work and delegates it to other specialized contractors, such as carpenters, plumbers and electricians.
+
+I think the same applies to AI. Humans will be the contractors and the specialized contractors will be AI agents.
+
+If he liked Ubiquitous Language from DDD, I can't wait to see how he feels about Bounded Contexts. Haha.
+
+We don't have to teach AI many of these software practices. We can probably reference them, and it will know from its training how to use them. Some guidance will probably still be needed for context to the specific situation, but we won't have to start from scratch.
+
+Don't worry, I don't do much AI either, but I think you'll find this talk really inspiring 
+
+My Goldilocks sweet spot sounds along these lines.
+
+Humans have been using technology to remove toil for millennia. Coding has now become toil.
+
+Software engineering was never about typing. It really wasn't about the code either. However, it was necessary because we didn't have the technology to avoid it. Now we have the technology.
+
+The heart of software engineering is the domain and the design. AI can't handle that ... yet.
+
+For a pretty good chunk of my career, I didn't start the coding until I was satisfied with my design. Then the code pretty much wrote itself after that. That's what I think AI generated code will be like, except that I would not be the one writing the code.
+
+People are equating working with AI as being like pair-programming. There will be some elements of this, but I think the model is going to be closer to a team lead directing the people on his team. Except that now, the team will be AI agents rather than other developers. Much like human team, the lead still comes up with the overall design, divides it up among the team and checks the work.
+
+The main difference is that the team lead can build a team of as many AI agents as needed and as narrowly focuses as desired. For example, one AI agent could have a single responsibility for mutation testing. Teams can be a different composition of AI agents. And scale is not an issue. An agent team could be defined for just one class, which is something you wouldn't do with human developers.
+
+We have two issues with AI:
+
+Token cost
+Limited context window
+
+
+We don't want to blow through our token budget. We also don't want agents to forget important things, just because their context window is full.
+
+We have the same issues with human developers. We manage this with systems will well defined boundaries ... or at least we should do that. My gut feeling is that the practices we've used for humans to develop software will be useful for agents too.
+
+I also think there are some practices that will help with hallucinations, such as mutation testing.
+
+I suspect that good boundaries, such as Bounded Contexts, or Deep Classes in using Ousterhout's terms, will be key to this. Just as these boundaries protect the human mind from having to know about too many details, they also shield the AI from those details it doesn't care about either.
+
+For example, the AI should only know about the contracts of other classes. It shouldn't know about the entire design. This will help keep the number of tokens and the size of the context window manageable ... I think.
+
+However, this does introduce some degree of duplication risk. Different Bounded Context agents could develop classes with similar behaviors. Maybe a good design includes a rover agent whose job is to look for duplication candidates and return findings back to the human designer. I would not trust them to make the changes, but I would consider their findings.
+
+If one creates an army of agents, how do they communicate? I don't think it would be wise for agents to know about another. However, I could see them sharing artifacts. For example, the code generated by developer agents as output could be the input to the mutation testing agent. It feels cleaner, and all artifacts would be viewable for human confirmation too.
+
+I've also heard of prompts along the lines of: Write code like Kent Beck.
