@@ -266,6 +266,7 @@ I keep my previous employers and others anonymous. If I do mention someone by na
 * [Prepping for a demo](https://jhumelsine.github.io/2025/03/28/mutation-testing.html#prepping-for-a-demo) - Where I describe how I stumbled onto [Mutation Testing](https://jhumelsine.github.io/2025/03/28/mutation-testing.html) by accident.
 * [Heartbeat or Heart Attack?](https://jhumelsine.github.io/2025/04/08/time-lord.html#heartbeat-or-heart-attack) - Where I describe a bug that took 42 days of continuous execution before it manifested itself in [Mastering Time in Software Testing - Strategies for Temporal Behavior Verification](https://jhumelsine.github.io/2025/04/08/time-lord.html).
 * [Deciding upon an Internship](https://jhumelsine.github.io/2026/03/03/internship.html#decision) - Where Tommy, one of my undergraduate Computer Science mentees, described how even internships that weren't a perfect match were still valuable opportunities.
+* [Debugging](https://jhumelsine.github.io/2026/04/23/career.html#debugging) - One of my favorite debugging discoveries, where the symptoms were based upon what kind of terminal you were using.
 
 ## Cautionary Tales and Principle of Least Astonishment
 Cautionary Tales may help others avoid some poor choices I encountered, some of my own making. This section will also contain a few examples of violations of the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment) (POLA):
