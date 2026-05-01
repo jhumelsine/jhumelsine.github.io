@@ -14,7 +14,7 @@ This page is a curated collection of essays, examples, and experiments on **soft
 
 The focus here is on **durable ideas**: design patterns, abstractions, tradeoffs, and mental models that hold up across languages, frameworks, and architectural fashions. Many entries are intentionally long and exploratory. They are meant to be read slowly, revisited, and occasionally argued with.
 
-This is not a framework tutorial site, and it is not a stream of short-form commentary. Most articles aim to answer questions like _Why does this pattern exist?, What problem is it actually solving?, and Where do people get confused when applying it in real systems?_
+This is not a framework tutorial site, and it is not a stream of short-form commentary. Most articles aim to answer questions like _Why does this pattern exist?, What problem is it actually solving?,_ and _Where do people get confused when applying it in real systems?_
 
 Think of this site less as a blog and more as a **living technical notebook**—one that continues to evolve as ideas are tested, refined, and sometimes reconsidered.
 
@@ -68,7 +68,7 @@ Not every section will be relevant to every reader. Skipping ahead, skimming, or
 * [Experience and Reflection](#experience-and-reflection)
     * [True Stories](#true-stories)
     * [Cautionary Tales and Principle of Least Astonishment](#cautionary-tales-and-principle-of-least-astonishment)
-* [Miscellaneous](#miscellaneous)
+* [Career Path](#career-path)
 * [Reference](#reference)
     * [Complete Code Demos](#complete-code-demos)
     * [Blog Statistics](#statistics)
@@ -276,10 +276,16 @@ Cautionary Tales may help others avoid some poor choices I encountered, some of 
 * [Consumer-Driven Contract Testing](https://jhumelsine.github.io/2025/07/14/cdc-testing.html) - Where I describe in [Why Bother?](https://jhumelsine.github.io/2025/07/14/cdc-testing.html#why-bother) that an external provider changed their [contract](https://jhumelsine.github.io/2025/06/10/contracts.html), and we didn't realize it until our customers started to complain.
 * [Singleton Design Pattern](https://jhumelsine.github.io/2025/10/31/singleton.html) - Where I describe a Singleton in [You Did What? Why?](https://jhumelsine.github.io/2025/10/31/singleton.html#you-did-what-why-a-real-world-cautionary-tale) that allowed anyone with a reference to it to change its intrinsic state.
 
-# Miscellaneous
-This is for blog entries that were one-offs, and weren't part of series:
-
+# Career Path
+Academia doesn't prepare software engineers for their careers.
+Here are some suggestions toward thinking about your career:
+* [Computer Science vs Software Engineering](https://jhumelsine.github.io/2026/02/11/computer-science-software-engineering.html) - Computer Science and Software Engineering are related, but they are different disciplines. Most developers get a Computer Science degree, but their jobs will be in Software Engineering.
+* [Landing a Softare Engineering Intership](https://jhumelsine.github.io/2026/03/03/internship.html) - Preparation for obtaining an intership.
+* [Acquiring and Onboarding Your First Job](https://jhumelsine.github.io/2026/03/10/first-job.html) - Getting that first job out of college and transitioning into it.
+* [Beyond Onboarding](https://jhumelsine.github.io/2026/04/23/career.html) - Figuring out your first year and launching your career
+* Software Education Resources (TBD)
 * [Job Loss](https://jhumelsine.github.io/2024/08/11/jobsearch.html) - Software Engineering has been a great career for me, but it wasn't without a few bumps in the road. I wrote this blog when others I knew in the industry were running into the same bumpy road in their careers.
+* More to come ...
 
 # Reference
 ## Complete Code Demos
