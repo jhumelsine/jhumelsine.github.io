@@ -133,6 +133,8 @@ Dave Farily new AI playlist - https://www.youtube.com/watch?v=8WJ1XVBh8NA&list=P
 
 What about an agent that represents the user? It could use the product and provide feedback. It wouldn't be a pass/fail test. It would be a sounding board. I don't know if one could prompt a user well enough to make this useful, but it feels like an interesting idea.
 
+Emily Bache video about AI and good software practices - https://www.youtube.com/watch?v=_erJ5EdQFYU
+
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 https://www.youtube.com/watch?v=v4F1gFy-hqg
