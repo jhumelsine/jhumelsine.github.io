@@ -216,6 +216,7 @@ None of these are set in stone:
 * [Getting an Internship](https://jhumelsine.github.io/2026/03/03/internship.html)
 * [Getting and Onboarding Your First Job](https://jhumelsine.github.io/2026/03/10/first-job.html)
 * [Beyond Onboarding](https://jhumelsine.github.io/2026/04/23/career.html)
+* Software Engineering Education Resources (TBD)
 * [Losing Your Job Stinks](https://jhumelsine.github.io/2024/08/11/jobsearch.html)
 * Retirement (TBD)
 * Personal Finance (TBD)
