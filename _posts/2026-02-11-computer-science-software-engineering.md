@@ -215,9 +215,11 @@ This is just a working list.
 None of these are set in stone:
 * [Getting an Internship](https://jhumelsine.github.io/2026/03/03/internship.html)
 * [Getting and Onboarding Your First Job](https://jhumelsine.github.io/2026/03/10/first-job.html)
-* Continuing Your Career Journey (TBD)
+* [Beyond Onboarding](https://jhumelsine.github.io/2026/04/23/career.html)
 * [Losing Your Job Stinks](https://jhumelsine.github.io/2024/08/11/jobsearch.html)
-* Retiring (TBD)
+* Retirement (TBD)
+* Personal Finance (TBD)
+* Financial Retirement Planning - Mostly for the USA (TBD)
 
 # Summary
 I have been fascinated with computers for about as long as I can remember.
