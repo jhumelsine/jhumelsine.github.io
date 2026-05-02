@@ -48,9 +48,18 @@ Here are a few suggestions:
 * [Coding Blocks](https://www.youtube.com/@codingblocks)
 
 # Conferences
-* [O'Reilly](https://www.youtube.com/@oreilly/featured)
-* [GOTO Conferences](https://www.youtube.com/@GOTO-/featured)
-* [DEVOXX](https://www.youtube.com/@DevoxxForever/featured)
+Conferences are a great way to stay on the leading edge of technology.
+In person conferences allows you to see presentations in person and make connections with other attendees; however, they require time, travel and money.
+
+Some conferences are online, which is more convenient, but you won't have the same networking options.
+
+Many conferences post much of their content online afterwards.
+Here are some conference resources:
+* [O'Reilly video playlists](https://www.youtube.com/@oreilly/playlists) - This is part of O'Reilly Publishing
+* [GOTO Conference Homepage](https://gotopia.tech/) and [video playlists](https://www.youtube.com/user/GotoConferences/playlists) - GOTO is a set of mostly European based tech conferences.
+* [DEVOXX Conference Homepage](https://www.devoxx.com/#/) and [video playlists](https://www.youtube.com/channel/UCCBVCTuk6uJrN3iFV_3vurg/playlists) - [DEVOXX](https://en.wikipedia.org/wiki/Devoxx) is a set of European based tech conferences
+* [XP Days video playlists](https://www.youtube.com/user/lumii1983/playlists) - XP Days is a set of eastern European based conferences. Most are in English, but there are many in Russian as well.
+* ++++++++++++++++++++++++++++++++++++++++++++++++++
 * [GeeCon](https://vimeo.com/geecon/videos)
 * Nordic APIs
 * Jfokus
@@ -62,6 +71,7 @@ Here are a few suggestions:
 * Design Ops Summit
 * InfoQ's QCon
 * https://www.youtube.com/@mendercon
+* DDD Europe
 
 # Podcasts
 Podcasts allow you pick up new information on the go.
