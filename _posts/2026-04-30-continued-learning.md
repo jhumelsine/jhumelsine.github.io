@@ -5,9 +5,9 @@ unlisted: true
 ---
 
 # Introduction
-This blog entry is a follow up to the previous Career (TBD) blog.
+This blog entry is a follow up to the previous [Beyond Onboarding](https://jhumelsine.github.io/2026/04/23/career.html) blog entry.
 
-It's a set of references for your continuing education.
+This blog entry contains a set of references for your continuing education.
 
 Fortunately the internet is filled with educational resources for Software Engineering.
 Most are free or a reasonable price.
@@ -100,7 +100,20 @@ Share your experiences and learn from others. Here are a few Software Engineerin
 * [Tabs and Spaces Discord](https://discord.gg/depv5npMTj): **Design Pattern Evangelist (Jim)**
 
 # Social Media
-My Slack and Bluesky examples. Linkedin, etc.
+Social media can be good resources, but they can also be cesspools.
+Some platforms let you create lists of accounts you follow.
+I have found that these lists tend to have little or not additional content added to them.
+
+While curated lists filters content, they cannot filter out what's posted by those you follow.
+Some people use their accounts to post computer related content only.
+Some also use them to post their personal and often political views.
+Your only options are to compartmentalize what people post or don't both with these accounts.
+
+Here are some currated lists:
+* [Twitter/X Computer Science](https://x.com/i/lists/919677157915463680) - Currated by me
+* [Twitter/X Software Engineering](https://x.com/i/lists/888744335466008576) - Currated by [Neil Whitlow](https://x.com/NeilWhitlow)
+* [Twitter/X DEVS/DDD-HEX-CQRS-Ports](https://x.com/i/lists/1528367004306001921) - Currated by [Sebastián Bustamante](https://x.com/SebaSj)
+* [Bluesky Computer Science](https://bsky.app/profile/jhumelsine.bsky.social/lists/3laebntewlz23) - Currated by me
 
 # MOOCs
 
