@@ -3,7 +3,7 @@ title: It's Your Move
 description: Do you know how to truly play the game, or do you only know the rules?
 ---
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Chess_pieces_bokeh.jpg/1125px-Chess_pieces_bokeh.jpg?20120227125434" alt="Chess Pieces" title="Image Source: https://commons.wikimedia.org/wiki/File:Chess_pieces_bokeh.jpg" width = "50%">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Chess_pieces_bokeh.jpg/1280px-Chess_pieces_bokeh.jpg" alt="Chess Pieces" title="Image Source: https://commons.wikimedia.org/wiki/File:Chess_pieces_bokeh.jpg" width = "50%">
 
 I learned the rules of chess when I was about eight years old. The rules fit on a single piece of paper that came with most chess sets. I could play the game casually with friends, but I was never really any good.
 
