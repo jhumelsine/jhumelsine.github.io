@@ -47,4 +47,4 @@ It may take me a whole to find my own style, but here are some guidelines that I
     * [What They Don't Teach You At University](https://open.spotify.com/episode/75q4sE0Qs5RnMl7ECVmRZc)
     * [Do You Wanna Test Like Me?](https://open.spotify.com/episode/1nktoh5QzNtiNpN2VoHR7g)
     * [Jim's Greatest Hits](https://open.spotify.com/episode/7odjsvlJFX8LbTdZ8C3AsL) - Recorded three days into my retirement
-* [Economics of Technical Debt with Jim Humelsine](https://legacycode.rocks/episodes/100/) - I was a guest on the [Legacy Code Rocks!](https://www.legacycode.rocks/) podcast discussing my ideas on how incentives drive us toward technical debt.
+* [Economics of Technical Debt with Jim Humelsine](https://podcasts.apple.com/us/podcast/economics-of-technical-debt-with-jim-humelsine/id1146634772?i=1000523667734) - I was a guest on the [Legacy Code Rocks!](https://www.legacycode.rocks/) podcast discussing my ideas on how incentives drive us toward technical debt.
