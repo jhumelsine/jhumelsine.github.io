@@ -74,6 +74,10 @@ My first paying job as a software developer was a summer position between my sop
 It was the closest I ever came to coding on bare metal.
 I hand wrote my programs in an assembly language on paper and then converted the assembly code into machine code by hand.
 I loaded machine code into the machine using a Hexadecimal keypad.
+It looked similar to the image below, except my machine didn't have a plexiglass cover over the chips.
+There was no cover.
+
+<img src="/assets/OpenFaceComputer.jpg" alt="Open Computer with Hex Pad"  width = "50%" align="left" style="padding: 35px;">
 
 The programs weren't complex, but I needed to divide numbers with decimal results.
 The chip only supported integers, and it did not have a divide operation.
