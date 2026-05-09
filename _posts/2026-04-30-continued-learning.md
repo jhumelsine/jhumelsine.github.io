@@ -74,8 +74,8 @@ Here are some conference resources:
 * [GeeCon Conference Homepage](https://geecon.org/), [GeeCon Videos](https://vimeo.com/geecon/videos) and [GeeCon Video Collections](https://vimeo.com/geecon/collections) - GeeCon is a set of Polish based conferences. Videos are in English.
 * [Nordic APIs Conference Homepage](https://nordicapis.com/) and [Nordic APIs Playlists](https://www.youtube.com/user/nordicapis/playlists) - Nordic API is a set of Swedish based conferences that focus upon APIs.
 * [Jfokus Conference Homepage](https://www.jfokus.se/) and [Jfocus Playlists](https://www.youtube.com/user/javamattias/playlists) - Jfokus is a set of Swedish based conferences. Most recent videos appear to be in English, but some may be in Swedish as well.
-* [YOW! Conference Homepage](https://yowcon.com/) and [YOW! Playlists](https://www.youtube.com/@GOTO-/playlists) (NOTE: They seem to be a subset of the GOTO Playlists) - YOW! is a set of conferences Australian based conferences.
-* FlowCon
+* [YOW! Conference Homepage](https://yowcon.com/) and [YOW! Playlists](https://www.youtube.com/@GOTO-/playlists) (NOTE: The YOW! Playlists seem to be a subset of the GOTO Playlists) - YOW! is a set of conferences Australian based conferences.
+* [FlowCon Conference Homepage](http://flowcon.org/) and [FlowCon Playlists](https://www.youtube.com/channel/UCMk1sRo1hnTLMA3kpn6BVKg/playlists) - FlowCon appears to have been a one-off conference in fall 2014 in San Francisco. There's content, but probably no new content.
 * NextDayVideo
 * APIStrat
 * Microservices Summit
