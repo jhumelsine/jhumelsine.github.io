@@ -77,8 +77,8 @@ Here are some conference resources:
 * [YOW! Conference Homepage](https://yowcon.com/) and [YOW! Playlists](https://www.youtube.com/@GOTO-/playlists) (NOTE: The YOW! Playlists seem to be a subset of the GOTO Playlists) - YOW! is a set of conferences Australian based conferences.
 * [FlowCon Conference Homepage](http://flowcon.org/) and [FlowCon Playlists](https://www.youtube.com/channel/UCMk1sRo1hnTLMA3kpn6BVKg/playlists) - FlowCon appears to have been a one-off conference in fall 2014 in San Francisco. There's content, but probably no new content.
 * [InfoQ Homepage](https://www.infoq.com/) and [InfoQ Conference Videos](https://www.youtube.com/@QConferences/videos) - Helps software development teams adopt new trends and technologies with conferences in NYC, SF and worldwide.
+* [DDD Europe Homepage]() and [DDD Europe Playlists](https://www.youtube.com/@ddd_eu/playlists) - Domain-Driven Design Europe is the premier software modelling and design conference for senior engineers and architects working in complex environments.
 * https://www.youtube.com/@mendercon
-* DDD Europe
 
 # Podcasts
 Podcasts allow you pick up new information on the go.
