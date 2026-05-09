@@ -76,11 +76,7 @@ Here are some conference resources:
 * [Jfokus Conference Homepage](https://www.jfokus.se/) and [Jfocus Playlists](https://www.youtube.com/user/javamattias/playlists) - Jfokus is a set of Swedish based conferences. Most recent videos appear to be in English, but some may be in Swedish as well.
 * [YOW! Conference Homepage](https://yowcon.com/) and [YOW! Playlists](https://www.youtube.com/@GOTO-/playlists) (NOTE: The YOW! Playlists seem to be a subset of the GOTO Playlists) - YOW! is a set of conferences Australian based conferences.
 * [FlowCon Conference Homepage](http://flowcon.org/) and [FlowCon Playlists](https://www.youtube.com/channel/UCMk1sRo1hnTLMA3kpn6BVKg/playlists) - FlowCon appears to have been a one-off conference in fall 2014 in San Francisco. There's content, but probably no new content.
-* NextDayVideo
-* APIStrat
-* Microservices Summit
-* Design Ops Summit
-* InfoQ's QCon
+* [InfoQ Homepage](https://www.infoq.com/) and [InfoQ Conference Videos](https://www.youtube.com/@QConferences/videos) - Helps software development teams adopt new trends and technologies with conferences in NYC, SF and worldwide.
 * https://www.youtube.com/@mendercon
 * DDD Europe
 
