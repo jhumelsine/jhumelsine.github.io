@@ -47,9 +47,8 @@ Videos span many types from how-to videos to educational videos.
 Many conferences have a video channel posting their content as well.
 
 Here are a few suggestions:
-* [Modern Software Engineering Channel](https://www.youtube.com/@ModernSoftwareEngineeringYT)
-* [The Legacy of SoCraTes](https://www.youtube.com/@TheLegacyofSoCraTes)
-* [Alpha Code](https://www.youtube.com/@AlphaCode8) - Stopped abruptly.
+* [Modern Software Engineering Channel](https://www.youtube.com/@ModernSoftwareEngineeringYT) - [Dave Farley](https://www.davefarley.net/?page_id=2) started this channel early during COVID, I think as a project during the shutdown. It quickly became popular. Each week a new 15-20 minute video is posted about a Software Engineering topic. The videos introduce topics without getting too deep in the weeds. Dave has invited additional noted presenters. Cohesive videos have been organized into [Playlists](https://www.youtube.com/@ModernSoftwareEngineeringYT/playlists).
+* [Alpha Code](https://www.youtube.com/@AlphaCode8/videos) - This excellent Domain-Driven Design series halted abruptly and incomplete about seven years ago. I hate to mention it, but it feels as if the creator died unexpectedly.
 * [Tim Roughgarden Lectures](https://www.youtube.com/@timroughgardenlectures1861)
 * [Vaughn Vernon](https://www.youtube.com/@VaughnVernon)
 * [Emily Bache](https://www.youtube.com/@EmilyBache-tech-coach)
