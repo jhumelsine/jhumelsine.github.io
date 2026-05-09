@@ -12,6 +12,18 @@ This blog entry contains a set of references for your continuing education.
 Fortunately the internet is filled with educational resources for Software Engineering.
 Most are free or a reasonable price.
 
+I will update resources on this page as a learn of new resources.
+
+# Internet and Generative AI
+<img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeTR4aTlhajhobjZmd2puYXM4dXIyZnQwcWdjb20ydXJiZmp0dWtybSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JnDGMrN8tMICc/giphy.gif" alt="Captain Obvious" title="Image Source: https://giphy.com/gifs/president-JnDGMrN8tMICc" width = "25%" align="right" style="padding-right: 20px;">
+
+At the risk of being Captain Obvious, the first stop in finding information about a new topic is the internet.
+
+Your favorite search engine will return more references than you can possibly consume.
+Someone, somewhere will have almost certainly created a page, blog, article, course, presentation slides or video on the topic you wish to learn.
+
+[Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) can create a learning plan for almost any topic tailored to your specific needs.
+
 # O'Reilly
 O'Reilly gained a reputation for publishing technical books.
 Their brand usually includes a drawing of an animal on the front cover.
