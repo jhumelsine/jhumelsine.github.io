@@ -72,8 +72,8 @@ Here are some conference resources:
 * [DEVOXX Conference Homepage](https://www.devoxx.com/#/) and [video playlists](https://www.youtube.com/channel/UCCBVCTuk6uJrN3iFV_3vurg/playlists) - [DEVOXX](https://en.wikipedia.org/wiki/Devoxx) is a set of European based tech conferences
 * [XP Days video playlists](https://www.youtube.com/user/lumii1983/playlists) - XP Days is a set of eastern European based conferences. Most are in English, but there are many in Russian as well.
 * [GeeCon Conference Homepage](https://geecon.org/), [GeeCon Videos](https://vimeo.com/geecon/videos) and [GeeCon Video Collections](https://vimeo.com/geecon/collections) - GeeCon is a set of Polish based conferences. Videos are in English.
+* [Nordic APIs Conference](https://nordicapis.com/) and [Nordic APIs Playlists](https://www.youtube.com/user/nordicapis/playlists) - Nordic API is a set of Swedish based conferences that focus upon APIs.
 * ++++++++++++++++++++++++++++++++++++++++++++++++++
-* Nordic APIs
 * Jfokus
 * WOW!
 * FlowCon
