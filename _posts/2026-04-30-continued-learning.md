@@ -79,6 +79,7 @@ Here are some conference resources:
 * [InfoQ Homepage](https://www.infoq.com/) and [InfoQ Conference Videos](https://www.youtube.com/@QConferences/videos) - Helps software development teams adopt new trends and technologies with conferences in NYC, SF and worldwide.
 * [DDD Europe Homepage]() and [DDD Europe Playlists](https://www.youtube.com/@ddd_eu/playlists) - Domain-Driven Design Europe is the premier software modelling and design conference for senior engineers and architects working in complex environments.
 * [Mendercon Homepage](https://mendercon.com/) and [Mendercon Playlists](https://www.youtube.com/@mendercon/playlists) - Celebrates what makes us different from other software developers. Our event is different because we celebrate fixing bugs, rejoice in testing, and get giddy about legacy code.
+* [The Legacy of SoCraTes Playlist](https://www.youtube.com/@TheLegacyofSoCraTes/playlists) - A remote conference on the ever-important topic of Legacy Code. Watch interactive talks on this topic delivered by passionate and knowledgeable software professionals. SoCraTes stands for SOftware, CRAft and TESting. I was a presenter several years ago with [Hexagonal Architecture & Legacy Code](https://www.youtube.com/watch?v=aayl6FysZ_U).
 
 # Podcasts
 Podcasts allow you pick up new information on the go.
