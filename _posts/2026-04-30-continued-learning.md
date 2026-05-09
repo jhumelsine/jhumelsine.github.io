@@ -26,15 +26,15 @@ Someone, somewhere will have almost certainly created a page, blog, article, cou
 
 # O'Reilly
 O'Reilly gained a reputation for publishing technical books.
-Their brand usually includes a drawing of an animal on the front cover.
+Their brand usually includes a drawing of an animal on the front cover of their books.
 
-O'Reilly expanded beyond printed books with an online version found at [oreilly.com](https://www.oreilly.com/).
-It hosts thousands of books and videos including titles that were not original published by them.
+O'Reilly expanded beyond printed books with an online resource found at [oreilly.com](https://www.oreilly.com/).
+It hosts thousands of books and videos including titles that were not original published by O'Reilly.
 It's a great resource, but it's a subscription service.
 Here are a few subsription options:
 * If you're lucky, your employer will provide a subscription. My last employer provided a subscription to all developers for several years, but they have since canceled it.
 * Subscribe yourself from their various [Plans](https://www.oreilly.com/online-learning/pricing.html); however, it's a bit pricey. You can try a [Free 10-Day Trial](https://www.oreilly.com/start-trial/?type=individual) to see if you like it.
-* Join the [Association for Computing Machinery](https://www.acm.org/) (ACM) and sign up for their [Skills Bundle Add-On](https://learning.acm.org/skills-bundle), which includes a partial O'Reilly subscription plan along with a [Skillsoft Percipio](https://www.skillsoft.com/) subscription. The ACM O'Reilly plan is not the full O'Reilly experience, but it includes the entire O'Reilly 60,000 book and video collection, plus Skillsoft Percipio, for about half the price of a complete O'Reilly subscription. The ACM and O'Reilly relationship has been ... fluid over the past ten years. [ACM membership benefits](https://www.acm.org/membership/membership-benefits) used to include restricted access O'Reilly subscription by default. Then it transitioned to full access with basic ACM membership, which was an incredible deal. Then it transititioned to limited book/video access with basic membership, which still an incredible deal. Then it disappeared completely, which was very disappointing. And now the current availability is back to book/video access, but only with the addition of the Skills Bundle Add-On, which is still a good deal. I'm sure it will change again in a few years.
+* Join the [Association for Computing Machinery](https://www.acm.org/) (ACM) and sign up for their [Skills Bundle Add-On](https://learning.acm.org/skills-bundle), which includes a partial O'Reilly subscription plan along with a [Skillsoft Percipio](https://www.skillsoft.com/) subscription. The ACM O'Reilly plan is not the full O'Reilly experience, but it includes the entire O'Reilly 60,000+ book and video collection, plus Skillsoft Percipio, for about half the price of a complete O'Reilly subscription. The ACM and O'Reilly relationship has been ... fluid over the past ten years. [ACM membership benefits](https://www.acm.org/membership/membership-benefits) used to include restricted access O'Reilly subscription by default. Then it transitioned to full access with basic ACM membership, which was an incredible deal. Then it transititioned to limited book/video access with basic membership, which was still an incredible deal. Then it disappeared completely, which was very disappointing. And now the current availability is back to book/video access, but only with the addition of the Skills Bundle Add-On, which is still a good deal. I'm sure it will change again in a few years.
 
 # Blogs
 Many software professional share their experience and knowledge via blogs.
@@ -67,12 +67,12 @@ Some conferences are online, which is more convenient, but you won't have the sa
 
 Many conferences post much of their content online afterwards.
 Here are some conference resources:
-* [O'Reilly video playlists](https://www.youtube.com/@oreilly/playlists) - This is part of O'Reilly Publishing
+* [O'Reilly Conference video playlists](https://www.youtube.com/@oreilly/playlists) - This is part of O'Reilly Publishing
 * [GOTO Conference Homepage](https://gotopia.tech/) and [video playlists](https://www.youtube.com/user/GotoConferences/playlists) - GOTO is a set of mostly European based tech conferences.
 * [DEVOXX Conference Homepage](https://www.devoxx.com/#/) and [video playlists](https://www.youtube.com/channel/UCCBVCTuk6uJrN3iFV_3vurg/playlists) - [DEVOXX](https://en.wikipedia.org/wiki/Devoxx) is a set of European based tech conferences
 * [XP Days video playlists](https://www.youtube.com/user/lumii1983/playlists) - XP Days is a set of eastern European based conferences. Most are in English, but there are many in Russian as well.
+* [GeeCon Conference Homepage](https://geecon.org/), [GeeCon Videos](https://vimeo.com/geecon/videos) and [GeeCon Video Collections](https://vimeo.com/geecon/collections) - GeeCon is a set of Polish based conferences. Videos are in English.
 * ++++++++++++++++++++++++++++++++++++++++++++++++++
-* [GeeCon](https://vimeo.com/geecon/videos)
 * Nordic APIs
 * Jfokus
 * WOW!
