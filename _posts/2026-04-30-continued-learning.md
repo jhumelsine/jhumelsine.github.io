@@ -51,7 +51,7 @@ Here are a few suggestions:
 * [Tim Roughgarden Lectures](https://www.youtube.com/@timroughgardenlectures1861) - [Tim Roughgarden](https://timroughgarden.org/) is a published computer science professor currently at Columbia University and previously at Stanford. His Algorithms course, which I completed via Coursera, was a master class in algorithms. Roughgarden presents what I feel are algorithm patterns, which can be applied repeatedly to solve different problems. Some of these patterns includes Divide-and-Conquer/Recursion, Greedy Algorithms, Probabilistic Algorithms and Dynamic Programming. Roughgarden is an enthusiastic presenter with a bit of whismy, but the content is not for the faint of heart.
 * [Vaughn Vernon](https://www.youtube.com/@VaughnVernon) - Vernon translated Eric Evans' Domain-Driven Design into something that's more consumable. His channel features videos on various software engineering topics.
 * [Emily Bache](https://www.youtube.com/@EmilyBache-tech-coach) - Bache is the big proponent of Code Katas. Her videos feature them along with videos to help software leads train their own teams.
-* [Easy Theory](https://www.youtube.com/@EasyTheory)
+* [Easy Theory](https://www.youtube.com/@EasyTheory) - This is a channel about making Computer Science theory as easy as possible, so it's more about Computer Science and less about Software Engineering.
 * [Alistair Cockburn](https://www.youtube.com/@totheralistair)
 * [Code Aesthetic](https://www.youtube.com/@CodeAesthetic)
 * [Reducible](https://www.youtube.com/@Reducible)
