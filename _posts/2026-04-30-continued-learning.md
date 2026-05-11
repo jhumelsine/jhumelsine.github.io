@@ -5,9 +5,8 @@ unlisted: true
 ---
 
 # Introduction
-This blog entry is a follow up to the previous [Beyond Onboarding](https://jhumelsine.github.io/2026/04/23/career.html) blog entry.
-
 This blog entry contains a set of references for your continuing education.
+It's a follow up to the previous [Beyond Onboarding](https://jhumelsine.github.io/2026/04/23/career.html) blog entry.
 
 Fortunately the internet is filled with educational resources for Software Engineering.
 Most are free or a reasonable price.
@@ -26,15 +25,15 @@ Someone, somewhere will have almost certainly created a page, blog, article, cou
 
 # O'Reilly
 O'Reilly gained a reputation for publishing technical books.
-Their brand usually includes a drawing of an animal on the front cover of their books.
+Their corporate branding usually included a drawing of an animal on the front cover of their books.
 
 O'Reilly expanded beyond printed books with an online resource found at [oreilly.com](https://www.oreilly.com/).
-It hosts thousands of books and videos including titles that were not original published by O'Reilly.
+It hosts thousands of books and videos including titles that were not original published by O'Reilly in addition to a few other features.
 It's a great resource, but it's a subscription service.
 Here are a few subsription options:
 * If you're lucky, your employer will provide a subscription. My last employer provided a subscription to all developers for several years, but they have since canceled it.
 * Subscribe yourself from their various [Plans](https://www.oreilly.com/online-learning/pricing.html); however, it's a bit pricey. You can try a [Free 10-Day Trial](https://www.oreilly.com/start-trial/?type=individual) to see if you like it.
-* Join the [Association for Computing Machinery](https://www.acm.org/) (ACM) and sign up for their [Skills Bundle Add-On](https://learning.acm.org/skills-bundle), which includes a partial O'Reilly subscription plan along with a [Skillsoft Percipio](https://www.skillsoft.com/) subscription. The ACM O'Reilly plan is not the full O'Reilly experience, but it includes the entire O'Reilly 60,000+ book and video collection, plus Skillsoft Percipio, for about half the price of a complete O'Reilly subscription. The ACM and O'Reilly relationship has been ... fluid over the past ten years. [ACM membership benefits](https://www.acm.org/membership/membership-benefits) used to include restricted access O'Reilly subscription by default. Then it transitioned to full access with basic ACM membership, which was an incredible deal. Then it transititioned to limited book/video access with basic membership, which was still an incredible deal. Then it disappeared completely, which was very disappointing. And now the current availability is back to book/video access, but only with the addition of the Skills Bundle Add-On, which is still a good deal. I'm sure it will change again in a few years.
+* Join the [Association for Computing Machinery](https://www.acm.org/) (ACM) and sign up for their [Skills Bundle Add-On](https://learning.acm.org/skills-bundle), which includes a partial O'Reilly subscription plan along with a [Skillsoft Percipio](https://www.skillsoft.com/) subscription. The ACM O'Reilly plan is not the full O'Reilly experience, but it includes the entire O'Reilly 60,000+ book and video collection, plus Skillsoft Percipio, for about half the price of a complete O'Reilly subscription. The ACM and O'Reilly relationship has been ... fluid over the years. [ACM membership benefits](https://www.acm.org/membership/membership-benefits) used to include restricted access O'Reilly subscription by default. Then it transitioned to full access with basic ACM membership, which was an incredible deal. Then it transititioned to limited book/video access with basic membership, which was still an incredible deal. Then it disappeared completely, which was very disappointing. And now the current availability is back to book/video access, but only with the addition of the Skills Bundle Add-On, which is still a good deal. I'm sure it will change again in a few years.
 
 # Blogs
 Many software professional share their experience and knowledge via blogs.
@@ -49,7 +48,7 @@ Many conferences have a video channel posting their content as well.
 Here are a few suggestions:
 * [Modern Software Engineering Channel](https://www.youtube.com/@ModernSoftwareEngineeringYT) - [Dave Farley](https://www.davefarley.net/?page_id=2) started this channel early during COVID, I think as a project during the shutdown. It quickly became popular. Each week a new 15-20 minute video is posted about a Software Engineering topic. The videos introduce topics without getting too deep in the weeds. Dave has invited additional noted presenters. Cohesive videos have been organized into [Playlists](https://www.youtube.com/@ModernSoftwareEngineeringYT/playlists).
 * [Alpha Code](https://www.youtube.com/@AlphaCode8/videos) - This excellent Domain-Driven Design series halted abruptly and incomplete about seven years ago. I hate to mention it, but it feels as if the creator died unexpectedly.
-* [Tim Roughgarden Lectures](https://www.youtube.com/@timroughgardenlectures1861)
+* [Tim Roughgarden Lectures](https://www.youtube.com/@timroughgardenlectures1861) - [Tim Roughgarden](https://timroughgarden.org/) is a published computer science professor currently at Columbia University and previously at Stanford. His Algorithms course, which I completed via Coursera, was a master class in algorithms. Roughgarden presents what I feel are algorithm patterns, which can be applied repeatedly to solve different problems. Some of these patterns includes Divide-and-Conquer/Recursion, Greedy Algorithms, Probabilistic Algorithms and Dynamic Programming. Roughgarden is an enthusiastic presenter with a bit of whismy, but the content is not for the faint of heart.
 * [Vaughn Vernon](https://www.youtube.com/@VaughnVernon)
 * [Emily Bache](https://www.youtube.com/@EmilyBache-tech-coach)
 * [Easy Theory](https://www.youtube.com/@EasyTheory)
