@@ -103,8 +103,8 @@ Here are some I follow on my playlist. Some of them are still active. Some have 
 * [Clean Coders](https://podcasts.apple.com/us/podcast/clean-coders-podcast/id1497337173) - General industry discussion.
 
 # Webinars
-* ACM
-* O'Reilly
+* [ACM](https://learning.acm.org/techtalks) - Regular presentations provided by the ACM. Membership not required.
+* [O'Reilly](https://www.oreilly.com/webcasts/) - There doesn't seem to be any recent webinars but previous ones are available.
 * Lightbend
 
 # Online Communities via Slack, Discord, etc.
