@@ -52,7 +52,7 @@ Here are a few suggestions:
 * [Vaughn Vernon](https://www.youtube.com/@VaughnVernon) - Vernon translated Eric Evans' Domain-Driven Design into something that's more consumable. His channel features videos on various software engineering topics.
 * [Emily Bache](https://www.youtube.com/@EmilyBache-tech-coach) - Bache is the big proponent of Code Katas. Her videos feature them along with videos to help software leads train their own teams.
 * [Easy Theory](https://www.youtube.com/@EasyTheory) - This is a channel about making Computer Science theory as easy as possible, so it's more about Computer Science and less about Software Engineering.
-* [Alistair Cockburn](https://www.youtube.com/@totheralistair)
+* [Alistair Cockburn](https://www.youtube.com/@totheralistair) - Cockburn was one of the original [Agile Manifest](https://agilemanifesto.org/) authors, and he developed [Hexagonal Architecture](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html). His channel is an eclectic set of videos.
 * [Code Aesthetic](https://www.youtube.com/@CodeAesthetic)
 * [Reducible](https://www.youtube.com/@Reducible)
 * [Coding Blocks](https://www.youtube.com/@codingblocks)
