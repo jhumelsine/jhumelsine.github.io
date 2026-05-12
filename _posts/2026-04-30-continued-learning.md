@@ -1,6 +1,6 @@
 ---
-title: WORK IN PROGRESS – Educational Resources for Continued Learning
-description: TBD
+title: WORK IN PROGRESS – The Degree is not the End of your Educaiton
+description: Resources for Continued Learning Beyond Academia
 unlisted: true
 ---
 
@@ -48,14 +48,15 @@ Many conferences have a video channel posting their content as well.
 Here are a few suggestions:
 * [Modern Software Engineering Channel](https://www.youtube.com/@ModernSoftwareEngineeringYT) - [Dave Farley](https://www.davefarley.net/?page_id=2) started this channel early during COVID, I think as a project during the shutdown. It quickly became popular. Each week a new 15-20 minute video is posted about a Software Engineering topic. The videos introduce topics without getting too deep in the weeds. Dave has invited additional noted presenters. Cohesive videos have been organized into [Playlists](https://www.youtube.com/@ModernSoftwareEngineeringYT/playlists).
 * [Alpha Code](https://www.youtube.com/@AlphaCode8/videos) - This excellent Domain-Driven Design series halted abruptly and incomplete about seven years ago. I hate to mention it, but it feels as if the creator died unexpectedly.
-* [Tim Roughgarden Lectures](https://www.youtube.com/@timroughgardenlectures1861) - [Tim Roughgarden](https://timroughgarden.org/) is a published computer science professor currently at Columbia University and previously at Stanford. His Algorithms course, which I completed via Coursera, was a master class in algorithms. Roughgarden presents what I feel are algorithm patterns, which can be applied repeatedly to solve different problems. Some of these patterns includes Divide-and-Conquer/Recursion, Greedy Algorithms, Probabilistic Algorithms and Dynamic Programming. Roughgarden is an enthusiastic presenter with a bit of whismy, but the content is not for the faint of heart.
 * [Vaughn Vernon](https://www.youtube.com/@VaughnVernon) - Vernon translated Eric Evans' Domain-Driven Design into something that's more consumable. His channel features videos on various software engineering topics.
 * [Emily Bache](https://www.youtube.com/@EmilyBache-tech-coach) - Bache is the big proponent of Code Katas. Her videos feature them along with videos to help software leads train their own teams.
-* [Easy Theory](https://www.youtube.com/@EasyTheory) - This is a channel about making Computer Science theory as easy as possible, so it's more about Computer Science and less about Software Engineering.
 * [Alistair Cockburn](https://www.youtube.com/@totheralistair) - Cockburn was one of the original [Agile Manifest](https://agilemanifesto.org/) authors, and he developed [Hexagonal Architecture](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html). His channel is an eclectic set of videos.
 * [Code Aesthetic](https://www.youtube.com/@CodeAesthetic) - There are only a few videos, but they cover some interesting Software Engineering topics.
-* [Reducible](https://www.youtube.com/@Reducible) - This channel is all about animating computer science concepts in a fun, interactive, and intuitive manner.
 * [Coding Blocks](https://www.youtube.com/@codingblocks) - The Coding Blocks YouTube channel is all about bringing you tutorials, tips, how to's and best practices on working your way to being the best programmer or software developer you can be.  Much of what will show up on this channel will be a supplement to a podcast episode so don't miss out on a chance for some good shop-talk along with some comic relief and latest news.  We encourage you to ask questions and give suggestions on topics you'd like to see covered.
+* The following channels are more closely aligned to academia:
+    * [Tim Roughgarden Lectures](https://www.youtube.com/@timroughgardenlectures1861) - [Tim Roughgarden](https://timroughgarden.org/) is a published computer science professor currently at Columbia University and previously at Stanford. His Algorithms course, which I completed via Coursera, was a master class in algorithms. Roughgarden presents what I feel are algorithm patterns, which can be applied repeatedly to solve different problems. Some of these patterns includes Divide-and-Conquer/Recursion, Greedy Algorithms, Probabilistic Algorithms and Dynamic Programming. Roughgarden is an enthusiastic presenter with a bit of whismy, but the content is not for the faint of heart.
+    * [Easy Theory](https://www.youtube.com/@EasyTheory) - This is a channel about making Computer Science theory as easy as possible, so it's more about Computer Science and less about Software Engineering.
+    * [Reducible](https://www.youtube.com/@Reducible) - This channel is all about animating Computer Science concepts in a fun, interactive, and intuitive manner.
 
 # Conferences
 Conferences are a great way to stay on the leading edge of technology.
@@ -132,10 +133,51 @@ Here are some currated lists:
 * [Bluesky Computer Science](https://bsky.app/profile/jhumelsine.bsky.social/lists/3laebntewlz23) - Currated by me
 
 # MOOCs
+[Massive Open Online Courses](https://en.wikipedia.org/wiki/Massive_open_online_course) (MOOCs) were all the rage about fifteen years ago.
+They started with Stanford put an AI course online for free, but without credit, and about 100,000 people signed up.
+Academia saw it as a means to educate those who could not easily receive a first class education, such as: those who couldn't afford it, those who couldn't dedicate a lot of time toward it or those were not did not live near a university.
+Students only needed a device, such as a smartphone or PC and an internet connection.
 
-* https://missing.csail.mit.edu/
+Courses were mostly an online version of the university courses.
+Students watched videos and completed online quizzes and tests.
+Since a session could have tens of thousands of students, it was impossible for the instructor to help students individually.
+Many MOOCs have discussion forums, much like Slack or Teams, where students can post questions.
+Other Community TA volunteers and sometimes the instructor would address questions, but most often, other students would get involved.
+Students learned from each other.
+
+I was a voracious consumer of courses on [Coursera](https://www.coursera.org/) back then.
+I estimate that I completed more Computer Science courses via Coursera than I did for my BS and MS degrees in Computer Science earned in the early 1980s.
+This is where I first learned several data structures not presented in my college courses, such as Union-Find, Red-Black Trees and Kd Trees.
+I learned more about algorithm techniques, such as: Greedy Algorithms and Dynamic Programming.
+I learned technology that arose after my degrees, such as: Python, Computer Networks, Android and Cloud Computing.
+I complete a few courses outside of the traditional software arena, such as: Game Theory, Roman Architecture and the Music of the Beatles.
+
+But the MOOCs weren't fulfilling their promise in educating those out of reach of traditional academia.
+While thousands signed up for these courses, most never completed them.
+Completion rates were 5% to 15%.
+Since the courses were free and without college credit, there was no incentive to see a course to the end unless a student really wanted to.
+
+I don't know about other platforms, but Coursera did some analysis on this.
+Since they had some data on students, they found that almost all students completing their courses already had an academic degree.
+They had misidentified their actual users.
+Their actual users were those with an academic degree who were either learning for the love of learning and/or trying to expand their education.
+
+Coursera adjusted.
+Rather than follow an academic model, where a course could be ten to fifteen weeks long and offered once or twice per year, they split courses into month long chunks, which could be completed sequentially or with gaps.
+A new block started each month.
+This way, a student, who had family or business obligations, could take a month break, and then start back up.
+
+This made sense on paper, but it never worked for me.
+I liked the academic semestier format.
+
++++++++++++++++++
+
+https://en.wikipedia.org/wiki/List_of_MOOC_providers
+
 
 # Others ...
+
+* https://missing.csail.mit.edu/
 
 https://www.thoughtworks.com/en-us/insights/podcasts/technology-podcasts/themes-technology-radar-34
 
