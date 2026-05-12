@@ -147,8 +147,8 @@ Students learned from each other.
 
 I was a voracious consumer of courses on [Coursera](https://www.coursera.org/) back then.
 I estimate that I completed more Computer Science courses via Coursera than I did for my BS and MS degrees in Computer Science earned in the early 1980s.
-This is where I first learned several data structures not presented in my college courses, such as Union-Find, Red-Black Trees and Kd Trees.
-I learned more about algorithm techniques, such as: Greedy Algorithms and Dynamic Programming.
+This is where I first learned several data structures not presented in my college courses, such as [Union-Find](https://en.wikipedia.org/wiki/Disjoint-set_data_structure), [A* Search](https://en.wikipedia.org/wiki/A*_search_algorithm), [Red-Black Trees](https://algs4.cs.princeton.edu/33balanced/), which are binary search trees that emulate balanced [2-3 Trees](https://en.wikipedia.org/wiki/2%E2%80%933_tree) and [k-d Trees](https://en.wikipedia.org/wiki/K-d_tree).
+I learned more about algorithm techniques, such as: [Greedy Algorithms](https://en.wikipedia.org/wiki/Greedy_algorithm) and [Dynamic Progromming](https://en.wikipedia.org/wiki/Dynamic_programming).
 I learned technology that arose after my degrees, such as: Python, Computer Networks, Android and Cloud Computing.
 I complete a few courses outside of the traditional software arena, such as: Game Theory, Roman Architecture and the Music of the Beatles.
 
@@ -166,14 +166,24 @@ Coursera adjusted.
 Rather than follow an academic model, where a course could be ten to fifteen weeks long and offered once or twice per year, they split courses into month long chunks, which could be completed sequentially or with gaps.
 A new block started each month.
 This way, a student, who had family or business obligations, could take a month break, and then start back up.
+It provided more flexibility.
 
 This made sense on paper, but it never worked for me.
 I liked the academic semestier format.
+The new format chopped up the courses a bit too much for me.
+The Discussion Forums, which had been thriving community n the semester format, became a desert in the new format.
+The opportunity for students to learn from each other dimissed greatly from my experiences.
 
-+++++++++++++++++
+MOOCs also struggled financially.
+It's difficult to gain revenue when the content is free.
+Some offer certifications for a price.
+Some require a subscription or enrollment.
+However, some may have an audit feature, which allows you to watch the online content, but you won't get any recognition and may not even have access to tests or quizzes.
 
-https://en.wikipedia.org/wiki/List_of_MOOC_providers
+I don't wish to complete downplay MOOCs.
+There are still a lot of potential, but you may need to experiment a bit until you find a platform that suits you.
 
+Here is a [List of MOOC Providers](https://en.wikipedia.org/wiki/List_of_MOOC_providers)
 
 # Others ...
 
