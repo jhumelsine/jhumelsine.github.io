@@ -57,6 +57,7 @@ Here are a few suggestions:
 * [Code Aesthetic](https://www.youtube.com/@CodeAesthetic) - There are only a few videos, but they cover some interesting Software Engineering topics.
 * [Coding Blocks](https://www.youtube.com/@codingblocks) - The Coding Blocks YouTube channel is all about bringing you tutorials, tips, how to's and best practices on working your way to being the best programmer or software developer you can be.  Much of what will show up on this channel will be a supplement to a podcast episode so don't miss out on a chance for some good shop-talk along with some comic relief and latest news.  We encourage you to ask questions and give suggestions on topics you'd like to see covered.
 * [Computer Networks](https://media.pearsoncmg.com/ph/streaming/esm/tanenbaum5e_videonotes/tanenbaum_videoNotes.html) - This is a series of companion videos for a Computer Networks book. The videos were also used for a Computer Networks Coursera course, which unfortunately has disappeared. It's a great set of videos describing the internet from ___What is a bit?___ up to ___Applications___.
+* [Docker](https://www.youtube.com/user/dockerrun) - Hundreds of videos about Docker.
 * The following channels are more closely aligned to academia:
     * [Tim Roughgarden Lectures](https://www.youtube.com/@timroughgardenlectures1861) - [Tim Roughgarden](https://timroughgarden.org/) is a published computer science professor currently at Columbia University and previously at Stanford. His Algorithms course, which I completed via Coursera, was a master class in algorithms. Roughgarden presents what I feel are algorithm patterns, which can be applied repeatedly to solve different problems. Some of these patterns includes Divide-and-Conquer/Recursion, Greedy Algorithms, Probabilistic Algorithms and Dynamic Programming. Roughgarden is an enthusiastic presenter with a bit of whismy, but the content is not for the faint of heart.
     * [Easy Theory](https://www.youtube.com/@EasyTheory) - This is a channel about making Computer Science theory as easy as possible, so it's more about Computer Science and less about Software Engineering.
@@ -109,6 +110,16 @@ Here are some I follow on my playlist. Some of them are still active. Some are o
 # Webinars
 * [ACM](https://learning.acm.org/techtalks) - Regular presentations provided by the ACM. Membership not required.
 * [O'Reilly](https://www.oreilly.com/webcasts/) - There doesn't seem to be any recent webinars but previous ones are available.
+
+# Online Tutorials
+How-to online videos.
+These are similar to webinars, but they may not be broadcast live.
+These tutorials are sponsored by companies, organizations or individual enthusiasts.
+Some are free.
+Some require a subscription
+
+* [Pluralsight](https://www.pluralsight.com/) - An online learning platform and technology workforce development company, offering thousands of expert-led video courses, hands-on labs, and skill assessments in AI, cloud, security, and software development.
+* [Linkedin Learning](https://www.linkedin.com/learning/) - An online educational platform (formerly Lynda.com) that offers over 16,000 expert-led video courses focused on business, technology, and creative skills.
 
 # Online Communities via Slack, Discord, etc.
 Share your experiences and learn from others. Here are a few Software Engineering social media groups I'm a member of along with my user name:
