@@ -111,16 +111,6 @@ Here are some I follow on my playlist. Some of them are still active. Some are o
 * [ACM](https://learning.acm.org/techtalks) - Regular presentations provided by the ACM. Membership not required.
 * [O'Reilly](https://www.oreilly.com/webcasts/) - There doesn't seem to be any recent webinars but previous ones are available.
 
-# Online Tutorials
-How-to online videos.
-These are similar to webinars, but they may not be broadcast live.
-These tutorials are sponsored by companies, organizations or individual enthusiasts.
-Some are free.
-Some require a subscription
-
-* [Pluralsight](https://www.pluralsight.com/) - An online learning platform and technology workforce development company, offering thousands of expert-led video courses, hands-on labs, and skill assessments in AI, cloud, security, and software development.
-* [Linkedin Learning](https://www.linkedin.com/learning/) - An online educational platform (formerly Lynda.com) that offers over 16,000 expert-led video courses focused on business, technology, and creative skills.
-
 # Online Communities via Slack, Discord, etc.
 Share your experiences and learn from others. Here are a few Software Engineering social media groups I'm a member of along with my user name:
 * [Coding Blocks Slack](https://www.codingblocks.net/slack/): **Design Pattern Evangelist (Jim)**
@@ -204,6 +194,12 @@ I don't wish to completely downplay MOOCs.
 There is still a lot of potential, but you may need to experiment a bit until you find a platform that suits you.
 
 Here is a [List of MOOC Providers](https://en.wikipedia.org/wiki/List_of_MOOC_providers)
+
+## Corporate Courses
+While similar to MOOCs, there are some non-academic course offerings.
+These require a subscription:
+* [Pluralsight](https://www.pluralsight.com/) - An online learning platform and technology workforce development company, offering thousands of expert-led video courses, hands-on labs, and skill assessments in AI, cloud, security, and software development.
+* [Linkedin Learning](https://www.linkedin.com/learning/) - An online educational platform (formerly Lynda.com) that offers over 16,000 expert-led video courses focused on business, technology, and creative skills.
 
 # Others ...
 
