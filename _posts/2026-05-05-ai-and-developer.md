@@ -141,6 +141,9 @@ https://www.aihero.dev/ and https://github.com/mattpocock
 
 https://www.youtube.com/watch?v=XDNXLdwq114
 
+https://martinfowler.com/articles/exploring-gen-ai/harness-engineering-memo.html
+https://martinfowler.com/articles/harness-engineering.html
+
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 https://www.youtube.com/watch?v=v4F1gFy-hqg
