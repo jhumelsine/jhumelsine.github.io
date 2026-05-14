@@ -43,6 +43,10 @@ Don't fret if it doesn't fill a specific niche in your career.
 You never know where you career might go.
 Something you learn today for the fun of it, could be your golden ticket for a future opportunity.
 
+Several years ago, this would been my final word on what to learn, but [Large Language Models and Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) are changing the landscape rapidly.
+Those who don't learn how to leverage LLMs and GenAI will be a sever disadvantage.
+Navigating LLMs and GenAI will be the topic of my next post. (TBD)
+
 # Reading and Reference Material
 I started my career with Bell Labs in 1985.
 They had an extensive technical library.
