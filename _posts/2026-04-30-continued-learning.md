@@ -30,6 +30,19 @@ Someone, somewhere will have almost certainly created a page, blog, article, cou
 
 [Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) can create a learning plan for almost any topic tailored to your specific needs.
 
+# What to Learn
+Follow your curiosity or possibly learn something to fill a gap in your career.
+
+<img src="https://live.staticflickr.com/3516/4069758475_c7789dfd6a_c.jpg" alt="Golden Ticket" title="Image Source: https://www.flickr.com/photos/digitalartform/4069758475" width = "25%" align="right" style="padding-right: 20px;">
+
+Regardless, choose soemthing that interests you.
+Most learning will be on your own time.
+Make sure it's something that you find enjoyable.
+
+Don't fret if it doesn't fill a specific niche in your career.
+You never know where you career might go.
+Something you learn today for the fun of it, could be your golden ticket for a future opportunity.
+
 # Reading and Reference Material
 I started my career with Bell Labs in 1985.
 They had an extensive technical library.
@@ -192,19 +205,22 @@ Videos span many types from how-to videos to educational videos.
 Many conferences have a video channel posting their content as well.
 
 Here are a few suggestions:
-* [Modern Software Engineering Channel](https://www.youtube.com/@ModernSoftwareEngineeringYT) - [Dave Farley](https://www.davefarley.net/?page_id=2) started this channel early during COVID lockdown. It quickly became popular. Each week a new 15-20 minute video is posted about a Software Engineering topic. The videos introduce topics without getting too deep in the weeds. Dave has invited additional noted presenters. Videos about similar topoics have been organized into [Playlists](https://www.youtube.com/@ModernSoftwareEngineeringYT/playlists).
-* [Alpha Code](https://www.youtube.com/@AlphaCode8/videos) - This excellent Domain-Driven Design series halted abruptly and incomplete about seven years ago. I hate to mention it, but it feels as if the creator died unexpectedly.
-* [Vaughn Vernon](https://www.youtube.com/@VaughnVernon) - Vernon translated Eric Evans' Domain-Driven Design into a form that's more consumable to most developers. His channel features videos on various software engineering topics.
-* [Emily Bache](https://www.youtube.com/@EmilyBache-tech-coach) - Bache is the big proponent of [Code Katas](http://codekata.com/). Her videos feature them along with videos to help software leads train their own teams.
-* [Alistair Cockburn](https://www.youtube.com/@totheralistair) - Cockburn was one of the original [Agile Manifest](https://agilemanifesto.org/) authors, and he developed [Hexagonal Architecture](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html). His channel is an eclectic set of videos.
-* [Code Aesthetic](https://www.youtube.com/@CodeAesthetic) - There are only a few videos, but they cover some interesting Software Engineering topics.
-* [Coding Blocks](https://www.youtube.com/@codingblocks) - The Coding Blocks YouTube channel is all about bringing you tutorials, tips, how to's and best practices on working your way to being the best programmer or software developer you can be.  Much of what will show up on this channel will be a supplement to a podcast episode so don't miss out on a chance for some good shop-talk along with some comic relief and latest news.  We encourage you to ask questions and give suggestions on topics you'd like to see covered.
-* [Computer Networks](https://media.pearsoncmg.com/ph/streaming/esm/tanenbaum5e_videonotes/tanenbaum_videoNotes.html) - This is a series of companion videos for a Computer Networks book. The videos were also used for a Computer Networks Coursera course, which unfortunately has disappeared. It's a great set of videos describing the internet from ___What is a bit?___ up to ___Applications___.
-* [Docker](https://www.youtube.com/user/dockerrun) - Hundreds of videos about Docker.
-* The following channels are more closely aligned to academia:
+* Software Engineering Practice:
+    * [Modern Software Engineering Channel](https://www.youtube.com/@ModernSoftwareEngineeringYT) - [Dave Farley](https://www.davefarley.net/?page_id=2) started this channel early during COVID lockdown. It quickly became popular. Each week a new 15-20 minute video is posted about a Software Engineering topic. The videos introduce topics without getting too deep in the weeds. Dave has invited additional noted presenters. Videos about similar topoics have been organized into [Playlists](https://www.youtube.com/@ModernSoftwareEngineeringYT/playlists).
+    * [Emily Bache](https://www.youtube.com/@EmilyBache-tech-coach) - Bache is the big proponent of [Code Katas](http://codekata.com/). Her videos feature them along with videos to help software leads train their own teams.
+    * [Coding Blocks](https://www.youtube.com/@codingblocks) - The Coding Blocks YouTube channel is all about bringing you tutorials, tips, how to's and best practices on working your way to being the best programmer or software developer you can be.  Much of what will show up on this channel will be a supplement to a podcast episode so don't miss out on a chance for some good shop-talk along with some comic relief and latest news.  We encourage you to ask questions and give suggestions on topics you'd like to see covered.
+    * [Code Aesthetic](https://www.youtube.com/@CodeAesthetic) - There are only a few videos, but they cover some interesting Software Engineering topics.
+* Architecture and Design:
+    * [Vaughn Vernon](https://www.youtube.com/@VaughnVernon) - Vernon translated Eric Evans' Domain-Driven Design into a form that's more consumable to most developers. His channel features videos on various software engineering topics.
+    * [Alistair Cockburn](https://www.youtube.com/@totheralistair) - Cockburn was one of the original [Agile Manifest](https://agilemanifesto.org/) authors, and he developed [Hexagonal Architecture](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html). His channel is an eclectic set of videos.
+    * [Alpha Code](https://www.youtube.com/@AlphaCode8/videos) - This excellent Domain-Driven Design series halted abruptly and incomplete about seven years ago. I hate to mention it, but it feels as if the creator died unexpectedly.
+* Computer Science and Theory:
     * [Tim Roughgarden Lectures](https://www.youtube.com/@timroughgardenlectures1861) - [Tim Roughgarden](https://timroughgarden.org/) is a published computer science professor currently at Columbia University and previously at Stanford. His Algorithms course, which I completed via Coursera, was a master class in algorithms. Roughgarden presents what I feel are algorithm patterns, which can be applied repeatedly to solve different problems. Some of these patterns includes Divide-and-Conquer/Recursion, Greedy Algorithms, Probabilistic Algorithms and Dynamic Programming. Roughgarden is an enthusiastic presenter with a bit of whismy, but the content is not for the faint of heart.
-    * [Easy Theory](https://www.youtube.com/@EasyTheory) - This is a channel about making Computer Science theory as easy as possible, so it's more about Computer Science and less about Software Engineering.
     * [Reducible](https://www.youtube.com/@Reducible) - This channel is all about animating Computer Science concepts in a fun, interactive, and intuitive manner.
+    * [Easy Theory](https://www.youtube.com/@EasyTheory) - This is a channel about making Computer Science theory as easy as possible, so it's more about Computer Science and less about Software Engineering.
+* Technology-Specific: 
+    * [Computer Networks](https://media.pearsoncmg.com/ph/streaming/esm/tanenbaum5e_videonotes/tanenbaum_videoNotes.html) - This is a series of companion videos for a Computer Networks book. The videos were also used for a Computer Networks Coursera course, which unfortunately has disappeared. It's a great set of videos describing the internet from ___What is a bit?___ up to ___Applications___.
+    * [Docker](https://www.youtube.com/user/dockerrun) - Hundreds of videos about Docker.
 
 ## Conferences
 Conferences are a great way to stay on the leading edge of technology.
@@ -214,19 +230,22 @@ Some conferences are online, which is more convenient, but you won't have the sa
 
 Many conferences post much of their content online afterwards.
 Here are some conference resources:
-* [O'Reilly Conference Playlists](https://www.youtube.com/@oreilly/playlists) - This is part of O'Reilly Publishing
-* [GOTO Conference Homepage](https://gotopia.tech/) and [Playlists](https://www.youtube.com/user/GotoConferences/playlists) - GOTO is a set of mostly European based tech conferences.
-* [DEVOXX Conference Homepage](https://www.devoxx.com/#/) and [Playlists](https://www.youtube.com/channel/UCCBVCTuk6uJrN3iFV_3vurg/playlists) - [DEVOXX](https://en.wikipedia.org/wiki/Devoxx) is a set of European based tech conferences
-* [XP Days Playlists](https://www.youtube.com/user/lumii1983/playlists) - XP Days is a set of eastern European based conferences. Most are in English, but there are many in Russian as well.
-* [GeeCon Conference Homepage](https://geecon.org/), [GeeCon Videos](https://vimeo.com/geecon/videos) and [GeeCon Video Collections](https://vimeo.com/geecon/collections) - GeeCon is a set of Polish based conferences. Videos are in English.
-* [Nordic APIs Conference Homepage](https://nordicapis.com/) and [Nordic APIs Playlists](https://www.youtube.com/user/nordicapis/playlists) - Nordic API is a set of Swedish based conferences that focus upon APIs.
-* [Jfokus Conference Homepage](https://www.jfokus.se/) and [Jfocus Playlists](https://www.youtube.com/user/javamattias/playlists) - Jfokus is a set of Swedish based conferences. Most recent videos appear to be in English, but some may be in Swedish as well.
-* [YOW! Conference Homepage](https://yowcon.com/) and [YOW! Playlists](https://www.youtube.com/@GOTO-/playlists) (NOTE: The YOW! Playlists seem to be a subset of the GOTO Playlists) - YOW! is a set of conferences Australian based conferences.
-* [FlowCon Conference Homepage](http://flowcon.org/) and [FlowCon Playlists](https://www.youtube.com/channel/UCMk1sRo1hnTLMA3kpn6BVKg/playlists) - FlowCon appears to have been a one-off conference in fall 2014 in San Francisco. There's content, but probably no new content.
-* [InfoQ Homepage](https://www.infoq.com/) and [InfoQ Conference Videos](https://www.youtube.com/@QConferences/videos) - Helps software development teams adopt new trends and technologies with conferences in NYC, SF and worldwide.
-* [DDD Europe Homepage]() and [DDD Europe Playlists](https://www.youtube.com/@ddd_eu/playlists) - Domain-Driven Design Europe is the premier software modelling and design conference for senior engineers and architects working in complex environments.
-* [Mendercon Homepage](https://mendercon.com/) and [Mendercon Playlists](https://www.youtube.com/@mendercon/playlists) - Celebrates what makes us different from other software developers. Our event is different because we celebrate fixing bugs, rejoice in testing, and get giddy about legacy code.
-* [The Legacy of SoCraTes Playlist](https://www.youtube.com/@TheLegacyofSoCraTes/playlists) - A remote conference on the ever-important topic of Legacy Code. Watch interactive talks on this topic delivered by passionate and knowledgeable software professionals. SoCraTes stands for SOftware, CRAft and TESting. I was a presenter several years ago with [Hexagonal Architecture & Legacy Code](https://www.youtube.com/watch?v=aayl6FysZ_U).
+* General Software Engineering:
+    * [O'Reilly Conference Playlists](https://www.youtube.com/@oreilly/playlists) - This is part of O'Reilly Publishing
+    * [GOTO Conference Homepage](https://gotopia.tech/) and [Playlists](https://www.youtube.com/user/GotoConferences/playlists) - GOTO is a set of mostly European based tech conferences.
+    * [YOW! Conference Homepage](https://yowcon.com/) and [YOW! Playlists](https://www.youtube.com/@GOTO-/playlists) (NOTE: The YOW! Playlists seem to be a subset of the GOTO Playlists) - YOW! is a set of conferences Australian based conferences.
+    * [InfoQ Homepage](https://www.infoq.com/) and [InfoQ Conference Videos](https://www.youtube.com/@QConferences/videos) - Helps software development teams adopt new trends and technologies with conferences in NYC, SF and worldwide.
+* Architecture and Design:
+    * [DDD Europe Homepage]() and [DDD Europe Playlists](https://www.youtube.com/@ddd_eu/playlists) - Domain-Driven Design Europe is the premier software modelling and design conference for senior engineers and architects working in complex environments.
+    * [GeeCon Conference Homepage](https://geecon.org/), [GeeCon Videos](https://vimeo.com/geecon/videos) and [GeeCon Video Collections](https://vimeo.com/geecon/collections) - GeeCon is a set of Polish based conferences. Videos are in English.
+*  Agile, Testing and Craftsmanship:
+    * [XP Days Playlists](https://www.youtube.com/user/lumii1983/playlists) - XP Days is a set of eastern European based conferences. Most are in English, but there are many in Russian as well.
+    * [The Legacy of SoCraTes Playlist](https://www.youtube.com/@TheLegacyofSoCraTes/playlists) - A remote conference on the ever-important topic of Legacy Code. Watch interactive talks on this topic delivered by passionate and knowledgeable software professionals. SoCraTes stands for SOftware, CRAft and TESting. I was a presenter several years ago with [Hexagonal Architecture & Legacy Code](https://www.youtube.com/watch?v=aayl6FysZ_U).
+    * [Mendercon Homepage](https://mendercon.com/) and [Mendercon Playlists](https://www.youtube.com/@mendercon/playlists) - Celebrates what makes us different from other software developers. Our event is different because we celebrate fixing bugs, rejoice in testing, and get giddy about legacy code.
+* API and  Platform Focused:
+    * [Nordic APIs Conference Homepage](https://nordicapis.com/) and [Nordic APIs Playlists](https://www.youtube.com/user/nordicapis/playlists) - Nordic API is a set of Swedish based conferences that focus upon APIs.
+    * [DEVOXX Conference Homepage](https://www.devoxx.com/#/) and [Playlists](https://www.youtube.com/channel/UCCBVCTuk6uJrN3iFV_3vurg/playlists) - [DEVOXX]
+    * [Jfokus Conference Homepage](https://www.jfokus.se/) and [Jfocus Playlists](https://www.youtube.com/user/javamattias/playlists) - Jfokus is a set of Swedish based conferences. Most recent videos appear to be in English, but some may be in Swedish as well.(https://en.wikipedia.org/wiki/Devoxx) is a set of European based tech conferences
 
 # Community and Social Learning
 Learn from other practitioners.
@@ -239,19 +258,21 @@ Their main limitation is a lack of visuals, but this doesn't seem to be a major 
 Many podcasts also have websites for subsequent reference.
 
 Here are some I follow on my playlist. Some of them are still active. Some are on indefinite hiatus or have been retired. Most are evergreen, but with the advent of AI maybe not quite so much:
-* [Soft Skills Engineer](https://softskills.audio/) - A weekly advice podcast where the two hosts answer questions about careers and less about technology.
-* [Coding Blocks](https://www.codingblocks.net/) - Conversational style among three softare developer friends and coworkers. They retired it a couple years ago, but several of us on their [Slack](https://www.codingblocks.net/slack/) group are doing a relisten.
-* [Tabs and Spaces](https://open.spotify.com/show/05xweMLT3cConDizrKFIgR) - The British version of Coding Blocks. The podcast has also been retired. I was a guest on three episodes:
-    *  [What They Didn't Teach You in University](https://open.spotify.com/episode/75q4sE0Qs5RnMl7ECVmRZc) - Where we discussed what you learn and don't learn about computers in academia. It's similar to what I wrote in [You Studied Computer Science. Your Career Will Be Software Engineering.](https://jhumelsine.github.io/2026/02/11/computer-science-software-engineering.html)
-    *  [Do you-ou-ou a-wanna test like me-e-e?](https://open.spotify.com/episode/1nktoh5QzNtiNpN2VoHR7g) - We were discussed automated testing. It's similar to what I wrote in my [Automated Testing Blog Series](https://jhumelsine.github.io/table-of-contents#automated-testing).
-    *  [Jim's Greatest Hits](https://open.spotify.com/episode/7odjsvlJFX8LbTdZ8C3AsL) - I thought were were going to discuss [Software Contracts](https://jhumelsine.github.io/2025/06/10/contracts.html), but since we recorded three days I retired, we pivoted a day or two before recording to talk about my career.
-* [The Engineering Room](https://rss.com/podcasts/theengineeringroom/) - Interview formatted podcast with industry leaders interviewed by Dave Farley
-* [Legacy Code Rocks!](https://www.legacycode.rocks/) - Interview formatted podcast focusing upon legacy code. I was a guest in [Economics of Technical Debt with Jim Humelsine](https://podcasts.apple.com/us/podcast/economics-of-technical-debt-with-jim-humelsine/id1146634772?i=1000523667734), where we discussed why legacy code is inevitable.
-* [Level-Up Engineering](https://www.apexlab.io/podcast/1/) - Interview formatted podcast about the industry. Each episode has a great landing page.
-* [Pragmatism in Practice](https://www.thoughtworks.com/en-us/insights/podcasts/pragmatism-in-practice) - General discussion about the industry from Thoughtworks.
-* [Technology Podcast](https://www.thoughtworks.com/en-us/insights/podcasts/technology-podcasts) - Technology discussion about the industry from Thoughtworks.
-* [Smart Talks with IBM](https://www.ibm.com/think/podcasts/smart-talks) - Cutting edge work at IBM or an extended commercial.
-* [Clean Coders](https://podcasts.apple.com/us/podcast/clean-coders-podcast/id1497337173) - General industry discussion.
+* Career and Industry:
+    * [Soft Skills Engineer](https://softskills.audio/) - A weekly advice podcast where the two hosts answer questions about careers and less about technology.
+    * [Pragmatism in Practice](https://www.thoughtworks.com/en-us/insights/podcasts/pragmatism-in-practice) - General discussion about the industry from Thoughtworks.
+    * [Technology Podcast](https://www.thoughtworks.com/en-us/insights/podcasts/technology-podcasts) - Technology discussion about the industry from Thoughtworks.
+    * [Smart Talks with IBM](https://www.ibm.com/think/podcasts/smart-talks) - Cutting edge work at IBM or an extended commercial.
+* Software Craftsmanship:
+    * [Coding Blocks](https://www.codingblocks.net/) - Conversational style among three softare developer friends and coworkers. They retired it a couple years ago, but several of us on their [Slack](https://www.codingblocks.net/slack/) group are doing a relisten.
+    * [Tabs and Spaces](https://open.spotify.com/show/05xweMLT3cConDizrKFIgR) - The British version of Coding Blocks. The podcast has also been retired. I was a guest on three episodes.
+    * [Clean Coders](https://podcasts.apple.com/us/podcast/clean-coders-podcast/id1497337173) - General industry discussion.
+* Architecture and Design:
+    * [The Engineering Room](https://rss.com/podcasts/theengineeringroom/) - Interview formatted podcast with industry leaders interviewed by Dave Farley. 
+* Technical Leadership:
+    * [Level-Up Engineering](https://www.apexlab.io/podcast/1/) - Interview formatted podcast about the industry. Each episode has a great landing page.
+* Legacy Code/Testing:
+    * [Legacy Code Rocks!](https://www.legacycode.rocks/) - Interview formatted podcast focusing upon legacy code. I was a guest in [Economics of Technical Debt with Jim Humelsine](https://podcasts.apple.com/us/podcast/economics-of-technical-debt-with-jim-humelsine/id1146634772?i=1000523667734), where we discussed why legacy code is inevitable.
 
 ## Webinars
 * [ACM](https://learning.acm.org/techtalks) - Regular presentations provided by the ACM. Membership not required.
