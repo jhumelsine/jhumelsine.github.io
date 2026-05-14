@@ -7,23 +7,43 @@ unlisted: true
 # Introduction
 This blog entry contains a set of references for your continuing education.
 It's a follow up to the previous [Beyond Onboarding](https://jhumelsine.github.io/2026/04/23/career.html) blog entry.
-
-Fortunately the internet is filled with educational resources for Software Engineering.
-Most are free or a reasonable price.
+A career in Software Engineering requires continuous learning.
 
 I will update resources on this page as a learn of new resources.
 
-# Internet and Generative AI
+# The Modern Learning Landscape
+Academia mostly defines the courses for your major, defines the content and assigns the resources.
+After graduation, you're own your own.
+This is both liberating and a bit daunting.
+
+Where do engineers even begin learning something new?
+
 <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeTR4aTlhajhobjZmd2puYXM4dXIyZnQwcWdjb20ydXJiZmp0dWtybSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JnDGMrN8tMICc/giphy.gif" alt="Captain Obvious" title="Image Source: https://giphy.com/gifs/president-JnDGMrN8tMICc" width = "25%" align="right" style="padding-right: 20px;">
 
 At the risk of being Captain Obvious, the first stop in finding information about a new topic is the internet.
+
+Fortunately the internet is filled with educational resources.
+Most are free or a reasonable price.
 
 Your favorite search engine will return more references than you can possibly consume.
 Someone, somewhere will have almost certainly created a page, blog, article, course, presentation slides or video on the topic you wish to learn.
 
 [Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) can create a learning plan for almost any topic tailored to your specific needs.
 
-# O'Reilly
+# Reading and Reference Material
+I started my career with Bell Labs in 1985.
+They had an extensive technical library.
+Members of Technical Staff were also given what you could basically call a book allowance if we wanted to purchase a book.
+
+Builds could take a signficant amount of time to complete.
+We couldn't surf the internet, since it hadn't been invented yet.
+I often worked my way through technical books a few pages at a time while I waited for my code to build.
+
+Most technical books are online and readily available.
+
+## Books and Technical Libraries
+
+### O'Reilly
 O'Reilly gained a reputation for publishing technical books.
 Their corporate branding usually included a [drawing of an animal](https://www.oreilly.com/content/a-short-history-of-the-oreilly-animals/) on the front cover of their books.
 
@@ -36,11 +56,33 @@ It's a great resource, but it's a subscription service.
 Here are a few subsription options:
 * If you're lucky, your employer will provide a subscription. My last employer provided a subscription to all developers for several years, but they have since canceled it.
 * Subscribe yourself from their various [Plans](https://www.oreilly.com/online-learning/pricing.html); however, it's a bit pricey. You can try a [Free 10-Day Trial](https://www.oreilly.com/start-trial/?type=individual) to see if you like it.
-* Join the [Association for Computing Machinery](https://www.acm.org/) (ACM) and sign up for their [Skills Bundle Add-On](https://learning.acm.org/skills-bundle), which includes a partial O'Reilly subscription plan along with a [Skillsoft Percipio](https://www.skillsoft.com/) subscription. The ACM O'Reilly plan is not the full O'Reilly experience, but it includes the entire O'Reilly 60,000+ book and video collection, plus Skillsoft Percipio with thousands of more resource artifacts, for about half the price of a complete O'Reilly subscription. See: [About ACM E-Learning Offerings](https://learning.acm.org/e-learning). The ACM and O'Reilly relationship has been ... fluid over the years. [ACM membership benefits](https://www.acm.org/membership/membership-benefits) used to include restricted access O'Reilly subscription by default. Then it transitioned to full access with basic ACM membership, which was an incredible deal. Then it transititioned to limited book/video access with basic membership, which was still an incredible deal. Then it disappeared completely, which was very disappointing. And now the current availability is back to book/video access, but only with the addition of the Skills Bundle Add-On, which is still a good deal. I'm sure it will change again in a few years.
 
-# Blogs
-Many software professional share their experience and knowledge via blogs.
-Search for almost any software topic on the internet, and it will surely yield many blog references.
+### Skillsoft Percipio
+[Skillsoft Percipio](https://www.skillsoft.com/) is another subscription platform.
+In addition to thousands of books and videos, they also purchased [CodeAcademy](https://www.codecademy.com/)
+
+The subscription rate is less than O'Reilly.
+
+### ACM Digital Library
+The [Association for Computing Machinery](acm.org} (ACM) opened their [ACM Digital Library](https://dl.acm.org/) to the public in [January 2026](https://dl.acm.org/openaccess).
+This resource is more academic than O'Reilly or Skillsoft Percipio, but there is no subscription fee.
+
+Consider joining the [ACM](https://www.acm.org/) and sign up for their [Skills Bundle Add-On](https://learning.acm.org/skills-bundle), which includes a partial O'Reilly subscription plan along with a [Skillsoft Percipio](https://www.skillsoft.com/) subscription.
+Annual ACM membership and the Skills Bundle price is still a fraction of the annual subscription price for O'Reilly and Skillsoft Percipio on their own.
+See: [About ACM E-Learning Offerings](https://learning.acm.org/e-learning). 
+
+The ACM Skills Bundle has been fluid over the year.
+ACM and O'Reilly have had an on-again/off-again relationship for the past ten years or so.
+The Bundle used to include [Pluralsight](https://www.pluralsight.com/), but as of this blog publication, it is not part of their Bundle.
+[ACM membership benefits](https://www.acm.org/membership/membership-benefits)
+
+## Blogs and Articles
+Technical books tend to be hundreds of pages long.
+Maybe you don't need to read an entire book.
+This is where blogs and articles can be useful.
+
+Many software professional share their experience and knowledge via blogs and articles.
+Search for almost any software topic on the internet, and it will surely yield many references.
 
 Here are a few:
 * [Design Pattern Evangelist](https://jhumelsine.github.io/) - Always plugging my own blog.
@@ -50,101 +92,12 @@ Here are a few:
 * [DZone](https://dzone.com/)
 * [Reading for graduate students](https://matt.might.net/articles/books-papers-materials-for-graduate-students/)
 
-# Videos
-Some software professional share their experience and knowledge via online videos.
+# Structured Learning
+Many of us did well in academia, because we liked the structure it provided.
+That structure is still available after you graduate.
+Better yet, you can take almost any course you want, possibly for free, and not worry about the grade.
 
-Videos span many types from how-to videos to educational videos.
-Many conferences have a video channel posting their content as well.
-
-Here are a few suggestions:
-* [Modern Software Engineering Channel](https://www.youtube.com/@ModernSoftwareEngineeringYT) - [Dave Farley](https://www.davefarley.net/?page_id=2) started this channel early during COVID lockdown. It quickly became popular. Each week a new 15-20 minute video is posted about a Software Engineering topic. The videos introduce topics without getting too deep in the weeds. Dave has invited additional noted presenters. Videos about similar topoics have been organized into [Playlists](https://www.youtube.com/@ModernSoftwareEngineeringYT/playlists).
-* [Alpha Code](https://www.youtube.com/@AlphaCode8/videos) - This excellent Domain-Driven Design series halted abruptly and incomplete about seven years ago. I hate to mention it, but it feels as if the creator died unexpectedly.
-* [Vaughn Vernon](https://www.youtube.com/@VaughnVernon) - Vernon translated Eric Evans' Domain-Driven Design into a form that's more consumable to most developers. His channel features videos on various software engineering topics.
-* [Emily Bache](https://www.youtube.com/@EmilyBache-tech-coach) - Bache is the big proponent of [Code Katas](http://codekata.com/). Her videos feature them along with videos to help software leads train their own teams.
-* [Alistair Cockburn](https://www.youtube.com/@totheralistair) - Cockburn was one of the original [Agile Manifest](https://agilemanifesto.org/) authors, and he developed [Hexagonal Architecture](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html). His channel is an eclectic set of videos.
-* [Code Aesthetic](https://www.youtube.com/@CodeAesthetic) - There are only a few videos, but they cover some interesting Software Engineering topics.
-* [Coding Blocks](https://www.youtube.com/@codingblocks) - The Coding Blocks YouTube channel is all about bringing you tutorials, tips, how to's and best practices on working your way to being the best programmer or software developer you can be.  Much of what will show up on this channel will be a supplement to a podcast episode so don't miss out on a chance for some good shop-talk along with some comic relief and latest news.  We encourage you to ask questions and give suggestions on topics you'd like to see covered.
-* [Computer Networks](https://media.pearsoncmg.com/ph/streaming/esm/tanenbaum5e_videonotes/tanenbaum_videoNotes.html) - This is a series of companion videos for a Computer Networks book. The videos were also used for a Computer Networks Coursera course, which unfortunately has disappeared. It's a great set of videos describing the internet from ___What is a bit?___ up to ___Applications___.
-* [Docker](https://www.youtube.com/user/dockerrun) - Hundreds of videos about Docker.
-* The following channels are more closely aligned to academia:
-    * [Tim Roughgarden Lectures](https://www.youtube.com/@timroughgardenlectures1861) - [Tim Roughgarden](https://timroughgarden.org/) is a published computer science professor currently at Columbia University and previously at Stanford. His Algorithms course, which I completed via Coursera, was a master class in algorithms. Roughgarden presents what I feel are algorithm patterns, which can be applied repeatedly to solve different problems. Some of these patterns includes Divide-and-Conquer/Recursion, Greedy Algorithms, Probabilistic Algorithms and Dynamic Programming. Roughgarden is an enthusiastic presenter with a bit of whismy, but the content is not for the faint of heart.
-    * [Easy Theory](https://www.youtube.com/@EasyTheory) - This is a channel about making Computer Science theory as easy as possible, so it's more about Computer Science and less about Software Engineering.
-    * [Reducible](https://www.youtube.com/@Reducible) - This channel is all about animating Computer Science concepts in a fun, interactive, and intuitive manner.
-
-# Conferences
-Conferences are a great way to stay on the leading edge of technology.
-In person conferences allows you to see presentations in person and make connections with other attendees; however, they require time, travel and money.
-
-Some conferences are online, which is more convenient, but you won't have the same networking options.
-
-Many conferences post much of their content online afterwards.
-Here are some conference resources:
-* [O'Reilly Conference Playlists](https://www.youtube.com/@oreilly/playlists) - This is part of O'Reilly Publishing
-* [GOTO Conference Homepage](https://gotopia.tech/) and [Playlists](https://www.youtube.com/user/GotoConferences/playlists) - GOTO is a set of mostly European based tech conferences.
-* [DEVOXX Conference Homepage](https://www.devoxx.com/#/) and [Playlists](https://www.youtube.com/channel/UCCBVCTuk6uJrN3iFV_3vurg/playlists) - [DEVOXX](https://en.wikipedia.org/wiki/Devoxx) is a set of European based tech conferences
-* [XP Days Playlists](https://www.youtube.com/user/lumii1983/playlists) - XP Days is a set of eastern European based conferences. Most are in English, but there are many in Russian as well.
-* [GeeCon Conference Homepage](https://geecon.org/), [GeeCon Videos](https://vimeo.com/geecon/videos) and [GeeCon Video Collections](https://vimeo.com/geecon/collections) - GeeCon is a set of Polish based conferences. Videos are in English.
-* [Nordic APIs Conference Homepage](https://nordicapis.com/) and [Nordic APIs Playlists](https://www.youtube.com/user/nordicapis/playlists) - Nordic API is a set of Swedish based conferences that focus upon APIs.
-* [Jfokus Conference Homepage](https://www.jfokus.se/) and [Jfocus Playlists](https://www.youtube.com/user/javamattias/playlists) - Jfokus is a set of Swedish based conferences. Most recent videos appear to be in English, but some may be in Swedish as well.
-* [YOW! Conference Homepage](https://yowcon.com/) and [YOW! Playlists](https://www.youtube.com/@GOTO-/playlists) (NOTE: The YOW! Playlists seem to be a subset of the GOTO Playlists) - YOW! is a set of conferences Australian based conferences.
-* [FlowCon Conference Homepage](http://flowcon.org/) and [FlowCon Playlists](https://www.youtube.com/channel/UCMk1sRo1hnTLMA3kpn6BVKg/playlists) - FlowCon appears to have been a one-off conference in fall 2014 in San Francisco. There's content, but probably no new content.
-* [InfoQ Homepage](https://www.infoq.com/) and [InfoQ Conference Videos](https://www.youtube.com/@QConferences/videos) - Helps software development teams adopt new trends and technologies with conferences in NYC, SF and worldwide.
-* [DDD Europe Homepage]() and [DDD Europe Playlists](https://www.youtube.com/@ddd_eu/playlists) - Domain-Driven Design Europe is the premier software modelling and design conference for senior engineers and architects working in complex environments.
-* [Mendercon Homepage](https://mendercon.com/) and [Mendercon Playlists](https://www.youtube.com/@mendercon/playlists) - Celebrates what makes us different from other software developers. Our event is different because we celebrate fixing bugs, rejoice in testing, and get giddy about legacy code.
-* [The Legacy of SoCraTes Playlist](https://www.youtube.com/@TheLegacyofSoCraTes/playlists) - A remote conference on the ever-important topic of Legacy Code. Watch interactive talks on this topic delivered by passionate and knowledgeable software professionals. SoCraTes stands for SOftware, CRAft and TESting. I was a presenter several years ago with [Hexagonal Architecture & Legacy Code](https://www.youtube.com/watch?v=aayl6FysZ_U).
-
-# Podcasts
-Podcasts allow you pick up new information on the go.
-You can listen to them in the car, while exercising or elsewhere.
-
-Their main limitation is a lack of visuals, but this doesn't seem to be a major issue for most good podcasts.
-Many podcasts also have websites for subsequent reference.
-
-Here are some I follow on my playlist. Some of them are still active. Some are on indefinite hiatus or have been retired. Most are evergreen, but with the advent of AI maybe not quite so much:
-* [Soft Skills Engineer](https://softskills.audio/) - A weekly advice podcast where the two hosts answer questions about careers and less about technology.
-* [Coding Blocks](https://www.codingblocks.net/) - Conversational style among three softare developer friends and coworkers. They retired it a couple years ago, but several of us on their [Slack](https://www.codingblocks.net/slack/) group are doing a relisten.
-* [Tabs and Spaces](https://open.spotify.com/show/05xweMLT3cConDizrKFIgR) - The British version of Coding Blocks. The podcast has also been retired. I was a guest on three episodes:
-    *  [What They Didn't Teach You in University](https://open.spotify.com/episode/75q4sE0Qs5RnMl7ECVmRZc) - Where we discussed what you learn and don't learn about computers in academia. It's similar to what I wrote in [You Studied Computer Science. Your Career Will Be Software Engineering.](https://jhumelsine.github.io/2026/02/11/computer-science-software-engineering.html)
-    *  [Do you-ou-ou a-wanna test like me-e-e?](https://open.spotify.com/episode/1nktoh5QzNtiNpN2VoHR7g) - We were discussed automated testing. It's similar to what I wrote in my [Automated Testing Blog Series](https://jhumelsine.github.io/table-of-contents#automated-testing).
-    *  [Jim's Greatest Hits](https://open.spotify.com/episode/7odjsvlJFX8LbTdZ8C3AsL) - I thought were were going to discuss [Software Contracts](https://jhumelsine.github.io/2025/06/10/contracts.html), but since we recorded three days I retired, we pivoted a day or two before recording to talk about my career.
-* [The Engineering Room](https://rss.com/podcasts/theengineeringroom/) - Interview formatted podcast with industry leaders interviewed by Dave Farley
-* [Legacy Code Rocks!](https://www.legacycode.rocks/) - Interview formatted podcast focusing upon legacy code. I was a guest in [Economics of Technical Debt with Jim Humelsine](https://podcasts.apple.com/us/podcast/economics-of-technical-debt-with-jim-humelsine/id1146634772?i=1000523667734), where we discussed why legacy code is inevitable.
-* [Level-Up Engineering](https://www.apexlab.io/podcast/1/) - Interview formatted podcast about the industry. Each episode has a great landing page.
-* [Pragmatism in Practice](https://www.thoughtworks.com/en-us/insights/podcasts/pragmatism-in-practice) - General discussion about the industry from Thoughtworks.
-* [Technology Podcast](https://www.thoughtworks.com/en-us/insights/podcasts/technology-podcasts) - Technology discussion about the industry from Thoughtworks.
-* [Smart Talks with IBM](https://www.ibm.com/think/podcasts/smart-talks) - Cutting edge work at IBM or an extended commercial.
-* [Clean Coders](https://podcasts.apple.com/us/podcast/clean-coders-podcast/id1497337173) - General industry discussion.
-
-# Webinars
-* [ACM](https://learning.acm.org/techtalks) - Regular presentations provided by the ACM. Membership not required.
-* [O'Reilly](https://www.oreilly.com/webcasts/) - There doesn't seem to be any recent webinars but previous ones are available.
-
-# Online Communities via Slack, Discord, etc.
-Share your experiences and learn from others. Here are a few Software Engineering social media groups I'm a member of along with my user name:
-* [Coding Blocks Slack](https://www.codingblocks.net/slack/): **Design Pattern Evangelist (Jim)**
-* [Legacy Code Rocks! Slack](http://slack.legacycode.rocks/): **Jim Humelsine**
-* [We Do TDD Slack](http://wedotdd.slack.com): **Jim Humelsine**
-* [Software Crafters Slack](http://softwarecrafters.slack.com): **Jim Humelsine**
-* [Tabs and Spaces Discord](https://discord.gg/depv5npMTj): **Design Pattern Evangelist (Jim)**
-
-# Social Media
-Social media can be good resources, but they can also be cesspools.
-Some platforms let you create lists of accounts you follow.
-I have found that these lists tend to have little or not additional content inserted in these feeds.
-You mostly see only what you want to see.
-
-While curated lists filters content, they cannot filter what's posted by those you follow.
-Some people use their accounts to post computer related content only.
-Some also use their accounts to post their personal and often political views.
-Your only options are to compartmentalize and ignore what people post when you encounter posts that align with your personal views, or don't follow them at all.
-
-Here are some currated lists:
-* [Twitter/X Computer Science](https://x.com/i/lists/919677157915463680) - Currated by me
-* [Twitter/X Software Engineering](https://x.com/i/lists/888744335466008576) - Currated by [Neil Whitlow](https://x.com/NeilWhitlow)
-* [Twitter/X DEVS/DDD-HEX-CQRS-Ports](https://x.com/i/lists/1528367004306001921) - Currated by [Sebastián Bustamante](https://x.com/SebaSj)
-* [Bluesky Computer Science](https://bsky.app/profile/jhumelsine.bsky.social/lists/3laebntewlz23) - Currated by me
-
-# MOOCs
+## MOOCs
 [Massive Open Online Courses](https://en.wikipedia.org/wiki/Massive_open_online_course) (MOOCs) were all the rage about fifteen years ago.
 They started with Stanford put an AI course online for free, but without credit, and about 100,000 people signed up.
 Academia saw it as a means to educate those who could not easily receive a first class education, such as: those who couldn't afford it, those who couldn't dedicate a lot of time toward it or those were not did not live near a university.
@@ -226,15 +179,119 @@ These require a subscription:
 * [Pluralsight](https://www.pluralsight.com/) - An online learning platform and technology workforce development company, offering thousands of expert-led video courses, hands-on labs, and skill assessments in AI, cloud, security, and software development.
 * [Linkedin Learning](https://www.linkedin.com/learning/) - An online educational platform (formerly Lynda.com) that offers over 16,000 expert-led video courses focused on business, technology, and creative skills.
 
-# Others ...
+# Video-Based Learning
+I am a visual learner.
+MOOCs worked for me, because much of it involved watching videos.
 
-* https://missing.csail.mit.edu/
+Much like books are long form and blogs and articles are short form, MOOCs tend to be long form, but there are online videos that are also short form.
 
-https://www.thoughtworks.com/en-us/insights/podcasts/technology-podcasts/themes-technology-radar-34
+## Videos
+Some software professional share their experience and knowledge via online videos.
 
-https://www.thoughtworks.com/radar
+Videos span many types from how-to videos to educational videos.
+Many conferences have a video channel posting their content as well.
 
-https://matt.might.net/articles/books-papers-materials-for-graduate-students/
+Here are a few suggestions:
+* [Modern Software Engineering Channel](https://www.youtube.com/@ModernSoftwareEngineeringYT) - [Dave Farley](https://www.davefarley.net/?page_id=2) started this channel early during COVID lockdown. It quickly became popular. Each week a new 15-20 minute video is posted about a Software Engineering topic. The videos introduce topics without getting too deep in the weeds. Dave has invited additional noted presenters. Videos about similar topoics have been organized into [Playlists](https://www.youtube.com/@ModernSoftwareEngineeringYT/playlists).
+* [Alpha Code](https://www.youtube.com/@AlphaCode8/videos) - This excellent Domain-Driven Design series halted abruptly and incomplete about seven years ago. I hate to mention it, but it feels as if the creator died unexpectedly.
+* [Vaughn Vernon](https://www.youtube.com/@VaughnVernon) - Vernon translated Eric Evans' Domain-Driven Design into a form that's more consumable to most developers. His channel features videos on various software engineering topics.
+* [Emily Bache](https://www.youtube.com/@EmilyBache-tech-coach) - Bache is the big proponent of [Code Katas](http://codekata.com/). Her videos feature them along with videos to help software leads train their own teams.
+* [Alistair Cockburn](https://www.youtube.com/@totheralistair) - Cockburn was one of the original [Agile Manifest](https://agilemanifesto.org/) authors, and he developed [Hexagonal Architecture](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html). His channel is an eclectic set of videos.
+* [Code Aesthetic](https://www.youtube.com/@CodeAesthetic) - There are only a few videos, but they cover some interesting Software Engineering topics.
+* [Coding Blocks](https://www.youtube.com/@codingblocks) - The Coding Blocks YouTube channel is all about bringing you tutorials, tips, how to's and best practices on working your way to being the best programmer or software developer you can be.  Much of what will show up on this channel will be a supplement to a podcast episode so don't miss out on a chance for some good shop-talk along with some comic relief and latest news.  We encourage you to ask questions and give suggestions on topics you'd like to see covered.
+* [Computer Networks](https://media.pearsoncmg.com/ph/streaming/esm/tanenbaum5e_videonotes/tanenbaum_videoNotes.html) - This is a series of companion videos for a Computer Networks book. The videos were also used for a Computer Networks Coursera course, which unfortunately has disappeared. It's a great set of videos describing the internet from ___What is a bit?___ up to ___Applications___.
+* [Docker](https://www.youtube.com/user/dockerrun) - Hundreds of videos about Docker.
+* The following channels are more closely aligned to academia:
+    * [Tim Roughgarden Lectures](https://www.youtube.com/@timroughgardenlectures1861) - [Tim Roughgarden](https://timroughgarden.org/) is a published computer science professor currently at Columbia University and previously at Stanford. His Algorithms course, which I completed via Coursera, was a master class in algorithms. Roughgarden presents what I feel are algorithm patterns, which can be applied repeatedly to solve different problems. Some of these patterns includes Divide-and-Conquer/Recursion, Greedy Algorithms, Probabilistic Algorithms and Dynamic Programming. Roughgarden is an enthusiastic presenter with a bit of whismy, but the content is not for the faint of heart.
+    * [Easy Theory](https://www.youtube.com/@EasyTheory) - This is a channel about making Computer Science theory as easy as possible, so it's more about Computer Science and less about Software Engineering.
+    * [Reducible](https://www.youtube.com/@Reducible) - This channel is all about animating Computer Science concepts in a fun, interactive, and intuitive manner.
+
+## Conferences
+Conferences are a great way to stay on the leading edge of technology.
+In person conferences allows you to see presentations in person and make connections with other attendees; however, they require time, travel and money.
+
+Some conferences are online, which is more convenient, but you won't have the same networking options.
+
+Many conferences post much of their content online afterwards.
+Here are some conference resources:
+* [O'Reilly Conference Playlists](https://www.youtube.com/@oreilly/playlists) - This is part of O'Reilly Publishing
+* [GOTO Conference Homepage](https://gotopia.tech/) and [Playlists](https://www.youtube.com/user/GotoConferences/playlists) - GOTO is a set of mostly European based tech conferences.
+* [DEVOXX Conference Homepage](https://www.devoxx.com/#/) and [Playlists](https://www.youtube.com/channel/UCCBVCTuk6uJrN3iFV_3vurg/playlists) - [DEVOXX](https://en.wikipedia.org/wiki/Devoxx) is a set of European based tech conferences
+* [XP Days Playlists](https://www.youtube.com/user/lumii1983/playlists) - XP Days is a set of eastern European based conferences. Most are in English, but there are many in Russian as well.
+* [GeeCon Conference Homepage](https://geecon.org/), [GeeCon Videos](https://vimeo.com/geecon/videos) and [GeeCon Video Collections](https://vimeo.com/geecon/collections) - GeeCon is a set of Polish based conferences. Videos are in English.
+* [Nordic APIs Conference Homepage](https://nordicapis.com/) and [Nordic APIs Playlists](https://www.youtube.com/user/nordicapis/playlists) - Nordic API is a set of Swedish based conferences that focus upon APIs.
+* [Jfokus Conference Homepage](https://www.jfokus.se/) and [Jfocus Playlists](https://www.youtube.com/user/javamattias/playlists) - Jfokus is a set of Swedish based conferences. Most recent videos appear to be in English, but some may be in Swedish as well.
+* [YOW! Conference Homepage](https://yowcon.com/) and [YOW! Playlists](https://www.youtube.com/@GOTO-/playlists) (NOTE: The YOW! Playlists seem to be a subset of the GOTO Playlists) - YOW! is a set of conferences Australian based conferences.
+* [FlowCon Conference Homepage](http://flowcon.org/) and [FlowCon Playlists](https://www.youtube.com/channel/UCMk1sRo1hnTLMA3kpn6BVKg/playlists) - FlowCon appears to have been a one-off conference in fall 2014 in San Francisco. There's content, but probably no new content.
+* [InfoQ Homepage](https://www.infoq.com/) and [InfoQ Conference Videos](https://www.youtube.com/@QConferences/videos) - Helps software development teams adopt new trends and technologies with conferences in NYC, SF and worldwide.
+* [DDD Europe Homepage]() and [DDD Europe Playlists](https://www.youtube.com/@ddd_eu/playlists) - Domain-Driven Design Europe is the premier software modelling and design conference for senior engineers and architects working in complex environments.
+* [Mendercon Homepage](https://mendercon.com/) and [Mendercon Playlists](https://www.youtube.com/@mendercon/playlists) - Celebrates what makes us different from other software developers. Our event is different because we celebrate fixing bugs, rejoice in testing, and get giddy about legacy code.
+* [The Legacy of SoCraTes Playlist](https://www.youtube.com/@TheLegacyofSoCraTes/playlists) - A remote conference on the ever-important topic of Legacy Code. Watch interactive talks on this topic delivered by passionate and knowledgeable software professionals. SoCraTes stands for SOftware, CRAft and TESting. I was a presenter several years ago with [Hexagonal Architecture & Legacy Code](https://www.youtube.com/watch?v=aayl6FysZ_U).
+
+# Community and Social Learning
+Learn from other practitioners.
+
+## Podcasts
+Podcasts allow you pick up new information on the go.
+You can listen to them in the car, while exercising or elsewhere.
+
+Their main limitation is a lack of visuals, but this doesn't seem to be a major issue for most good podcasts.
+Many podcasts also have websites for subsequent reference.
+
+Here are some I follow on my playlist. Some of them are still active. Some are on indefinite hiatus or have been retired. Most are evergreen, but with the advent of AI maybe not quite so much:
+* [Soft Skills Engineer](https://softskills.audio/) - A weekly advice podcast where the two hosts answer questions about careers and less about technology.
+* [Coding Blocks](https://www.codingblocks.net/) - Conversational style among three softare developer friends and coworkers. They retired it a couple years ago, but several of us on their [Slack](https://www.codingblocks.net/slack/) group are doing a relisten.
+* [Tabs and Spaces](https://open.spotify.com/show/05xweMLT3cConDizrKFIgR) - The British version of Coding Blocks. The podcast has also been retired. I was a guest on three episodes:
+    *  [What They Didn't Teach You in University](https://open.spotify.com/episode/75q4sE0Qs5RnMl7ECVmRZc) - Where we discussed what you learn and don't learn about computers in academia. It's similar to what I wrote in [You Studied Computer Science. Your Career Will Be Software Engineering.](https://jhumelsine.github.io/2026/02/11/computer-science-software-engineering.html)
+    *  [Do you-ou-ou a-wanna test like me-e-e?](https://open.spotify.com/episode/1nktoh5QzNtiNpN2VoHR7g) - We were discussed automated testing. It's similar to what I wrote in my [Automated Testing Blog Series](https://jhumelsine.github.io/table-of-contents#automated-testing).
+    *  [Jim's Greatest Hits](https://open.spotify.com/episode/7odjsvlJFX8LbTdZ8C3AsL) - I thought were were going to discuss [Software Contracts](https://jhumelsine.github.io/2025/06/10/contracts.html), but since we recorded three days I retired, we pivoted a day or two before recording to talk about my career.
+* [The Engineering Room](https://rss.com/podcasts/theengineeringroom/) - Interview formatted podcast with industry leaders interviewed by Dave Farley
+* [Legacy Code Rocks!](https://www.legacycode.rocks/) - Interview formatted podcast focusing upon legacy code. I was a guest in [Economics of Technical Debt with Jim Humelsine](https://podcasts.apple.com/us/podcast/economics-of-technical-debt-with-jim-humelsine/id1146634772?i=1000523667734), where we discussed why legacy code is inevitable.
+* [Level-Up Engineering](https://www.apexlab.io/podcast/1/) - Interview formatted podcast about the industry. Each episode has a great landing page.
+* [Pragmatism in Practice](https://www.thoughtworks.com/en-us/insights/podcasts/pragmatism-in-practice) - General discussion about the industry from Thoughtworks.
+* [Technology Podcast](https://www.thoughtworks.com/en-us/insights/podcasts/technology-podcasts) - Technology discussion about the industry from Thoughtworks.
+* [Smart Talks with IBM](https://www.ibm.com/think/podcasts/smart-talks) - Cutting edge work at IBM or an extended commercial.
+* [Clean Coders](https://podcasts.apple.com/us/podcast/clean-coders-podcast/id1497337173) - General industry discussion.
+
+## Webinars
+* [ACM](https://learning.acm.org/techtalks) - Regular presentations provided by the ACM. Membership not required.
+* [O'Reilly](https://www.oreilly.com/webcasts/) - There doesn't seem to be any recent webinars but previous ones are available.
+
+## Online Communities via Slack, Discord, etc.
+Share your experiences and learn from others. Here are a few Software Engineering social media groups I'm a member of along with my user name:
+* [Coding Blocks Slack](https://www.codingblocks.net/slack/): **Design Pattern Evangelist (Jim)**
+* [Legacy Code Rocks! Slack](http://slack.legacycode.rocks/): **Jim Humelsine**
+* [We Do TDD Slack](http://wedotdd.slack.com): **Jim Humelsine**
+* [Software Crafters Slack](http://softwarecrafters.slack.com): **Jim Humelsine**
+* [Tabs and Spaces Discord](https://discord.gg/depv5npMTj): **Design Pattern Evangelist (Jim)**
+
+## Social Media
+Social media can be good resources, but they can also be cesspools.
+Some platforms let you create lists of accounts you follow.
+I have found that these lists tend to have little or not additional content inserted in these feeds.
+You mostly see only what you want to see.
+
+While curated lists filters content, they cannot filter what's posted by those you follow.
+Some people use their accounts to post computer related content only.
+Some also use their accounts to post their personal and often political views.
+Your only options are to compartmentalize and ignore what people post when you encounter posts that align with your personal views, or don't follow them at all.
+
+Here are some currated lists:
+* [Twitter/X Computer Science](https://x.com/i/lists/919677157915463680) - Currated by me
+* [Twitter/X Software Engineering](https://x.com/i/lists/888744335466008576) - Currated by [Neil Whitlow](https://x.com/NeilWhitlow)
+* [Twitter/X DEVS/DDD-HEX-CQRS-Ports](https://x.com/i/lists/1528367004306001921) - Currated by [Sebastián Bustamante](https://x.com/SebaSj)
+* [Bluesky Computer Science](https://bsky.app/profile/jhumelsine.bsky.social/lists/3laebntewlz23) - Currated by me
+
+# Learning by Doing
+Tutorials may not be enough.
+Passive leraning fades quickely.
+Real understanding comes from appling what you've learned.
+
+Build things.
+Refactor code.
+Experiment.
+Teach others.
+Write blogs.
 
 # Summary
 TBD
