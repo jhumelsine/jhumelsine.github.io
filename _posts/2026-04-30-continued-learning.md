@@ -27,11 +27,11 @@ Someone, somewhere will have almost certainly created a page, blog, article, cou
 O'Reilly gained a reputation for publishing technical books.
 Their corporate branding usually included a [drawing of an animal](https://www.oreilly.com/content/a-short-history-of-the-oreilly-animals/) on the front cover of their books.
 
+<img src="https://www.oreilly.com/content/wp-content/uploads/sites/2/2019/06/animals-with-faces-b4da60e9a672896d6c1d4f7076ec4448.jpg" alt="A Few O'Reilly Book covers" title="Image Source: https://www.oreilly.com/content/a-short-history-of-the-oreilly-animals/" width = "45%" align="right" style="padding-right: 20px;">
+
 O'Reilly expanded beyond printed books with an online resource found at [oreilly.com](https://www.oreilly.com/).
 It hosts thousands of books and videos including titles that were not original published by O'Reilly in addition to a few other features.
 It's a great resource, but it's a subscription service.
-
-<img src="https://www.oreilly.com/content/wp-content/uploads/sites/2/2019/06/animals-with-faces-b4da60e9a672896d6c1d4f7076ec4448.jpg" alt="A Few O'Reilly Book covers" title="Image Source: https://www.oreilly.com/content/a-short-history-of-the-oreilly-animals/" width = "45%" align="right" style="padding-right: 20px;">
 
 Here are a few subsription options:
 * If you're lucky, your employer will provide a subscription. My last employer provided a subscription to all developers for several years, but they have since canceled it.
@@ -41,6 +41,11 @@ Here are a few subsription options:
 # Blogs
 Many software professional share their experience and knowledge via blogs.
 Search for almost any software topic on the internet, and it will surely yield many blog references.
+
+Here are a few:
+* [Design Pattern Evangelist](https://jhumelsine.github.io/) - Always plugging my own blog.
+* [O'Reilly Radar](https://www.oreilly.com/radar/)
+* [ACM Queue Blog](https://queue.acm.org/blogs.cfm) and [ACM Queue Articles](https://queue.acm.org/)
 
 # Videos
 Some software professional share their experience and knowledge via online videos.
