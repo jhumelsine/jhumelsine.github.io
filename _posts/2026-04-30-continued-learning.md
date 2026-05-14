@@ -198,7 +198,24 @@ The audit option may also be difficult to find, but if you hunt around you may f
 I don't wish to completely downplay MOOCs.
 There is still a lot of potential, but you may need to experiment a bit until you find a platform that suits you.
 
-Here is a [List of MOOC Providers](https://en.wikipedia.org/wiki/List_of_MOOC_providers)
+Here are a few MOOC resources:
+* [Coursera](https://www.coursera.org/)
+* [Udacity](https://www.udacity.com/)
+* [edX](https://www.edx.org/)
+* [codeacademy](https://www.codecademy.com/) - which might be available via ACM's [e-learning](https://learning.acm.org/e-learning) bundle.
+
+Many universities offer free courses online as well:
+* [Harvard University](https://pll.harvard.edu/catalog/free)
+* [Stanford University](https://online.stanford.edu/free-courses)
+* [MIT](https://ocw.mit.edu/)
+* [The Pennsylvania State University](https://www.classcentral.com/university/psu) - My Alma Mater
+* [The University of Wisconsin - Madison](https://www.classcentral.com/university/wisconsin) - My other Alma Mater
+* [University System of Georgia](https://freecampus.usg.edu/)
+* [The Open University](https://www.open.edu/openlearn/free-courses)
+
+Here lists of more options:
+* [List of MOOC Providers](https://en.wikipedia.org/wiki/List_of_MOOC_providers)
+* [Class Centeral](https://www.classcentral.com/) - which seems to be a treasure trove of courses provided by Universities, MOOC Platforms and Companies
 
 ## Corporate Courses
 While similar to MOOCs, there are some non-academic course offerings.
