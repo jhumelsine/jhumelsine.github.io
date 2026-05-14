@@ -33,11 +33,11 @@ Someone, somewhere will have almost certainly created a page, blog, article, cou
 # What to Learn
 Follow your curiosity or possibly learn something to fill a gap in your career.
 
-<img src="https://live.staticflickr.com/3516/4069758475_c7789dfd6a_c.jpg" alt="Golden Ticket" title="Image Source: https://www.flickr.com/photos/digitalartform/4069758475" width = "25%" align="right" style="padding-right: 20px;">
-
 Regardless, choose soemthing that interests you.
 Most learning will be on your own time.
 Make sure it's something that you find enjoyable.
+
+<img src="https://live.staticflickr.com/3516/4069758475_c7789dfd6a_c.jpg" alt="Golden Ticket" title="Image Source: https://www.flickr.com/photos/digitalartform/4069758475" width = "25%" align="right" style="padding-right: 20px;">
 
 Don't fret if it doesn't fill a specific niche in your career.
 You never know where you career might go.
@@ -46,6 +46,20 @@ Something you learn today for the fun of it, could be your golden ticket for a f
 Several years ago, this would been my final word on what to learn, but [Large Language Models and Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) are changing the landscape rapidly.
 Those who don't learn how to leverage LLMs and GenAI will be a sever disadvantage.
 Navigating LLMs and GenAI will be the topic of my next post. (TBD)
+
+# Learning by Doing
+There are many ways to learn.
+I will provide several references in different media.
+
+Tutorials may not be enough.
+Passive leraning fades quickely.
+Real understanding comes from appling what you've learned.
+
+Build things.
+Refactor code.
+Experiment.
+Teach others.
+Write blogs.
 
 # Reading and Reference Material
 I started my career with Bell Labs in 1985.
@@ -153,23 +167,12 @@ Student professionals could complete a course sequentially, or complete it in ph
 It's akin to a full-time student who completes a degree in four years versus a student who takes a few gap semesters to travel or work.
 It provided more flexibility.
 
-This made sense on paper, but it never worked for me.
-I liked the academic semestier format.
-The new format chopped up the courses a bit too much for my tastes.
-The Discussion Forums, which had been thriving community in the semester format, became a desert in the new format.
-There wasn't the same critical mass to keep the conversations going.
-The opportunity for students to learn from each other dimissed greatly from my experiences.
-
 MOOCs also struggled financially.
-It's difficult to earn revenue when the content is free.
 Some platforms offer certifications for a price.
 Some platforms require a subscription or enrollment.
-But if you're looking for a low cost option, some platforms may have an audit feature, which allows you to watch the online content.
+Some platforms may have an audit feature, which allows you to watch the online content.
 You won't get any recognition and may not even have access to tests or quizzes.
 The audit option may also be difficult to find, but if you hunt around you may find it.
-
-I don't wish to completely downplay MOOCs.
-There is still a lot of potential, but you may need to experiment a bit until you find a platform that suits you.
 
 Here are a few MOOC resources:
 * [Coursera](https://www.coursera.org/)
@@ -227,10 +230,20 @@ Here are a few suggestions:
     * [Docker](https://www.youtube.com/user/dockerrun) - Hundreds of videos about Docker.
 
 ## Conferences
+Conferences expose you to ideas you may never encounter inside your own company.
+
+They compress years of experience into a few days of talks and conversations.
+Good conferences do more than teach technology. They expose how experienced engineers think about tradeoffs, architecture, teams and software development culture.
+
 Conferences are a great way to stay on the leading edge of technology.
 In person conferences allows you to see presentations in person and make connections with other attendees; however, they require time, travel and money.
 
-Some conferences are online, which is more convenient, but you won't have the same networking options.
+One of the great hidden resources on the internet is the enormous archive of conference presentations available for free on YouTube and Vimeo.
+
+You can watch talks from internationally recognized software engineers that previously required expensive travel and conference admission.
+
+I often watch online videos at a faster playback speed.
+This is particularly useful when I am already somewhat comfortable with the content, or the speaker is a slow-talker.
 
 Many conferences post much of their content online afterwards.
 Here are some conference resources:
@@ -256,27 +269,39 @@ Learn from other practitioners.
 
 ## Podcasts
 Podcasts allow you pick up new information on the go.
+Turn idle time into something productive.
 You can listen to them in the car, while exercising or elsewhere.
+They are portable.
 
-Their main limitation is a lack of visuals, but this doesn't seem to be a major issue for most good podcasts.
+Podcasts appeal to audio learners.
+Listening to hosts in your ears creates more of a personal connection to the hosts.
+I have even become internet friends with several podcast hosts I subscribe to via their social media.
+
 Many podcasts also have websites for subsequent reference.
 
-Here are some I follow on my playlist. Some of them are still active. Some are on indefinite hiatus or have been retired. Most are evergreen, but with the advent of AI maybe not quite so much:
+Many excellent software engineering podcasts are no longer active. That’s okay. Software engineering discussions often age better than framework tutorials.
+
+The show ended several years ago, but most episodes are still highly relevant.
+
+Here are some I follow on my playlist:
 * Career and Industry:
-    * [Soft Skills Engineer](https://softskills.audio/) - A weekly advice podcast where the two hosts answer questions about careers and less about technology.
-    * [Pragmatism in Practice](https://www.thoughtworks.com/en-us/insights/podcasts/pragmatism-in-practice) - General discussion about the industry from Thoughtworks.
-    * [Technology Podcast](https://www.thoughtworks.com/en-us/insights/podcasts/technology-podcasts) - Technology discussion about the industry from Thoughtworks.
+    * [Soft Skills Engineer](https://softskills.audio/) - A weekly advice podcast where the two hosts answer questions about careers and less about technology. Best for: early and mid-career engineers navigating workplace dynamics.
+    * [Pragmatism in Practice](https://www.thoughtworks.com/en-us/insights/podcasts/pragmatism-in-practice) - Conversations about the latest business ideas in the industry from Thoughtworks.
+    * [Technology Podcast](https://www.thoughtworks.com/en-us/insights/podcasts/technology-podcasts) - Conversations about the latest technical ideas in the industry from Thoughtworks.
     * [Smart Talks with IBM](https://www.ibm.com/think/podcasts/smart-talks) - Cutting edge work at IBM or an extended commercial.
 * Software Craftsmanship:
-    * [Coding Blocks](https://www.codingblocks.net/) - Conversational style among three softare developer friends and coworkers. They retired it a couple years ago, but several of us on their [Slack](https://www.codingblocks.net/slack/) group are doing a relisten.
-    * [Tabs and Spaces](https://open.spotify.com/show/05xweMLT3cConDizrKFIgR) - The British version of Coding Blocks. The podcast has also been retired. I was a guest on three episodes.
+    * [Coding Blocks](https://www.codingblocks.net/) - Conversational style among three softare developer friends and coworkers. They retired it a couple years ago, but several of us on their [Slack](https://www.codingblocks.net/slack/) group are doing a relisten. Best for: developers who enjoy conversational deep dives into engineering practices.
+    * [Tabs and Spaces](https://open.spotify.com/show/05xweMLT3cConDizrKFIgR) - The British version of Coding Blocks. The podcast has also been retired. I was a guest on three episodes. Links to these and my other guest appearances can be found at [Guest Appearances](https://jhumelsine.github.io/about#other-appearances).
     * [Clean Coders](https://podcasts.apple.com/us/podcast/clean-coders-podcast/id1497337173) - General industry discussion.
 * Architecture and Design:
     * [The Engineering Room](https://rss.com/podcasts/theengineeringroom/) - Interview formatted podcast with industry leaders interviewed by Dave Farley. 
 * Technical Leadership:
     * [Level-Up Engineering](https://www.apexlab.io/podcast/1/) - Interview formatted podcast about the industry. Each episode has a great landing page.
 * Legacy Code/Testing:
-    * [Legacy Code Rocks!](https://www.legacycode.rocks/) - Interview formatted podcast focusing upon legacy code. I was a guest in [Economics of Technical Debt with Jim Humelsine](https://podcasts.apple.com/us/podcast/economics-of-technical-debt-with-jim-humelsine/id1146634772?i=1000523667734), where we discussed why legacy code is inevitable.
+    * [Legacy Code Rocks!](https://www.legacycode.rocks/) - Interview formatted podcast focusing upon legacy code. Best for: engineers working in large existing systems rather than greenfield startups. I was a guest in [Economics of Technical Debt with Jim Humelsine](https://podcasts.apple.com/us/podcast/economics-of-technical-debt-with-jim-humelsine/id1146634772?i=1000523667734), where we discussed why legacy code is inevitable.
+ 
+Podcasts are excellent for staying connected to the broader engineering conversation, but they’re still mostly passive learning.
+At some point, you need to build, experiment and practice.
 
 ## Webinars
 * [ACM](https://learning.acm.org/techtalks) - Regular presentations provided by the ACM. Membership not required.
@@ -306,17 +331,6 @@ Here are some currated lists:
 * [Twitter/X Software Engineering](https://x.com/i/lists/888744335466008576) - Currated by [Neil Whitlow](https://x.com/NeilWhitlow)
 * [Twitter/X DEVS/DDD-HEX-CQRS-Ports](https://x.com/i/lists/1528367004306001921) - Currated by [Sebastián Bustamante](https://x.com/SebaSj)
 * [Bluesky Computer Science](https://bsky.app/profile/jhumelsine.bsky.social/lists/3laebntewlz23) - Currated by me
-
-# Learning by Doing
-Tutorials may not be enough.
-Passive leraning fades quickely.
-Real understanding comes from appling what you've learned.
-
-Build things.
-Refactor code.
-Experiment.
-Teach others.
-Write blogs.
 
 # Summary
 TBD
