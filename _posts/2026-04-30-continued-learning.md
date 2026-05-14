@@ -46,6 +46,8 @@ Here are a few:
 * [Design Pattern Evangelist](https://jhumelsine.github.io/) - Always plugging my own blog.
 * [O'Reilly Radar](https://www.oreilly.com/radar/)
 * [ACM Queue Blog](https://queue.acm.org/blogs.cfm) and [ACM Queue Articles](https://queue.acm.org/)
+* [InfoQ](https://www.infoq.com/)
+* [DZone](https://dzone.com/)
 
 # Videos
 Some software professional share their experience and knowledge via online videos.
