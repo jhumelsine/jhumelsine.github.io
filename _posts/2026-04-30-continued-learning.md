@@ -48,6 +48,7 @@ Here are a few:
 * [ACM Queue Blog](https://queue.acm.org/blogs.cfm) and [ACM Queue Articles](https://queue.acm.org/)
 * [InfoQ](https://www.infoq.com/)
 * [DZone](https://dzone.com/)
+* [Reading for graduate students](https://matt.might.net/articles/books-papers-materials-for-graduate-students/)
 
 # Videos
 Some software professional share their experience and knowledge via online videos.
@@ -209,7 +210,7 @@ Here are a few MOOC resources:
 Many universities offer free courses online as well:
 * [Harvard University](https://pll.harvard.edu/catalog/free)
 * [Stanford University](https://online.stanford.edu/free-courses)
-* [MIT](https://ocw.mit.edu/)
+* [MIT](https://ocw.mit.edu/) - And specifically [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/)
 * [The Pennsylvania State University](https://www.classcentral.com/university/psu) - My Alma Mater
 * [The University of Wisconsin - Madison](https://www.classcentral.com/university/wisconsin) - My other Alma Mater
 * [University System of Georgia](https://freecampus.usg.edu/)
