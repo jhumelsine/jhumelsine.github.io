@@ -11,8 +11,30 @@ It's a follow up to the previous [Beyond Onboarding](https://jhumelsine.github.i
 
 I will update resources on this page as I learn of new resources.
 
+# Table of Contents
+* [The Modern Learning Landscape](#the-modern-learning-landscape)
+* [What to Learn](#what-to-learn)
+* [Learning by Doing](#learning-by-doing)
+* [Reading and Reference Material](#reading-and-reference-material)
+    * [Books and Technical Libraries](#books-and-technical-libraries)
+        * [O'Reilly](#oreilly)
+        * [Skillsoft Percipio](#skillsoft-percipio)
+        * [ACM Digital Library](#acm-digital-library)
+    * [Blogs and Articles](#blogs-and-articles)
+* [Structured Learning](#structured-learning)
+    * [MOOCs](#moocs)
+    * [Corporate Courses](#corporate-courses)
+* [Video-Based Learning](#video-based-learning)
+    * [Videos](#videos)
+    * [Conferences](#conferences)
+* [Community and Social Learning](#community-and-social-learning)
+    * [Podcasts](#podcasts)
+    * [Webinars](#webinars)
+    * [Online Communities via Slack, Discord, etc.](#online-communities-via-slack-discord-etc)
+    * [Social Media](#social-media)
+
 # The Modern Learning Landscape
-Academia mostly defines the courses for your major, defines the content and assigns the learning resources.
+Academia usually defines the courses for your major, determines the content and assigns the learning resources.
 After graduation, you're on your own.
 This is both liberating and a bit daunting.
 
@@ -44,7 +66,7 @@ Don't fret if it doesn't fill a specific niche in your career.
 You never know where your career might go.
 Something you learn today for fun, could be your golden ticket for a future opportunity.
 
-Several years ago, this would been my final word on what to learn, but [Large Language Models and Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) are changing the landscape rapidly.
+Several years ago, this would have been my final word on what to learn, but [Large Language Models and Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) are changing the landscape rapidly.
 Those who don't learn how to leverage LLMs and GenAI will be a severe disadvantage.
 Navigating LLMs, GenAI, and Agentic Coding will be the topic of my next post. (TBD)
 
@@ -67,11 +89,11 @@ Real understanding comes from applying what you've learned:
 # Reading and Reference Material
 I started my career with Bell Labs in 1985.
 They had an extensive technical library.
-Members of Technical Staff were also alloted a book allowance if we wanted to purchase a book.
+Members of Technical Staff were also allotted a book allowance if we wanted to purchase a book.
 
-Our software builds could take a signficant amount of time to complete.
+Our software builds could take a significant amount of time to complete.
 I often had a 15 or possibly even 30 minute break in my workflow.
-I couldn't surf the internet, since it wan't available yet.
+I couldn't surf the internet, since it wasn't available yet.
 I often worked my way through technical books a several pages at a time while I waited for my code to build.
 
 ## Books and Technical Libraries
@@ -99,7 +121,7 @@ In addition to thousands of books and videos, they also purchased [CodeAcademy](
 The subscription rate is less than O'Reilly.
 
 ### ACM Digital Library
-The [Association for Computing Machinery](acm.org) (ACM) opened their [ACM Digital Library](https://dl.acm.org/) to the public in [January 2026](https://dl.acm.org/openaccess).
+The [Association for Computing Machinery](https://www.acm.org/) (ACM) opened their [ACM Digital Library](https://dl.acm.org/) to the public in [January 2026](https://dl.acm.org/openaccess).
 This resource is more academic than O'Reilly or Skillsoft Percipio, but there is no subscription fee.
 Here's a query that returns [my letters to the editor](https://dl.acm.org/action/doSearch?AllField=Humelsine) for their monthly journal.
 
@@ -122,7 +144,7 @@ Search for almost any software topic on the internet, and it will surely yield m
 
 Here are a few:
 * [Design Pattern Evangelist](https://jhumelsine.github.io/) - Always plugging my own blog.
-* [Martin Fowler]() - Software Engineering influencer. Original [Agile Manifesto](https://agilemanifesto.org/) coauthors. Coined and popularized _Refactoring_. 
+* [Martin Fowler](https://martinfowler.com/) - Software Engineering influencer. Original [Agile Manifesto](https://agilemanifesto.org/) coauthors. Coined and popularized _Refactoring_. 
 * [O'Reilly Radar](https://www.oreilly.com/radar/)
 * [ACM Queue Blog](https://queue.acm.org/blogs.cfm) and [ACM Queue Articles](https://queue.acm.org/) - These tend to focus more upon practical aspects of the software industry and not so much the academic side of Computer Science.
 * [InfoQ](https://www.infoq.com/)
@@ -152,9 +174,9 @@ I was a voracious consumer of courses on [Coursera](https://www.coursera.org/) b
 I estimate that I completed more Computer Science courses via Coursera than I did for my Computer Science BS and MS degrees in the early 1980s.
 
 Coursera is where I first learned several data structures that had not been presented in my college courses, such as [Union-Find](https://en.wikipedia.org/wiki/Disjoint-set_data_structure), [A* Search](https://en.wikipedia.org/wiki/A*_search_algorithm), [k-d Trees](https://en.wikipedia.org/wiki/K-d_tree), and [Red-Black Trees](https://algs4.cs.princeton.edu/33balanced/), which are binary search trees that emulate balanced [2-3 Trees](https://en.wikipedia.org/wiki/2%E2%80%933_tree).
-I learned additional algorithm techniques, such as: [Greedy Algorithms](https://en.wikipedia.org/wiki/Greedy_algorithm) and [Dynamic Progromming](https://en.wikipedia.org/wiki/Dynamic_programming).
+I learned additional algorithm techniques, such as: [Greedy Algorithms](https://en.wikipedia.org/wiki/Greedy_algorithm) and [Dynamic Programming](https://en.wikipedia.org/wiki/Dynamic_programming).
 I learned technology that arose after I had graduated, such as: Python, Computer Networks, Android and Cloud Computing.
-I complete a few courses outside of the traditional software arena, such as: Game Theory, Roman Architecture and the Music of the Beatles.
+I completed a few courses outside of the traditional software arena, such as: Game Theory, Roman Architecture and the Music of the Beatles.
 
 But the MOOCs weren't fulfilling their original promise in educating those out of reach of traditional academia.
 While thousands signed up for these courses, most never completed them.
@@ -212,7 +234,7 @@ These require a subscription:
 I am a visual learner.
 MOOCs worked for me, because much of it involved watching videos.
 
-Much like books are long form and blogs and articles are short form, MOOCs tend to be long form, and online videos that are also short form.
+Much like books are long-form and blogs and articles are short-form, MOOCs tend to be long-form educational experiences, while standalone online videos are often short-form.
 
 ## Videos
 Some software professional share their experience and knowledge via online videos.
@@ -320,7 +342,7 @@ Here are some I follow:
     * [Smart Talks with IBM](https://www.ibm.com/think/podcasts/smart-talks) - Cutting edge work at IBM or an extended commercial.
 * Software Craftsmanship:
     * [Coding Blocks](https://www.codingblocks.net/) - Conversational style among three software developer friends and coworkers. They retired the podcast a couple years ago, but several of us on their [Slack](https://www.codingblocks.net/slack/) group are doing a relisten. Best for: developers who enjoy conversational deep dives into engineering practices.
-    * [Tabs and Spaces](https://open.spotify.com/show/05xweMLT3cConDizrKFIgR) - The British version of Coding Blocks. The podcast has also been retired. I was a guest on three episodes. Links to these podcats episodes and my other guest appearances can be found at [Guest Appearances](https://jhumelsine.github.io/about#other-appearances).
+    * [Tabs and Spaces](https://open.spotify.com/show/05xweMLT3cConDizrKFIgR) - The British version of Coding Blocks. The podcast has also been retired. I was a guest on three episodes. Links to these podcast episodes and my other guest appearances can be found at [Guest Appearances](https://jhumelsine.github.io/about#other-appearances).
     * [Clean Coders](https://podcasts.apple.com/us/podcast/clean-coders-podcast/id1497337173) - General industry discussion.
 * Architecture and Design:
     * [The Engineering Room](https://rss.com/podcasts/theengineeringroom/) - Interview formatted podcast with industry leaders interviewed by Dave Farley. 
@@ -344,13 +366,13 @@ Share your experiences and learn from others. Here are a few Software Engineerin
 ## Social Media
 Social media can be good resources, but they can also be cesspools.
 Some platforms let you create lists of accounts you follow.
-I have found that these lists tend to have little or not additional content inserted in these feeds.
+I have found that these lists tend to have little or no additional content inserted in these feeds.
 You mostly see only what you want to see.
 
 While curated lists filters content, they cannot filter what's posted by those you follow.
 Some people use their accounts to post computer related content only.
 Some also use their accounts to post their personal and often political views.
-Your only options are to compartmentalize and ignore posts that align do not align with your personal views, or don't follow these people at all.
+Your only options are to compartmentalize and ignore posts that do not align with your personal views, or don't follow these people at all.
 
 Here are some curated lists:
 * [Twitter/X Computer Science](https://x.com/i/lists/919677157915463680) - Curated by me
@@ -358,5 +380,29 @@ Here are some curated lists:
 * [Twitter/X DEVS/DDD-HEX-CQRS-Ports](https://x.com/i/lists/1528367004306001921) - Curated by [Sebastián Bustamante](https://x.com/SebaSj)
 * [Bluesky Computer Science](https://bsky.app/profile/jhumelsine.bsky.social/lists/3laebntewlz23) - Curated by me
 
+# Building Your Own Learning System
+There is an enormous amount educational content available.
+You may want to currate your own personal education.
+
+Consider:
+* Keeping notes
+* Maintaining bookmarks
+* Creating personal knowledge bases
+* Revisiting concepts repeatedly
+* Mixing theory with practice
+* Rotating between breadth and depth
+
 # Summary
-TBD
+Your degree is not the finish line.
+It is your entry ticket into a profession that reinvents itself continuously.
+
+The best engineers I worked with throughout my career were rarely the people who thought they already knew enough. They were the people who stayed curious.
+
+Technology changes.
+Tools change.
+Languages change.
+
+The habit of learning is what endures.
+
+You do not need to master everything.
+You only need to keep learning the next thing.
