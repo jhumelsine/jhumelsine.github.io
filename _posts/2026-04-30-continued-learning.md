@@ -117,6 +117,7 @@ Search for almost any software topic on the internet, and it will surely yield m
 
 Here are a few:
 * [Design Pattern Evangelist](https://jhumelsine.github.io/) - Always plugging my own blog.
+* [Martin Fowler]() - Software Engineering influencer. Original [Agile Manifesto](https://agilemanifesto.org/) coauthors. Coined and popularized _Refactoring_. 
 * [O'Reilly Radar](https://www.oreilly.com/radar/)
 * [ACM Queue Blog](https://queue.acm.org/blogs.cfm) and [ACM Queue Articles](https://queue.acm.org/)
 * [InfoQ](https://www.infoq.com/)
@@ -219,7 +220,7 @@ Here are a few suggestions:
     * [Code Aesthetic](https://www.youtube.com/@CodeAesthetic) - There are only a few videos, but they cover some interesting Software Engineering topics.
 * Architecture and Design:
     * [Vaughn Vernon](https://www.youtube.com/@VaughnVernon) - Vernon translated Eric Evans' Domain-Driven Design into a form that's more consumable to most developers. His channel features videos on various software engineering topics.
-    * [Alistair Cockburn](https://www.youtube.com/@totheralistair) - Cockburn was one of the original [Agile Manifest](https://agilemanifesto.org/) authors, and he developed [Hexagonal Architecture](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html). His channel is an eclectic set of videos.
+    * [Alistair Cockburn](https://www.youtube.com/@totheralistair) - Cockburn was one of the original [Agile Manifesto](https://agilemanifesto.org/) coauthors, and he developed [Hexagonal Architecture](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html). His channel is an eclectic set of videos.
     * [Alpha Code](https://www.youtube.com/@AlphaCode8/videos) - This excellent Domain-Driven Design series halted abruptly and incomplete about seven years ago. I hate to mention it, but it feels as if the creator died unexpectedly.
 * Computer Science and Theory:
     * [Tim Roughgarden Lectures](https://www.youtube.com/@timroughgardenlectures1861) - [Tim Roughgarden](https://timroughgarden.org/) is a published computer science professor currently at Columbia University and previously at Stanford. His Algorithms course, which I completed via Coursera, was a master class in algorithms. Roughgarden presents what I feel are algorithm patterns, which can be applied repeatedly to solve different problems. Some of these patterns includes Divide-and-Conquer/Recursion, Greedy Algorithms, Probabilistic Algorithms and Dynamic Programming. Roughgarden is an enthusiastic presenter with a bit of whimsy, but the content is not for the faint of heart.
