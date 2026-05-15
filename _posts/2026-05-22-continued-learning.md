@@ -55,7 +55,7 @@ Fortunately the internet is filled with educational resources.
 Most are free or reasonably priced.
 
 Your favorite search engine will return more references than you can possibly consume.
-Someone, somewhere has certainly created. a page, blog, article, course, presentation slides or video on the topic you wish to learn.
+Someone, somewhere has certainly created a page, blog, article, course, presentation slides or video on the topic you wish to learn.
 
 [Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) can create a learning plan for almost any topic tailored to your specific needs.
 
@@ -74,7 +74,7 @@ You never know where your career might go.
 Something you learn today for fun, could be your golden ticket for a future opportunity.
 
 Several years ago, this would have been my final word on what to learn, but [Large Language Models and Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) are changing the landscape rapidly.
-Those who don't learn how to leverage LLMs and GenAI will be a severe disadvantage.
+Those who don't learn how to leverage LLMs and GenAI will be at a severe disadvantage.
 Navigating LLMs, GenAI, and Agentic Coding will be the topic of my next post. (TBD)
 
 # Learning by Doing
@@ -123,7 +123,7 @@ Here are a few subscription options:
 
 ### Skillsoft Percipio
 [Skillsoft Percipio](https://www.skillsoft.com/) is another subscription platform.
-In addition to thousands of books and videos, they also purchased [CodeAcademy](https://www.codecademy.com/)
+In addition to thousands of books and videos, they also purchased [Codeacademy](https://www.codecademy.com/)
 
 The subscription rate is less than O'Reilly.
 
@@ -227,7 +227,7 @@ Many universities offer on-line courses online as well, some for free:
 * [University System of Georgia](https://freecampus.usg.edu/)
 * [The Open University](https://www.open.edu/openlearn/free-courses)
 
-Here lists of more options:
+Here are lists of more options:
 * [List of MOOC Providers](https://en.wikipedia.org/wiki/List_of_MOOC_providers)
 * [Class Central](https://www.classcentral.com/) - which seems to be a treasure trove of courses provided by Universities, MOOC Platforms and Companies
 
@@ -244,7 +244,7 @@ MOOCs worked for me, because much of it involved watching videos.
 Much like books are long-form and blogs and articles are short-form, MOOCs tend to be long-form educational experiences, while standalone online videos are often short-form.
 
 ## Videos
-Some software professional share their experience and knowledge via online videos.
+Some software professionals share their experience and knowledge via online videos.
 
 Videos span many types from how-to videos to educational videos.
 Many conferences have a video channel posting their content as well.
@@ -274,7 +274,7 @@ They compress years of experience into a few days of talks and conversations.
 Good conferences do more than teach technology. They expose how experienced engineers think about tradeoffs, architecture, teams and software development culture.
 
 Conferences are a great way to stay on the leading edge of technology.
-In-person conferences allows you to see presentations in person and make connections with other attendees; however, they require time, travel and money.
+In-person conferences allow you to see presentations in person and make connections with other attendees; however, they require time, travel and money.
 
 I only attended one professional conference in my career: [O'Reilly Software Architecture Conference 2016 - New York, New York](https://www.oreilly.com/videos/oreilly-software-architecture/9781491944615/).
 It was my first serious exposure to [Microservices](https://www.oreilly.com/content/a-quick-and-simple-definition-of-microservices/) where the concept started to click for me.
@@ -302,7 +302,7 @@ Here are some conference resources:
     * [YOW! Conference Homepage](https://yowcon.com/) and [YOW! Playlists](https://www.youtube.com/@GOTO-/playlists) (NOTE: The YOW! Playlists seem to be a subset of the GOTO Playlists) - YOW! is a set of conferences Australian based conferences.
     * [InfoQ Homepage](https://www.infoq.com/) and [InfoQ Conference Videos](https://www.youtube.com/@QConferences/videos) - Helps software development teams adopt new trends and technologies with conferences in NYC, SF and worldwide.
 * Architecture and Design:
-    * [DDD Europe Homepage]() and [DDD Europe Playlists](https://www.youtube.com/@ddd_eu/playlists) - Domain-Driven Design Europe is the premier software modelling and design conference for senior engineers and architects working in complex environments.
+    * [DDD Europe Homepage](https://dddeurope.com/) and [DDD Europe Playlists](https://www.youtube.com/@ddd_eu/playlists) - Domain-Driven Design Europe is the premier software modelling and design conference for senior engineers and architects working in complex environments.
     * [GeeCon Conference Homepage](https://geecon.org/), [GeeCon Videos](https://vimeo.com/geecon/videos) and [GeeCon Video Collections](https://vimeo.com/geecon/collections) - GeeCon is a set of Polish based conferences. Videos are in English.
 *  Agile, Testing and Craftsmanship:
     * [XP Days Playlists](https://www.youtube.com/user/lumii1983/playlists) - XP Days is a set of eastern European based conferences. Most are in English, but there are many in Russian as well.
@@ -310,8 +310,8 @@ Here are some conference resources:
     * [Mendercon Homepage](https://mendercon.com/) and [Mendercon Playlists](https://www.youtube.com/@mendercon/playlists) - Celebrates what makes us different from other software developers. Our event is different because we celebrate fixing bugs, rejoice in testing, and get giddy about legacy code.
 * API and  Platform Focused:
     * [Nordic APIs Conference Homepage](https://nordicapis.com/) and [Nordic APIs Playlists](https://www.youtube.com/user/nordicapis/playlists) - Nordic API is a set of Swedish based conferences that focus upon APIs.
-    * [DEVOXX Conference Homepage](https://www.devoxx.com/#/) and [Playlists](https://www.youtube.com/channel/UCCBVCTuk6uJrN3iFV_3vurg/playlists) - [Devoxx]((https://en.wikipedia.org/wiki/Devoxx)) is a series of tech events organized by local community groups.
-    * [Jfokus Conference Homepage](https://www.jfokus.se/) and [Jfocus Playlists](https://www.youtube.com/user/javamattias/playlists) - Jfokus is a set of Swedish based conferences. Most recent videos appear to be in English, but some may be in Swedish as well.
+    * [DEVOXX Conference Homepage](https://www.devoxx.com/#/) and [Playlists](https://www.youtube.com/channel/UCCBVCTuk6uJrN3iFV_3vurg/playlists) - [Devoxx](https://en.wikipedia.org/wiki/Devoxx) is a series of tech events organized by local community groups.
+    * [Jfokus Conference Homepage](https://www.jfokus.se/) and [Jfokus Playlists](https://www.youtube.com/user/javamattias/playlists) - Jfokus is a set of Swedish based conferences. Most recent videos appear to be in English, but some may be in Swedish as well.
  
 Conference talks vary wildly in quality.
 Some are deeply technical.
@@ -389,7 +389,7 @@ Here are some curated lists:
 
 # Building Your Own Learning System
 There is an enormous amount of educational content available.
-You may want to currate your own personal education.
+You may want to curate your own personal education.
 
 Consider:
 * Keeping notes
