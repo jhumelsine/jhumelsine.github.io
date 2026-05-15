@@ -1,14 +1,20 @@
 ---
-title: WORK IN PROGRESS – Your Computer Science Degree is not the End of your Education
+title: DRAFT OPEN FOR REVIEW AND COMMENTS – Your Computer Science Degree is not the End of your Education
 description: Resources for Continued Learning Beyond Academia
 unlisted: true
 ---
 
 # Introduction
 A career in Software Engineering requires continuous learning.
-This blog entry contains a set of references for your continuing education.
+This blog entry collects resources, communities and learning strategies for continuing your education after graduation.
 It's a follow up to the previous [Beyond Onboarding](https://jhumelsine.github.io/2026/04/23/career.html) blog entry.
 
+Don’t try to consume everything listed here. Pick one area that interests you and explore a few resources deeply before moving on.
+
+While much of this advice targets early-career engineers, most of these resources remain valuable throughout your career.
+
+This is not by any means a comprehensive set of educational resources.
+These are resources I have personally used, followed for years, or consistently found valuable.
 I will update resources on this page as I learn of new resources.
 
 # Table of Contents
@@ -39,16 +45,17 @@ After graduation, you're on your own.
 This is both liberating and a bit daunting.
 
 Where do engineers even begin learning something new?
+The sheer volume of information can feel overwhelming.
 
 <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeTR4aTlhajhobjZmd2puYXM4dXIyZnQwcWdjb20ydXJiZmp0dWtybSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JnDGMrN8tMICc/giphy.gif" alt="Captain Obvious" title="Image Source: https://giphy.com/gifs/president-JnDGMrN8tMICc" width = "25%" align="right" style="padding-right: 20px;">
 
 At the risk of being Captain Obvious, the first stop in finding information about a new topic is the internet.
 
 Fortunately the internet is filled with educational resources.
-Most are free or a reasonable price.
+Most are free or reasonably priced.
 
 Your favorite search engine will return more references than you can possibly consume.
-Someone, somewhere will have almost certainly created a page, blog, article, course, presentation slides or video on the topic you wish to learn.
+Someone, somewhere has certainly created. a page, blog, article, course, presentation slides or video on the topic you wish to learn.
 
 [Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) can create a learning plan for almost any topic tailored to your specific needs.
 
@@ -94,7 +101,7 @@ Members of Technical Staff were also allotted a book allowance if we wanted to p
 Our software builds could take a significant amount of time to complete.
 I often had a 15 or possibly even 30 minute break in my workflow.
 I couldn't surf the internet, since it wasn't available yet.
-I often worked my way through technical books a several pages at a time while I waited for my code to build.
+I often worked my way through technical books several pages at a time while I waited for my code to build.
 
 ## Books and Technical Libraries
 Most technical books are online and readily available these days.
@@ -139,7 +146,7 @@ Technical books tend to be hundreds of pages long.
 You don't need to read an entire book.
 This is where blogs and articles can be useful.
 
-Many software professional share their experience and knowledge via blogs and articles.
+Many software professionals share their experience and knowledge via blogs and articles.
 Search for almost any software topic on the internet, and it will surely yield many references.
 
 Here are a few:
@@ -222,7 +229,7 @@ Many universities offer on-line courses online as well, some for free:
 
 Here lists of more options:
 * [List of MOOC Providers](https://en.wikipedia.org/wiki/List_of_MOOC_providers)
-* [Class Centeral](https://www.classcentral.com/) - which seems to be a treasure trove of courses provided by Universities, MOOC Platforms and Companies
+* [Class Central](https://www.classcentral.com/) - which seems to be a treasure trove of courses provided by Universities, MOOC Platforms and Companies
 
 ## Corporate Courses
 While similar to MOOCs, there are some non-academic course offerings.
@@ -244,7 +251,7 @@ Many conferences have a video channel posting their content as well.
 
 Here are a few suggestions:
 * Software Engineering Practice:
-    * [Modern Software Engineering Channel](https://www.youtube.com/@ModernSoftwareEngineeringYT) - [Dave Farley](https://www.davefarley.net/?page_id=2) started this channel early during COVID lockdown. It quickly became popular. Each week a new 15-20 minute video is posted about a Software Engineering topic. The videos introduce topics without getting too deep in the weeds. Dave has invited additional noted presenters. Videos about similar topoics have been organized into [Playlists](https://www.youtube.com/@ModernSoftwareEngineeringYT/playlists).
+    * [Modern Software Engineering Channel](https://www.youtube.com/@ModernSoftwareEngineeringYT) - [Dave Farley](https://www.davefarley.net/?page_id=2) started this channel early during COVID lockdown. It quickly became popular. Each week a new 15-20 minute video is posted about a Software Engineering topic. The videos introduce topics without getting too deep in the weeds. Dave has invited additional noted presenters. Videos about similar topics have been organized into [Playlists](https://www.youtube.com/@ModernSoftwareEngineeringYT/playlists).
     * [Emily Bache](https://www.youtube.com/@EmilyBache-tech-coach) - Bache is the big proponent of [Code Katas](http://codekata.com/). Her videos feature them along with videos to help software leads train their own teams.
     * [Coding Blocks](https://www.youtube.com/@codingblocks) - The Coding Blocks YouTube channel is all about bringing you tutorials, tips, how to's and best practices on working your way to being the best programmer or software developer you can be.
     * [Code Aesthetic](https://www.youtube.com/@CodeAesthetic) - There are only a few videos, but they cover some interesting Software Engineering topics.
@@ -253,7 +260,7 @@ Here are a few suggestions:
     * [Alistair Cockburn](https://www.youtube.com/@totheralistair) - Cockburn was one of the original [Agile Manifesto](https://agilemanifesto.org/) coauthors, and he developed [Hexagonal Architecture](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html). His channel is an eclectic set of videos.
     * [Alpha Code](https://www.youtube.com/@AlphaCode8/videos) - This excellent Domain-Driven Design series halted abruptly and incomplete about seven years ago. I hate to mention it, but it feels as if the creator died unexpectedly.
 * Computer Science and Theory:
-    * [Tim Roughgarden Lectures](https://www.youtube.com/@timroughgardenlectures1861) - [Tim Roughgarden](https://timroughgarden.org/) is a published computer science professor. Roughgarden presents what I feel are algorithm patterns, which can be applied repeatedly to solve different problems. Some of these patterns includes Divide-and-Conquer/Recursion, Greedy Algorithms, Probabilistic Algorithms and Dynamic Programming. Roughgarden is an enthusiastic presenter with a bit of whimsy, but the content is not for the faint of heart.
+    * [Tim Roughgarden Lectures](https://www.youtube.com/@timroughgardenlectures1861) - [Tim Roughgarden](https://timroughgarden.org/) is a published computer science professor. Roughgarden presents what I feel are algorithm patterns, which can be applied repeatedly to solve different problems. Some of these patterns include Divide-and-Conquer/Recursion, Greedy Algorithms, Probabilistic Algorithms and Dynamic Programming. Roughgarden is an enthusiastic presenter with a bit of whimsy, but the content is not for the faint of heart.
     * [Reducible](https://www.youtube.com/@Reducible) - This channel is all about animating Computer Science concepts in a fun, interactive, and intuitive manner.
     * [Easy Theory](https://www.youtube.com/@EasyTheory) - This is a channel about making Computer Science theory as easy as possible, so it's more about Computer Science and less about Software Engineering.
 * Technology-Specific: 
@@ -267,7 +274,7 @@ They compress years of experience into a few days of talks and conversations.
 Good conferences do more than teach technology. They expose how experienced engineers think about tradeoffs, architecture, teams and software development culture.
 
 Conferences are a great way to stay on the leading edge of technology.
-In person conferences allows you to see presentations in person and make connections with other attendees; however, they require time, travel and money.
+In-person conferences allows you to see presentations in person and make connections with other attendees; however, they require time, travel and money.
 
 I only attended one professional conference in my career: [O'Reilly Software Architecture Conference 2016 - New York, New York](https://www.oreilly.com/videos/oreilly-software-architecture/9781491944615/).
 It was my first serious exposure to [Microservices](https://www.oreilly.com/content/a-quick-and-simple-definition-of-microservices/) where the concept started to click for me.
@@ -315,7 +322,7 @@ Learning to distinguish substance from hype is part of becoming a senior enginee
 Learn from other practitioners.
 
 ## Podcasts
-Podcasts allow you pick up new information on the go.
+Podcasts allow you to pick up new information on the go.
 Turn idle time into something productive.
 You can listen in the car, while exercising or elsewhere.
 They are portable.
@@ -369,7 +376,7 @@ Some platforms let you create lists of accounts you follow.
 I have found that these lists tend to have little or no additional content inserted in these feeds.
 You mostly see only what you want to see.
 
-While curated lists filters content, they cannot filter what's posted by those you follow.
+While curated lists filter content, they cannot filter what's posted by those you follow.
 Some people use their accounts to post computer related content only.
 Some also use their accounts to post their personal and often political views.
 Your only options are to compartmentalize and ignore posts that do not align with your personal views, or don't follow these people at all.
@@ -381,7 +388,7 @@ Here are some curated lists:
 * [Bluesky Computer Science](https://bsky.app/profile/jhumelsine.bsky.social/lists/3laebntewlz23) - Curated by me
 
 # Building Your Own Learning System
-There is an enormous amount educational content available.
+There is an enormous amount of educational content available.
 You may want to currate your own personal education.
 
 Consider:
