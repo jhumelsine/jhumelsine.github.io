@@ -5,10 +5,10 @@ unlisted: true
 ---
 
 # Introduction
-I have no business writing this blog.
-
 Right now the greatest disruptive technology is Generative AI.
 Those who learn how to leverage it will have an advantage over those who do not.
+
+I have no business writing this blog.
 
 I have limited experience with Generative AI.
 ChatGPT was released upon the world a few months before I retired.
@@ -16,7 +16,7 @@ In that short period of time, it's flooded the Software Engineering community.
 Many companies have made drastic cuts across the board to be filled by AI, as can be seen in headlines like these: [**Block lays off nearly half its staff because of AI. Its CEO said most companies will do the same**](https://www.cnn.com/2026/02/26/business/block-layoffs-ai-jack-dorsey).
 
 I think this may be shortsighted.
-The reports of the death of software engineering is greatly exaggerated.
+The reports of the software engineering's death is greatly exaggerated.
 
 Generative AI is a tool.
 It's a force multiplier.
@@ -24,13 +24,14 @@ Generative AI will make good software engineers better and bad software engineer
 A power saw in the hands of skilled crafters allows them to build cabinets quicker.
 A power saw in the hands of knuckheads allows them to saw their thumbs off quicker.
 
-Generative AI has limited context.
-It tends to have a short attention span.
-When context is at capacity, you don't know what important knowledge will be jettisoned to make room for new context being added.
+This isn't too different from what I described in [Prompt Engineering Patterns](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html) and [Prompt Engineering Patterns Continued](https://jhumelsine.github.io/2024/10/18/prompt-engineering-patterns2.html), except that I didn't provide an examples that generated code.
 
-This is highligted in [**Coding Is Dead, Long Live Programming**](https://ian-cooper.writeas.com/coding-is-dead-long-live-programming).
-https://beyond.minimumcd.org/docs/agentic-cd/operations/tokenomics/
-https://martinfowler.com/articles/reduce-friction-ai/context-anchoring.html
+I dabbled in code generating a few months ago during the most recent [Advent of Code](https://adventofcode.com/) challenges.
+After I had spent several hours solving a challenge by hand, I copied the challenge description directly from the Advent page into ChatGPT and asked it to solve the problem in Java, which I then executed.
+In many cases it returned the expected answer on the first try.
+I won't say it was demoralizing that AI created a program that solve the problem in a matter of seconds rather than the hours it took me, but it did highlight how far Generative AI has come in just a few years since I retired.
+
+I'm not sure if I'm disappointed that I'm missing this paradigm shift in the profession or grateful that I'm mostly able to avoid it.
 
 Let's examine several ways to leverage Generative AI.
 
@@ -40,7 +41,18 @@ Two kinds of concerns for developers
 
 The first concern may not be as critical as before ... or maybe it's even more critical.
 
+# Context Window
+Generative AI has limited context.
+It tends to have a short attention span.
+When context is at capacity, you don't know what important knowledge will be jettisoned to make room for new context being added.
+
+This is highligted in [**Coding Is Dead, Long Live Programming**](https://ian-cooper.writeas.com/coding-is-dead-long-live-programming).
+
 ### Vibe Coding
+The term [Vibe Coding](https://en.wikipedia.org/wiki/Vibe_coding) entered the lexicon a little more than a year ago, but it took off like wildfire.
+
+Describe what you want from the LLM, and let it create the code for you.
+
 You can never put too much water into the nuclear reactor. https://www.instagram.com/reel/C8xj8C1y7n1/
 
 ### Boilerplate Coding
