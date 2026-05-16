@@ -18,6 +18,7 @@ Many companies have made drastic cuts across the board to be filled by AI, as ca
 I think this may be shortsighted.
 The reports of the software engineering's death is greatly exaggerated.
 
+# AI is a Tool
 Generative AI is a tool.
 It's a force multiplier.
 Generative AI will make good software engineers better and bad software engineers worse.
@@ -41,21 +42,58 @@ Two kinds of concerns for developers
 
 The first concern may not be as critical as before ... or maybe it's even more critical.
 
+## Vibe Coding
+The term [Vibe Coding](https://en.wikipedia.org/wiki/Vibe_coding) entered the lexicon a little more than a year ago, but it took off like wildfire.
+
+Describe what you want from the LLM, and let it create the code for you.
+
+Do we even need software developers anymore?
+Let the Product Managers vibe the code by talking to the AI and telling it what they want.
+This is basically what I did with my Advent example above.
+
+"There is a new programming language—it's called Human." — Jensen Huang, Nvidia CEO
+
+"From one gut feeling I derive much consolation: I suspect that machines to be programmed in our native tongues... are as damned difficult to make as they would be to use." — Edsger W. Dijkstra
+
+<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWhxZjlldzdlZXpiNDQ4Z25pdmlueWt3Nm9wMW9ydmNjZWt4MHljOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fSGqUm3IcVBESFM0hK/giphy.gif" alt="Monkey Paw" title="Image Source: https://giphy.com/gifs/leroypatterson-wish-monkey-paw-fSGqUm3IcVBESFM0hK" width = "20%" align="right" style="padding: 20px;">
+
+I'm not sure that ___Vibe Coding___ was the correct term.
+I think that maybe ___Monkey Paw Coding___ may have been more accurate.
+The AI will give you want you asked for, but it may not be exactly what you wanted.
+
+A [Saturday Night Live sketch](https://www.instagram.com/reel/C8xj8C1y7n1/) from the 1984 illustrates this.
+In the sketch takes place at the retirement party for Ray the manager of a nuclear reactor.
+His crew is slightly concerned that they'll have to monitor the nuclear reactor without him.
+
+Ray reassures them that they'll be fine.
+As he leaves he tells them there's only one thing they have to worry about: ___You can't put too much water into a nuclear reactor.___
+
+One of the technicians walks to the control panel and is asked what she's doing.
+She's putting more water in the nuclear reactor ... to top it off.
+She interprets Ray's final instruction along the lines of: _You can't be too rich or too thin._
+So go ahead and add more water. 
+
+Her coworker thinks she's out of her mind.
+He interprets Ray's final instruction as: __You can't put too much water into a nuclear reactor, because it will cause it to melt down._
+
+The ambiguity is the humor mechanism for the rest of the sketch.
+
+But what if a Product Manager were vibe coding a nuclear reactor with: ___You can't put too much water into a nuclear reactor___?
+
+Prototype
+
+Personal Project
+
+Probably not Production
+
+## Boilerplate Coding
+
 # Context Window
 Generative AI has limited context.
 It tends to have a short attention span.
 When context is at capacity, you don't know what important knowledge will be jettisoned to make room for new context being added.
 
 This is highligted in [**Coding Is Dead, Long Live Programming**](https://ian-cooper.writeas.com/coding-is-dead-long-live-programming).
-
-### Vibe Coding
-The term [Vibe Coding](https://en.wikipedia.org/wiki/Vibe_coding) entered the lexicon a little more than a year ago, but it took off like wildfire.
-
-Describe what you want from the LLM, and let it create the code for you.
-
-You can never put too much water into the nuclear reactor. https://www.instagram.com/reel/C8xj8C1y7n1/
-
-### Boilerplate Coding
 
 ### Partner Coding
 Cleaner code => fewer tokens. Reference: https://beyond.minimumcd.org/docs/agentic-cd/operations/tokenomics/
