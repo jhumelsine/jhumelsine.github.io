@@ -151,7 +151,7 @@ Search for almost any software topic on the internet, and it will surely yield m
 
 Here are a few:
 * [Design Pattern Evangelist](https://jhumelsine.github.io/) - Always plugging my own blog.
-* [Martin Fowler](https://martinfowler.com/) - Software Engineering influencer. Original [Agile Manifesto](https://agilemanifesto.org/) coauthors. Coined and popularized _Refactoring_. 
+* [Martin Fowler](https://martinfowler.com/) - Software Engineering influencer. Original [Agile Manifesto](https://agilemanifesto.org/) coauthor. Coined and popularized _Refactoring_. 
 * [O'Reilly Radar](https://www.oreilly.com/radar/)
 * [ACM Queue Blog](https://queue.acm.org/blogs.cfm) and [ACM Queue Articles](https://queue.acm.org/) - These tend to focus more upon practical aspects of the software industry and not so much the academic side of Computer Science.
 * [InfoQ](https://www.infoq.com/)
@@ -257,7 +257,7 @@ Here are a few suggestions:
     * [Code Aesthetic](https://www.youtube.com/@CodeAesthetic) - There are only a few videos, but they cover some interesting Software Engineering topics.
 * Architecture and Design:
     * [Vaughn Vernon](https://www.youtube.com/@VaughnVernon) - Vernon translated Eric Evans' Domain-Driven Design into a form that's more consumable to most developers. His channel features videos on various software engineering topics.
-    * [Alistair Cockburn](https://www.youtube.com/@totheralistair) - Cockburn was one of the original [Agile Manifesto](https://agilemanifesto.org/) coauthors, and he developed [Hexagonal Architecture](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html). His channel is an eclectic set of videos.
+    * [Alistair Cockburn](https://www.youtube.com/@totheralistair) - Cockburn was one of the original [Agile Manifesto](https://agilemanifesto.org/) coauthor, and he developed [Hexagonal Architecture](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html). His channel is an eclectic set of videos.
     * [Alpha Code](https://www.youtube.com/@AlphaCode8/videos) - This excellent Domain-Driven Design series halted abruptly and incomplete about seven years ago. I hate to mention it, but it feels as if the creator died unexpectedly.
 * Computer Science and Theory:
     * [Tim Roughgarden Lectures](https://www.youtube.com/@timroughgardenlectures1861) - [Tim Roughgarden](https://timroughgarden.org/) is a published computer science professor. Roughgarden presents what I feel are algorithm patterns, which can be applied repeatedly to solve different problems. Some of these patterns include Divide-and-Conquer/Recursion, Greedy Algorithms, Probabilistic Algorithms and Dynamic Programming. Roughgarden is an enthusiastic presenter with a bit of whimsy, but the content is not for the faint of heart.
@@ -348,6 +348,7 @@ Here are some I follow:
     * [Technology Podcast](https://www.thoughtworks.com/en-us/insights/podcasts/technology-podcasts) - Conversations about the latest technical ideas in the industry from Thoughtworks.
     * [Smart Talks with IBM](https://www.ibm.com/think/podcasts/smart-talks) - Cutting edge work at IBM or an extended commercial.
 * Software Craftsmanship:
+    * [Still Burning](https://stillburningpodcast.com/) - Honest conversations about fear, uncertainty, and what it means to build things when the ground keeps shifting as a result of AI. Hosted by [Kent Beck](https://en.wikipedia.org/wiki/Kent_Beck), Original [Agile Manifesto](https://agilemanifesto.org/) coauthor, [TDD](https://jhumelsine.github.io/2024/07/15/tdd.html) and [XP](https://en.wikipedia.org/wiki/Extreme_programming) creator/innovator, 
     * [Coding Blocks](https://www.codingblocks.net/) - Conversational style among three software developer friends and coworkers. They retired the podcast a couple years ago, but several of us on their [Slack](https://www.codingblocks.net/slack/) group are doing a relisten. Best for: developers who enjoy conversational deep dives into engineering practices.
     * [Tabs and Spaces](https://open.spotify.com/show/05xweMLT3cConDizrKFIgR) - The British version of Coding Blocks. The podcast has also been retired. I was a guest on three episodes. Links to these podcast episodes and my other guest appearances can be found at [Guest Appearances](https://jhumelsine.github.io/about#other-appearances).
     * [Clean Coders](https://podcasts.apple.com/us/podcast/clean-coders-podcast/id1497337173) - General industry discussion.
