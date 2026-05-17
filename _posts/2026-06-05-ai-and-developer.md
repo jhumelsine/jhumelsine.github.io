@@ -49,6 +49,35 @@ In a rapidly shifting landscape, you either evolve to meet new circumstances or 
 Do not become obsolete.
 Adapt or die.
 
+# Determinism
+In [Computer Science Problems](https://jhumelsine.github.io/2026/02/11/computer-science-software-engineering.html#computer-science-problems), I wrote:
+>Each additional layer on the tech stack is for the benefit of humans, not the computer. The computer is just as content to execute machine code written by a human as it is to execute machine code generated from a compiler from source code written by a human.
+
+Generative AI is adding another layer moving us yet further away from bare metal.
+
+I'm hearing the admonition: **This time it's different. The previous tech stack was deterministic. AI is not deterministic.**
+
+I used to have the same opinion, but I saw a social media post a few weeks ago that changed my mind.
+Unfortunately, I don't have a reference to it, but I can paraphrase it:
+>We have always had non-determinism. Human developers have always been non-deterministic.
+
+It took a little while for that to sink in.
+While we think of the transition/translation between layers of the tech stack is deterministic, and once implemented, it is deterministic, the process of defining the tech stack and implementing the tech stack is not deterministic.
+
+If we were to give the same specification to several different teams, we'd have an equal number of completely different designs and implementations.
+
+We're okay with people being non-deterministic in designing and writing code, but we're uncomfortable when AI does it.
+
+It's akin to self-driving cars.
+When a self-driving car causes a fatality, it's a failure of technology.
+When a human driver causes a fatility, it's a tragic accident.
+I feels a bit like the [Uncanny Valley=](https://en.wikipedia.org/wiki/Uncanny_valley).
+
+AI didn't introduce non-determinism in software development.
+It's always been there.
+
+# Context Window
+
 # AI is a Tool
 Generative AI is a tool.
 It's a force multiplier.
@@ -86,7 +115,7 @@ This is basically what I did with my Advent example above.
 
 "From one gut feeling I derive much consolation: I suspect that machines to be programmed in our native tongues... are as damned difficult to make as they would be to use." — Edsger W. Dijkstra
 
-<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWhxZjlldzdlZXpiNDQ4Z25pdmlueWt3Nm9wMW9ydmNjZWt4MHljOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fSGqUm3IcVBESFM0hK/giphy.gif" alt="Monkey Paw" title="Image Source: https://giphy.com/gifs/leroypatterson-wish-monkey-paw-fSGqUm3IcVBESFM0hK" width = "20%" align="right" style="padding: 20px;">
+<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWhxZjlldzdlZXpiNDQ4Z25pdmlueWt3Nm9wMW9ydmNjZWt4MHljOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fSGqUm3IcVBESFM0hK/giphy.gif" alt="Monkey Paw" title="Image Source: https://giphy.com/gifs/leroypatterson-wish-monkey-paw-fSGqUm3IcVBESFM0hK" width = "30%" align="right" style="padding: 20px;">
 
 I'm not sure that ___Vibe Coding___ was the correct term.
 I think that maybe ___Monkey Paw Coding___ may have been more accurate.
