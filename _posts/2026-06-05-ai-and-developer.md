@@ -18,6 +18,37 @@ Many companies have made drastic cuts across the board to be filled by AI, as ca
 I think this may be shortsighted.
 The reports of the software engineering's death is greatly exaggerated.
 
+# Toil
+Humans have been using technology for millenia to elimiate toil.
+
+**Writing code by hand has become toil.**
+
+<img src="https://live.staticflickr.com/2758/4154904299_c33828173d_h.jpg" title="Image Source: https://www.flickr.com/photos/ironrodart/4154904299" alt="Switch Board Operators" width = "35%" align="right" style="padding-right: 20px;">
+
+I spent my entire 38 year career writing code by hand.
+I was skilled.
+Nineteenth century blacksmiths were also skilled, but the industrial revolution made their services redundant.
+There are still blacksmiths.
+Most do it for a hobby or to well their wares at craft fairs, but the village blacksmith is a profession of the past.
+
+Many other professions were elimiated during the industrial revolution with textile workers being one of the first, which led to the [Luddites](https://en.wikipedia.org/wiki/Luddite) movement.
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Jacquard.loom.cards.jpg" title="Image Source: https://commons.wikimedia.org/wiki/File:Jacquard.loom.cards.jpg" alt="Jacquard loom" width = "25%" align="left" style="padding-right: 20px;">
+
+The first programmed machines first appered in the textile industry.
+Patterned designs could be added to cloth with the [Jacquard machine](https://en.wikipedia.org/wiki/Jacquard_machine), which used punched cards, which evolved into the types of punch cards I used during my first two years in college.
+
+Computers have eleminated may jobs.
+Switchboard operators are gone.
+Bank tellers and movie ticket takers are fading.
+
+Our profession contributed to that.
+And now we are in the crosshairs.
+
+In a rapidly shifting landscape, you either evolve to meet new circumstances or become obsolete.
+Do not become obsolete.
+Adapt or die.
+
 # AI is a Tool
 Generative AI is a tool.
 It's a force multiplier.
