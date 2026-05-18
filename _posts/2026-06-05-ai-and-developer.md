@@ -28,15 +28,15 @@ I spent my entire 38 year career writing code by hand.
 I was skilled.
 Nineteenth century blacksmiths were also skilled, but the industrial revolution made their services redundant.
 There are still blacksmiths.
-Most do it for a hobby or to sell their wares at craft fairs, but the village blacksmith is a profession of the past.
+Most do it as a hobby or to sell their wares at craft fairs, but the village blacksmith is a profession of the past.
 
 Many other professions were elimiated during the industrial revolution with textile workers being one of the first, which led to the [Luddites](https://en.wikipedia.org/wiki/Luddite) movement.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Jacquard.loom.cards.jpg" title="Image Source: https://commons.wikimedia.org/wiki/File:Jacquard.loom.cards.jpg" alt="Jacquard loom" width = "25%" align="left" style="padding-right: 20px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Jacquard.loom.cards.jpg" title="Image Source: https://commons.wikimedia.org/wiki/File:Jacquard.loom.cards.jpg" alt="Jacquard loom" width = "30%" align="left" style="padding-right: 20px;">
 
 The first programmed machines first appered in the textile industry.
 Patterned designs could be added to cloth with a [Jacquard machine](https://en.wikipedia.org/wiki/Jacquard_machine), which used punched cards.
-This technology evolved into punch cards, which I used during my first two years in college.
+This technology evolved into the punch cards I used during my first two years in college.
 
 Computers have eleminated may jobs.
 Any work that can be automated will be automated.
@@ -45,10 +45,10 @@ Bank tellers and movie ticket takers are fading.
 
 Our profession contributed to that.
 And now we are in the crosshairs.
-AI can generate code faster than people.
+AI can generate code faster than people, but it also tends to generate a lot of slop too.
 
 People will still write code by hand, but like current day blacksmiths probably more as a hobby or as an artisan.
-Not as many software developers will be paid in the same way that I was paid.
+Not as many software developers will be paid in the same way that I was paid during my career.
 
 In a rapidly shifting landscape, you either evolve to meet new circumstances or become obsolete.
 Do not become obsolete.
@@ -60,7 +60,7 @@ In [Computer Science Problems](https://jhumelsine.github.io/2026/02/11/computer-
 
 Generative AI is adding another layer moving us yet further away from bare metal.
 
-I'm hearing the admonition: **This time it's different. The previous tech stack was deterministic. AI is not deterministic.**
+I'm hearing this claim: **This time it's different. The previous tech stack was deterministic. AI is not deterministic.**
 
 I used to have the same opinion, but I saw a social media post a few weeks ago that changed my mind.
 Unfortunately, I don't have a reference to it, but I can paraphrase it:
@@ -76,7 +76,8 @@ We're okay with people being non-deterministic in designing and writing code, bu
 It's akin to self-driving cars.
 When a self-driving car causes a fatality, it's a failure of technology.
 When a human driver causes a fatility, it's a tragic accident.
-I feels a bit like the [Uncanny Valley=](https://en.wikipedia.org/wiki/Uncanny_valley).
+We will gladly place blame on technology when we would not accept the blame for our own actions.
+I feels a bit like the [Uncanny Valley](https://en.wikipedia.org/wiki/Uncanny_valley).
 
 AI didn't introduce non-determinism in software development.
 It's always been there.
@@ -90,7 +91,7 @@ In [Will GenAI Take Our Jobs?](https://jhumelsine.github.io/2024/09/18/llm-genai
 I used accountans and spreadsheets as an example:
 >Spreadsheets removed accounting toil. How many professional accountants do you think are still in business who never learned to use Spreadsheets?
 
-Writing good code was never about who could type the fastest.
+Writing good code was never about how fast you could type.
 Writing good code was about understanding the [Domain](https://jhumelsine.github.io/2026/04/23/career.html#domain) and creating a good design that solves problems within that domain.
 
 A good design makes code trivial.
