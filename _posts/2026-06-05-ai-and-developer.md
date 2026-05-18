@@ -5,17 +5,16 @@ unlisted: true
 ---
 
 # Introduction
-Right now the greatest disruptive technology is Generative AI.
+The greatest disruptive technology these days is Generative AI.
 Those who learn how to leverage it will have an advantage over those who do not.
 
 I have no business writing this blog.
-
-I have limited experience with Generative AI.
+I only have limited experience with Generative AI.
 ChatGPT was released upon the world a few months before I retired.
 In that short period of time, it's flooded the Software Engineering community.
-Many companies have made drastic cuts across the board to be filled by AI, as can be seen in headlines like these: [**Block lays off nearly half its staff because of AI. Its CEO said most companies will do the same**](https://www.cnn.com/2026/02/26/business/block-layoffs-ai-jack-dorsey).
+Many companies have made drastic cuts across the board due to AI, as can be seen in headlines like these: [**Block lays off nearly half its staff because of AI. Its CEO said most companies will do the same**](https://www.cnn.com/2026/02/26/business/block-layoffs-ai-jack-dorsey).
 
-I think this may be shortsighted.
+I think this is shortsighted.
 The reports of the software engineering's death is greatly exaggerated.
 
 # Toil
@@ -29,21 +28,27 @@ I spent my entire 38 year career writing code by hand.
 I was skilled.
 Nineteenth century blacksmiths were also skilled, but the industrial revolution made their services redundant.
 There are still blacksmiths.
-Most do it for a hobby or to well their wares at craft fairs, but the village blacksmith is a profession of the past.
+Most do it for a hobby or to sell their wares at craft fairs, but the village blacksmith is a profession of the past.
 
 Many other professions were elimiated during the industrial revolution with textile workers being one of the first, which led to the [Luddites](https://en.wikipedia.org/wiki/Luddite) movement.
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Jacquard.loom.cards.jpg" title="Image Source: https://commons.wikimedia.org/wiki/File:Jacquard.loom.cards.jpg" alt="Jacquard loom" width = "25%" align="left" style="padding-right: 20px;">
 
 The first programmed machines first appered in the textile industry.
-Patterned designs could be added to cloth with the [Jacquard machine](https://en.wikipedia.org/wiki/Jacquard_machine), which used punched cards, which evolved into the types of punch cards I used during my first two years in college.
+Patterned designs could be added to cloth with a [Jacquard machine](https://en.wikipedia.org/wiki/Jacquard_machine), which used punched cards.
+This technology evolved into punch cards, which I used during my first two years in college.
 
 Computers have eleminated may jobs.
+Any work that can be automated will be automated.
 Switchboard operators are gone.
 Bank tellers and movie ticket takers are fading.
 
 Our profession contributed to that.
 And now we are in the crosshairs.
+AI can generate code faster than people.
+
+People will still write code by hand, but like current day blacksmiths probably more as a hobby or as an artisan.
+Not as many software developers will be paid in the same way that I was paid.
 
 In a rapidly shifting landscape, you either evolve to meet new circumstances or become obsolete.
 Do not become obsolete.
@@ -75,6 +80,30 @@ I feels a bit like the [Uncanny Valley=](https://en.wikipedia.org/wiki/Uncanny_v
 
 AI didn't introduce non-determinism in software development.
 It's always been there.
+
+# We're Not Dead Yet
+<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExazNmaGpiZDB2OWZwMngwcXRwZjQxOTBvYTVnYXRtaTBqcW9mcWx4YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ZErfXKEMifIifbFM7c/giphy.gif" alt="We're not dead yet" title="Image Source: https://giphy.com/gifs/goodnightsunrise-not-dead-yet-werenotdeadyet-were-ZErfXKEMifIifbFM7c" width = "30%" align="right" style="padding: 20px;">
+
+In [Will GenAI Take Our Jobs?](https://jhumelsine.github.io/2024/09/18/llm-genai.html#will-genai-take-our-jobs) I mused whether AI would take our jobs:
+>While GenAI won’t take all our jobs, it will change the nature of many jobs. Those who know how to leverage GenAI will take the jobs of those who do not. Those who learn how to harness GenAI, especially as it improves, will remove much toil from their lives.
+
+I used accountans and spreadsheets as an example:
+>Spreadsheets removed accounting toil. How many professional accountants do you think are still in business who never learned to use Spreadsheets?
+
+Writing good code was never about who could type the fastest.
+Writing good code was about understanding the [Domain](https://jhumelsine.github.io/2026/04/23/career.html#domain) and creating a good design that solves problems within that domain.
+
+A good design makes code trivial.
+I first mentioned this in an early [The Big Wheel Keeps on Turning](https://jhumelsine.github.io/2023/08/28/wheels.html), an early [Design Patterns](https://jhumelsine.github.io/table-of-contents#design-patterns-and-architecture) blog entry with:
+>Though design patterns are very flexible, they are also based upon well-defined structures that encourage a modular design and separation of concerns. I know this sounds cliché, but once I’m satisfied with a design, my code often writes itself and it tends to just work. Difficult or stubborn bugs decreased significantly for me once I started to incorporate design patterns.
+
+Though it sounds a bit pretentious, writing code from a good design felt a bit like the [Scribbling and Bibbling](https://www.youtube.com/watch?v=qzY2IeoveHw&t=100s) scene from _Amadeus_.
+Let the AI do the _scribbling and bibbling_.
+
+AI won't create a good design by default.
+It will need to be nudged by software engineers.
+
+This along with other judgement calls is where software engineers will still add value.
 
 # Context Window
 
