@@ -41,6 +41,8 @@ I will update resources on this page as I learn of new resources.
 
 # The Modern Learning Landscape
 Academia usually defines the courses for your major, determines the content and assigns the learning resources.
+You're told what to learn and in what order.
+
 After graduation, you're on your own.
 This is both liberating and a bit daunting.
 
@@ -51,7 +53,7 @@ The sheer volume of information can feel overwhelming.
 
 At the risk of being Captain Obvious, the first stop in finding information about a new topic is the internet.
 
-Fortunately the internet is filled with educational resources.
+The internet is filled with educational resources.
 Most are free or reasonably priced.
 
 Your favorite search engine will return more references than you can possibly consume.
@@ -60,8 +62,8 @@ Someone, somewhere has certainly created a page, blog, article, course, presenta
 [Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) can create a learning plan for almost any topic tailored to your specific needs.
 
 # What to Learn
-Follow your curiosity.
-Learn something to fill a gap in your career.
+Follow your curiosity, or learn something to fill a gap in your career.
+Ideally the same topic can do both.
 
 Regardless, choose something that interests you.
 Most learning will be on your own time.
@@ -90,8 +92,8 @@ Real understanding comes from applying what you've learned:
 * Refactor code
 * Experiment
 * Teach others
-* Present to others
-* Write blogs
+* Present at work sessions or conferences
+* Share what you learn through articles, blogs, videos, etc.
 
 # Reading and Reference Material
 I started my career with Bell Labs in 1985.
@@ -99,7 +101,7 @@ They had an extensive technical library.
 Members of Technical Staff were also allotted a book allowance if we wanted to purchase a book.
 
 Our software builds could take a significant amount of time to complete.
-I often had a 15 or possibly even 30 minute break in my workflow.
+I often had a 15 or possibly even 30 minute break in my workflow while my code compiled.
 I couldn't surf the internet, since it wasn't available yet.
 I often worked my way through technical books several pages at a time while I waited for my code to build.
 
@@ -112,7 +114,7 @@ Their corporate branding usually included a [drawing of an animal](https://www.o
 
 <img src="https://www.oreilly.com/content/wp-content/uploads/sites/2/2019/06/animals-with-faces-b4da60e9a672896d6c1d4f7076ec4448.jpg" alt="A Few O'Reilly Book covers" title="Image Source: https://www.oreilly.com/content/a-short-history-of-the-oreilly-animals/" width = "45%" align="right" style="padding-right: 20px;">
 
-O'Reilly expanded beyond printed books with an online resource found at [oreilly.com](https://www.oreilly.com/).
+O'Reilly expanded beyond printed books with an online resource available at [oreilly.com](https://www.oreilly.com/).
 It hosts thousands of books and videos including titles that were not originally published by O'Reilly.
 It has several other features, such as live webinar sessions.
 It's a great resource, but it's a subscription service.
@@ -120,6 +122,7 @@ It's a great resource, but it's a subscription service.
 Here are a few subscription options:
 * If you're lucky, your employer will provide a subscription. My last employer provided a subscription to all developers for several years, but they have since canceled it.
 * Subscribe yourself from their various [Plans](https://www.oreilly.com/online-learning/pricing.html); however, it's a bit pricey. You can try a [Free 10-Day Trial](https://www.oreilly.com/start-trial/?type=individual) to see if you like it.
+* There's at least one more option coming up shortly within [ACM Digital Library](#acm-digital-library).
 
 ### Skillsoft Percipio
 [Skillsoft Percipio](https://www.skillsoft.com/) is another subscription platform.
@@ -180,7 +183,7 @@ Students learned from each other.
 I was a voracious consumer of courses on [Coursera](https://www.coursera.org/) back then.
 I estimate that I completed more Computer Science courses via Coursera than I did for my Computer Science BS and MS degrees in the early 1980s.
 
-Coursera is where I first learned several data structures that had not been presented in my college courses, such as [Union-Find](https://en.wikipedia.org/wiki/Disjoint-set_data_structure), [A* Search](https://en.wikipedia.org/wiki/A*_search_algorithm), [k-d Trees](https://en.wikipedia.org/wiki/K-d_tree), and [Red-Black Trees](https://algs4.cs.princeton.edu/33balanced/), which are binary search trees that emulate balanced [2-3 Trees](https://en.wikipedia.org/wiki/2%E2%80%933_tree).
+Coursera is where I first learned several data structures that had not been presented in my college courses, such as [Union-Find](https://en.wikipedia.org/wiki/Disjoint-set_data_structure), [A* Search](https://en.wikipedia.org/wiki/A*_search_algorithm), [K-d Trees](https://en.wikipedia.org/wiki/K-d_tree), and [Red-Black Trees](https://algs4.cs.princeton.edu/33balanced/), which are binary search trees that emulate balanced [2-3 Trees](https://en.wikipedia.org/wiki/2%E2%80%933_tree).
 I learned additional algorithm techniques, such as: [Greedy Algorithms](https://en.wikipedia.org/wiki/Greedy_algorithm) and [Dynamic Programming](https://en.wikipedia.org/wiki/Dynamic_programming).
 I learned technology that arose after I had graduated, such as: Python, Computer Networks, Android and Cloud Computing.
 I completed a few courses outside of the traditional software arena, such as: Game Theory, Roman Architecture and the Music of the Beatles.
@@ -208,7 +211,7 @@ It provided more flexibility.
 MOOCs also struggled financially.
 Some platforms offer certifications for a price.
 Some platforms require a subscription or enrollment.
-Some platforms may have an audit feature, which allows you to watch the online content.
+Some platforms may have a no cost audit feature, which allows you to watch the online content for free.
 You won't get any recognition and may not even have access to tests or quizzes.
 The audit option may also be difficult to find, but if you hunt around you may find it.
 
@@ -255,8 +258,8 @@ Here are a few suggestions:
     * [Clean Coders](https://cleancoders.com/library/all) - [Bob Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) produces and sells these sets of videos. Bob's videos cover a wide range of Software Engineering topics. His videos revolutionized how I through about software. Each video is available for purchase for a reasonable price, but there are many videos. Many of his videos are also avaiable on [O'Reilly](#oreilly) which is where I viewed them. I throughly enjoyed Bob's videos, but I feel like I need to provide a few caveats:
         * Bob is a slow talker. I view then at 2x playback speed, and he's completely legible to me.
         * Bob like to inject humor into his videos mostly by dressing up as different recurring characters. This could be off-putting to some, but I felt the humor added some levity.
-        * Bob almost always starts each video with a cold open science lesson often about astronomy that can be five to ten minutes long. In the first few videos, I thought he'd tie it into the rest of the video, but he does not. You can usually jump to the main content and not lose any context.
-        * There are many free videos of Bob online at presentations at converences or at corporate events. He covers many of the same topics, but he's still a slow talker and he often starts with a science lesson. However, I've never seen him dressed up as any of his characters in these settings.
+        * Bob almost always starts each video with a cold open science lesson often about astronomy that can be five to ten minutes long. In the first few videos, I thought he'd tie the introduction into the rest of the video, but he does not. You can usually jump to the main content and not lose any context.
+        * There are many free videos of Bob online at presentations at converences or at corporate events. He covers many of the same topics. He's still a slow talker, and he often starts with a science lesson. However, I've never seen him dressed up as any of his characters in these settings.
     * [Emily Bache](https://www.youtube.com/@EmilyBache-tech-coach) - Bache is the big proponent of [Code Katas](http://codekata.com/). Her videos feature them along with videos to help software leads train their own teams.
     * [Coding Blocks](https://www.youtube.com/@codingblocks) - The Coding Blocks YouTube channel is all about bringing you tutorials, tips, how to's and best practices on working your way to being the best programmer or software developer you can be.
     * [Code Aesthetic](https://www.youtube.com/@CodeAesthetic) - There are only a few videos, but they cover some interesting Software Engineering topics.
@@ -265,7 +268,7 @@ Here are a few suggestions:
     * [Alistair Cockburn](https://www.youtube.com/@totheralistair) - Cockburn was one of the original [Agile Manifesto](https://agilemanifesto.org/) coauthor, and he developed [Hexagonal Architecture](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html). His channel is an eclectic set of videos.
     * [Alpha Code](https://www.youtube.com/@AlphaCode8/videos) - This excellent Domain-Driven Design series halted abruptly and incomplete about seven years ago. I hate to mention it, but it feels as if the creator died unexpectedly.
 * Computer Science and Theory:
-    * [Tim Roughgarden Lectures](https://www.youtube.com/@timroughgardenlectures1861) - [Tim Roughgarden](https://timroughgarden.org/) is a published computer science professor. Roughgarden presents what I feel are algorithm patterns, which can be applied repeatedly to solve different problems. Some of these patterns include Divide-and-Conquer/Recursion, Greedy Algorithms, Probabilistic Algorithms and Dynamic Programming. Roughgarden is an enthusiastic presenter with a bit of whimsy, but the content is not for the faint of heart.
+    * [Tim Roughgarden Lectures](https://www.youtube.com/@timroughgardenlectures1861) - [Tim Roughgarden](https://timroughgarden.org/) is a published computer science professor. Roughgarden presents what I describe as algorithmic patterns, which can be applied repeatedly to solve different problems. Some of these patterns include Divide-and-Conquer/Recursion, Greedy Algorithms, Probabilistic Algorithms and Dynamic Programming. Roughgarden is an enthusiastic presenter with a bit of whimsy, but the content is not for the faint of heart.
     * [Reducible](https://www.youtube.com/@Reducible) - This channel is all about animating Computer Science concepts in a fun, interactive, and intuitive manner.
     * [Easy Theory](https://www.youtube.com/@EasyTheory) - This is a channel about making Computer Science theory as easy as possible, so it's more about Computer Science and less about Software Engineering.
 * Technology-Specific: 
@@ -283,22 +286,24 @@ In-person conferences allow you to see presentations in person and make connecti
 
 I only attended one professional conference in my career: [O'Reilly Software Architecture Conference 2016 - New York, New York](https://www.oreilly.com/videos/oreilly-software-architecture/9781491944615/).
 It was my first serious exposure to [Microservices](https://www.oreilly.com/content/a-quick-and-simple-definition-of-microservices/) where the concept started to click for me.
+___Microservices___ was the buzzword of the day just as ___Object-Oriented___ had been a buzzword several decades ago and ___LLMs/Generative-AI/AI-Agents/Etc___ are the buzzwords today.
 
-After a few mentions, I started to keep count of the number of times that [Conway's Law](https://en.wikipedia.org/wiki/Conway%27s_law) was mentioned at talks I attended.
+I kept count of the number of times that [Conway's Law](https://en.wikipedia.org/wiki/Conway%27s_law) was mentioned at talks I attended.
 I think it was six or seven.
 
-One of the great hidden resources on the internet is the enormous archive of conference presentations available for free on YouTube and Vimeo.
+One of the great resources on the internet is the enormous archive of conference presentations available for free on YouTube and Vimeo.
 
 You can watch talks from internationally recognized software engineers that previously required expensive travel and conference admission.
 
 I often watch online videos at a faster playback speed.
-This is particularly useful when I am already somewhat comfortable with the content, or the speaker is a slow-talker.
+This is particularly useful when I am already somewhat comfortable with the content, or the speaker is a slow-talker like Bob Martin.
 
 Don’t just consume conference talks endlessly.
 Pick one idea and try applying it.
 Pause the video and take notes.
+Rewind and watch again if a comment doesn't quite click.
 Discuss the topic with coworkers.
-Can you aggregate the ideas of several conference talks into your own presentation?
+Consider aggregating the ideas of several conference talks into your own presentation.
 
 Here are some conference resources:
 * General Software Engineering:
@@ -353,7 +358,7 @@ Here are some I follow:
     * [Technology Podcast](https://www.thoughtworks.com/en-us/insights/podcasts/technology-podcasts) - Conversations about the latest technical ideas in the industry from Thoughtworks.
     * [Smart Talks with IBM](https://www.ibm.com/think/podcasts/smart-talks) - Cutting edge work at IBM or an extended commercial.
 * Software Craftsmanship:
-    * [Still Burning](https://stillburningpodcast.com/) - Honest conversations about fear, uncertainty, and what it means to build things when the ground keeps shifting as a result of AI. Hosted by [Kent Beck](https://en.wikipedia.org/wiki/Kent_Beck), Original [Agile Manifesto](https://agilemanifesto.org/) coauthor, [TDD](https://jhumelsine.github.io/2024/07/15/tdd.html) and [XP](https://en.wikipedia.org/wiki/Extreme_programming) creator/innovator, 
+    * [Still Burning](https://stillburningpodcast.com/) - Honest conversations about fear, uncertainty, and what it means to build things when the ground keeps shifting as a result of AI. Hosted by [Kent Beck](https://en.wikipedia.org/wiki/Kent_Beck), Original [Agile Manifesto](https://agilemanifesto.org/) coauthor, [TDD](https://jhumelsine.github.io/2024/07/15/tdd.html) and [XP](https://en.wikipedia.org/wiki/Extreme_programming) creator/innovator.
     * [Coding Blocks](https://www.codingblocks.net/) - Conversational style among three software developer friends and coworkers. They retired the podcast a couple years ago, but several of us on their [Slack](https://www.codingblocks.net/slack/) group are doing a relisten. Best for: developers who enjoy conversational deep dives into engineering practices.
     * [Tabs and Spaces](https://open.spotify.com/show/05xweMLT3cConDizrKFIgR) - The British version of Coding Blocks. The podcast has also been retired. I was a guest on three episodes. Links to these podcast episodes and my other guest appearances can be found at [Guest Appearances](https://jhumelsine.github.io/about#other-appearances).
     * [Clean Coders](https://podcasts.apple.com/us/podcast/clean-coders-podcast/id1497337173) - General industry discussion.
@@ -362,7 +367,7 @@ Here are some I follow:
 * Technical Leadership:
     * [Level-Up Engineering](https://www.apexlab.io/podcast/1/) - Interview formatted podcast about the industry. Each episode has a great landing page.
 * Legacy Code/Testing:
-    * [Legacy Code Rocks!](https://www.legacycode.rocks/) - Interview formatted podcast focusing upon legacy code. Best for: engineers working in large existing systems rather than greenfield startups. I was a guest in [Economics of Technical Debt with Jim Humelsine](https://podcasts.apple.com/us/podcast/economics-of-technical-debt-with-jim-humelsine/id1146634772?i=1000523667734), where we discussed why legacy code is inevitable.
+    * [Legacy Code Rocks!](https://www.legacycode.rocks/) - Interview formatted podcast focusing upon legacy code. Best for: engineers working in large existing systems rather than greenfield startups. I was a guest in [Economics of Technical Debt with Jim Humelsine](https://podcasts.apple.com/us/podcast/economics-of-technical-debt-with-jim-humelsine/id1146634772?i=1000523667734), where we discussed why legacy code is inevitable unless additional efforts are taken to address it.
  
 ## Webinars
 * [ACM](https://learning.acm.org/techtalks) - Regular presentations provided by the ACM. Membership not required.
