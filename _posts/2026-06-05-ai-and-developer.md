@@ -15,18 +15,15 @@ In that short period of time, it's flooded the Software Engineering community.
 Many companies have made drastic cuts across the board due to AI, as can be seen in headlines like these: [**Block lays off nearly half its staff because of AI. Its CEO said most companies will do the same**](https://www.cnn.com/2026/02/26/business/block-layoffs-ai-jack-dorsey).
 
 I think this is shortsighted.
-The reports of the software engineering's death is greatly exaggerated.
 
 # Toil
 Humans have been using technology for millenia to elimiate toil.
 
 **Writing code by hand has become toil.**
 
-<img src="https://live.staticflickr.com/2758/4154904299_c33828173d_h.jpg" title="Image Source: https://www.flickr.com/photos/ironrodart/4154904299" alt="Switch Board Operators" width = "35%" align="right" style="padding-right: 20px;">
-
 I spent my entire 38 year career writing code by hand.
 I was skilled.
-Nineteenth century blacksmiths were also skilled, but the industrial revolution made their services redundant.
+Nineteenth century blacksmiths were also skilled, but the industrial revolution rendered their services obsolete.
 There are still blacksmiths.
 Most do it as a hobby or to sell their wares at craft fairs, but the village blacksmith is a profession of the past.
 
@@ -34,17 +31,19 @@ Many other professions were elimiated during the industrial revolution with text
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Jacquard.loom.cards.jpg" title="Image Source: https://commons.wikimedia.org/wiki/File:Jacquard.loom.cards.jpg" alt="Jacquard loom" width = "30%" align="left" style="padding-right: 20px;">
 
-The first programmed machines first appered in the textile industry.
-Patterned designs could be added to cloth with a [Jacquard machine](https://en.wikipedia.org/wiki/Jacquard_machine), which used punched cards.
+The first programmed machines appered in the textile industry.
+Woven patterns could be added to cloth with punch cards with a [Jacquard machine](https://en.wikipedia.org/wiki/Jacquard_machine).
 This technology evolved into the punch cards I used during my first two years in college.
 
-Computers have eleminated may jobs.
+<img src="https://live.staticflickr.com/2758/4154904299_c33828173d_h.jpg" title="Image Source: https://www.flickr.com/photos/ironrodart/4154904299" alt="Switch Board Operators" width = "35%" align="right" style="padding-left: 20px;">
+
+Computers have eleminated many jobs.
 Any work that can be automated will be automated.
 Switchboard operators are gone.
 Bank tellers and movie ticket takers are fading.
 
-Our profession contributed to that.
-And now we are in the crosshairs.
+The computer industry contributed to that.
+And now software developers are in the crosshairs.
 AI can generate code faster than people, but it also tends to generate a lot of slop too.
 
 People will still write code by hand, but like current day blacksmiths probably more as a hobby or as an artisan.
@@ -58,26 +57,26 @@ Adapt or die.
 In [Computer Science Problems](https://jhumelsine.github.io/2026/02/11/computer-science-software-engineering.html#computer-science-problems), I wrote:
 >Each additional layer on the tech stack is for the benefit of humans, not the computer. The computer is just as content to execute machine code written by a human as it is to execute machine code generated from a compiler from source code written by a human.
 
-Generative AI is adding another layer moving us yet further away from bare metal.
+Generative AI is adding another layer to the tech stack and moving us one more step away from bare metal.
 
-I'm hearing this claim: **This time it's different. The previous tech stack was deterministic. AI is not deterministic.**
+Some are shouting that it's not the same as before: **This time it's different. The previous tech stack was deterministic. AI is not deterministic.**
 
 I used to have the same opinion, but I saw a social media post a few weeks ago that changed my mind.
 Unfortunately, I don't have a reference to it, but I can paraphrase it:
 >We have always had non-determinism. Human developers have always been non-deterministic.
 
 It took a little while for that to sink in.
-While we think of the transition/translation between layers of the tech stack is deterministic, and once implemented, it is deterministic, the process of defining the tech stack and implementing the tech stack is not deterministic.
+While we think of the translation between layers of the tech stack is deterministic, and once implemented, it is deterministic, the process of defining the tech stack and implementing the tech stack is not deterministic.
 
-If we were to give the same specification to several different teams, we'd have an equal number of completely different designs and implementations.
+If the same specification were given to several different teams, we'd have an equal number of completely different designs and implementations.
 
 We're okay with people being non-deterministic in designing and writing code, but we're uncomfortable when AI does it.
 
 It's akin to self-driving cars.
 When a self-driving car causes a fatality, it's a failure of technology.
 When a human driver causes a fatility, it's a tragic accident.
-We will gladly place blame on technology when we would not accept the blame for our own actions.
-I feels a bit like the [Uncanny Valley](https://en.wikipedia.org/wiki/Uncanny_valley).
+We demand perfection from technology when we do not demand it from ourselves.
+It feels a bit like the [Uncanny Valley](https://en.wikipedia.org/wiki/Uncanny_valley).
 
 AI didn't introduce non-determinism in software development.
 It's always been there.
@@ -101,10 +100,19 @@ I first mentioned this in an early [The Big Wheel Keeps on Turning](https://jhum
 Though it sounds a bit pretentious, writing code from a good design felt a bit like the [Scribbling and Bibbling](https://www.youtube.com/watch?v=qzY2IeoveHw&t=100s) scene from _Amadeus_.
 Let the AI do the _scribbling and bibbling_.
 
+I've spent the past three years documenting software ideas that I learned during my career in this blog.
+Has it all been in vain?
+Is AI making the practices I've been writing about obsolete?
+
+I don't think so.
+If anything, I think the practices in my blog may be even more important than ever.
+
 AI won't create a good design by default.
 It will need to be nudged by software engineers.
 
 This along with other judgement calls is where software engineers will still add value.
+
+The reports of the software engineering's death is greatly exaggerated.
 
 # Context Window
 
