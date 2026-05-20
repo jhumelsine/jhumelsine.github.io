@@ -92,7 +92,7 @@ Real understanding comes from applying what you've learned:
 * Refactor code
 * Experiment
 * Teach others
-* Present at work sessions or conferences
+* Present what you learn at work sessions, such as lunch-and-learn, or conferences
 * Share what you learn through articles, blogs, videos, etc.
 
 # Reading and Reference Material
@@ -115,18 +115,18 @@ Their corporate branding usually included a [drawing of an animal](https://www.o
 <img src="https://www.oreilly.com/content/wp-content/uploads/sites/2/2019/06/animals-with-faces-b4da60e9a672896d6c1d4f7076ec4448.jpg" alt="A Few O'Reilly Book covers" title="Image Source: https://www.oreilly.com/content/a-short-history-of-the-oreilly-animals/" width = "45%" align="right" style="padding-right: 20px;">
 
 O'Reilly expanded beyond printed books with an online resource available at [oreilly.com](https://www.oreilly.com/).
-It hosts thousands of books and videos including titles that were not originally published by O'Reilly.
+It hosts thousands of books and videos including titles from publishers other than O'Reilly.
 It has several other features, such as live webinar sessions.
 It's a great resource, but it's a subscription service.
 
 Here are a few subscription options:
 * If you're lucky, your employer will provide a subscription. My last employer provided a subscription to all developers for several years, but they have since canceled it.
 * Subscribe yourself from their various [Plans](https://www.oreilly.com/online-learning/pricing.html); however, it's a bit pricey. You can try a [Free 10-Day Trial](https://www.oreilly.com/start-trial/?type=individual) to see if you like it.
-* There's at least one more option coming up shortly within [ACM Digital Library](#acm-digital-library).
+* There's at least one more option coming up shortly within the [ACM Digital Library](#acm-digital-library) section.
 
 ### Skillsoft Percipio
 [Skillsoft Percipio](https://www.skillsoft.com/) is another subscription platform.
-In addition to thousands of books and videos, they also purchased [Codeacademy](https://www.codecademy.com/)
+In addition to thousands of books and videos, they also include [Codeacademy](https://www.codecademy.com/) through an acquisition.
 
 The subscription rate is less than O'Reilly.
 
@@ -135,7 +135,7 @@ The [Association for Computing Machinery](https://www.acm.org/) (ACM) opened the
 This resource is more academic than O'Reilly or Skillsoft Percipio, but there is no subscription fee.
 Here's a query that returns [my letters to the editor](https://dl.acm.org/action/doSearch?AllField=Humelsine) for their monthly journal.
 
-Consider joining the [ACM](https://www.acm.org/) and sign up for their [Skills Bundle Add-On](https://learning.acm.org/skills-bundle), which includes a partial O'Reilly subscription plan along with a [Skillsoft Percipio](https://www.skillsoft.com/) subscription.
+Consider joining the [ACM](https://www.acm.org/) and sign up for their [Skills Bundle Add-On](https://learning.acm.org/skills-bundle), which includes a partial O'Reilly subscription plan along with a Skillsoft Percipio subscription.
 Annual ACM membership and the Skills Bundle total price is still a fraction of the annual subscription price for O'Reilly and Skillsoft Percipio on their own.
 See: [About ACM E-Learning Offerings](https://learning.acm.org/e-learning). 
 
@@ -145,8 +145,7 @@ The Bundle used to include [Pluralsight](https://www.pluralsight.com/), but as o
 See: [ACM membership benefits](https://www.acm.org/membership/membership-benefits)
 
 ## Blogs and Articles
-Technical books tend to be hundreds of pages long.
-You don't need to read an entire book.
+Technical books tend to be hundreds of pages long, and you may not have the time or desire to read an entire book.
 This is where blogs and articles can be useful.
 
 Many software professionals share their experience and knowledge via blogs and articles.
@@ -169,8 +168,8 @@ Better yet, you can take almost any course you want, possibly for free, and not 
 ## MOOCs
 [Massive Open Online Courses](https://en.wikipedia.org/wiki/Massive_open_online_course) (MOOCs) were all the rage about fifteen years ago.
 They started when Stanford opened an AI course online for free, but without credit.
-About 100,000 people signed up.
-Academia saw online students as a means to educate those who could not easily receive a first class education, such as: those who couldn't afford it, those who couldn't dedicate a lot of time toward it or those were not did not live near a university.
+Over 100,000 people signed up.
+Academia saw online access as a means to educate those who could not easily receive a first class education, such as: those who couldn't afford it, those who couldn't dedicate a lot of time toward it or those were not did not live near a university.
 Students only needed a device, such as a smartphone or PC and an internet connection.
 
 Courses were mostly an online version of the in-class university courses.
@@ -183,9 +182,9 @@ Students learned from each other.
 I was a voracious consumer of courses on [Coursera](https://www.coursera.org/) back then.
 I estimate that I completed more Computer Science courses via Coursera than I did for my Computer Science BS and MS degrees in the early 1980s.
 
-Coursera is where I first learned several data structures that had not been presented in my college courses, such as [Union-Find](https://en.wikipedia.org/wiki/Disjoint-set_data_structure), [A* Search](https://en.wikipedia.org/wiki/A*_search_algorithm), [K-d Trees](https://en.wikipedia.org/wiki/K-d_tree), and [Red-Black Trees](https://algs4.cs.princeton.edu/33balanced/), which are binary search trees that emulate balanced [2-3 Trees](https://en.wikipedia.org/wiki/2%E2%80%933_tree).
-I learned additional algorithm techniques, such as: [Greedy Algorithms](https://en.wikipedia.org/wiki/Greedy_algorithm) and [Dynamic Programming](https://en.wikipedia.org/wiki/Dynamic_programming).
-I learned technology that arose after I had graduated, such as: Python, Computer Networks, Android and Cloud Computing.
+Coursera is where I first learned several data structures that had not been presented in my college courses, such as [Union-Find](https://en.wikipedia.org/wiki/Disjoint-set_data_structure), [A* Search](https://en.wikipedia.org/wiki/A*_search_algorithm), [K-d Trees](https://en.wikipedia.org/wiki/K-d_tree), and [Red-Black Trees](https://algs4.cs.princeton.edu/33balanced/).
+I learned additional algorithmic techniques, such as: [Greedy Algorithms](https://en.wikipedia.org/wiki/Greedy_algorithm) and [Dynamic Programming](https://en.wikipedia.org/wiki/Dynamic_programming).
+I learned technology that arose after in the decades after I had graduated, such as: Python, Computer Networks, Android and Cloud Computing.
 I completed a few courses outside of the traditional software arena, such as: Game Theory, Roman Architecture and the Music of the Beatles.
 
 But the MOOCs weren't fulfilling their original promise in educating those out of reach of traditional academia.
@@ -206,12 +205,12 @@ A new session for each block started monthly.
 
 Student professionals could complete a course sequentially, or complete it in phases, especially if taking a break for family or business obligations.
 It's akin to a full-time student who completes a degree in four years versus a student who takes a few gap semesters to travel or work.
-It provided more flexibility.
+The new Coursera model provided more flexibility.
 
 MOOCs also struggled financially.
 Some platforms offer certifications for a price.
 Some platforms require a subscription or enrollment.
-Some platforms may have a no cost audit feature, which allows you to watch the online content for free.
+However, some platforms may have a no cost audit feature, which allows you to watch the online content for free.
 You won't get any recognition and may not even have access to tests or quizzes.
 The audit option may also be difficult to find, but if you hunt around you may find it.
 
@@ -255,10 +254,10 @@ Many conferences have a video channel posting their content as well.
 Here are a few suggestions:
 * Software Engineering Practice:
     * [Modern Software Engineering Channel](https://www.youtube.com/@ModernSoftwareEngineeringYT) - [Dave Farley](https://www.davefarley.net/?page_id=2) started this channel early during COVID lockdown. It quickly became popular. Each week a new 15-20 minute video is posted about a Software Engineering topic. The videos introduce topics without getting too deep in the weeds. Dave has invited additional noted presenters. Videos about similar topics have been organized into [Playlists](https://www.youtube.com/@ModernSoftwareEngineeringYT/playlists).
-    * [Clean Coders](https://cleancoders.com/library/all) - [Bob Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) produces and sells these sets of videos. Bob's videos cover a wide range of Software Engineering topics. His videos revolutionized how I through about software. Each video is available for purchase for a reasonable price, but there are many videos. Many of his videos are also avaiable on [O'Reilly](#oreilly) which is where I viewed them. I throughly enjoyed Bob's videos, but I feel like I need to provide a few caveats:
+    * [Clean Coders](https://cleancoders.com/library/all) - [Bob Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) produces and sells these sets of videos. Bob's videos cover a wide range of Software Engineering topics. His videos revolutionized how I through about software. Each video is available for purchase for a reasonable price, but there are many videos so consuming the entire set could become expensive. Much of Bob's content, videos and books, are also avaiable on [O'Reilly](#oreilly) which is where I viewed them. I throughly enjoyed Bob's videos, but I feel like I need to provide a few caveats:
         * Bob is a slow talker. I view then at 2x playback speed, and he's completely legible to me.
-        * Bob like to inject humor into his videos mostly by dressing up as different recurring characters. This could be off-putting to some, but I felt the humor added some levity.
-        * Bob almost always starts each video with a cold open science lesson often about astronomy that can be five to ten minutes long. In the first few videos, I thought he'd tie the introduction into the rest of the video, but he does not. You can usually jump to the main content and not lose any context.
+        * Bob likes to inject humor into his videos mostly by dressing up as different recurring characters. This could be off-putting to some, but I felt the humor added some levity and kept me engaged.
+        * Bob almost always starts each video with a cold open science lesson often about astronomy that can be five to ten minutes long. In the first few videos I watched, I thought he'd tie the introduction into the rest of the video, but he does not. You can usually jump to the main content and not lose any context.
         * There are many free videos of Bob online at presentations at converences or at corporate events. He covers many of the same topics. He's still a slow talker, and he often starts with a science lesson. However, I've never seen him dressed up as any of his characters in these settings.
     * [Emily Bache](https://www.youtube.com/@EmilyBache-tech-coach) - Bache is the big proponent of [Code Katas](http://codekata.com/). Her videos feature them along with videos to help software leads train their own teams.
     * [Coding Blocks](https://www.youtube.com/@codingblocks) - The Coding Blocks YouTube channel is all about bringing you tutorials, tips, how to's and best practices on working your way to being the best programmer or software developer you can be.
@@ -268,7 +267,7 @@ Here are a few suggestions:
     * [Alistair Cockburn](https://www.youtube.com/@totheralistair) - Cockburn was one of the original [Agile Manifesto](https://agilemanifesto.org/) coauthor, and he developed [Hexagonal Architecture](https://jhumelsine.github.io/2023/10/24/hexagonal-architecture-introduction.html). His channel is an eclectic set of videos.
     * [Alpha Code](https://www.youtube.com/@AlphaCode8/videos) - This excellent Domain-Driven Design series halted abruptly and incomplete about seven years ago. I hate to mention it, but it feels as if the creator died unexpectedly.
 * Computer Science and Theory:
-    * [Tim Roughgarden Lectures](https://www.youtube.com/@timroughgardenlectures1861) - [Tim Roughgarden](https://timroughgarden.org/) is a published computer science professor. Roughgarden presents what I describe as algorithmic patterns, which can be applied repeatedly to solve different problems. Some of these patterns include Divide-and-Conquer/Recursion, Greedy Algorithms, Probabilistic Algorithms and Dynamic Programming. Roughgarden is an enthusiastic presenter with a bit of whimsy, but the content is not for the faint of heart.
+    * [Tim Roughgarden Lectures](https://www.youtube.com/@timroughgardenlectures1861) - [Tim Roughgarden](https://timroughgarden.org/) is a published computer science professor. Roughgarden presents what I describe as algorithmic patterns, which can be applied repeatedly to solve different problems. Some of these patterns include Divide-and-Conquer/Recursion, Greedy Algorithms, Probabilistic Algorithms and Dynamic Programming. Roughgarden is an enthusiastic presenter with a bit of whimsy, but the content is not for the faint of heart. He rigorously proves all patterns and algorithms he presents.
     * [Reducible](https://www.youtube.com/@Reducible) - This channel is all about animating Computer Science concepts in a fun, interactive, and intuitive manner.
     * [Easy Theory](https://www.youtube.com/@EasyTheory) - This is a channel about making Computer Science theory as easy as possible, so it's more about Computer Science and less about Software Engineering.
 * Technology-Specific: 
@@ -288,10 +287,7 @@ I only attended one professional conference in my career: [O'Reilly Software Arc
 It was my first serious exposure to [Microservices](https://www.oreilly.com/content/a-quick-and-simple-definition-of-microservices/) where the concept started to click for me.
 ___Microservices___ was the buzzword of the day just as ___Object-Oriented___ had been a buzzword several decades ago and ___LLMs/Generative-AI/AI-Agents/Etc___ are the buzzwords today.
 
-I kept count of the number of times that [Conway's Law](https://en.wikipedia.org/wiki/Conway%27s_law) was mentioned at talks I attended.
-I think it was six or seven.
-
-One of the great resources on the internet is the enormous archive of conference presentations available for free on YouTube and Vimeo.
+The internet is the enormous archive of conference presentations available for free on YouTube and Vimeo.
 
 You can watch talks from internationally recognized software engineers that previously required expensive travel and conference admission.
 
@@ -307,7 +303,7 @@ Consider aggregating the ideas of several conference talks into your own present
 
 Here are some conference resources:
 * General Software Engineering:
-    * [O'Reilly Conference Playlists](https://www.youtube.com/@oreilly/playlists) - This is part of O'Reilly Publishing
+    * [O'Reilly Conference Playlists](https://www.youtube.com/@oreilly/playlists) - This is part of O'Reilly.
     * [GOTO Conference Homepage](https://gotopia.tech/) and [Playlists](https://www.youtube.com/user/GotoConferences/playlists) - GOTO is a set of mostly European based tech conferences.
     * [YOW! Conference Homepage](https://yowcon.com/) and [YOW! Playlists](https://www.youtube.com/@GOTO-/playlists) (NOTE: The YOW! Playlists seem to be a subset of the GOTO Playlists) - YOW! is a set of conferences Australian based conferences.
     * [InfoQ Homepage](https://www.infoq.com/) and [InfoQ Conference Videos](https://www.youtube.com/@QConferences/videos) - Helps software development teams adopt new trends and technologies with conferences in NYC, SF and worldwide.
@@ -317,7 +313,7 @@ Here are some conference resources:
 *  Agile, Testing and Craftsmanship:
     * [XP Days Playlists](https://www.youtube.com/user/lumii1983/playlists) - XP Days is a set of eastern European based conferences. Most are in English, but there are many in Russian as well.
     * [The Legacy of SoCraTes Playlist](https://www.youtube.com/@TheLegacyofSoCraTes/playlists) - A remote conference on the ever-important topic of Legacy Code. Watch interactive talks on this topic delivered by passionate and knowledgeable software professionals. SoCraTes stands for SOftware, CRAft and TESting. I was a presenter several years ago with [Hexagonal Architecture & Legacy Code](https://www.youtube.com/watch?v=aayl6FysZ_U).
-    * [Mendercon Homepage](https://mendercon.com/) and [Mendercon Playlists](https://www.youtube.com/@mendercon/playlists) - Celebrates what makes us different from other software developers. Our event is different because we celebrate fixing bugs, rejoice in testing, and get giddy about legacy code.
+    * [Mendercon Homepage](https://mendercon.com/) and [Mendercon Playlists](https://www.youtube.com/@mendercon/playlists) - Celebrates what makes Mendors different from Makers. The event is different because they celebrate fixing bugs, rejoice in testing, and get giddy about legacy code.
 * API and  Platform Focused:
     * [Nordic APIs Conference Homepage](https://nordicapis.com/) and [Nordic APIs Playlists](https://www.youtube.com/user/nordicapis/playlists) - Nordic API is a set of Swedish based conferences that focus upon APIs.
     * [DEVOXX Conference Homepage](https://www.devoxx.com/#/) and [Playlists](https://www.youtube.com/channel/UCCBVCTuk6uJrN3iFV_3vurg/playlists) - [Devoxx](https://en.wikipedia.org/wiki/Devoxx) is a series of tech events organized by local community groups.
@@ -341,7 +337,7 @@ I rarely listen to podcasts at normal speed.
 Faster playback can dramatically increase how much material you can cover during commutes or exercise.
 
 Podcasts appeal to audio learners.
-Listening to hosts in your ears creates parasocial connection with the hosts.
+Listening to podcast hosts in your ears creates parasocial connection with them.
 I have even become internet friends with several podcast hosts through their social media channels, Zoom calls, etc.
 
 Podcasts allow conversations to wander in productive ways.
@@ -374,7 +370,9 @@ Here are some I follow:
 * [O'Reilly](https://www.oreilly.com/webcasts/) - There doesn't seem to be any recent webinars but previous ones are available.
 
 ## Online Communities via Slack, Discord, etc.
-Share your experiences and learn from others. Here are a few Software Engineering social media groups I'm a member of along with my user name:
+Share your experiences and learn from others.
+Develop and build relationships.
+Here are a few Software Engineering social media groups I'm a member of along with my user name:
 * [Coding Blocks Slack](https://www.codingblocks.net/slack/): **Design Pattern Evangelist (Jim)**
 * [Legacy Code Rocks! Slack](http://slack.legacycode.rocks/): **Jim Humelsine**
 * [We Do TDD Slack](http://wedotdd.slack.com): **Jim Humelsine**
@@ -384,7 +382,7 @@ Share your experiences and learn from others. Here are a few Software Engineerin
 ## Social Media
 Social media can be good resources, but they can also be cesspools.
 Some platforms let you create lists of accounts you follow.
-I have found that these lists tend to have little or no additional content inserted in these feeds.
+I have found that these lists tend to have little or no unwanted content inserted in these feeds.
 You mostly see only what you want to see.
 
 While curated lists filter content, they cannot filter what's posted by those you follow.
