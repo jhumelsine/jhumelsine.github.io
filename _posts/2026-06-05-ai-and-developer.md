@@ -37,7 +37,7 @@ This technology evolved into the punch cards I used during my first two years in
 
 <img src="https://live.staticflickr.com/2758/4154904299_c33828173d_h.jpg" title="Image Source: https://www.flickr.com/photos/ironrodart/4154904299" alt="Switch Board Operators" width = "35%" align="right" style="padding-left: 20px;">
 
-Computers have eleminated many jobs.
+Computers have eliminated many jobs.
 Any work that can be automated will be automated.
 Switchboard operators are gone.
 Bank tellers and movie ticket takers are fading.
@@ -100,6 +100,7 @@ I first mentioned this in an early [The Big Wheel Keeps on Turning](https://jhum
 Though it sounds a bit pretentious, writing code from a good design felt a bit like the [Scribbling and Bibbling](https://www.youtube.com/watch?v=qzY2IeoveHw&t=100s) scene from _Amadeus_.
 Let the AI do the _scribbling and bibbling_.
 
+# Has It All Been In Vain?
 I've spent the past three years documenting software ideas that I learned during my career in this blog.
 Has it all been in vain?
 Is AI making the practices I've been writing about obsolete?
@@ -115,6 +116,30 @@ This along with other judgement calls is where software engineers will still add
 The reports of the software engineering's death is greatly exaggerated.
 
 # Context Window
+LLMs are amazing.
+I know there's no real thought process within them, but they certainly present the illusion of thought.
+
+With all of their training, they have one limitation.
+They know everything and nothing at the same time.
+Their responses only make sense within the context of the current task, which is their [context window](https://en.wikipedia.org/wiki/Context_window).
+It's their working memory.
+
+Context windows may be large, but they are finite.
+When context is at capacity, you don't know what important knowledge will be jettisoned to make room for new context being added.
+
+It may remove some of its constraints about how to design and implement code.
+It may remove domain knowledge.
+It may remove design and implementation knowledge.
+It won't remember what it forgot.
+
+This is highligted in [**Coding Is Dead, Long Live Programming**](https://ian-cooper.writeas.com/coding-is-dead-long-live-programming).
+
+It's similar to attention spans in people, but there are differences.
+Short term memory is humans is limited to about [Seven Chunks](https://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two).
+Context will eventually fade.
+But we forget something, we tend to remember that we knew it at one point, and we know that we may need to refresh our memories.
+
+When AI forgets something from its context window, it's pretty much gone.
 
 # AI is a Tool
 Generative AI is a tool.
@@ -140,7 +165,19 @@ Two kinds of concerns for developers
 
 The first concern may not be as critical as before ... or maybe it's even more critical.
 
-## Vibe Coding
+# Constraints
+LLMs know programming languages and syntax, but they don't necessarily know how to design it well.
+
+Without any constraints, it's as likely to design and implement a [Big Ball of Mud](https://blog.codinghorror.com/the-big-ball-of-mud-and-other-architectural-disasters/) as it is to design and implement a modular design.
+
+It mostly spits out code based upon its repository accessible training data.
+It's mirroring back to us the kind of code people have posted.
+People post bad code.
+
+We can ...
+
+
+# Vibe Coding
 The term [Vibe Coding](https://en.wikipedia.org/wiki/Vibe_coding) entered the lexicon a little more than a year ago, but it took off like wildfire.
 
 Describe what you want from the LLM, and let it create the code for you.
@@ -185,13 +222,6 @@ Personal Project
 Probably not Production
 
 ## Boilerplate Coding
-
-# Context Window
-Generative AI has limited context.
-It tends to have a short attention span.
-When context is at capacity, you don't know what important knowledge will be jettisoned to make room for new context being added.
-
-This is highligted in [**Coding Is Dead, Long Live Programming**](https://ian-cooper.writeas.com/coding-is-dead-long-live-programming).
 
 ### Partner Coding
 Cleaner code => fewer tokens. Reference: https://beyond.minimumcd.org/docs/agentic-cd/operations/tokenomics/
