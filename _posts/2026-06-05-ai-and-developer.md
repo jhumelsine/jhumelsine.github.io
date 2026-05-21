@@ -35,7 +35,7 @@ The goal has always been [solving problems](https://jhumelsine.github.io/2023/08
 
 Humans have been using technology for millennia to eliminate toil.
 
-Writing code by hand is becoming toil.
+**Writing code by hand is becoming toil.**
 
 I spent my entire 38-year career writing code by hand.
 I was skilled.
@@ -53,7 +53,7 @@ Textile workers were among the first, leading to the [Luddite](https://en.wikipe
 One of the earliest programmable machines appeared in the textile industry.
 The [Jacquard machine](https://en.wikipedia.org/wiki/Jacquard_machine) used punch cards to control woven patterns in cloth.
 
-That technology eventually evolved into the punch cards I used during my first two years in college.
+That technology eventually evolved into the punch cards I used in my progrmming assignments during my first two years in college.
 
 Computers eliminated many forms of labor.
 Switchboard operators disappeared.
@@ -79,7 +79,7 @@ In [Computer Science Problems](https://jhumelsine.github.io/2026/02/11/computer-
 
 Generative AI is adding yet another abstraction layer to the technology stack.
 
-Some people argue that this time is different because previous abstractions were deterministic while AI is not deterministic.
+Some argue that this time is different because previous abstractions were deterministic while AI is not deterministic.
 
 I used to agree with that argument.
 
@@ -96,8 +96,7 @@ Give the same requirements to five different teams and you will likely receive f
 
 Humans have always introduced ambiguity, interpretation, tradeoffs, assumptions, and inconsistency into software development.
 
-We are comfortable when humans are non-deterministic.
-We become uncomfortable when AI is non-deterministic.
+We tolerate humans are non-deterministic; however, we become uncomfortable when AI is non-deterministic.
 
 It reminds me somewhat of self-driving cars.
 
@@ -136,9 +135,7 @@ That changed how I viewed software development entirely.
 
 By the end of my career, I probably spent 75% of my time thinking and only 25% typing.
 
-The real work was never typing syntax.
-
-The real work was:
+The real work was never typing syntax. The real work was:
 - understanding domains,
 - understanding constraints,
 - organizing systems,
@@ -154,12 +151,11 @@ It took me years to realize that knowing how to program and knowing how to desig
 
 For much of my early career, I knew the rules of programming languages, but I did not yet understand the wisdom of how to organize software.
 
-It is similar to chess.
+It is [similar to chess](https://jhumelsine.github.io/2023/08/24/its-your-move.html).
 
-The rules of chess fit on a single sheet of paper.
-The strategy and tactics fill shelf upon shelf of books.
+The rules of chess fit on a single sheet of paper yet its strategies and tactics fill shelf upon shelf of books.
 
-Eventually I learned Design Patterns and software architecture principles.
+Eventually I learned [Design Patterns and software architecture principles](https://jhumelsine.github.io/table-of-contents#design-patterns-and-architecture).
 Once those concepts clicked in my head, I realized I had been approaching software incorrectly for years.
 
 The difference became obvious during one particular feature I designed shortly afterward.
@@ -168,7 +164,6 @@ The product architect completely respecified the feature between releases.
 It was almost a 180-degree shift in direction.
 
 I reviewed my UML design and realized something important.
-
 Some parts of the design could simply be discarded.
 Other parts represented reusable infrastructure and remained completely intact.
 
@@ -177,9 +172,7 @@ I designed new classes implementing the revised behavior and plugged them into t
 If I had not invested effort into modularity and separation of concerns, the feature likely would have required a complete redesign and reimplementation from scratch.
 
 That was the moment I truly understood the value of architecture.
-
 Software engineering is not just about building systems that work.
-
 It is about building systems that can survive change.
 
 AI already knows most programming languages better than I do.
@@ -188,12 +181,10 @@ It can generate boilerplate in seconds.
 It rarely forgets API details.
 It can refactor tirelessly.
 
-AI has knowledge.
-
-But knowledge is not the same thing as wisdom.
+AI has knowledge, but knowledge is not the same thing as wisdom.
 
 AI knows the rules of programming.
-It does not necessarily understand the strategy and tactics of good software design.
+It does not necessarily understand the strategies and tactics of good software design.
 
 # AI as an Infinite Junior Developer
 
@@ -210,12 +201,10 @@ The engineer will:
 - and ensure that generated systems remain aligned with the actual customer problem.
 
 In many ways, AI resembles an infinitely energetic junior developer.
-
 It is fast.
 It is knowledgeable.
 It is tireless.
 It can produce enormous amounts of code.
-
 But it does not necessarily possess judgment, experience, or practical wisdom.
 
 AI already knows about:
@@ -231,15 +220,12 @@ AI already knows about:
 because those concepts exist within its training data.
 
 But AI does not automatically know which of those constraints matter for a particular system unless humans specify them.
-
 The problem may not be that AI lacks software engineering knowledge.
-
 The problem may be that junior developers do not yet know enough to guide AI effectively.
 
 # Architecture Is About Change
 
 One of my concerns with AI-generated software is not whether it can solve the immediate problem.
-
 It usually can.
 
 My concern is whether the design remains flexible as we learn more about the real problem through user feedback.
@@ -250,9 +236,7 @@ We do not want the user to say:
 only to have the AI regenerate the entire codebase from scratch.
 
 Architecture is fundamentally about controlling change.
-
 Good modular design allows systems to evolve safely and incrementally.
-
 A well-designed system allows behavior to change while stable infrastructure remains intact.
 
 That matters even more in an AI-driven world.
@@ -282,22 +266,19 @@ I actually think AI may dramatically improve feedback loops.
 During the Waterfall era, we often spent months attempting to fully understand requirements before users ever saw working software.
 
 AI changes that dynamic.
-
 We can now rapidly generate prototypes and place them directly in front of users for feedback.
-
 That feedback is incredibly valuable.
 
 However, I do not think prototypes should automatically become production systems.
-
 The prototype validates ideas.
 The production system must survive change.
 
 I am also not convinced that "Vibe Coding" was the best term.
 
+<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWhxZjlldzdlZXpiNDQ4Z25pdmlueWt3Nm9wMW9ydmNjZWt4MHljOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fSGqUm3IcVBESFM0hK/giphy.gif" alt="Monkey Paw" title="Image Source: https://giphy.com/gifs/leroypatterson-wish-monkey-paw-fSGqUm3IcVBESFM0hK" width = "30%" align="right" style="padding: 20px;">
+
 Perhaps "Monkey Paw Coding" would have been more accurate.
-
 The AI often gives you exactly what you asked for, but not necessarily what you intended.
-
 Natural language is full of ambiguity.
 
 Human requirements have always been ambiguous.
@@ -308,8 +289,7 @@ AI simply amplifies that ambiguity at machine speed.
 I absolutely believe future software engineers will spend less time programming and more time specifying intent.
 
 Programming itself was never the point.
-
-Solving customer problems was always the point.
+[Solving customer problems](https://jhumelsine.github.io/2023/08/26/problem-solvers.html) was always the point.
 
 Software engineers solve customer problems with software.
 It does not fundamentally matter whether humans write the code by hand or AI generates it.
@@ -347,19 +327,15 @@ Historically, many developers learned through:
 AI increasingly automates many of those activities.
 
 That creates an uncomfortable question:
-
-How do future senior engineers emerge?
+_How do future senior engineers emerge?_
 
 Senior engineers eventually retire, move into management, or leave the industry.
 
 If younger developers never gain enough experience to develop architectural judgment and engineering wisdom, we may eventually create a deficit of human knowledge within the industry.
 
 Computer Science graduates do not need to become experts in every topic they study.
-
 Most software developers will never personally design CPUs, compilers, operating systems, or networking protocols.
-
 But understanding those concepts still matters.
-
 The computer is not a mysterious black box even if we do not understand every implementation detail.
 
 I suspect future software engineers may need fewer low-level implementation skills than previous generations.
@@ -368,9 +344,7 @@ But they will still need enough understanding to guide AI systems intelligently.
 # We Need an AI-Native Engineering Process
 
 I do not think AI replaces Software Engineering processes.
-
 If anything, I think it increases the need for them.
-
 We likely need to evolve software development processes specifically for AI-assisted development.
 
 Many of those ideas may resemble practices we already use:
@@ -383,9 +357,7 @@ Many of those ideas may resemble practices we already use:
 - and separation of concerns.
 
 But AI introduces new challenges.
-
 AI can generate code faster than humans can realistically review line by line.
-
 That changes the nature of validation.
 
 Future engineering processes may rely more heavily upon:
@@ -400,21 +372,17 @@ Humans and AI need to work together.
 
 I think companies making drastic layoffs under the assumption that AI alone can replace software engineers are making a mistake.
 
-AI can generate software.
-
-But humans still define what "good" means.
+AI can generate software, but humans still define what "good" means.
 
 # We're Not Dead Yet
+<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExazNmaGpiZDB2OWZwMngwcXRwZjQxOTBvYTVnYXRtaTBqcW9mcWx4YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ZErfXKEMifIifbFM7c/giphy.gif" alt="We're not dead yet" title="Image Source: https://giphy.com/gifs/goodnightsunrise-not-dead-yet-werenotdeadyet-were-ZErfXKEMifIifbFM7c" width = "30%" align="right" style="padding: 20px;">
 
-The software industry is not ending.
-
-But the nature of software engineering is changing.
+The software industry is not ending, but the nature of software engineering is changing.
 
 For decades we manually translated ideas into code.
 Generative AI increasingly performs much of that translation for us.
 
 That does not eliminate the need for software engineers.
-
 If anything, it increases the importance of:
 - understanding systems,
 - managing complexity,
@@ -427,180 +395,11 @@ Programming was never fundamentally about typing code.
 It was always about understanding problems and building systems that continue serving people as the world changes around them.
 
 The tools are changing.
-
 The mission is not.
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-# Determinism
-In [Computer Science Problems](https://jhumelsine.github.io/2026/02/11/computer-science-software-engineering.html#computer-science-problems), I wrote:
->Each additional layer on the tech stack is for the benefit of humans, not the computer. The computer is just as content to execute machine code written by a human as it is to execute machine code generated from a compiler from source code written by a human.
 
-Generative AI is adding another layer to the tech stack and moving us one more step away from bare metal.
-
-Some are shouting that it's not the same as before: **This time it's different. The previous tech stack was deterministic. AI is not deterministic.**
-
-I used to have the same opinion, but I saw a social media post a few weeks ago that changed my mind.
-Unfortunately, I don't have a reference to it, but I can paraphrase it:
->We have always had non-determinism. Human developers have always been non-deterministic.
-
-It took a little while for that to sink in.
-While we think of the translation between layers of the tech stack is deterministic, and once implemented, it is deterministic, the process of defining the tech stack and implementing the tech stack is not deterministic.
-
-If the same specification were given to several different teams, we'd have an equal number of completely different designs and implementations.
-
-We're okay with people being non-deterministic in designing and writing code, but we're uncomfortable when AI does it.
-
-It's akin to self-driving cars.
-When a self-driving car causes a fatality, it's a failure of technology.
-When a human driver causes a fatility, it's a tragic accident.
-We demand perfection from technology when we do not demand it from ourselves.
-It feels a bit like the [Uncanny Valley](https://en.wikipedia.org/wiki/Uncanny_valley).
-
-AI didn't introduce non-determinism in software development.
-It's always been there.
-
-# We're Not Dead Yet
-<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExazNmaGpiZDB2OWZwMngwcXRwZjQxOTBvYTVnYXRtaTBqcW9mcWx4YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ZErfXKEMifIifbFM7c/giphy.gif" alt="We're not dead yet" title="Image Source: https://giphy.com/gifs/goodnightsunrise-not-dead-yet-werenotdeadyet-were-ZErfXKEMifIifbFM7c" width = "30%" align="right" style="padding: 20px;">
-
-In [Will GenAI Take Our Jobs?](https://jhumelsine.github.io/2024/09/18/llm-genai.html#will-genai-take-our-jobs) I mused whether AI would take our jobs:
->While GenAI won’t take all our jobs, it will change the nature of many jobs. Those who know how to leverage GenAI will take the jobs of those who do not. Those who learn how to harness GenAI, especially as it improves, will remove much toil from their lives.
-
-I used accountans and spreadsheets as an example:
->Spreadsheets removed accounting toil. How many professional accountants do you think are still in business who never learned to use Spreadsheets?
-
-Writing good code was never about how fast you could type.
-Writing good code was about understanding the [Domain](https://jhumelsine.github.io/2026/04/23/career.html#domain) and creating a good design that solves problems within that domain.
-
-A good design makes code trivial.
-I first mentioned this in an early [The Big Wheel Keeps on Turning](https://jhumelsine.github.io/2023/08/28/wheels.html), an early [Design Patterns](https://jhumelsine.github.io/table-of-contents#design-patterns-and-architecture) blog entry with:
->Though design patterns are very flexible, they are also based upon well-defined structures that encourage a modular design and separation of concerns. I know this sounds cliché, but once I’m satisfied with a design, my code often writes itself and it tends to just work. Difficult or stubborn bugs decreased significantly for me once I started to incorporate design patterns.
-
-Though it sounds a bit pretentious, writing code from a good design felt a bit like the [Scribbling and Bibbling](https://www.youtube.com/watch?v=qzY2IeoveHw&t=100s) scene from _Amadeus_.
-Let the AI do the _scribbling and bibbling_.
-
-# Has It All Been In Vain?
-I've spent the past three years documenting software ideas that I learned during my career in this blog.
-Has it all been in vain?
-Is AI making the practices I've been writing about obsolete?
-
-I don't think so.
-If anything, I think the practices in my blog may be even more important than ever.
-
-AI won't create a good design by default.
-It will need to be nudged by software engineers.
-
-This along with other judgement calls is where software engineers will still add value.
-
-The reports of the software engineering's death is greatly exaggerated.
-
-# Context Window
-LLMs are amazing.
-I know there's no real thought process within them, but they certainly present the illusion of thought.
-
-With all of their training, they have one limitation.
-They know everything and nothing at the same time.
-Their responses only make sense within the context of the current task, which is their [context window](https://en.wikipedia.org/wiki/Context_window).
-It's their working memory.
-
-Context windows may be large, but they are finite.
-When context is at capacity, you don't know what important knowledge will be jettisoned to make room for new context being added.
-
-It may remove some of its constraints about how to design and implement code.
-It may remove domain knowledge.
-It may remove design and implementation knowledge.
-It won't remember what it forgot.
-
-This is highligted in [**Coding Is Dead, Long Live Programming**](https://ian-cooper.writeas.com/coding-is-dead-long-live-programming).
-
-It's similar to attention spans in people, but there are differences.
-Short term memory is humans is limited to about [Seven Chunks](https://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two).
-Context will eventually fade.
-But we forget something, we tend to remember that we knew it at one point, and we know that we may need to refresh our memories.
-
-When AI forgets something from its context window, it's pretty much gone.
-
-# AI is a Tool
-Generative AI is a tool.
-It's a force multiplier.
-Generative AI will make good software engineers better and bad software engineers worse.
-A power saw in the hands of skilled crafters allows them to build cabinets quicker.
-A power saw in the hands of knuckheads allows them to saw their thumbs off quicker.
-
-This isn't too different from what I described in [Prompt Engineering Patterns](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html) and [Prompt Engineering Patterns Continued](https://jhumelsine.github.io/2024/10/18/prompt-engineering-patterns2.html), except that I didn't provide an examples that generated code.
-
-I dabbled in code generating a few months ago during the most recent [Advent of Code](https://adventofcode.com/) challenges.
-After I had spent several hours solving a challenge by hand, I copied the challenge description directly from the Advent page into ChatGPT and asked it to solve the problem in Java, which I then executed.
-In many cases it returned the expected answer on the first try.
-I won't say it was demoralizing that AI created a program that solve the problem in a matter of seconds rather than the hours it took me, but it did highlight how far Generative AI has come in just a few years since I retired.
-
-I'm not sure if I'm disappointed that I'm missing this paradigm shift in the profession or grateful that I'm mostly able to avoid it.
-
-Let's examine several ways to leverage Generative AI.
-
-Two kinds of concerns for developers
-* Those who care about the clarity and structure of the code.
-* Those who care about delivering something to the customer/user as quickly as possible.
-
-The first concern may not be as critical as before ... or maybe it's even more critical.
-
-# Constraints
-LLMs know programming languages and syntax, but they don't necessarily know how to design it well.
-
-Without any constraints, it's as likely to design and implement a [Big Ball of Mud](https://blog.codinghorror.com/the-big-ball-of-mud-and-other-architectural-disasters/) as it is to design and implement a modular design.
-
-It mostly spits out code based upon its repository accessible training data.
-It's mirroring back to us the kind of code people have posted.
-People post bad code.
-
-We can ...
-
-
-# Vibe Coding
-The term [Vibe Coding](https://en.wikipedia.org/wiki/Vibe_coding) entered the lexicon a little more than a year ago, but it took off like wildfire.
-
-Describe what you want from the LLM, and let it create the code for you.
-
-Do we even need software developers anymore?
-Let the Product Managers vibe the code by talking to the AI and telling it what they want.
-This is basically what I did with my Advent example above.
-
-"There is a new programming language—it's called Human." — Jensen Huang, Nvidia CEO
-
-"From one gut feeling I derive much consolation: I suspect that machines to be programmed in our native tongues... are as damned difficult to make as they would be to use." — Edsger W. Dijkstra
-
-<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWhxZjlldzdlZXpiNDQ4Z25pdmlueWt3Nm9wMW9ydmNjZWt4MHljOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fSGqUm3IcVBESFM0hK/giphy.gif" alt="Monkey Paw" title="Image Source: https://giphy.com/gifs/leroypatterson-wish-monkey-paw-fSGqUm3IcVBESFM0hK" width = "30%" align="right" style="padding: 20px;">
-
-I'm not sure that ___Vibe Coding___ was the correct term.
-I think that maybe ___Monkey Paw Coding___ may have been more accurate.
-The AI will give you want you asked for, but it may not be exactly what you wanted.
-
-A [Saturday Night Live sketch](https://www.instagram.com/reel/C8xj8C1y7n1/) from the 1984 illustrates this.
-In the sketch takes place at the retirement party for Ray the manager of a nuclear reactor.
-His crew is slightly concerned that they'll have to monitor the nuclear reactor without him.
-
-Ray reassures them that they'll be fine.
-As he leaves he tells them there's only one thing they have to worry about: ___You can't put too much water into a nuclear reactor.___
-
-One of the technicians walks to the control panel and is asked what she's doing.
-She's putting more water in the nuclear reactor ... to top it off.
-She interprets Ray's final instruction along the lines of: _You can't be too rich or too thin._
-So go ahead and add more water. 
-
-Her coworker thinks she's out of her mind.
-He interprets Ray's final instruction as: __You can't put too much water into a nuclear reactor, because it will cause it to melt down._
-
-The ambiguity is the humor mechanism for the rest of the sketch.
-
-But what if a Product Manager were vibe coding a nuclear reactor with: ___You can't put too much water into a nuclear reactor___?
-
-Prototype
-
-Personal Project
-
-Probably not Production
-
-## Boilerplate Coding
 
 ### Partner Coding
 Cleaner code => fewer tokens. Reference: https://beyond.minimumcd.org/docs/agentic-cd/operations/tokenomics/
@@ -764,3 +563,130 @@ However, this does introduce some degree of duplication risk. Different Bounded 
 If one creates an army of agents, how do they communicate? I don't think it would be wise for agents to know about another. However, I could see them sharing artifacts. For example, the code generated by developer agents as output could be the input to the mutation testing agent. It feels cleaner, and all artifacts would be viewable for human confirmation too.
 
 I've also heard of prompts along the lines of: Write code like Kent Beck.
+
+# We're Not Dead Yet
+
+In [Will GenAI Take Our Jobs?](https://jhumelsine.github.io/2024/09/18/llm-genai.html#will-genai-take-our-jobs) I mused whether AI would take our jobs:
+>While GenAI won’t take all our jobs, it will change the nature of many jobs. Those who know how to leverage GenAI will take the jobs of those who do not. Those who learn how to harness GenAI, especially as it improves, will remove much toil from their lives.
+
+I used accountans and spreadsheets as an example:
+>Spreadsheets removed accounting toil. How many professional accountants do you think are still in business who never learned to use Spreadsheets?
+
+Writing good code was never about how fast you could type.
+Writing good code was about understanding the [Domain](https://jhumelsine.github.io/2026/04/23/career.html#domain) and creating a good design that solves problems within that domain.
+
+A good design makes code trivial.
+I first mentioned this in an early [The Big Wheel Keeps on Turning](https://jhumelsine.github.io/2023/08/28/wheels.html), an early [Design Patterns](https://jhumelsine.github.io/table-of-contents#design-patterns-and-architecture) blog entry with:
+>Though design patterns are very flexible, they are also based upon well-defined structures that encourage a modular design and separation of concerns. I know this sounds cliché, but once I’m satisfied with a design, my code often writes itself and it tends to just work. Difficult or stubborn bugs decreased significantly for me once I started to incorporate design patterns.
+
+Though it sounds a bit pretentious, writing code from a good design felt a bit like the [Scribbling and Bibbling](https://www.youtube.com/watch?v=qzY2IeoveHw&t=100s) scene from _Amadeus_.
+Let the AI do the _scribbling and bibbling_.
+
+# Has It All Been In Vain?
+I've spent the past three years documenting software ideas that I learned during my career in this blog.
+Has it all been in vain?
+Is AI making the practices I've been writing about obsolete?
+
+I don't think so.
+If anything, I think the practices in my blog may be even more important than ever.
+
+AI won't create a good design by default.
+It will need to be nudged by software engineers.
+
+This along with other judgement calls is where software engineers will still add value.
+
+The reports of the software engineering's death is greatly exaggerated.
+
+# Context Window
+LLMs are amazing.
+I know there's no real thought process within them, but they certainly present the illusion of thought.
+
+With all of their training, they have one limitation.
+They know everything and nothing at the same time.
+Their responses only make sense within the context of the current task, which is their [context window](https://en.wikipedia.org/wiki/Context_window).
+It's their working memory.
+
+Context windows may be large, but they are finite.
+When context is at capacity, you don't know what important knowledge will be jettisoned to make room for new context being added.
+
+It may remove some of its constraints about how to design and implement code.
+It may remove domain knowledge.
+It may remove design and implementation knowledge.
+It won't remember what it forgot.
+
+This is highligted in [**Coding Is Dead, Long Live Programming**](https://ian-cooper.writeas.com/coding-is-dead-long-live-programming).
+
+It's similar to attention spans in people, but there are differences.
+Short term memory is humans is limited to about [Seven Chunks](https://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two).
+Context will eventually fade.
+But we forget something, we tend to remember that we knew it at one point, and we know that we may need to refresh our memories.
+
+When AI forgets something from its context window, it's pretty much gone.
+
+# AI is a Tool
+Generative AI is a tool.
+It's a force multiplier.
+Generative AI will make good software engineers better and bad software engineers worse.
+A power saw in the hands of skilled crafters allows them to build cabinets quicker.
+A power saw in the hands of knuckheads allows them to saw their thumbs off quicker.
+
+This isn't too different from what I described in [Prompt Engineering Patterns](https://jhumelsine.github.io/2024/09/25/prompt-engineering-patterns1.html) and [Prompt Engineering Patterns Continued](https://jhumelsine.github.io/2024/10/18/prompt-engineering-patterns2.html), except that I didn't provide an examples that generated code.
+
+I dabbled in code generating a few months ago during the most recent [Advent of Code](https://adventofcode.com/) challenges.
+After I had spent several hours solving a challenge by hand, I copied the challenge description directly from the Advent page into ChatGPT and asked it to solve the problem in Java, which I then executed.
+In many cases it returned the expected answer on the first try.
+I won't say it was demoralizing that AI created a program that solve the problem in a matter of seconds rather than the hours it took me, but it did highlight how far Generative AI has come in just a few years since I retired.
+
+I'm not sure if I'm disappointed that I'm missing this paradigm shift in the profession or grateful that I'm mostly able to avoid it.
+
+Let's examine several ways to leverage Generative AI.
+
+Two kinds of concerns for developers
+* Those who care about the clarity and structure of the code.
+* Those who care about delivering something to the customer/user as quickly as possible.
+
+The first concern may not be as critical as before ... or maybe it's even more critical.
+
+# Vibe Coding
+The term [Vibe Coding](https://en.wikipedia.org/wiki/Vibe_coding) entered the lexicon a little more than a year ago, but it took off like wildfire.
+
+Describe what you want from the LLM, and let it create the code for you.
+
+Do we even need software developers anymore?
+Let the Product Managers vibe the code by talking to the AI and telling it what they want.
+This is basically what I did with my Advent example above.
+
+"There is a new programming language—it's called Human." — Jensen Huang, Nvidia CEO
+
+"From one gut feeling I derive much consolation: I suspect that machines to be programmed in our native tongues... are as damned difficult to make as they would be to use." — Edsger W. Dijkstra
+
+<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWhxZjlldzdlZXpiNDQ4Z25pdmlueWt3Nm9wMW9ydmNjZWt4MHljOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fSGqUm3IcVBESFM0hK/giphy.gif" alt="Monkey Paw" title="Image Source: https://giphy.com/gifs/leroypatterson-wish-monkey-paw-fSGqUm3IcVBESFM0hK" width = "30%" align="right" style="padding: 20px;">
+
+I'm not sure that ___Vibe Coding___ was the correct term.
+I think that maybe ___Monkey Paw Coding___ may have been more accurate.
+The AI will give you want you asked for, but it may not be exactly what you wanted.
+
+A [Saturday Night Live sketch](https://www.instagram.com/reel/C8xj8C1y7n1/) from the 1984 illustrates this.
+In the sketch takes place at the retirement party for Ray the manager of a nuclear reactor.
+His crew is slightly concerned that they'll have to monitor the nuclear reactor without him.
+
+Ray reassures them that they'll be fine.
+As he leaves he tells them there's only one thing they have to worry about: ___You can't put too much water into a nuclear reactor.___
+
+One of the technicians walks to the control panel and is asked what she's doing.
+She's putting more water in the nuclear reactor ... to top it off.
+She interprets Ray's final instruction along the lines of: _You can't be too rich or too thin._
+So go ahead and add more water. 
+
+Her coworker thinks she's out of her mind.
+He interprets Ray's final instruction as: __You can't put too much water into a nuclear reactor, because it will cause it to melt down._
+
+The ambiguity is the humor mechanism for the rest of the sketch.
+
+But what if a Product Manager were vibe coding a nuclear reactor with: ___You can't put too much water into a nuclear reactor___?
+
+Prototype
+
+Personal Project
+
+Probably not Production
