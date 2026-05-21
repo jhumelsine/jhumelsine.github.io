@@ -7,11 +7,9 @@ unlisted: true
 # Introduction
 
 The greatest disruptive technology these days is Generative AI.
-
 Those who learn how to leverage it will have an advantage over those who do not.
 
 I have no business writing this blog.
-
 I only have limited experience with Generative AI.
 ChatGPT was released upon the world only a few months before I retired.
 In that short period of time, it has flooded the Software Engineering community.
@@ -31,7 +29,7 @@ If anything, it increases the importance of understanding systems, constraints, 
 
 Programming was never the end goal.
 
-The goal has always been solving problems for people.
+The goal has always been [solving problems](https://jhumelsine.github.io/2023/08/26/problem-solvers.html) for people.
 
 # Technology Eliminates Toil
 
@@ -41,11 +39,11 @@ Writing code by hand is becoming toil.
 
 I spent my entire 38-year career writing code by hand.
 I was skilled.
-Nineteenth century blacksmiths were also skilled, but the Industrial Revolution rendered most village blacksmiths obsolete.
+Nineteenth century blacksmiths were also skilled, but the Industrial Revolution rendered village blacksmiths obsolete.
 
 There are still blacksmiths.
 Most now work as artisans, hobbyists, or craftspeople.
-But the village blacksmith as a common profession largely disappeared.
+But the village blacksmith as a common profession disappeared.
 
 Many other professions were transformed or eliminated during the Industrial Revolution.
 Textile workers were among the first, leading to the [Luddite](https://en.wikipedia.org/wiki/Luddite) movement.
@@ -64,7 +62,7 @@ Movie ticket takers faded away.
 
 <img src="https://live.staticflickr.com/2758/4154904299_c33828173d_h.jpg" title="Image Source: https://www.flickr.com/photos/ironrodart/4154904299" alt="Switch Board Operators" width = "35%" align="right" style="padding-left: 20px;">
 
-Ironically, the software industry contributed heavily to automating many other professions.
+The software industry has contributed heavily in automating many other professions.
 
 Now software developers themselves are standing in the crosshairs.
 
@@ -433,55 +431,6 @@ The tools are changing.
 The mission is not.
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-# Introduction
-The greatest disruptive technology these days is Generative AI.
-Those who learn how to leverage it will have an advantage over those who do not.
-
-I have no business writing this blog.
-I only have limited experience with Generative AI.
-ChatGPT was released upon the world a few months before I retired.
-In that short period of time, it's flooded the Software Engineering community.
-Many companies have made drastic cuts across the board due to AI, as can be seen in headlines like these: [**Block lays off nearly half its staff because of AI. Its CEO said most companies will do the same**](https://www.cnn.com/2026/02/26/business/block-layoffs-ai-jack-dorsey).
-
-I think this is shortsighted.
-
-# Toil
-Humans have been using technology for millenia to elimiate toil.
-
-**Writing code by hand has become toil.**
-
-I spent my entire 38 year career writing code by hand.
-I was skilled.
-Nineteenth century blacksmiths were also skilled, but the industrial revolution rendered their services obsolete.
-There are still blacksmiths.
-Most do it as a hobby or to sell their wares at craft fairs, but the village blacksmith is a profession of the past.
-
-Many other professions were elimiated during the industrial revolution with textile workers being one of the first, which led to the [Luddites](https://en.wikipedia.org/wiki/Luddite) movement.
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Jacquard.loom.cards.jpg" title="Image Source: https://commons.wikimedia.org/wiki/File:Jacquard.loom.cards.jpg" alt="Jacquard loom" width = "30%" align="left" style="padding-right: 20px;">
-
-The first programmed machines appered in the textile industry.
-Woven patterns could be added to cloth with punch cards with a [Jacquard machine](https://en.wikipedia.org/wiki/Jacquard_machine).
-This technology evolved into the punch cards I used during my first two years in college.
-
-<img src="https://live.staticflickr.com/2758/4154904299_c33828173d_h.jpg" title="Image Source: https://www.flickr.com/photos/ironrodart/4154904299" alt="Switch Board Operators" width = "35%" align="right" style="padding-left: 20px;">
-
-Computers have eliminated many jobs.
-Any work that can be automated will be automated.
-Switchboard operators are gone.
-Bank tellers and movie ticket takers are fading.
-
-The computer industry contributed to that.
-And now software developers are in the crosshairs.
-AI can generate code faster than people, but it also tends to generate a lot of slop too.
-
-People will still write code by hand, but like current day blacksmiths probably more as a hobby or as an artisan.
-Not as many software developers will be paid in the same way that I was paid during my career.
-
-In a rapidly shifting landscape, you either evolve to meet new circumstances or become obsolete.
-Do not become obsolete.
-Adapt or die.
 
 # Determinism
 In [Computer Science Problems](https://jhumelsine.github.io/2026/02/11/computer-science-software-engineering.html#computer-science-problems), I wrote:
