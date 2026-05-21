@@ -28,7 +28,6 @@ That does not eliminate the need for software engineers.
 If anything, it increases the importance of understanding systems, constraints, architecture, maintainability, and customer problems.
 
 Programming was never the end goal.
-
 The goal has always been [solving problems](https://jhumelsine.github.io/2023/08/26/problem-solvers.html) for people.
 
 # Technology Eliminates Toil
@@ -46,25 +45,21 @@ Most now work as artisans, hobbyists, or craftspeople.
 But the village blacksmith as a common profession disappeared.
 
 Many other professions were transformed or eliminated during the Industrial Revolution.
-Textile workers were among the first, leading to the [Luddite](https://en.wikipedia.org/wiki/Luddite) movement.
+Textile workers were among the first, leading to the [Luddite](https://en.wikipedia.org/wiki/Luddite) revolt.
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Jacquard.loom.cards.jpg" title="Image Source: https://commons.wikimedia.org/wiki/File:Jacquard.loom.cards.jpg" alt="Jacquard loom" width = "30%" align="left" style="padding-right: 20px;">
 
-One of the earliest programmable machines appeared in the textile industry.
+One of the earliest programmable machines appeared in the textile industry as well.
 The [Jacquard machine](https://en.wikipedia.org/wiki/Jacquard_machine) used punch cards to control woven patterns in cloth.
 
-That technology eventually evolved into the punch cards I used in my progrmming assignments during my first two years in college.
-
-Computers eliminated many forms of labor.
+Computers have eliminated many forms of labor.
 Switchboard operators disappeared.
 Bank tellers diminished.
 Movie ticket takers faded away.
 
 <img src="https://live.staticflickr.com/2758/4154904299_c33828173d_h.jpg" title="Image Source: https://www.flickr.com/photos/ironrodart/4154904299" alt="Switch Board Operators" width = "35%" align="right" style="padding-left: 20px;">
 
-The software industry has contributed heavily in automating many other professions.
-
-Now software developers themselves are standing in the crosshairs.
+Like others before them software developers themselves are standing in the crosshairs.
 
 AI can generate code faster than people.
 Sometimes much faster.
@@ -81,9 +76,7 @@ Generative AI is adding yet another abstraction layer to the technology stack.
 
 Some argue that this time is different because previous abstractions were deterministic while AI is not deterministic.
 
-I used to agree with that argument.
-
-Then I encountered a comment online that changed my thinking:
+I used to agree with that argument, then I encountered a comment online that changed my thinking:
 
 > We have always had non-determinism. Human developers have always been non-deterministic.
 
@@ -96,12 +89,10 @@ Give the same requirements to five different teams and you will likely receive f
 
 Humans have always introduced ambiguity, interpretation, tradeoffs, assumptions, and inconsistency into software development.
 
-We tolerate humans are non-deterministic; however, we become uncomfortable when AI is non-deterministic.
+We tolerate non-deterministic humans; however, we become uncomfortable with non-deterministic AI.
 
-It reminds me somewhat of self-driving cars.
-
-When autonomous systems fail, we often view it as a technological failure.
-When humans fail, we often call it an accident.
+When autonomous systems fail, we often view it as a technological failure, such as with self-driving vehicles.
+When humans fail, we often call it an unfortunate or tragic accident.
 
 We demand perfection from technology in ways we rarely demand from ourselves.
 
@@ -110,32 +101,29 @@ It was always there.
 
 # Coding Was Never the Hard Part
 
-For a significant portion of my career, we used the Waterfall Model because it was simply the way software was developed at the time.
+For a significant portion of my career, I used the [Waterfall Model](https://en.wikipedia.org/wiki/Waterfall_model) because it was simply the way software was developed at the time.
 
 We spent enormous amounts of time typing.
 But we were not necessarily typing code.
-
 We typed requirements documents.
 Design documents.
 Specifications.
 Plans.
-
-Much of that documentation became obsolete once implementation actually began.
+And much of that documentation became obsolete once implementation actually began.
 
 The process gave us time to think, which was valuable.
-But we often spent more time thinking about our understanding of the problem than the customer's actual problem.
+But we often spent more time thinking about our understanding of the problem rather than the customer's actual problem.
 
 We lacked tight feedback loops.
 
 Sometimes we built robust systems that solved the wrong problem.
 
-Eventually I started learning more about software design, especially after discovering Design Patterns and architecture principles.
-
+Eventually I started learning more about software design, especially after discovering [Design Patterns and architecture principles](https://jhumelsine.github.io/table-of-contents#design-patterns-and-architecture).
 That changed how I viewed software development entirely.
 
 By the end of my career, I probably spent 75% of my time thinking and only 25% typing.
 
-The real work was never typing syntax. The real work was:
+The real work was never typing code. The real work was:
 - understanding domains,
 - understanding constraints,
 - organizing systems,
@@ -152,7 +140,6 @@ It took me years to realize that knowing how to program and knowing how to desig
 For much of my early career, I knew the rules of programming languages, but I did not yet understand the wisdom of how to organize software.
 
 It is [similar to chess](https://jhumelsine.github.io/2023/08/24/its-your-move.html).
-
 The rules of chess fit on a single sheet of paper yet its strategies and tactics fill shelf upon shelf of books.
 
 Eventually I learned [Design Patterns and software architecture principles](https://jhumelsine.github.io/table-of-contents#design-patterns-and-architecture).
@@ -260,7 +247,6 @@ Describe what you want.
 Let the AI generate the code.
 
 There is certainly value in this approach, especially for experimentation and rapid prototyping.
-
 I actually think AI may dramatically improve feedback loops.
 
 During the Waterfall era, we often spent months attempting to fully understand requirements before users ever saw working software.
@@ -269,7 +255,7 @@ AI changes that dynamic.
 We can now rapidly generate prototypes and place them directly in front of users for feedback.
 That feedback is incredibly valuable.
 
-However, I do not think prototypes should automatically become production systems.
+However, I do not think that vibe coded prototypes should automatically become production systems.
 The prototype validates ideas.
 The production system must survive change.
 
@@ -286,7 +272,7 @@ AI simply amplifies that ambiguity at machine speed.
 
 # Software Engineers as Orchestrators
 
-I absolutely believe future software engineers will spend less time programming and more time specifying intent.
+I believe future software engineers will spend less time programming and more time specifying intent.
 
 Programming itself was never the point.
 [Solving customer problems](https://jhumelsine.github.io/2023/08/26/problem-solvers.html) was always the point.
@@ -330,7 +316,6 @@ That creates an uncomfortable question:
 _How do future senior engineers emerge?_
 
 Senior engineers eventually retire, move into management, or leave the industry.
-
 If younger developers never gain enough experience to develop architectural judgment and engineering wisdom, we may eventually create a deficit of human knowledge within the industry.
 
 Computer Science graduates do not need to become experts in every topic they study.
