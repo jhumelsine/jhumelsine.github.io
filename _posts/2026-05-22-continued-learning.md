@@ -153,7 +153,7 @@ Many software professionals share their experience and knowledge via blogs and a
 Search for almost any software topic on the internet, and it will surely yield many references.
 
 Here are a few:
-* [Design Pattern Evangelist](https://jhumelsine.github.io/) - Always plugging my own blog.
+* [Design Pattern Evangelist](https://jhumelsine.github.io/) - Always plugging my own blog. See: [Table of Contents](https://jhumelsine.github.io/table-of-contents#table-of-contents).
 * [Martin Fowler](https://martinfowler.com/) - Software Engineering influencer. Original [Agile Manifesto](https://agilemanifesto.org/) coauthor. Coined and popularized _Refactoring_. 
 * [O'Reilly Radar](https://www.oreilly.com/radar/)
 * [ACM Queue Blog](https://queue.acm.org/blogs.cfm) and [ACM Queue Articles](https://queue.acm.org/) - These tend to focus more upon practical aspects of the software industry and not so much the academic side of Computer Science.
