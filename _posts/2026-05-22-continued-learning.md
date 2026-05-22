@@ -30,6 +30,7 @@ I will update resources on this page as I learn of new resources.
 * [Structured Learning](#structured-learning)
     * [MOOCs](#moocs)
     * [Corporate Courses](#corporate-courses)
+    * [Coding Challenges](#coding-challenges)
 * [Video-Based Learning](#video-based-learning)
     * [Videos](#videos)
     * [Conferences](#conferences)
@@ -238,6 +239,30 @@ While similar to MOOCs, there are some non-academic course offerings.
 These require a subscription:
 * [Pluralsight](https://www.pluralsight.com/) - An online learning platform and technology workforce development company, offering thousands of expert-led video courses, hands-on labs, and skill assessments in AI, cloud, security, and software development.
 * [Linkedin Learning](https://www.linkedin.com/learning/) - An online educational platform (formerly Lynda.com) that offers over 16,000 expert-led video courses focused on business, technology, and creative skills.
+
+## Coding Challenges
+Learn and practice programming languages, data structures, algorithms and more via coding challenge websites.
+These are platforms that present problems for you to solve.
+Learn by doing.
+
+[Bob Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) has advocated learning a new programing language each year.
+I certainly didn't achive that standard in my career, but I did learn and use multiple programming languages including [C](https://en.wikipedia.org/wiki/C_(programming_language)), [C++](https://en.wikipedia.org/wiki/C%2B%2B), [KornShell](https://en.wikipedia.org/wiki/KornShell) (I knew [Dave Korn](https://en.wikipedia.org/wiki/David_Korn_(computer_scientist)) and worked with him professionally a few times), [AWK](https://en.wikipedia.org/wiki/AWK) a sweet little language every developer should know and [Java](https://www.java.com/en/).
+
+Subsequent languages were easier to learn.
+[BASIC](https://en.wikipedia.org/wiki/BASIC) was my first language and knowing its basic constructs gave me a head start in my Computer Science courses in the early 1980s when I was exposed to the same constructs in other programming languages such as [PL/I](https://en.wikipedia.org/wiki/PL/I) and [Fortran](https://en.wikipedia.org/wiki/Fortran).
+Seeing the same constructs in different languages helped me understand the concept without depending upon its presentation in a specific programming language.
+
+Learning programming languages, data structures and algorithms are not quite as important as they used to be with the recent advent of AI.
+Learning for the sake of learning can still be valuable.
+
+As software developers move more toward AI generated code, then they can still use these coding challenge websites, but instead of writing the code by hand, they can use them to practice and hone their AI skills to generate the code to solve these challenges.
+
+Here are several options:
+* [NeedCode](https://neetcode.io/) - An online platform and YouTube channel designed to help software engineers prepare for technical coding interviews. It provides curated lists of essential algorithmic problems and offers detailed video explanations.
+* [LeetCode](https://leetcode.com/) - An online platform for software engineers to practice coding, improve their grasp of data structures and algorithms, and prepare for technical job interviews.
+* [LearnCPP](https://learncpp.com/) - A free website devoted to teaching you how to program in modern C++.
+* [GetCracked](https://getcracked.io/) - A platform built specifically for quant interviews, powered by real questions, competitive quizzes, relevant coding problems, and guided learning modules built and contributed to by candidates who sat those same rounds.
+* [AdventOfCode](https://adventofcode.com/) - An Advent calendar of small programming puzzles for a variety of skill levels that can be solved in any programming language you like. People use them as interview prep, company training, university coursework, practice problems, a speed contest, or to challenge each other.
 
 # Video-Based Learning
 I am a visual learner.
