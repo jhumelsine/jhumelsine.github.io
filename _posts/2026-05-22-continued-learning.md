@@ -255,7 +255,7 @@ Seeing the same constructs in different languages helped me understand the conce
 Learning programming languages, data structures and algorithms are not quite as important as they used to be with the recent advent of AI.
 Learning for the sake of learning can still be valuable.
 
-As software developers move more toward AI generated code, then they can still use these coding challenge websites, but instead of writing the code by hand, they can use them to practice and hone their AI skills to generate the code to solve these challenges.
+As software developers move more toward AI generated code, then developers can still use these coding challenge websites, but instead of writing the code by hand, they can use them to practice and hone their AI prompting and specification skills to generate the code to solve these challenges.
 
 Here are several options:
 * [NeedCode](https://neetcode.io/) - An online platform and YouTube channel designed to help software engineers prepare for technical coding interviews. It provides curated lists of essential algorithmic problems and offers detailed video explanations.
