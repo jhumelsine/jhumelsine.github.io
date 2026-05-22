@@ -30,7 +30,7 @@ I will update resources on this page as I learn of new resources.
 * [Structured Learning](#structured-learning)
     * [MOOCs](#moocs)
     * [Corporate Courses](#corporate-courses)
-    * [Coding Challenges](#coding-challenges)
+    * [Code Tutorals and Challenges](#code-tutorials-and-challenges)
 * [Video-Based Learning](#video-based-learning)
     * [Videos](#videos)
     * [Conferences](#conferences)
@@ -127,7 +127,7 @@ Here are a few subscription options:
 
 ### Skillsoft Percipio
 [Skillsoft Percipio](https://www.skillsoft.com/) is another subscription platform.
-In addition to thousands of books and videos, they also include [Codeacademy](https://www.codecademy.com/) through an acquisition.
+In addition to thousands of books and videos, they also include [codeacademy](https://www.codecademy.com/) through an acquisition.
 
 The subscription rate is less than O'Reilly.
 
@@ -240,7 +240,7 @@ These require a subscription:
 * [Pluralsight](https://www.pluralsight.com/) - An online learning platform and technology workforce development company, offering thousands of expert-led video courses, hands-on labs, and skill assessments in AI, cloud, security, and software development.
 * [Linkedin Learning](https://www.linkedin.com/learning/) - An online educational platform (formerly Lynda.com) that offers over 16,000 expert-led video courses focused on business, technology, and creative skills.
 
-## Coding Challenges
+## Code Tutorals and Challenges
 Learn and practice programming languages, data structures, algorithms and more via coding challenge websites.
 These are platforms that present problems for you to solve.
 Learn by doing.
@@ -258,8 +258,9 @@ Learning for the sake of learning can still be valuable.
 As software developers move more toward AI generated code, then developers can still use these coding challenge websites, but instead of writing the code by hand, they can use them to practice and hone their AI prompting and specification skills to generate the code to solve these challenges.
 
 Here are several options/ Some are free. Some require a fee or subscription:
-* [NeedCode](https://neetcode.io/) - An online platform and YouTube channel designed to help software engineers prepare for technical coding interviews. It provides curated lists of essential algorithmic problems and offers detailed video explanations.
+* [NeetCode](https://neetcode.io/) - An online platform and YouTube channel designed to help software engineers prepare for technical coding interviews. It provides curated lists of essential algorithmic problems and offers detailed video explanations.
 * [LeetCode](https://leetcode.com/) - An online platform for software engineers to practice coding, improve their grasp of data structures and algorithms, and prepare for technical job interviews.
+* [codeacademy](https://www.codecademy.com/) - A highly interactive online learning platform that teaches programming, data science, cybersecurity, and AI, which might be available via ACM's [e-learning](https://learning.acm.org/e-learning) bundle with Skillsoft Percipio.
 * [LearnCPP](https://learncpp.com/) - A free website devoted to teaching you how to program in modern C++.
 * [GetCracked](https://getcracked.io/) - A platform built specifically for quant interviews, powered by real questions, competitive quizzes, relevant coding problems, and guided learning modules built and contributed to by candidates who sat those same rounds.
 * [AdventOfCode](https://adventofcode.com/) - An Advent calendar of small programming puzzles for a variety of skill levels that can be solved in any programming language you like. People use them as interview prep, company training, university coursework, practice problems, a speed contest, or to challenge each other.
