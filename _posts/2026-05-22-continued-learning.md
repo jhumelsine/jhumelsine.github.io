@@ -30,7 +30,7 @@ I will update resources on this page as I learn of new resources.
 * [Structured Learning](#structured-learning)
     * [MOOCs](#moocs)
     * [Corporate Courses](#corporate-courses)
-    * [Code Tutorals and Challenges](#code-tutorials-and-challenges)
+    * [Code Tutorials and Challenges](#code-tutorials-and-challenges)
 * [Video-Based Learning](#video-based-learning)
     * [Videos](#videos)
     * [Conferences](#conferences)
@@ -240,7 +240,7 @@ These require a subscription:
 * [Pluralsight](https://www.pluralsight.com/) - An online learning platform and technology workforce development company, offering thousands of expert-led video courses, hands-on labs, and skill assessments in AI, cloud, security, and software development.
 * [Linkedin Learning](https://www.linkedin.com/learning/) - An online educational platform (formerly Lynda.com) that offers over 16,000 expert-led video courses focused on business, technology, and creative skills.
 
-## Code Tutorals and Challenges
+## Code Tutorials and Challenges
 Learn and practice programming languages, data structures, algorithms and more via coding challenge websites.
 These are platforms that present problems for you to solve.
 Learn by doing.
