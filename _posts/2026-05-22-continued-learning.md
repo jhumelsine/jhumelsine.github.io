@@ -101,7 +101,7 @@ They had an extensive technical library.
 Members of Technical Staff were also allotted a book allowance if we wanted to purchase a book.
 
 Our software builds could take a significant amount of time to complete.
-I often had a 15 or possibly even 30 minute break in my workflow while my code compiled.
+I often had a 15 or possibly even 30-minute break in my workflow while my code compiled.
 I couldn't surf the internet, since it wasn't available yet.
 I often worked my way through technical books several pages at a time while I waited for my code to build.
 
@@ -169,13 +169,13 @@ Better yet, you can take almost any course you want, possibly for free, and not 
 [Massive Open Online Courses](https://en.wikipedia.org/wiki/Massive_open_online_course) (MOOCs) were all the rage about fifteen years ago.
 They started when Stanford opened an AI course online for free, but without credit.
 Over 100,000 people signed up.
-Academia saw online access as a means to educate those who could not easily receive a first class education, such as: those who couldn't afford it, those who couldn't dedicate a lot of time toward it or those were not did not live near a university.
+Academia saw online access as a means to educate those who could not easily receive a first-class education, such as: those who couldn't afford it, those who couldn't dedicate a lot of time toward it or those were not did not live near a university.
 Students only needed a device, such as a smartphone or PC and an internet connection.
 
 Courses were mostly an online version of the in-class university courses.
 Students watched videos and completed online quizzes and tests.
 Since a session could have tens of thousands of students, it was impossible for the instructor to help students individually.
-Many MOOCs have discussion forums, much like Slack or Teams, where students can post questions or other comments.
+Many MOOCs have discussion forums, like Slack or Teams, where students can post questions or other comments.
 Community TA volunteers and sometimes the instructor would address these posts, but most often, other students would get involved.
 Students learned from each other.
 
@@ -220,7 +220,7 @@ Here are a few MOOC resources:
 * [edX](https://www.edx.org/)
 * [codeacademy](https://www.codecademy.com/) - which might be available via ACM's [e-learning](https://learning.acm.org/e-learning) bundle with Skillsoft Percipio.
 
-Many universities offer on-line courses online as well, some for free:
+Many universities offer online courses as well, some for free:
 * [Harvard University](https://pll.harvard.edu/catalog/free)
 * [Stanford University](https://online.stanford.edu/free-courses)
 * [MIT](https://ocw.mit.edu/) - And specifically [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/)
@@ -245,7 +245,7 @@ These are platforms that present problems for you to solve.
 Learn by doing.
 
 [Bob Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) has advocated learning a new programing language each year.
-I certainly didn't achive that standard in my career, but I did learn and use multiple programming languages including [C](https://en.wikipedia.org/wiki/C_(programming_language)), [C++](https://en.wikipedia.org/wiki/C%2B%2B), [KornShell](https://en.wikipedia.org/wiki/KornShell) (I knew [Dave Korn](https://en.wikipedia.org/wiki/David_Korn_(computer_scientist)) and worked with him professionally a few times), [AWK](https://en.wikipedia.org/wiki/AWK) a sweet little language every developer should know, and [Java](https://www.java.com/en/).
+I certainly didn't achieve that standard in my career, but I did learn and use multiple programming languages including [C](https://en.wikipedia.org/wiki/C_(programming_language)), [C++](https://en.wikipedia.org/wiki/C%2B%2B), [KornShell](https://en.wikipedia.org/wiki/KornShell) (I knew [Dave Korn](https://en.wikipedia.org/wiki/David_Korn_(computer_scientist)) and worked with him professionally a few times), [AWK](https://en.wikipedia.org/wiki/AWK) a sweet little language every developer should know, and [Java](https://www.java.com/en/).
 
 Subsequent languages are easier to learn.
 [BASIC](https://en.wikipedia.org/wiki/BASIC) was my first language and knowing its basic constructs gave me a head start in my Computer Science courses in the early 1980s when I was exposed to the same constructs in other programming languages such as [PL/I](https://en.wikipedia.org/wiki/PL/I) and [Fortran](https://en.wikipedia.org/wiki/Fortran).
@@ -278,12 +278,12 @@ Many conferences have a video channel posting their content as well.
 
 Here are a few suggestions:
 * Software Engineering Practice:
-    * [Modern Software Engineering Channel](https://www.youtube.com/@ModernSoftwareEngineeringYT) - [Dave Farley](https://www.davefarley.net/?page_id=2) started this channel early during COVID lockdown. It quickly became popular. Each week a new 15-20 minute video is posted about a Software Engineering topic. The videos introduce topics without getting too deep in the weeds. Dave has invited additional noted presenters. Videos about similar topics have been organized into [Playlists](https://www.youtube.com/@ModernSoftwareEngineeringYT/playlists).
-    * [Clean Coders](https://cleancoders.com/library/all) - [Bob Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) produces and sells these sets of videos. Bob's videos cover a wide range of Software Engineering topics. His videos revolutionized how I through about software. Each video is available for purchase for a reasonable price, but there are many videos so consuming the entire set could become expensive. Much of Bob's content, videos and books, are also avaiable on [O'Reilly](#oreilly) which is where I viewed them. I throughly enjoyed Bob's videos, but I feel like I need to provide a few caveats:
+    * [Modern Software Engineering Channel](https://www.youtube.com/@ModernSoftwareEngineeringYT) - [Dave Farley](https://www.davefarley.net/?page_id=2) started this channel early during COVID lockdown. It quickly became popular. Each week a new 15-20-minute video is posted about a Software Engineering topic. The videos introduce topics without getting too deep in the weeds. Dave has invited additional noted presenters. Videos about similar topics have been organized into [Playlists](https://www.youtube.com/@ModernSoftwareEngineeringYT/playlists).
+    * [Clean Coders](https://cleancoders.com/library/all) - [Bob Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) produces and sells these sets of videos. Bob's videos cover a wide range of Software Engineering topics. His videos revolutionized how I thought about software. Each video is available for purchase for a reasonable price, but there are many videos so consuming the entire set could become expensive. Much of Bob's content, videos and books, are also available on [O'Reilly](#oreilly) which is where I viewed them. I thoroughly enjoyed Bob's videos, but I feel like I need to provide a few caveats:
         * Bob is a slow talker. I view then at 2x playback speed, and he's completely legible to me.
         * Bob likes to inject humor into his videos mostly by dressing up as different recurring characters. This could be off-putting to some, but I felt the humor added some levity and kept me engaged.
-        * Bob almost always starts each video with a cold open science lesson often about astronomy that can be five to ten minutes long. In the first few videos I watched, I thought he'd tie the introduction into the rest of the video, but he does not. You can usually jump to the main content and not lose any context.
-        * There are many free videos of Bob online at presentations at converences or at corporate events. He covers many of the same topics. He's still a slow talker, and he often starts with a science lesson. However, I've never seen him dressed up as any of his characters in these settings.
+        * Bob almost always starts each video with a cold open science lesson, often about astronomy that can be five to ten minutes long. In the first few videos I watched, I thought he'd tie the introduction into the rest of the video, but he does not. You can usually jump to the main content and not lose any context.
+        * There are many free videos of Bob online at presentations at conferences or at corporate events. He covers many of the same topics. He's still a slow talker, and he often starts with a science lesson. However, I've never seen him dressed up as any of his characters in these settings.
     * [Emily Bache](https://www.youtube.com/@EmilyBache-tech-coach) - Bache is the big proponent of [Code Katas](http://codekata.com/). Her videos feature them along with videos to help software leads train their own teams.
     * [Coding Blocks](https://www.youtube.com/@codingblocks) - The Coding Blocks YouTube channel is all about bringing you tutorials, tips, how to's and best practices on working your way to being the best programmer or software developer you can be.
     * [Code Aesthetic](https://www.youtube.com/@CodeAesthetic) - There are only a few videos, but they cover some interesting Software Engineering topics.
@@ -310,14 +310,14 @@ In-person conferences allow you to see presentations in person and make connecti
 
 I only attended one professional conference in my career: [O'Reilly Software Architecture Conference 2016 - New York, New York](https://www.oreilly.com/videos/oreilly-software-architecture/9781491944615/).
 It was my first serious exposure to [Microservices](https://www.oreilly.com/content/a-quick-and-simple-definition-of-microservices/) where the concept started to click for me.
-___Microservices___ was the buzzword of the day just as ___Object-Oriented___ had been a buzzword several decades ago and ___LLMs/Generative-AI/AI-Agents/Etc___ are the buzzwords today.
+___Microservices___ was the buzzword of the day just as ___Object-Oriented___ had been a buzzword several decades ago and ___LLMs/Generative-AI/AI-Agents/Etc.___ are the buzzwords today.
 
-The internet is the enormous archive of conference presentations available for free on YouTube and Vimeo.
+The internet is an enormous archive of conference presentations available for free on YouTube and Vimeo.
 
 You can watch talks from internationally recognized software engineers that previously required expensive travel and conference admission.
 
 I often watch online videos at a faster playback speed.
-This is particularly useful when I am already somewhat comfortable with the content, or the speaker is a slow-talker like Bob Martin.
+This is particularly useful when I am already somewhat comfortable with the content, or the speaker is a slow talker like Bob Martin.
 
 Don’t just consume conference talks endlessly.
 Pick one idea and try applying it.
@@ -338,7 +338,7 @@ Here are some conference resources:
 *  Agile, Testing and Craftsmanship:
     * [XP Days Playlists](https://www.youtube.com/user/lumii1983/playlists) - XP Days is a set of eastern European based conferences. Most are in English, but there are many in Russian as well.
     * [The Legacy of SoCraTes Playlist](https://www.youtube.com/@TheLegacyofSoCraTes/playlists) - A remote conference on the ever-important topic of Legacy Code. Watch interactive talks on this topic delivered by passionate and knowledgeable software professionals. SoCraTes stands for SOftware, CRAft and TESting. I was a presenter several years ago with [Hexagonal Architecture & Legacy Code](https://www.youtube.com/watch?v=aayl6FysZ_U).
-    * [Mendercon Homepage](https://mendercon.com/) and [Mendercon Playlists](https://www.youtube.com/@mendercon/playlists) - Celebrates what makes Mendors different from Makers. The event is different because they celebrate fixing bugs, rejoice in testing, and get giddy about legacy code.
+    * [Mendercon Homepage](https://mendercon.com/) and [Mendercon Playlists](https://www.youtube.com/@mendercon/playlists) - Celebrates what makes Menders different from Makers. The event is different because they celebrate fixing bugs, rejoice in testing, and get giddy about legacy code.
 * API and  Platform Focused:
     * [Nordic APIs Conference Homepage](https://nordicapis.com/) and [Nordic APIs Playlists](https://www.youtube.com/user/nordicapis/playlists) - Nordic API is a set of Swedish based conferences that focus upon APIs.
     * [DEVOXX Conference Homepage](https://www.devoxx.com/#/) and [Playlists](https://www.youtube.com/channel/UCCBVCTuk6uJrN3iFV_3vurg/playlists) - [Devoxx](https://en.wikipedia.org/wiki/Devoxx) is a series of tech events organized by local community groups.
@@ -379,7 +379,7 @@ Here are some I follow:
     * [Technology Podcast](https://www.thoughtworks.com/en-us/insights/podcasts/technology-podcasts) - Conversations about the latest technical ideas in the industry from Thoughtworks.
     * [Smart Talks with IBM](https://www.ibm.com/think/podcasts/smart-talks) - Cutting edge work at IBM or an extended commercial.
 * Software Craftsmanship:
-    * [Still Burning](https://stillburningpodcast.com/) - Honest conversations about fear, uncertainty, and what it means to build things when the ground keeps shifting as a result of AI. Hosted by [Kent Beck](https://en.wikipedia.org/wiki/Kent_Beck), Original [Agile Manifesto](https://agilemanifesto.org/) coauthor, [TDD](https://jhumelsine.github.io/2024/07/15/tdd.html) and [XP](https://en.wikipedia.org/wiki/Extreme_programming) creator/innovator.
+    * [Still Burning](https://stillburningpodcast.com/) - Honest conversations about fear, uncertainty, and what it means to build things when the ground keeps shifting because of AI. Hosted by [Kent Beck](https://en.wikipedia.org/wiki/Kent_Beck), Original [Agile Manifesto](https://agilemanifesto.org/) coauthor, [TDD](https://jhumelsine.github.io/2024/07/15/tdd.html) and [XP](https://en.wikipedia.org/wiki/Extreme_programming) creator/innovator.
     * [Coding Blocks](https://www.codingblocks.net/) - Conversational style among three software developer friends and coworkers. They retired the podcast a couple years ago, but several of us on their [Slack](https://www.codingblocks.net/slack/) group are doing a relisten. Best for: developers who enjoy conversational deep dives into engineering practices.
     * [Tabs and Spaces](https://open.spotify.com/show/05xweMLT3cConDizrKFIgR) - The British version of Coding Blocks. The podcast has also been retired. I was a guest on three episodes. Links to these podcast episodes and my other guest appearances can be found at [Guest Appearances](https://jhumelsine.github.io/about#other-appearances).
     * [Clean Coders](https://podcasts.apple.com/us/podcast/clean-coders-podcast/id1497337173) - General industry discussion.
@@ -397,7 +397,7 @@ Here are some I follow:
 ## Online Communities via Slack, Discord, etc.
 Share your experiences and learn from others.
 Develop and build relationships.
-Here are a few Software Engineering social media groups I'm a member of along with my user name:
+Here are a few Software Engineering social media groups I'm a member of along with my username:
 * [Coding Blocks Slack](https://www.codingblocks.net/slack/): **Design Pattern Evangelist (Jim)**
 * [Legacy Code Rocks! Slack](http://slack.legacycode.rocks/): **Jim Humelsine**
 * [We Do TDD Slack](http://wedotdd.slack.com): **Jim Humelsine**
