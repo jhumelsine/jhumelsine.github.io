@@ -250,7 +250,7 @@ I certainly didn't achive that standard in my career, but I did learn and use mu
 
 Subsequent languages were easier to learn.
 [BASIC](https://en.wikipedia.org/wiki/BASIC) was my first language and knowing its basic constructs gave me a head start in my Computer Science courses in the early 1980s when I was exposed to the same constructs in other programming languages such as [PL/I](https://en.wikipedia.org/wiki/PL/I) and [Fortran](https://en.wikipedia.org/wiki/Fortran).
-Seeing the same constructs in different languages helped me understand the concept without depending upon its presentation in a specific programming language.
+Seeing the same constructs in different languages helped me understand the concept without depending upon its design and implementation in a specific programming language.
 
 Learning programming languages, data structures and algorithms are not quite as important as they used to be with the recent advent of AI.
 Learning for the sake of learning can still be valuable.
