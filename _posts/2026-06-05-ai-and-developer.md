@@ -556,6 +556,10 @@ If one creates an army of agents, how do they communicate? I don't think it woul
 
 I've also heard of prompts along the lines of: Write code like Kent Beck.
 
+https://github.com/unclebob/swarm-forge/blob/main/swarmforge/swarmforge.conf
+
+And Swarmforge video: https://www.youtube.com/watch?v=db8Kk1Tghfg
+
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # We're Not Dead Yet
