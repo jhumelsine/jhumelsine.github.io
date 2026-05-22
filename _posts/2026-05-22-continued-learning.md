@@ -1,7 +1,6 @@
 ---
-title: DRAFT OPEN FOR REVIEW AND COMMENTS – Your Computer Science Degree is not the End of your Education
+title: Your Computer Science Degree is not the End of your Education
 description: Resources for Continued Learning Beyond Academia
-unlisted: true
 ---
 
 # Introduction
@@ -246,9 +245,9 @@ These are platforms that present problems for you to solve.
 Learn by doing.
 
 [Bob Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) has advocated learning a new programing language each year.
-I certainly didn't achive that standard in my career, but I did learn and use multiple programming languages including [C](https://en.wikipedia.org/wiki/C_(programming_language)), [C++](https://en.wikipedia.org/wiki/C%2B%2B), [KornShell](https://en.wikipedia.org/wiki/KornShell) (I knew [Dave Korn](https://en.wikipedia.org/wiki/David_Korn_(computer_scientist)) and worked with him professionally a few times), [AWK](https://en.wikipedia.org/wiki/AWK) a sweet little language every developer should know and [Java](https://www.java.com/en/).
+I certainly didn't achive that standard in my career, but I did learn and use multiple programming languages including [C](https://en.wikipedia.org/wiki/C_(programming_language)), [C++](https://en.wikipedia.org/wiki/C%2B%2B), [KornShell](https://en.wikipedia.org/wiki/KornShell) (I knew [Dave Korn](https://en.wikipedia.org/wiki/David_Korn_(computer_scientist)) and worked with him professionally a few times), [AWK](https://en.wikipedia.org/wiki/AWK) a sweet little language every developer should know, and [Java](https://www.java.com/en/).
 
-Subsequent languages were easier to learn.
+Subsequent languages are easier to learn.
 [BASIC](https://en.wikipedia.org/wiki/BASIC) was my first language and knowing its basic constructs gave me a head start in my Computer Science courses in the early 1980s when I was exposed to the same constructs in other programming languages such as [PL/I](https://en.wikipedia.org/wiki/PL/I) and [Fortran](https://en.wikipedia.org/wiki/Fortran).
 Seeing the same constructs in different languages helped me understand the concept without depending upon its design and implementation in a specific programming language.
 
@@ -297,7 +296,7 @@ Here are a few suggestions:
     * [Reducible](https://www.youtube.com/@Reducible) - This channel is all about animating Computer Science concepts in a fun, interactive, and intuitive manner.
     * [Easy Theory](https://www.youtube.com/@EasyTheory) - This is a channel about making Computer Science theory as easy as possible, so it's more about Computer Science and less about Software Engineering.
 * Technology-Specific: 
-    * [Computer Networks](https://media.pearsoncmg.com/ph/streaming/esm/tanenbaum5e_videonotes/tanenbaum_videoNotes.html) - This is a series of companion videos for a Computer Networks book. The videos were also used for a Computer Networks Coursera course, which unfortunately has been removed from the platform. It's a great set of videos describing the internet from ___What is a bit?___ up to ___Applications___.
+    * [Computer Networks](https://media.pearsoncmg.com/ph/streaming/esm/tanenbaum5e_videonotes/tanenbaum_videoNotes.html) - This is a series of companion videos for a Computer Networks book. The videos were also used for a Computer Networks Coursera course, which unfortunately has been removed from the platform. It's a great set of videos describing the internet from ___How to represent a bit?___ up to ___Web Applications___.
     * [Docker](https://www.youtube.com/user/dockerrun) - Hundreds of videos about Docker.
 
 ## Conferences
