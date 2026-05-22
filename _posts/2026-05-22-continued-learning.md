@@ -257,7 +257,7 @@ Learning for the sake of learning can still be valuable.
 
 As software developers move more toward AI generated code, then developers can still use these coding challenge websites, but instead of writing the code by hand, they can use them to practice and hone their AI prompting and specification skills to generate the code to solve these challenges.
 
-Here are several options:
+Here are several options/ Some are free. Some require a fee or subscription:
 * [NeedCode](https://neetcode.io/) - An online platform and YouTube channel designed to help software engineers prepare for technical coding interviews. It provides curated lists of essential algorithmic problems and offers detailed video explanations.
 * [LeetCode](https://leetcode.com/) - An online platform for software engineers to practice coding, improve their grasp of data structures and algorithms, and prepare for technical job interviews.
 * [LearnCPP](https://learncpp.com/) - A free website devoted to teaching you how to program in modern C++.
