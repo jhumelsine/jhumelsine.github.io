@@ -174,7 +174,7 @@ AI knows the rules of programming.
 It does not necessarily understand the strategies and tactics of good software design.
 
 # AI as an Infinite Junior Developer
-
+This distinction between knowledge and wisdom becomes especially important when working with AI systems directly.
 I suspect that software engineers will increasingly resemble team leads managing systems of AI agents.
 
 The software engineer will not simply hand work to AI and walk away.
@@ -268,7 +268,8 @@ The AI often gives you exactly what you asked for, but not necessarily what you 
 Natural language is full of ambiguity.
 
 Human requirements have always been ambiguous.
-AI simply amplifies that ambiguity at machine speed.
+Ambiguous requirements have always been dangerous in software development.
+AI simply allows us to reach those misunderstandings much faster.
 
 # Software Engineers as Orchestrators
 
@@ -380,7 +381,13 @@ Programming was never fundamentally about typing code.
 It was always about understanding problems and building systems that continue serving people as the world changes around them.
 
 The tools are changing.
-The mission is not.
+
+The abstractions are rising.
+
+But software engineering was never fundamentally about typing code.
+It was always about understanding problems, organizing change, and building systems that continue serving people as the world evolves around them.
+
+Much is changing, but the mission is not.
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -549,6 +556,8 @@ If one creates an army of agents, how do they communicate? I don't think it woul
 
 I've also heard of prompts along the lines of: Write code like Kent Beck.
 
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 # We're Not Dead Yet
 
 In [Will GenAI Take Our Jobs?](https://jhumelsine.github.io/2024/09/18/llm-genai.html#will-genai-take-our-jobs) I mused whether AI would take our jobs:
@@ -669,9 +678,3 @@ He interprets Ray's final instruction as: __You can't put too much water into a 
 The ambiguity is the humor mechanism for the rest of the sketch.
 
 But what if a Product Manager were vibe coding a nuclear reactor with: ___You can't put too much water into a nuclear reactor___?
-
-Prototype
-
-Personal Project
-
-Probably not Production
