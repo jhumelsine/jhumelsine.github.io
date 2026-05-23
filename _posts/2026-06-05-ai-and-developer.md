@@ -206,11 +206,12 @@ AI already knows about:
 
 because those concepts exist within its training data.
 
-But AI does not automatically know which of those constraints matter for a particular system unless humans specify them.
+But AI does not automatically know which constraints matter for a particular system unless humans specify them.
 The problem may not be that AI lacks software engineering knowledge.
-The problem may be that junior developers do not yet know enough to guide AI effectively.
+The problem may be that engineers need enough experience and judgment to guide AI effectively.
 
 AI can implement, but senior engineers provide prioritization, judgment, tradeoffs, and organizational memory.
+Junior developers may not initially have that judgment to guide the AI.
 
 AI may allow smaller teams to build systems that previously required much larger organizations.
 
@@ -306,8 +307,17 @@ while AI systems perform much of the implementation work.
 
 # The Apprenticeship Crisis
 
-One concern I have is what happens to junior developers.
+One concern I have is what happens to junior developers, which I briefly mentioned above.
 
+Computer Science graduates are not experts in every topic they studied in academia.
+Most software developers will never personally design CPUs, compilers, operating systems, or networking protocols.
+But understanding those concepts still matters.
+The computer is not a mysterious black box even if we do not understand every implementation detail.
+
+I suspect future software engineers may need fewer implementation skills than previous generations.
+But they will still need enough understanding of good software engineering principles and practices to guide AI systems intelligently.
+
+However, good software engineering principles and practices are not generally taught in academia.
 Historically, many developers learned through:
 - boilerplate work,
 - bug fixing,
@@ -318,18 +328,10 @@ Historically, many developers learned through:
 AI increasingly automates many of those activities.
 
 That creates an uncomfortable question:
-_How do future senior engineers emerge?_
+_If junior developers are not given the opportunity to learn software engineering through experience or mentorship, how do future senior engineers emerge?_
 
-Senior engineers eventually retire, move into management, or leave the industry.
+Current senior engineers eventually retire, move into management, or leave the industry.
 If younger developers never gain enough experience to develop architectural judgment and engineering wisdom, we may eventually create a deficit of human knowledge within the industry.
-
-Computer Science graduates do not need to become experts in every topic they study.
-Most software developers will never personally design CPUs, compilers, operating systems, or networking protocols.
-But understanding those concepts still matters.
-The computer is not a mysterious black box even if we do not understand every implementation detail.
-
-I suspect future software engineers may need fewer low-level implementation skills than previous generations.
-But they will still need enough understanding of good software engineering principles and practices to guide AI systems intelligently.
 
 # We Need an AI-Native Engineering Process
 
@@ -348,7 +350,7 @@ Many of those ideas may resemble practices we already use:
 
 But AI introduces new challenges.
 
-AI can generate code faster than humans can realistically review line by line.
+**AI can generate code faster than humans can realistically review line by line.**
 
 That changes the nature of validation.
 
