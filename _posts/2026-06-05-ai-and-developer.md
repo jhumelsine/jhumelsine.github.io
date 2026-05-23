@@ -5,14 +5,15 @@ unlisted: true
 ---
 
 # Introduction
-
 The greatest disruptive technology these days is Generative AI.
 Those who learn how to leverage it will have an advantage over those who do not.
 
-I have no business writing this blog.
-I only have limited experience with Generative AI.
+Take everything I write in this and future AI based blogs with a grain of saul.
 ChatGPT was released upon the world only a few months before I retired.
 In that short period of time, it has flooded the Software Engineering community.
+
+I have no professional or practical exposure to Generative AI.
+I only have limited personal experience with Generative AI.
 
 Many companies have made drastic cuts across the board due to AI, as can be seen in headlines like these: [**Block lays off nearly half its staff because of AI. Its CEO said most companies will do the same**](https://www.cnn.com/2026/02/26/business/block-layoffs-ai-jack-dorsey).
 
@@ -28,7 +29,7 @@ That does not eliminate the need for software engineers.
 If anything, it increases the importance of understanding systems, constraints, architecture, maintainability, and customer problems.
 
 Programming was never the end goal.
-The goal has always been [solving problems](https://jhumelsine.github.io/2023/08/26/problem-solvers.html) for people.
+[Solving problems](https://jhumelsine.github.io/2023/08/26/problem-solvers.html) for our customers has always been the goal.
 
 # Technology Eliminates Toil
 
@@ -42,7 +43,7 @@ Nineteenth century blacksmiths were also skilled, but the Industrial Revolution 
 
 There are still blacksmiths.
 Most now work as artisans, hobbyists, or craftspeople.
-But the village blacksmith as a common profession disappeared.
+But the village blacksmith as a common profession has disappeared.
 
 Many other professions were transformed or eliminated during the Industrial Revolution.
 Textile workers were among the first, leading to the [Luddite](https://en.wikipedia.org/wiki/Luddite) revolt.
@@ -59,12 +60,12 @@ Movie ticket takers faded away.
 
 <img src="https://live.staticflickr.com/2758/4154904299_c33828173d_h.jpg" title="Image Source: https://www.flickr.com/photos/ironrodart/4154904299" alt="Switch Board Operators" width = "35%" align="right" style="padding-left: 20px;">
 
-Like others before them software developers themselves are standing in the crosshairs.
+Like others before them, software developers find themselves are standing in the crosshairs.
 
 AI can generate code faster than people.
-Sometimes much faster.
+Sometimes much faster, but software engineering was never fundamentally about typing quickly.
 
-But software engineering was never fundamentally about typing quickly.
+The rumors of the software engineer's death is greatly exaggerated.
 
 # AI Is Another Layer of Abstraction
 
@@ -87,7 +88,7 @@ But the process of designing and building software has never been deterministic.
 
 Give the same requirements to five different teams and you will likely receive five completely different architectures and implementations.
 
-Humans have always introduced ambiguity, interpretation, tradeoffs, assumptions, and inconsistency into software development.
+Humans have always introduced ambiguity, interpretation, tradeoffs, assumptions, inconsistency, and bugs into software development.
 
 We tolerate non-deterministic humans; however, we become uncomfortable with non-deterministic AI.
 
@@ -105,14 +106,11 @@ For a significant portion of my career, I used the [Waterfall Model](https://en.
 
 We spent enormous amounts of time typing.
 But we were not necessarily typing code.
-We typed requirements documents.
-Design documents.
-Specifications.
-Plans.
-And much of that documentation became obsolete once implementation actually began.
+We typed requirements documents, design documents, specifications, and plans.
+Much of that documentation became obsolete once implementation actually began.
 
 The process gave us time to think, which was valuable.
-But we often spent more time thinking about our understanding of the problem rather than the customer's actual problem.
+But we often spent more time thinking about our interpretation of the problem rather than the customer's actual problem.
 
 We lacked tight feedback loops.
 
@@ -145,18 +143,18 @@ The rules of chess fit on a single sheet of paper yet its strategies and tactics
 Eventually I learned [Design Patterns and software architecture principles](https://jhumelsine.github.io/table-of-contents#design-patterns-and-architecture).
 Once those concepts clicked in my head, I realized I had been approaching software incorrectly for years.
 
-The difference became obvious during one particular feature I designed shortly afterward.
+The difference became obvious during one particular feature I designed shortly afterward learning Design Patterns.
 
 The product architect completely respecified the feature between releases.
 It was almost a 180-degree shift in direction.
 
-I reviewed my UML design and realized something important.
+I reviewed my UML class design and realized something important.
 Some parts of the design could simply be discarded.
 Other parts represented reusable infrastructure and remained completely intact.
 
-I designed new classes implementing the revised behavior and plugged them into the existing structure without difficulty.
+I designed new classes implementing the revised behavior and plugged them into the existing design without difficulty.
 
-If I had not invested effort into modularity and separation of concerns, the feature likely would have required a complete redesign and reimplementation from scratch.
+If I had not invested effort into a modular design with separation of concerns, the feature likely would have required a complete redesign and reimplementation from scratch.
 
 That was the moment I truly understood the value of architecture.
 Software engineering is not just about building systems that work.
@@ -202,9 +200,10 @@ It can produce enormous amounts of code.
 But it does not necessarily possess judgment, experience, or practical wisdom.
 
 AI already knows about:
-- Design Patterns,
-- Automated Testing,
-- TDD,
+- [Design Patterns](https://jhumelsine.github.io/table-of-contents#design-patterns-and-architecture),
+- [Automated Testing](https://jhumelsine.github.io/table-of-contents#automated-testing),
+- [TDD](https://jhumelsine.github.io/2024/07/15/tdd.html),
+- [Mutation Testing](https://jhumelsine.github.io/2025/03/28/mutation-testing.html),
 - CI/CD,
 - Domain-Driven Design,
 - scalability,
@@ -231,7 +230,7 @@ only to have the AI regenerate the entire codebase from scratch.
 
 Architecture is fundamentally about controlling change.
 Good modular design allows systems to evolve safely and incrementally.
-A well-designed system allows behavior to change while stable infrastructure remains intact.
+A well-designed system allows behavior to change while stable infrastructure remains intact, much like my previous experience mentioned above.
 
 That matters even more in an AI-driven world.
 
@@ -332,7 +331,7 @@ But understanding those concepts still matters.
 The computer is not a mysterious black box even if we do not understand every implementation detail.
 
 I suspect future software engineers may need fewer low-level implementation skills than previous generations.
-But they will still need enough understanding to guide AI systems intelligently.
+But they will still need enough understanding of good software engineering principles and practices to guide AI systems intelligently.
 
 # We Need an AI-Native Engineering Process
 
@@ -395,7 +394,7 @@ The tools are changing.
 
 The abstractions are rising.
 
-But software engineering was never fundamentally about typing code.
+But software engineering was never fundamentally about writing code.
 It was always about understanding problems, organizing change, and building systems that continue serving people as the world evolves around them.
 
 Much is changing, but the mission is not.
