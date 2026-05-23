@@ -8,19 +8,8 @@ unlisted: true
 The greatest disruptive technology these days is Generative AI.
 Those who learn how to leverage it will have an advantage over those who do not.
 
-Take everything I write in this and future AI based blogs with a grain of saul.
-ChatGPT was released upon the world only a few months before I retired.
-In that short period of time, it has flooded the Software Engineering community.
-
-I have no professional or practical exposure to Generative AI.
-I only have limited personal experience with Generative AI.
-
-Many companies have made drastic cuts across the board due to AI, as can be seen in headlines like these: [**Block lays off nearly half its staff because of AI. Its CEO said most companies will do the same**](https://www.cnn.com/2026/02/26/business/block-layoffs-ai-jack-dorsey).
-
-I think this is shortsighted.
-
-The software industry is changing rapidly, but I do not believe Software Engineering is disappearing.
-I think the nature of Software Engineering is changing.
+The software industry is changing rapidly, but I do not believe software engineering is disappearing.
+I think the nature of software engineering is changing.
 
 For decades, software developers manually translated ideas into code.
 Generative AI increasingly performs much of that translation for us.
@@ -30,6 +19,10 @@ If anything, it increases the importance of understanding systems, constraints, 
 
 Programming was never the end goal.
 [Solving problems](https://jhumelsine.github.io/2023/08/26/problem-solvers.html) for our customers has always been the goal.
+
+ChatGPT arrived only a few months before I retired after a 38-year software engineering career.
+I have not built commercial AI systems professionally, but I have spent decades watching abstraction layers reshape software development.
+I think AI is another one of those moments.
 
 # Technology Eliminates Toil
 
@@ -60,12 +53,13 @@ Movie ticket takers faded away.
 
 <img src="https://live.staticflickr.com/2758/4154904299_c33828173d_h.jpg" title="Image Source: https://www.flickr.com/photos/ironrodart/4154904299" alt="Switch Board Operators" width = "35%" align="right" style="padding-left: 20px;">
 
-Like others before them, software developers find themselves are standing in the crosshairs.
+Like others before them, software developers now find themselves standing in the crosshairs.
 
 AI can generate code faster than people.
-Sometimes much faster, but software engineering was never fundamentally about typing quickly.
 
-The rumors of the software engineer's death is greatly exaggerated.
+But software engineering was never fundamentally about typing quickly.
+
+Rumors of the software engineer's death are greatly exaggerated.
 
 # AI Is Another Layer of Abstraction
 
@@ -90,7 +84,7 @@ Give the same requirements to five different teams and you will likely receive f
 
 Humans have always introduced ambiguity, interpretation, tradeoffs, assumptions, inconsistency, and bugs into software development.
 
-We tolerate non-deterministic humans; however, we become uncomfortable with non-deterministic AI.
+**We tolerate non-deterministic humans; however, we become uncomfortable with non-deterministic AI.**
 
 When autonomous systems fail, we often view it as a technological failure, such as with self-driving vehicles.
 When humans fail, we often call it an unfortunate or tragic accident.
@@ -107,7 +101,7 @@ For a significant portion of my career, I used the [Waterfall Model](https://en.
 We spent enormous amounts of time typing.
 But we were not necessarily typing code.
 We typed requirements documents, design documents, specifications, and plans.
-Much of that documentation became obsolete once implementation actually began.
+Much of that documentation became obsolete once development began.
 
 The process gave us time to think, which was valuable.
 But we often spent more time thinking about our interpretation of the problem rather than the customer's actual problem.
@@ -128,8 +122,8 @@ The real work was never typing code. The real work was:
 - managing change,
 - and solving customer problems.
 
-AI accelerates typing.
-It does not automatically accelerate understanding.
+**AI accelerates typing.
+It does not automatically accelerate understanding.**
 
 # Wisdom vs Knowledge
 
@@ -143,7 +137,7 @@ The rules of chess fit on a single sheet of paper yet its strategies and tactics
 Eventually I learned [Design Patterns and software architecture principles](https://jhumelsine.github.io/table-of-contents#design-patterns-and-architecture).
 Once those concepts clicked in my head, I realized I had been approaching software incorrectly for years.
 
-The difference became obvious during one particular feature I designed shortly afterward learning Design Patterns.
+The difference became obvious during a feature I designed shortly after learning about Design Patterns.
 
 The product architect completely respecified the feature between releases.
 It was almost a 180-degree shift in direction.
@@ -216,6 +210,13 @@ But AI does not automatically know which of those constraints matter for a parti
 The problem may not be that AI lacks software engineering knowledge.
 The problem may be that junior developers do not yet know enough to guide AI effectively.
 
+AI can implement, but senior engineers provide prioritization, judgment, tradeoffs, and organizational memory.
+
+AI may allow smaller teams to build systems that previously required much larger organizations.
+
+But increased leverage does not eliminate the need for engineering judgment.
+If anything, it amplifies the consequences of poor decisions.
+
 # Architecture Is About Change
 
 One of my concerns with AI-generated software is not whether it can solve the immediate problem.
@@ -281,11 +282,8 @@ AI simply allows us to reach those misunderstandings much faster.
 
 I believe future software engineers will spend less time programming and more time specifying intent.
 
-Programming itself was never the point.
-[Solving customer problems](https://jhumelsine.github.io/2023/08/26/problem-solvers.html) was always the point.
-
 Software engineers solve customer problems with software.
-It does not fundamentally matter whether humans write the code by hand or AI generates it.
+Whether humans write the code directly or AI generates it matters less than whether the system actually solves the problem well.
 
 What matters is whether the system:
 - solves the customer's problem,
@@ -349,7 +347,9 @@ Many of those ideas may resemble practices we already use:
 - and separation of concerns.
 
 But AI introduces new challenges.
+
 AI can generate code faster than humans can realistically review line by line.
+
 That changes the nature of validation.
 
 Future engineering processes may rely more heavily upon:
@@ -362,7 +362,9 @@ Future engineering processes may rely more heavily upon:
 
 Humans and AI need to work together.
 
-I think companies making drastic layoffs under the assumption that AI alone can replace software engineers are making a mistake.
+Some companies are already making aggressive staffing decisions based on assumptions about AI-driven productivity, as can be seen in headlines like these: [**Block lays off nearly half its staff because of AI. Its CEO said most companies will do the same**](https://www.cnn.com/2026/02/26/business/block-layoffs-ai-jack-dorsey).
+
+The companies that are making drastic layoffs under the assumption that AI alone can replace software engineers are making a mistake.
 
 AI can generate software, but humans still define what "good" means.
 
@@ -370,13 +372,14 @@ AI can generate software, but humans still define what "good" means.
 <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExazNmaGpiZDB2OWZwMngwcXRwZjQxOTBvYTVnYXRtaTBqcW9mcWx4YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ZErfXKEMifIifbFM7c/giphy.gif" alt="We're not dead yet" title="Image Source: https://giphy.com/gifs/goodnightsunrise-not-dead-yet-werenotdeadyet-were-ZErfXKEMifIifbFM7c" width = "30%" align="right" style="padding: 20px;">
 
 Sometimes I wonder whether the software engineering principles I spent years learning and documenting are becoming obsolete.
+
 Ironically, I suspect they may become even more important.
-AI can generate implementations rapidly, but good architecture, modularity, constraints, and engineering judgment still need to come from somewhere.
 
-The software industry is not ending, but the nature of software engineering is changing.
+AI can generate implementations rapidly, but architecture, modularity, constraints, and engineering judgment still need to come from somewhere.
 
-For decades we manually translated ideas into code.
-Generative AI increasingly performs much of that translation for us.
+The software industry is changing, but software engineering is not disappearing.
+
+Generative AI increasingly translates ideas into code for us.
 
 That does not eliminate the need for software engineers.
 If anything, it increases the importance of:
@@ -386,15 +389,11 @@ If anything, it increases the importance of:
 - defining constraints,
 - and solving customer problems.
 
-Programming was never fundamentally about typing code.
-
-It was always about understanding problems and building systems that continue serving people as the world changes around them.
-
 The tools are changing.
 
 The abstractions are rising.
 
-But software engineering was never fundamentally about writing code.
-It was always about understanding problems, organizing change, and building systems that continue serving people as the world evolves around them.
+But software engineering was never fundamentally about typing code.
+It was always about understanding problems and building systems that continue serving people as the world evolves around them.
 
 Much is changing, but the mission is not.
