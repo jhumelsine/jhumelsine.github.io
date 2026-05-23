@@ -162,6 +162,13 @@ That was the moment I truly understood the value of architecture.
 Software engineering is not just about building systems that work.
 It is about building systems that can survive change.
 
+A good design makes code trivial.
+I first mentioned this in an early [The Big Wheel Keeps on Turning](https://jhumelsine.github.io/2023/08/28/wheels.html), an early [Design Patterns](https://jhumelsine.github.io/table-of-contents#design-patterns-and-architecture) blog entry with:
+>Though design patterns are very flexible, they are also based upon well-defined structures that encourage a modular design and separation of concerns. I know this sounds cliché, but once I’m satisfied with a design, my code often writes itself and it tends to just work. Difficult or stubborn bugs decreased significantly for me once I started to incorporate design patterns.
+
+Though it sounds a bit pretentious, writing code from a good design felt a bit like the [Scribbling and Bibbling](https://www.youtube.com/watch?v=qzY2IeoveHw&t=100s) scene from _Amadeus_.
+Let the AI do the _scribbling and bibbling_.
+
 AI already knows most programming languages better than I do.
 It remembers syntax perfectly.
 It can generate boilerplate in seconds.
@@ -362,6 +369,10 @@ AI can generate software, but humans still define what "good" means.
 
 # We're Not Dead Yet
 <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExazNmaGpiZDB2OWZwMngwcXRwZjQxOTBvYTVnYXRtaTBqcW9mcWx4YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ZErfXKEMifIifbFM7c/giphy.gif" alt="We're not dead yet" title="Image Source: https://giphy.com/gifs/goodnightsunrise-not-dead-yet-werenotdeadyet-were-ZErfXKEMifIifbFM7c" width = "30%" align="right" style="padding: 20px;">
+
+Sometimes I wonder whether the software engineering principles I spent years learning and documenting are becoming obsolete.
+Ironically, I suspect they may become even more important.
+AI can generate implementations rapidly, but good architecture, modularity, constraints, and engineering judgment still need to come from somewhere.
 
 The software industry is not ending, but the nature of software engineering is changing.
 
@@ -572,13 +583,6 @@ I used accountans and spreadsheets as an example:
 
 Writing good code was never about how fast you could type.
 Writing good code was about understanding the [Domain](https://jhumelsine.github.io/2026/04/23/career.html#domain) and creating a good design that solves problems within that domain.
-
-A good design makes code trivial.
-I first mentioned this in an early [The Big Wheel Keeps on Turning](https://jhumelsine.github.io/2023/08/28/wheels.html), an early [Design Patterns](https://jhumelsine.github.io/table-of-contents#design-patterns-and-architecture) blog entry with:
->Though design patterns are very flexible, they are also based upon well-defined structures that encourage a modular design and separation of concerns. I know this sounds cliché, but once I’m satisfied with a design, my code often writes itself and it tends to just work. Difficult or stubborn bugs decreased significantly for me once I started to incorporate design patterns.
-
-Though it sounds a bit pretentious, writing code from a good design felt a bit like the [Scribbling and Bibbling](https://www.youtube.com/watch?v=qzY2IeoveHw&t=100s) scene from _Amadeus_.
-Let the AI do the _scribbling and bibbling_.
 
 # Has It All Been In Vain?
 I've spent the past three years documenting software ideas that I learned during my career in this blog.
