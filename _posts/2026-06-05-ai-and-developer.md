@@ -624,7 +624,7 @@ When AI forgets something from its context window, it's pretty much gone.
 # AI is a Tool
 Generative AI is a tool.
 It's a force multiplier.
-Generative AI will make good software engineers better and bad software engineers worse.
+**Generative AI will make good software engineers better and bad software engineers worse.**
 A power saw in the hands of skilled crafters allows them to build cabinets quicker.
 A power saw in the hands of knuckheads allows them to saw their thumbs off quicker.
 
