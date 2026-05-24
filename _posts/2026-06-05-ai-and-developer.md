@@ -399,3 +399,6 @@ But software engineering was never fundamentally about typing code.
 It was always about understanding problems and building systems that continue serving people as the world evolves around them.
 
 Much is changing, but the mission is not.
+
+# References
+* [Coding Is Dead, Long Live Programming](https://ian-cooper.writeas.com/coding-is-dead-long-live-programming) - Ian Cooper argues that while the act of writing the code will no longer be done by humans, the act of directing the AI to write the code that's needed will still be the responsibility of humans.
