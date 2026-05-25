@@ -137,7 +137,7 @@ The rules of chess fit on a single sheet of paper yet its strategies and tactics
 Eventually I learned [Design Patterns and software architecture principles](https://jhumelsine.github.io/table-of-contents#design-patterns-and-architecture).
 Once those concepts clicked in my head, I realized I had been approaching software incorrectly for years.
 
-The difference became obvious during a feature I designed shortly after learning about Design Patterns.
+The difference became obvious during a feature I designed shortly after learning Design Patterns.
 
 The product architect completely respecified the feature between releases.
 It was almost a 180-degree shift in direction.
@@ -158,8 +158,8 @@ A good design makes code trivial.
 I first mentioned this in an early [The Big Wheel Keeps on Turning](https://jhumelsine.github.io/2023/08/28/wheels.html), an early [Design Patterns](https://jhumelsine.github.io/table-of-contents#design-patterns-and-architecture) blog entry with:
 >Though design patterns are very flexible, they are also based upon well-defined structures that encourage a modular design and separation of concerns. I know this sounds cliché, but once I’m satisfied with a design, my code often writes itself and it tends to just work. Difficult or stubborn bugs decreased significantly for me once I started to incorporate design patterns.
 
-Though it sounds a bit pretentious, writing code from a good design felt a bit like the [Scribbling and Bibbling](https://www.youtube.com/watch?v=qzY2IeoveHw&t=100s) scene from _Amadeus_.
-Let the AI do the _scribbling and bibbling_.
+Though it sounds a bit pretentious but writing code from a good design felt a bit like the [Scribbling and Bibbling](https://www.youtube.com/watch?v=qzY2IeoveHw&t=100s) scene from _Amadeus_.
+Now we can let the AI do the _scribbling and bibbling_.
 
 AI already knows most programming languages better than I do.
 It remembers syntax perfectly.
@@ -193,7 +193,7 @@ It is tireless.
 It can produce enormous amounts of code.
 But it does not necessarily possess judgment, experience, or practical wisdom.
 
-AI already knows about:
+AI already knows about software engineering practices and principles:
 - [Design Patterns](https://jhumelsine.github.io/table-of-contents#design-patterns-and-architecture),
 - [Automated Testing](https://jhumelsine.github.io/table-of-contents#automated-testing),
 - [TDD](https://jhumelsine.github.io/2024/07/15/tdd.html),
@@ -204,18 +204,18 @@ AI already knows about:
 - modularity,
 - and security
 
-because those concepts exist within its training data.
+because those concepts exist within its training data, but it does not know when to apply them.
 
-But AI does not automatically know which constraints matter for a particular system unless humans specify them.
+AI does not automatically know which constraints matter for a particular system unless humans specify them.
 The problem may not be that AI lacks software engineering knowledge.
-The problem may be that engineers need enough experience and judgment to guide AI effectively.
+The problem may be that engineers need enough experience and judgment to guide AI effectively to use them.
 
 AI can implement, but senior engineers provide prioritization, judgment, tradeoffs, and organizational memory.
 Junior developers may not initially have that judgment to guide the AI.
 
 AI may allow smaller teams to build systems that previously required much larger organizations.
 
-But increased leverage does not eliminate the need for engineering judgment.
+But leveraging AI does not eliminate the need for engineering judgment.
 If anything, it amplifies the consequences of poor decisions.
 
 # Architecture Is About Change
@@ -317,8 +317,8 @@ The computer is not a mysterious black box even if we do not understand every im
 I suspect future software engineers may need fewer implementation skills than previous generations.
 But they will still need enough understanding of good software engineering principles and practices to guide AI systems intelligently.
 
-However, good software engineering principles and practices are not generally taught in academia.
-Historically, many developers learned through:
+Good software engineering principles and practices are not generally taught in academia, which has been one of my driving forces in creating these blog posts.
+Historically, many developers learned software engineering through:
 - boilerplate work,
 - bug fixing,
 - maintenance,
@@ -328,7 +328,7 @@ Historically, many developers learned through:
 AI increasingly automates many of those activities.
 
 That creates an uncomfortable question:
-_If junior developers are not given the opportunity to learn software engineering through experience or mentorship, how do future senior engineers emerge?_
+_If junior developers are not given the opportunity to learn software engineering through experience or mentorship early in their careers, how do future senior engineers emerge?_
 
 Current senior engineers eventually retire, move into management, or leave the industry.
 If younger developers never gain enough experience to develop architectural judgment and engineering wisdom, we may eventually create a deficit of human knowledge within the industry.
