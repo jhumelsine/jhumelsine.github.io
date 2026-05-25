@@ -272,6 +272,8 @@ _All race conditions, deadlock conditions, and concurrent update problems are du
 
 _AI is a tool. It's a force multiplier. It makes good developers better and bad developers worse. A power saw allows the skilled carpenter to build a cabinet faster. A power saw allows the knucklehead to cut off his thumb faster._ ― Jim Humelsine
 
+_AI assistants are like junior developers with infinite energy but zero context._ ― Rahul Garg
+
 # Readable/Comprehensible Code
 
 _Software is like poetry. Most of it probably should not have been written._ — Anonymous
