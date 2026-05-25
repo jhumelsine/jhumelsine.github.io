@@ -1,5 +1,5 @@
 ---
-title: WORK IN PROGRESS – The End of Coding as Toil
+title: DRAFT OPEN FOR REVIEW AND COMMENTS – The End of Coding as Toil
 description: Thoughts on AI, software engineering, and the changing role of developers
 unlisted: true
 ---
