@@ -402,3 +402,4 @@ Much is changing, but the mission is not.
 
 # References
 * [Coding Is Dead, Long Live Programming](https://ian-cooper.writeas.com/coding-is-dead-long-live-programming) - Ian Cooper argues that while the act of writing the code will no longer be done by humans, the act of directing the AI to write the code that's needed will still be the responsibility of humans.
+* [Patterns for Reducing Friction in AI-Assisted Development](https://martinfowler.com/articles/reduce-friction-ai/) - Rahul Garg proposes five patterns that bring this collaborative scaffolding to AI-assisted development, shifting the experience from correcting a tool to collaborating with a capable teammate.
