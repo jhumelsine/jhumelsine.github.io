@@ -63,7 +63,9 @@ Someone, somewhere has certainly created a page, blog, article, course, presenta
 
 In addition to platforms, such as ChatGPT, also consider **Interactive AI Notebooks** such as those offered by [Google NotebookLM](https://notebooklm.google.com/).
 They allow you to configure a notebook with specific content, and the AI will remain focused upon that content.
-Google's platform provides several preconfigured artifact generators, such as an audio podcast overview of the content.
+Google's platform provides several preconfigured artifact generators, including an audio podcast, of the configured content.
+It's one way to interact with the specified content to help gain a better understanding of it.
+
 It's easier to see than explain.
 I've created notebooks for several of my blog series.
 See: [Interactive AI Notebooks](https://jhumelsine.github.io/table-of-contents#interactive-ai-notebooks-google-notebooklm).
