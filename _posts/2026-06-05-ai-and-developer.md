@@ -214,9 +214,9 @@ AI can implement, but senior engineers provide prioritization, judgment, tradeof
 Junior developers may not initially have that judgment to guide the AI.
 
 AI may allow smaller teams to build systems that previously required much larger organizations.
-
 But leveraging AI does not eliminate the need for engineering judgment.
 If anything, it amplifies the consequences of poor decisions.
+Will smaller teams be large enough for junior developers to learn from seniors?
 
 # Architecture Is About Change
 
@@ -232,7 +232,7 @@ only to have the AI regenerate the entire codebase from scratch.
 
 Architecture is fundamentally about controlling change.
 Good modular design allows systems to evolve safely and incrementally.
-A well-designed system allows behavior to change while stable infrastructure remains intact, much like my previous experience mentioned above.
+A well-designed system allows behavior to change while stable infrastructure remains intact, much like my previous fickle architect experience mentioned above.
 
 That matters even more in an AI-driven world.
 
@@ -318,24 +318,25 @@ I suspect future software engineers may need fewer implementation skills than pr
 But they will still need enough understanding of good software engineering principles and practices to guide AI systems intelligently.
 
 Good software engineering principles and practices are not generally taught in academia, which has been one of my driving forces in creating these blog posts.
-Historically, many developers learned software engineering through:
+Historically, many developers learned software engineering on the job through:
 - boilerplate work,
 - bug fixing,
 - maintenance,
 - repetitive implementation,
 - and gradual exposure to larger systems.
 
-AI increasingly automates many of those activities.
+AI increasingly automates many of those activities rather than junior developers.
+While this may be more efficient, it denies juniors a learning experience.
 
 That creates an uncomfortable question:
-_If junior developers are not given the opportunity to learn software engineering through experience or mentorship early in their careers, how do future senior engineers emerge?_
+_If junior developers are not given the opportunity to learn software engineering through experience or mentorship early in their careers, how will they grow into future senior engineers?_
 
 Current senior engineers eventually retire, move into management, or leave the industry.
 If younger developers never gain enough experience to develop architectural judgment and engineering wisdom, we may eventually create a deficit of human knowledge within the industry.
 
 # We Need an AI-Native Engineering Process
 
-I do not think AI replaces Software Engineering processes.
+I do not think AI replaces software engineering processes.
 If anything, I think it increases the need for them.
 We likely need to evolve software development processes specifically for AI-assisted development.
 
@@ -366,7 +367,7 @@ Humans and AI need to work together.
 
 Some companies are already making aggressive staffing decisions based on assumptions about AI-driven productivity, as can be seen in headlines like these: [**Block lays off nearly half its staff because of AI. Its CEO said most companies will do the same**](https://www.cnn.com/2026/02/26/business/block-layoffs-ai-jack-dorsey).
 
-The companies that are making drastic layoffs under the assumption that AI alone can replace software engineers are making a mistake.
+These companies that are making drastic layoffs under the assumption that AI alone can replace software engineers are making a mistake.
 
 AI can generate software, but humans still define what "good" means.
 
@@ -403,6 +404,7 @@ Much is changing, but the mission is not.
 # References
 * [Coding Is Dead, Long Live Programming](https://ian-cooper.writeas.com/coding-is-dead-long-live-programming) - Ian Cooper argues that while the act of writing the code will no longer be done by humans, the act of directing the AI to write the code that's needed will still be the responsibility of humans.
 * [Patterns for Reducing Friction in AI-Assisted Development](https://martinfowler.com/articles/reduce-friction-ai/) - Rahul Garg proposes five patterns that bring this collaborative scaffolding to AI-assisted development, shifting the experience from correcting a tool to collaborating with a capable teammate.
+* [What Is Code?](https://martinfowler.com/articles/what-is-code.html) - Unmesh Joshi proposes that even when LLMs can generate much code that code is a conceptual model of the problem domain. A well-designed codebase contains concepts for humans and tools to reason with.
 * [Modern Software Engineering AI Video Playlist](https://www.youtube.com/playlist?list=PLwLLcwQlnXBwUTz7GM9_a5ebyMA4PaP5f) - A playlist of AI related videos from the [Modern Software Engineering Video Channel](https://www.youtube.com/@ModernSoftwareEngineeringYT).
 * [Redefining the Software Engineering Profession for AI](https://cacm.acm.org/opinion/redefining-the-software-engineering-profession-for-ai/) - Without the hiring of early-in-career developers, the profession’s talent pipeline will collapse, and organizations will face a future without the next generation of experienced engineers - _Communications of the ACM_
 * [The velocity trap: Why genAI is exposing broken foundations](https://www.thoughtworks.com/en-us/insights/podcasts/pragmatism-in-practice/the-velocity-trap--why-genai-is-exposing-broken-foundations) - Thoughtworks podcast. The core thesis of this discussion is that AI is not automatically transforming software delivery. Instead, it acts as an amplifier of an organization’s existing strengths and weaknesses. Teams with strong engineering foundations, streamlined workflows, good testing practices, and adaptable cultures are accelerating dramatically with AI, while organizations with fragile pipelines, technical debt, siloed data, and outdated processes are often slowing down despite increased code generation.
