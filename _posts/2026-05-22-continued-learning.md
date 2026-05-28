@@ -61,6 +61,13 @@ Someone, somewhere has certainly created a page, blog, article, course, presenta
 
 [Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) can create a learning plan for almost any topic tailored to your specific needs.
 
+In addition to platforms, such as ChatGPT, also consider **Interactive AI Notebooks** such as those offered by [Google NotebookLM](https://notebooklm.google.com/).
+They allow you to configure a notebook with specific content, and the AI will remain focused upon that content.
+Google's platform provides several preconfigured artifact generators, such as an audio podcast overview of the content.
+It's easier to see than explain.
+I've created notebooks for several of my blog series.
+See: [Interactive AI Notebooks](https://jhumelsine.github.io/table-of-contents#interactive-ai-notebooks-google-notebooklm).
+
 # What to Learn
 Follow your curiosity, or learn something to fill a gap in your career.
 Ideally the same topic can do both.
