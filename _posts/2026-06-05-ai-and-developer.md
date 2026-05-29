@@ -1,7 +1,6 @@
 ---
-title: DRAFT OPEN FOR REVIEW AND COMMENTS – The End of Coding as Toil
+title: The End of Coding as Toil
 description: Thoughts on AI, software engineering, and the changing role of developers
-unlisted: true
 ---
 
 # Introduction
@@ -255,7 +254,7 @@ Describe what you want.
 Let the AI generate the code.
 
 There is certainly value in this approach, especially for experimentation and rapid prototyping.
-I actually think AI may dramatically improve feedback loops.
+I think AI may dramatically improve feedback loops.
 
 During the Waterfall era, we often spent months attempting to fully understand requirements before users ever saw working software.
 
@@ -284,7 +283,7 @@ AI simply allows us to reach those misunderstandings much faster.
 I believe future software engineers will spend less time programming and more time specifying intent.
 
 Software engineers solve customer problems with software.
-Whether humans write the code directly or AI generates it matters less than whether the system actually solves the problem well.
+Whether humans write the code directly or AI generates it matters less than whether the system solves the problem well.
 
 What matters is whether the system:
 - solves the customer's problem,
@@ -325,7 +324,7 @@ Historically, many developers learned software engineering on the job through:
 - repetitive implementation,
 - and gradual exposure to larger systems.
 
-AI increasingly automates many of those activities rather than junior developers.
+AI increasingly automates many of those activities rather delegating them to junior developers.
 While this may be more efficient, it denies juniors a learning experience.
 
 That creates an uncomfortable question:
@@ -367,7 +366,7 @@ Humans and AI need to work together.
 
 Some companies are already making aggressive staffing decisions based on assumptions about AI-driven productivity, as can be seen in headlines like these: [**Block lays off nearly half its staff because of AI. Its CEO said most companies will do the same**](https://www.cnn.com/2026/02/26/business/block-layoffs-ai-jack-dorsey).
 
-These companies that are making drastic layoffs under the assumption that AI alone can replace software engineers are making a mistake.
+These companies, which are making drastic layoffs under the assumption that AI alone can replace software engineers, are making a mistake.
 
 AI can generate software, but humans still define what "good" means.
 
