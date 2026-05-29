@@ -221,7 +221,7 @@ None of these are set in stone:
 * [Getting and Onboarding Your First Job](https://jhumelsine.github.io/2026/03/10/first-job.html)
 * [Beyond Onboarding](https://jhumelsine.github.io/2026/04/23/career.html)
 * [Software Engineering Education Resources](https://jhumelsine.github.io/2026/05/22/continued-learning.html)
-* AI ... TBD
+* [The End of Coding as Toil](https://jhumelsine.github.io/2026/05/29/code-and-toil.html)
 * [Losing Your Job Stinks](https://jhumelsine.github.io/2024/08/11/jobsearch.html)
 * Retirement (TBD)
 * Personal Finance (TBD)
