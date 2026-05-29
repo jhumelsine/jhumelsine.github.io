@@ -86,7 +86,7 @@ Humans have always introduced ambiguity, interpretation, tradeoffs, assumptions,
 
 **We tolerate non-deterministic humans; however, we become uncomfortable with non-deterministic AI.**
 
-When autonomous systems fail, we often view it as a technological failure, such as with self-driving vehicles.
+When autonomous systems fail, we often view it as a technological failure, such as when self-driving vehicles are involved in a fatality spawning outrage.
 When humans fail, we often call it an unfortunate or tragic accident.
 
 We demand perfection from technology in ways we rarely demand from ourselves.
@@ -155,7 +155,7 @@ Software engineering is not just about building systems that work.
 It is about building systems that can survive change.
 
 A good design makes code trivial.
-I first mentioned this in an early [The Big Wheel Keeps on Turning](https://jhumelsine.github.io/2023/08/28/wheels.html), an early [Design Patterns](https://jhumelsine.github.io/table-of-contents#design-patterns-and-architecture) blog entry with:
+I first mentioned this in [The Big Wheel Keeps on Turning](https://jhumelsine.github.io/2023/08/28/wheels.html), an early [Design Patterns](https://jhumelsine.github.io/table-of-contents#design-patterns-and-architecture) blog entry with:
 >Though design patterns are very flexible, they are also based upon well-defined structures that encourage a modular design and separation of concerns. I know this sounds cliché, but once I’m satisfied with a design, my code often writes itself and it tends to just work. Difficult or stubborn bugs decreased significantly for me once I started to incorporate design patterns.
 
 Though it sounds a bit pretentious but writing code from a good design felt a bit like the [Scribbling and Bibbling](https://www.youtube.com/watch?v=qzY2IeoveHw&t=100s) scene from _Amadeus_.
@@ -216,7 +216,7 @@ Junior developers may not initially have that judgment to guide the AI.
 AI may allow smaller teams to build systems that previously required much larger organizations.
 But leveraging AI does not eliminate the need for engineering judgment.
 If anything, it amplifies the consequences of poor decisions.
-Will smaller teams be large enough for junior developers to learn from seniors?
+Will smaller teams be large enough to include junior developers so that they can learn from seniors?
 
 # Architecture Is About Change
 
@@ -232,7 +232,7 @@ only to have the AI regenerate the entire codebase from scratch.
 
 Architecture is fundamentally about controlling change.
 Good modular design allows systems to evolve safely and incrementally.
-A well-designed system allows behavior to change while stable infrastructure remains intact, much like my previous fickle architect experience mentioned above.
+A well-designed system allows behavior to change while stable infrastructure remains intact, much like my previous _fickle architect_ experience described above.
 
 That matters even more in an AI-driven world.
 
@@ -406,7 +406,7 @@ Much is changing, but the mission is not.
 * [Patterns for Reducing Friction in AI-Assisted Development](https://martinfowler.com/articles/reduce-friction-ai/) - Rahul Garg proposes five patterns that bring this collaborative scaffolding to AI-assisted development, shifting the experience from correcting a tool to collaborating with a capable teammate.
 * [What Is Code?](https://martinfowler.com/articles/what-is-code.html) - Unmesh Joshi proposes that even when LLMs can generate much code that code is a conceptual model of the problem domain. A well-designed codebase contains concepts for humans and tools to reason with.
 * [Modern Software Engineering AI Video Playlist](https://www.youtube.com/playlist?list=PLwLLcwQlnXBwUTz7GM9_a5ebyMA4PaP5f) - A playlist of AI related videos from the [Modern Software Engineering Video Channel](https://www.youtube.com/@ModernSoftwareEngineeringYT).
-* [Redefining the Software Engineering Profession for AI](https://cacm.acm.org/opinion/redefining-the-software-engineering-profession-for-ai/) - Without the hiring of early-in-career developers, the profession’s talent pipeline will collapse, and organizations will face a future without the next generation of experienced engineers - _Communications of the ACM_
+* [Redefining the Software Engineering Profession for AI](https://cacm.acm.org/opinion/redefining-the-software-engineering-profession-for-ai/) - _Communications of the ACM_. Without the hiring of early-in-career developers, the profession’s talent pipeline will collapse, and organizations will face a future without the next generation of experienced engineers.
 * [The velocity trap: Why genAI is exposing broken foundations](https://www.thoughtworks.com/en-us/insights/podcasts/pragmatism-in-practice/the-velocity-trap--why-genai-is-exposing-broken-foundations) - Thoughtworks podcast. The core thesis of this discussion is that AI is not automatically transforming software delivery. Instead, it acts as an amplifier of an organization’s existing strengths and weaknesses. Teams with strong engineering foundations, streamlined workflows, good testing practices, and adaptable cultures are accelerating dramatically with AI, while organizations with fragile pipelines, technical debt, siloed data, and outdated processes are often slowing down despite increased code generation.
 * [AI and the workforce: Beyond efficiency to real value creation](https://www.thoughtworks.com/en-us/insights/podcasts/pragmatism-in-practice/ai-and-the-workforce--beyond-efficiency-to-real-value-creation) - Thoughtworks podcast. The core thesis of this discussion is that AI transformation is not primarily about replacing workers or achieving dramatic short-term productivity gains, but about reshaping how organizations learn, collaborate, and create value. AI acts as an amplifier of existing organizational strengths and weaknesses, making strong engineering practices, mentorship, continuous learning, and cross-functional collaboration more important rather than less. The speakers argue that success will come from combining bottom-up experimentation with top-down organizational strategy, redesigning workflows and team structures around AI-assisted work, and focusing on long-term value creation instead of narrow efficiency metrics or cost cutting. Rather than eliminating the need for human expertise, AI increases the importance of critical thinking, architectural judgment, and cultivating junior talent so organizations can sustainably evolve in an uncertain and rapidly changing technological landscape.
 * [Software Fundamentals Matter More Than Ever](https://www.youtube.com/watch?v=v4F1gFy-hqg) - Video presentation by [Matt Pocock](https://www.aihero.dev/) ([GitHub](https://github.com/mattpocock)) - "AI coding tools are overhyped and powerful at the same time. Used well, they're extraordinary. Used badly, they'll bury you in spaghetti code faster than any human team could. The difference isn't the tool. It's the process. After 18 months of teaching developers to build with AI agents, Matt Pocock has watched the same patterns emerge: the devs who succeed aren't the ones who delegate everything or nothing. They're the ones who fall back on engineering fundamentals. In this talk, he shares the iterative process his students use to ship high-quality applications with AI agent swarms, and why the principles that make it work (ubiquitous language, vertical slices, TDD, deep modules) are decades-old ideas that didn't break. They got more important."
