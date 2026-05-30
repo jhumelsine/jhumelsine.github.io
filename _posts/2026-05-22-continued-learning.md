@@ -86,7 +86,7 @@ Something you learn today for fun, could be your golden ticket for a future oppo
 
 Several years ago, this would have been my final word on what to learn, but [Large Language Models and Generative AI](https://jhumelsine.github.io/2024/09/18/llm-genai.html) are changing the landscape rapidly.
 Those who don't learn how to leverage LLMs and GenAI will be at a severe disadvantage.
-Navigating LLMs, GenAI, and Agentic Coding will be the topic of my next post. (TBD)
+Navigating LLMs, GenAI, and Agentic Coding will be the topic of my next post post: [The End of Coding as Toil](https://jhumelsine.github.io/2026/05/29/code-and-toil.html).
 
 # Learning by Doing
 <img src="https://live.staticflickr.com/65535/51664071063_98aeb86d97_k.jpg" alt="Styles of Learning" title="Image Source: https://www.flickr.com/photos/194356589@N04/51664071063" width = "45%" align="right" style="padding-right: 20px;">
