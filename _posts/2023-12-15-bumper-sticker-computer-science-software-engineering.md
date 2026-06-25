@@ -82,6 +82,8 @@ _Programming is not about typing, it's about thinking._ — Rich Hickey
 
 _Thinking doesn't guarantee that we won't make mistakes. But not thinking guarantees that we will._ — Leslie Lamport
 
+_The idea that people knew a thing or two in the '70s is strange to a lot of young programmers._ — Donald Knuth
+
 _The smartest thing you can do as a programmer is realize how stupid you are, and make accommodations._ — Jason Swett
 
 _Every great developer you know got there by solving problems they were unqualified to solve until they actually did it._ — Patrick McKenzie
