@@ -65,7 +65,17 @@ Here is where the elegance emerges:
 * The design is maintainable. Due to the modular nature of the design with interface separation, updated or newly added grammar rules and their corresponding design components will tend to have minimal impact upon existing grammar rules and their design components.
 
 # Grammar to Design via Use Case
-The following sections will show how the Rational Expression Evaluation Grammar leads to a design.
+Composite and Interpreter both feature object trees, but there's a distinction.
+
+Composite is about syntax.
+Only one class that allows tree branching, the `Composite` class.
+That is, there's only one rule that defines a Composite design.
+
+Interpreter adds semantics to the syntax.
+Many classes allow tree branching, but each class has its own semantics that define the types of object types that can be branched.
+That is, there are many rules that define a Interpreter design.
+
+The following sections will show how the Rational Expression Evaluation Grammar leads to a design based upon syntax and semantics.
 
 ## Grammar 
 I introduced the [Rational Expression Evaluation Grammar Rules](https://jhumelsine.github.io/2024/04/02/interpreter-design-pattern-grammars.html#rational-expression-evaluation-dsl-grammar-rules) in the previous blog.
