@@ -12,7 +12,7 @@ One of my favorite articles was [Bumper-Sticker Computer Science](https://dl.acm
 
 I've always liked quotes, and some Computer Scientists and Software Engineers do know how to craft a good phrase.
 
-Inspired by Bentley, I'm going provide my own set of Bumper Sticker Computer Science and Software Engineering, which includes some of my favorites from Bentley's original article. I hope some of these make you laugh, maybe cry and definitely think.
+Inspired by Bentley, I'm going provide my own set of Bumper Sticker Computer Science and Software , which includes some of my favorites from Bentley's original article. I hope some of these make you laugh, maybe cry and definitely think.
 
 # Philosophy
 
@@ -63,6 +63,8 @@ _In programming the hard part isn’t solving problems, but deciding what proble
 _The manager's function is not to make people work, but to make it possible for people to work._ — Tom DeMarco
 
 _The purpose of software engineering is to control complexity, not to create it._ — Pamela Zave
+
+_In science if you know what you are doing you should not be doing it. In engineering if you do not know what you are doing you should not be doing it._ — Richard Hamming
 
 _A computer will do what you tell it to do, but that may be much different from what you had in mind._ — Joseph Weizenbaum
 
