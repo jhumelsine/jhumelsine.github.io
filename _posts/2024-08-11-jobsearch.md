@@ -102,6 +102,29 @@ My mother used to say that all the time, and she was right. I worked for five co
 ### Your Network
 Make sure that the people you used work with know that you're looking for work. This is especially true for past coworkers who had already moved to other companies. They may know of internal opportunities that haven't been posted yet. Referrals are usually given higher consideration than an application from an unknown candidate.
 
+### Contact an Actual Recruiter ... an Actual Person!
+The [Soft Skills Podcast](https://softskills.audio/) addressed a concern in [Episode 527](https://softskills.audio/2026/08/24/episode-527-i-lost-my-job-after-10-years-and-am-i-too-old-to-switch-to-a-security-career/) where the listener had been caught in a layoff 10 years into his career.
+He wasn't making much progress through traditional channels.
+
+Recruiters are getting spammed with hundreds if not thousands of applications weekly.
+It's not obvious which ones are legitimate for the recruiter.
+
+At 11:40 minutes into the podcast, the hosts discussed attempting to establish direct personal contact with a recruiter at a company you want to work for.
+Recruiters will know how to shepherd your application through the system.
+Direct contact may give you inside access to their hiring process.
+
+But how does one find a recruiter at another company?
+
+A personal contact already at that company is a great resource, especially if they can be a referral.
+
+But if you're mostly cold calling, then you'll have to find a recruiter on your own.
+
+Search LinkedIn, such as: [Recruiters at Google in New York](https://www.linkedin.com/search/results/people/?keywords=Recruiters%20at%20Google%20in%20New%20York&origin=GLOBAL_SEARCH_HEADER).
+Modify as needed for your own search needs.
+
+It's not perfect, but it's a great start.
+If the recruiter is second in your network, then LinkedIn will identify the mutual connections, which may also help establish a connection with the recruiter.
+
 ### For the Glory of Old State ...
 If you graduated from a university with a career center, contact them. They may have additional resources available to you too.
 
