@@ -232,6 +232,8 @@ _There are two ways of constructing a software design: One way is to make it so 
 
 _The hardest part of engineering is resisting the urge to over-engineer._ ― @_Andrew_Mic
 
+_Developers are drawn to complexity like moths to a flame, frequently with the same result._ ― Neal Ford
+
 _Folk wisdom in software development teaches that interfaces shouldn't be unduly influenced by implementations. Writing a test first is a concrete way to achieve this separation._ ― Kent Beck
 
 _The vital detail about the design is captured in the code. A well-written implementation should be transparent, revealing the model underlying it._ ― Eric Evans
