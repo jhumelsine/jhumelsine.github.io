@@ -3,7 +3,7 @@ title: Abstract Factory Design Pattern Without the Confusion
 description: Building Smart, Swappable Systems One Layer at a Time
 ---
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg/800px-Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg" alt="Broadway Boogie Woogie" title="Image Source: By Piet Mondrian - Transferred from en.wikipedia to Commons., Public Domain, https://commons.wikimedia.org/w/index.php?curid=37640791" width = "50%" align="center" style="padding: 35px;">
+<img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg/1280px-Piet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="Broadway Boogie Woogie" title="Image Source: By Piet Mondrian - Transferred from en.wikipedia to Commons., Public Domain, https://commons.wikimedia.org/w/index.php?curid=37640791" width = "50%" align="center" style="padding: 35px;">
 
 # Introduction
 Abstract Factory may sound, well, abstract—but the problem it solves is anything but. It gives you a way to produce consistent families of objects without tightly coupling your code to specific classes. It’s especially helpful when your application needs to support different configurations or behaviors at runtime.
@@ -21,7 +21,7 @@ Patterns were presented in alphabetical order within each category. Therefore, _
 
 If you’ve ever tried to read the Abstract Factory diagram in GoF and ended up cross-eyed from the overlapping lines—trust me, you’re not alone. Imagine seeing this as your first design pattern.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Abstract_factory_UML.svg/1016px-Abstract_factory_UML.svg.png" alt="Gang of Four Abstract Factory Design" title="Image Source: https://en.wikipedia.org/wiki/File:Design_by_contract.svg" width = "80%" align="center" style="padding: 35px;">
+<img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Abstract_factory_UML.svg/1280px-Abstract_factory_UML.svg.png" alt="Gang of Four Abstract Factory Design" title="Image Source: https://en.wikipedia.org/wiki/Abstract_factory_pattern#/media/File:Abstract_factory_UML.svg" width = "80%" align="center" style="padding: 35px;">
  
 [__Builder__](https://jhumelsine.github.io/2025/08/08/builder-introduction.html) is the second pattern cataloged in the book, and it’s just about as intimidating. It’s the next pattern in this creational blog series.
 
