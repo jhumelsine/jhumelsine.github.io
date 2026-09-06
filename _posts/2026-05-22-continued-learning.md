@@ -24,6 +24,7 @@ I will update resources on this page as I learn of new resources.
     * [Books and Technical Libraries](#books-and-technical-libraries)
         * [O'Reilly](#oreilly)
         * [Skillsoft Percipio](#skillsoft-percipio)
+        * [ACM Skills Bundle Add-On](#acm-skills-bundle-add-on)
         * [ACM Digital Library](#acm-digital-library)
     * [Blogs and Articles](#blogs-and-articles)
 * [Structured Learning](#structured-learning)
@@ -139,12 +140,8 @@ In addition to thousands of books and videos, they also include [codeacademy](ht
 
 The subscription rate is less than O'Reilly.
 
-### ACM Digital Library
-The [Association for Computing Machinery](https://www.acm.org/) (ACM) opened their [ACM Digital Library](https://dl.acm.org/) to the public in [January 2026](https://dl.acm.org/openaccess).
-This resource is more academic than O'Reilly or Skillsoft Percipio, but there is no subscription fee.
-Here's a query that returns [my letters to the editor](https://dl.acm.org/action/doSearch?AllField=Humelsine) for their monthly journal.
-
-Consider joining the [ACM](https://www.acm.org/) and sign up for their [Skills Bundle Add-On](https://learning.acm.org/skills-bundle), which includes a partial O'Reilly subscription plan along with a Skillsoft Percipio subscription.
+### ACM Skills Bundle Add-On
+Consider joining the [Association for Computing Machinery](https://www.acm.org/) (ACM) and sign up for their [Skills Bundle Add-On](https://learning.acm.org/skills-bundle), which includes a partial O'Reilly subscription plan along with a Skillsoft Percipio subscription.
 Annual ACM membership and the Skills Bundle total price is still a fraction of the annual subscription price for O'Reilly and Skillsoft Percipio on their own.
 See: [About ACM E-Learning Offerings](https://learning.acm.org/e-learning). 
 
@@ -152,6 +149,11 @@ The ACM Skills Bundle has been fluid over the year.
 ACM and O'Reilly have had an on-again/off-again relationship over the past ten years.
 The Bundle used to include [Pluralsight](https://www.pluralsight.com/), but as of this blog publication, it is not part of their Bundle.
 See: [ACM membership benefits](https://www.acm.org/membership/membership-benefits)
+
+### ACM Digital Library
+The ACM opened their [ACM Digital Library](https://dl.acm.org/) to the public in [January 2026](https://dl.acm.org/openaccess).
+This resource is more academic than O'Reilly or Skillsoft Percipio, but there is no subscription fee.
+Here's a query that returns [my letters to the editor](https://dl.acm.org/action/doSearch?AllField=Humelsine) for their monthly journal.
 
 ## Blogs and Articles
 Technical books tend to be hundreds of pages long, and you may not have the time or desire to read an entire book.
