@@ -2,7 +2,7 @@
 title: Hexagonal Architecture – An Introduction
 description: Despite its name, it really isn’t about hexagons.
 ---
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Hexagon_windows_%28Unsplash%29.jpg/1185px-Hexagon_windows_%28Unsplash%29.jpg?20170903070532" alt="Building with Hexagons" title="Image Source: [https://pixabay.com/photos/hexagon-building-pattern-abstract-6233333/](https://commons.wikimedia.org/wiki/File:Hexagon_windows_%28Unsplash%29.jpg)" width = "70%" align="center" style="padding-right: 35px;">
+<img src="/assets/hexagons.jpg" alt="Building with Hexagons" title="Image Source: https://pixabay.com/photos/hexagon-building-pattern-abstract-6233333/" width = "70%" align="center" style="padding-right: 35px;">
 
 # Introduction to Hexagonal Architecture
 I’m introducing a new blog series about _Hexagonal Architecture_ (also known as _Ports and Adapters_). My previous blog posts have featured specific design patterns. This series is, in a way, continuing the design pattern theme. But instead of focusing upon specific design patterns, it will show how we can apply the design patterns that have already been presented. I will return to more design patterns once this _Hexagonal Architecture_ series has been completed.
