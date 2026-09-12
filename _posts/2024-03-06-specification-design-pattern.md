@@ -28,7 +28,7 @@ Like the previous composable design patterns, Specification is not difficult to 
 ## Matchmaker, Matchmaker, Make Me a Match
 The musical __Fiddler on the Roof__ features the song [_Matchmaker_](https://www.youtube.com/watch?v=59Hj7bp38f8) sung by Tevye’s three oldest daughters speculating upon whom the local matchmaker might find for their husbands.
 
-<img src="https://live.staticflickr.com/3714/9550526732_3c078bd805_o.jpg" alt="Fiddler on the Roof Poster" title="Image Source: https://www.flickr.com/photos/portlandcenterstage/9550526732" width = "45%" align="right" style="padding-right: 20px;">
+<img src="https://upload.wikimedia.org/wikipedia/yi/4/4f/Fiddler_on_the_roof_poster.jpg" alt="Fiddler on the Roof Poster" title="Image Source: https://yi.wikipedia.org/wiki/%D7%98%D7%A2%D7%A7%D7%A2:Fiddler_on_the_roof_poster.jpg" width = "35%" align="right" style="padding-right: 20px;">
 
 Here are several lyrics:
 <BR> _Matchmaker, Matchmaker,
