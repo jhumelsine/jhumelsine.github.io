@@ -109,7 +109,7 @@ Here are some examples of Use Cases:
 * PlaceOrder
 * CancelOrder
 * WithdrawFunds
-* BookReservation
+* BookReservation - NOTE: _Book_ is an imperative, as in, "Book a Car Rental Reservation." _Book_ is not an adjective describing the type of Reservation.
 
 ### Input/Output Boundary
 The Input/Output Boundary aligns with the _Driver Business Logic Port/Interface/Contract_ in the Hexagonal Architecture diagrams. Martin models this with four elements:
