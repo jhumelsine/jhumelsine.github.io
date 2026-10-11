@@ -1,9 +1,8 @@
 ---
 title: WORK IN PROGRESS – Agentic Coding - I Surrender
-description: Enough delay. I can't complete this blog entry
+description: Agentic AI is moving quickly. I don't have the experience to write about it confidently.
 unlisted: true
 ---
-
 <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNG42a203ZHdxODQ1Y3o4NHQzZm9yeTFjZmRxYTdvZHRtYWgwZ2x0aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kzuNhxVf27plttAS7E/giphy.gif" alt="Statler and Waldorf waving the white surrender flag" title="Image Source: https://giphy.com/gifs/muppets-the-muppet-show-statler-and-waldorf-kzuNhxVf27plttAS7E" width = "60%" align="center" style="padding-right: 35px;">
 
 I've struggled to make any meaningful progress with this blog entry.
