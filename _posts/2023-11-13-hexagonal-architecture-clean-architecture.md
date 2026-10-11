@@ -233,9 +233,8 @@ There are many online resources with diagrams and implementations in different p
 * Bob Martin as a roughly 1-hour presentation about Clean Architecture, which is available from various conferences. Here are links to several in reverse chronological order. They are all similar, but there are variations (NOTE: Martin likes to start his presentations with a ~10-minute science lesson, and he's a slow talker. I tend to jump ahead to the actual software portion of his presentation and play at a faster than normal speed):
     * [ITkonekt 2019 Robert C. Martin (Uncle Bob), Clean Architecture and Design](https://www.youtube.com/watch?v=2dKZ-dWaCiU) - June 10, 2019
     * [The Principles of Clean Architecture by Uncle Bob Martin](https://www.youtube.com/watch?v=o_TH-Y78tt4) - Norfolk Developers, December 15, 2015
-    * [Robert C. Martin - Clean Architecture and Design](https://vimeo.com/97530863) - Norwegian Developers Conference 2014, June 4, 2014
-    * [Robert C Martin - Clean Architecture and Design](https://www.youtube.com/watch?v=Nsjsiz2A9mg) - Norwegian Developers Conference 2013, June 4, 2014
-    * [Robert C Martin - Clean Architecture](https://www.youtube.com/watch?v=Nltqi7ODZTM) - Norwegian Developers Conference 2012, June 4, 2014
+    * [Robert C. Martin - Clean Architecture and Design](https://www.youtube.com/watch?v=Nsjsiz2A9mg) - Norwegian Developers Conference 2013, June 4, 2014 (posted)
+    * [Robert C Martin - Clean Architecture](https://www.youtube.com/watch?v=Nltqi7ODZTM) - Norwegian Developers Conference 2012, June 4, 2014 (posted)
     * [Robert C Martin(Uncle Bob) -Clean Architecture and Design-2012 COHAA The Path to Agility Conference](https://www.youtube.com/watch?v=asLUTiJJqdE) COHAA, October 25, 2012
 
 Here are some resources that can be purchased or are included in a subscription service:
