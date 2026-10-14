@@ -33,6 +33,31 @@ A previous coworker posted this online a few months ago:
 
 Regardless of achieving retirement or having it thrust upon you, you need to plan, and the best time to start that plan is at the start of your career.
 
+# TBD
+Most of my retirement recommendations will be consistent with what I wrote in [Losing Your Job Stinks](https://jhumelsine.github.io/2024/08/11/jobsearch.html).
+In both cases you need to consider your finances and what you'll do with the additional time.
+
+# Finances
+_The best time to plant a tree was twenty years ago. The second best time is now._ — Chinese Proverb
+
+Retirement is supported by several pillars, often called the [_Retirement Stool_](https://www.investopedia.com/ask/answers/09/three-legged-stool-retirement.asp) consistenting of:
+* Employer Pension
+* Government Pension
+* Personal Savings
+
+I think there's a fourth leg to the stool that's rarely mentioned: Inheritance.
+
+The Retirement Stool is an antiquated model that doesn't apply to most workers.
+Employer Pensions are mostly a thing of the past, except for certain sectors, such as public service jobs.
+Government Pensions are at risk of insolvency.
+Inheritance is not equally distributed.
+
+The only pillar still in most employees control is Personal Savings.
+This will be the only aspect of retirement finance preparation that I'll address here.
+
+# Tale as Old as Time
+
+
 # Summary
 TBD
 
@@ -56,9 +81,9 @@ https://finance.yahoo.com/personal-finance/banking/article/how-many-millionaires
 
 Walking into the corn field https://www.youtube.com/watch?v=TRvJiVVVpuk
 
-Medical
+Goals
 
-The best time to plant a tree is twenty years ago. The second best time is today -- Chinese Proverb
+Medical
 
 The Richest Man in Babylon
 
