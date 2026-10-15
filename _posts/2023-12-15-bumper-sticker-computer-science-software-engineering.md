@@ -30,6 +30,8 @@ _Make it work, then make it beautiful, then if you really, really have to, make 
 
 _Make it work, make it right, make it fast._ — Kent Beck
 
+_First do it, then do it right, then do it better. [..] Write the messy first draft of the design doc. Ship the MVP that embarrasses you slightly. You’ll learn more from one week of real feedback than a month of theoretical debate._ —@addyosmani
+
 _Make it correct, make it clear, make it concise, make it fast. In that order._ — Wes Dyer
 
 _First do it, then do it right, then do it better. [...] Write the messy first draft of the design doc. Ship the MVP that embarrasses you slightly. You’ll learn more from one week of real feedback than a month of theoretical debate._ — Addy Osmani
@@ -57,6 +59,8 @@ _I am worried that algorithms are getting too prominent in the world._ — Donal
 _About 1,000 instructions is a reasonable upper limit for the complexity of problems now envisioned._ — John von Neumann, 1946
 
 _Programming isn't about what you know; it's about what you can figure out._ — Chris Pine
+
+_The value of a prototype is in the education it gives you, not in the code itself._ — Alan Cooper
 
 _In programming the hard part isn’t solving problems, but deciding what problems to solve._ — Paul Graham
 
@@ -96,6 +100,8 @@ _Becoming a good engineer is about collecting experience. Each project, even sma
 
 _The computing scientist’s main challenge is not to get confused by the complexities of his own making._ ― Edsger W. Dijkstra
 
+_Fools ignore complexity. Pragmatists suffer it. Some can avoid it. Geniuses remove it._ — Alan Perlis
+
 _Good judgement comes from experience, and experience comes from bad judgement._ ― Attributed to many
 
 _Experience is a cruel teacher because she gives you the test first, the lesson afterwards._ ― Vernon Law
@@ -119,6 +125,10 @@ _Not “can we build it?” but “should we build it?_ ― Jez Humble
 _The most serious barrier is to be found in organizational culture, leadership, and strategy._ ― Jez Humble
 
 _The hardest problem in computer science is not being an opinionated jerk about everything._ ― Nick Takayama
+
+_You don't pay engineers to write code, you pay them to understand subtleties and edges of the problem. The code is incidental._ – Ted Dziuba
+
+_Most won't care about the craft. Cherish the ones that do, meet the rest where they are._ – Chris Kiehl
 
 # Planning
 
@@ -148,6 +158,12 @@ _Some folks think that Agile is about going fast. It’s not. It’s never been 
 
 _Velocity is a vector, not a scalor. If an organization on focuses on speed and not direction, it just gets lost faster._ ― Jim Humelsine
 
+_Focus is a matter of deciding what things you’re not going to do._ ― John Carmack
+
+_A plan is an example of what could happen, not a prediction of what will happen._ ― Kent Beck
+
+_The first step of any project is to grossly underestimate its complexity and difficulty._ – Nicoll Hunt
+
 # Requirements
 
 _The act of describing a program in unambiguous detail and the act of programming are one and the same._ — Kevlin Henney
@@ -158,9 +174,13 @@ _Walking on water and developing software from a specification are easy if both 
 
 _If it’s your decision, it’s design; if not, it’s a requirement._ — Alistair Cockburn
 
+_Sometimes the problem has to mature before the solution can mature._ — Kent Beck
+
 # Architecture
 
 _A distributed system is one in which the failure of a computer you didn’t even know existed can render your own computer unusable._ — Leslie Lamport
+
+_There are only two hard problems in distributed systems: 2. Exactly-once delivery 1. Guaranteed order of messages 2. Exactly-once delivery._ – Mathias Verraes
 
 _We build our computer (systems) the way we build our cities: over time, without a plan, on top of ruins._ — Ellen Ullman
 
@@ -280,6 +300,9 @@ _AI assistants are like junior developers with infinite energy but zero context.
 
 _I think that "Vibe Coding" may not have been the best name. I think "Monkey Paw Coding" is more accurate. It may give you what you asked for, but not exactly what you wanted._ — Jim Humelsine
 
+_The danger isn’t that ai writes bad code- it’s that it makes writing unnecessary code 100% free_ — 
+@HarivanshRathi
+
 # Readable/Comprehensible Code
 
 _Software is like poetry. Most of it probably should not have been written._ — Anonymous
@@ -386,6 +409,8 @@ _Sometimes it pays to stay in bed on Monday, rather than spending the rest of th
 
 _If debugging is the process of removing software bugs, then programming must be the process of putting them in._ ― Edsger W. Dijkstra
 
+_Without requirements or design, programming is the art of adding bugs to an empty text file._ — Louis Srygley
+
 _Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it._ — Brian Kernighan
 
 _The first step in fixing a broken program is getting it to fail repeatably._ — Tom Duff
@@ -398,6 +423,8 @@ _The art of debugging is figuring out what you really told your program to do ra
 
 _If you're good at the debugger it means you spent a lot of time debugging. I don't want you to be good at the debugger._ ― Robert C. Martin
 
+_The most dangerous line of code isn't the one that's obviously wrong - it's the one that's wrong in a way that looks perfectly reasonable_ – Anonymous
+
 # Performance
 
 _Premature optimization is the root of all evil._ ― Donald Knuth
@@ -409,6 +436,8 @@ _The fastest algorithm can frequently be replaced by one that is almost as fast 
 _Fancy algorithms are slow when n is small, and n is usually small._ — Rob Pike
 
 _The cleaner and nicer the program, the faster it's going to run. And if it doesn't, it'll be easy to make it fast._ — Joshua Bloch
+
+_If it doesn’t work, it doesn’t matter how fast it doesn’t work._ – Mich Ravera
 
 # References
 * Original [Bumper Sticker Computer Science](https://moss.cs.iit.edu/cs100/Bentley_BumperSticker.pdf) by Jon Bentley
