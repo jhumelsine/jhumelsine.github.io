@@ -1,7 +1,6 @@
 ---
-title: DRAFT OPEN FOR COMMENTS – Agentic Coding - I Surrender
+title: Agentic Coding - I Surrender
 description: Agentic AI is changing software engineering. I recognize its importance, but I'm not ready to guide others through the transition.
-unlisted: true
 ---
 <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNG42a203ZHdxODQ1Y3o4NHQzZm9yeTFjZmRxYTdvZHRtYWgwZ2x0aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kzuNhxVf27plttAS7E/giphy.gif" alt="Statler and Waldorf waving the white surrender flag" title="Image Source: https://giphy.com/gifs/muppets-the-muppet-show-statler-and-waldorf-kzuNhxVf27plttAS7E" width = "60%" align="center" style="padding-right: 35px;">
 
