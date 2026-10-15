@@ -225,6 +225,7 @@ Prompt Engineering Patterns are the key to getting the best results from Generat
 
 ### AI and Coding
 * [The End of Coding as Toil](https://jhumelsine.github.io/2026/05/29/code-and-toil.html)
+* [Agentic Coding - I Surrender](https://jhumelsine.github.io/2026/10/15/agentic-ai-surrender.html)
 
 ## Interactive AI Notebooks (Google NotebookLM)
 I have created interactive AI notebooks for several of my blog series. Each provides an AI interactive experience with some of my central themes. There are several artifacts including an AI generated two-host podcast formatted summary. You can also interact with the generated AI hosts to some degree.
