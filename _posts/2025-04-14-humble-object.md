@@ -79,7 +79,6 @@ Here are some free resources:
 * [Humble Object pattern](https://github.com/mistermicheels/learning-notes/blob/master/architecture-design/Humble-Object-pattern.md) - GitHub page by mistermicheels
 * [Unit testing part 2 - Unit testing MonoBehaviours](https://unity.com/blog/technology/unit-testing-part-2-unit-testing-monobehaviours) - Blog by TOMEK PASZEK featuring the Humble Object Pattern
 * [TDD Patterns: Humble Object](https://ieftimov.com/posts/tdd-humble-object/) - Blog by Ilija Eftimov
-* [Humble Object](http://xunitpatterns.com/Humble%20Object.html) - Article by xUnit Patterns
 * [Testing multithreaded code](https://elecodev.wordpress.com/2015/08/10/testing-multithreaded-code/) - Blog by elecodev, java fanboy, featuring the Humble Object Pattern when testing multithreaded code
 * [Clean Architecture - Robert (Uncle Bob) Martin](https://www.youtube.com/watch?v=G08FxxwPjXE&t=2042s) - Video presentation at DevTernity Conference queued to where Bob makes a passing mention of the Humble Object Pattern technique, but doesn't name it as such.
 * _Coding Blocks Episode 76: Clean Architecture – What is the Humble Object Pattern?_ ([Landing Page](https://www.codingblocks.net/podcast/clean-architecture-what-is-the-humble-object-pattern/) and [Video](https://www.youtube.com/watch?v=-M0301nxE4Q))
