@@ -130,6 +130,8 @@ _You don't pay engineers to write code, you pay them to understand subtleties an
 
 _Most won't care about the craft. Cherish the ones that do, meet the rest where they are._ – Chris Kiehl
 
+_A good programmer is someone who looks both ways before crossing a one-way street._ — Doug Linder
+
 # Planning
 
 _The sooner you start to code, the longer the program will take._ — Roy Carlson
@@ -387,6 +389,8 @@ _Test-driven development is double-entry bookkeeping._ — Robert C. Martin
 
 _Tests don't break your code; they break your illusions about the quality of that code._ — Maaret Pyhäjärvi
 
+_A successful test is one that breaks the software._ — Steve McConnell
+
 _As soon as you have humans doing repetitive tasks on behalf of computers, they all get together late at night and laugh at you._ — Neal Ford, in the context of repetitive manual vs automated testing
 
 _Beware of bugs in the above code; I have only proved it correct, not tried it._ — Donald Knuth
@@ -438,6 +442,8 @@ _Fancy algorithms are slow when n is small, and n is usually small._ — Rob Pik
 _The cleaner and nicer the program, the faster it's going to run. And if it doesn't, it'll be easy to make it fast._ — Joshua Bloch
 
 _If it doesn’t work, it doesn’t matter how fast it doesn’t work._ – Mich Ravera
+
+_The fastest algorithm can frequently be replaced by one that is almost as fast and much easier to understand._ — Douglas W. Jones
 
 # References
 * Original [Bumper Sticker Computer Science](https://moss.cs.iit.edu/cs100/Bentley_BumperSticker.pdf) by Jon Bentley
