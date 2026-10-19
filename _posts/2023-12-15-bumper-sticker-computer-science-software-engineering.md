@@ -162,6 +162,8 @@ _Velocity is a vector, not a scalor. If an organization on focuses on speed and 
 
 _Focus is a matter of deciding what things you’re not going to do._ ― John Carmack
 
+_Learn not to add too many features right away, and get the core idea built and tested._ — Leah Culver
+
 _A plan is an example of what could happen, not a prediction of what will happen._ ― Kent Beck
 
 _The first step of any project is to grossly underestimate its complexity and difficulty._ – Nicoll Hunt
