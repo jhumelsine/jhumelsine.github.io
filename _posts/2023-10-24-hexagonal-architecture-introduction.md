@@ -80,7 +80,6 @@ If you want to learn more about HexArch/P&A in the interim, please do so with so
 Here are some free resources:
 * [Hexagonal Architecture on Wikipedia](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software))
 * [Alistair Cockburn's Hexagonal Architcture page](https://alistair.cockburn.us/hexagonal-architecture/)
-* [Alistair Cockburn's Hexagonal Architecture reference page](https://hexagonalarchitecture.org/)
 * [Hexagonal Architecture on Wiki C2](https://wiki.c2.com/?HexagonalArchitecture)
 * [Hexagonal Me](https://jmgarridopaz.github.io/) - Great source of Hexagonal Architecture information
 * [Hexagonal architecture – is it for me? A no-nonsense overview](https://tsh.io/blog/hexagonal-architecture/)
@@ -91,12 +90,10 @@ Here are some free resources:
 * [DDD, Hexagonal, Onion, Clean, CQRS, … How I put it all together](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/)
 * [Organizing Layers Using Hexagonal Architecture, DDD, and Spring](https://www.baeldung.com/hexagonal-architecture-ddd-spring)
 * [Hexagonal Architecture: What Is It and How Does It Work?](https://dzone.com/articles/hexagonal-architecture-what-is-it-and-how-does-it)
-* [Architectural Approaches: Clean And Hexagonal Architecture](https://apiumhub.com/tech-blog-barcelona/clean-and-hexagonal-architecture/)
 * [A Color Coded Guide to Ports and Adapters](https://8thlight.com/insights/a-color-coded-guide-to-ports-and-adapters)
 * [Ports & Adapters (aka hexagonal) architecture explained](https://codesoapbox.dev/ports-adapters-aka-hexagonal-architecture-explained/)
 * [Ports & Adapters Architecture](https://herbertograca.com/2017/09/14/ports-adapters-architecture/)
 * [Ports-And-Adapters / Hexagonal Architecture](https://www.dossier-andreas.net/software_architecture/ports_and_adapters.html)
-* [Ports-and-Adapters Architecture: The Pattern](https://embeddeduse.com/2023/08/24/ports-and-adapters-architecture-the-pattern/)
 * [Hexagonal Architecture - Ports and Adapters](https://journal.optivem.com/p/hexagonal-architecture-ports-and-adapters)
 * [The Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) - The first Clean Architecture blog by Bob Martin from 2012
 * [Screaming Architecture](https://blog.cleancoder.com/uncle-bob/2011/09/30/Screaming-Architecture.html) - Early Clean Architecture blog by Bob Martin from 2011, which focuses upon obvious architectures
