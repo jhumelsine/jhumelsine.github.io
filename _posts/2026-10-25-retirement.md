@@ -56,17 +56,17 @@ Retirement is supported by several pillars, often called the [_Retirement Stool_
 * Government Pension
 * Personal Savings
 
-I think there's a fourth leg to the stool that's rarely mentioned: Windfalls.
-
 The Retirement Stool is an antiquated model that doesn't apply to most current workers.
 Employer Pensions are mostly a thing of the past, except for certain sectors, such as public service jobs.
 Government Pensions are at risk of insolvency.
 
-Windfalls come in different forms:
-* Lottery - Yes, there are big winners, but they are few and far between. Please don't play the lottery regularly. I favor [Fran Lebowitz](https://www.goodreads.com/quotes/85215-i-figure-you-have-the-same-chance-of-winning-the) philosophy with respect to the lottery: _I figure you have the same chance of winning the lottery whether you play or not._ If you want to buy a ticket when the jackpot grows to incredible levels, then have a little fun, but treat it only as entertainment to dream about the possibilities for a few hours, because that's all you'll receive.
-* Gambling - I lump several categories into this: Online Gambling, Prediction Markets, Day Trading, Futures/Options, Cryptocurrencies, etc. There may be some upside for these, but I suspect most lose money. Much like the lottery, if it's too alluring, treat it like entertainment, set aside a fixed budget of money to play with and have fun. Good luck to you.
-* Stock Options - Yes, there are big winners here too, but don't count on it. I joined a pre-IPO start up in 2000. My options, when vested, had a conservative value of $8M-US when compared with our public competition. Then the dot-com bubble burst. Our post-IPO start up imploded. My vested options netted a total profit of about $21.22-US. I tried not to blow it all on a yacht.
-* Inheritance - Yes, there are those who inherit substantial sums of money. Trillions of US dollars will be transferred from the dying older generations to younger generations through the [Great Wealth Transfer](https://en.wikipedia.org/wiki/Great_Wealth_Transfer) in the next two decades. However, inheritance is not equally distributed nor can you decide when you receive it. Your best bet for a significant inheritance is to choose your parents wisely.
+I think there's a fourth leg to the stool that's rarely mentioned: Windfalls.
+
+Windfalls come in several forms:
+* Lottery - Yes, there are big winners, but they are few and far between. Please don't play the lottery regularly. I favor [Fran Lebowitz](https://www.goodreads.com/quotes/85215-i-figure-you-have-the-same-chance-of-winning-the) philosophy with respect to the lottery: _I figure you have the same chance of winning the lottery whether you play or not._ If you want to buy a ticket when the jackpot grows to incredible levels, then have a little fun, but treat it only as entertainment while dreaming about the possibilities for a few hours, because that's all you'll receive.
+* Gambling - I lump several categories into this: Online Gambling, Prediction Markets, Day Trading, Futures/Options, Cryptocurrencies, etc. There may be some upside for these, but I suspect that most participants lose money. Much like the lottery, if it's too alluring to ignore, treat it as entertainment, set aside a fixed budget of money to play with and have fun. Good luck to you.
+* Stock Options - Yes, there are big winners here too, but don't count on it. I joined a pre-IPO start up in 2000. My options, when vested, had a conservative value of $8M-US when compared with our public competition. Then the dot-com bubble burst. Our post-IPO start up imploded a few years later. My vested options netted a total profit of about $21.22-US. I tried not to blow it all on a yacht.
+* Inheritance - Yes, there are those who inherit substantial sums of money. Trillions of US dollars will be transferred from the older generations to younger generations through the [Great Wealth Transfer](https://en.wikipedia.org/wiki/Great_Wealth_Transfer) in the next two decades. However, inheritance is not equally distributed nor can you determine when you receive it. Your best bet for a significant inheritance is to choose your parents wisely.
 
 The only pillar in control of most is Personal Savings.
 This will be the only aspect of retirement finance preparation that I'll address here.
@@ -78,12 +78,11 @@ Though financial vehicles have emerged and created new investment options, the f
 
 It includes sage advice such as:
 * _For every ten coins thou placest within thy purse take out for use but nine. Thy purse will start to fatten at once and its increasing weight will feel good in thy hand and bring satisfaction to thy soul._
-* _The earnings it will make shall build our fortunes ... Learn to make your treasure work for you. Make it your slave. Make its children and its children's children work for you._
+* _The earnings it will make shall build your fortunes ... Learn to make your treasure work for you. Make it your slave. Make its children and its children's children work for you._
 
 This advice was author [George Samuel Clason's](https://en.wikipedia.org/wiki/George_Samuel_Clason) stylized version of [Live Beneath Your Means](#you) and the [Power of Compound Interest](#time).
 
-Clason imagined wealth management in the ancient world.
-We don't need to.
+Clason imagined wealth management in the ancient world, but we don't need to.
 Many [religious texts](https://www.google.com/search?q=List+the+personal+and+household+financial+advice+contained+with+the+religious+texts+of+the+world) contain passages relating to personal and household financial management.
 
 Most modern financial principles can trace their origins back to these texts.
@@ -94,13 +93,13 @@ You have several tools at your displosal
 ### You
 Over your lifetime, you will earn more income than most any other asset you will own.
 
-How much do you still manage?
+How much of your income do you still manage?
 How much have you given away?
 How much have you spent?
  
 You generate income, but you are also a high maintenance asset.
-You need food, shelter, clothing, transportation, insurance, loan payments, etc.
-You produce a lot, but you consume a lot too.
+You need food, shelter, clothing, transportation, insurance, etc.
+You produce a lot, but you consume much too.
 You may be a great asset, but you’re a bit of a liability as well.
 
 In order to reach any of your goals, your income must exceed your expenses.
@@ -115,14 +114,14 @@ When you’re rolling a snowball to make a snowman, the ball will soon get to a 
 Soon, the snowball will be large to even budge.
  
 With investments, earnings start to produce their own earnings, which produce their own earnings, etc.
-Albert Einstein is credited, though probably apocrophal, for stating that compound interest was the eighth wonder of the world.
+Albert Einstein is credited for stating that compound interest was the eighth wonder of the world, but most agree it's apocryphal.
 
 Let’s consider an example: 
 >Twins Anna and Billy, start their careers when they graduate from college at age 21. 
 >
 >Anna decides to invest $1,000 a year toward retirement in her company’s retirement plan. It’s tight at first, but it gets a little easier with several raises. Then Anna gets married and starts a family and decides to become a stay at home mom at age 28. She stops investing, because she has no more direct income.
 > 
->Her brother, Billy, takes a different approach. He waits to start investing. He has always intended to start his retirement savings, but he never got around to filling out the paperwork at the Human Resources department. (NOTE: Recent laws in the United States make automatic enrollment in retirement plans automatic; however, employees can opt out of it.) When he sees his sister start a family, he decides to get serious about his future as well, and he visits his Human>Resources representative to start. He invests $1,000 every year from age 29 and continues until he retires at age 65.
+>Her brother, Billy, takes a different approach. He waits to start investing. He has always intended to start his retirement savings, but he never got around to filling out the paperwork at the Human Resources department. (NOTE: Recent laws in the United States make automatic enrollment in retirement plans automatic; however, employees can opt out.) When he sees his sister start a family, he decides to get serious about his future as well, and he visits his Human Resources representative to start. He invests $1,000 every year from age 29 and continues until he retires at age 65.
 > 
 >Both twins earn an average of 10% on their investments annually.
 > 
@@ -139,11 +138,19 @@ Cash is a limited tool. It doesn’t produce a dividend. It doesn’t even grow 
  
 Cash does have its uses. It is useful for its liquidity and also for its stability when the stock market takes a downturn. For those who have a tendency to slip back into debt, cash may be the only way to manage household finances to prevent sinking further into debt.
 
-### Savings/Checking Account
+### Cash Equivalents
+There are several savings options that while not technically cash, they are often considered equivalent to cash.
+
+#### Savings/Checking Account
 This asset is used to manage day-to-day non-cash financial exchanges, such as paying bills. You may earn little interest on money in a checking account.
 
-### Money Market
+#### Money Market
 A money market account is like a savings/checking account on steroids. They are used to store larger amounts of cash than savings and checking accounts. They generally pay more interest as well. They also tend to have limitations in their use. A check may have a minimum amount of $250 or $500, or there may be a limit on the number of checks that can be written from the account per month. These limitations reduce the churn on the account, and that’s why the financial institution offers better rates.
+
+#### Certificate of Deposit
+A [Certificate of Deposit](https://en.wikipedia.org/wiki/Certificate_of_deposit) (CD) is a loan to the bank for a fixed period of time with a fixed rate of return.
+
+CDs are very safe, but their rates of return tend to be low.
 
 ### Bonds
 A [bond](https://en.wikipedia.org/wiki/Bond_%28finance%29) is a loan. In buying a bond, you’re lending money to a person or institution who promises to pay you back with interest after a period of time. You generally can’t get your money back before the period of time is up without penalty. The money you lend may be at risk, depending upon the type of bond.
@@ -151,7 +158,7 @@ A [bond](https://en.wikipedia.org/wiki/Bond_%28finance%29) is a loan. In buying 
 Common types of bonds are certificates of deposit, government bonds and corporate bonds.
 
 ### Stock
-A [stock](https://en.wikipedia.org/wiki/Stock) is ownership. When you buy a stock, you own a piece of that company. If the company makes a profit, your stock will tend to go up in value and/or the company will pay you a dividend. If the company loses money, your stock will tend to go down in value. Stocks are riskier than bonds.
+[Stock](https://en.wikipedia.org/wiki/Stock) is ownership. When you buy a stock, you own a piece of that company. If the company makes a profit, your stock will tend to go up in value and/or the company will pay you a dividend. If the company loses money, your stock will tend to go down in value. Stocks are riskier than bonds.
  
 In the same way that there are different types of bonds, there are different types of stocks. Some companies are called growth stocks. Think of Microsoft from the 1980s or Google in the 2000s. The value of a share of these stocks may rise or fall quickly. 
  
@@ -202,7 +209,7 @@ There is no such thing as a perfect investment.
 I listed several set of asset classes above, such as [Cash](#cash), [Bonds](#bonds) and [Stock](#stock).
 Each asset class has its own profile with advantages and disadvantages.
 
-Cash, and cash equivalents, such as Certificates of Deposit, are very safe, but since they don't grow over time, their purchasing power erodes with inflation.
+Cash, and cash equivalents, are very safe, but since they don't grow over time, their purchasing power erodes with inflation.
 
 Bonds tend to be relatively safe as well. They generate stable interest and dividends and tend to keep up with inflation, but there's not much growth.
 
@@ -210,20 +217,20 @@ Stocks tend to have the greatest risks and reward along with volatility. They pr
 
 ### Asset Allocation
 Asset classes should be aligned to the goals they are funding.
-In general, the further away the goal is, the risk/reward it can withstand, since there's time to recover from any downward volatility.
+In general, the further away the goal is, the greater the risk/reward it can withstand, since there's time to recover from any downward volatility.
 
 Let's consider a family with 35-year old parents with a ten year old child with the following goals:
-* Car fund to replace one of the current cars in two years. This fund should be in CDs and bonds, since a new car is right around the corner.
+* Car fund to replace one of the current cars in two years. This fund should be in CDs and bonds, since a new car purchase is right around the corner.
 * College fund for their child. This fund should be a mixture of stocks and bonds. The child won't start college for another eight years. The stocks will provide some growth for the interim, and the bonds will provide some stability should the stock market run into a recession.
-* Retirement fund for the parents. This fund should be almost completely in stocks, since retirement is still 30 years away. However, they will want to consider moving toward bonds in the next five to ten years.
+* Retirement fund for the parents. This fund should be almost entirely in stocks, since retirement is still 30 years away. However, they will want to consider adding bonds in the next five to ten years.
 
 Asset allocation changes as time advances.
 The 35-year old couple can absorb the volatility of stocks 30 years from retirement, but when they reach retirement at age 65 a portion of their retirement fund should have cash and bonds.
-And it should also have some stock too.
+And it should still retain some stock too.
 The 65-year old couple could easily have a 30-year retirement.
-They would still need some stocks for growth, but not 100% stocks for their retirement fund while in retirement.
+They would still need some stocks for growth along with their cash and bonds.
 
-Funds often contain different asset classes, as described above.
+Goal targeted funds often contain different asset classes, as described above.
 Different asset classes respond differently to different market conditions.
 Therefore rebalancing between asset classes may be warrented.
 
@@ -231,7 +238,7 @@ For example, let's assume that our 65-year old couple wants their retirement ass
 One year the stock market does great, but the bond market does not.
 Their allocation changes to 60% stocks and 40% bonds, not because of anything they did, but because of market conditions.
 Therefore, they may rebalance their portfolio once a year by selling some of the stock and purchasing some bonds to bring them back into a 50/50 balance.
-They are literally executing the old strategy of: ***Sell High. Buy Low.***
+They are literally executing the old strategy of: ***Buy Low. Sell High.***
 
 ### Diversification
 In addition to the correct asset allocation, the assets should have some diversity.
@@ -248,6 +255,8 @@ Some financial companies offer targeted based mutual funds.
 They are mutual funds with a specific goal target date in mind.
 Targeted based mutual funds will readjust and rebalance among its asset classes automatically.
 That is, as the target date approaches, the mutual fund will reallocate asset class ratios adjusting for volatility over the years as well as rebalancing to ensure that the ratios are maintained.
+
+Targeted funds can be good for retirement or a child's college fund.
 
 ## Coach
 
