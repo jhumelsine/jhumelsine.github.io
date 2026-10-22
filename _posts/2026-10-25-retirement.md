@@ -64,6 +64,7 @@ Government Pensions are at risk of insolvency.
 
 Windfalls come in different forms:
 * Lottery - Yes, there are big winners, but they are few and far between. Please don't play the lottery regularly. I favor [Fran Lebowitz](https://www.goodreads.com/quotes/85215-i-figure-you-have-the-same-chance-of-winning-the) philosophy with respect to the lottery: _I figure you have the same chance of winning the lottery whether you play or not._ If you want to buy a ticket when the jackpot grows to incredible levels, then have a little fun, but treat it only as entertainment to dream about the possibilities for a few hours, because that's all you'll receive.
+* Gambling - I lump several categories into this: Online Gambling, Prediction Markets, Day Trading, Futures/Options, Cryptocurrencies, etc. There may be some upside for these, but I suspect most lose money. Much like the lottery, if it's too alluring, treat it like entertainment, set aside a fixed budget of money to play with and have fun. Good luck to you.
 * Stock Options - Yes, there are big winners here too, but don't count on it. I joined a pre-IPO start up in 2000. My options, when vested, had a conservative value of $8M-US when compared with our public competition. Then the dot-com bubble burst. Our post-IPO start up imploded. My vested options netted a total profit of about $21.22-US. I tried not to blow it all on a yacht.
 * Inheritance - Yes, there are those who inherit substantial sums of money. Trillions of US dollars will be transferred from the dying older generations to younger generations through the [Great Wealth Transfer](https://en.wikipedia.org/wiki/Great_Wealth_Transfer) in the next two decades. However, inheritance is not equally distributed nor can you decide when you receive it. Your best bet for a significant inheritance is to choose your parents wisely.
 
@@ -161,7 +162,7 @@ Stocks can be issued by small, medium and large companies.  Stocks can be issued
 ### Mutual Funds
 A [mutual fund](https://en.wikipedia.org/wiki/Mutual_fund) is shared ownership of many assets with others. Rather than buying ownership in a single bond, company or property, when you purchase a share of a mutual fund, you’re joining a group of other investors who have pooled their money together. A fund manager manages the large number of assets on behalf of the group. Each share of a mutual fund is spread among the assets in which the mutual fund is invested. You will indirectly own shares of many different companies.
  
-Mutual funds are almost always provided by financial institutions, such as Fidelity, Vanguard, Oppenheimer, etc. A mutual fund almost always has a fund manager or a team of managers.  There are some that do not: these are index funds, which are on auto-pilot. They match published indexes, such as the [S&P 500](https://en.wikipedia.org/wiki/S%26P_500), [Dow Jones Industrial Average](https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average), etc. Managed funds have a management fee. Indexed funds have little to no fee. Indexed funds are a bit dull and boring since they just follow their index, but with little or no management fee, they tend to out perform managed funds over the long term.
+Mutual funds are almost always provided by financial institutions, such as Fidelity and Vanguard. A mutual fund almost always has a fund manager or a team of managers.  There are some that do not: these are index funds, which are on auto-pilot. They match published indexes, such as the [S&P 500](https://en.wikipedia.org/wiki/S%26P_500), [Dow Jones Industrial Average](https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average), etc. Managed funds have a management fee. Indexed funds have little to no fee. Indexed funds are a bit dull and boring since they just follow their index, but with little or no management fee, they tend to out perform managed funds over the long term.
  
 Mutual funds can invest in stocks, bonds or real estate.
  
@@ -181,8 +182,74 @@ You need a place to live, and as long as you can afford it, a home is a wise opt
 There are many other financial tools, which may be of use as well, including real estate, annuities, precious metals and self owned businesses.
 
 ## Goals
+Retirement is the primary financial goal of this blog, but it's not the only one for most households.
 
-## Asset Allocation
+Other financial goals include:
+* Home Purchase
+* College fund for children
+* Paying off current student loans
+* The next car
+* Vacations
+* Etc.
+
+Goals are not an either/or situation.
+A household can work toward multiple goals simultaneously.
+Some may have higher priority than others.
+There may be times, such as during a period of unemployment, when funding lower priority goals needs to be suspended temporarily.
+
+## Asset Classes
+There is no such thing as a perfect investment.
+I listed several set of asset classes above, such as [Cash](#cash), [Bonds](#bonds) and [Stock](#stock).
+Each asset class has its own profile with advantages and disadvantages.
+
+Cash, and cash equivalents, such as Certificates of Deposit, are very safe, but since they don't grow over time, their purchasing power erodes with inflation.
+
+Bonds tend to be relatively safe as well. They generate stable interest and dividends and tend to keep up with inflation, but there's not much growth.
+
+Stocks tend to have the greatest risks and reward along with volatility. They produce your greatest gains and losses, and fortunes can swing between the two quickly.
+
+### Asset Allocation
+Asset classes should be aligned to the goals they are funding.
+In general, the further away the goal is, the risk/reward it can withstand, since there's time to recover from any downward volatility.
+
+Let's consider a family with 35-year old parents with a ten year old child with the following goals:
+* Car fund to replace one of the current cars in two years. This fund should be in CDs and bonds, since a new car is right around the corner.
+* College fund for their child. This fund should be a mixture of stocks and bonds. The child won't start college for another eight years. The stocks will provide some growth for the interim, and the bonds will provide some stability should the stock market run into a recession.
+* Retirement fund for the parents. This fund should be almost completely in stocks, since retirement is still 30 years away. However, they will want to consider moving toward bonds in the next five to ten years.
+
+Asset allocation changes as time advances.
+The 35-year old couple can absorb the volatility of stocks 30 years from retirement, but when they reach retirement at age 65 a portion of their retirement fund should have cash and bonds.
+And it should also have some stock too.
+The 65-year old couple could easily have a 30-year retirement.
+They would still need some stocks for growth, but not 100% stocks for their retirement fund while in retirement.
+
+Funds often contain different asset classes, as described above.
+Different asset classes respond differently to different market conditions.
+Therefore rebalancing between asset classes may be warrented.
+
+For example, let's assume that our 65-year old couple wants their retirement asset allocation to be 50% stocks and 50% bonds.
+One year the stock market does great, but the bond market does not.
+Their allocation changes to 60% stocks and 40% bonds, not because of anything they did, but because of market conditions.
+Therefore, they may rebalance their portfolio once a year by selling some of the stock and purchasing some bonds to bring them back into a 50/50 balance.
+They are literally executing the old strategy of: ***Sell High. Buy Low.***
+
+### Diversification
+In addition to the correct asset allocation, the assets should have some diversity.
+That is, don't put all your eggs in one basket.
+
+While the 30-year old couple's retirement fund should mostly be invested in stocks, it should not be invested in one stock.
+Everyone dreams of buying Amazon, Google, Nvidia or Apple before they became big.
+But for every company that would have made you a fortune, there was an equally compelling company that would have lost you a fortune, such as [Enron](https://en.wikipedia.org/wiki/Enron).
+
+One of the best ways to get diversification is through [Mutual Funds](#mutual-funds) and [ETFs](#exchange-traded-funds-or-etfs) mentioned above.
+Diversification is built into their very nature.
+
+Some financial companies offer targeted based mutual funds.
+They are mutual funds with a specific goal target date in mind.
+Targeted based mutual funds will readjust and rebalance among its asset classes automatically.
+That is, as the target date approaches, the mutual fund will reallocate asset class ratios adjusting for volatility over the years as well as rebalancing to ensure that the ratios are maintained.
+
+## Coach
 
 ## Plan
 
@@ -217,5 +284,3 @@ Medical
 Reference my church finance stuff, but don't link to it. There's good structure there.
 
 Your tools: You, Time, ...
-
-Compound Interest example with Anne and Bob. Use Snowball example.
