@@ -258,38 +258,8 @@ That is, as the target date approaches, the mutual fund will reallocate asset cl
 
 Targeted funds can be good for retirement or a child's college fund.
 
-## Coach
-
-## Plan
-
-# Ikigai
-
 # Summary
-TBD
+There's a lot to absorb here especially for new graduates entering the job market who have not considered their new financial lives.
+Therefore, I'm wrapping up this initial financial introduction.
 
-# References
-TBD
-
-# Notes
-Describe the financial services commercial with the foreign car garage and chasing the dream.
-
-https://en.wikipedia.org/wiki/Ikigai from https://www.pushkin.fm/podcasts/whats-your-problem/how-ai-could-actually-make-the-world-better
-
-Have a plan
-
-Do what you want to do, not what you have to do.
-
-Get a part-time job, but consider the consequences. You won’t have as much freedom.
-
-Volunteer. You have much more freedom. You don’t have to show up. What are they going to do? Fire you!?
-
-https://finance.yahoo.com/personal-finance/banking/article/how-many-millionaires-in-america-205846046.html
-
-Walking into the corn field https://www.youtube.com/watch?v=TRvJiVVVpuk
-
-Goals
-
-Medical
-Reference my church finance stuff, but don't link to it. There's good structure there.
-
-Your tools: You, Time, ...
+The next blog will wrap up the financial aspects of retirement planning along with additional time.
