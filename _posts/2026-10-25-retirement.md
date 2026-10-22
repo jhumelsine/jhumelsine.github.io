@@ -48,17 +48,24 @@ I'll describe one path toward retirement, but it is not the only path toward ret
 # Finances
 _The best time to plant a tree was twenty years ago. The second best time is now._ — Chinese Proverb
 
+**DISCLAIMER: I'm not a financial advisor. The information here reflects my personal opinions and experiences and is intended for educational purposes only.
+Do your own research and consult a qualified professional before making financial decisions.**
+
 Retirement is supported by several pillars, often called the [_Retirement Stool_](https://www.investopedia.com/ask/answers/09/three-legged-stool-retirement.asp) consistenting of:
 * Employer Pension
 * Government Pension
 * Personal Savings
 
-I think there's a fourth leg to the stool that's rarely mentioned: Inheritance.
+I think there's a fourth leg to the stool that's rarely mentioned: Windfalls.
 
 The Retirement Stool is an antiquated model that doesn't apply to most current workers.
 Employer Pensions are mostly a thing of the past, except for certain sectors, such as public service jobs.
 Government Pensions are at risk of insolvency.
-Inheritance is not equally distributed nor can you decide when you receive it.
+
+Windfalls come in different forms:
+* Lottery - Yes, there are big winners, but they are few and far between. Please don't play the lottery regularly. I favor [Fran Lebowitz](https://www.goodreads.com/quotes/85215-i-figure-you-have-the-same-chance-of-winning-the) philosophy with respect to the lottery: _I figure you have the same chance of winning the lottery whether you play or not._ If you want to buy a ticket when the jackpot grows to incredible levels, then have a little fun, but treat it only as entertainment to dream about the possibilities for a few hours, because that's all you'll receive.
+* Stock Options - Yes, there are big winners here too, but don't count on it. I joined a pre-IPO start up in 2000. My options, when vested, had a conservative value of $8M-US when compared with our public competition. Then the dot-com bubble burst. Our post-IPO start up imploded. My vested options netted a total profit of about $21.22-US. I tried not to blow it all on a yacht.
+* Inheritance - Yes, there are those who inherit substantial sums of money. Trillions of US dollars will be transferred from the dying older generations to younger generations through the [Great Wealth Transfer](https://en.wikipedia.org/wiki/Great_Wealth_Transfer) in the next two decades. However, inheritance is not equally distributed nor can you decide when you receive it. Your best bet for a significant inheritance is to choose your parents wisely.
 
 The only pillar in control of most is Personal Savings.
 This will be the only aspect of retirement finance preparation that I'll address here.
@@ -174,6 +181,8 @@ You need a place to live, and as long as you can afford it, a home is a wise opt
 There are many other financial tools, which may be of use as well, including real estate, annuities, precious metals and self owned businesses.
 
 ## Goals
+
+## Asset Allocation
 
 ## Plan
 
