@@ -5,8 +5,7 @@ unlisted: true
 ---
 
 # Introduction
-This blog entry continues my [Career](https://jhumelsine.github.io/table-of-contents#career-path) series.
-The career series has focused upon topics at the start of one's career.
+This blog entry continues my [Career](https://jhumelsine.github.io/table-of-contents#career-path) series, which has focused upon topics at the start of one's career.
 This blog entry continues the series by focusing upon retirement at the end of one's career.
 
 This retirement series will consist of:
@@ -47,12 +46,12 @@ A previous coworker posted this online a few months ago:
 > Apparently [my employer] no longer needs my services, along with most of their US developers 🤷‍♂️.
 > At the moment, I am considering it an "early retirement" ... but I would definitely prefer to be "not retired".
 
-Retirement provides freedom to pursue an interest that a full-time career made difficult.
+Retirement provides freedom to pursue or extend interests that a full-time career made difficult.
 That freedom to enjoy retirement doesn't happen by accident.
 Whether you retire on your own terms or have retirement thrust upon you, financial preparation can make a significant difference, and the earlier the better.
 
-Most of my basic retirement recommendations will harken back to what I wrote in [Losing Your Job Stinks](https://jhumelsine.github.io/2024/08/11/jobsearch.html).
-In both cases you need to consider:
+Most of my basic retirement recommendations resemble what I wrote in [Losing Your Job Stinks](https://jhumelsine.github.io/2024/08/11/jobsearch.html).
+In both scenarios you need to consider:
 * Your personal and household finances to fund your retirement, which you should do early in your career
 * What you'll do with the additional time once you retire, which won't require much attention until approaching the end of your career
 
