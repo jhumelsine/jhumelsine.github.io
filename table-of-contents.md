@@ -290,6 +290,7 @@ Here are some suggestions toward thinking about your career:
 * [Beyond Onboarding](https://jhumelsine.github.io/2026/04/23/career.html) - Figuring out your first year and launching your career
 * [Software Engineering Education Resources](https://jhumelsine.github.io/2026/05/22/continued-learning.html) - Your education continues beyond your degree
     * [The End of Coding as Toil](https://jhumelsine.github.io/2026/05/29/code-and-toil.html) - AI will do most of the coding, but you will do most of the software engineering
+    * [Agentic Coding - I Surrender](https://jhumelsine.github.io/2026/10/15/agentic-ai-surrender.html) - I had originally wanted more useful content in this blog entry, but I realized I don't know enough about the rapidly changing Agentic Coding experience to blog about it confidently.
 * [Job Loss](https://jhumelsine.github.io/2024/08/11/jobsearch.html) - Software Engineering has been a great career for me, but it wasn't without a few bumps in the road. I wrote this blog when others I knew in the industry were running into the same bumpy road in their careers.
 * More to come ...
 
