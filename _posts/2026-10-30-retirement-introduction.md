@@ -16,9 +16,8 @@ This retirement series will consist of:
 * Retirement Options in the United States - Describing retirement entities defined in US tax law to encourage saving and investing for retirement
 * Financial Mathematics - Deriving financial mathematical formulas
 
-Since this is a continuation of the career series, the initial audience is those who are starting their career; however, those who have not planned for their retirement or given it serious thought regardless of where they are in the career journey may find it useful too.
-
-Let's begin.
+Since this is a continuation of the career series, it is intended for those who are starting their career.
+However, those who have not planned for their retirement or given it serious thought may find it useful too.
 
 # Ah, The Good Life
 Some achieve retirement.
@@ -44,16 +43,17 @@ When I ask my wife, who is also retired, what day of the week it is, she answers
 Ideally, we want to leave on our own terms, but we don't always have that option.
 Sometimes we're caught in the wrong place at the wrong time.
 Layoffs, health problems, caregiving responsibilities, and other circumstances can shorten a career prematurely.
+
 A previous coworker posted this online a few months ago:
 > Apparently [my employer] no longer needs my services, along with most of their US developers 🤷‍♂️.
 > At the moment, I am considering it an "early retirement" ... but I would definitely prefer to be "not retired".
 
-Regardless of achieving retirement or having it thrust upon you, you need to financial plan, and the best time to start that plan is at the beginning of your career.
+Regardless of achieving retirement or having it thrust upon you, you need to financial plan for when that day arrives, and the best time to start that plan is at the beginning of your career.
 
 Most of my basic retirement recommendations will harken back to what I wrote in [Losing Your Job Stinks](https://jhumelsine.github.io/2024/08/11/jobsearch.html).
 In both cases you need to consider:
 * Your personal and household finances to fund your retirement, which you should do early in your career
-* What you'll do with the additional time once you retire, which you don't need to do until reaching the end of your career
+* What you'll do with the additional time once you retire, which won't require much attention until approaching end of your career
 
 **NOTE:** Though I'm writing with a global audience in mind, my perspective is shaped by my experience with retirement in the United States.
 And even within the United States, my retirement experience won't be the same as others in the United States.
@@ -66,6 +66,11 @@ I'll describe one path toward retirement, but it is not the only path toward ret
 Personal finance is not often taught to students.
 Add a quick note about how my parent invested in CDs and US Savings Bonds.
 I needed to learn these concepts on my own.
+
+I think I have three broad categories:
+* Financial Tools. I like metaphor, but I'm not sure it's the best fit.
+* Financial Instruments
+* Financial Management
 
 ## Tools in Your Financial Toolbox
 You have several tools at your displosal
@@ -186,7 +191,9 @@ A household can work toward multiple goals simultaneously.
 Some may have higher priority than others.
 There may be times, such as during a period of unemployment, when funding lower priority goals needs to be suspended temporarily.
 
-## Asset Classes
+### Financial Management
+
+### Asset Classes
 There is no such thing as a perfect investment.
 I listed several set of asset classes above, such as [Cash](#cash), [Bonds](#bonds) and [Stock](#stock).
 Each asset class has its own profile with advantages and disadvantages.
