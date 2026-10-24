@@ -175,22 +175,6 @@ You need a place to live, and as long as you can afford it, a home is a wise opt
 #### Other Instruments
 There are many other financial tools, which may be of use as well, including real estate, annuities, precious metals and self owned businesses.
 
-### Goals
-Retirement is the primary financial goal of this blog, but it's not the only one for most households.
-
-Other financial goals include:
-* Home Purchase
-* College fund for children
-* Paying off current student loans
-* The next car
-* Vacations
-* Etc.
-
-Goals are not an either/or situation.
-A household can work toward multiple goals simultaneously.
-Some may have higher priority than others.
-There may be times, such as during a period of unemployment, when funding lower priority goals needs to be suspended temporarily.
-
 ### Financial Management
 
 ### Asset Classes
