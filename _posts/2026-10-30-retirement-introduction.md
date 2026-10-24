@@ -6,15 +6,15 @@ unlisted: true
 
 # Introduction
 This blog entry continues my [Career](https://jhumelsine.github.io/table-of-contents#career-path) series.
-The career series has previously focused upon topics at the start of one's career.
+The career series has focused upon topics at the start of one's career.
 This blog entry continues the series by focusing upon retirement at the end of one's career.
 
 This retirement series will consist of:
-* [Retirement Introduction](#introduction) - Introducing retirement and financial instruments to achieve it
-* Retirement Financial Planning - Organizing personal and household financial planning to achieve retirement
-* Retirement Activities - Filling the additional hours in a retiree's day
-* Retirement Options in the United States - Describing retirement entities defined in US tax law to encourage saving and investing for retirement
-* Financial Mathematics - Deriving financial mathematical formulas
+* Retirement Introduction - Introducing retirement planning and the financial concepts behind it
+* Retirement Financial Planning - Planning for retirement alongside personal and household financial goals
+* Retirement Activities - Exploring how to spend the time and pursue the interests that retirement makes possible
+* Retirement Options in the United States - Exploring US retirement accounts and tax provisions that encourage saving and investing for retirement
+* Financial Mathematics - Exploring the mathematics behind financial formulas and deriving them
 
 Since this is a continuation of the career series, it is intended for those who are starting their career.
 However, those who have not planned for their retirement or given it serious thought may find it useful too.
@@ -30,36 +30,36 @@ My days are mostly delightfully stress free:
 <img src="https://i5.walmartimages.com/seo/Ezy-Dose-Weekly-Pill-Planner-XL-1-Count_239f4329-3702-473e-ad60-86e0e08357b1.8f3af9d34acd70fc29c6b8f59f3ad901.jpeg" alt="Pill Organizer" title="Image Source: https://www.walmart.com/ip/Ezy-Dose-Weekly-Pill-Planner-XL-1-Count/2223230885?wmlspartner=wlpa&selectedSellerId=101021372&sourceid=dsn_gdn_0c92c416-dbd6-42ec-845c-ecf69af2153d&veh=dsn&wmlspartner=dsn_gdn_0c92c416-dbd6-42ec-845c-ecf69af2153d&cn=0042_fy27_mp_mpa_lo_int_dis_pmax-p13n&wl0=&wl1=g&wl2=c&wl3=&wl4=&wl5=9052591&wl6=&wl7=&wl8=&wl9=pla&wl10=256599117&wl11=online&wl12=2223230885_101021372&gclsrc=aw.ds&gad_source=1&gad_campaignid=23148469844&gbraid=0AAAAADmfBIqUuepWILN4PRtrURrzn1F8S&gclid=CjwKCAjwirLWBhBBEiwAlItbEhw8In5RXCGIQShaWdac0D6IWaseGOyAUDveQO1BjYyLgMrLuNIdrxoC0hAQAvD_BwE" width = "35%" align="right" style="padding-right: 35px;">
 
 * No alarm clocks
-* Catch up on a TV show in the middle of the day
-* Travel
-* Go for a walk
 * No meetings
 * No schedules
 * No Jira tickets
+* Catch up on a TV show in the middle of the day
+* Go for a walk
+* Travel
 
 I don't know the day of the week before consulting my weekly pill organizer.
 When I ask my wife, who is also retired, what day of the week it is, she answers, "It's Saturday. Every day is Saturday now."
 
 Ideally, we want to leave on our own terms, but we don't always have that option.
-Sometimes we're caught in the wrong place at the wrong time.
 Layoffs, health problems, caregiving responsibilities, and other circumstances can shorten a career prematurely.
 
 A previous coworker posted this online a few months ago:
 > Apparently [my employer] no longer needs my services, along with most of their US developers 🤷‍♂️.
 > At the moment, I am considering it an "early retirement" ... but I would definitely prefer to be "not retired".
 
-Regardless of achieving retirement or having it thrust upon you, you need to financial plan for when that day arrives, and the best time to start that plan is at the beginning of your career.
+Retirement provides freedom to pursue an interest that a full-time career made difficult.
+That freedom to enjoy retirement doesn't happen by accident.
+Whether you retire on your own terms or have retirement thrust upon you, financial preparation can make a significant difference, and the earlier the better.
 
 Most of my basic retirement recommendations will harken back to what I wrote in [Losing Your Job Stinks](https://jhumelsine.github.io/2024/08/11/jobsearch.html).
 In both cases you need to consider:
 * Your personal and household finances to fund your retirement, which you should do early in your career
-* What you'll do with the additional time once you retire, which won't require much attention until approaching end of your career
+* What you'll do with the additional time once you retire, which won't require much attention until approaching the end of your career
 
 **NOTE:** Though I'm writing with a global audience in mind, my perspective is shaped by my experience with retirement in the United States.
 And even within the United States, my retirement experience won't be the same as others in the United States.
 
-In short, everyone's path toward retirement will be their own journey.
-I'll describe one path toward retirement, but it is not the only path toward retirement.
+Everyone's circumstances are different. I'll share one approach, not prescribe a universal solution.
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
