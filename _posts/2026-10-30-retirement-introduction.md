@@ -1,15 +1,31 @@
 ---
-title: WORK IN PROGRESS – Retirement
-description: Prepare for retirement on the first day of your career.
+title: WORK IN PROGRESS – Retirement Introduction
+description: Retirement may feel like a lifetime away, but it arrives quicker than you think
 unlisted: true
 ---
 
 # Introduction
+This blog entry continues my [Career](https://jhumelsine.github.io/table-of-contents#career-path) series.
+The career series has previously focused upon topics at the start of one's career.
+This blog entry continues the series by focusing upon retirement at the end of one's career.
+
+This retirement series will consist of:
+* [Retirement Introduction](#introduction) - Introducing retirement and financial instruments to achieve it
+* Retirement Financial Planning - Organizing personal and household financial planning to achieve retirement
+* Retirement Activities - Filling the additional hours in a retiree's day
+* Retirement Options in the United States - Describing retirement entities defined in US tax law to encourage saving and investing for retirement
+* Financial Mathematics - Deriving financial mathematical formulas
+
+Since this is a continuation of the career series, the initial audience is those who are starting their career; however, those who have not planned for their retirement or given it serious thought regardless of where they are in the career journey may find it useful too.
+
+Let's begin.
+
+# Ah, The Good Life
 Some achieve retirement.
 Some have retirement thrust upon them.
 
 Eventually most of us retire.
-I retired a bit over three years ago after a 38 year career.
+I retired a bit over three years ago after a 38-year career.
 My days are mostly delightfully stress free:
 
 <img src="https://i5.walmartimages.com/seo/Ezy-Dose-Weekly-Pill-Planner-XL-1-Count_239f4329-3702-473e-ad60-86e0e08357b1.8f3af9d34acd70fc29c6b8f59f3ad901.jpeg" alt="Pill Organizer" title="Image Source: https://www.walmart.com/ip/Ezy-Dose-Weekly-Pill-Planner-XL-1-Count/2223230885?wmlspartner=wlpa&selectedSellerId=101021372&sourceid=dsn_gdn_0c92c416-dbd6-42ec-845c-ecf69af2153d&veh=dsn&wmlspartner=dsn_gdn_0c92c416-dbd6-42ec-845c-ecf69af2153d&cn=0042_fy27_mp_mpa_lo_int_dis_pmax-p13n&wl0=&wl1=g&wl2=c&wl3=&wl4=&wl5=9052591&wl6=&wl7=&wl8=&wl9=pla&wl10=256599117&wl11=online&wl12=2223230885_101021372&gclsrc=aw.ds&gad_source=1&gad_campaignid=23148469844&gbraid=0AAAAADmfBIqUuepWILN4PRtrURrzn1F8S&gclid=CjwKCAjwirLWBhBBEiwAlItbEhw8In5RXCGIQShaWdac0D6IWaseGOyAUDveQO1BjYyLgMrLuNIdrxoC0hAQAvD_BwE" width = "35%" align="right" style="padding-right: 35px;">
@@ -20,30 +36,36 @@ My days are mostly delightfully stress free:
 * Go for a walk
 * No meetings
 * No schedules
-* No JIRA tickets
+* No Jira tickets
 
 I don't know the day of the week before consulting my weekly pill organizer.
 When I ask my wife, who is also retired, what day of the week it is, she answers, "It's Saturday. Every day is Saturday now."
 
 Ideally, we want to leave on our own terms, but we don't always have that option.
 Sometimes we're caught in the wrong place at the wrong time.
+Layoffs, health problems, caregiving responsibilities, and other circumstances can shorten a career prematurely.
 A previous coworker posted this online a few months ago:
 > Apparently [my employer] no longer needs my services, along with most of their US developers 🤷‍♂️.
 > At the moment, I am considering it an "early retirement" ... but I would definitely prefer to be "not retired".
 
-Regardless of achieving retirement or having it thrust upon you, you need to plan, and the best time to start that plan is at the beginning of your career.
+Regardless of achieving retirement or having it thrust upon you, you need to financial plan, and the best time to start that plan is at the beginning of your career.
 
-# TBD
-Most of my retirement recommendations will harken back to what I wrote in [Losing Your Job Stinks](https://jhumelsine.github.io/2024/08/11/jobsearch.html).
+Most of my basic retirement recommendations will harken back to what I wrote in [Losing Your Job Stinks](https://jhumelsine.github.io/2024/08/11/jobsearch.html).
 In both cases you need to consider:
-* Your personal and household finances to fund your retirement
-* What you'll do with the additional time once you retire
+* Your personal and household finances to fund your retirement, which you should do early in your career
+* What you'll do with the additional time once you retire, which you don't need to do until reaching the end of your career
 
-**NOTE:** Though I'm writing with a global audience in mind, I have an implicit bias toward retirement in the United States, since that is my experience.
+**NOTE:** Though I'm writing with a global audience in mind, my perspective is shaped by my experience with retirement in the United States.
 And even within the United States, my retirement experience won't be the same as others in the United States.
 
-In short, everyone's path toward retirement will their own journey.
+In short, everyone's path toward retirement will be their own journey.
 I'll describe one path toward retirement, but it is not the only path toward retirement.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Personal finance is not often taught to students.
+Add a quick note about how my parent invested in CDs and US Savings Bonds.
+I needed to learn these concepts on my own.
 
 ## Tools in Your Financial Toolbox
 You have several tools at your displosal
@@ -91,31 +113,33 @@ Let’s consider an example:
 
 Here's a [spreadsheet](https://docs.google.com/spreadsheets/d/1mt1q6vbC1UnMo7k1pOHOhBAcwYUrRe9mNzTn5KDZ68E/edit?usp=sharing) showing growth each year.
 
-### Cash
+### Financial Instruments
+
+#### Cash
 Cash is a limited tool. It doesn’t produce a dividend. It doesn’t even grow in value. Because of inflation, the spending power of cash erodes as time goes on.
  
 Cash does have its uses. It is useful for its liquidity and also for its stability when the stock market takes a downturn. For those who have a tendency to slip back into debt, cash may be the only way to manage household finances to prevent sinking further into debt.
 
-### Cash Equivalents
+#### Cash Equivalents
 There are several savings options that while not technically cash, they are often considered equivalent to cash.
 
-#### Savings/Checking Account
+##### Savings/Checking Account
 This asset is used to manage day-to-day non-cash financial exchanges, such as paying bills. You may earn little interest on money in a checking account.
 
-#### Money Market
+##### Money Market
 A money market account is like a savings/checking account on steroids. They are used to store larger amounts of cash than savings and checking accounts. They generally pay more interest as well. They also tend to have limitations in their use. A check may have a minimum amount of $250 or $500, or there may be a limit on the number of checks that can be written from the account per month. These limitations reduce the churn on the account, and that’s why the financial institution offers better rates.
 
-#### Certificate of Deposit
+##### Certificate of Deposit
 A [Certificate of Deposit](https://en.wikipedia.org/wiki/Certificate_of_deposit) (CD) is a loan to the bank for a fixed period of time with a fixed rate of return.
 
 CDs are very safe, but their rates of return tend to be low.
 
-### Bonds
+#### Bonds
 A [bond](https://en.wikipedia.org/wiki/Bond_%28finance%29) is a loan. In buying a bond, you’re lending money to a person or institution who promises to pay you back with interest after a period of time. You generally can’t get your money back before the period of time is up without penalty. The money you lend may be at risk, depending upon the type of bond.
  
 Common types of bonds are certificates of deposit, government bonds and corporate bonds.
 
-### Stock
+#### Stock
 [Stock](https://en.wikipedia.org/wiki/Stock) is ownership. When you buy a stock, you own a piece of that company. If the company makes a profit, your stock will tend to go up in value and/or the company will pay you a dividend. If the company loses money, your stock will tend to go down in value. Stocks are riskier than bonds.
  
 In the same way that there are different types of bonds, there are different types of stocks. Some companies are called growth stocks. Think of Microsoft from the 1980s or Google in the 2000s. The value of a share of these stocks may rise or fall quickly. 
@@ -124,7 +148,7 @@ Other stocks are called value stocks. They tend to distribute dividends rather t
  
 Stocks can be issued by small, medium and large companies.  Stocks can be issued by domestic companies or foreign companies.
 
-### Mutual Funds
+#### Mutual Funds
 A [mutual fund](https://en.wikipedia.org/wiki/Mutual_fund) is shared ownership of many assets with others. Rather than buying ownership in a single bond, company or property, when you purchase a share of a mutual fund, you’re joining a group of other investors who have pooled their money together. A fund manager manages the large number of assets on behalf of the group. Each share of a mutual fund is spread among the assets in which the mutual fund is invested. You will indirectly own shares of many different companies.
  
 Mutual funds are almost always provided by financial institutions, such as Fidelity and Vanguard. A mutual fund almost always has a fund manager or a team of managers.  There are some that do not: these are index funds, which are on auto-pilot. They match published indexes, such as the [S&P 500](https://en.wikipedia.org/wiki/S%26P_500), [Dow Jones Industrial Average](https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average), etc. Managed funds have a management fee. Indexed funds have little to no fee. Indexed funds are a bit dull and boring since they just follow their index, but with little or no management fee, they tend to out perform managed funds over the long term.
@@ -135,18 +159,18 @@ A mutual fund usually has an investment mission, which the fund managers strive 
  
 Some mutual funds are socially responsible funds. Each fund has its own definition of “socially responsible.” A socially responsible fund may avoid investment in tobacco companies, alcohol companies, defense industry companies or companies with poor labor relations. Today’s socially responsible fund is beginning to involve investment in “green” (environmentally friendly) companies.
 
-### Exchange-Traded Funds or ETFs
-[ETFs](https://en.wikipedia.org/wiki/Exchange-traded_fund) provide a way to buy a set of stocks in a major index. EFTs are similar to index mutual funds, but you can buy and sell them more like a single stock; even though they represent a basket or collection of stocks. Some well known EFTs are SPDRs “spiders”, which follows the Standard and Poors index, QQQ “qubes, which follow a NASDAQ index.
+#### ETFs
+[Exchange Traded Funds](https://en.wikipedia.org/wiki/Exchange-traded_fund) (EFTs) provide a way to buy a set of stocks in a major index. EFTs are similar to index mutual funds, but you can buy and sell them more like a single stock; even though they represent a basket or collection of stocks. Some well known EFTs are SPDRs “spiders”, which follows the Standard and Poors index, QQQ “qubes, which follow a NASDAQ index.
 
-### Home Ownership
+#### Home Ownership
 Homeownership is often considered part of the American dream. Is a house an asset or a liability? It can be both. Most people are able to sell their homes for more than the original purchase price. However, they were only able to purchase the house with a mortgage. Over the lifetime of the mortgage, with interest the total cost of the house could be two to three times the purchase price. A house costs money to maintain and insure, but it’s an asset that you can use while you own it. A home becomes a liability especially when it’s too much for your income to afford.
  
 You need a place to live, and as long as you can afford it, a home is a wise option. A house is often the core of a family’s financial plan.
 
-### Other Tools
+#### Other Instruments
 There are many other financial tools, which may be of use as well, including real estate, annuities, precious metals and self owned businesses.
 
-## Goals
+### Goals
 Retirement is the primary financial goal of this blog, but it's not the only one for most households.
 
 Other financial goals include:
