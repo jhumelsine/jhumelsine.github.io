@@ -106,9 +106,9 @@ Let’s consider an example:
 >
 >Anna decides to invest $1,000 a year toward retirement in her company’s retirement plan. It’s tight at first, but it gets a little easier with several raises. Then Anna gets married and starts a family and decides to become a stay at home mom at age 28. She stops investing, because she has no more direct income.
 > 
->Her brother, Billy, takes a different approach. He waits to start investing. He has always intended to start his retirement savings, but he never got around to filling out the paperwork at the Human Resources department. (NOTE: Recent laws in the United States make automatic enrollment in retirement plans automatic; however, employees can opt out.) When he sees his sister start a family, he decides to get serious about his future as well, and he visits his Human Resources representative to start. He invests $1,000 every year from age 29 and continues until he retires at age 65.
+>Her brother, Billy, takes a different approach. He waits to start investing. He has always intended to start his retirement savings, but he never got around to filling out the paperwork at the Human Resources department. When he sees his sister start a family, he decides to get serious about his future as well, and he visits his Human Resources representative to start. He invests $1,000 every year from age 29 and continues until he retires at age 65.
 > 
->Both twins earn an average of 10% on their investments annually.
+>Both twins earn an average of 10% on their investments annually. **NOTE:** Consistent 10% returns is not feasible. Actual returns would be more volatile. I've used it for demonstrable purposes only.
 > 
 >At age 65, Billy has invested a grand total of $37,000; however, his account contains $364,043. He has almost 10 dollars for every dollar he has invested!
 > 
@@ -120,13 +120,13 @@ Here's a [spreadsheet](https://docs.google.com/spreadsheets/d/1mt1q6vbC1UnMo7k1p
 
 ### Financial Instruments
 
-#### Cash
+#### Cash Equivalents
+There are several savings options that while not technically cash, they are often considered equivalent to cash.
+
+##### Cash
 Cash is a limited tool. It doesn’t produce a dividend. It doesn’t even grow in value. Because of inflation, the spending power of cash erodes as time goes on.
  
 Cash does have its uses. It is useful for its liquidity and also for its stability when the stock market takes a downturn. For those who have a tendency to slip back into debt, cash may be the only way to manage household finances to prevent sinking further into debt.
-
-#### Cash Equivalents
-There are several savings options that while not technically cash, they are often considered equivalent to cash.
 
 ##### Savings/Checking Account
 This asset is used to manage day-to-day non-cash financial exchanges, such as paying bills. You may earn little interest on money in a checking account.
@@ -153,6 +153,27 @@ Other stocks are called value stocks. They tend to distribute dividends rather t
  
 Stocks can be issued by small, medium and large companies.  Stocks can be issued by domestic companies or foreign companies.
 
+>Stocks and Bonds can be confusing at first. Let's use a simple example.
+>
+>Your son and his buddies start a garage band, but they don't have enough funds for good instruments, equipment, a van to go on the road, etc.
+>
+>You decide to help them out by buying what they need. They provide the talent. You provide the material resources. You work out a deal with the band that you'll have a 30% stake in the band.
+>
+>They go on the road, and their discovered. Their a big hit. The band gets a record deal and a tour. You own 30% of what they become.
+>
+>But most bands fail. The band breaks up. They sell the equipment. You might get some of your money back.
+>
+>You owned stock in the band by financing them.
+>
+>Rather than give them the money, you lend them the money. They gave you an [IOU](https://en.wikipedia.org/wiki/IOU) If they become successful, you just get your loan back with interest. If they fold, you might get some of your money back when the equipment is sold.
+>
+>Their IOU was a bond your purchases by lending them money.
+>
+>Let's add one more detail. You and your brother both decide to help, since his kid is in the band too.
+>You purchase the equipment. He lends them money for the van.
+>
+>If the band succeeds, your investment is worth more, but your brother's loan is repaid via the IOU. If the band fails, your brother's IOU is paid back before you receive anything.
+
 #### Mutual Funds
 A [mutual fund](https://en.wikipedia.org/wiki/Mutual_fund) is shared ownership of many assets with others. Rather than buying ownership in a single bond, company or property, when you purchase a share of a mutual fund, you’re joining a group of other investors who have pooled their money together. A fund manager manages the large number of assets on behalf of the group. Each share of a mutual fund is spread among the assets in which the mutual fund is invested. You will indirectly own shares of many different companies.
  
@@ -166,6 +187,15 @@ Some mutual funds are socially responsible funds. Each fund has its own definiti
 
 #### ETFs
 [Exchange Traded Funds](https://en.wikipedia.org/wiki/Exchange-traded_fund) (EFTs) provide a way to buy a set of stocks in a major index. EFTs are similar to index mutual funds, but you can buy and sell them more like a single stock; even though they represent a basket or collection of stocks. Some well known EFTs are SPDRs “spiders”, which follows the Standard and Poors index, QQQ “qubes, which follow a NASDAQ index.
+
+#### Secondary Market
+Once you own a stock or bond, you can sell it on the open market.
+That is, you don't need to hold a stock indefinitely and you can sell a bond to someone else before it matures.
+This gives you the ability to liquidate an investment at anytime, but you'll only get the current fair market value.
+
+#### Retirement Plans
+This would be 401(k), IRA, etc.
+This will be a topic of a subsequent blog entry.
 
 #### Home Ownership
 Homeownership is often considered part of the American dream. Is a house an asset or a liability? It can be both. Most people are able to sell their homes for more than the original purchase price. However, they were only able to purchase the house with a mortgage. Over the lifetime of the mortgage, with interest the total cost of the house could be two to three times the purchase price. A house costs money to maintain and insure, but it’s an asset that you can use while you own it. A home becomes a liability especially when it’s too much for your income to afford.
