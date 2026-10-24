@@ -54,6 +54,22 @@ Disclaimer from previous blog.
 
 Greed and Fear. 2008 and 2025 Tariff dips.
 
+### Goals
+Retirement is the primary financial goal of this blog, but it's not the only one for most households.
+
+Other financial goals include:
+* Home Purchase
+* College fund for children
+* Paying off current student loans
+* The next car
+* Vacations
+* Etc.
+
+Goals are not an either/or situation.
+A household can work toward multiple goals simultaneously.
+Some may have higher priority than others.
+There may be times, such as during a period of unemployment, when funding lower priority goals needs to be suspended temporarily.
+
 ## Financial Planner
 
 ## Plan
