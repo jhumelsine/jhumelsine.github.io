@@ -8,7 +8,11 @@ unlisted: true
 
 Continued from previous blog ...
 
-## Coach
+Disclaimer from previous blog.
+
+Greed and Fear. 2008 and 2025 Tariff dips.
+
+## Financial Planner
 
 ## Plan
 
