@@ -63,25 +63,32 @@ And even within the United States, my retirement experience won't be the same as
 
 Everyone's circumstances are different. I'll share one approach, not prescribe a universal solution.
 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Financial Literacy
+Financial literacy is not a core subject in most schools.
+Most learn about finances from their own experience, peers, books, financial experts or their parents.
 
-Personal finance is not often taught to students.
-Add a quick note about how my parent invested in CDs and US Savings Bonds.
-I needed to learn these concepts on my own.
+My parents were financially conservative.
+Their savings were generally limited to:
+* [Bank Savings Accounts](https://www.investopedia.com/terms/s/savingsaccount.asp)
+* [Bank Certificates of Deposit](https://www.investopedia.com/terms/c/certificateofdeposit.asp)
+* [United States Savings Bonds](https://en.wikipedia.org/wiki/United_States_Savings_Bonds)
 
-I think I have three broad categories:
-* Financial Tools. I like metaphor, but I'm not sure it's the best fit.
-* Financial Instruments
-* Financial Management
+This was all I know while growing up.
+Once I started my own career, I partnered with a financial planner and my financial education began.
 
-## Tools in Your Financial Toolbox
-You have several tools at your displosal
+# Financial Toolkit
+Your financial toolkit consists of three basic components:
+* Asset Generation
+* Asset Instruments
+* Asset Management
+
+## Asset Generation
+You need a way to obtain and grow wealth.
 
 ### You
-Over your lifetime, you will earn more income than most any other asset you will own.
+Over your lifetime, your income will account for most of your wealth generation.
 
 How much of your income do you still manage?
-How much have you given away?
 How much have you spent?
  
 You generate income, but you are also a high maintenance asset.
@@ -89,7 +96,20 @@ You need food, shelter, clothing, transportation, insurance, etc.
 You produce a lot, but you consume much too.
 You may be a great asset, but you’re a bit of a liability as well.
 
-In order to reach any of your goals, your income must exceed your expenses.
+In order to generate wealth, your income must exceed your expenses.
+Even those with high incomes may fail to generate wealth if their expenses are too large.
+
+### Parents
+Our parents are financially responsible for us while we're children.
+
+Some parents extend this to their adult children as well by paying for their college education, purchasing a new home and beyond.
+
+Some will inherit substantial wealth from their parents.
+
+Trillions of US dollars will be transferred from the older generations to younger generations through the [Great Wealth Transfer](https://en.wikipedia.org/wiki/Great_Wealth_Transfer) in the next two decades. 
+However, inheritance is not equally distributed nor can you determine when you receive it.
+
+Your best bet for parental support and a significant inheritance is to choose your parents wisely.
 
 ### Time
 The earlier you start to contribute to a financial goal, the easier it will be to reach your goals.
@@ -97,7 +117,7 @@ This isn’t because you have more time to put money away.
 It’s because the money you invest has more time to grow through [Compound Interest](https://en.wikipedia.org/wiki/Compound_interest).
  
 Compound interest is a snowball effect.
-When you’re rolling a snowball to make a snowman, the ball will soon get to a sufficient size that the snowball will start to pick up more snow than you are adding to it with your hands.
+When you’re rolling a snowball to make a snowman, the snowball will reach a sufficient size so that it will start to pick up snow from the ground just by rolling it.
 Soon, the snowball will be large to even budge.
  
 With investments, earnings start to produce their own earnings, which produce their own earnings, etc.
@@ -119,6 +139,36 @@ Let’s consider an example:
 >Anna has more money than Billy, because when she stops investing, her $1,000 a year for eight years is not $8,000. It is $12,579 due to compound interest. While Billy is  adding $1,000 each year for the next several decades, we can think of Anna’s initial start as adding $1,258 passively each year for those same decades. She is adding more each year than Billy. Not only can he never catch up, but Anna extends the gap.
 
 Here's a [spreadsheet](https://docs.google.com/spreadsheets/d/1mt1q6vbC1UnMo7k1pOHOhBAcwYUrRe9mNzTn5KDZ68E/edit?usp=sharing) showing growth each year.
+
+## Asset Instruments
+TBD
+
+### Cash Equivalents
+TBD
+
+### Loans
+TBD
+
+### Ownership
+TBD
+
+## Asset Management
+TBD
+
+### Asset Classes
+TBD
+
+### Asset Allocation
+TBD
+
+### Asset Diversification
+TBD
+
+# Summary
+This blog introduced retirement as something one works toward along with a brief review of financial literacy organized as your financial toolkit.
+The next blog entry will present retirement planning using the tools in your financial toolkit.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ### Financial Instruments
 
@@ -262,9 +312,3 @@ Targeted based mutual funds will readjust and rebalance among its asset classes 
 That is, as the target date approaches, the mutual fund will reallocate asset class ratios adjusting for volatility over the years as well as rebalancing to ensure that the ratios are maintained.
 
 Targeted funds can be good for retirement or a child's college fund.
-
-# Summary
-There's a lot to absorb here especially for new graduates entering the job market who have not considered their new financial lives.
-Therefore, I'm wrapping up this initial financial introduction.
-
-The next blog will wrap up the financial aspects of retirement planning along with additional time.
