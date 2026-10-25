@@ -5,7 +5,7 @@ unlisted: true
 ---
 
 # Introduction
-This blog entry continues my [Career](https://jhumelsine.github.io/table-of-contents#career-path) series, which has focused upon topics at the start of one's career.
+This blog entry continues my [Career](https://jhumelsine.github.io/table-of-contents#career-path) series, which has focused on topics at the start of one's career.
 This blog entry continues the series by focusing upon retirement at the end of one's career.
 
 This retirement series will consist of:
@@ -13,7 +13,7 @@ This retirement series will consist of:
 * Retirement Financial Planning - Planning for retirement alongside personal and household financial goals
 * Retirement Activities - Exploring how to spend the time and pursue the interests that retirement makes possible
 * Retirement Options in the United States - Exploring US retirement accounts and tax provisions that encourage saving and investing for retirement
-* Financial Mathematics - Exploring the mathematics behind financial formulas and deriving them
+* Financial Mathematics - Exploring and deriving the financial formulas
 
 Since this is a continuation of the career series, it is intended for those who are starting their career.
 However, those who have not planned for their retirement or given it serious thought may find it useful too.
@@ -46,14 +46,17 @@ A previous coworker posted this online a few months ago:
 > Apparently [my employer] no longer needs my services, along with most of their US developers 🤷‍♂️.
 > At the moment, I am considering it an "early retirement" ... but I would definitely prefer to be "not retired".
 
-Retirement provides freedom to pursue or extend interests that a full-time career made difficult.
+Regardless of the circumstances, retirement can provide the freedom to pursue or extend interests that a full-time career made difficult.
 That freedom to enjoy retirement doesn't happen by accident.
-Whether you retire on your own terms or have retirement thrust upon you, financial preparation can make a significant difference, and the earlier the better.
+Whether you retire on your own terms or have retirement thrust upon you, financial preparation can make a significant difference, and the earlier you start the better.
 
 Most of my basic retirement recommendations resemble what I wrote in [Losing Your Job Stinks](https://jhumelsine.github.io/2024/08/11/jobsearch.html).
-In both scenarios you need to consider:
-* Your personal and household finances to fund your retirement, which you should do early in your career
-* What you'll do with the additional time once you retire, which won't require much attention until approaching the end of your career
+Preparing for retirement and preparing for an unexpected job loss require attention to finances and to how you'll spend your time.
+You need to consider:
+* Your personal and household finances to fund your retirement, which you should begin early in your career.
+* What you'll do with the additional time once you retire, which can take shape as your interests evolve during your career.
+
+I'll address both of these in subsequent blog entries.
 
 **NOTE:** Though I'm writing with a global audience in mind, my perspective is shaped by my experience with retirement in the United States.
 And even within the United States, my retirement experience won't be the same as others in the United States.
