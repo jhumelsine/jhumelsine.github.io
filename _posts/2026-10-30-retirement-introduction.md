@@ -133,56 +133,22 @@ Let’s consider an example:
 > 
 >At age 65, Anna has only invested $8,000 during her short career – less than a fourth than her brother has invested. However, Anna’s account contains $427,700! She has almost 50 dollars for every dollar she has invested. Those eight early years were critical, due to compound interest.
 >
->Anna has more money than Billy, because when she stops investing, her annual $1,000 for eight years is not $8,000. It is almost $12,600 due to compound interest. While Billy is contributing $1,000 annually from his income for the next several decades, we can think of Anna’s $12,600 asset contributing $1,260 passively annually for those same decades. Anna is contributing more each year toward her retirement than Billy. Assuming Billy maintains an annual $1,000 contribution and they both continue to receive 10% annually, then not only can he never catch up to his sister, since she's contributing more, but Anna's retirement will continue to extend the gap over her brother. Anna's early start gives her an advantage that Billy cannot overcome unless he dedicates even more of his income toward retirement.
+>Anna has more money than Billy, because when she stops investing, her annual $1,000 for eight years is not $8,000. It is almost $12,600 due to compound interest. While Billy is contributing $1,000 annually from his income for the next several decades, it's as if Anna's $12,600 asset from her earlier investing is generating $1,260 on its own toward her retirement passively. While Billy only investing $1,000 of his income annually toward his retirement, Anna's early start asset is investing $1,260 of passive income toward hers. Assuming Billy maintains an annual $1,000 contribution, and they both continue to receive 10% annually on their assets, then not only can he never catch up to his sister, since she's contributing more annually, but Anna's retirement assets will continue to extend the gap over her brother's. Anna's early start gives her an advantage that Billy cannot overcome unless he dedicates even more of his income toward retirement.
 
-Here's a [spreadsheet](https://docs.google.com/spreadsheets/d/1mt1q6vbC1UnMo7k1pOHOhBAcwYUrRe9mNzTn5KDZ68E/edit?usp=sharing) showing growth each year.
+This [spreadsheet](https://docs.google.com/spreadsheets/d/1mt1q6vbC1UnMo7k1pOHOhBAcwYUrRe9mNzTn5KDZ68E/edit?usp=sharing) shows the accumulation for each year for Anna and Billy.
+Here is an abbreviated version listing their progress in five-year increments:
 
 | **Age** | **Anna**  | **Billy** |
 |:-------:|----------:|---------:|
 | 21 | $1,100 | $0 |
-| 22 | $2,310 | $0 |
-| 23 | $3,641 | $0 |
-| 24 | $5,105 | $0 |
 | 25 | $6,716 | $0 |
-| 26 | $8,487 | $0 |
-| 27 | $10,436 | $0 |
-| 28 | $12,579 | $0 |
-| 29 | $13,837 | $1,100 |
 | 30 | $15,221 | $2,310 |
-| 31 | $16,743 | $3,641 |
-| 32 | $18,418 | $5,105 |
-| 33 | $20,259 | $6,716 |
-| 34 | $22,285 | $8,487 |
 | 35 | $24,514 | $10,436 |
-| 36 | $26,965 | $12,579 |
-| 37 | $29,662 | $14,937 |
-| 38 | $32,628 | $17,531 |
-| 39 | $35,891 | $20,384 |
 | 40 | $39,480 | $23,523 |
-| 41 | $43,428 | $26,975 |
-| 42 | $47,771 | $30,772 |
-| 43 | $52,548 | $34,950 |
-| 44 | $57,802 | $39,545 |
 | 45 | $63,583 | $44,599 |
-| 46 | $69,941 | $50,159 |
-| 47 | $76,935 | $56,275 |
-| 48 | $84,628 | $63,002 |
-| 49 | $93,091 | $70,403 |
 | 50 | $102,400 | $78,543 |
-| 51 | $112,640 | $87,497 |
-| 52 | $123,904 | $97,347 |
-| 53 | $136,295 | $108,182 |
-| 54 | $149,924 | $120,100 |
 | 55 | $164,917 | $133,210 |
-| 56 | $181,409 | $147,631 |
-| 57 | $199,549 | $163,494 |
-| 58 | $219,504 | $180,943 |
-| 59 | $241,455 | $200,138 |
 | 60 | $265,600 | $221,252 |
-| 61 | $292,160 | $244,477 |
-| 62 | $321,376 | $270,024 |
-| 63 | $353,514 | $298,127 |
-| 64 | $388,865 | $329,039 |
 | 65 | $427,752 | $363,043 |
 
 ## Asset Instruments
