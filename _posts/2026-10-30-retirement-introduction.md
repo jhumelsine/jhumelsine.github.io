@@ -5,8 +5,7 @@ unlisted: true
 ---
 
 # Introduction
-This blog entry continues my [Career](https://jhumelsine.github.io/table-of-contents#career-path) series, which has focused on topics at the start of one's career.
-This blog entry continues the series by focusing upon retirement at the end of one's career.
+This blog entry continues my [Career](https://jhumelsine.github.io/table-of-contents#career-path) series, which has focused on topics at the start of one's career, by turning to retirement at the other end.
 
 This retirement series will consist of:
 * Retirement Introduction - Introducing retirement planning and the financial concepts behind it
@@ -64,7 +63,7 @@ And even within the United States, my retirement experience won't be the same as
 Everyone's circumstances are different. I'll share one approach, not prescribe a universal solution.
 
 # Financial Literacy
-Financial literacy is not a core subject in most schools.
+In many places, financial literacy isn't a core subject in school.
 Most learn about finances from their own experience, peers, books, financial experts or their parents.
 
 My parents were financially conservative.
@@ -85,6 +84,19 @@ Your financial toolkit consists of three basic components:
 ## Asset Generation
 You need a way to obtain and grow wealth.
 
+### Parents
+Our parents are financially responsible for us while we're children.
+
+Some parents extend financial support to their adult children as well by paying for their college education, contributing toward a first home and beyond.
+
+Some children will inherit substantial wealth from their parents.
+Trillions of US dollars will be transferred from the older generations to younger generations through the [Great Wealth Transfer](https://en.wikipedia.org/wiki/Great_Wealth_Transfer). 
+However, inheritance is not equally distributed from one generation to the next nor can you determine when you receive it.
+
+Your best bet for parental support and a significant inheritance is to choose your parents wisely.
+
+Regardless of parental support, the next two asset generators are available to most people.
+
 ### You
 Over your lifetime, your income will account for most of your wealth generation.
  
@@ -98,20 +110,9 @@ How much of your income have you spent?
 In order to generate wealth, your income must exceed your expenses.
 Even those with high incomes may fail to generate wealth if their expenses are too large.
 
-### Parents
-Our parents are financially responsible for us while we're children.
-
-Some parents extend financial support to their adult children as well by paying for their college education, contributing toward a first home and beyond.
-
-Some children will inherit substantial wealth from their parents.
-Trillions of US dollars will be transferred from the older generations to younger generations through the [Great Wealth Transfer](https://en.wikipedia.org/wiki/Great_Wealth_Transfer). 
-However, inheritance is not equally distributed from one generation to the next nor can you determine when you receive it.
-
-Your best bet for parental support and a significant inheritance is to choose your parents wisely.
-
 ### Time
 The earlier you start to contribute to your financial goals, the easier it will be to reach them.
-This isn’t because you have more time to put money away.
+This isn’t just because you have more time to put more money away.
 It’s because the money you invest has more time to grow through [Compound Interest](https://en.wikipedia.org/wiki/Compound_interest).
  
 Compound interest is a snowball effect.
@@ -120,23 +121,30 @@ When you’re rolling a snowball to make a snowman, the snowball will reach a su
 With investments, earnings start to produce their own earnings, which produce their own earnings, etc.
 Albert Einstein is credited for stating that compound interest was the eighth wonder of the world, but most agree it's apocryphal.
 
-Let’s consider an example: 
->Twins Anna and Billy, start their careers when they graduate from college at age 21. 
->
->Anna decides to invest $1,000 annually at the beginning of each year toward retirement in her company’s retirement plan. It’s tight at first, but it gets a little easier with several raises. Then Anna gets married and starts a family and decides to become a stay at home mom at age 28. She stops investing, because she has no more direct income.
-> 
->Her brother, Billy, takes a different approach. He waits to start investing. He has always intended to start his retirement savings, but he never got around to filling out the paperwork at the Human Resources department. When he sees his sister start a family, he decides to get serious about his future as well, and he visits his Human Resources representative to start. He invests $1,000 annually at the beginning of each year also starting at age 29 and continuing until he retires at age 65.
-> 
->Both twins earn an average of 10% on their investments annually. **NOTE:** A consistent 10% annual return is unrealistic. The example is illustrating the power of compounding, not predicting actual investment performance.
-> 
->At age 65, Billy has invested a grand total of $37,000; however, his account contains around $364,000. He has almost 10 dollars for every dollar he has invested during his career!
-> 
->At age 65, Anna has only invested $8,000 during her short career – less than a fourth than her brother has invested. However, Anna’s account contains $427,700! She has almost 50 dollars for every dollar she has invested. Those eight early years were critical, due to compound interest.
->
->Anna has more money than Billy, because when she stops investing, her annual $1,000 for eight years is not $8,000. It is almost $12,600 due to compound interest. While Billy is contributing $1,000 annually from his income for the next several decades, it's as if Anna's $12,600 asset from her earlier investing is generating $1,260 on its own toward her retirement passively. While Billy only investing $1,000 of his income annually toward his retirement, Anna's early start asset is investing $1,260 of passive income toward hers. Assuming Billy maintains an annual $1,000 contribution, and they both continue to receive 10% annually on their assets, then not only can he never catch up to his sister, since she's contributing more annually, but Anna's retirement assets will continue to extend the gap over her brother's. Anna's early start gives her an advantage that Billy cannot overcome unless he dedicates even more of his income toward retirement.
+#### A Comparison Example
+
+Twins Anna and Billy start their careers when they graduate from college at age 21. 
+
+Anna decides to invest $1,000 annually at the beginning of each year toward retirement in her company’s retirement plan. It’s tight at first, but it gets a little easier with several raises. Then Anna gets married and starts a family and decides to become a stay-at-home mom at age 28. She stops investing, because she has no more direct income.
+
+Her brother, Billy, takes a different approach. He waits to start investing. He has always intended to start his retirement savings, but he never got around to filling out the paperwork at the Human Resources department. When he sees his sister start a family, he decides to get serious about his future as well, and he visits his Human Resources representative to start. He invests $1,000 annually at the beginning of each year also starting at age 29 and continuing until he retires at age 65.
+
+Both twins earn an average of 10% on their investments annually. **NOTE:** A consistent 10% annual return is unrealistic. The example is illustrating the power of compounding, not predicting actual investment performance.
+ 
+At age 65, Billy has invested a grand total of $37,000; however, his account contains around $363,000. He has almost 10 dollars for every dollar he has invested during his career!
+
+At age 65, Anna has only invested $8,000 during her short career – less than a quarter of what her brother has invested. However, Anna’s account contains $427,800! She has almost 50 dollars for every dollar she has invested. Those eight early years were critical, due to compound interest.
+
+Anna has more money than Billy, because when she stops investing, her annual $1,000 for eight years is not $8,000. It is almost $12,600 due to compound interest.
+Billy must supply $1,000 of new money from his income; Anna's existing assets can generate $1,260 earnings without requiring another contribution from her income.
+Anna's advantage assumes a 10% return, which isn't consistent in actual markets, even though I'm make the assumption for this example.
+
+Assuming Billy maintains an annual $1,000 contribution, and they both continue to receive 10% annually on their assets, then not only can he never catch up to his sister, since her asset earns more than $1,000 annually.
+The gap between their balances will widen, assuming the stated conditions continue.
+Anna's early start gives her an advantage that Billy cannot overcome unless he dedicates even more of his income toward retirement.
 
 This [spreadsheet](https://docs.google.com/spreadsheets/d/1mt1q6vbC1UnMo7k1pOHOhBAcwYUrRe9mNzTn5KDZ68E/edit?usp=sharing) shows the accumulation for each year for Anna and Billy.
-Here is an abbreviated version listing their progress in five-year increments:
+Here is an abbreviated version listing their progress:
 
 | **Age** | **Anna**  | **Billy** |
 |:-------:|----------:|---------:|
@@ -150,6 +158,16 @@ Here is an abbreviated version listing their progress in five-year increments:
 | 55 | $164,917 | $133,210 |
 | 60 | $265,600 | $221,252 |
 | 65 | $427,752 | $363,043 |
+
+Those who depend on their labor work for their money.
+Those with substantial assets have their money working for them.
+
+By investing, Anna and Billy are both converting income into wealth.
+Anna's $12,600 head start of compounding wealth is like her buying a money generating machine for $12,600 that produces $1,260 every year. **NOTE:** The $1,260 annual yield is based upon an annual 10% consistent return, which is not realistic. I'm assuming 10% for demonstrable purposes.
+
+Wouldn't everyone want a money generating machine in their basement or garage?
+That's what an investment asset can do for you, and you don't even need to find space in your basement or garage.
+Furthermore, if you don't spend the money it produces, the machine grows larger through compound interest generating even more money in the future.
 
 ## Asset Instruments
 TBD
