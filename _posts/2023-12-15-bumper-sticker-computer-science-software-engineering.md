@@ -132,6 +132,8 @@ _Most won't care about the craft. Cherish the ones that do, meet the rest where 
 
 _A good programmer is someone who looks both ways before crossing a one-way street._ — Doug Linder
 
+_The best learners are the people who push through the discomfort of being objectively bad at something._ — Tommy Collison
+
 # Planning
 
 _The sooner you start to code, the longer the program will take._ — Roy Carlson
@@ -306,6 +308,8 @@ _I think that "Vibe Coding" may not have been the best name. I think "Monkey Paw
 
 _The danger isn’t that ai writes bad code- it’s that it makes writing unnecessary code 100% free_ — 
 @HarivanshRathi
+
+_Once men turned their thinking over to machines in the hope that this would set them free. But that only permitted other men with machines to enslave them._ ― Frank Herbert, _Dune_
 
 # Readable/Comprehensible Code
 
