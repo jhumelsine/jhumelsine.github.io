@@ -77,19 +77,18 @@ Once I started my own career, I partnered with a financial planner and my financ
 
 # Financial Toolkit
 Income and wealth are related, but not the same.
-Many high-paid athletes struggle with their personal finances and eventually file for bankruptcy.
-In contrast, we sometimes year stories of school teachers or even custodians who never earned stellar salaries, yet accumulated millions in wealth.
+Sometimes we hear stories of high-paid athletes struggling with their personal finances and eventually filing for bankruptcy.
+In contrast, we sometimes hear stories of those who never earned stellar salaries, yet accumulated millions in wealth.
 
 Income is how much you earn.
-Wealth is how much you retain.
+Wealth is what you accumulate and retain.
 
 Those who depend on their labor work for their money.
-Those with substantial assets let their assets working for them.
+Those with substantial assets have assets that work for them.
 
 Wealth is often listed as assets.
 These can be property, precious metals, a thriving business, stocks and bonds.
-They comprise a portfolio.
-They can also be thought of as a financial toolkit.
+They can be thought of as a financial toolkit.
 
 Your financial toolkit consists of three basic asset components:
 * Asset Generation
@@ -128,7 +127,7 @@ Even those with high incomes may fail to generate wealth if their expenses are t
 ### Time
 The earlier you start to contribute to your financial goals, the easier it will be to reach them.
 This isn’t just because you have more time to put more money away.
-It’s because the money you invest has more time to grow through [Compound Interest](https://en.wikipedia.org/wiki/Compound_interest).
+It’s because the money you invest has more time to grow through [compound interest](https://en.wikipedia.org/wiki/Compound_interest).
  
 Compound interest is a snowball effect.
 When you’re rolling a snowball to make a snowman, the snowball will reach a sufficient size so that it will start to pick up snow from the ground just by rolling it.
@@ -138,13 +137,18 @@ Albert Einstein is credited for stating that compound interest was the eighth wo
 
 #### A Comparison Example
 
-**NOTE:** This example assumes a 10% annual return, which is unrealistic. It's illustrating the power of compounding rather than representing actual investment performance.
+**NOTE:** This example assumes a 10% annual return, which is unrealistic. It's illustrating the power of compounding rather than representing actual investment performance. The example excludes taxes, fees, and withdrawals.
 
 Twins Anna and Billy start their careers when they graduate from college at age 21. 
 
-Anna decides to invest $1,000 annually at the beginning of each year toward retirement in her company’s retirement plan. It’s tight at first, but it gets a little easier with several raises. Then Anna gets married and starts a family and decides to become a stay-at-home mom at age 28. She stops investing, because she has no more direct income.
+Anna decides to invest $1,000 annually at the beginning of each year toward retirement in her company’s retirement plan.
+It’s tight at first, but it gets a little easier with several raises.
+Then Anna gets married and starts a family and decides to become a stay-at-home mom at age 28. She stops investing, because she has no more direct income.
 
-Her brother, Billy, takes a different approach. He waits to start investing. He has always intended to start his retirement savings, but he never got around to filling out the paperwork at the Human Resources department. When he sees his sister start a family, he decides to get serious about his future as well, and he visits his Human Resources representative to start. He invests $1,000 annually at the beginning of each year also starting at age 29 and continuing until he retires at age 65.
+Her brother, Billy, takes a different approach. He waits to start investing.
+He has always intended to start his retirement savings, but he never got around to filling out the paperwork at the Human Resources department.
+When he sees his sister start a family, he decides to get serious about his future as well, and he visits his Human Resources representative to start.
+He invests $1,000 annually at the beginning of each year also starting at age 29 and continuing until he retires at age 65.
 
 Both twins earn an average of 10% on their investments annually.
  
@@ -152,12 +156,12 @@ At age 65, Billy has invested a grand total of $37,000; however, his account con
 
 At age 65, Anna has only invested $8,000 during her short career – less than a quarter of what her brother has invested. However, Anna’s account contains $427,800! She has almost 50 dollars for every dollar she has invested. Those eight early years were critical, due to compound interest.
 
-Anna has more money than Billy, because when she stops investing, her annual $1,000 for eight years is not $8,000. It is almost $12,600 due to compound interest.
-Billy must supply $1,000 of new money from his income; Anna's existing assets can generate $1,260 earnings without requiring another contribution from her income.
-Anna's advantage assumes a 10% return, which isn't consistent in actual markets, even though I'm make the assumption for this example.
-
-Assuming Billy maintains an annual $1,000 contribution, and they both continue to receive 10% annually on their assets, then not only can he never catch up to his sister, since her asset earns more than $1,000 annually.
-The gap between their balances will widen, assuming the stated conditions continue.
+Anna has more money than Billy, because when she stops investing, her annual $1,000 for eight years is not $8,000.
+It is almost $12,600 due to compound interest.
+Billy must supply $1,000 of new money from his income.
+Anna's growth continues from her head start.
+Her compounding retirement fund grows faster than his, even if as he continues to contribute $1,000 to his annually.
+The gap between their balances will widen.
 Anna's early start gives her an advantage that Billy cannot overcome unless he dedicates even more of his income toward retirement.
 
 This [spreadsheet](https://docs.google.com/spreadsheets/d/1mt1q6vbC1UnMo7k1pOHOhBAcwYUrRe9mNzTn5KDZ68E/edit?usp=sharing) shows the accumulation for each year for Anna and Billy.
@@ -177,47 +181,59 @@ Here is an abbreviated version listing their progress:
 | 65 | $427,752 | $363,043 |
 
 By investing, Anna and Billy are both converting income into wealth.
-Anna's $12,600 head start of compounding wealth is like her buying a money generating machine for $12,600 that produces $1,260 every year from the 10% return.
+Anna's $12,600 head start is like her buying a money printing machine for $12,600 that prints $1,260 every year.
+She would then deposit the newly printed $1,260 annually into a retirement account, which is $260 more than Billy is contributing.
 
-Wouldn't everyone want a money generating machine in their basement or garage?
-That's what an investment asset can do for you, and you don't even need to find space in your basement or garage.
+Wouldn't everyone want a money printing machine in their basement or garage?
+That's what an asset is.
+It's a virtual legal money printing machine, and you don't even need to find space in your basement or garage.
 Furthermore, if you don't spend the money it produces, the machine grows larger through compound interest generating even more money in the future.
 
 ## Asset Instruments
 Assets can take several forms.
 
-### Cash Equivalents
+### Cash and Cash Equivalents
 Cash is king.
+Cash can take many forms such as traditional paper or electronic balances and transfers.
 Income is often in cash.
 Expenses are paid with cash.
 
 Some assets are not strictly cash, but they are so close to cash, they are equivalent to cash.
 These cash equivalent assets are often accounts with banks.
 In the United States, most bank accounts have [Federal Deposit Insurance Corporation](https://www.fdic.gov/resources/deposit-insurance) (FDIC), which insures up to $250,000.
-This protects individual accounts should the banks fail.
+There are nuances and restrictions, but they won't apply to most depositors.
+This insurances protects most deposits should an insured bank fail.
 
-Cash has one 
-
-There are several savings options that while not technically cash, they are often considered equivalent to cash.
+Several financial products aren't technically cash but are often treated as cash equivalents.
 
 #### Cash
-Cash is a useful too, especially for recurring expenses, but cash is a limited tool. 
+Cash is a useful tool, especially for recurring expenses, but cash is a limited tool. 
 It doesn’t produce a dividend. 
 It doesn’t even grow in value. 
 Because of inflation, the spending power of cash erodes as time goes on.
  
 Cash does have its uses. It is useful for its liquidity and also for its stability when the stock market takes a downturn. For those who have a tendency to slip back into debt, cash may be the only way to manage household finances to prevent sinking further into debt.
 
-#### Savings/Checking Account
-This asset is used to manage day-to-day non-cash financial exchanges, such as paying bills. You may earn little interest on money in a checking account.
+#### Checking Account
+Checking accounts are used to manage day-to-day non-cash financial exchanges, such as paying bills.
+
+#### Savings Account
+Savings accounts are places to hold money while earning modest interest.
+
+Money can often be easily transferred between checking and savings accounts.
 
 #### Money Market
-A money market account is like a savings/checking account on steroids. They are used to store larger amounts of cash than savings and checking accounts. They generally pay more interest as well. They also tend to have limitations in their use. A check may have a minimum amount of $250 or $500, or there may be a limit on the number of checks that can be written from the account per month. These limitations reduce the churn on the account, and that’s why the financial institution offers better rates.
+A banking money market account is like a savings/checking account on steroids.
+They are used to store larger amounts of cash than savings and checking accounts.
+They generally pay more interest.
+They also tend to have restrictions in their use.
+These restrictions reduce the churn on the account, and that’s why the financial institution offers better rates.
 
 #### Certificate of Deposit
 A [Certificate of Deposit](https://en.wikipedia.org/wiki/Certificate_of_deposit) (CD) is a loan to the bank for a fixed period of time with a fixed rate of return.
 
-CDs are very safe, but their rates of return tend to be low.
+CDs are very safe, but their rates of return tend to be modest.
+There are usually penalties for early withdrawal as well.
 
 ### Loans
 TBD
