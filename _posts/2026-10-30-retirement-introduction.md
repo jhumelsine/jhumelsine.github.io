@@ -76,7 +76,22 @@ This was all I know while growing up.
 Once I started my own career, I partnered with a financial planner and my financial education began.
 
 # Financial Toolkit
-Your financial toolkit consists of three basic components:
+Income and wealth are related, but not the same.
+Many high-paid athletes struggle with their personal finances and eventually file for bankruptcy.
+In contrast, we sometimes year stories of school teachers or even custodians who never earned stellar salaries, yet accumulated millions in wealth.
+
+Income is how much you earn.
+Wealth is how much you retain.
+
+Those who depend on their labor work for their money.
+Those with substantial assets let their assets working for them.
+
+Wealth is often listed as assets.
+These can be property, precious metals, a thriving business, stocks and bonds.
+They comprise a portfolio.
+They can also be thought of as a financial toolkit.
+
+Your financial toolkit consists of three basic asset components:
 * Asset Generation
 * Asset Instruments
 * Asset Management
@@ -123,13 +138,15 @@ Albert Einstein is credited for stating that compound interest was the eighth wo
 
 #### A Comparison Example
 
+**NOTE:** This example assumes a 10% annual return, which is unrealistic. It's illustrating the power of compounding rather than representing actual investment performance.
+
 Twins Anna and Billy start their careers when they graduate from college at age 21. 
 
 Anna decides to invest $1,000 annually at the beginning of each year toward retirement in her company’s retirement plan. It’s tight at first, but it gets a little easier with several raises. Then Anna gets married and starts a family and decides to become a stay-at-home mom at age 28. She stops investing, because she has no more direct income.
 
 Her brother, Billy, takes a different approach. He waits to start investing. He has always intended to start his retirement savings, but he never got around to filling out the paperwork at the Human Resources department. When he sees his sister start a family, he decides to get serious about his future as well, and he visits his Human Resources representative to start. He invests $1,000 annually at the beginning of each year also starting at age 29 and continuing until he retires at age 65.
 
-Both twins earn an average of 10% on their investments annually. **NOTE:** A consistent 10% annual return is unrealistic. The example is illustrating the power of compounding, not predicting actual investment performance.
+Both twins earn an average of 10% on their investments annually.
  
 At age 65, Billy has invested a grand total of $37,000; however, his account contains around $363,000. He has almost 10 dollars for every dollar he has invested during his career!
 
@@ -159,21 +176,48 @@ Here is an abbreviated version listing their progress:
 | 60 | $265,600 | $221,252 |
 | 65 | $427,752 | $363,043 |
 
-Those who depend on their labor work for their money.
-Those with substantial assets have their money working for them.
-
 By investing, Anna and Billy are both converting income into wealth.
-Anna's $12,600 head start of compounding wealth is like her buying a money generating machine for $12,600 that produces $1,260 every year. **NOTE:** The $1,260 annual yield is based upon an annual 10% consistent return, which is not realistic. I'm assuming 10% for demonstrable purposes.
+Anna's $12,600 head start of compounding wealth is like her buying a money generating machine for $12,600 that produces $1,260 every year from the 10% return.
 
 Wouldn't everyone want a money generating machine in their basement or garage?
 That's what an investment asset can do for you, and you don't even need to find space in your basement or garage.
 Furthermore, if you don't spend the money it produces, the machine grows larger through compound interest generating even more money in the future.
 
 ## Asset Instruments
-TBD
+Assets can take several forms.
 
 ### Cash Equivalents
-TBD
+Cash is king.
+Income is often in cash.
+Expenses are paid with cash.
+
+Some assets are not strictly cash, but they are so close to cash, they are equivalent to cash.
+These cash equivalent assets are often accounts with banks.
+In the United States, most bank accounts have [Federal Deposit Insurance Corporation](https://www.fdic.gov/resources/deposit-insurance) (FDIC), which insures up to $250,000.
+This protects individual accounts should the banks fail.
+
+Cash has one 
+
+There are several savings options that while not technically cash, they are often considered equivalent to cash.
+
+#### Cash
+Cash is a useful too, especially for recurring expenses, but cash is a limited tool. 
+It doesn’t produce a dividend. 
+It doesn’t even grow in value. 
+Because of inflation, the spending power of cash erodes as time goes on.
+ 
+Cash does have its uses. It is useful for its liquidity and also for its stability when the stock market takes a downturn. For those who have a tendency to slip back into debt, cash may be the only way to manage household finances to prevent sinking further into debt.
+
+#### Savings/Checking Account
+This asset is used to manage day-to-day non-cash financial exchanges, such as paying bills. You may earn little interest on money in a checking account.
+
+#### Money Market
+A money market account is like a savings/checking account on steroids. They are used to store larger amounts of cash than savings and checking accounts. They generally pay more interest as well. They also tend to have limitations in their use. A check may have a minimum amount of $250 or $500, or there may be a limit on the number of checks that can be written from the account per month. These limitations reduce the churn on the account, and that’s why the financial institution offers better rates.
+
+#### Certificate of Deposit
+A [Certificate of Deposit](https://en.wikipedia.org/wiki/Certificate_of_deposit) (CD) is a loan to the bank for a fixed period of time with a fixed rate of return.
+
+CDs are very safe, but their rates of return tend to be low.
 
 ### Loans
 TBD
@@ -198,27 +242,6 @@ This blog introduced retirement as something one works toward along with a brief
 The next blog entry will present retirement planning using the tools in your financial toolkit.
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-### Financial Instruments
-
-#### Cash Equivalents
-There are several savings options that while not technically cash, they are often considered equivalent to cash.
-
-##### Cash
-Cash is a limited tool. It doesn’t produce a dividend. It doesn’t even grow in value. Because of inflation, the spending power of cash erodes as time goes on.
- 
-Cash does have its uses. It is useful for its liquidity and also for its stability when the stock market takes a downturn. For those who have a tendency to slip back into debt, cash may be the only way to manage household finances to prevent sinking further into debt.
-
-##### Savings/Checking Account
-This asset is used to manage day-to-day non-cash financial exchanges, such as paying bills. You may earn little interest on money in a checking account.
-
-##### Money Market
-A money market account is like a savings/checking account on steroids. They are used to store larger amounts of cash than savings and checking accounts. They generally pay more interest as well. They also tend to have limitations in their use. A check may have a minimum amount of $250 or $500, or there may be a limit on the number of checks that can be written from the account per month. These limitations reduce the churn on the account, and that’s why the financial institution offers better rates.
-
-##### Certificate of Deposit
-A [Certificate of Deposit](https://en.wikipedia.org/wiki/Certificate_of_deposit) (CD) is a loan to the bank for a fixed period of time with a fixed rate of return.
-
-CDs are very safe, but their rates of return tend to be low.
 
 #### Bonds
 A [bond](https://en.wikipedia.org/wiki/Bond_%28finance%29) is a loan. In buying a bond, you’re lending money to a person or institution who promises to pay you back with interest after a period of time. You generally can’t get your money back before the period of time is up without penalty. The money you lend may be at risk, depending upon the type of bond.
