@@ -84,13 +84,19 @@ Income is how much you earn.
 Wealth is what you accumulate and retain.
 
 Those who depend on their labor work for their money.
-Those with substantial assets have assets that work for them.
+Those with substantial wealth have assets that work for them.
 
-Wealth is often listed as assets.
-These can be property, precious metals, a thriving business, stocks and bonds.
-They can be thought of as a financial toolkit.
+Instead of working for every dollar, you have something that produces money for you.
+The more productive assets you accumulate, the more your money can work on your behalf.
+It's like owning a legal money-printing machine.
+Who wouldn't want a legal money-printing machine in their basement or garage?
 
-Your financial toolkit consists of three basic asset components:
+Of course, there is no such thing as a legal money-printing machine.
+But productive assets can serve a similar purpose.
+
+Think of the financial concepts and instruments you use to generate and manage wealth as your financial toolkit.
+
+Your financial toolkit consists of three basic components:
 * Asset Generation
 * Asset Instruments
 * Asset Management
@@ -115,7 +121,7 @@ Regardless of parental support, the next two asset generators are available to m
 Over your lifetime, your income will account for most of your wealth generation.
  
 You generate income, but you also need food, shelter, clothing, transportation, insurance, etc.
-You produce a lot, but you consume much too.
+You produce a lot, but you consume a lot, too.
 You may be a great asset, but you are also a high-maintenance expense.
 
 How much of your income have you invested?
@@ -137,7 +143,7 @@ Albert Einstein is credited for stating that compound interest was the eighth wo
 
 #### A Comparison Example
 
-**NOTE:** This example assumes a 10% annual return, which is unrealistic. It's illustrating the power of compounding rather than representing actual investment performance. The example excludes taxes, fees, and withdrawals.
+**NOTE:** This example assumes a constant 10% annual return, which is unrealistic. It's illustrating the power of compounding rather than representing actual investment performance. The example excludes taxes, fees, and withdrawals.
 
 Twins Anna and Billy start their careers when they graduate from college at age 21. 
 
@@ -146,7 +152,7 @@ It’s tight at first, but it gets a little easier with several raises.
 Then Anna gets married and starts a family and decides to become a stay-at-home mom at age 28. She stops investing, because she has no more direct income.
 
 Her brother, Billy, takes a different approach. He waits to start investing.
-He has always intended to start his retirement savings, but he never got around to filling out the paperwork at the Human Resources department.
+He has always intended to start saving for retirement, but he never got around to filling out the paperwork with Human Resources.
 When he sees his sister start a family, he decides to get serious about his future as well, and he visits his Human Resources representative to start.
 He invests $1,000 annually at the beginning of each year also starting at age 29 and continuing until he retires at age 65.
 
@@ -154,15 +160,16 @@ Both twins earn an average of 10% on their investments annually.
  
 At age 65, Billy has invested a grand total of $37,000; however, his account contains around $363,000. He has almost 10 dollars for every dollar he has invested during his career!
 
-At age 65, Anna has only invested $8,000 during her short career – less than a quarter of what her brother has invested. However, Anna’s account contains $427,800! She has almost 50 dollars for every dollar she has invested. Those eight early years were critical, due to compound interest.
+At age 65, Anna has only invested $8,000 during her short career – less than a quarter of what her brother has invested. However, Anna’s account contains $427,800! She has almost 50 dollars for every dollar she has invested.
+Those eight early years made all the difference, thanks to compound interest.
 
-Anna has more money than Billy, because when she stops investing, her annual $1,000 for eight years is not $8,000.
-It is almost $12,600 due to compound interest.
+When Anna stops investing, her eight $1,000 contributions have already grown to almost $12,600 due to compound interest.
 Billy must supply $1,000 of new money from his income.
 Anna's growth continues from her head start.
-Her compounding retirement fund grows faster than his, even if as he continues to contribute $1,000 to his annually.
+Her retirement fund continues to grow, even as Billy contributes another $1,000 each year.
+Eventually, the earnings on Anna's larger balance exceed Billy's annual contribution.
 The gap between their balances will widen.
-Anna's early start gives her an advantage that Billy cannot overcome unless he dedicates even more of his income toward retirement.
+Anna's early start gives her an advantage that Billy can overcome only by dedicating more of his income toward retirement.
 
 This [spreadsheet](https://docs.google.com/spreadsheets/d/1mt1q6vbC1UnMo7k1pOHOhBAcwYUrRe9mNzTn5KDZ68E/edit?usp=sharing) shows the accumulation for each year for Anna and Billy.
 Here is an abbreviated version listing their progress:
@@ -180,14 +187,9 @@ Here is an abbreviated version listing their progress:
 | 60 | $265,600 | $221,252 |
 | 65 | $427,752 | $363,043 |
 
-By investing, Anna and Billy are both converting income into wealth.
-Anna's $12,600 head start is like her buying a money printing machine for $12,600 that prints $1,260 every year.
-She would then deposit the newly printed $1,260 annually into a retirement account, which is $260 more than Billy is contributing.
-
-Wouldn't everyone want a money printing machine in their basement or garage?
-That's what an asset is.
-It's a virtual legal money printing machine, and you don't even need to find space in your basement or garage.
-Furthermore, if you don't spend the money it produces, the machine grows larger through compound interest generating even more money in the future.
+By age 28, Anna's $8,000 in contributions has grown to almost $12,600.
+That balance becomes her virtual legal money-printing machine.
+Even after she stops contributing, her money continues working for her, generating earnings that can produce additional earnings.
 
 ## Asset Instruments
 Assets can take several forms.
