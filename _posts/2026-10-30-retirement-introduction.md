@@ -16,7 +16,7 @@ This retirement series will consist of (URL links TBD):
 * Retirement Options in the United States - Exploring US retirement accounts and tax provisions that encourage saving and investing for retirement
 * Financial Mathematics - Exploring and deriving financial formulas
 
-Since this is a continuation of my Career series, it is intended primarily for those who are starting their careers.
+Although this series follows my Career series, it is intended primarily for those who are starting their careers.
 Retirement planning, however, is relevant at any age, and those who haven't planned for retirement or given it serious thought may find this series useful too.
 
 # Ah, The Good Life
