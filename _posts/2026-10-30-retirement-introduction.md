@@ -5,17 +5,20 @@ unlisted: true
 ---
 
 # Introduction
-This blog entry continues my [Career](https://jhumelsine.github.io/table-of-contents#career-path) series, which has focused on topics at the start of one's career, by turning to retirement at the other end.
+This blog entry continues my [Career](https://jhumelsine.github.io/table-of-contents#career-path) series which has addressed the beginning and development of a career.
+This series explores what comes after it.
+That is, one's retirement.
 
-This retirement series will consist of:
-* Retirement Introduction - Introducing retirement planning and the financial concepts behind it
+This retirement series will consist of (URL links TBD):
+* Retirement Introduction - Introducing retirement planning, which is this blog entry
+* Financial Literacy - Defining personal and household finance building blocks that comprise the financial foundations of retirement
 * Retirement Financial Planning - Planning for retirement alongside personal and household financial goals
-* Retirement Activities - Exploring how to spend the time and pursue the interests that retirement makes possible
+* Retirement Activities - Exploring how to use time to pursue the interests that retirement makes possible
 * Retirement Options in the United States - Exploring US retirement accounts and tax provisions that encourage saving and investing for retirement
-* Financial Mathematics - Exploring and deriving the financial formulas
+* Financial Mathematics - Exploring and deriving financial formulas
 
-Since this is a continuation of the career series, it is intended for those who are starting their career.
-However, those who have not planned for their retirement or given it serious thought may find it useful too.
+Since this is a continuation of my Career series, it is intended primarily for those who are starting their careers.
+However, retirement planning is relevant at any age, and those who haven't planned for retirement or given it serious thought may find this series useful too.
 
 # Ah, The Good Life
 Some achieve retirement.
@@ -33,7 +36,7 @@ My days are mostly delightfully stress free:
 * No Jira tickets
 * Catch up on a TV show in the middle of the day
 * Go for a walk
-* Travel
+* Take a nap
 
 I don't know the day of the week before consulting my weekly pill organizer.
 When I ask my wife, who is also retired, what day of the week it is, she answers, "It's Saturday. Every day is Saturday now."
@@ -41,15 +44,22 @@ When I ask my wife, who is also retired, what day of the week it is, she answers
 Ideally, we want to leave on our own terms, but we don't always have that option.
 Layoffs, health problems, caregiving responsibilities, and other circumstances can shorten a career prematurely.
 
+Preparing financially for retirement also provides the flexibility to deal with unexpected changes in your career. You may not know when you'll stop working, but you can prepare for the possibility.
+
 A previous coworker posted this online a few months ago:
 > Apparently [my employer] no longer needs my services, along with most of their US developers 🤷‍♂️.
 > At the moment, I am considering it an "early retirement" ... but I would definitely prefer to be "not retired".
 
 Regardless of the circumstances, retirement can provide the freedom to pursue or extend interests that a full-time career made difficult.
+One of the greatest pleasures of retirement is no longer having someone else dictate how you spend much of your day.
+
 That freedom to enjoy retirement doesn't happen by accident.
 Whether you retire on your own terms or have retirement thrust upon you, financial preparation can make a significant difference, and the earlier you start the better.
 
-Most of my basic retirement recommendations resemble what I wrote in [Losing Your Job Stinks](https://jhumelsine.github.io/2024/08/11/jobsearch.html).
+_The best time to plant a tree was twenty years ago. The second best time is now._ — Chinese Proverb
+
+
+Many of the principles I discussed in [Losing Your Job Stinks](https://jhumelsine.github.io/2024/08/11/jobsearch.html) also apply to retirement preparation.
 Preparing for retirement and preparing for an unexpected job loss require attention to finances and to how you'll spend your time.
 You need to consider:
 * Your personal and household finances to fund your retirement, which you should begin early in your career.
@@ -61,6 +71,9 @@ I'll address both of these in subsequent blog entries.
 And even within the United States, my retirement experience won't be the same as others in the United States.
 
 Everyone's circumstances are different. I'll share one approach, not prescribe a universal solution.
+
+# Summary
+TBD
 
 # Financial Literacy
 In many places, financial literacy isn't a core subject in school.
