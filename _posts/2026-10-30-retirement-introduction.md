@@ -238,10 +238,65 @@ CDs are very safe, but their rates of return tend to be modest.
 There are usually penalties for early withdrawal as well.
 
 ### Loans
-TBD
+A loan is when you lend someone an asset, often money, with the expectation that it will be returned, usually with interest.
+
+A [bond](https://en.wikipedia.org/wiki/Bond_%28finance%29) is a formal debt instrument that specifies the terms of a loan.
+In buying a bond, you're lending money to a person or institution that promises to repay the principal according to specified terms, often with interest.
+The maturity date is when the issuer is due to repay the principal.
+You may be able to sell a bond before maturity, but its market value may be higher or lower than what you paid.
+The money you lend may be at risk, depending upon the type of bond.
+ 
+Common types of bonds are government bonds and corporate bonds.
+
+When the loan is fully repaid, the borrower's obligation to repay it is fulfilled.
+
+The borrower intends to repay the loan, but there is no guarantee.
+Sometimes borrowers default, meaning they fail to meet their repayment obligations.
+The lender may be able to recover some of the money through collateral or legal proceedings, but could lose some or all of the investment.
+
+Some borrowers have better creditworthiness than others.
+The interest rate depends partly on the borrower's creditworthiness. 
+Lenders generally demand higher interest rates from borrowers they consider more likely to default, compensating them for taking on greater risk.
+
+Organizations such as [S&P Global Ratings](https://en.wikipedia.org/wiki/S%26P_Global_Ratings) assign credit ratings to governments, corporations, and their debt obligations. These ratings use letter grades, with additional distinctions within many grades, to indicate creditworthiness.
 
 ### Ownership
-TBD
+[Stock](https://en.wikipedia.org/wiki/Stock) is ownership.
+When you buy a stock, you own a piece of that company.
+
+A company may issue shares to raise money for expansion or other business purposes. When a company first offers its shares to the public, it conducts an [Initial Public Offering](https://en.wikipedia.org/wiki/Initial_public_offering) (IPO).
+
+If a company performs well and investors expect it to continue doing so, its stock price may rise.
+The company may also distribute some of its profits to shareholders as dividends.
+A dividend is somewhat like interest, but the two are different.
+Interest is often associated with the return on a loan.
+A company earns a profit when its revenue exceeds its expenses.
+Suppose a company sells a [widget](https://en.wikipedia.org/wiki/Widget_(economics)) for $15, and the total costs associated with producing and distributing it are $10.
+That leaves $5 in profit.
+A profitable company has several options for using its profits.
+Distributing part of it to its shareholders as a dividend is one option.
+Other options include investing it back into the company to grow it or buying back shares on the open market.
+
+If a company performs poorly, its stock price may fall. Stocks generally carry greater risk than high-quality bonds issued by the same company, but the risk depends on the particular investment.
+
+Investors often distinguish between growth stocks and value stocks.
+
+Growth stocks are shares of companies investors expect to grow their revenue or earnings rapidly. Investors may be willing to pay higher prices in anticipation of future growth.
+ 
+Value stocks are shares that appear relatively inexpensive compared with measures of the company's financial performance or assets. Some pay substantial dividends.
+These are often more established companies.
+ 
+Stocks can be issued by small, medium and large companies.
+Stocks can be issued by domestic companies or foreign companies.
+
+Common stock often includes voting rights, typically with one vote per share. However, some companies issue different classes of shares with different voting rights.
+Shareholders commonly vote on the election of the [board of directors](https://en.wikipedia.org/wiki/Board_of_directors) and may vote on other matters, depending on the company.
+
+Shareholders can also attend shareholder meetings to vote or make their voices heard.
+Many years ago at an AT&T shareholders meeting, a retired shareholder addressed the [CEO](https://en.wikipedia.org/wiki/Chief_executive_officer), [Bob Allen](https://en.wikipedia.org/wiki/Robert_E._Allen_(telecommunications_executive)), and said, "I'm a millionaire due to your leadership." Allen smiled, and then the gentleman added, "I used to be a multi-millionaire."
+
+#### Secondary Public Market
+Secondary market
 
 ## Asset Management
 TBD
@@ -260,41 +315,6 @@ This blog introduced retirement as something one works toward along with a brief
 The next blog entry will present retirement planning using the tools in your financial toolkit.
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-#### Bonds
-A [bond](https://en.wikipedia.org/wiki/Bond_%28finance%29) is a loan. In buying a bond, you’re lending money to a person or institution who promises to pay you back with interest after a period of time. You generally can’t get your money back before the period of time is up without penalty. The money you lend may be at risk, depending upon the type of bond.
- 
-Common types of bonds are certificates of deposit, government bonds and corporate bonds.
-
-#### Stock
-[Stock](https://en.wikipedia.org/wiki/Stock) is ownership. When you buy a stock, you own a piece of that company. If the company makes a profit, your stock will tend to go up in value and/or the company will pay you a dividend. If the company loses money, your stock will tend to go down in value. Stocks are riskier than bonds.
- 
-In the same way that there are different types of bonds, there are different types of stocks. Some companies are called growth stocks. Think of Microsoft from the 1980s or Google in the 2000s. The value of a share of these stocks may rise or fall quickly. 
- 
-Other stocks are called value stocks. They tend to distribute dividends rather than promise growth. These are often older, more established companies, like General Electric or AT&T.
- 
-Stocks can be issued by small, medium and large companies.  Stocks can be issued by domestic companies or foreign companies.
-
->Stocks and Bonds can be confusing at first. Let's use a simple example.
->
->Your son and his buddies start a garage band, but they don't have enough funds for good instruments, equipment, a van to go on the road, etc.
->
->You decide to help them out by buying what they need. They provide the talent. You provide the material resources. You work out a deal with the band that you'll have a 30% stake in the band.
->
->They go on the road, and their discovered. Their a big hit. The band gets a record deal and a tour. You own 30% of what they become.
->
->But most bands fail. The band breaks up. They sell the equipment. You might get some of your money back.
->
->You owned stock in the band by financing them.
->
->Rather than give them the money, you lend them the money. They gave you an [IOU](https://en.wikipedia.org/wiki/IOU) If they become successful, you just get your loan back with interest. If they fold, you might get some of your money back when the equipment is sold.
->
->Their IOU was a bond your purchases by lending them money.
->
->Let's add one more detail. You and your brother both decide to help, since his kid is in the band too.
->You purchase the equipment. He lends them money for the van.
->
->If the band succeeds, your investment is worth more, but your brother's loan is repaid via the IOU. If the band fails, your brother's IOU is paid back before you receive anything.
 
 #### Mutual Funds
 A [mutual fund](https://en.wikipedia.org/wiki/Mutual_fund) is shared ownership of many assets with others. Rather than buying ownership in a single bond, company or property, when you purchase a share of a mutual fund, you’re joining a group of other investors who have pooled their money together. A fund manager manages the large number of assets on behalf of the group. Each share of a mutual fund is spread among the assets in which the mutual fund is invested. You will indirectly own shares of many different companies.
