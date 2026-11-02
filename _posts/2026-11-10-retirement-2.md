@@ -23,15 +23,6 @@ I was financially conservative as well in my spending and investing for the firs
 
 A few years into my career, I partnered with a financial planner and my financial education began, building upon the financial discipline I learned from my parents.
 
-# Summary
-TBD
-
-# References
-TBD
-
-+++++++++++++++++++++++++++++++++++
-
-
 # Financial Toolkit
 Income and wealth are related, but not the same.
 Sometimes we hear stories of high-paid athletes struggling with their personal finances and eventually filing for bankruptcy.
@@ -40,8 +31,7 @@ In contrast, we sometimes hear stories of those who never earned stellar salarie
 Income is how much you earn.
 Wealth is what you accumulate and retain.
 
-Those who depend on their labor work for their money.
-Those with substantial wealth have assets that work for them.
+If your only source of income is your labor, you'll always have to work for your money. As you accumulate wealth, your money can increasingly work for you.
 
 Instead of working for every dollar, you have something that produces money for you.
 The more productive assets you accumulate, the more your money can work on your behalf.
@@ -57,6 +47,15 @@ Your financial toolkit consists of three basic components:
 * Asset Generation
 * Asset Instruments
 * Asset Management
+
+# Summary
+TBD
+
+# References
+TBD
+
++++++++++++++++++++++++++++++++++++
+
 
 ## Asset Generation
 You need a way to obtain and grow wealth.
