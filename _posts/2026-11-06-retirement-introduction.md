@@ -33,13 +33,13 @@ My days are mostly delightfully stress-free:
 * No meetings
 * No schedules
 * No Jira tickets
-* Catch up on a TV show
+* Catch up on a TV show in the middle of the day
 * Go for a walk
 * Take a nap
 
-I don't know the day of the week before consulting my weekly pill organizer or asking my retired wife who answers, "It's Saturday. Every day is Saturday now."
+I don't know the day of the week before consulting my weekly pill organizer or asking my retired wife who always answers, "It's Saturday. Every day is Saturday now."
 
-Ideally, we want to leave the work force on our own terms, but we don't always have that option.
+Ideally, we want to leave the workforce on our own terms, but we don't always have that option.
 Layoffs, health problems, caregiving responsibilities, and other circumstances can bring a career to an unexpected end.
 
 Preparing financially for retirement provides the flexibility to deal with unexpected changes in your career. You may not know when you'll stop working, but you can prepare for the possibility.
