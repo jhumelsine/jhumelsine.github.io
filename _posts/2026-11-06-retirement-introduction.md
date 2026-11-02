@@ -71,7 +71,7 @@ You need to consider:
 * Preparing your personal and household finances to fund retirement, ideally beginning early in your career.
 * Considering how you'll use the additional time retirement provides, recognizing that your interests may evolve throughout your career.
 
-I'll address both of these in subsequent blog entries.
+I'll address both in subsequent blog entries.
 
 **NOTE:** Though I'm writing with a global audience in mind, my perspective is shaped by my experience with retirement in the United States. Even here, my experience won't be the same as everyone else's.
 
