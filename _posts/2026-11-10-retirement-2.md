@@ -1,23 +1,36 @@
 ---
-title: WORK IN PROGRESS – Retirement 2
-description: Financial Literacy
+title: WORK IN PROGRESS – Financial Literacy
+description: TBD
 unlisted: true
 ---
 
-+++++++++++++++++++++++++++++++++++
-
-# Financial Literacy
-In many places, financial literacy isn't a core subject in school.
-Most learn about finances from their own experience, peers, books, financial experts or their parents.
+# Introduction
+In the United States, many students graduate from high school without a solid foundation in personal finance.
+Most people learn about personal finances from their own experience, peers, books, financial experts or their parents.
 
 My parents were financially conservative.
-Their savings were generally limited to:
+The financial instruments I knew about were generally limited to:
 * [Bank Savings Accounts](https://www.investopedia.com/terms/s/savingsaccount.asp)
 * [Bank Certificates of Deposit](https://www.investopedia.com/terms/c/certificateofdeposit.asp)
 * [United States Savings Bonds](https://en.wikipedia.org/wiki/United_States_Savings_Bonds)
 
-This was all I know while growing up.
-Once I started my own career, I partnered with a financial planner and my financial education began.
+Their financially conservative nature also applied to their spending.
+They didn't make major purchases until they had the money to pay for them.
+
+Their financial discipline worked for them, and it left an impression on me.
+This was the only approach to spending and saving that I knew while growing up.
+I was financially conservative as well in my spending and investing for the first few years of my career.
+
+A few years into my career, I partnered with a financial planner and my financial education began, building upon the financial discipline I learned from my parents.
+
+# Summary
+TBD
+
+# References
+TBD
+
++++++++++++++++++++++++++++++++++++
+
 
 # Financial Toolkit
 Income and wealth are related, but not the same.
