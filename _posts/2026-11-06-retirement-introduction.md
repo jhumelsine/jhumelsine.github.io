@@ -16,7 +16,7 @@ This retirement series will consist of (URL links TBD):
 * Retirement Options in the United States - Exploring US retirement accounts and tax provisions that encourage saving and investing for retirement
 * Financial Mathematics - Exploring and deriving financial formulas
 
-Although this series follows my Career series, it is intended primarily for those who are starting their careers.
+Since this series follows my Career series, it is intended primarily for those who are starting their careers.
 Retirement planning, however, is relevant at any age, and those who haven't planned for retirement or given it serious thought may find this series useful too.
 
 # Ah, The Good Life
@@ -37,13 +37,12 @@ My days are mostly delightfully stress-free:
 * Go for a walk
 * Take a nap
 
-I don't know the day of the week before consulting my weekly pill organizer.
-When I ask my wife, who is also retired, what day of the week it is, she answers, "It's Saturday. Every day is Saturday now."
+I don't know the day of the week before consulting my weekly pill organizer, or I ask my wife, who is also retired, who answers, "It's Saturday. Every day is Saturday now."
 
-Ideally, we want to leave on our own terms, but we don't always have that option.
+Ideally, we want to leave the work force on our own terms, but we don't always have that option.
 Layoffs, health problems, caregiving responsibilities, and other circumstances can bring a career to an unexpected end.
 
-Preparing financially for retirement also provides the flexibility to deal with unexpected changes in your career. You may not know when you'll stop working, but you can prepare for the possibility.
+Preparing financially for retirement provides the flexibility to deal with unexpected changes in your career. You may not know when you'll stop working, but you can prepare for the possibility.
 
 A previous coworker posted this online a few months ago:
 > Apparently [my employer] no longer needs my services, along with most of their US developers 🤷‍♂️.
