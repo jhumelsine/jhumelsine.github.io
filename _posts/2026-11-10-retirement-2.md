@@ -6,7 +6,7 @@ unlisted: true
 
 # Introduction
 In the United States, many students graduate from high school without a solid foundation in personal finance.
-Most people learn about personal finances from their own experience, peers, books, financial experts or their parents.
+Most people learn about personal finance from their own experience, peers, books, financial experts or their parents.
 
 My parents were financially conservative.
 The financial instruments I knew about were generally limited to:
@@ -19,9 +19,11 @@ They didn't make major purchases until they had the money to pay for them.
 
 Their financial discipline worked for them, and it left an impression on me.
 This was the only approach to spending and saving that I knew while growing up.
-I was financially conservative as well in my spending and investing for the first few years of my career.
+I was equally conservative as well in my spending and investing for the first few years of my career.
 
-A few years into my career, I partnered with a financial planner and my financial education began, building upon the financial discipline I learned from my parents.
+A few years into my career, I partnered with a financial planner, and my financial education began. It built upon the financial discipline I learned from my parents.
+
+Over the years, I've learned quite a bit about personal finance. I'd like to share some of what I've learned, beginning with a look at the basic concepts and instruments that make up our financial toolkit.
 
 # Financial Toolkit
 Income and wealth are related, but not the same.
@@ -48,17 +50,8 @@ Your financial toolkit consists of three basic components:
 * Asset Instruments
 * Asset Management
 
-# Summary
-TBD
-
-# References
-TBD
-
-+++++++++++++++++++++++++++++++++++
-
-
 ## Asset Generation
-You need a way to obtain and grow wealth.
+Wealth doesn't appear on its own. You need a way to acquire it and make it grow.
 
 ### Parents
 Our parents are financially responsible for us while we're children.
@@ -67,35 +60,35 @@ Some parents extend financial support to their adult children as well by paying 
 
 Some children will inherit substantial wealth from their parents.
 Trillions of US dollars will be transferred from the older generations to younger generations through the [Great Wealth Transfer](https://en.wikipedia.org/wiki/Great_Wealth_Transfer). 
-However, inheritance is not equally distributed from one generation to the next nor can you determine when you receive it.
+However, inheritance is not equally distributed from one generation to the next, and you cannot determine when you receive it.
 
 Your best bet for parental support and a significant inheritance is to choose your parents wisely.
 
 Regardless of parental support, the next two asset generators are available to most people.
 
 ### You
-Over your lifetime, your income will account for most of your wealth generation.
+For most people, income earned over a lifetime is the primary source of wealth generation.
  
 You generate income, but you also need food, shelter, clothing, transportation, insurance, etc.
-You produce a lot, but you consume a lot, too.
+ou earn a lot, but you spend a lot, too.
 You may be a great asset, but you are also a high-maintenance expense.
 
 How much of your income have you invested?
 How much of your income have you spent?
 
-In order to generate wealth, your income must exceed your expenses.
+To build wealth from your income, your income must exceed your expenses.
 Even those with high incomes may fail to generate wealth if their expenses are too large.
 
 ### Time
-The earlier you start to contribute to your financial goals, the easier it will be to reach them.
+The earlier you start saving and investing, the easier it will be to reach your financial goals.
 This isn’t just because you have more time to put more money away.
 It’s because the money you invest has more time to grow through [compound interest](https://en.wikipedia.org/wiki/Compound_interest).
  
-Compound interest is a snowball effect.
+Compounding creates a snowball effect.
 When you’re rolling a snowball to make a snowman, the snowball will reach a sufficient size so that it will start to pick up snow from the ground just by rolling it.
  
 With investments, earnings start to produce their own earnings, which produce their own earnings, etc.
-Albert Einstein is credited for stating that compound interest was the eighth wonder of the world, but most agree it's apocryphal.
+Albert Einstein is often credited with calling compound interest the eighth wonder of the world, although there's little evidence he actually said it.
 
 #### A Comparison Example
 
@@ -146,6 +139,14 @@ Here is an abbreviated version listing their progress:
 By age 28, Anna's $8,000 in contributions has grown to almost $12,600.
 That balance becomes her virtual legal money-printing machine.
 Even after she stops contributing, her money continues working for her, generating earnings that can produce additional earnings.
+
+# Summary
+TBD
+
+# References
+TBD
+
++++++++++++++++++++++++++++++++++++
 
 ## Asset Instruments
 Assets can take several forms.
