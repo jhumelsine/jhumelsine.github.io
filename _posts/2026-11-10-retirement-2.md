@@ -227,6 +227,45 @@ They're considered very safe because they're backed by the U.S. government. They
 
 They're a useful example of an instrument that isn't technically cash but can serve a cash-like role.
 
+### Loans
+A loan is an arrangement in which one party lends an asset, usually money, to another party with the expectation that it will be repaid, usually with interest.
+
+Principal is the amount borrowed.
+Interest is the cost of borrowing money, generally expressed as a percentage of the outstanding principal.
+
+A [bond](https://en.wikipedia.org/wiki/Bond_%28finance%29) is a formal debt security that specifies the terms of a loan.
+In buying a bond, you're lending money to a person or institution that promises to repay the principal according to specified terms, often with interest.
+
+Unlike a typical personal loan or mortgage, a bond can generally be bought and sold by investors in financial markets. This allows the original lender to sell the debt to someone else rather than waiting for the borrower to repay it.
+The maturity date is when the issuer is due to repay the bond's face value (principal).
+You may be able to sell a bond before maturity, but its market value may be higher or lower than what you paid.
+The money you lend may be at risk, depending upon the type of bond.
+ 
+Common types of bonds are government bonds and corporate bonds.
+Governments and corporations issue bonds to borrow money for projects, operations, or other financial obligations.
+A government may borrow money by issuing a bond to build a new bridge.
+A business may borrow money to purchase another company.
+
+Government and corporate borrowing is not much different than taking out student loans to pay for college or taking on a mortgage to purchase a home.
+Borrowing money finances a purchase that might not be possible by any other means.
+
+Loans can be secured or unsecured:
+* Secured loans are backed by collateral, such as a home or automobile. If the borrower defaults, the lender may have the right to repossess the collateral or foreclose on the property.
+* Unsecured loans aren't backed by specific collateral. Credit cards and many personal loans are examples.
+
+The borrower intends to repay the loan, but there is no guarantee.
+Sometimes borrowers default, meaning they fail to meet their repayment obligations.
+The lender may be able to recover some of the money through collateral or legal proceedings, but could lose some or all of the investment.
+
+Not all borrowers are equally creditworthy.
+The interest rate depends partly on how likely the lender thinks the borrower is to repay the loan. 
+Lenders generally demand higher interest rates from borrowers they consider more likely to default, compensating them for taking on greater risk.
+
+Organizations such as [S&P Global Ratings](https://en.wikipedia.org/wiki/S%26P_Global_Ratings), [Moody's Ratings](https://en.wikipedia.org/wiki/Moody%27s_Ratings), and [Fitch Ratings](https://en.wikipedia.org/wiki/Fitch_Ratings) assign credit ratings to governments, corporations, and their debt obligations.
+These ratings are opinions about creditworthiness, not guarantees that a borrower will repay its debt.
+Credit ratings help investors evaluate the likelihood that a borrower will meet its debt obligations.
+These ratings use letter grades, often with additional distinctions within each grade, to indicate the issuer's creditworthiness.
+
 # Summary
 TBD
 
@@ -234,29 +273,6 @@ TBD
 TBD
 
 +++++++++++++++++++++++++++++++++++
-
-### Loans
-A loan is when you lend someone an asset, often money, with the expectation that it will be returned, usually with interest.
-
-A [bond](https://en.wikipedia.org/wiki/Bond_%28finance%29) is a formal debt instrument that specifies the terms of a loan.
-In buying a bond, you're lending money to a person or institution that promises to repay the principal according to specified terms, often with interest.
-The maturity date is when the issuer is due to repay the principal.
-You may be able to sell a bond before maturity, but its market value may be higher or lower than what you paid.
-The money you lend may be at risk, depending upon the type of bond.
- 
-Common types of bonds are government bonds and corporate bonds.
-
-When the loan is fully repaid, the borrower's obligation to repay it is fulfilled.
-
-The borrower intends to repay the loan, but there is no guarantee.
-Sometimes borrowers default, meaning they fail to meet their repayment obligations.
-The lender may be able to recover some of the money through collateral or legal proceedings, but could lose some or all of the investment.
-
-Some borrowers have better creditworthiness than others.
-The interest rate depends partly on the borrower's creditworthiness. 
-Lenders generally demand higher interest rates from borrowers they consider more likely to default, compensating them for taking on greater risk.
-
-Organizations such as [S&P Global Ratings](https://en.wikipedia.org/wiki/S%26P_Global_Ratings) assign credit ratings to governments, corporations, and their debt obligations. These ratings use letter grades, with additional distinctions within many grades, to indicate creditworthiness.
 
 ### Ownership
 [Stock](https://en.wikipedia.org/wiki/Stock) is ownership.
