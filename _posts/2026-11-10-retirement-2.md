@@ -140,6 +140,93 @@ By age 28, Anna's $8,000 in contributions has grown to almost $12,600.
 That balance becomes her virtual legal money-printing machine.
 Even after she stops contributing, her money continues working for her, generating earnings that can produce additional earnings.
 
+## Asset Instruments
+Assets can take several forms.
+
+### Cash and Cash Equivalents
+Cash is king.
+Cash provides liquidity, convenience, and certainty about its nominal value.
+It's useful for paying expenses and handling emergencies.
+But it generally isn't a great long-term wealth-building instrument because inflation erodes its purchasing power.
+Cash includes physical currency and readily accessible balances held in financial accounts.
+Income is often in cash.
+Expenses are paid with cash.
+
+When discussing personal finances, we often use the term cash to describe money that is readily available for spending. This includes physical currency as well as electronic balances in financial accounts.
+
+Some financial products aren't strictly cash, but they are so similar in their liquidity and stability that they're considered cash equivalents.
+
+Strictly speaking, however, a checking or savings account isn't cash.
+It's a financial product that holds your money and provides convenient access to it.
+Because those funds are readily available, these accounts are often treated as cash equivalents.
+
+In the United States, the [Federal Deposit Insurance Corporation](https://www.fdic.gov/resources/deposit-insurance) (FDIC) insures eligible deposits at insured banks up to $250,000 per depositor, per insured bank, per ownership category.
+There are additional rules and restrictions, but the basic coverage is sufficient for most depositors.
+This insurance protects most deposits should an insured bank fail.
+
+Checking accounts, savings accounts, money market deposit accounts, and eligible CDs at FDIC-insured banks generally qualify for coverage, subject to the applicable limits.
+
+Money market mutual funds and Treasury bills are not bank deposits and are not covered by FDIC insurance.
+
+#### Cash
+Cash is a useful tool, especially for recurring expenses, but cash is a limited tool.
+Cash doesn't generally generate much of a return.
+Even when it earns interest, inflation can erode its purchasing power over time.
+ 
+Cash does have its uses.
+It is useful for its liquidity and also for its stability when the stock market takes a downturn.
+For those who have a tendency to slip back into debt, cash may be a primary tool for managing household finances to prevent sinking further into debt.
+
+#### Checking Account
+Checking accounts are used to manage day-to-day financial transactions, such as paying bills and making purchases.
+
+#### Savings Account
+Savings accounts are places to hold money while earning modest interest.
+
+Money can often be easily transferred between checking and savings accounts.
+
+##### High-Yield Savings Account
+
+A high-yield savings account is like a traditional savings account, but it generally pays a higher interest rate.
+
+These accounts are often offered by online banks, which may have lower operating costs than traditional banks.
+
+Like traditional savings accounts, eligible deposits at FDIC-insured banks are protected by FDIC insurance, subject to applicable limits.
+
+#### Money Market Account
+A banking money market account is like a savings/checking account on steroids.
+Money market accounts combine some of the features of checking and savings accounts.
+They are often used to hold larger balances and often pay more interest than traditional savings accounts.
+They may also impose restrictions on withdrawals, transfers, or minimum balances.
+
+#### Money Market Mutual Fund
+A money market mutual fund is an investment fund that provides a convenient place to hold cash while earning a return.
+
+Money market mutual funds pool money from many investors and use it to purchase short-term, relatively low-risk investments, such as Treasury bills, certificates of deposit, and commercial paper.
+
+They are often used to hold larger amounts of cash and generally provide convenient access to your money.
+They generally offer competitive interest rates and provide convenient access to your money.
+
+Unlike a bank money market account, a money market mutual fund is an investment, not a bank deposit.
+It is not insured by the FDIC, and its value and returns are not guaranteed.
+Although these funds are designed to maintain a stable share price, they can lose value.
+
+#### Certificate of Deposit
+A [Certificate of Deposit](https://en.wikipedia.org/wiki/Certificate_of_deposit) (CD) is a bank deposit that earns interest over a specified period of time. The interest rate is usually fixed, and the money is generally expected to remain on deposit until the maturity date.
+
+CDs are generally very safe, but their rates of return tend to be modest.
+There are usually penalties for early withdrawal as well.
+
+#### Treasury Bills
+[U.S. Treasury bills](https://en.wikipedia.org/wiki/United_States_Treasury_security) (T-bills) are short-term loans to the federal government, generally maturing in four to 52 weeks.
+T-bills are generally purchased for less than their face value.
+At maturity, the government pays the face value, and the difference represents your return.
+They are exempt from state and local income taxes on their interest.
+
+They're considered very safe because they're backed by the U.S. government. They can also be sold before maturity, although the price received may differ from the purchase price.
+
+They're a useful example of an instrument that isn't technically cash but can serve a cash-like role.
+
 # Summary
 TBD
 
@@ -147,52 +234,6 @@ TBD
 TBD
 
 +++++++++++++++++++++++++++++++++++
-
-## Asset Instruments
-Assets can take several forms.
-
-### Cash and Cash Equivalents
-Cash is king.
-Cash can take many forms such as traditional paper or electronic balances and transfers.
-Income is often in cash.
-Expenses are paid with cash.
-
-Some assets are not strictly cash, but they are so close to cash, they are equivalent to cash.
-These cash equivalent assets are often accounts with banks.
-In the United States, most bank accounts have [Federal Deposit Insurance Corporation](https://www.fdic.gov/resources/deposit-insurance) (FDIC), which insures up to $250,000.
-There are nuances and restrictions, but they won't apply to most depositors.
-This insurances protects most deposits should an insured bank fail.
-
-Several financial products aren't technically cash but are often treated as cash equivalents.
-
-#### Cash
-Cash is a useful tool, especially for recurring expenses, but cash is a limited tool. 
-It doesn’t produce a dividend. 
-It doesn’t even grow in value. 
-Because of inflation, the spending power of cash erodes as time goes on.
- 
-Cash does have its uses. It is useful for its liquidity and also for its stability when the stock market takes a downturn. For those who have a tendency to slip back into debt, cash may be the only way to manage household finances to prevent sinking further into debt.
-
-#### Checking Account
-Checking accounts are used to manage day-to-day non-cash financial exchanges, such as paying bills.
-
-#### Savings Account
-Savings accounts are places to hold money while earning modest interest.
-
-Money can often be easily transferred between checking and savings accounts.
-
-#### Money Market
-A banking money market account is like a savings/checking account on steroids.
-They are used to store larger amounts of cash than savings and checking accounts.
-They generally pay more interest.
-They also tend to have restrictions in their use.
-These restrictions reduce the churn on the account, and that’s why the financial institution offers better rates.
-
-#### Certificate of Deposit
-A [Certificate of Deposit](https://en.wikipedia.org/wiki/Certificate_of_deposit) (CD) is a loan to the bank for a fixed period of time with a fixed rate of return.
-
-CDs are very safe, but their rates of return tend to be modest.
-There are usually penalties for early withdrawal as well.
 
 ### Loans
 A loan is when you lend someone an asset, often money, with the expectation that it will be returned, usually with interest.
