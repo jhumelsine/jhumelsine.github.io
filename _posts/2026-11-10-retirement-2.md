@@ -60,7 +60,7 @@ Some parents extend financial support to their adult children as well by paying 
 
 Some children will inherit substantial wealth from their parents.
 Trillions of US dollars will be transferred from the older generations to younger generations through the [Great Wealth Transfer](https://en.wikipedia.org/wiki/Great_Wealth_Transfer). 
-However, inheritance is not equally distributed from one generation to the next, and you cannot determine when you receive it.
+However, inheritance is not evenly distributed from one generation to the next, and you cannot determine when you receive it.
 
 Your best bet for parental support and a significant inheritance is to choose your parents wisely.
 
