@@ -266,19 +266,31 @@ These ratings are opinions about creditworthiness, not guarantees that a borrowe
 Credit ratings help investors evaluate the likelihood that a borrower will meet its debt obligations.
 These ratings use letter grades, often with additional distinctions within each grade, to indicate the issuer's creditworthiness.
 
-# Summary
-TBD
-
-# References
-TBD
-
-+++++++++++++++++++++++++++++++++++
-
 ### Ownership
 [Stock](https://en.wikipedia.org/wiki/Stock) is ownership.
 When you buy a stock, you own a piece of that company.
 
-A company may issue shares to raise money for expansion or other business purposes. When a company first offers its shares to the public, it conducts an [Initial Public Offering](https://en.wikipedia.org/wiki/Initial_public_offering) (IPO).
+A company issuing shares, or stock, is different that issuing a bond.
+Nascent companies are funded by their founders and/or early investors.
+This funding is the seed money needed to start a company to purchase raw materials, services, rent space, hire employees, etc.
+Eventually with successful companies, the cost of doing business will be less than the product or services they provide.
+They become profitable.
+
+The founders and early investors who funded the company are the owners of the company.
+The value of the company may grow, but wealth for the founders and investors only resides on a ledger.
+They can't easily spend their wealth.
+
+A company may issue share of stock, which is like slicing the company into small pieces.
+These shares can be sold in a stock exchange to the public.
+This allows anyone owning shares of stock to sell it for cash.
+
+A company may also issue shares to raise money for expansion or other business purposes when private equity is no longer sufficient for their expansion.
+
+When a company first offers its shares to the public, it conducts an [Initial Public Offering](https://en.wikipedia.org/wiki/Initial_public_offering) (IPO).
+
+When a company goes public, it must file regular reports disclosing its finances.
+Becoming a public company is not a requirement.
+Many successful companies have remained private, and that includes keeping their finances private as well.
 
 If a company performs well and investors expect it to continue doing so, its stock price may rise.
 The company may also distribute some of its profits to shareholders as dividends.
@@ -308,6 +320,15 @@ Shareholders commonly vote on the election of the [board of directors](https://e
 
 Shareholders can also attend shareholder meetings to vote or make their voices heard.
 Many years ago at an AT&T shareholders meeting, a retired shareholder addressed the [CEO](https://en.wikipedia.org/wiki/Chief_executive_officer), [Bob Allen](https://en.wikipedia.org/wiki/Robert_E._Allen_(telecommunications_executive)), and said, "I'm a millionaire due to your leadership." Allen smiled, and then the gentleman added, "I used to be a multi-millionaire."
+
+# Summary
+TBD
+
+# References
+TBD
+
++++++++++++++++++++++++++++++++++++
+
 
 #### Secondary Public Market
 Secondary market
