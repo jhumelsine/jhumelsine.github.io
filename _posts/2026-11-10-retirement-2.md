@@ -325,6 +325,8 @@ Shareholders commonly vote on the election of the [board of directors](https://e
 Shareholders can also attend shareholder meetings to vote or make their voices heard.
 Many years ago at an AT&T shareholders meeting, a retired shareholder addressed the [CEO](https://en.wikipedia.org/wiki/Chief_executive_officer), [Bob Allen](https://en.wikipedia.org/wiki/Robert_E._Allen_(telecommunications_executive)), and said, "I'm a millionaire due to your leadership." Allen smiled, and then the gentleman added, "I used to be a multi-millionaire."
 
+Investors can benefit from owning stock through dividends and capital appreciation, but neither is guaranteed.
+
 # Summary
 TBD
 
