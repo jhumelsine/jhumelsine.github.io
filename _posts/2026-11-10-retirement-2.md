@@ -270,35 +270,36 @@ These ratings use letter grades, often with additional distinctions within each 
 [Stock](https://en.wikipedia.org/wiki/Stock) is ownership.
 When you buy a stock, you own a piece of that company.
 
-A company issuing shares, or stock, is different that issuing a bond.
-Nascent companies are funded by their founders and/or early investors.
-This funding is the seed money needed to start a company to purchase raw materials, services, rent space, hire employees, etc.
-Eventually with successful companies, the cost of doing business will be less than the product or services they provide.
-They become profitable.
+Issuing stock is a way for a company to raise money by selling ownership.
+Issuing bonds is a way to borrow money.
+Nascent companies often obtain their initial equity funding from founders and early investors.
+This seed money helps the company get started by purchasing raw materials and services, renting space, hiring employees, and covering other startup expenses.
+As a company becomes established, it hopes to generate more revenue from selling its products or services than it spends operating the business.
+It becomes profitable.
 
-The founders and early investors who funded the company are the owners of the company.
-The value of the company may grow, but wealth for the founders and investors only resides on a ledger.
-They can't easily spend their wealth.
+The value of the company may grow, increasing the wealth of its founders and early investors. However, that wealth exists primarily as ownership in the company. They can't easily spend it.
 
-A company may issue share of stock, which is like slicing the company into small pieces.
-These shares can be sold in a stock exchange to the public.
-This allows anyone owning shares of stock to sell it for cash.
+A company can divide its ownership into shares of stock, with each share representing a portion of the company.
+Those shares can be offered to the public through a stock exchange.
+This also creates a market where existing shareholders can sell their shares to other investors.
 
-A company may also issue shares to raise money for expansion or other business purposes when private equity is no longer sufficient for their expansion.
+A company may also issue additional shares to raise money for expansion or other business purposes when other sources of funding are insufficient.
 
 When a company first offers its shares to the public, it conducts an [Initial Public Offering](https://en.wikipedia.org/wiki/Initial_public_offering) (IPO).
 
-When a company goes public, it must file regular reports disclosing its finances.
+When a company goes public, it becomes subject to regulatory reporting requirements, including regular disclosures about its finances.
 Becoming a public company is not a requirement.
 Many successful companies have remained private, and that includes keeping their finances private as well.
 
-If a company performs well and investors expect it to continue doing so, its stock price may rise.
+If a company performs well and investors expect it to continue doing so, demand for its stock may increase, causing its price to rise.
 The company may also distribute some of its profits to shareholders as dividends.
 A dividend is somewhat like interest, but the two are different.
-Interest is often associated with the return on a loan.
+Interest is generally a contractual obligation associated with a loan.
+Dividends are distributions of money to shareholders, when authorized by the company's board of directors.
 A company earns a profit when its revenue exceeds its expenses.
+
 Suppose a company sells a [widget](https://en.wikipedia.org/wiki/Widget_(economics)) for $15, and the total costs associated with producing and distributing it are $10.
-That leaves $5 in profit.
+That leaves $5 in profit before taxes and other expenses not included in the example.
 A profitable company has several options for using its profits.
 Distributing part of it to its shareholders as a dividend is one option.
 Other options include investing it back into the company to grow it or buying back shares on the open market.
@@ -309,10 +310,13 @@ Investors often distinguish between growth stocks and value stocks.
 
 Growth stocks are shares of companies investors expect to grow their revenue or earnings rapidly. Investors may be willing to pay higher prices in anticipation of future growth.
  
-Value stocks are shares that appear relatively inexpensive compared with measures of the company's financial performance or assets. Some pay substantial dividends.
-These are often more established companies.
+Value stocks are shares that appear relatively inexpensive compared with measures of the company's financial performance or assets. Some pay substantial dividends. They are often shares of more established companies.
+
+Growth and value are investment styles, not mutually exclusive categories. A company can exhibit characteristics of both.
  
-Stocks can be issued by small, medium and large companies.
+Stocks can be issued by small-cap, mid-cap and large-cap companies.
+This refers to their market capitalization, which is the total market value of a company's outstanding shares.
+It is calculated by multiplying the number of outstanding shares by the current price per share.
 Stocks can be issued by domestic companies or foreign companies.
 
 Common stock often includes voting rights, typically with one vote per share. However, some companies issue different classes of shares with different voting rights.
