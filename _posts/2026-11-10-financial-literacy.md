@@ -428,6 +428,23 @@ Neither investment vehicle is inherently better. The right choice depends on you
 | Tax efficiency | Capital-gains distributions can create taxable income | Often more tax-efficient due to in-kind redemptions |
 | Retirement accounts | Commonly available | Commonly available |
 
+#### Home Ownership
+Homeownership is often considered part of the American dream.
+
+Is a house an asset or a liability?
+
+A house is an asset, but owning one comes with liabilities and expenses. Most people finance the purchase with a mortgage. The monthly mortgage payment may be greater than the cost of renting a comparable home.
+
+Over time, a home's value may appreciate, allowing the owner to sell it for more than the original purchase price. Once the mortgage is paid off, a major expense disappears from the household budget.
+
+However, homeownership comes with ongoing costs. Utilities and maintenance are the owner's responsibility. There may also be property taxes, which can be substantial, as well as insurance and other expenses.
+
+The mortgage itself can be expensive. Over the life of a long-term mortgage, the total principal and interest payments can amount to two or more times the amount borrowed, depending on the interest rate. In the United States, mortgage interest may be deductible if you itemize deductions, subject to applicable limits.
+
+You need a place to live, and as long as you can afford it, a home under the right conditions can be a wise option.
+
+Owning a home can be an important part of asset accumulation. A house is often the foundation of family and intergenerational wealth.
+
 # Summary
 TBD
 
@@ -467,10 +484,6 @@ This gives you the ability to liquidate an investment at anytime, but you'll onl
 This would be 401(k), IRA, etc.
 This will be a topic of a subsequent blog entry.
 
-#### Home Ownership
-Homeownership is often considered part of the American dream. Is a house an asset or a liability? It can be both. Most people are able to sell their homes for more than the original purchase price. However, they were only able to purchase the house with a mortgage. Over the lifetime of the mortgage, with interest the total cost of the house could be two to three times the purchase price. A house costs money to maintain and insure, but it’s an asset that you can use while you own it. A home becomes a liability especially when it’s too much for your income to afford.
- 
-You need a place to live, and as long as you can afford it, a home is a wise option. A house is often the core of a family’s financial plan.
 
 #### Other Instruments
 There are many other financial tools, which may be of use as well, including real estate, annuities, precious metals and self owned businesses.
