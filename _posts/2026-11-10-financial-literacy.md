@@ -445,6 +445,13 @@ You need a place to live, and as long as you can afford it, a home under the rig
 
 Owning a home can be an important part of asset accumulation. A house is often the foundation of family and intergenerational wealth.
 
+#### Retirement Plans
+The United States provides for several types of retirement savings plans, such as [401(k)](https://en.wikipedia.org/wiki/401(k)) plans and [Individual Retirement Accounts]([IRA](https://en.wikipedia.org/wiki/Individual_retirement_account)) (IRAs).
+
+These plans provide tax advantages to encourage people to save and invest for retirement. The accounts can hold various types of investments, such as stocks, bonds, and mutual funds.
+
+I'll acknowledge these plans here without going into greater detail. They are specific to the United States and will be addressed in a subsequent blog entry (TBD).
+
 # Summary
 TBD
 
@@ -479,11 +486,6 @@ The next blog entry will present retirement planning using the tools in your fin
 Once you own a stock or bond, you can sell it on the open market.
 That is, you don't need to hold a stock indefinitely and you can sell a bond to someone else before it matures.
 This gives you the ability to liquidate an investment at anytime, but you'll only get the current fair market value.
-
-#### Retirement Plans
-This would be 401(k), IRA, etc.
-This will be a topic of a subsequent blog entry.
-
 
 #### Other Instruments
 There are many other financial tools, which may be of use as well, including real estate, annuities, precious metals and self owned businesses.
