@@ -267,6 +267,9 @@ Credit ratings help investors evaluate the likelihood that a borrower will meet 
 These ratings use letter grades, often with additional distinctions within each grade, to indicate the issuer's creditworthiness.
 
 ### Ownership
+TBD
+
+#### Stock
 [Stock](https://en.wikipedia.org/wiki/Stock) is ownership.
 When you buy a stock, you own a piece of that company.
 
@@ -330,6 +333,41 @@ Shareholders can also attend shareholder meetings to vote or make their voices h
 Many years ago at an AT&T shareholders meeting, a retired shareholder addressed the [CEO](https://en.wikipedia.org/wiki/Chief_executive_officer), [Bob Allen](https://en.wikipedia.org/wiki/Robert_E._Allen_(telecommunications_executive)), and said, "I'm a millionaire due to your leadership." Allen smiled, and then the gentleman added, "I used to be a multi-millionaire."
 
 Investors can benefit from owning stock through dividends and capital appreciation, but neither is guaranteed.
+
+#### Mutual Funds
+A [mutual fund](https://en.wikipedia.org/wiki/Mutual_fund) is an investment vehicle that pools money from many investors to purchase assets.
+Rather than investing in a single bond, company stock or property, you purchase a share of a mutual fund.
+Mutual funds have a fund manager who manages the fund's assets on behalf of the pool of investors.
+A share represents a proportional interest in the fund's overall portfolio.
+By owning mutual fund shares, it's as if you indirectly own slices of the assets managed in the fund.
+
+Mutual funds are essentially buckets that hold assets.
+They can invest in stocks, bonds, real estate and other investments.
+
+A mutual fund's per-share value is called its [Net Asset Value](https://en.wikipedia.org/wiki/Net_asset_value) (NAV). It's generally calculated once each business day by subtracting the fund's liabilities from the market value of its assets and dividing by the number of outstanding shares.
+
+Mutual funds may distribute income earned from dividends and interest, as well as realized capital gains from selling investments.
+These distributions are generally passed along to shareholders. They can be paid in cash or reinvested in additional fund shares.
+These distributions may have tax implications, even when reinvested in additional fund shares.
+
+One advantage of mutual funds is diversification. Rather than investing in a single company or bond, your investment is spread across multiple assets. This can reduce the risk associated with any single investment, but it doesn't necessarily eliminate market risk.
+
+Some funds charge sales commissions, commonly called _loads_. These can be charged when purchasing or selling shares. Many funds have no-load share classes.
+ 
+Mutual funds are typically offered by financial institutions, such as [Fidelity](https://www.fidelity.com/) and [Vanguard](https://investor.vanguard.com/).
+
+Some funds are actively managed, with managers selecting investments in an effort to outperform the market. Others are index funds, which passively track published indexes, such as the [S&P 500](https://en.wikipedia.org/wiki/S%26P_500) or [Dow Jones Industrial Average](https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average). Some track narrow sectors or particular investment categories.
+
+Actively managed funds generally have higher expenses. These expenses are expressed as an expense ratio, which is the annual cost of operating the fund as a percentage of its average assets.
+Index funds typically have much lower expense ratios because they require less active management.
+
+Index funds are a bit dull and boring since they simply follow their index. However, their lower expense ratios and broad market exposure have helped many index funds outperform actively managed funds over the long term.
+ 
+A mutual fund usually has an investment objective that guides its investment decisions. For example, mutual funds may focus on growth stocks, value stocks or a blend of both. They may also focus on a particular sector, such as pharmaceutical stocks or telecommunications stocks.
+ 
+Some mutual funds are _socially responsible_ funds. Other common terms include _environmental, social, and governance_ (ESG) and _sustainable investing_, although ESG is broader than socially responsible investing. ESG criteria can be used to assess investment risks and opportunities, not just to select companies based on ethical preferences.
+Each fund has its own criteria for determining what qualifies as socially responsible or sustainable.
+A socially responsible fund may avoid investing in tobacco or alcohol companies, defense contractors, or companies with poor labor relations. Other funds may actively seek investments in environmentally friendly ("green") companies.
 
 # Summary
 TBD
