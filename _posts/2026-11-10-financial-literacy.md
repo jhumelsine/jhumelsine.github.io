@@ -411,23 +411,6 @@ So why choose one over the other?
 
 Neither investment vehicle is inherently better. The right choice depends on your investment objectives, costs, account type, and personal preferences.
 
-**Mutual Funds vs. ETFs — comparison**
-| Characteristic | Mutual Funds | ETFs |
-|---|---|---|
-| Investment structure | Pool money to purchase assets | Pool money to purchase assets |
-| Investment types | Stocks, bonds, real estate, and others | Stocks, bonds, real estate, and others |
-| Diversification | Can provide diversification | Can provide diversification |
-| Management | Active or passive | Active or passive |
-| Trading | Generally once per business day | Throughout the trading day |
-| Pricing | Generally transact at end-of-day NAV | Market price fluctuates throughout the day |
-| Minimum investment | Often a minimum dollar amount or share requirement | Generally the price of one share, with fractional shares available at some brokers |
-| Automatic investing | Widely supported | Supported by many brokers |
-| Expense ratios | Vary by fund; actively managed funds often cost more | Vary by fund; many index ETFs have low expense ratios |
-| Other transaction costs | Some charge sales loads or redemption fees | May incur brokerage commissions and bid-ask spreads |
-| Distributions | Dividends, interest, and capital gains | Dividends, interest, and capital gains |
-| Tax efficiency | Capital-gains distributions can create taxable income | Often more tax-efficient due to in-kind redemptions |
-| Retirement accounts | Commonly available | Commonly available |
-
 #### Home Ownership
 Homeownership is often considered part of the American dream.
 
