@@ -267,7 +267,9 @@ Credit ratings help investors evaluate the likelihood that a borrower will meet 
 These ratings use letter grades, often with additional distinctions within each grade, to indicate the issuer's creditworthiness.
 
 ### Ownership
-TBD
+One way to generate wealth is to own things that have value.
+
+Those things may appreciate over time, generate income, or both. You can own an individual company, a collection of investments, or other assets.
 
 #### Stock
 [Stock](https://en.wikipedia.org/wiki/Stock) is ownership.
@@ -334,6 +336,30 @@ Many years ago at an AT&T shareholders meeting, a retired shareholder addressed 
 
 Investors can benefit from owning stock through dividends and capital appreciation, but neither is guaranteed.
 
+#### Liquidity and the Secondary Market
+A bond has a maturity date, which could be years in the future.
+It's not legal tinder.
+
+A stock may appreciate in value.
+It's not legal tinder either.
+
+You can't use them to buy a new appliance.
+
+Accumulating assets increases your wealth, but we don't want to be asset rich and cash poor.
+
+What if you need to make a purchase, but your wealth is tied up in non-cash assets?
+
+Someone else might want to own an asset you own.
+You can sell it on the open market such as the [New York Stock Exchange](https://en.wikipedia.org/wiki/New_York_Stock_Exchange) (NYSE) or the [NASDAQ](https://en.wikipedia.org/wiki/Nasdaq).
+Different assets are traded in different markets. Stocks are traded on stock exchanges, while bonds and commodities have their own markets. These markets can be domestic or international.
+
+Buying and selling publicly traded stocks can happen in minutes.
+Buying and selling real estate may require weeks or months.
+
+You don't need to hold a stock indefinitely. You can sell your shares to another investor through the market. Similarly, you can sell a bond to someone else before it matures.
+
+The price you receive depends on what a buyer is willing to pay. It may be higher or lower than the price you originally paid.
+
 #### Mutual Funds
 A [mutual fund](https://en.wikipedia.org/wiki/Mutual_fund) is an investment vehicle that pools money from many investors to purchase assets.
 Rather than investing in a single bond, company stock or property, you purchase a share of a mutual fund.
@@ -358,7 +384,7 @@ Mutual funds are typically offered by financial institutions, such as [Fidelity]
 
 Some funds are actively managed, with managers selecting investments in an effort to outperform the market. Others are index funds, which passively track published indexes, such as the [S&P 500](https://en.wikipedia.org/wiki/S%26P_500) or [Dow Jones Industrial Average](https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average). Some track narrow sectors or particular investment categories.
 
-Actively managed funds generally have higher expenses. These expenses are expressed as an expense ratio, which is the annual cost of operating the fund as a percentage of its average new assets.
+Actively managed funds generally have higher expenses. These expenses are expressed as an expense ratio, which is the annual cost of operating the fund as a percentage of its average net assets.
 Index funds typically have much lower expense ratios because they require less active management.
 
 Index funds are a bit dull and boring since they simply follow their index. However, their lower expense ratios and broad market exposure have helped many index funds outperform actively managed funds over the long term.
@@ -429,7 +455,7 @@ You need a place to live, and as long as you can afford it, a home under the rig
 Owning a home can be an important part of asset accumulation. A house is often the foundation of family and intergenerational wealth.
 
 #### Retirement Plans
-The United States provides for several types of retirement savings plans, such as [401(k)](https://en.wikipedia.org/wiki/401(k)) plans and [Individual Retirement Accounts]([IRA](https://en.wikipedia.org/wiki/Individual_retirement_account)) (IRAs).
+The United States provides for several types of retirement savings plans, such as [401(k)](https://en.wikipedia.org/wiki/401(k)) plans and [Individual Retirement Accounts](https://en.wikipedia.org/wiki/Individual_retirement_account) (IRAs).
 
 These plans provide tax advantages to encourage people to save and invest for retirement. The accounts can hold various types of investments, such as stocks, bonds, and mutual funds.
 
@@ -449,9 +475,6 @@ TBD
 +++++++++++++++++++++++++++++++++++
 
 
-#### Secondary Public Market
-Secondary market
-
 ## Asset Management
 TBD
 
@@ -469,11 +492,6 @@ This blog introduced retirement as something one works toward along with a brief
 The next blog entry will present retirement planning using the tools in your financial toolkit.
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-#### Secondary Market
-Once you own a stock or bond, you can sell it on the open market.
-That is, you don't need to hold a stock indefinitely and you can sell a bond to someone else before it matures.
-This gives you the ability to liquidate an investment at anytime, but you'll only get the current fair market value.
 
 
 ### Financial Management
