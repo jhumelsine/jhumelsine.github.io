@@ -358,7 +358,7 @@ Mutual funds are typically offered by financial institutions, such as [Fidelity]
 
 Some funds are actively managed, with managers selecting investments in an effort to outperform the market. Others are index funds, which passively track published indexes, such as the [S&P 500](https://en.wikipedia.org/wiki/S%26P_500) or [Dow Jones Industrial Average](https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average). Some track narrow sectors or particular investment categories.
 
-Actively managed funds generally have higher expenses. These expenses are expressed as an expense ratio, which is the annual cost of operating the fund as a percentage of its average assets.
+Actively managed funds generally have higher expenses. These expenses are expressed as an expense ratio, which is the annual cost of operating the fund as a percentage of its average new assets.
 Index funds typically have much lower expense ratios because they require less active management.
 
 Index funds are a bit dull and boring since they simply follow their index. However, their lower expense ratios and broad market exposure have helped many index funds outperform actively managed funds over the long term.
@@ -368,6 +368,65 @@ A mutual fund usually has an investment objective that guides its investment dec
 Some mutual funds are _socially responsible_ funds. Other common terms include _environmental, social, and governance_ (ESG) and _sustainable investing_, although ESG is broader than socially responsible investing. ESG criteria can be used to assess investment risks and opportunities, not just to select companies based on ethical preferences.
 Each fund has its own criteria for determining what qualifies as socially responsible or sustainable.
 A socially responsible fund may avoid investing in tobacco or alcohol companies, defense contractors, or companies with poor labor relations. Other funds may actively seek investments in environmentally friendly ("green") companies.
+
+#### ETFs
+[Exchange Traded Funds](https://en.wikipedia.org/wiki/Exchange-traded_fund) (ETFs) are investment vehicles that pool money from many investors to purchase a collection of assets. Like mutual funds, they allow you to invest in a portfolio of stocks, bonds, or other investments by purchasing shares of the fund.
+
+ETFs are similar to mutual funds in many ways. They provide access to a collection of investments, can offer diversification, and generally have a fund manager responsible for managing the fund's assets.
+
+However, there is an important difference in how you buy and sell them.
+
+Unlike mutual funds, which generally transact once each business day at their Net Asset Value (NAV), ETFs trade on stock exchanges throughout the trading day, just like individual stocks. You can buy or sell ETF shares whenever the market is open, and their prices fluctuate throughout the day based on supply and demand.
+
+An ETF's market price is generally close to its NAV, but it can trade at a slight premium or discount to the value of its underlying assets.
+
+ETFs can be actively managed or passively managed. Many ETFs are index funds that track published indexes, such as the [S&P 500](https://en.wikipedia.org/wiki/S%26P_500) or [NASDAQ-100](https://en.wikipedia.org/wiki/Nasdaq-100). Others focus on particular sectors, investment categories, or objectives. Actively managed ETFs have managers who select investments in an effort to outperform the market.
+
+Some well-known ETFs include [SPDR S&P 500 ETF Trust](https://en.wikipedia.org/wiki/SPDR_S%26P_500_ETF_Trust), commonly known by its ticker symbol **SPY**, and [Invesco QQQ ETF](https://en.wikipedia.org/wiki/Invesco_QQQ), commonly known as **QQQ**. SPY tracks the S&P 500, while QQQ tracks the NASDAQ-100.
+
+Like mutual funds, ETFs have expense ratios that represent the annual cost of operating the fund as a percentage of its average net assets. Index ETFs typically have relatively low expense ratios, although costs vary by fund.
+
+ETFs may also distribute income earned from dividends and interest, as well as realized capital gains. These distributions can be paid in cash or reinvested in additional shares, and may have tax implications.
+
+ETFs can have some tax advantages over comparable mutual funds. Their structure allows many ETFs to minimize capital gains distributions by transferring securities rather than selling them when investors redeem shares. However, this doesn't mean ETF investors are exempt from taxes. Distributions and gains from selling ETF shares may still be taxable.
+
+ETFs are often a convenient and relatively inexpensive way to invest in a diversified portfolio. However, not every ETF is broadly diversified. Some concentrate on particular industries, market segments, or investment strategies. As with mutual funds, it's important to understand what a fund owns and what it is designed to accomplish.
+
+#### Mutual Funds vs. ETFs
+Mutual funds and ETFs offer many of the same investment opportunities. Both allow investors to pool their money to purchase a diversified collection of assets. Both can be actively managed or passively track an index.
+
+So why choose one over the other?
+
+**Reasons to choose a mutual fund:**
+* You prefer to make investments at the end of the trading day, without worrying about intraday price fluctuations.
+* You want to invest a specific dollar amount, including fractional shares.
+* You want to automate regular investments, such as monthly contributions.
+* Your employer-sponsored retirement plan offers mutual funds as its investment options.
+
+**Reasons to choose an ETF:**
+* You want to buy and sell shares throughout the trading day.
+* You prefer to see market prices and control the price at which you place an order.
+* You want access to potentially lower-cost investment options.
+* You want the potential tax advantages that ETFs may offer over comparable mutual funds.
+
+Neither investment vehicle is inherently better. The right choice depends on your investment objectives, costs, account type, and personal preferences.
+
+**Mutual Funds vs. ETFs — comparison**
+| Characteristic | Mutual Funds | ETFs |
+|---|---|---|
+| Investment structure | Pool money to purchase assets | Pool money to purchase assets |
+| Investment types | Stocks, bonds, real estate, and others | Stocks, bonds, real estate, and others |
+| Diversification | Can provide diversification | Can provide diversification |
+| Management | Active or passive | Active or passive |
+| Trading | Generally once per business day | Throughout the trading day |
+| Pricing | Generally transact at end-of-day NAV | Market price fluctuates throughout the day |
+| Minimum investment | Often a minimum dollar amount or share requirement | Generally the price of one share, with fractional shares available at some brokers |
+| Automatic investing | Widely supported | Supported by many brokers |
+| Expense ratios | Vary by fund; actively managed funds often cost more | Vary by fund; many index ETFs have low expense ratios |
+| Other transaction costs | Some charge sales loads or redemption fees | May incur brokerage commissions and bid-ask spreads |
+| Distributions | Dividends, interest, and capital gains | Dividends, interest, and capital gains |
+| Tax efficiency | Capital-gains distributions can create taxable income | Often more tax-efficient due to in-kind redemptions |
+| Retirement accounts | Commonly available | Commonly available |
 
 # Summary
 TBD
@@ -398,20 +457,6 @@ This blog introduced retirement as something one works toward along with a brief
 The next blog entry will present retirement planning using the tools in your financial toolkit.
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-#### Mutual Funds
-A [mutual fund](https://en.wikipedia.org/wiki/Mutual_fund) is shared ownership of many assets with others. Rather than buying ownership in a single bond, company or property, when you purchase a share of a mutual fund, you’re joining a group of other investors who have pooled their money together. A fund manager manages the large number of assets on behalf of the group. Each share of a mutual fund is spread among the assets in which the mutual fund is invested. You will indirectly own shares of many different companies.
- 
-Mutual funds are almost always provided by financial institutions, such as Fidelity and Vanguard. A mutual fund almost always has a fund manager or a team of managers.  There are some that do not: these are index funds, which are on auto-pilot. They match published indexes, such as the [S&P 500](https://en.wikipedia.org/wiki/S%26P_500), [Dow Jones Industrial Average](https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average), etc. Managed funds have a management fee. Indexed funds have little to no fee. Indexed funds are a bit dull and boring since they just follow their index, but with little or no management fee, they tend to out perform managed funds over the long term.
- 
-Mutual funds can invest in stocks, bonds or real estate.
- 
-A mutual fund usually has an investment mission, which the fund managers strive to meet. For example, mutual funds may focus upon growth stocks, value stocks or a blend of both. They may also focus upon a sector, such as pharmaceutical stocks or telecommunication stocks.
- 
-Some mutual funds are socially responsible funds. Each fund has its own definition of “socially responsible.” A socially responsible fund may avoid investment in tobacco companies, alcohol companies, defense industry companies or companies with poor labor relations. Today’s socially responsible fund is beginning to involve investment in “green” (environmentally friendly) companies.
-
-#### ETFs
-[Exchange Traded Funds](https://en.wikipedia.org/wiki/Exchange-traded_fund) (EFTs) provide a way to buy a set of stocks in a major index. EFTs are similar to index mutual funds, but you can buy and sell them more like a single stock; even though they represent a basket or collection of stocks. Some well known EFTs are SPDRs “spiders”, which follows the Standard and Poors index, QQQ “qubes, which follow a NASDAQ index.
 
 #### Secondary Market
 Once you own a stock or bond, you can sell it on the open market.
