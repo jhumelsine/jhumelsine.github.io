@@ -452,6 +452,11 @@ These plans provide tax advantages to encourage people to save and invest for re
 
 I'll acknowledge these plans here without going into greater detail. They are specific to the United States and will be addressed in a subsequent blog entry (TBD).
 
+#### Other Assets
+There are many other assets that people may use to generate or preserve wealth, including real estate, annuities, precious metals, and privately owned businesses.
+
+I'm acknowledging them here, but I don't plan to investigate them further.
+
 # Summary
 TBD
 
@@ -487,8 +492,6 @@ Once you own a stock or bond, you can sell it on the open market.
 That is, you don't need to hold a stock indefinitely and you can sell a bond to someone else before it matures.
 This gives you the ability to liquidate an investment at anytime, but you'll only get the current fair market value.
 
-#### Other Instruments
-There are many other financial tools, which may be of use as well, including real estate, annuities, precious metals and self owned businesses.
 
 ### Financial Management
 
