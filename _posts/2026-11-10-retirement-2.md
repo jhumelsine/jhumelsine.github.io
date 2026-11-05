@@ -274,8 +274,12 @@ Issuing stock is a way for a company to raise money by selling ownership.
 Issuing bonds is a way to borrow money.
 Nascent companies often obtain their initial equity funding from founders and early investors.
 This seed money helps the company get started by purchasing raw materials and services, renting space, hiring employees, and covering other startup expenses.
+Those who provided the initial and subsequent equity funding own a portion of the company.
+
 As a company becomes established, it hopes to generate more revenue from selling its products or services than it spends operating the business.
 It becomes profitable.
+It may become self-sustaining.
+It may no longer need external funding to support its ongoing operations, although it may seek additional funding for expansion.
 
 The value of the company may grow, increasing the wealth of its founders and early investors. However, that wealth exists primarily as ownership in the company. They can't easily spend it.
 
