@@ -155,9 +155,6 @@ Cash is king.
 Cash provides liquidity, convenience, and certainty about its nominal value.
 It's useful for paying expenses and handling emergencies.
 But it generally isn't a great long-term wealth-building instrument because inflation erodes its purchasing power.
-Cash includes physical currency and readily accessible balances held in financial accounts.
-Income is often in cash.
-Expenses are paid with cash.
 
 When discussing personal finances, we often use the term cash to describe money that is readily available for spending. This includes physical currency as well as electronic balances in financial accounts.
 
@@ -168,7 +165,7 @@ It's a financial product that holds your money and provides convenient access to
 Because those funds are readily available, these accounts are often treated as cash equivalents.
 
 In the United States, the [Federal Deposit Insurance Corporation](https://www.fdic.gov/resources/deposit-insurance) (FDIC) insures eligible deposits at insured banks up to $250,000 per depositor, per insured bank, per ownership category.
-There are additional rules and restrictions, but the basic coverage is sufficient for most depositors.
+There are additional rules and restrictions, but the coverage depends on the depositor's account ownership and the amount deposited.
 This insurance protects most deposits should an insured bank fail.
 
 Checking accounts, savings accounts, money market deposit accounts, and eligible CDs at FDIC-insured banks generally qualify for coverage, subject to the applicable limits.
@@ -201,7 +198,7 @@ These accounts are often offered by online banks, which may have lower operating
 Like traditional savings accounts, eligible deposits at FDIC-insured banks are protected by FDIC insurance, subject to applicable limits.
 
 #### Money Market Account
-A banking money market account is like a savings/checking account on steroids.
+A money market deposit account is like a savings/checking account on steroids.
 Money market accounts combine some of the features of checking and savings accounts.
 They are often used to hold larger balances and often pay more interest than traditional savings accounts.
 They may also impose restrictions on withdrawals, transfers, or minimum balances.
