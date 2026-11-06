@@ -223,7 +223,7 @@ None of these are set in stone:
 * [Software Engineering Education Resources](https://jhumelsine.github.io/2026/05/22/continued-learning.html)
 * [The End of Coding as Toil](https://jhumelsine.github.io/2026/05/29/code-and-toil.html)
 * [Losing Your Job Stinks](https://jhumelsine.github.io/2024/08/11/jobsearch.html)
-* Retirement (TBD)
+* [Retirement Introduction](https://jhumelsine.github.io/2026/11/06/retirement-introduction.html)
 * Personal Finance (TBD)
 * Financial Retirement Planning - Mostly for the USA (TBD)
 
