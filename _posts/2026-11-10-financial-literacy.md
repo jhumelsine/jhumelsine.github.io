@@ -461,31 +461,11 @@ These plans provide tax advantages to encourage people to save and invest for re
 
 I'll acknowledge these plans here without going into greater detail. They are specific to the United States and will be addressed in a subsequent blog entry (TBD).
 
-#### Other Assets
-There are many other assets that people may use to generate or preserve wealth, including real estate, annuities, precious metals, and privately owned businesses.
-
-I'm acknowledging them here, but I don't plan to investigate them further.
-
-# Summary
-TBD
-
 # References
 TBD
 
 +++++++++++++++++++++++++++++++++++
 
-
-## Asset Management
-TBD
-
-### Asset Classes
-TBD
-
-### Asset Allocation
-TBD
-
-### Asset Diversification
-TBD
 
 # Summary
 This blog introduced retirement as something one works toward along with a brief review of financial literacy organized as your financial toolkit.
@@ -496,16 +476,7 @@ The next blog entry will present retirement planning using the tools in your fin
 
 ### Financial Management
 
-### Asset Classes
-There is no such thing as a perfect investment.
-I listed several set of asset classes above, such as [Cash](#cash), [Bonds](#bonds) and [Stock](#stock).
-Each asset class has its own profile with advantages and disadvantages.
 
-Cash, and cash equivalents, are very safe, but since they don't grow over time, their purchasing power erodes with inflation.
-
-Bonds tend to be relatively safe as well. They generate stable interest and dividends and tend to keep up with inflation, but there's not much growth.
-
-Stocks tend to have the greatest risks and reward along with volatility. They produce your greatest gains and losses, and fortunes can swing between the two quickly.
 
 ### Asset Allocation
 Asset classes should be aligned to the goals they are funding.
