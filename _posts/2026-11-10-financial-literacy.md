@@ -1,11 +1,11 @@
 ---
 title: WORK IN PROGRESS – Financial Literacy
-description: TBD
+description: An introduction to personal finance, exploring how wealth is generated and the financial instruments used to accumulate, grow, and preserve it
 unlisted: true
 ---
 
 # Introduction
-In the United States, many students graduate from high school without a solid foundation in personal finance.
+Many people enter adulthood without a solid foundation in personal finance.
 Most people learn about personal finance from their own experience, peers, books, financial experts or their parents.
 
 My parents were financially conservative.
@@ -21,19 +21,24 @@ Their financial discipline worked for them, and it left an impression on me.
 This was the only approach to spending and saving that I knew while growing up.
 I was equally conservative as well in my spending and investing for the first few years of my career.
 
-A few years into my career, I partnered with a financial planner, and my financial education began. It built upon the financial discipline I learned from my parents.
+A few years into my career, I partnered with a financial planner, and my financial education began. My financial planner introduced me to a much broader range of financial instruments and investment opportunities than I knew growing up. I learned that there were different ways to approach saving and investing, depending on my circumstances and financial goals.
+
+The financial discipline I learned from my parents provided a solid foundation. Working with my financial planner expanded my understanding of personal finance and the options available to me. Together, these experiences shaped the approach to personal finance that has served me throughout my life.
 
 Over the years, I've learned quite a bit about personal finance. I'd like to share some of what I've learned, beginning with a look at the basic concepts and instruments that make up our financial toolkit.
+
+**DISCLAIMER: I'm not a financial advisor. The information presented here reflects my personal opinions and experiences and is intended for educational purposes only. It should not be considered financial, investment, or tax advice. Readers should conduct their own research and consult qualified professionals before making financial decisions.**
 
 # Financial Toolkit
 Income and wealth are related, but not the same.
 Sometimes we hear stories of high-paid athletes struggling with their personal finances and eventually filing for bankruptcy.
 In contrast, we sometimes hear stories of those who never earned stellar salaries, yet accumulated millions in wealth.
 
+Income and wealth aren't entirely independent. Income is a potential source of wealth, but wealth can also generate income.
 Income is how much you earn.
 Wealth is what you accumulate and retain.
 
-If your only source of income is your labor, you'll always have to work for your money. As you accumulate wealth, your money can increasingly work for you.
+If your only source of income is your labor, you'll always have to work for your money. As you accumulate wealth, you can become less dependent on employment income. Your accumulated assets can generate income, appreciate in value, or both.
 
 Instead of working for every dollar, you have something that produces money for you.
 The more productive assets you accumulate, the more your money can work on your behalf.
@@ -45,10 +50,9 @@ But productive assets can serve a similar purpose.
 
 Think of the financial concepts and instruments you use to generate and manage wealth as your financial toolkit.
 
-Your financial toolkit consists of three basic components:
+Your financial toolkit consists of two basic components:
 * Asset Generation
 * Asset Instruments
-* Asset Management
 
 ## Asset Generation
 Wealth doesn't appear on its own. You need a way to acquire it and make it grow.
@@ -70,10 +74,10 @@ Regardless of parental support, the next two asset generators are available to m
 For most people, income earned over a lifetime is the primary source of wealth generation.
  
 You generate income, but you also need food, shelter, clothing, transportation, insurance, etc.
-ou earn a lot, but you spend a lot, too.
+You earn a lot, but you spend a lot, too.
 You may be a great asset, but you are also a high-maintenance expense.
 
-How much of your income have you invested?
+How much of your income have you put toward building wealth?
 How much of your income have you spent?
 
 To build wealth from your income, your income must exceed your expenses.
@@ -98,7 +102,8 @@ Twins Anna and Billy start their careers when they graduate from college at age 
 
 Anna decides to invest $1,000 annually at the beginning of each year toward retirement in her company’s retirement plan.
 It’s tight at first, but it gets a little easier with several raises.
-Then Anna gets married and starts a family and decides to become a stay-at-home mom at age 28. She stops investing, because she has no more direct income.
+Then Anna gets married and starts a family and decides to become a stay-at-home mom at age 28. 
+Anna does not make additional contributions to her retirement account after she stops working.
 
 Her brother, Billy, takes a different approach. He waits to start investing.
 He has always intended to start saving for retirement, but he never got around to filling out the paperwork with Human Resources.
@@ -107,9 +112,9 @@ He invests $1,000 annually at the beginning of each year also starting at age 29
 
 Both twins earn an average of 10% on their investments annually.
  
-At age 65, Billy has invested a grand total of $37,000; however, his account contains around $363,000. He has almost 10 dollars for every dollar he has invested during his career!
+At age 65, Billy has invested a grand total of $37,000; however, his account contains around $363,000. He has around 10 dollars for every dollar he has invested during his career!
 
-At age 65, Anna has only invested $8,000 during her short career – less than a quarter of what her brother has invested. However, Anna’s account contains $427,800! She has almost 50 dollars for every dollar she has invested.
+At age 65, Anna has only invested $8,000 during her short career – less than a quarter of what her brother has invested. However, Anna’s account contains $427,800! She has over 50 dollars for every dollar she has invested.
 Those eight early years made all the difference, thanks to compound interest.
 
 When Anna stops investing, her eight $1,000 contributions have already grown to almost $12,600 due to compound interest.
@@ -139,6 +144,8 @@ Here is an abbreviated version listing their progress:
 By age 28, Anna's $8,000 in contributions has grown to almost $12,600.
 That balance becomes her virtual legal money-printing machine.
 Even after she stops contributing, her money continues working for her, generating earnings that can produce additional earnings.
+
+The lesson is simple: START EARLY! You don't need to invest large amounts when you're young. Even relatively small contributions can grow substantially when given enough time. Don't wait until you can afford to invest more. Start with what you can.
 
 ## Asset Instruments
 Assets can take several forms.
@@ -461,162 +468,6 @@ These plans provide tax advantages to encourage people to save and invest for re
 
 I'll acknowledge these plans here without going into greater detail. They are specific to the United States and will be addressed in a subsequent blog entry (TBD).
 
-# References
-TBD
-
-+++++++++++++++++++++++++++++++++++
-
-
 # Summary
 This blog introduced retirement as something one works toward along with a brief review of financial literacy organized as your financial toolkit.
 The next blog entry will present retirement planning using the tools in your financial toolkit.
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
-### Financial Management
-
-
-
-### Asset Allocation
-Asset classes should be aligned to the goals they are funding.
-In general, the further away the goal is, the greater the risk/reward it can withstand, since there's time to recover from any downward volatility.
-
-Let's consider a family with 35-year old parents with a ten year old child with the following goals:
-* Car fund to replace one of the current cars in two years. This fund should be in CDs and bonds, since a new car purchase is right around the corner.
-* College fund for their child. This fund should be a mixture of stocks and bonds. The child won't start college for another eight years. The stocks will provide some growth for the interim, and the bonds will provide some stability should the stock market run into a recession.
-* Retirement fund for the parents. This fund should be almost entirely in stocks, since retirement is still 30 years away. However, they will want to consider adding bonds in the next five to ten years.
-
-Asset allocation changes as time advances.
-The 35-year old couple can absorb the volatility of stocks 30 years from retirement, but when they reach retirement at age 65 a portion of their retirement fund should have cash and bonds.
-And it should still retain some stock too.
-The 65-year old couple could easily have a 30-year retirement.
-They would still need some stocks for growth along with their cash and bonds.
-
-Goal targeted funds often contain different asset classes, as described above.
-Different asset classes respond differently to different market conditions.
-Therefore rebalancing between asset classes may be warrented.
-
-For example, let's assume that our 65-year old couple wants their retirement asset allocation to be 50% stocks and 50% bonds.
-One year the stock market does great, but the bond market does not.
-Their allocation changes to 60% stocks and 40% bonds, not because of anything they did, but because of market conditions.
-Therefore, they may rebalance their portfolio once a year by selling some of the stock and purchasing some bonds to bring them back into a 50/50 balance.
-They are literally executing the old strategy of: ***Buy Low. Sell High.***
-
-### Diversification
-In addition to the correct asset allocation, the assets should have some diversity.
-That is, don't put all your eggs in one basket.
-
-While the 30-year old couple's retirement fund should mostly be invested in stocks, it should not be invested in one stock.
-Everyone dreams of buying Amazon, Google, Nvidia or Apple before they became big.
-But for every company that would have made you a fortune, there was an equally compelling company that would have lost you a fortune, such as [Enron](https://en.wikipedia.org/wiki/Enron).
-
-One of the best ways to get diversification is through [Mutual Funds](#mutual-funds) and [ETFs](#exchange-traded-funds-or-etfs) mentioned above.
-Diversification is built into their very nature.
-
-Some financial companies offer targeted based mutual funds.
-They are mutual funds with a specific goal target date in mind.
-Targeted based mutual funds will readjust and rebalance among its asset classes automatically.
-That is, as the target date approaches, the mutual fund will reallocate asset class ratios adjusting for volatility over the years as well as rebalancing to ensure that the ratios are maintained.
-
-Targeted funds can be good for retirement or a child's college fund.
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-# Finances
-_The best time to plant a tree was twenty years ago. The second best time is now._ — Chinese Proverb
-
-**DISCLAIMER: I'm not a financial advisor. The information here reflects my personal opinions and experiences and is intended for educational purposes only.
-Do your own research and consult a qualified professional before making financial decisions.**
-
-Retirement is supported by several pillars, often called the [_Retirement Stool_](https://www.investopedia.com/ask/answers/09/three-legged-stool-retirement.asp) consistenting of:
-* Employer Pension
-* Government Pension
-* Personal Savings
-
-The Retirement Stool is an antiquated model that doesn't apply to most current workers.
-Employer Pensions are mostly a thing of the past, except for certain sectors, such as public service jobs.
-Government Pensions are at risk of insolvency.
-
-I think there's a fourth leg to the stool that's rarely mentioned: Windfalls.
-
-Windfalls come in several forms:
-* Lottery - Yes, there are big winners, but they are few and far between. Please don't play the lottery regularly. I favor [Fran Lebowitz](https://www.goodreads.com/quotes/85215-i-figure-you-have-the-same-chance-of-winning-the) philosophy with respect to the lottery: _I figure you have the same chance of winning the lottery whether you play or not._ If you want to buy a ticket when the jackpot grows to incredible levels, then have a little fun, but treat it only as entertainment while dreaming about the possibilities for a few hours, because that's all you'll receive.
-* Gambling - I lump several categories into this: Online Gambling, Prediction Markets, Day Trading, Futures/Options, Cryptocurrencies, etc. There may be some upside for these, but I suspect that most participants lose money. Much like the lottery, if it's too alluring to ignore, treat it as entertainment, set aside a fixed budget of money to play with and have fun. Good luck to you.
-* Stock Options - Yes, there are big winners here too, but don't count on it. I joined a pre-IPO start up in 2000. My options, when vested, had a conservative value of $8M-US when compared with our public competition. Then the dot-com bubble burst. Our post-IPO start up imploded a few years later. My vested options netted a total profit of about $21.22-US. I tried not to blow it all on a yacht.
-* Inheritance - Yes, there are those who inherit substantial sums of money. Trillions of US dollars will be transferred from the older generations to younger generations through the [Great Wealth Transfer](https://en.wikipedia.org/wiki/Great_Wealth_Transfer) in the next two decades. However, inheritance is not equally distributed nor can you determine when you receive it. Your best bet for a significant inheritance is to choose your parents wisely.
-
-The only pillar in control of most is Personal Savings.
-This will be the only aspect of retirement finance preparation that I'll address here.
-
-# Tale as Old as Time
-Though financial vehicles have emerged and created new investment options, the foundations of personal and household finance go back for millennia.
-
-[_The Richest Man in Babylon_](https://en.wikipedia.org/wiki/The_Richest_Man_in_Babylon), first published in 1926, describes the path to wealth as revealed in a set of four thousand year old proverbs from the fictional character, Arkad, an ancient scribe, who became the richest man in Babylon.
-
-It includes sage advice such as:
-* _For every ten coins thou placest within thy purse take out for use but nine. Thy purse will start to fatten at once and its increasing weight will feel good in thy hand and bring satisfaction to thy soul._
-* _The earnings it will make shall build your fortunes ... Learn to make your treasure work for you. Make it your slave. Make its children and its children's children work for you._
-
-This advice was author [George Samuel Clason's](https://en.wikipedia.org/wiki/George_Samuel_Clason) stylized version of [Live Beneath Your Means](#you) and the [Power of Compound Interest](#time).
-
-Clason imagined wealth management in the ancient world, but we don't need to.
-Many [religious texts](https://www.google.com/search?q=List+the+personal+and+household+financial+advice+contained+with+the+religious+texts+of+the+world) contain passages relating to personal and household financial management.
-
-Most modern financial principles can trace their origins back to these texts.
-
-Continued from previous blog ...
-
-Disclaimer from previous blog.
-
-Greed and Fear. 2008 and 2025 Tariff dips.
-
-### Goals
-Retirement is the primary financial goal of this blog, but it's not the only one for most households.
-
-Other financial goals include:
-* Home Purchase
-* College fund for children
-* Paying off current student loans
-* The next car
-* Vacations
-* Etc.
-
-Goals are not an either/or situation.
-A household can work toward multiple goals simultaneously.
-Some may have higher priority than others.
-There may be times, such as during a period of unemployment, when funding lower priority goals needs to be suspended temporarily.
-
-## Financial Planner
-
-## Plan
-
-# Ikigai
-
-# Summary
-TBD
-
-# References
-TBD
-
-# Notes
-Describe the financial services commercial with the foreign car garage and chasing the dream.
-
-https://en.wikipedia.org/wiki/Ikigai from https://www.pushkin.fm/podcasts/whats-your-problem/how-ai-could-actually-make-the-world-better
-
-Have a plan
-
-Do what you want to do, not what you have to do.
-
-Get a part-time job, but consider the consequences. You won’t have as much freedom.
-
-Volunteer. You have much more freedom. You don’t have to show up. What are they going to do? Fire you!?
-
-https://finance.yahoo.com/personal-finance/banking/article/how-many-millionaires-in-america-205846046.html
-
-Walking into the corn field https://www.youtube.com/watch?v=TRvJiVVVpuk
-
-Goals
-
-Medical
-Reference my church finance stuff, but don't link to it. There's good structure there.
