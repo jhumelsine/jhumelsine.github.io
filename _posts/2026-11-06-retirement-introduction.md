@@ -1,7 +1,6 @@
 ---
-title: DRAFT OPEN FOR REVIEW AND COMMENTS – Retirement Introduction
+title: Retirement Introduction
 description: Retirement may feel like a lifetime away, but it arrives quicker than you think
-unlisted: true
 ---
 
 # Introduction
@@ -9,7 +8,7 @@ This blog entry continues my [Career](https://jhumelsine.github.io/table-of-cont
 The continuing series explores the next stage of life: retirement, a stage that looks different for everyone.
 
 This retirement series will consist of (URL links TBD):
-* Retirement Introduction - Introducing retirement and the importance of preparing for it
+* [Retirement Introduction](#introduction) - Introducing retirement and the importance of preparing for it
 * Financial Literacy - Defining the personal and household financial concepts that form the foundation for retirement planning
 * Retirement Financial Planning - Planning for retirement alongside personal and household financial goals
 * Retirement Activities - Exploring how to use the time retirement provides to pursue personal interests
