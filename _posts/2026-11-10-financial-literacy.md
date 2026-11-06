@@ -18,7 +18,7 @@ They didn't make major purchases until they had the money to pay for them.
 
 Their financial discipline worked for them, and it left an impression on me.
 This was the only approach to spending and saving that I knew while growing up.
-I was equally conservative in my spending and investing for the first few years of my career.
+I was equally conservative in my spending and investing when I first entered the workforce.
 
 A few years into my career, I partnered with a financial planner, and my financial education began. My financial planner introduced me to a much broader range of financial instruments and investment opportunities than I knew growing up. I learned that there were different ways to approach saving and investing, depending on my circumstances and financial goals.
 
@@ -50,8 +50,8 @@ But productive assets can serve a similar purpose.
 Think of the financial concepts and instruments you use to generate and manage wealth as your financial toolkit.
 
 Your financial toolkit consists of two basic components:
-* Asset Generation
-* Asset Instruments
+* [Asset Generation](#asset-generation)
+* [Asset Instruments](#asset-instruments)
 
 ## Asset Generation
 Wealth doesn't appear on its own. You need a way to acquire it and make it grow.
@@ -114,14 +114,14 @@ Both twins earn an average of 10% on their investments annually.
  
 At age 65, Billy has invested a grand total of $37,000; however, his account contains around $363,000. He has around 10 dollars for every dollar he has invested during his career!
 
-At age 65, Anna has only invested $8,000 during her short career – less than a quarter of what her brother has invested. However, Anna’s account contains $427,800! She has over 50 dollars for every dollar she has invested.
+At age 65, Anna has only invested $8,000 during her short career, which is less than a quarter of what her brother has invested. However, Anna’s account contains $427,800! She has over 50 dollars for every dollar she has invested.
 Those eight early years made all the difference, thanks to compound interest.
 
 When Anna stops investing, her eight $1,000 contributions have already grown to almost $12,600 due to compound interest.
 Billy must supply $1,000 of new money from his income.
-Anna's growth continues from her head start.
+Anna's growth continues from her head start investment.
 Her retirement fund continues to grow, even as Billy contributes another $1,000 each year.
-Eventually, the earnings on Anna's larger balance exceed Billy's annual contribution.
+The earnings on Anna's larger balance exceed Billy's annual contribution.
 The gap between their balances will widen.
 Anna's early start gives her an advantage that Billy can overcome only by dedicating more of his income toward retirement.
 
@@ -145,7 +145,7 @@ By age 28, Anna's $8,000 in contributions has grown to almost $12,600.
 That balance becomes her wealth building machine.
 Even after she stops contributing, her money continues working for her, generating earnings that can produce additional earnings.
 
-The lesson is simple: START EARLY! You don't need to invest large amounts when you're young. Even relatively small contributions can grow substantially when given enough time. Don't wait until you can afford to invest more. Start with what you can.
+The lesson is simple: **START EARLY!** You don't need to invest large amounts when you're young. Even relatively small contributions can grow substantially when given enough time. Don't wait until you can afford to invest more. Start with what you can.
 
 ## Asset Instruments
 Assets can take several forms.
@@ -277,17 +277,19 @@ Those things may appreciate over time, generate income, or both. You can own an 
 #### Stock
 [Stock](https://en.wikipedia.org/wiki/Stock) is ownership. When you buy a stock, you own a piece of that company.
 
-While issuing bonds is a way for an institution to borrow money, issuing stock is a way to raise money by selling equity. Nascent companies often obtain initial funding from founders and early investors. This seed money helps cover early operations—hiring employees, renting space, and building products.
+While issuing bonds is a way for an institution to borrow money, issuing stock is a way to raise money by selling equity. Nascent companies often obtain initial funding from founders and early investors. This seed money helps cover early operations, such as hiring employees, renting space, and building products.
 
 As a company matures, it aims to become profitable by generating more revenue than it spends. Early investors accumulate wealth as the company’s value grows, but that wealth remains tied up in private ownership. To unlock liquidity, raise capital for expansion, or allow early owners to sell shares, a company may go public through an [Initial Public Offering](https://en.wikipedia.org/wiki/Initial_public_offering) (IPO), listing its shares on a public stock exchange. Becoming public isn't mandatory; many successful businesses remain private to keep their financial disclosures confidential.
 
 When a company is profitable, its board of directors has choices on how to deploy those profits. For example, if a company sells a [widget](https://en.wikipedia.org/wiki/Widget_(economics)) for $15 and incurs $10 in total costs, it nets $5 in profit before taxes. It can reinvest those earnings into research and development, buy back shares on the open market, or distribute a portion directly to shareholders as dividends. Unlike interest on a bond—which is a strict contractual obligation—dividends are discretionary distributions authorized by the board.
 
 Investors evaluate stocks across several dimensions:
-* Growth vs. Value: Growth stocks belong to companies expected to expand revenues quickly, while value stocks appear bargain-priced relative to current fundamentals and often pay steady dividends. (These are investment styles rather than strict categories; companies can exhibit traits of both.)
-* Market Capitalization: Stocks are categorized by total market value (share price multiplied by total outstanding shares) into small-cap, mid-cap, and large-cap, across domestic and international markets.
+* **Growth vs. Value:** Growth stocks belong to companies expected to expand revenues quickly, while value stocks appear bargain-priced relative to current fundamentals and often pay steady dividends. (These are investment styles rather than strict categories; companies can exhibit traits of both.)
+* **Market Capitalization:** Stocks are categorized by total market value (share price multiplied by total outstanding shares) into small-cap, mid-cap, and large-cap, across domestic and international markets.
 
-Owning common stock often grants voting rights, typically one vote per share, for electing the [board of directors](https://en.wikipedia.org/wiki/Board_of_directors) or voting on major corporate decisions. Shareholders can also attend annual meetings. Many years ago at an AT&T shareholder meeting, a retired investor addressed [CEO](https://en.wikipedia.org/wiki/Chief_executive_officer) [Bob Allan](https://en.wikipedia.org/wiki/Robert_E._Allen_(telecommunications_executive)): "I'm a millionaire due to your leadership." Allen smiled, until the gentleman added, "I used to be a multi-millionaire."
+Owning common stock often grants voting rights, typically one vote per share, for electing the [board of directors](https://en.wikipedia.org/wiki/Board_of_directors) or voting on major corporate decisions. Shareholders can also attend annual meetings.
+
+Many years ago at an AT&T shareholder meeting, a retired investor addressed [CEO](https://en.wikipedia.org/wiki/Chief_executive_officer) [Bob Allan](https://en.wikipedia.org/wiki/Robert_E._Allen_(telecommunications_executive)): "I'm a millionaire due to your leadership." Allen smiled, until the gentleman added, "I used to be a multi-millionaire."
 
 Stock ownership offers two avenues for returns: capital appreciation and dividends. However, neither is guaranteed, and individual stock prices can fluctuate significantly based on company performance and market conditions.
 
@@ -312,7 +314,7 @@ Funds generate returns through price appreciation and distributions (dividends, 
 ##### Management Styles and Fees
 Offered by financial firms like [Vanguard](https://investor.vanguard.com/) and [Fidelity](https://www.fidelity.com/), mutual funds generally fall into two management styles:
 * **Actively Managed Funds:** Portfolio managers select specific assets in an attempt to beat market benchmarks. Because they require research teams and active trading, they charge higher operational costs, known as an expense ratio. Some funds also charge sales commissions, or loads.
-* **Passively Managed Index Funds:** These funds simply replicate published benchmarks like the S&P 500 or Dow Jones Industrial Average. While index funds may seem dull, their significantly lower expense ratios and broad exposure allow them to outperform most actively managed funds over the long term.
+* **Passively Managed Index Funds:** These funds simply replicate published benchmarks like the [S&P 500](https://en.wikipedia.org/wiki/S%26P_500) or [Dow Jones Industrial Average](https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average). While index funds may seem dull, their significantly lower expense ratios and broad exposure allow them to outperform most actively managed funds over the long term.
 
 Funds tailor their strategies to specific investment objectives—focusing on growth stocks, value stocks, specific industry sectors, or bond markets. Some focus on _socially responsible_ or _ESG_ (_environmental, social, and governance_) criteria, selecting assets based on sustainability, labor standards, or corporate ethics while avoiding industries like defense or tobacco.
 
@@ -370,11 +372,11 @@ Despite these costs, homeownership can be an effective vehicle for wealth accumu
 #### Retirement Plans
 In the United States, specialized tax-advantaged accounts, such as [401(k)](https://en.wikipedia.org/wiki/401(k)) plans and [Individual Retirement Accounts](https://en.wikipedia.org/wiki/Individual_retirement_account) (IRAs), are designed to encourage long-term saving.
 
-It's helpful to think of these plans not as investments themselves, but as tax-sheltered "wrappers" or containers that hold investments like stocks, bonds, mutual funds, and ETFs.
+It's helpful to think of these plans not as investments themselves, but as tax-sheltered _wrappers_ or containers that hold investments like stocks, bonds, mutual funds, and ETFs.
 
 Because these account rules and tax incentives are specific to the United States, they deserve dedicated attention and will be the primary focus in a subsequent entry (TBD) in this series.
 
 # Summary
 Building long-term financial security begins with mastering the fundamentals: understanding how wealth is generated, appreciating the power of compounding time, and selecting the right instruments from your financial toolkit.
 
-With these foundational tools in place, the next blog entry will put them to work—exploring how to design a concrete **Retirement Plan** using the assets, tactics, and strategies, in your financial toolkit.
+With these foundational tools in place, the next blog entry will put them to work by exploring how to design a concrete **Retirement Plan** using the assets, tactics, and strategies, in your financial toolkit.
