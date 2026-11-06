@@ -25,7 +25,7 @@ A few years into my career, I partnered with a financial planner, and my financi
 
 The financial discipline I learned from my parents provided a solid foundation. Working with my financial planner expanded my understanding of personal finance and the options available to me. Together, these experiences shaped the approach to personal finance that has served me throughout my life.
 
-Over the years, I've learned quite a bit about personal finance. I'd like to share some of what I've learned, beginning with a look at the basic concepts and instruments that make up our financial toolkit.
+Over the years, I've learned quite a bit about personal finance. I'd like to share some of what I've learned, beginning with a look at the basic concepts and instruments that make up a financial toolkit.
 
 **DISCLAIMER: I'm not a financial advisor. The information presented here reflects my personal opinions and experiences and is intended for educational purposes only. It should not be considered financial, investment, or tax advice. Readers should conduct their own research and consult qualified professionals before making financial decisions.**
 
