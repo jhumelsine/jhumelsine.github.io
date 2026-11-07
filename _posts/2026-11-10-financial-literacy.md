@@ -312,9 +312,10 @@ A mutual fund's per-share value is called its [Net Asset Value](https://en.wikip
 Funds generate returns through price appreciation and distributions (dividends, interest, and realized capital gains). Distributions can be taken as cash or automatically reinvested into additional shares. Importantly, reinvested distributions may still trigger tax obligations in taxable accounts.
 
 ##### Management Styles and Fees
-Offered by financial firms like [Vanguard](https://investor.vanguard.com/) and [Fidelity](https://www.fidelity.com/), mutual funds generally fall into two management styles:
+Offered by financial firms like [Vanguard](https://investor.vanguard.com/) and [Fidelity](https://www.fidelity.com/), mutual funds generally fall into several management styles:
 * **Actively Managed Funds:** Portfolio managers select specific assets in an attempt to beat market benchmarks. Because they require research teams and active trading, they charge higher operational costs, known as an expense ratio. Some funds also charge sales commissions, or loads.
 * **Passively Managed Index Funds:** These funds simply replicate published benchmarks like the [S&P 500](https://en.wikipedia.org/wiki/S%26P_500) or [Dow Jones Industrial Average](https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average). While index funds may seem dull, their significantly lower expense ratios and broad exposure allow them to outperform most actively managed funds over the long term.
+* **Target Retirement Funds:** These are retirement funds targeted to a specific retirement date. For example, someone born in 2000 might invest in a 2060 or 2065 target retirement fund designed for retirement when the investor is 60 or 65 in each of those years respectively. I'll provide more details in the next blog (TBD).
 
 Funds tailor their strategies to specific investment objectives—focusing on growth stocks, value stocks, specific industry sectors, or bond markets. Some focus on _socially responsible_ or _ESG_ (_environmental, social, and governance_) criteria, selecting assets based on sustainability, labor standards, or corporate ethics while avoiding industries like defense or tobacco.
 
