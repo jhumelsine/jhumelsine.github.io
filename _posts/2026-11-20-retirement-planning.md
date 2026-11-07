@@ -5,26 +5,17 @@ unlisted: true
 ---
 
 # Introduction
+My previous blog (TBD) introduced elements of a Financial Toolbox that help you fund a retirement.
+But I didn't describe how to use the elements of that toolbox.
+
+This blog entry lays out a personal and household financial plan with retirement as one of the goals.
+
+**DISCLAIMER: I'm not a financial advisor. The information presented here reflects my personal opinions and experiences and is intended for educational purposes only. It should not be considered financial, investment, or tax advice. Readers should conduct their own research and consult qualified professionals before making financial decisions.**
+
+# Asset Management
 TBD
 
-# Summary
-TBD
-
-# References
-TBD
-
-# Complete Demo Code
-Here’s the entire implementation up to this point as one file. Copy and paste it into a Java environment and execute it. If you don’t have Java, try this [Online Java Environment](https://www.programiz.com/java-programming/online-compiler/). Play with the implementation. Copy and paste the code into Generative AI for analysis and comments.
-
-#### Other Assets
-There are many other assets that people may use to generate or preserve wealth, including real estate, annuities, precious metals, and privately owned businesses.
-
-I'm acknowledging them here, but I don't plan to investigate them further.
-
-## Asset Management
-TBD
-
-### Asset Classes
+## Asset Classes
 There is no perfect asset.
 Ideally, an asset would:
 * Never lose value
@@ -34,7 +25,7 @@ Ideally, an asset would:
 
 It does not exist.
 
-I listed several set of asset above, including: [Cash and Cash Equivalents](#cash-and-cash-equivalents), [Bonds](#loans) and [Stocks](#stock), [ETFs](#etfs) and [Mutual Funds](#mutual-unds).
+I listed several set of asset above, including: [Cash and Cash Equivalents](#cash-and-cash-equivalents), [Bonds](#loans) and [Stocks](#stock), [ETFs](#etfs) and [Mutual Funds](#mutual-unds). **FIX THE URLS**
 I'm going to refer to these as _asset classes_.
 That is, it's a group of different specific assets that have shared traits.
 For example, while stocks have similar traits, there are thousands of companies that issue stock.
@@ -52,35 +43,28 @@ Bonds tend to be relatively safe as well. They generate stable interest and divi
 
 Stocks tend to have the greatest risks and reward along with volatility. They produce your greatest gains and losses, and fortunes can swing between the two quickly.
 
-### Asset Allocation
-TBD
+## Asset Allocation
+A well funded retirement is a financial goal.
+While this blog series has focused upon retirement, retirement is generally not the only financial goal for a person or household.
+Other common financial goals include:
+* Purchase of a car
+* Down payment for a house
+* College fund for children
+* Paying off student loans
 
-### Asset Diversification
-TBD
+Different financial goals have different amounts required and different time horizons.
+Some goals are near term, such as a car purchase and paying off student loans.
+Some goals are further away, such as a college fund for a child or retirement, but even far away goals creep up upon us.
 
-# Summary
-TBD
+Contributing toward all goals at the same time may not be an option either.
+A household with a $1,000 per month financial margin has a better chance of funding its goals than a household with a $100 per month financial margin.
+Goal funding and/or financial margins may require adjustment.
 
-# References
-TBD
-
-+++++++++++++++++++++++++++++++++++
-
-
-# Summary
-This blog introduced retirement as something one works toward along with a brief review of financial literacy organized as your financial toolkit.
-The next blog entry will present retirement planning using the tools in your financial toolkit.
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
-### Financial Management
-
-
-
-### Asset Allocation
-Asset classes should be aligned to the goals they are funding.
+Different goals have different risk/reward sensitivity based upon their time horizon.
+Asset class risk/reward should be aligned to the risk/reward sensitivity of the goals goals they are funding.
 In general, the further away the goal is, the greater the risk/reward it can withstand, since there's time to recover from any downward volatility.
+
+Determining which assets classes based upon their risk/reward profile are best aligned with financial goals especially based upon risk/reward sensitivity of their timeline is referred to as _Asset Allocation_.
 
 Let's consider a family with 35-year old parents with a ten year old child with the following goals:
 * Car fund to replace one of the current cars in two years. This fund should be in CDs and bonds, since a new car purchase is right around the corner.
@@ -93,41 +77,62 @@ And it should still retain some stock too.
 The 65-year old couple could easily have a 30-year retirement.
 They would still need some stocks for growth along with their cash and bonds.
 
-Goal targeted funds often contain different asset classes, as described above.
+Goal targeted funds often contain different asset classes, as described in the previous blog (TBD)
 Different asset classes respond differently to different market conditions.
 Therefore rebalancing between asset classes may be warrented.
 
 For example, let's assume that our 65-year old couple wants their retirement asset allocation to be 50% stocks and 50% bonds.
 One year the stock market does great, but the bond market does not.
 Their allocation changes to 60% stocks and 40% bonds, not because of anything they did, but because of market conditions.
-Therefore, they may rebalance their portfolio once a year by selling some of the stock and purchasing some bonds to bring them back into a 50/50 balance.
-They are literally executing the old strategy of: ***Buy Low. Sell High.***
+Therefore, they may rebalance their portfolio by purchasing more bonds with future contributions rather than stock to bring their asset allocation closer a 50/50 balance.
+They may even sell some stock and purchase bonds to bring the ratio closer to 50/50.
 
-### Diversification
+### Asset Diversification
 In addition to the correct asset allocation, the assets should have some diversity.
 That is, don't put all your eggs in one basket.
 
 While the 30-year old couple's retirement fund should mostly be invested in stocks, it should not be invested in one stock.
 Everyone dreams of buying Amazon, Google, Nvidia or Apple before they became big.
-But for every company that would have made you a fortune, there was an equally compelling company that would have lost you a fortune, such as [Enron](https://en.wikipedia.org/wiki/Enron).
+But for every company that would have made you a fortune, there was an equally compelling company that would have cost you a fortune, such as [Enron](https://en.wikipedia.org/wiki/Enron).
 
-One of the best ways to get diversification is through [Mutual Funds](#mutual-funds) and [ETFs](#exchange-traded-funds-or-etfs) mentioned above.
+One of the best ways to get diversification is through [Mutual Funds](#mutual-funds) and [ETFs](#exchange-traded-funds-or-etfs). **FIX LINKS**
 Diversification is built into their very nature.
 
-Some financial companies offer targeted based mutual funds.
-They are mutual funds with a specific goal target date in mind.
-Targeted based mutual funds will readjust and rebalance among its asset classes automatically.
-That is, as the target date approaches, the mutual fund will reallocate asset class ratios adjusting for volatility over the years as well as rebalancing to ensure that the ratios are maintained.
+Some financial companies offer target retirement based mutual funds as mentioned in the previous blog.
+They are mutual funds with a specific target date in mind.
+Targeted based mutual funds will readjust and rebalance the asset allocation among its asset classes automatically.
+As the target date approaches, the mutual fund will reallocate asset class ratios adjusting for volatility over the years as well as rebalancing to ensure that the ratios are maintained.
 
 Targeted funds can be good for retirement or a child's college fund.
+These goals have a time horizon that's often decades long when first opened.
+Their asset allocation profile will change as time advances to the start date.
+Rebalancing and reallocation happens automatically for the investor through the years.
+
+# Summary
+TBD
+
+# References
+TBD
+
+### Asset Allocation
+TBD
+
+### Asset Diversification
+TBD
+
+# Summary
+TBD
+
+# References
+TBD
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # Finances
 _The best time to plant a tree was twenty years ago. The second best time is now._ — Chinese Proverb
-
-**DISCLAIMER: I'm not a financial advisor. The information here reflects my personal opinions and experiences and is intended for educational purposes only.
-Do your own research and consult a qualified professional before making financial decisions.**
 
 Retirement is supported by several pillars, often called the [_Retirement Stool_](https://www.investopedia.com/ask/answers/09/three-legged-stool-retirement.asp) consistenting of:
 * Employer Pension
@@ -209,6 +214,13 @@ Have a plan
 Fear vs Greed. Saving/Investing for fear. Giving for greed.
 
 Consider life and disability insurance. You are money making machine.
+
+Paying off house example. It depends upon your mortgage rate and the economy as a whole.
+Use extremes of 0% and 100%.
+The loan could be cheap money.
+The payment will represent less purchasing power in the future.
+I never met anyone who regretted paying off a mortgage early even if it wasn't the best financial move.
+Being debt free is glorious.
 
 Do what you want to do, not what you have to do.
 
