@@ -206,6 +206,10 @@ https://en.wikipedia.org/wiki/Ikigai from https://www.pushkin.fm/podcasts/whats-
 
 Have a plan
 
+Fear vs Greed. Saving/Investing for fear. Giving for greed.
+
+Consider life and disability insurance. You are money making machine.
+
 Do what you want to do, not what you have to do.
 
 Get a part-time job, but consider the consequences. You won’t have as much freedom.
