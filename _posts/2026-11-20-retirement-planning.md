@@ -10,7 +10,20 @@ But I didn't describe how to use the elements of that toolbox.
 
 This blog entry lays out a personal and household financial plan with retirement as one of the goals.
 
-**DISCLAIMER: I'm not a financial advisor. The information presented here reflects my personal opinions and experiences and is intended for educational purposes only. It should not be considered financial, investment, or tax advice. Readers should conduct their own research and consult qualified professionals before making financial decisions.**
+The previous blog was more cut and dry than this blog.
+The previous blog introduced financial instruments that for the most part aren't controversial and most agree upon their definitions.
+
+This blog will be more nuanced.
+This blog will almost be philosophical.
+This blog will require some self-examination and introspection.
+This blog may require you to make some tough choices.
+
+But I don't want to scare any reader away.
+Hang in there until the end.
+
+**Disclaimer 1: Though I'm writing with a global audience in mind, my perspective is shaped by my experience with retirement in the United States. Even here, my experience won't be the same as everyone else's.**
+
+**DISCLAIMER 2: I'm not a financial advisor. The information presented here reflects my personal opinions and experiences and is intended for educational purposes only. It should not be considered financial, investment, or tax advice. Readers should conduct their own research and consult qualified professionals before making financial decisions.**
 
 # Asset Management
 TBD
@@ -108,54 +121,22 @@ These goals have a time horizon that's often decades long when first opened.
 Their asset allocation profile will change as time advances to the start date.
 Rebalancing and reallocation happens automatically for the investor through the years.
 
-# Summary
-TBD
-
-# References
-TBD
-
-### Asset Allocation
-TBD
-
-### Asset Diversification
-TBD
-
-# Summary
-TBD
-
-# References
-TBD
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-# Finances
-_The best time to plant a tree was twenty years ago. The second best time is now._ — Chinese Proverb
-
+# Retirement Pillars
 Retirement is supported by several pillars, often called the [_Retirement Stool_](https://www.investopedia.com/ask/answers/09/three-legged-stool-retirement.asp) consistenting of:
 * Employer Pension
 * Government Pension
-* Personal Savings
+* Personal Saving and Investing
 
 The Retirement Stool is an antiquated model that doesn't apply to most current workers.
 Employer Pensions are mostly a thing of the past, except for certain sectors, such as public service jobs.
-Government Pensions are at risk of insolvency.
+Government Pensions, such as [Social Security](https://en.wikipedia.org/wiki/Social_Security_(United_States)) in the United States, are at risk of insolvency due to shifting demographics.
+That is the population is getting older, and we don't have as many younger employers to subsidize pensions for retired seniors.
 
-I think there's a fourth leg to the stool that's rarely mentioned: Windfalls.
-
-Windfalls come in several forms:
-* Lottery - Yes, there are big winners, but they are few and far between. Please don't play the lottery regularly. I favor [Fran Lebowitz](https://www.goodreads.com/quotes/85215-i-figure-you-have-the-same-chance-of-winning-the) philosophy with respect to the lottery: _I figure you have the same chance of winning the lottery whether you play or not._ If you want to buy a ticket when the jackpot grows to incredible levels, then have a little fun, but treat it only as entertainment while dreaming about the possibilities for a few hours, because that's all you'll receive.
-* Gambling - I lump several categories into this: Online Gambling, Prediction Markets, Day Trading, Futures/Options, Cryptocurrencies, etc. There may be some upside for these, but I suspect that most participants lose money. Much like the lottery, if it's too alluring to ignore, treat it as entertainment, set aside a fixed budget of money to play with and have fun. Good luck to you.
-* Stock Options - Yes, there are big winners here too, but don't count on it. I joined a pre-IPO start up in 2000. My options, when vested, had a conservative value of $8M-US when compared with our public competition. Then the dot-com bubble burst. Our post-IPO start up imploded a few years later. My vested options netted a total profit of about $21.22-US. I tried not to blow it all on a yacht.
-* Inheritance - Yes, there are those who inherit substantial sums of money. Trillions of US dollars will be transferred from the older generations to younger generations through the [Great Wealth Transfer](https://en.wikipedia.org/wiki/Great_Wealth_Transfer) in the next two decades. However, inheritance is not equally distributed nor can you determine when you receive it. Your best bet for a significant inheritance is to choose your parents wisely.
-
-The only pillar in control of most is Personal Savings.
-This will be the only aspect of retirement finance preparation that I'll address here.
+The only pillar in control for most people is Personal Saving and Investing.
+This will be the only aspect of retirement plan that I'll focus on in the rest of the blog.
 
 # Tale as Old as Time
-Though financial vehicles have emerged and created new investment options, the foundations of personal and household finance go back for millennia.
+Though financial instruments have emerged and have created new investment options, the foundations of personal and household finance go back for millennia.
 
 [_The Richest Man in Babylon_](https://en.wikipedia.org/wiki/The_Richest_Man_in_Babylon), first published in 1926, describes the path to wealth as revealed in a set of four thousand year old proverbs from the fictional character, Arkad, an ancient scribe, who became the richest man in Babylon.
 
@@ -169,12 +150,47 @@ Clason imagined wealth management in the ancient world, but we don't need to.
 Many [religious texts](https://www.google.com/search?q=List+the+personal+and+household+financial+advice+contained+with+the+religious+texts+of+the+world) contain passages relating to personal and household financial management.
 
 Most modern financial principles can trace their origins back to these texts.
+This summary highlights a few financial principals from those texts:
+* **Debt Avoidance & Fair Lending:** Minimize borrowing to preserve personal freedom, avoid predatory high-interest lending, and prefer risk-sharing partnerships over pure debt.
+* **Ethical Wealth Creation:** Earn a living honestly without exploiting workers, use accurate trade measures, pay laborers immediately, and reject fast, deceptive wealth schemes.
+* **Systematic Income Allocation:** Live below your means and structurally divide income into fixed buckets for daily expenses, business reinvestment, and emergency reserves.
+* **Structured Generosity:** Automate charitable giving using fixed percentages (typically 2.5% to 20%) to support the vulnerable while preserving their dignity.
+* **Stewardship Mindset:** Prioritize contentment over endless accumulation, viewing money as a temporary resource to be managed responsibly for family and social good.
 
-Continued from previous blog ...
+# Fear and Greed
+The two primary emotions with money are **fear** and **greed**.
+They feel different, yet when I try to define them with respect to money, I keep coming back to the same definition for each:
+* **Fear** - _The emotion one has when they don't have enough money._
+* **Greed** - _The emotion one has when they don't have enough money._
 
-Disclaimer from previous blog.
+The distinction is context.
+Those with fear are concerned that they don't have enough for financial survival.
+Those with greed are concerned that they won't have ...
 
 Greed and Fear. 2008 and 2025 Tariff dips.
+Hoarding.
+Giving.
+
+# Summary
+TBD
+
+# References
+TBD
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Finances
+_The best time to plant a tree was twenty years ago. The second best time is now._ — Chinese Proverb
+
+I think there's a fourth leg to the stool that's rarely mentioned: Windfalls.
+
+Windfalls come in several forms:
+* Lottery - Yes, there are big winners, but they are few and far between. Please don't play the lottery regularly. I favor [Fran Lebowitz](https://www.goodreads.com/quotes/85215-i-figure-you-have-the-same-chance-of-winning-the) philosophy with respect to the lottery: _I figure you have the same chance of winning the lottery whether you play or not._ If you want to buy a ticket when the jackpot grows to incredible levels, then have a little fun, but treat it only as entertainment while dreaming about the possibilities for a few hours, because that's all you'll receive.
+* Gambling - I lump several categories into this: Online Gambling, Prediction Markets, Day Trading, Futures/Options, Cryptocurrencies, etc. There may be some upside for these, but I suspect that most participants lose money. Much like the lottery, if it's too alluring to ignore, treat it as entertainment, set aside a fixed budget of money to play with and have fun. Good luck to you.
+* Stock Options - Yes, there are big winners here too, but don't count on it. I joined a pre-IPO start up in 2000. My options, when vested, had a conservative value of $8M-US when compared with our public competition. Then the dot-com bubble burst. Our post-IPO start up imploded a few years later. My vested options netted a total profit of about $21.22-US. I tried not to blow it all on a yacht.
+* Inheritance - Yes, there are those who inherit substantial sums of money. Trillions of US dollars will be transferred from the older generations to younger generations through the [Great Wealth Transfer](https://en.wikipedia.org/wiki/Great_Wealth_Transfer) in the next two decades. However, inheritance is not equally distributed nor can you determine when you receive it. Your best bet for a significant inheritance is to choose your parents wisely.
+
+Continued from previous blog ...
 
 ### Goals
 Retirement is the primary financial goal of this blog, but it's not the only one for most households.
