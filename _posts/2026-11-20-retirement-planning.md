@@ -164,12 +164,83 @@ They feel different, yet when I try to define them with respect to money, I keep
 * **Greed** - _The emotion one has when they don't have enough money._
 
 The distinction is context.
-Those with fear are concerned that they don't have enough for financial survival.
-Those with greed are concerned that they won't have ...
+Those with fear are concerned that they will never have ehough.
+Those with greed are concerned that they won't have be able to keep what they have.
 
-Greed and Fear. 2008 and 2025 Tariff dips.
-Hoarding.
-Giving.
+Fear paralyzes. Greed hoards.
+
+Saving and investing addresses fear.
+Giving and generosity addresses greed.
+
+I'll mostly focus upon saving and investing, but I want to address giving and generosity first.
+Consider giving as part of your financial practice.
+It doesn't matter what you support.
+Be generous to your house of worship, university, medical research, the arts, and so on.
+Any amount will do.
+
+Don't give because of what you will do for the charity.
+Give because of what being altruistic will do for you.
+
+### Goals
+Retirement is the primary financial goal of this blog, but it's not the only one for most households.
+
+Other financial goals include:
+* Home Purchase
+* College fund for children
+* Paying off current student loans
+* The next car
+* Vacations
+* Etc.
+
+Goals are not an either/or situation.
+A household can work toward multiple goals simultaneously.
+Some may have higher priority than others.
+There may be times, such as during a period of unemployment, when funding lower priority goals needs to be suspended temporarily.
+
+# Form a Team
+
+## Family
+If you’re in a committed relationship, you and your partner need to work as a team. This doesn’t mean that each partner is expected to produce 50% of the household income no pay 50% of the household expenses. Your household may live off of one income. One of you may have a head for numbers and the other not quite so.
+ 
+Regardless, you need to be equally yoked in your responsibility toward the management of the money in your household. Don’t pull against each other financially. This isn’t a case of my money or your money. It’s not even our money. It’s our family's money.
+ 
+There are many ways for couples to manage their household finances as a team.
+ 
+Schedule regular “money dates” to discuss household finances and goals. Your goals should be consistent regardless of how each person contributes toward those goals. At the beginning these money dates should be weekly, as the household finances progress, they can be more sporadic.
+ 
+In these meetings, clarify goals and monitor your progress in obtaining them. As goals, or even sub goals are met, celebrate the progress. Go out on a real date. Take a walk on the boardwalk. Just make sure you acknowledge your progress.
+ 
+As for day to day finances, for some families, a common account works. For others separate accounts work. For some there’s a common account for major household purchases and smaller separate accounts for personal purchases.
+ 
+There is no one perfect way to do this. Every family may be different. What’s important is that everyone in the family is sharing the same vision and each agrees with the approach taken.
+
+## Doing your own thing
+Many people really enjoy personal financial planning. It’s a hobby. Go into a bookstore or library and look at the personal finance magazine rack or visit the personal finance book section. There are dozens of magazines and hundreds of books on the subject. There are several cable channels and an uncountable number of podcasts dedicated to personal finance too.
+ 
+Before subscribing to too many magazines or buying too many books, visit your public library. They should have several personal finance publications. Go in the stacks to section 322.024. There should be dozens of personal finance books on the shelves.
+ 
+The internet is filled with financial advice, as can be seen in all of the links provided in this document:
+* [AICPA/CIMA Financial Literacy Resources](https://www.aicpa-cima.com/resources/landing/financial-literacy-resources)
+* [US Government Financial Literacy Resources](https://www.mymoney.gov/) which is provided by the [Financial Literacy and Education Commission](https://www.mymoney.gov/About-Us).
+* [NY Times: Five Basics for Building a Solid Financial Future](https://www.nytimes.com/2008/05/17/business/yourmoney/17money.html) which requires registration. Might be able to access NY Times for free via public library licenses.
+ 
+Don’t be overconfident about going it on your own. Many people aren’t as financially literate as they think they are.
+
+## Seek a Professional
+Michael Jordan was arguably the best basketball player in a generation. Yet even when he was the best there was, he also had coaches and trainers. Why? Because even the best can be made better, through careful management and keeping Michael focused.
+ 
+Investors with financial planners tend to have greater assets than those who don’t. This isn’t so much from better returns, insider deals or fabulous management as it is from more focused investing. People with financial planners tend to invest more, be more focused, and stay with the plan.
+ 
+There is too much detail in the personal financial management world for an amateur to understand it all. One would be wise to seek professional help. A professional will manage most of the paperwork. Additionally, the professional planner understands the math and know how to use [financial calculators](https://www.google.com/search?q=financial+calculators&sec_src=docs) in order to quantify your goals to know how large they need to be (e.g., how big does my nest egg need to be for a comfortable retirement?) and how much needs to be allocated toward a goal on a regular basis to meet that goal on schedule.
+ 
+The two most important characteristics of a financial planner are:
+* You need to trust your planner.
+* Your planner has to share your same core values.
+ 
+Ask friends for references. Interview several planners. Ask for their investment philosophy. Ask how they are paid, which varies depending upon the type of planner. Ask about their training. Ask for references from their clients. Ask how they are compensated.
+ 
+## Somewhere in between
+Many large investment houses, such as Vanguard and Fidelity will offer some degree of advice over the phone. They can’t offer personalized advice, but they can offer specific advice about various investment vehicles. This is like getting therapy by calling “Dr. Phil” rather than seeing a visiting a dedicated therapist.
 
 # Summary
 TBD
@@ -192,22 +263,6 @@ Windfalls come in several forms:
 
 Continued from previous blog ...
 
-### Goals
-Retirement is the primary financial goal of this blog, but it's not the only one for most households.
-
-Other financial goals include:
-* Home Purchase
-* College fund for children
-* Paying off current student loans
-* The next car
-* Vacations
-* Etc.
-
-Goals are not an either/or situation.
-A household can work toward multiple goals simultaneously.
-Some may have higher priority than others.
-There may be times, such as during a period of unemployment, when funding lower priority goals needs to be suspended temporarily.
-
 ## Financial Planner
 
 ## Plan
@@ -227,7 +282,7 @@ https://en.wikipedia.org/wiki/Ikigai from https://www.pushkin.fm/podcasts/whats-
 
 Have a plan
 
-Fear vs Greed. Saving/Investing for fear. Giving for greed.
+Go to Hell Money. ... And the Horse you rode in on money. Golden Handcuffs. Once I know I could leave at anytime the golden handcuffs disappeared. I wasn't forced to work. I chose to work. It make the grind of work more tolerable. Then when I was ready leave, it was easy to pull the trigger.
 
 Consider life and disability insurance. You are money making machine.
 
