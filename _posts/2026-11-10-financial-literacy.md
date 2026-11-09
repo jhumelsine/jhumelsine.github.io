@@ -1,5 +1,5 @@
 ---
-title: WORK IN PROGRESS – Financial Literacy
+title: DRAFT OPEN FOR REVIEW AND COMMENTS – Financial Literacy
 description: The Financial Toolkit to build your Wealth Engine
 unlisted: true
 ---
@@ -108,7 +108,7 @@ Anna does not make additional contributions to her retirement account after she 
 Her brother, Billy, takes a different approach. He waits to start investing.
 He has always intended to start saving for retirement, but he never got around to filling out the paperwork with Human Resources.
 When he sees his sister start a family, he decides to get serious about his future as well, and he visits his Human Resources representative to start.
-He invests $1,000 annually at the beginning of each year also starting at age 29 and continuing until he retires at age 65.
+He invests $1,000 annually at the beginning of each year, also starting at age 29 and continuing until he retires at age 65.
 
 Both twins earn an average of 10% on their investments annually.
  
@@ -179,7 +179,7 @@ Even when it earns interest, inflation can erode its purchasing power over time.
  
 Cash does have its uses.
 It is useful for its liquidity and also for its stability when the stock market takes a downturn.
-For those who have a tendency to slip back into debt, cash may be a primary tool for managing household finances to prevent sinking further into debt.
+For those who tend to slip back into debt, cash may be a primary tool for managing household finances to prevent sinking further into debt.
 
 #### Checking Account
 Checking accounts are used to manage day-to-day financial transactions, such as paying bills and making purchases.
@@ -259,7 +259,7 @@ Loans can be secured or unsecured:
 
 The borrower intends to repay the loan, but there is no guarantee.
 Sometimes borrowers default, meaning they fail to meet their repayment obligations.
-The lender may be able to recover some of the money through collateral or legal proceedings, but could lose some or all of the investment.
+The lender may be able to recover some of the money through collateral or legal proceedings but could lose some or all of the investment.
 
 Not all borrowers are equally creditworthy.
 The interest rate depends partly on how likely the lender thinks the borrower is to repay the loan. 
@@ -281,7 +281,7 @@ While issuing bonds is a way for an institution to borrow money, issuing stock i
 
 As a company matures, it aims to become profitable by generating more revenue than it spends. Early investors accumulate wealth as the company’s value grows, but that wealth remains tied up in private ownership. To unlock liquidity, raise capital for expansion, or allow early owners to sell shares, a company may go public through an [Initial Public Offering](https://en.wikipedia.org/wiki/Initial_public_offering) (IPO), listing its shares on a public stock exchange. Becoming public isn't mandatory; many successful businesses remain private to keep their financial disclosures confidential.
 
-When a company is profitable, its board of directors has choices on how to deploy those profits. For example, if a company sells a [widget](https://en.wikipedia.org/wiki/Widget_(economics)) for $15 and incurs $10 in total costs, it nets $5 in profit before taxes. It can reinvest those earnings into research and development, buy back shares on the open market, or distribute a portion directly to shareholders as dividends. Unlike interest on a bond—which is a strict contractual obligation—dividends are discretionary distributions authorized by the board.
+When a company is profitable, its board of directors has choices on how to deploy those profits. For example, if a company sells a [widget](https://en.wikipedia.org/wiki/Widget_(economics)) for $15 and incurs $10 in total costs, it nets $5 in profit before taxes. It can reinvest those earnings into research and development, buy back shares on the open market, or distribute a portion directly to shareholders as dividends. Unlike interest on a bond, which is a strict contractual obligation, dividends are discretionary distributions authorized by the board.
 
 Investors evaluate stocks across several dimensions:
 * **Growth vs. Value:** Growth stocks belong to companies expected to expand revenues quickly, while value stocks appear bargain-priced relative to current fundamentals and often pay steady dividends. (These are investment styles rather than strict categories; companies can exhibit traits of both.)
@@ -298,9 +298,9 @@ A bond has a maturity date years in the future, and a stock may appreciate signi
 
 Accumulating assets builds your net worth, but a portfolio can easily leave you asset-rich and cash-poor if your wealth is tied up in non-cash holdings. What happens when you need liquidity to make a major purchase?
 
-Fortunately, secondary markets exist so you can sell assets to other willing buyers. Publicly traded stocks can be bought and sold in minutes on exchanges like the [New York Stock Exchange](https://en.wikipedia.org/wiki/New_York_Stock_Exchange) (NYSE) or the [NASDAQ](https://en.wikipedia.org/wiki/Nasdaq). Other assets have their own markets—bonds, commodities, and real estate each operate on different timelines, where liquidating a stock takes minutes, while selling real estate may require weeks or months.
+Fortunately, secondary markets exist so you can sell assets to other willing buyers. Publicly traded stocks can be bought and sold in minutes on exchanges like the [New York Stock Exchange](https://en.wikipedia.org/wiki/New_York_Stock_Exchange) (NYSE) or the [NASDAQ](https://en.wikipedia.org/wiki/Nasdaq). Other assets have their own markets, such as bonds, commodities, and real estate each operate on different timelines, where liquidating a stock takes minutes, while selling real estate may require weeks or months.
 
-You are never locked into holding a stock or a bond indefinitely. You can offload your position before maturity or before a company exits, but the price you receive depends entirely on what a buyer is willing to pay at that moment—which may be higher or lower than your original purchase price.
+You are never locked into holding a stock or a bond indefinitely. You can offload your position before maturity or before a company exits, but the price you receive depends entirely on what a buyer is willing to pay at that moment, which may be higher or lower than your original purchase price.
 
 #### Mutual Funds
 A [mutual fund](https://en.wikipedia.org/wiki/Mutual_fund) is an investment vehicle that pools money from many investors to purchase a collection of assets. Think of a mutual fund as a bucket that holds stocks, bonds, or real estate. Rather than buying a single company's stock or bond, you buy shares of the fund itself, giving you proportional ownership of every asset in the portfolio.
@@ -313,11 +313,11 @@ Funds generate returns through price appreciation and distributions (dividends, 
 
 ##### Management Styles and Fees
 Offered by financial firms like [Vanguard](https://investor.vanguard.com/) and [Fidelity](https://www.fidelity.com/), mutual funds generally fall into several management styles:
-* **Actively Managed Funds:** Portfolio managers select specific assets in an attempt to beat market benchmarks. Because they require research teams and active trading, they charge higher operational costs, known as an expense ratio. Some funds also charge sales commissions, or loads.
+* **Actively Managed Funds:** Portfolio managers select specific assets attempting to beat market benchmarks. Because they require research teams and active trading, they charge higher operational costs, known as an expense ratio. Some funds also charge sales commissions, or loads.
 * **Passively Managed Index Funds:** These funds simply replicate published benchmarks like the [S&P 500](https://en.wikipedia.org/wiki/S%26P_500) or [Dow Jones Industrial Average](https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average). While index funds may seem dull, their significantly lower expense ratios and broad exposure allow them to outperform most actively managed funds over the long term.
 * **Target Retirement Funds:** These are retirement funds targeted to a specific retirement date. For example, someone born in 2000 might invest in a 2060 or 2065 target retirement fund designed for retirement when the investor is 60 or 65 in each of those years respectively. I'll provide more details in the next blog (TBD).
 
-Funds tailor their strategies to specific investment objectives—focusing on growth stocks, value stocks, specific industry sectors, or bond markets. Some focus on _socially responsible_ or _ESG_ (_environmental, social, and governance_) criteria, selecting assets based on sustainability, labor standards, or corporate ethics while avoiding industries like defense or tobacco.
+Funds tailor their strategies to specific investment objectives, such as focusing on growth stocks, value stocks, specific industry sectors, or bond markets. Some focus on _socially responsible_ or _ESG_ (_environmental, social, and governance_) criteria, selecting assets based on sustainability, labor standards, or corporate ethics while avoiding industries like defense or tobacco.
 
 #### ETFs
 [Exchange Traded Funds](https://en.wikipedia.org/wiki/Exchange-traded_fund) (ETFs) are investment vehicles that pool money from many investors to purchase a collection of assets. Like mutual funds, they allow you to invest in a portfolio of stocks, bonds, or other investments by purchasing shares of the fund.
@@ -330,13 +330,13 @@ Unlike mutual funds, which generally transact once each business day at their Ne
 
 An ETF's market price is generally close to its NAV, but it can trade at a slight premium or discount to the value of its underlying assets.
 
-ETFs can be actively managed or passively managed. Many ETFs are index funds that track published indexes, such as the [S&P 500](https://en.wikipedia.org/wiki/S%26P_500) or [NASDAQ-100](https://en.wikipedia.org/wiki/Nasdaq-100). Others focus on particular sectors, investment categories, or objectives. Actively managed ETFs have managers who select investments in an effort to outperform the market.
+ETFs can be actively managed or passively managed. Many ETFs are index funds that track published indexes, such as the [S&P 500](https://en.wikipedia.org/wiki/S%26P_500) or [NASDAQ-100](https://en.wikipedia.org/wiki/Nasdaq-100). Others focus on particular sectors, investment categories, or objectives. Actively managed ETFs have managers who select investments attempting to outperform the market.
 
 Some well-known ETFs include [SPDR S&P 500 ETF Trust](https://en.wikipedia.org/wiki/SPDR_S%26P_500_ETF_Trust), commonly known by its ticker symbol **SPY**, and [Invesco QQQ ETF](https://en.wikipedia.org/wiki/Invesco_QQQ), commonly known as **QQQ**. SPY tracks the S&P 500, while QQQ tracks the NASDAQ-100.
 
 Like mutual funds, ETFs have expense ratios that represent the annual cost of operating the fund as a percentage of its average net assets. Index ETFs typically have relatively low expense ratios, although costs vary by fund.
 
-ETFs may also distribute income earned from dividends and interest, as well as realized capital gains. These distributions can be paid in cash or reinvested in additional shares, and may have tax implications.
+ETFs may also distribute income earned from dividends and interest, as well as realized capital gains. These distributions can be paid in cash or reinvested in additional shares and may have tax implications.
 
 ETFs can have some tax advantages over comparable mutual funds. Their structure allows many ETFs to minimize capital gains distributions by transferring securities rather than selling them when investors redeem shares. However, this doesn't mean ETF investors are exempt from taxes. Distributions and gains from selling ETF shares may still be taxable.
 
