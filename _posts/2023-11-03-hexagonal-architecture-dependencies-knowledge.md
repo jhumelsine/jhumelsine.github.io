@@ -46,7 +46,7 @@ We can see these relationships in [UML class diagrams](https://en.wikipedia.org/
 ## Implications
 Dependency and knowledge exist between pairs of software elements. The direction of dependency and knowledge is in one direction. UML class diagrams indicate dependency and knowledge direction via an arrowhead.
 
-Therefore, we can use UML class diagrams as a visual means to identify and trace dependency and knowledge within a design and its implications. A UML class diagram is a [Directional Graph](https://en.wikipedia.org/wiki/Directed_graph) where the software elements are the nodes and the dependency/knowledge relationships are the edges.
+Therefore, we can use UML class diagrams as a visual means to identify and trace dependency and knowledge within a design and its implications. A UML class diagram is a [Directed Graph](https://en.wikipedia.org/wiki/Directed_graph) where the software elements are the nodes and the dependency/knowledge relationships are the edges.
 
 ### The Acyclic Dependencies Principle
 Martin’s first design principle is to remove cycles. That is, not only is the graph representation of a UML class diagram a Directed Graph, but it should be a [Directed Acyclic Graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph).
