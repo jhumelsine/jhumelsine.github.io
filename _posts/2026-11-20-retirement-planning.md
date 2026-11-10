@@ -121,20 +121,6 @@ These goals have a time horizon that's often decades long when first opened.
 Their asset allocation profile will change as time advances to the start date.
 Rebalancing and reallocation happens automatically for the investor through the years.
 
-# Retirement Pillars
-Retirement is supported by several pillars, often called the [_Retirement Stool_](https://www.investopedia.com/ask/answers/09/three-legged-stool-retirement.asp) consistenting of:
-* Employer Pension
-* Government Pension
-* Personal Saving and Investing
-
-The Retirement Stool is an antiquated model that doesn't apply to most current workers.
-Employer Pensions are mostly a thing of the past, except for certain sectors, such as public service jobs.
-Government Pensions, such as [Social Security](https://en.wikipedia.org/wiki/Social_Security_(United_States)) in the United States, are at risk of insolvency due to shifting demographics.
-That is the population is getting older, and we don't have as many younger employers to subsidize pensions for retired seniors.
-
-The only pillar in control for most people is Personal Saving and Investing.
-This will be the only aspect of retirement plan that I'll focus on in the rest of the blog.
-
 # Tale as Old as Time
 Though financial instruments have emerged and have created new investment options, the foundations of personal and household finance go back for millennia.
 
@@ -156,6 +142,119 @@ This summary highlights a few financial principals from those texts:
 * **Systematic Income Allocation:** Live below your means and structurally divide income into fixed buckets for daily expenses, business reinvestment, and emergency reserves.
 * **Structured Generosity:** Automate charitable giving using fixed percentages (typically 2.5% to 20%) to support the vulnerable while preserving their dignity.
 * **Stewardship Mindset:** Prioritize contentment over endless accumulation, viewing money as a temporary resource to be managed responsibly for family and social good.
+
+# Goals
+Retirement is the primary financial goal of this blog, but it's not the only one for most households.
+
+Other financial goals include:
+* Home Purchase
+* College fund for children
+* Paying off current student loans
+* The next car
+* Vacations
+* Etc.
+
+Goals are not an either/or situation.
+A household can work toward multiple goals simultaneously.
+Some may have higher priority than others.
+There may be times, such as during a period of unemployment, when funding lower priority goals needs to be suspended temporarily.
+
+# Form a Team
+Designing and executing a financial plan is something we rarely do on our own.
+
+## Family
+TBD
+
+### Parents
+TBD
+
+### Spouse
+If you’re in a committed relationship, you and your partner need to work as a team. This doesn’t mean that each partner is expected to produce 50% of the household income no pay 50% of the household expenses. Your household may live off of one income. One of you may have a head for numbers and the other not quite so.
+ 
+Regardless, you need to be equally yoked in your responsibility toward the management of the money in your household. Don’t pull against each other financially. This isn’t a case of my money or your money. It’s not even our money. It’s our family's money.
+ 
+There are many ways for couples to manage their household finances as a team.
+ 
+Schedule regular “money dates” to discuss household finances and goals. Your goals should be consistent regardless of how each person contributes toward those goals. At the beginning these money dates should be weekly, as the household finances progress, they can be more sporadic.
+ 
+In these meetings, clarify goals and monitor your progress in obtaining them. As goals, or even sub goals are met, celebrate the progress. Go out on a real date. Take a walk on the boardwalk. Just make sure you acknowledge your progress.
+ 
+As for day to day finances, for some families, a common account works. For others separate accounts work. For some there’s a common account for major household purchases and smaller separate accounts for personal purchases.
+ 
+There is no one perfect way to do this. Every family may be different. What’s important is that everyone in the family is sharing the same vision and each agrees with the approach taken.
+
+## Doing your own thing
+Many people really enjoy personal financial planning. It’s a hobby. Go into a bookstore or library and look at the personal finance magazine rack or visit the personal finance book section. There are dozens of magazines and hundreds of books on the subject. There are several cable channels and an uncountable number of podcasts dedicated to personal finance too.
+ 
+Before subscribing to too many magazines or buying too many books, visit your public library. They should have several personal finance publications. Go in the stacks to section 322.024. There should be dozens of personal finance books on the shelves.
+ 
+The internet is filled with financial advice:
+* [AICPA/CIMA Financial Literacy Resources](https://www.aicpa-cima.com/resources/landing/financial-literacy-resources)
+* [US Government Financial Literacy Resources](https://www.mymoney.gov/) which is provided by the [Financial Literacy and Education Commission](https://www.mymoney.gov/About-Us).
+* [NY Times: Five Basics for Building a Solid Financial Future](https://www.nytimes.com/2008/05/17/business/yourmoney/17money.html) which requires registration. Might be able to access NY Times for free via public library licenses. 
+
+## Seek a Professional
+Michael Jordan was arguably the best basketball player in a generation. Yet even when he was the best there was, he also had coaches and trainers. Why? Because even the best can be made better, through careful management and keeping Michael focused.
+ 
+Investors with financial planners tend to have greater assets than those who don’t. This isn’t so much from better returns, insider deals or fabulous management as it is from more focused investing. People with financial planners tend to invest more, be more focused, and stay with the plan.
+ 
+There is too much detail in the personal financial management world for an amateur to understand it all. One would be wise to seek professional help. A professional will manage most of the paperwork. Additionally, the professional planner understands the math and know how to use [financial calculators](https://www.google.com/search?q=financial+calculators&sec_src=docs) in order to quantify your goals to know how large they need to be (e.g., how big does my nest egg need to be for a comfortable retirement?) and how much needs to be allocated toward a goal on a regular basis to meet that goal on schedule.
+ 
+The two most important characteristics of a financial planner are:
+* You need to trust your planner.
+* Your planner has to share your same core values.
+ 
+Ask friends for references. Interview several planners. Ask for their investment philosophy. Ask how they are paid, which varies depending upon the type of planner. Ask about their training. Ask for references from their clients. Ask how they are compensated.
+ 
+## Somewhere in between
+Many large investment houses, such as Vanguard and Fidelity will offer some degree of advice over the phone. They can’t offer personalized advice, but they can offer specific advice about various investment vehicles. This is like getting therapy by calling “Dr. Phil” rather than seeing a visiting a dedicated therapist.
+
+# Setting the Stage
+Here are some specific plans:
+* [Crown Financial](https://www.crown.org/) created a [Money Map](https://www.crown.org/money-map-download/) which is a Christian aligned seven-step guide to debt-free financial freedom. Here's a [good one-page summary](https://i.pinimg.com/originals/cf/15/56/cf155699cac07b4477468cd800ccbe53.jpg)
+* [Dave Ramsey](https://en.wikipedia.org/wiki/Dave_Ramsey) has his own faith aligned [Seven Baby Steps](https://www.ramseysolutions.com/dave-ramsey-7-baby-steps) program, where each successive step is achievable once the previous step is reached with the final step being wealth building and altruism. I don't agree with everything that comes out of Dave Ramsey's mouth, but this plan is reasonable.
+* [David Bach](https://en.wikipedia.org/wiki/David_Bach_(author)) presented his secular personal financial plan in [_The Automatic Millionaire_](https://blog.12min.com/the-automatic-millionaire-summary/). I think he should have titled his book _The Automated Millionaire_. One doesn't become an millionaire automatically with his plan. One moves toward becoming a millionaire slowly with an automated process that basically runs on auto pilot.
+
+Even though resources span the religious/secular spectrum, their recommendations tend to mirror one another.
+There is some variation and the order varies slightly, but these are minor differences compared to their shared similarties.
+
+Here's my distillation of these shared plans
+
+## Live Beneath Your Means
+_Annual income twenty pounds, annual expenditure nineteen nineteen and six, result happiness. Annual income twenty pounds, annual expenditure twenty pounds ought and six, result misery._ — Wilkins Micawber in _David Copperfield_ by Charles Dickens
+
+Living beneath your means is the key foundation principle of sound stewardship. When you live at your means, you’re living paycheck to paycheck, or hand to mouth. You’ll get by, but you’ll never get ahead. And you’ll be living on the razor’s edge. If you live beyond your means, then you’re digging yourself into a debt hole that gets deeper over time.
+ 
+Living beneath your means produces the additional money that makes your financial goals a possibility.
+
+
+## Establish an Emergency Fund
+
+## Eliminate High Debt
+
+## Save for Major Purchases
+
+## Consider a Home Purchase
+
+## Invest for Retirement
+
+## Save for College for Children
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Retirement Pillars
+Retirement is supported by several pillars, often called the [_Retirement Stool_](https://www.investopedia.com/ask/answers/09/three-legged-stool-retirement.asp) consistenting of:
+* Employer Pension
+* Government Pension
+* Personal Saving and Investing
+
+The Retirement Stool is an antiquated model that doesn't apply to most current workers.
+Employer Pensions are mostly a thing of the past, except for certain sectors, such as public service jobs.
+Government Pensions, such as [Social Security](https://en.wikipedia.org/wiki/Social_Security_(United_States)) in the United States, are at risk of insolvency due to shifting demographics.
+That is the population is getting older, and we don't have as many younger employers to subsidize pensions for retired seniors.
+
+The only pillar in control for most people is Personal Saving and Investing.
+This will be the only aspect of retirement plan that I'll focus on in the rest of the blog.
 
 # Fear and Greed
 The two primary emotions with money are **fear** and **greed**.
@@ -180,67 +279,6 @@ Any amount will do.
 
 Don't give because of what you will do for the charity.
 Give because of what being altruistic will do for you.
-
-### Goals
-Retirement is the primary financial goal of this blog, but it's not the only one for most households.
-
-Other financial goals include:
-* Home Purchase
-* College fund for children
-* Paying off current student loans
-* The next car
-* Vacations
-* Etc.
-
-Goals are not an either/or situation.
-A household can work toward multiple goals simultaneously.
-Some may have higher priority than others.
-There may be times, such as during a period of unemployment, when funding lower priority goals needs to be suspended temporarily.
-
-# Form a Team
-
-## Family
-If you’re in a committed relationship, you and your partner need to work as a team. This doesn’t mean that each partner is expected to produce 50% of the household income no pay 50% of the household expenses. Your household may live off of one income. One of you may have a head for numbers and the other not quite so.
- 
-Regardless, you need to be equally yoked in your responsibility toward the management of the money in your household. Don’t pull against each other financially. This isn’t a case of my money or your money. It’s not even our money. It’s our family's money.
- 
-There are many ways for couples to manage their household finances as a team.
- 
-Schedule regular “money dates” to discuss household finances and goals. Your goals should be consistent regardless of how each person contributes toward those goals. At the beginning these money dates should be weekly, as the household finances progress, they can be more sporadic.
- 
-In these meetings, clarify goals and monitor your progress in obtaining them. As goals, or even sub goals are met, celebrate the progress. Go out on a real date. Take a walk on the boardwalk. Just make sure you acknowledge your progress.
- 
-As for day to day finances, for some families, a common account works. For others separate accounts work. For some there’s a common account for major household purchases and smaller separate accounts for personal purchases.
- 
-There is no one perfect way to do this. Every family may be different. What’s important is that everyone in the family is sharing the same vision and each agrees with the approach taken.
-
-## Doing your own thing
-Many people really enjoy personal financial planning. It’s a hobby. Go into a bookstore or library and look at the personal finance magazine rack or visit the personal finance book section. There are dozens of magazines and hundreds of books on the subject. There are several cable channels and an uncountable number of podcasts dedicated to personal finance too.
- 
-Before subscribing to too many magazines or buying too many books, visit your public library. They should have several personal finance publications. Go in the stacks to section 322.024. There should be dozens of personal finance books on the shelves.
- 
-The internet is filled with financial advice, as can be seen in all of the links provided in this document:
-* [AICPA/CIMA Financial Literacy Resources](https://www.aicpa-cima.com/resources/landing/financial-literacy-resources)
-* [US Government Financial Literacy Resources](https://www.mymoney.gov/) which is provided by the [Financial Literacy and Education Commission](https://www.mymoney.gov/About-Us).
-* [NY Times: Five Basics for Building a Solid Financial Future](https://www.nytimes.com/2008/05/17/business/yourmoney/17money.html) which requires registration. Might be able to access NY Times for free via public library licenses.
- 
-Don’t be overconfident about going it on your own. Many people aren’t as financially literate as they think they are.
-
-## Seek a Professional
-Michael Jordan was arguably the best basketball player in a generation. Yet even when he was the best there was, he also had coaches and trainers. Why? Because even the best can be made better, through careful management and keeping Michael focused.
- 
-Investors with financial planners tend to have greater assets than those who don’t. This isn’t so much from better returns, insider deals or fabulous management as it is from more focused investing. People with financial planners tend to invest more, be more focused, and stay with the plan.
- 
-There is too much detail in the personal financial management world for an amateur to understand it all. One would be wise to seek professional help. A professional will manage most of the paperwork. Additionally, the professional planner understands the math and know how to use [financial calculators](https://www.google.com/search?q=financial+calculators&sec_src=docs) in order to quantify your goals to know how large they need to be (e.g., how big does my nest egg need to be for a comfortable retirement?) and how much needs to be allocated toward a goal on a regular basis to meet that goal on schedule.
- 
-The two most important characteristics of a financial planner are:
-* You need to trust your planner.
-* Your planner has to share your same core values.
- 
-Ask friends for references. Interview several planners. Ask for their investment philosophy. Ask how they are paid, which varies depending upon the type of planner. Ask about their training. Ask for references from their clients. Ask how they are compensated.
- 
-## Somewhere in between
-Many large investment houses, such as Vanguard and Fidelity will offer some degree of advice over the phone. They can’t offer personalized advice, but they can offer specific advice about various investment vehicles. This is like getting therapy by calling “Dr. Phil” rather than seeing a visiting a dedicated therapist.
 
 # Summary
 TBD
