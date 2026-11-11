@@ -375,11 +375,11 @@ It's helpful to think of these plans not as investments themselves, but as tax-s
 
 Because these account rules and tax incentives are specific to the United States, they deserve dedicated attention and will be the primary focus in a subsequent entry (TBD) in this series.
 
-# Asset Management
+## Asset Management
 Managing your wealth isn't just about picking individual assets.
 It's about how you assemble, monitor, and adjust them over time.
 
-## Asset Classes
+### Asset Classes
 There is no perfect asset.
 Ideally, an asset would:
 * Never lose value
@@ -408,7 +408,7 @@ Bonds tend to be relatively safe as well. They generate stable interest and divi
 
 Stocks tend to have the greatest risks and reward along with volatility. They produce your greatest gains and losses, and fortunes can swing between the two quickly.
 
-## Asset Allocation
+### Asset Allocation
 A well funded retirement is a financial goal.
 While this blog series has focused upon retirement, retirement is generally not the only financial goal for a person or household.
 Other common financial goals include:
@@ -452,7 +452,7 @@ Their allocation changes to 60% stocks and 40% bonds, not because of anything th
 Therefore, they may rebalance their portfolio by purchasing more bonds with future contributions rather than stock to bring their asset allocation closer a 50/50 balance.
 They may even sell some stock and purchase bonds to bring the ratio closer to 50/50.
 
-## Asset Diversification
+### Asset Diversification
 In addition to the correct asset allocation, the assets should have some diversity.
 That is, don't put all your eggs in one basket.
 
