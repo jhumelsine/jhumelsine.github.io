@@ -25,28 +25,6 @@ Hang in there until the end.
 
 **DISCLAIMER 2: I'm not a financial advisor. The information presented here reflects my personal opinions and experiences and is intended for educational purposes only. It should not be considered financial, investment, or tax advice. Readers should conduct their own research and consult qualified professionals before making financial decisions.**
 
-# Tale as Old as Time
-Though financial instruments have emerged and have created new investment options, the foundations of personal and household finance go back for millennia.
-
-[_The Richest Man in Babylon_](https://en.wikipedia.org/wiki/The_Richest_Man_in_Babylon), first published in 1926, describes the path to wealth as revealed in a set of four thousand year old proverbs from the fictional character, Arkad, an ancient scribe, who became the richest man in Babylon.
-
-It includes sage advice such as:
-* _For every ten coins thou placest within thy purse take out for use but nine. Thy purse will start to fatten at once and its increasing weight will feel good in thy hand and bring satisfaction to thy soul._
-* _The earnings it will make shall build your fortunes ... Learn to make your treasure work for you. Make it your slave. Make its children and its children's children work for you._
-
-This advice was author [George Samuel Clason's](https://en.wikipedia.org/wiki/George_Samuel_Clason) stylized version of [Live Beneath Your Means](#you) and the [Power of Compound Interest](#time).
-
-Clason imagined wealth management in the ancient world, but we don't need to.
-Many [religious texts](https://www.google.com/search?q=List+the+personal+and+household+financial+advice+contained+with+the+religious+texts+of+the+world) contain passages relating to personal and household financial management.
-
-Most modern financial principles can trace their origins back to these texts.
-This summary highlights a few financial principals from those texts:
-* **Debt Avoidance & Fair Lending:** Minimize borrowing to preserve personal freedom, avoid predatory high-interest lending, and prefer risk-sharing partnerships over pure debt.
-* **Ethical Wealth Creation:** Earn a living honestly without exploiting workers, use accurate trade measures, pay laborers immediately, and reject fast, deceptive wealth schemes.
-* **Systematic Income Allocation:** Live below your means and structurally divide income into fixed buckets for daily expenses, business reinvestment, and emergency reserves.
-* **Structured Generosity:** Automate charitable giving using fixed percentages (typically 2.5% to 20%) to support the vulnerable while preserving their dignity.
-* **Stewardship Mindset:** Prioritize contentment over endless accumulation, viewing money as a temporary resource to be managed responsibly for family and social good.
-
 # Goals
 Retirement is the primary financial goal of this blog, but it's not the only one for most households.
 
@@ -145,6 +123,28 @@ Living beneath your means produces the additional money that makes your financia
 ## Save for College for Children
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Tale as Old as Time
+Though financial instruments have emerged and have created new investment options, the foundations of personal and household finance go back for millennia.
+
+[_The Richest Man in Babylon_](https://en.wikipedia.org/wiki/The_Richest_Man_in_Babylon), first published in 1926, describes the path to wealth as revealed in a set of four thousand year old proverbs from the fictional character, Arkad, an ancient scribe, who became the richest man in Babylon.
+
+It includes sage advice such as:
+* _For every ten coins thou placest within thy purse take out for use but nine. Thy purse will start to fatten at once and its increasing weight will feel good in thy hand and bring satisfaction to thy soul._
+* _The earnings it will make shall build your fortunes ... Learn to make your treasure work for you. Make it your slave. Make its children and its children's children work for you._
+
+This advice was author [George Samuel Clason's](https://en.wikipedia.org/wiki/George_Samuel_Clason) stylized version of [Live Beneath Your Means](#you) and the [Power of Compound Interest](#time).
+
+Clason imagined wealth management in the ancient world, but we don't need to.
+Many [religious texts](https://www.google.com/search?q=List+the+personal+and+household+financial+advice+contained+with+the+religious+texts+of+the+world) contain passages relating to personal and household financial management.
+
+Most modern financial principles can trace their origins back to these texts.
+This summary highlights a few financial principals from those texts:
+* **Debt Avoidance & Fair Lending:** Minimize borrowing to preserve personal freedom, avoid predatory high-interest lending, and prefer risk-sharing partnerships over pure debt.
+* **Ethical Wealth Creation:** Earn a living honestly without exploiting workers, use accurate trade measures, pay laborers immediately, and reject fast, deceptive wealth schemes.
+* **Systematic Income Allocation:** Live below your means and structurally divide income into fixed buckets for daily expenses, business reinvestment, and emergency reserves.
+* **Structured Generosity:** Automate charitable giving using fixed percentages (typically 2.5% to 20%) to support the vulnerable while preserving their dignity.
+* **Stewardship Mindset:** Prioritize contentment over endless accumulation, viewing money as a temporary resource to be managed responsibly for family and social good.
 
 # Retirement Pillars
 Retirement is supported by several pillars, often called the [_Retirement Stool_](https://www.investopedia.com/ask/answers/09/three-legged-stool-retirement.asp) consistenting of:
