@@ -293,6 +293,7 @@ Here are some suggestions toward thinking about your career:
     * [Agentic Coding - I Surrender](https://jhumelsine.github.io/2026/10/15/agentic-ai-surrender.html) - I had originally wanted more useful content in this blog entry, but I realized I don't know enough about the rapidly changing Agentic Coding experience to blog about it confidently.
 * [Job Loss](https://jhumelsine.github.io/2024/08/11/jobsearch.html) - Software Engineering has been a great career for me, but it wasn't without a few bumps in the road. I wrote this blog when others I knew in the industry were running into the same bumpy road in their careers.
 * [Retirement Introduction](https://jhumelsine.github.io/2026/11/06/retirement-introduction.html) - Introducing retirement and the importance of preparing for it.
+    * [Financial Literacy](https://jhumelsine.github.io/2026/11/13/financial-literacy.html) - Defining the personal and household financial concepts that form the foundation for retirement planning
 * More to come ...
 
 # Reference
