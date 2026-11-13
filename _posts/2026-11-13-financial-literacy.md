@@ -1,7 +1,6 @@
 ---
 title: Financial Literacy
 description: The Financial Toolkit to build your Wealth Engine
-unlisted: true
 ---
 
 # Introduction
@@ -298,7 +297,7 @@ Accumulating assets builds your net worth, but a portfolio can easily leave you 
 Fortunately, secondary markets exist so you can sell assets to other willing buyers. Publicly traded stocks can be bought and sold in minutes on exchanges like the [New York Stock Exchange](https://en.wikipedia.org/wiki/New_York_Stock_Exchange) (NYSE) or the [NASDAQ](https://en.wikipedia.org/wiki/Nasdaq). 
 Other assets have their own markets, including bonds, commodities, and real estate. Each market operates on a different timeline. Selling a publicly traded stock may take minutes, while selling real estate may require weeks or months.
 
-ou can generally sell publicly traded stocks and many bonds before you intended to, but the price you receive depends on what a buyer is willing to pay at that moment.
+You can generally sell publicly traded stocks and many bonds at any time, but the price you receive depends on what a buyer is willing to pay at that moment.
 
 #### Mutual Funds
 A [mutual fund](https://en.wikipedia.org/wiki/Mutual_fund) is an investment vehicle that pools money from many investors to purchase a collection of assets. Think of a mutual fund as a bucket that holds stocks, bonds, or real estate. Rather than buying a single company's stock or bond, you buy shares of the fund itself, giving you proportional ownership of every asset in the portfolio.
@@ -349,7 +348,7 @@ Mutual funds and ETFs offer many of the same investment opportunities. Both allo
 So why choose one over the other?
 
 **Reasons to choose a mutual fund:**
-* ou prefer investments priced once per day, rather than fluctuating intraday.
+* You prefer investments priced once per day, rather than fluctuating intraday.
 * You want to invest a specific dollar amount, including fractional shares.
 * You want to automate regular investments, such as monthly contributions.
 * Your employer-sponsored retirement plan offers mutual funds as its investment options.
