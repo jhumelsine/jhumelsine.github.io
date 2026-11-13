@@ -41,10 +41,10 @@ If your only source of income is your labor, you'll always have to work for your
 
 Instead of working for every dollar, you have something that produces money for you.
 The more productive assets you accumulate, the more your money can work on your behalf.
-It's like owning a legal money-printing machine.
-Who wouldn't want a legal money-printing machine in their basement or garage?
+It's like owning a money-printing machine.
+Who wouldn't want a money-printing machine in their basement or garage?
 
-Of course, there is no such thing as a legal money-printing machine.
+Of course, there is no such thing as a _legal_ money-printing machine.
 But productive assets can serve a similar purpose.
 
 Think of the financial concepts and instruments you use to generate and manage wealth as your financial toolkit.
@@ -174,9 +174,8 @@ Checking accounts, savings accounts, money market deposit accounts, and eligible
 Money market mutual funds and Treasury bills are not bank deposits and are not covered by FDIC insurance.
 
 #### Cash
-Cash is a useful tool, especially for recurring expenses, but cash is a limited tool.
-Cash doesn't generally generate much of a return.
-Even when it earns interest, inflation can erode its purchasing power over time.
+Cash, as in paper currency, is a useful tool, especially for recurring expenses, but cash is a limited tool.
+Inflation can erode its purchasing power over time.
  
 Cash does have its uses.
 It is useful for its liquidity and also for its stability when the stock market takes a downturn.
@@ -217,7 +216,7 @@ It is not insured by the FDIC, and its value and returns are not guaranteed.
 Although these funds are designed to maintain a stable share price, they can lose value.
 
 #### Certificate of Deposit
-[Certificates of Deposit](https://en.wikipedia.org/wiki/Certificate_of_deposit) (CD) are generally very safe when held at an FDIC-insured bank and within applicable insurance limits. Their interest rates are usually fixed, but the money is generally expected to remain on deposit until maturity. There may be penalties for early withdrawal.
+[Certificates of Deposit](https://en.wikipedia.org/wiki/Certificate_of_deposit) (CD) are generally safe when held at an FDIC-insured bank and within applicable insurance limits. Their interest rates are usually fixed, but the money is generally expected to remain on deposit until maturity. There may be penalties for early withdrawal.
 
 #### Treasury Bills
 [U.S. Treasury bills](https://en.wikipedia.org/wiki/United_States_Treasury_security) (T-bills) are short-term loans to the federal government, generally maturing in four to 52 weeks.
@@ -225,7 +224,7 @@ T-bills are generally purchased for less than their face value.
 At maturity, the government pays the face value, and the difference represents your return.
 They are exempt from state and local income taxes on their interest.
 
-They're generally considered very safe because they're backed by the U.S. government. They can also be sold before maturity, although the price received may differ from the purchase price.
+They're generally considered safe because they're backed by the U.S. government. They can also be sold before maturity, although the price received may differ from the purchase price.
 
 They're a useful example of an instrument that isn't technically cash but can serve a cash-like role.
 
@@ -298,12 +297,12 @@ Accumulating assets builds your net worth, but a portfolio can easily leave you 
 
 Fortunately, secondary markets exist so you can sell assets to other willing buyers. Publicly traded stocks can be bought and sold in minutes on exchanges like the [New York Stock Exchange](https://en.wikipedia.org/wiki/New_York_Stock_Exchange) (NYSE) or the [NASDAQ](https://en.wikipedia.org/wiki/Nasdaq). Other assets have their own markets, such as bonds, commodities, and real estate each operate on different timelines, where liquidating a stock takes minutes, while selling real estate may require weeks or months.
 
-You are never locked into holding a stock or a bond indefinitely. You can offload your position before maturity or before a company exits, but the price you receive depends entirely on what a buyer is willing to pay at that moment, which may be higher or lower than your original purchase price.
+You are never locked into holding a stock or a bond indefinitely. You can generally offload your position at any time, but the price you receive depends entirely on what a buyer is willing to pay at that moment, which may be higher or lower than your original purchase price.
 
 #### Mutual Funds
 A [mutual fund](https://en.wikipedia.org/wiki/Mutual_fund) is an investment vehicle that pools money from many investors to purchase a collection of assets. Think of a mutual fund as a bucket that holds stocks, bonds, or real estate. Rather than buying a single company's stock or bond, you buy shares of the fund itself, giving you proportional ownership of every asset in the portfolio.
 
-A primary advantage of mutual funds is diversification. Spreading capital across dozens or hundreds of holdings reduces the impact of any single company failing, though it does not eliminate broader market risk.
+A primary advantage of mutual funds is [diversification](#asset-diversification). Spreading capital across dozens or hundreds of holdings reduces the impact of any single company failing, though it does not eliminate broader market risk.
 
 A mutual fund's per-share value is called its [Net Asset Value](https://en.wikipedia.org/wiki/Net_asset_value) (NAV). NAV is calculated at the close of each trading day by subtracting the fund's liabilities from the total market value of its holdings and dividing by total outstanding shares.
 
@@ -313,9 +312,11 @@ Funds generate returns through price appreciation and distributions (dividends, 
 Offered by financial firms like [Vanguard](https://investor.vanguard.com/) and [Fidelity](https://www.fidelity.com/), mutual funds generally fall into several management styles:
 * **Actively Managed Funds:** Portfolio managers select specific assets attempting to beat market benchmarks. Because they require research teams and active trading, they charge higher operational costs, known as an expense ratio. Some funds also charge sales commissions, or loads.
 * **Passively Managed Index Funds:** These funds simply replicate published benchmarks like the [S&P 500](https://en.wikipedia.org/wiki/S%26P_500) or [Dow Jones Industrial Average](https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average). While index funds may seem dull, their significantly lower expense ratios and broad exposure allow them to outperform most actively managed funds over the long term.
-* **Target Retirement Funds:** These are retirement funds targeted to a specific retirement date. For example, someone born in 2000 might invest in a 2060 or 2065 target retirement fund designed for retirement when the investor is 60 or 65 in each of those years respectively. I'll provide more details in the next blog (TBD).
+* **Target Retirement Funds:** These are retirement funds targeted to a specific retirement date. For example, someone born in 2000 might invest in a 2060 or 2065 target retirement fund designed for retirement when the investor is 60 or 65 in each of those years respectively.
 
-Funds tailor their strategies to specific investment objectives, such as focusing on growth stocks, value stocks, specific industry sectors, or bond markets. Some focus on _socially responsible_ or _ESG_ (_environmental, social, and governance_) criteria, selecting assets based on sustainability, labor standards, or corporate ethics while avoiding industries like defense or tobacco.
+Funds tailor their strategies to specific investment objectives, such as focusing on growth stocks, value stocks, specific industry sectors, or bond markets.
+
+Some focus on _socially responsible_ or _ESG_ (_environmental, social, and governance_) criteria, selecting assets based on sustainability, labor standards, or corporate ethics while avoiding industries like defense or tobacco.
 
 #### ETFs
 [Exchange Traded Funds](https://en.wikipedia.org/wiki/Exchange-traded_fund) (ETFs) are investment vehicles that pool money from many investors to purchase a collection of assets. Like mutual funds, they allow you to invest in a portfolio of stocks, bonds, or other investments by purchasing shares of the fund.
@@ -359,7 +360,7 @@ So why choose one over the other?
 
 Neither investment vehicle is inherently better. The right choice depends on your investment objectives, costs, account type, and personal preferences.
 
-#### Home Ownership
+#### Homeownership
 Homeownership is often considered a central pillar of the American Dream, but it raises a fundamental financial question: Is a house an asset or a liability?
 
 Strictly speaking, the physical property is an asset, while the mortgage used to buy it is a liability. Owning a home comes with significant ongoing operational expenses. Unlike renting, where the monthly rent is the maximum you will pay for housing that month, a mortgage payment is the minimum. Homeowners are responsible for maintenance, utilities, home insurance, and property taxes, which can be substantial.
@@ -381,8 +382,9 @@ It's about how you assemble, monitor, and adjust them over time.
 
 ### Asset Classes
 There is no perfect asset.
-Ideally, an asset would:
-* Never lose value
+The ideal asset would:
+* Never lose value and possibly rise in value
+* Never involve risk
 * Have a great rate of return
 * Pay interest or a dividend
 * Be effortless converted into cash
@@ -394,19 +396,19 @@ I'm going to refer to these as _asset classes_.
 That is, it's a group of different specific assets that have shared traits.
 For example, while stocks have similar traits, there are thousands of companies that issue stock.
 These are broad asset classes as well.
-There can be significant distinctions within asset classes as well.
+There can be significant distinctions within broad asset classes.
 For example, equities span high-growth tech startups and dividend-paying utilities, while bonds range from ultra-safe U.S. Treasury bills to high-yield corporate debt.
 A tech stock will have different traits than a restaurant stock.
 
 Each of these asset classes has traits associated with an ideal asset, but none of them have the entire package.
 Each asset class has its own advantages and disadvantages.
-Each asset class has its niche when 
+Each asset class has its niche in helping to reach a financial goal.
 
 Cash, and cash equivalents, are very safe, but since they don't grow over time, their purchasing power erodes with inflation.
 
 Bonds tend to be relatively safe as well. They generate stable interest and dividends and tend to keep up with inflation, but there's not much growth.
 
-Stocks tend to have the greatest risks and reward along with volatility. They produce your greatest gains and losses, and fortunes can swing between the two quickly.
+Stocks tend to have the greatest reward along with the greatest risk and volatility. They produce your greatest gains and losses, and fortunes can swing between the two quickly.
 
 ### Asset Allocation
 A well funded retirement is a financial goal.
@@ -417,7 +419,7 @@ Other common financial goals include:
 * College fund for children
 * Paying off student loans
 
-Different financial goals have different amounts required and different time horizons.
+Different financial goals require different amounts are are needed on different time horizons.
 Some goals are near term, such as a car purchase and paying off student loans.
 Some goals are further away, such as a college fund for a child or retirement, but even far away goals creep up upon us.
 
@@ -426,47 +428,48 @@ A household with a $1,000 per month financial margin has a better chance of fund
 Goal funding and/or financial margins may require adjustment.
 
 Different goals have different risk/reward sensitivity based upon their time horizon.
-Asset class risk/reward should be aligned to the risk/reward sensitivity of the goals goals they are funding.
+Asset class risk/reward should be aligned to the risk/reward sensitivity of the goals they are funding.
 In general, the further away the goal is, the greater the risk/reward it can withstand, since there's time to recover from any downward volatility.
 
 Determining which assets classes based upon their risk/reward profile are best aligned with financial goals especially based upon risk/reward sensitivity of their timeline is referred to as _Asset Allocation_.
 
 Let's consider a family with 35-year old parents with a ten year old child with the following goals:
 * Car fund to replace one of the current cars in two years. This fund should be in CDs and bonds, since a new car purchase is right around the corner.
-* College fund for their child. This fund should be a mixture of stocks and bonds. The child won't start college for another eight years. The stocks will provide some growth for the interim, and the bonds will provide some stability should the stock market run into a recession.
+* College fund for their child. This fund should be a mixture of stocks and bonds. The child won't start college for another eight years. The stocks will provide some growth for the interim, and the bonds will provide some stability should the stock market run into a recession in the interim.
 * Retirement fund for the parents. This fund should be almost entirely in stocks, since retirement is still 30 years away. However, they will want to consider adding bonds in the next five to ten years.
 
 Asset allocation changes as time advances.
 The 35-year old couple can absorb the volatility of stocks 30 years from retirement, but when they reach retirement at age 65 a portion of their retirement fund should have cash and bonds.
 And it should still retain some stock too.
 The 65-year old couple could easily have a 30-year retirement.
-They would still need some stocks for growth along with their cash and bonds.
+They would still need some stocks for growth to guard against inflation along with their cash and bonds as a hedge against volatility.
 
-Goal targeted funds often contain different asset classes, as described in the previous blog (TBD)
+Goal targeted funds often contain different asset classes, as described above.
 Different asset classes respond differently to different market conditions.
+That is in some years stocks may outperform bonds and in other years bonds may outperform stocks.
 Therefore rebalancing between asset classes may be warrented.
 
 For example, let's assume that our 65-year old couple wants their retirement asset allocation to be 50% stocks and 50% bonds.
 One year the stock market does great, but the bond market does not.
 Their allocation changes to 60% stocks and 40% bonds, not because of anything they did, but because of market conditions.
-Therefore, they may rebalance their portfolio by purchasing more bonds with future contributions rather than stock to bring their asset allocation closer a 50/50 balance.
+Therefore, they may rebalance their portfolio by purchasing more bonds with future contributions to bring their asset allocation closer a 50/50 balance.
 They may even sell some stock and purchase bonds to bring the ratio closer to 50/50.
 
 ### Asset Diversification
-In addition to the correct asset allocation, the assets should have some diversity.
+In addition to the correct balanced asset allocation, the assets should have some diversity.
 That is, don't put all your eggs in one basket.
 
 While the 30-year old couple's retirement fund should mostly be invested in stocks, it should not be invested in one stock.
 Everyone dreams of buying Amazon, Google, Nvidia or Apple before they became big.
 But for every company that would have made you a fortune, there was an equally compelling company that would have cost you a fortune, such as [Enron](https://en.wikipedia.org/wiki/Enron).
 
-One of the best ways to get diversification is through [Mutual Funds](#mutual-funds) and [ETFs](#exchange-traded-funds-or-etfs).
+One of the best ways to get diversification is through [Mutual Funds](#mutual-funds) and [ETFs](#etfs).
 Diversification is built into their very nature.
 
-Some financial companies offer target retirement based mutual funds as mentioned in the previous blog.
+Some financial companies offer target retirement based mutual funds as mentioned above.
 They are mutual funds with a specific target date in mind.
 Targeted based mutual funds will readjust and rebalance the asset allocation among its asset classes automatically.
-As the target date approaches, the mutual fund will reallocate asset class ratios adjusting for volatility over the years as well as rebalancing to ensure that the ratios are maintained.
+As the target date approaches, the mutual fund will reallocate asset class ratio balance adjusting for volatility over the years to ensure that the ratios are maintained with diversity within the asset classes too.
 
 Targeted funds can be good for retirement or a child's college fund.
 These goals have a time horizon that's often decades long when first opened.
