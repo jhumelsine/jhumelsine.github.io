@@ -1,5 +1,5 @@
 ---
-title: DRAFT OPEN FOR REVIEW AND COMMENTS – Financial Literacy
+title: Financial Literacy
 description: The Financial Toolkit to build your Wealth Engine
 unlisted: true
 ---
@@ -264,7 +264,7 @@ Lenders generally demand higher interest rates from borrowers they consider more
 
 Organizations such as [S&P Global Ratings](https://en.wikipedia.org/wiki/S%26P_Global_Ratings), [Moody's Ratings](https://en.wikipedia.org/wiki/Moody%27s_Ratings), and [Fitch Ratings](https://en.wikipedia.org/wiki/Fitch_Ratings) assign credit ratings to governments, corporations, and their debt obligations.
 These ratings represent opinions on creditworthiness rather than guarantees, helping investors evaluate the likelihood that a borrower will meet its debt obligations.
-These ratings use letter grades, often with additional distinctions within each grade, to indicate the issuer's creditworthiness.
+These ratings use letter grades, often with additional distinctions within each grade, to indicate the creditworthiness of the issuer or specific debt obligation.
 
 ### Ownership
 One way to generate wealth is to own things that have value.
@@ -295,9 +295,10 @@ A bond has a maturity date years in the future, and a stock may appreciate signi
 
 Accumulating assets builds your net worth, but a portfolio can easily leave you asset-rich and cash-poor if your wealth is tied up in non-cash holdings. What happens when you need liquidity to make a major purchase?
 
-Fortunately, secondary markets exist so you can sell assets to other willing buyers. Publicly traded stocks can be bought and sold in minutes on exchanges like the [New York Stock Exchange](https://en.wikipedia.org/wiki/New_York_Stock_Exchange) (NYSE) or the [NASDAQ](https://en.wikipedia.org/wiki/Nasdaq). Other assets have their own markets, such as bonds, commodities, and real estate each operate on different timelines, where liquidating a stock takes minutes, while selling real estate may require weeks or months.
+Fortunately, secondary markets exist so you can sell assets to other willing buyers. Publicly traded stocks can be bought and sold in minutes on exchanges like the [New York Stock Exchange](https://en.wikipedia.org/wiki/New_York_Stock_Exchange) (NYSE) or the [NASDAQ](https://en.wikipedia.org/wiki/Nasdaq). 
+Other assets have their own markets, including bonds, commodities, and real estate. Each market operates on a different timeline. Selling a publicly traded stock may take minutes, while selling real estate may require weeks or months.
 
-You are never locked into holding a stock or a bond indefinitely. You can generally offload your position at any time, but the price you receive depends entirely on what a buyer is willing to pay at that moment, which may be higher or lower than your original purchase price.
+ou can generally sell publicly traded stocks and many bonds before you intended to, but the price you receive depends on what a buyer is willing to pay at that moment.
 
 #### Mutual Funds
 A [mutual fund](https://en.wikipedia.org/wiki/Mutual_fund) is an investment vehicle that pools money from many investors to purchase a collection of assets. Think of a mutual fund as a bucket that holds stocks, bonds, or real estate. Rather than buying a single company's stock or bond, you buy shares of the fund itself, giving you proportional ownership of every asset in the portfolio.
@@ -312,11 +313,12 @@ Funds generate returns through price appreciation and distributions (dividends, 
 Offered by financial firms like [Vanguard](https://investor.vanguard.com/) and [Fidelity](https://www.fidelity.com/), mutual funds generally fall into several management styles:
 * **Actively Managed Funds:** Portfolio managers select specific assets attempting to beat market benchmarks. Because they require research teams and active trading, they charge higher operational costs, known as an expense ratio. Some funds also charge sales commissions, or loads.
 * **Passively Managed Index Funds:** These funds seek to track published benchmarks like the [S&P 500](https://en.wikipedia.org/wiki/S%26P_500) or [Dow Jones Industrial Average](https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average). While index funds may seem dull, their relatively low expense ratios and broad exposure have allowed many index funds to outperform a majority of actively managed funds over the long term.
-* **Target Retirement Funds:** These are retirement funds targeted to a specific retirement date. For example, someone born in 2000 might invest in a 2060 or 2065 target retirement fund designed for retirement when the investor is 60 or 65 in each of those years respectively.
+* **Target-Date Funds:** These are retirement funds targeted to a specific retirement date. For example, someone born in 2000 might invest in a 2060 or 2065 target retirement fund designed for retirement when the investor is 60 or 65 in each of those years respectively.
 
 Funds tailor their strategies to specific investment objectives, such as focusing on growth stocks, value stocks, specific industry sectors, or bond markets.
 
-Some focus on _socially responsible_ or _ESG_ (_environmental, social, and governance_) criteria, selecting assets based on sustainability, labor standards, or corporate ethics while avoiding industries like defense or tobacco.
+Some focus on _socially responsible_ or _ESG_ (_environmental, social, and governance_) criteria, selecting assets based on sustainability, labor standards, or corporate ethics.
+Some ESG funds avoid industries like defense or tobacco.
 
 #### ETFs
 [Exchange Traded Funds](https://en.wikipedia.org/wiki/Exchange-traded_fund) (ETFs) are investment vehicles that pool money from many investors to purchase a collection of assets. Like mutual funds, they allow you to invest in a portfolio of stocks, bonds, or other investments by purchasing shares of the fund.
@@ -347,7 +349,7 @@ Mutual funds and ETFs offer many of the same investment opportunities. Both allo
 So why choose one over the other?
 
 **Reasons to choose a mutual fund:**
-* You prefer to make investments at the end of the trading day, without worrying about intraday price fluctuations.
+* ou prefer investments priced once per day, rather than fluctuating intraday.
 * You want to invest a specific dollar amount, including fractional shares.
 * You want to automate regular investments, such as monthly contributions.
 * Your employer-sponsored retirement plan offers mutual funds as its investment options.
@@ -366,7 +368,9 @@ Homeownership is often considered a central pillar of the American Dream, but it
 Strictly speaking, the physical property is an asset, while the mortgage used to buy it is a liability. Owning a home comes with significant ongoing operational expenses, such as maintenance, utilities, home insurance, and property taxes, which can be substantial.
 Renters have fewer ongoing operational expenses.
 
-Mortgages are also expensive long-term financial commitments. Over a 30-year loan, total principal and interest payments can easily amount to two or more times the original purchase price, depending on prevailing interest rates. (In the U.S., mortgage interest may be tax-deductible if you itemize deductions, subject to IRS limits.)
+Mortgages are also expensive long-term financial commitments. 
+Depending on the interest rate, total principal and interest payments over a 30-year mortgage can exceed twice the amount borrowed.
+(In the U.S., mortgage interest may be tax-deductible if you itemize deductions, subject to IRS limits.)
 
 Despite these costs, homeownership can be an effective vehicle for wealth accumulation. Real estate often appreciates over time, forced savings occur as you pay down mortgage principal, and once the debt is paid off, a major recurring expense disappears from your budget. Under the right financial conditions, a home can serve as a foundation for intergenerational wealth.
 
@@ -391,7 +395,8 @@ The ideal asset would:
 
 It does not exist.
 
-I listed several sets of assets above, including: [Cash and Cash Equivalents](#cash-and-cash-equivalents), [Bonds](#loans) and [Stocks](#stock).
+The assets discussed above fall into several broad categories: [cash and cash equivalents](#cash-and-cash-equivalents), [bonds](#loans), and [stocks](#stock). I'll refer to these categories as asset classes. An asset class is a group of investments that share common characteristics.
+
 I'm going to refer to these as _asset classes_.
 That is, it's a group of different specific assets that have shared traits.
 For example, while stocks have similar traits, there are thousands of companies that issue stock.
@@ -429,9 +434,9 @@ Goal funding and/or financial margins may require adjustment.
 Different goals have different risk/reward sensitivity based upon their time horizon.
 Asset class risk/reward should be aligned to the risk/reward sensitivity of the goals they are funding within the risk tolerance of the investor.
 Investors have their own risk tolerance.
-Some investors are comfortable accepting greater risk and sleep well at night, even when the market crashing.
+Some investors are comfortable accepting greater risk and can sleep well at night, even when the market is falling.
 Others with lower risk tolerances constantly worry about their investments regardless of market conditions.
-In general, the further away the goal is, the greater the risk/reward it can withstand, since there's time to recover from any downward volatility.
+In general, investors may be able to accept more short-term volatility for goals that are further away, since there's more time to recover from market declines.
 
 Choosing an appropriate mix of asset classes for each financial goal, based on its time horizon and your tolerance for risk, is called _asset allocation_.
 
@@ -477,7 +482,7 @@ Target-date funds can be good for retirement.
 Age-based funds, which are similar to target-date funds, can be good for a child's college fund.
 These goals have a time horizon that's often decades long when first opened.
 Their asset allocation profile will change as time advances to the start date.
-Rebalancing and reallocation happen automatically for the investor through the years.
+Rebalancing and reallocation generally happen automatically.
 
 # Summary
 Building long-term financial security begins with mastering the fundamentals: understanding how wealth is generated, appreciating the power of compounding time, and selecting the right instruments from your financial toolkit.
