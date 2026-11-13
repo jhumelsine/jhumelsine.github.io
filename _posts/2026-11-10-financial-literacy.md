@@ -93,7 +93,7 @@ Compounding creates a snowball effect.
 When you’re rolling a snowball to make a snowman, the snowball will reach a sufficient size so that it will start to pick up snow from the ground just by rolling it.
  
 With investments, earnings start to produce their own earnings, which produce their own earnings, etc.
-Albert Einstein is often credited with calling compound interest the eighth wonder of the world, although there's little evidence he actually said it.
+Albert Einstein is often credited with calling compound interest the eighth wonder of the world, although there's little evidence, he actually said it.
 
 #### A Comparison Example
 
@@ -178,7 +178,7 @@ Cash, as in paper currency, is a useful tool, especially for recurring expenses,
 Inflation can erode its purchasing power over time.
  
 Cash does have its uses.
-It is useful for its liquidity and also for its stability when the stock market takes a downturn.
+It is useful for its liquidity and for its stability when the stock market takes a downturn.
 For those who tend to slip back into debt, cash may be a primary tool for managing household finances to prevent sinking further into debt.
 
 #### Checking Account
@@ -247,7 +247,7 @@ Governments and corporations issue bonds to borrow money for projects, operation
 A government may borrow money by issuing a bond to build a new bridge.
 A business may borrow money to purchase another company.
 
-Government and corporate borrowing is not much different than taking out student loans to pay for college or taking on a mortgage to purchase a home.
+Government and corporate borrowing are not much different than taking out student loans to pay for college or taking on a mortgage to purchase a home.
 Borrowing money finances a purchase that might not be possible by any other means.
 
 Loans can be secured or unsecured:
@@ -323,7 +323,7 @@ Some ESG funds avoid industries like defense or tobacco.
 #### ETFs
 [Exchange Traded Funds](https://en.wikipedia.org/wiki/Exchange-traded_fund) (ETFs) are investment vehicles that pool money from many investors to purchase a collection of assets. Like mutual funds, they allow you to invest in a portfolio of stocks, bonds, or other investments by purchasing shares of the fund.
 
-ETFs are similar to mutual funds in many ways. They provide access to a collection of investments, can offer diversification, and generally have a fund manager responsible for managing the fund's assets.
+ETFs are like mutual funds in many ways. They provide access to a collection of investments, can offer diversification, and generally have a fund manager responsible for managing the fund's assets.
 
 However, there is an important difference in how you buy and sell them.
 
@@ -415,7 +415,7 @@ Bonds tend to be relatively safe, depending on the issuer. They generally provid
 Stocks tend to have the greatest reward along with the greatest risk and volatility. They produce your greatest gains and losses, and fortunes can swing between the two quickly.
 
 ### Asset Allocation
-A well funded retirement is a financial goal.
+A well-funded retirement is a financial goal.
 While this blog series has focused upon retirement, retirement is generally not the only financial goal for a person or household.
 Other common financial goals include:
 * Purchase of a car
@@ -440,23 +440,23 @@ In general, investors may be able to accept more short-term volatility for goals
 
 Choosing an appropriate mix of asset classes for each financial goal, based on its time horizon and your tolerance for risk, is called _asset allocation_.
 
-Let's consider a family with 35-year old parents with a ten year old child with the following goals:
+Let's consider a family with 35-year-old parents with a ten-year-old child with the following goals:
 * Car fund to replace one of the current cars in two years. This fund should be in CDs and Treasury bills, since a new car purchase is right around the corner.
 * College fund for their child. This fund should be a mixture of stocks and bonds. The child won't start college for another eight years. The stocks will provide some growth for the interim, and the bonds will provide some stability should the stock market run into a recession in the interim.
 * Retirement fund for the parents. This fund should be mostly in stocks, since retirement is still 30 years away. However, they will want to consider adding bonds in the next five to ten years.
 
 Asset allocation changes as time advances.
-The 35-year old couple can absorb the volatility of stocks 30 years from retirement, but when they reach retirement at age 65 a portion of their retirement fund should have cash and bonds.
+The 35-year-old couple can absorb the volatility of stocks 30 years from retirement, but when they reach retirement at age 65 a portion of their retirement fund should have cash and bonds.
 And it should still retain some stock too.
-The 65-year old couple could easily have a 30-year retirement.
+The 65-year-old couple could easily have a 30-year retirement.
 They would still need some stocks for growth to guard against inflation along with their cash and bonds as a hedge against volatility.
 
 Target-date funds often contain different asset classes, as described above.
 Different asset classes respond differently to different market conditions.
 In some years stocks may outperform bonds and in other years bonds may outperform stocks.
-Therefore rebalancing between asset classes may be warranted.
+Therefore, rebalancing between asset classes may be warranted.
 
-For example, let's assume that our 65-year old couple wants their retirement asset allocation to be 50% stocks and 50% bonds.
+For example, let's assume that our 65-year-old couple wants their retirement asset allocation to be 50% stocks and 50% bonds.
 One year the stock market does great, but the bond market does not.
 Their allocation changes to 60% stocks and 40% bonds, not because of anything they did, but because of market conditions.
 Therefore, they may rebalance their portfolio by purchasing more bonds with future contributions to bring their asset allocation closer to a 50/50 balance.
@@ -466,7 +466,7 @@ They may even sell some stock and purchase bonds to bring the ratio closer to 50
 In addition to the appropriate asset allocation, the assets should have some diversity.
 That is, don't put all your eggs in one basket.
 
-While the 30-year old couple's retirement fund should mostly be invested in stocks, it should not be invested in one stock.
+While the 30-year-old couple's retirement fund should mostly be invested in stocks, it should not be invested in one stock.
 Everyone dreams of buying Amazon, Google, Nvidia or Apple before they became big.
 But for every company that would have made you a fortune, there was an equally compelling company that would have cost you a fortune, such as [Enron](https://en.wikipedia.org/wiki/Enron).
 
