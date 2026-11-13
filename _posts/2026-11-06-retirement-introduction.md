@@ -9,9 +9,10 @@ The continuing series explores the next stage of life: retirement, a stage that 
 
 This retirement series will consist of (URL links TBD):
 * [Retirement Introduction](#introduction) - Introducing retirement and the importance of preparing for it
-* Financial Literacy - Defining the personal and household financial concepts that form the foundation for retirement planning
+* [Financial Literacy](https://jhumelsine.github.io/2026/11/13/financial-literacy.html) - Defining the personal and household financial concepts that form the foundation for retirement planning
 * Retirement Financial Planning - Planning for retirement alongside personal and household financial goals
 * Retirement Activities - Exploring how to use the time retirement provides to pursue personal interests
+* Retirement Financial Philosophy
 * Retirement Options in the United States - Exploring US retirement accounts and tax provisions that encourage saving and investing for retirement
 * Financial Mathematics - Exploring and deriving financial formulas
 
