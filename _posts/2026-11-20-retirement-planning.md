@@ -62,8 +62,6 @@ When don't have sufficient margin, you have three options:
 * Sell something
 
 ## Spend Less
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/44/STARBUCKS_COFFEE_Tottori.jpg" alt="Starbucks Drive Thru" title="Image Source: https://commons.wikimedia.org/wiki/File:STARBUCKS_COFFEE_Tottori.jpg" width = "50%" align="right" style="padding: 20px;">
-
 For a month, record every purchase you make, even that stick of gum at the checkout counter. Don’t record an ATM withdrawal as a purchase, unless there’s an ATM fee, but do record what you buy with that money.
  
 After the period is over, group like purchases into similar categories, such as dining out, utilities, entertainment, etc.
@@ -91,6 +89,8 @@ Bach coined the term based upon a conversation he had with a woman at a seminar.
 She complained that she didn't have any margin to fund her retirement.
 In his brief interaction with her, she revealed that she stopped for coffee before work almost every morning on the way to work and usually picked up a muffin too. A coworker was with her and chimed in that she purchased another one during their mid-morning coffee break. Bach did a little back-of-the-envelop math and quickly showed her drinking habit consuming her potential margin.
 
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/44/STARBUCKS_COFFEE_Tottori.jpg" alt="Starbucks Drive Thru" title="Image Source: https://commons.wikimedia.org/wiki/File:STARBUCKS_COFFEE_Tottori.jpg" width = "40%" align="right" style="padding: 20px;">
+
 Latte Factor has become a bit cliché, and many complain that he's blaming the victim, but let's do a little math.
 
 There's almost always a line in the Starbucks Drive Thru near my house. That doesn't include the customers who are inside.
@@ -109,7 +109,14 @@ This doesn't mean that you never indulge yourself.
 Just don't do it as frequently, especially if you have a tight spending plan.
 
 ## Earn More
+Additional earnings can come from working overtime, taking a second job, getting more training or education for a better paying job, or starting your own business.
+ 
+However, care is needed. Extra money tends to encourage extra spending. If not careful, you could end up with even more financial troubles. Many high-income American families live paycheck to paycheck.
+
 ## Sell Something
+Turn a possession into cash. You might have a small amount to sell, through a yard sale or eBay. Or, you might need to sell a significant item, such as a boat, car or property. It may even be something that’s not tangible. For example, your employer may offer to purchase your unused vacation days.
+ 
+Clean up your house. Remove the clutter. Sell, donate or throw out the items you don’t use anymore. Most of us don’t think of the cost of the items in our houses. They cost several sets of resources: money, space, time and sanity. You have to spend time and money to clean, maintain and possibly insure these items. How many people rent storage space to store things they never use? How many people buy houses larger than needed because of all of their material possessions?
 
 # Goals
 Retirement is the primary financial goal of this blog, but it's not the only one for most households.
