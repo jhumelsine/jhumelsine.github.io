@@ -5,21 +5,21 @@ unlisted: true
 ---
 
 # Introduction
-My previous blog (TBD) introduced elements of a Financial Toolbox that help you fund a retirement.
-But I didn't describe how to use the elements of that toolbox.
+My previous [Financial Literacy](https://jhumelsine.github.io/2026/11/13/financial-literacy.html) blog introduced elements of a Financial Toolbox that help you fund a retirement.
+There was a lot information that could be a bit overwhelming.
+I didn't describe how to use the elements of that toolbox.
 
 This blog entry lays out a personal and household financial plan with retirement as one of the goals.
+It will consist of the following financial principles:
+* Develop a cash flow margin
+* Prioritize goals
+* Save and invest consistently
+* Leverage compound interest
+* Avoid bad debt and leverage good debt judiciously
+* Automate
 
-The previous blog was more cut and dry than this blog.
-The previous blog introduced financial instruments that for the most part aren't controversial and most agree upon their definitions.
-
-This blog will be more nuanced.
-This blog will almost be philosophical.
 This blog will require some self-examination and introspection.
 This blog may require you to make some tough choices.
-
-But I don't want to scare any reader away.
-Hang in there until the end.
 
 **Disclaimer 1: Though I'm writing with a global audience in mind, my perspective is shaped by my experience with retirement in the United States. Even here, my experience won't be the same as everyone else's.**
 
@@ -39,6 +39,93 @@ Other financial goals include:
 Goals are not an either/or situation.
 A household can work toward multiple goals simultaneously.
 Some may have higher priority than others.
+There may be times, such as during a period of unemployment, when funding lower priority goals needs to be suspended temporarily.
+
+# Live Beneath Your Means
+_Annual income twenty pounds, annual expenditure nineteen nineteen and six, result happiness. Annual income twenty pounds, annual expenditure twenty pounds ought and six, result misery._ — Wilkins Micawber in _David Copperfield_ by Charles Dickens
+
+Living beneath your means is the key financial principle.
+When you live at your means, you’re living paycheck to paycheck, or hand to mouth.
+You’ll get by, but you’ll never get ahead.
+And you’ll be living on the razor’s edge.
+If you live beyond your means, then you’re digging yourself into a debt hole that gets deeper over time.
+ 
+Living beneath your means produces the additional money that makes your financial goals a possibility.
+As described by Dickens above, it's your income minus your expenses, which is also known as your margin.
+Living beneath your means is critical in fund your goals.
+The more margin you have, the goals you can address simultaneously and do what degree.
+
+Ideally, your income is naturally greater than your expenses.
+When don't have sufficient margin, you have three options:
+* [Spend less](#spend-less)
+* Earn more
+* Sell something
+
+## Spend Less
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/44/STARBUCKS_COFFEE_Tottori.jpg" alt="Starbucks Drive Thru" title="Image Source: https://commons.wikimedia.org/wiki/File:STARBUCKS_COFFEE_Tottori.jpg" width = "50%" align="right" style="padding: 20px;">
+
+For a month, record every purchase you make, even that stick of gum at the checkout counter. Don’t record an ATM withdrawal as a purchase, unless there’s an ATM fee, but do record what you buy with that money.
+ 
+After the period is over, group like purchases into similar categories, such as dining out, utilities, entertainment, etc.
+ 
+Next, analyze your spending to determine if it meets your goals. Make adjustments based upon this analysis and this will become the basis for your spending plan.
+
+A spending plan might look like this:
+* Taxes - The government often takes its cut first. We live off our net income, not our gross income
+* Goals - Saving for retirement, a house, or college
+* Bills - We pay the mortgage, insurance and the utilities
+* Food and other necessities
+* Fun / entertainment
+
+I prefer the term _spending plan_ rather than _budget_, even if they are similar.
+The former focuses upon your spending priorities.
+The latter focuses upon restrictions.
+
+A spending plan forces you to make a conscious effort to direct your income where you choose for it to go.
+
+Spending less is the quickest action to implement, but one of the toughest to maintain. Cutting spending is like going on a diet: it takes willpower, because you need to change old habits.
+
+People who overspend may suffer from thoughtless spending.
+Author [David Bach](https://en.wikipedia.org/wiki/David_Bach_(author)) coined the term [Latte Factor](https://www.becomingminimalist.com/latte-factor/) about 25 years ago.
+Bach coined the term based upon a conversation he had with a woman at a seminar.
+She complained that she didn't have any margin to fund her retirement.
+In his brief interaction with her, she revealed that she stopped for coffee before work almost every morning on the way to work and usually picked up a muffin too. A coworker was with her and chimed in that she purchased another one during their mid-morning coffee break. Bach did a little back-of-the-envelop math and quickly showed her drinking habit consuming her potential margin.
+
+Latte Factor has become a bit cliché, and many complain that he's blaming the victim, but let's do a little math.
+
+There's almost always a line in the Starbucks Drive Thru near my house. That doesn't include the customers who are inside.
+Starbucks advertises their lattes from about $5 to $7 depending upon size and preparation. Let's set an average of $6 per latte.
+
+Let's assume that someone treats themselves three times per week 50 weeks per year. That's __$6 * 3 * 50__ or __$900__ annually.
+Remember that [Anna and Billy](https://jhumelsine.github.io/2026/11/13/financial-literacy.html#a-comparison-example) contributed $1,000 annually into their retirement plans in sequence throughout their careers. Let's assume they had a third sibling who contributed $1,000 annually throughout their entire career. That sibling would have $790,795 at retirement.
+
+Thoughtless spending isn't just coffee.
+It can be any regular relatively small purchase that adds up over time, such as smoking, lottery tickets, multiple streaming service subscriptions, the gym membership that's never used, etc.
+
+Buying lunch every day is a spending plan killer.
+A packed lunch from home will cost less than what's available at the office or going out for lunch.
+
+This doesn't mean that you never indulge yourself.
+Just don't do it as frequently, especially if you have a tight spending plan.
+
+## Earn More
+## Sell Something
+
+# Goals
+Retirement is the primary financial goal of this blog, but it's not the only one for most households.
+
+Other financial goals include:
+* Home Purchase
+* College fund for children
+* Paying off current student loans
+* The next car
+* Vacations
+* Etc.
+
+Goals are not an either/or situation.
+A household can work toward multiple goals simultaneously.
+Some may have higher priority than others.
+Your margin will dictate which goals you can address and by how much.
 There may be times, such as during a period of unemployment, when funding lower priority goals needs to be suspended temporarily.
 
 # Form a Team
@@ -101,13 +188,6 @@ Even though resources span the religious/secular spectrum, their recommendations
 There is some variation and the order varies slightly, but these are minor differences compared to their shared similarties.
 
 Here's my distillation of these shared plans
-
-## Live Beneath Your Means
-_Annual income twenty pounds, annual expenditure nineteen nineteen and six, result happiness. Annual income twenty pounds, annual expenditure twenty pounds ought and six, result misery._ — Wilkins Micawber in _David Copperfield_ by Charles Dickens
-
-Living beneath your means is the key foundation principle of sound stewardship. When you live at your means, you’re living paycheck to paycheck, or hand to mouth. You’ll get by, but you’ll never get ahead. And you’ll be living on the razor’s edge. If you live beyond your means, then you’re digging yourself into a debt hole that gets deeper over time.
- 
-Living beneath your means produces the additional money that makes your financial goals a possibility.
 
 
 ## Establish an Emergency Fund
