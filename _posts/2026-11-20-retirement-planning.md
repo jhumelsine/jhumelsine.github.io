@@ -110,9 +110,7 @@ Spending less may be more challenging than it was a quarter of a century ago.
 
 But I think the critics overlook one aspect of Bach's argument.
 We may not have much control over some of our expenses, such as housing, transportation, insurance, and taxes.
-Bach was focusing upon our expenses that we do have control over.
-
-**NEEDS vs WANTS.**
+Bach's Latte Factor focuses on expenses that we do have some control and flexibility.
 
 Thoughtless spending isn't just coffee.
 It can be any regular relatively small purchase that adds up over time, such as smoking, lottery tickets, multiple streaming service subscriptions, the gym membership that's never used, etc.
@@ -120,9 +118,12 @@ It can be any regular relatively small purchase that adds up over time, such as 
 Buying lunch every day is a spending plan killer.
 A packed lunch from home will cost less than what's available at the office or going out for lunch.
 
+Look for inexpensive alternatives.
+Public libraries are free.
+Schedule game night with friends where you buy a few sodas or beer, order a pizza and settle in for an evening of _Settlers of Catan_.
+
 This doesn't mean that you never indulge yourself.
 Just don't do it as frequently, especially if you have a tight spending plan.
-
 
 ## Earn More
 Additional earnings can come from working overtime, taking a second job, getting more training or education for a better paying job, or starting your own business.
@@ -150,6 +151,22 @@ A household can work toward multiple goals simultaneously.
 Some may have higher priority than others.
 Your margin will dictate which goals you can address and by how much.
 There may be times, such as during a period of unemployment, when funding lower priority goals needs to be suspended temporarily.
+
+# The Plan
+
+## Establish an Emergency Fund
+
+## Eliminate High Debt
+
+## Save for Major Purchases
+
+## Consider a Home Purchase
+
+## Invest for Retirement
+
+## Save for College for Children
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # Form a Team
 Designing and executing a financial plan is something we rarely do on our own.
@@ -212,20 +229,6 @@ There is some variation and the order varies slightly, but these are minor diffe
 
 Here's my distillation of these shared plans
 
-
-## Establish an Emergency Fund
-
-## Eliminate High Debt
-
-## Save for Major Purchases
-
-## Consider a Home Purchase
-
-## Invest for Retirement
-
-## Save for College for Children
-
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # Tale as Old as Time
 Though financial instruments have emerged and have created new investment options, the foundations of personal and household finance go back for millennia.
