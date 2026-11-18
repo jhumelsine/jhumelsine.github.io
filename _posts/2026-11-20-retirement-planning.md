@@ -91,13 +91,28 @@ In his brief interaction with her, she revealed that she stopped for coffee befo
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/STARBUCKS_COFFEE_Tottori.jpg" alt="Starbucks Drive Thru" title="Image Source: https://commons.wikimedia.org/wiki/File:STARBUCKS_COFFEE_Tottori.jpg" width = "40%" align="right" style="padding: 20px;">
 
-Latte Factor has become a bit cliché, and many complain that he's blaming the victim, but let's do a little math.
-
 There's almost always a line in the Starbucks Drive Thru near my house. That doesn't include the customers who are inside.
 Starbucks advertises their lattes from about $5 to $7 depending upon size and preparation. Let's set an average of $6 per latte.
 
 Let's assume that someone treats themselves three times per week 50 weeks per year. That's __$6 * 3 * 50__ or __$900__ annually.
 Remember that [Anna and Billy](https://jhumelsine.github.io/2026/11/13/financial-literacy.html#a-comparison-example) contributed $1,000 annually into their retirement plans in sequence throughout their careers. Let's assume they had a third sibling who contributed $1,000 annually throughout their entire career. That sibling would have $790,795 at retirement.
+
+Latte Factor has become a bit cliché, and many complain that he's blaming the victim.
+Critics say that a daily latte isn't the problem.
+The problem, they say, is expenses outpacing income.
+Housing, food and transportation has increased.
+Student loans are greater.
+Raises barely keep up with inflation.
+
+They make a solid case.
+Bach's Latte Factor is over 25 years old.
+Spending less may be more challenging than it was a quarter of a century ago.
+
+But I think the critics overlook one aspect of Bach's argument.
+We may not have much control over some of our expenses, such as housing, transportation, insurance, and taxes.
+Bach was focusing upon our expenses that we do have control over.
+
+**NEEDS vs WANTS.**
 
 Thoughtless spending isn't just coffee.
 It can be any regular relatively small purchase that adds up over time, such as smoking, lottery tickets, multiple streaming service subscriptions, the gym membership that's never used, etc.
@@ -107,6 +122,7 @@ A packed lunch from home will cost less than what's available at the office or g
 
 This doesn't mean that you never indulge yourself.
 Just don't do it as frequently, especially if you have a tight spending plan.
+
 
 ## Earn More
 Additional earnings can come from working overtime, taking a second job, getting more training or education for a better paying job, or starting your own business.
