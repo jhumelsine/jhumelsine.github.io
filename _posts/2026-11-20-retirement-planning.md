@@ -83,48 +83,6 @@ A spending plan forces you to make a conscious effort to direct your income wher
 
 Spending less is the quickest action to implement, but one of the toughest to maintain. Cutting spending is like going on a diet: it takes willpower, because you need to change old habits.
 
-People who overspend may suffer from thoughtless spending.
-Author [David Bach](https://en.wikipedia.org/wiki/David_Bach_(author)) coined the term [Latte Factor](https://www.becomingminimalist.com/latte-factor/) about 25 years ago.
-Bach coined the term based upon a conversation he had with a woman at a seminar.
-She complained that she didn't have any margin to fund her retirement.
-In his brief interaction with her, she revealed that she stopped for coffee before work almost every morning on the way to work and usually picked up a muffin too. A coworker was with her and chimed in that she purchased another one during their mid-morning coffee break. Bach did a little back-of-the-envelop math and quickly showed her drinking habit consuming her potential margin.
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/44/STARBUCKS_COFFEE_Tottori.jpg" alt="Starbucks Drive Thru" title="Image Source: https://commons.wikimedia.org/wiki/File:STARBUCKS_COFFEE_Tottori.jpg" width = "40%" align="right" style="padding: 20px;">
-
-There's almost always a line in the Starbucks Drive Thru near my house. That doesn't include the customers who are inside.
-Starbucks advertises their lattes from about $5 to $7 depending upon size and preparation. Let's set an average of $6 per latte.
-
-Let's assume that someone treats themselves three times per week 50 weeks per year. That's __$6 * 3 * 50__ or __$900__ annually.
-Remember that [Anna and Billy](https://jhumelsine.github.io/2026/11/13/financial-literacy.html#a-comparison-example) contributed $1,000 annually into their retirement plans in sequence throughout their careers. Let's assume they had a third sibling who contributed $1,000 annually throughout their entire career. That sibling would have $790,795 at retirement.
-
-Latte Factor has become a bit cliché, and many complain that he's blaming the victim.
-Critics say that a daily latte isn't the problem.
-The problem, they say, is expenses outpacing income.
-Housing, food and transportation has increased.
-Student loans are greater.
-Raises barely keep up with inflation.
-
-They make a solid case.
-Bach's Latte Factor is over 25 years old.
-Spending less may be more challenging than it was a quarter of a century ago.
-
-But I think the critics overlook one aspect of Bach's argument.
-We may not have much control over some of our expenses, such as housing, transportation, insurance, and taxes.
-Bach's Latte Factor focuses on expenses that we do have some control and flexibility.
-
-Thoughtless spending isn't just coffee.
-It can be any regular relatively small purchase that adds up over time, such as smoking, lottery tickets, multiple streaming service subscriptions, the gym membership that's never used, etc.
-
-Buying lunch every day is a spending plan killer.
-A packed lunch from home will cost less than what's available at the office or going out for lunch.
-
-Look for inexpensive alternatives.
-Public libraries are free.
-Schedule game night with friends where you buy a few sodas or beer, order a pizza and settle in for an evening of _Settlers of Catan_.
-
-This doesn't mean that you never indulge yourself.
-Just don't do it as frequently, especially if you have a tight spending plan.
-
 ## Earn More
 Additional earnings can come from working overtime, taking a second job, getting more training or education for a better paying job, or starting your own business.
  
@@ -167,6 +125,70 @@ There may be times, such as during a period of unemployment, when funding lower 
 ## Save for College for Children
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Spend Less -- Follow up for next blog.
+For a month, record every purchase you make, even that stick of gum at the checkout counter. Don’t record an ATM withdrawal as a purchase, unless there’s an ATM fee, but do record what you buy with that money.
+ 
+After the period is over, group like purchases into similar categories, such as dining out, utilities, entertainment, etc.
+ 
+Next, analyze your spending to determine if it meets your goals. Make adjustments based upon this analysis and this will become the basis for your spending plan.
+
+A spending plan might look like this:
+* Taxes - The government often takes its cut first. We live off our net income, not our gross income
+* Goals - Saving for retirement, a house, or college
+* Bills - We pay the mortgage, insurance and the utilities
+* Food and other necessities
+* Fun / entertainment
+
+I prefer the term _spending plan_ rather than _budget_, even if they are similar.
+The former focuses upon your spending priorities.
+The latter focuses upon restrictions.
+
+A spending plan forces you to make a conscious effort to direct your income where you choose for it to go.
+
+Spending less is the quickest action to implement, but one of the toughest to maintain. Cutting spending is like going on a diet: it takes willpower, because you need to change old habits.
+
+People who overspend may suffer from thoughtless spending.
+Author [David Bach](https://en.wikipedia.org/wiki/David_Bach_(author)) coined the term [Latte Factor](https://www.becomingminimalist.com/latte-factor/) about 25 years ago.
+Bach coined the term based upon a conversation he had with a woman at a seminar.
+She complained that she didn't have any margin to fund her retirement.
+In his brief interaction with her, she revealed that she stopped for coffee before work almost every morning on the way to work and usually picked up a muffin too. A coworker was with her and chimed in that she purchased another one during their mid-morning coffee break. Bach did a little back-of-the-envelop math and quickly showed her drinking habit consuming her potential margin.
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/44/STARBUCKS_COFFEE_Tottori.jpg" alt="Starbucks Drive Thru" title="Image Source: https://commons.wikimedia.org/wiki/File:STARBUCKS_COFFEE_Tottori.jpg" width = "40%" align="right" style="padding: 20px;">
+
+There's almost always a line in the Starbucks Drive Thru near my house. That doesn't include the customers who are inside.
+Starbucks advertises their lattes from about $5 to $7 depending upon size and preparation. Let's set an average of $6 per latte.
+
+Let's assume that someone treats themselves three times per week 50 weeks per year. That's __$6 * 3 * 50__ or __$900__ annually.
+Remember that [Anna and Billy](https://jhumelsine.github.io/2026/11/13/financial-literacy.html#a-comparison-example) contributed $1,000 annually into their retirement plans in sequence throughout their careers. Let's assume they had a third sibling who contributed $1,000 annually throughout their entire career. That sibling would have $790,795 at retirement.
+
+Latte Factor has become a bit cliché, and many complain that he's blaming the victim.
+Critics say that a daily latte isn't the problem.
+The problem, they say, is expenses outpacing income.
+Housing, food and transportation has increased.
+Student loans are greater.
+Raises barely keep up with inflation.
+
+They make a solid case.
+Bach's Latte Factor is over 25 years old.
+Spending less may be more challenging than it was a quarter of a century ago.
+
+But I think the critics overlook one aspect of Bach's argument.
+We may not have much control over some of our expenses, such as housing, transportation, insurance, and taxes.
+Bach's Latte Factor focuses on expenses that we do have some control and flexibility.
+
+Thoughtless spending isn't just coffee.
+It can be any regular relatively small purchase that adds up over time, such as smoking, lottery tickets, multiple streaming service subscriptions, the gym membership that's never used, etc.
+
+Buying lunch every day is a spending plan killer.
+A packed lunch from home will cost less than what's available at the office or going out for lunch.
+
+Look for inexpensive alternatives.
+Public libraries are free.
+Schedule game night with friends where you buy a few sodas or beer, order a pizza and settle in for an evening of _Settlers of Catan_.
+
+This doesn't mean that you never indulge yourself.
+Just don't do it as frequently, especially if you have a tight spending plan.
 
 # Form a Team
 Designing and executing a financial plan is something we rarely do on our own.
