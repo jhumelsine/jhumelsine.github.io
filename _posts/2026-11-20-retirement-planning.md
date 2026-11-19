@@ -57,29 +57,32 @@ The more margin you have, the goals you can address simultaneously and do what d
 
 Ideally, your income is naturally greater than your expenses.
 When don't have sufficient margin, you have three options:
-* [Spend less](#spend-less)
+* Spend less
 * Earn more
 * Sell something
 
 ## Spend Less
-For a month, record every purchase you make, even that stick of gum at the checkout counter. Don’t record an ATM withdrawal as a purchase, unless there’s an ATM fee, but do record what you buy with that money.
+For a month or more, record every purchase you make, even that stick of gum at the checkout counter. Don’t record an ATM withdrawal as a purchase, unless there’s an ATM fee, but do record what you buy with that money.
  
 After the period is over, group like purchases into similar categories, such as dining out, utilities, entertainment, etc.
  
-Next, analyze your spending to determine if it meets your goals. Make adjustments based upon this analysis and this will become the basis for your spending plan.
+Next, analyze your spending categories.
+Which ones are **needs** and which ones are **wants**?
 
-A spending plan might look like this:
-* Taxes - The government often takes its cut first. We live off our net income, not our gross income
-* Goals - Saving for retirement, a house, or college
-* Bills - We pay the mortgage, insurance and the utilities
-* Food and other necessities
-* Fun / entertainment
+Create a spending plan based upon your needs and wants.
+You may need to make some tough decisions about how you spend your money.
+A spending plan forces you to make a conscious effort to direct your income where you choose for it to go.
 
 I prefer the term _spending plan_ rather than _budget_, even if they are similar.
 The former focuses upon your spending priorities.
 The latter focuses upon restrictions.
 
-A spending plan forces you to make a conscious effort to direct your income where you choose for it to go.
+A spending plan might look like this:
+* Taxes
+* Bills
+* Food and other necessities
+* Goals
+* Fun / Entertainment
 
 Spending less is the quickest action to implement, but one of the toughest to maintain. Cutting spending is like going on a diet: it takes willpower, because you need to change old habits.
 
@@ -93,28 +96,21 @@ Turn a possession into cash. You might have a small amount to sell, through a ya
  
 Clean up your house. Remove the clutter. Sell, donate or throw out the items you don’t use anymore. Most of us don’t think of the cost of the items in our houses. They cost several sets of resources: money, space, time and sanity. You have to spend time and money to clean, maintain and possibly insure these items. How many people rent storage space to store things they never use? How many people buy houses larger than needed because of all of their material possessions?
 
-# Goals
-Retirement is the primary financial goal of this blog, but it's not the only one for most households.
-
-Other financial goals include:
-* Home Purchase
-* College fund for children
-* Paying off current student loans
-* The next car
-* Vacations
-* Etc.
-
-Goals are not an either/or situation.
-A household can work toward multiple goals simultaneously.
-Some may have higher priority than others.
-Your margin will dictate which goals you can address and by how much.
-There may be times, such as during a period of unemployment, when funding lower priority goals needs to be suspended temporarily.
-
 # The Plan
+One you have a set of preliminary goals, which can be adjusted, and your positive cash flow, i.e., margin, i.e., surplus, you can decide how to use to reach your goals.
+
+Each plan will be different depending upon goals and margin.
+What I've listed below is one suggestion.
+
+It's described sequentially, but it's not necessarily meant to be executed sequentially.
+Some parts should be done in parallel.
+The degree to parallel achievement will be based upon the margin.
 
 ## Establish an Emergency Fund
 
-## Eliminate High Debt
+## Eliminate Consumer Debt
+
+### What about Non-Consumer Debt
 
 ## Save for Major Purchases
 
