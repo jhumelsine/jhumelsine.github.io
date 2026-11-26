@@ -11,7 +11,7 @@ I didn't describe how to use the elements of that toolbox.
 
 This blog entry lays out a personal and household financial plan with retirement as one of the goals.
 It will consist of the following financial principles:
-* [Define goals](#goals)
+* Define goals
 * Develop a cash flow margin
 * Save and invest consistently
 * Leverage compound interest
@@ -110,13 +110,15 @@ One you have a set of preliminary goals, which can be adjusted, and your positiv
 Each plan will be different depending upon goals and margin.
 What I've listed below is one suggestion.
 
-It's described sequentially, but it's not necessarily meant to be executed sequentially.
+The plan is described sequentially, but it's not necessarily meant to be executed sequentially.
 Some parts should be done in parallel, and I'll highlight any that I feel are important.
 The degree to parallel achievement will be based upon the margin.
+Some of these goals have a long time horizon.
+For example, investing for retirement is a goal that's sustained throughout one's entire career.
 
 It will focus upon your goals.
 It will not focus, for the most part, upon your other expenses.
-However, 
+However, there will be some overlap among some goals and expenses.
 
 ## Establish an Emergency Fund
 Emergencies happen.
@@ -135,18 +137,37 @@ It is not used to pay for a vacation or wedding or other expected expense.
 Opinions on how much to reserve in an emergency fund vary.
 Three to six months of living expense is the minimum goal, but some recommend as high as 12 months of living expenses.
 
-NOTE: This is emergency living expenses during a period of unemployment, not usually living expenses.
+**NOTE:** This is emergency living expenses during a period of unemployment, not usually living expenses.
+A period of employment is a period of zero income.
+Your previous spending plan no longer applies.
+Reduce or suspend your needs.
+Hopefully it won't be for long.
+And when you do get your next job, your salary will be different than your previous job.
+You'll need to adjust your spending plan accordingly as well.
 
+Dedicate your margin to your emergency fund until it reaches about one month of emergency living expenses.
+Then you can reduce your emergency fund contributions to half of their previous level and use the freed margin for other goals.
+
+Continue with half margin funding of your emergency fund until you reach your goal of three, six or 12 months of living expenses.
+
+Once your emergency fund is fully funded, consider funding it at a reduced rate so that when you do need to use it, you don't have to change your plan drastically to replenish it.
+
+Since my audience is mostly software engineers, I'll use a software analogy.
+An emergency fund is similar to the [Token Bucket Algorith](https://en.wikipedia.org/wiki/Token_bucket).
+Your income is similar to the token rate.
+Your emergency fund is similar to the token bucket reserve.
+An emergency fund provides financial resources when needed.
+The token bucket provides access to the network when needed.
 
 ## Eliminate Consumer Debt
 
 ### What about Non-Consumer Debt
 
+## Invest for Retirement
+
 ## Save for Major Purchases
 
 ## Consider a Home Purchase
-
-## Invest for Retirement
 
 ## Save for College for Children
 
