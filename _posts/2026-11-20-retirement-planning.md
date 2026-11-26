@@ -11,8 +11,8 @@ I didn't describe how to use the elements of that toolbox.
 
 This blog entry lays out a personal and household financial plan with retirement as one of the goals.
 It will consist of the following financial principles:
+* [Define goals](#goals)
 * Develop a cash flow margin
-* Prioritize goals
 * Save and invest consistently
 * Leverage compound interest
 * Avoid bad debt and leverage good debt judiciously
@@ -46,31 +46,33 @@ _Annual income twenty pounds, annual expenditure nineteen nineteen and six, resu
 
 Living beneath your means is the key financial principle.
 When you live at your means, you’re living paycheck to paycheck, or hand to mouth.
-You’ll get by, but you’ll never get ahead.
-And you’ll be living on the razor’s edge.
+You’ll get by, but you’ll never get ahead, and you’ll be living on the razor’s edge.
 If you live beyond your means, then you’re digging yourself into a debt hole that gets deeper over time.
  
 Living beneath your means produces the additional money that makes your financial goals a possibility.
 As described by Dickens above, it's your income minus your expenses, which is also known as your margin.
 Living beneath your means is critical in fund your goals.
-The more margin you have, the goals you can address simultaneously and do what degree.
+The more margin you have, the more flexibility you have to achieve your goals and by what degree.
 
-Ideally, your income is naturally greater than your expenses.
+Ideally, your income will naturally greater than your expenses.
+That is, your lifestyle expenses naturally don't exceed your income, and you have margin without having to make any adjustments.
+
 When don't have sufficient margin, you have three options:
-* Spend less
-* Earn more
-* Sell something
+* [Spend less](#spend-less)
+* [Earn more](#earn-more)
+* [Sell something](#sell-something)
 
 ## Spend Less
 For a month or more, record every purchase you make, even that stick of gum at the checkout counter. Don’t record an ATM withdrawal as a purchase, unless there’s an ATM fee, but do record what you buy with that money.
  
-After the period is over, group like purchases into similar categories, such as dining out, utilities, entertainment, etc.
+After the period is over, group like purchases into similar categories, such as housing, insurance, groceries, utilities, entertainment, dining out, etc.
  
 Next, analyze your spending categories.
 Which ones are **needs** and which ones are **wants**?
 
 Create a spending plan based upon your needs and wants.
 You may need to make some tough decisions about how you spend your money.
+There's generally not a lot of flexibility in needs, but there's usually some flexibility when it comes to a spending plan.
 A spending plan forces you to make a conscious effort to direct your income where you choose for it to go.
 
 I prefer the term _spending plan_ rather than _budget_, even if they are similar.
@@ -79,20 +81,26 @@ The latter focuses upon restrictions.
 
 A spending plan might look like this:
 * Taxes
-* Bills
+* Housing
+* Utilities
+* Debt
 * Food and other necessities
+* Fun/Entertainment
 * Goals
-* Fun / Entertainment
 
 Spending less is the quickest action to implement, but one of the toughest to maintain. Cutting spending is like going on a diet: it takes willpower, because you need to change old habits.
 
 ## Earn More
-Additional earnings can come from working overtime, taking a second job, getting more training or education for a better paying job, or starting your own business.
+Additional earnings can come from finding a better paying job, working overtime, taking a second job, getting more training or education, or starting your own business.
  
 However, care is needed. Extra money tends to encourage extra spending. If not careful, you could end up with even more financial troubles. Many high-income American families live paycheck to paycheck.
 
 ## Sell Something
-Turn a possession into cash. You might have a small amount to sell, through a yard sale or eBay. Or, you might need to sell a significant item, such as a boat, car or property. It may even be something that’s not tangible. For example, your employer may offer to purchase your unused vacation days.
+Turn a possession into cash. You might have a small amount to sell, through a yard sale or eBay.
+Or, you might need to sell a significant item, such as a boat, car or property, which may provide an additional benefit.
+Boats, cars and property have ongoing expenses, such as maintenance and insurance, which disappears when you sell them, so that falls into the [spend less](#spend-less) category too.
+
+It may even be something that’s not tangible. For example, your employer may offer to purchase your unused vacation days.
  
 Clean up your house. Remove the clutter. Sell, donate or throw out the items you don’t use anymore. Most of us don’t think of the cost of the items in our houses. They cost several sets of resources: money, space, time and sanity. You have to spend time and money to clean, maintain and possibly insure these items. How many people rent storage space to store things they never use? How many people buy houses larger than needed because of all of their material possessions?
 
@@ -103,10 +111,32 @@ Each plan will be different depending upon goals and margin.
 What I've listed below is one suggestion.
 
 It's described sequentially, but it's not necessarily meant to be executed sequentially.
-Some parts should be done in parallel.
+Some parts should be done in parallel, and I'll highlight any that I feel are important.
 The degree to parallel achievement will be based upon the margin.
 
+It will focus upon your goals.
+It will not focus, for the most part, upon your other expenses.
+However, 
+
 ## Establish an Emergency Fund
+Emergencies happen.
+Cars need expensive repairs.
+Appliances need to be repaired or replaced.
+Layoffs happen.
+
+None of these are part of your spending plan.
+
+Create an emergency fund to help smooth over these bumps in your financial journey.
+
+An emergency fund is a [savings account](https://jhumelsine.github.io/2026/11/13/financial-literacy.html#savings-account) or [money market account](https://jhumelsine.github.io/2026/11/13/financial-literacy.html#money-market-account) dedicated exclusively for emergencies.
+It's used for unexpected expenses and periods of unemployment.
+It is not used to pay for a vacation or wedding or other expected expense.
+
+Opinions on how much to reserve in an emergency fund vary.
+Three to six months of living expense is the minimum goal, but some recommend as high as 12 months of living expenses.
+
+NOTE: This is emergency living expenses during a period of unemployment, not usually living expenses.
+
 
 ## Eliminate Consumer Debt
 
