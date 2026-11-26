@@ -21,6 +21,10 @@ It will consist of the following financial principles:
 This blog will require some self-examination and introspection.
 This blog may require you to make some tough choices.
 
+This is not a _get rich quick_ scheme.
+This is a _slow and steady wins the race_ plan.
+This is a plan that's based upon [your earning ability](https://jhumelsine.github.io/2026/11/13/financial-literacy.html#you) and the power of [compound interest](https://jhumelsine.github.io/2026/11/13/financial-literacy.html#time) over the years.
+
 **Disclaimer 1: Though I'm writing with a global audience in mind, my perspective is shaped by my experience with retirement in the United States. Even here, my experience won't be the same as everyone else's.**
 
 **DISCLAIMER 2: I'm not a financial advisor. The information presented here reflects my personal opinions and experiences and is intended for educational purposes only. It should not be considered financial, investment, or tax advice. Readers should conduct their own research and consult qualified professionals before making financial decisions.**
