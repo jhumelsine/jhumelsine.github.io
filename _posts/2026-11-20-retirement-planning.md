@@ -164,8 +164,44 @@ An emergency fund provides financial resources when needed.
 The token bucket provides access to the network when needed.
 
 ## Eliminate Consumer Debt
+[Compound interst](https://jhumelsine.github.io/2026/11/13/financial-literacy.html#time) can work for you, or it can work against you.
+It works against you when you take on debt.
 
-### What about Non-Consumer Debt
+Consumer debt is unsecured debt.
+That is, there's no collateral.
+As a result, consumer debt tends to charge high interest rates, since the lenders have limited recourse if you default.
+Credit card interest rate can often be 18% or higher because of the additional risk they take for the unsecured debt.
+That means that you'll need to pay $180 annually for each $1,000 of debt just to service the debt.
+
+Eliminating consumer debt is one of the best investments you can make.
+Paying down an 18% credit card debt is the equivalent of investing in a completely safe investment with an 18% rate of return.
+Such an investment does not exist.
+Making minimum payments on debt should have already been in the **needs** of your spending plan.
+By eliminating consumer debt, the amount that had been dedicated to servicing your debt can become part of your margin to help achieve other goals.
+
+Once you've reached a minimum [emergency fund](#establish-an-emergency-fund), focus upon consumer debt.
+Consider all of your consumer debt, which will mostly be credit cards with an outstanding balance.
+Make the minimum payment for all cards, which should be part of your spending plan.
+Then chose and implement a strategy to pay off the debt on your cards one by one.
+
+There are two strategies for this:
+* [Debt Snowball Method](https://en.wikipedia.org/wiki/Debt_snowball_method) - Use your margin to pay off the card with the smallest balance first. Once that debt is eliminated, its previous minimum payment adds to your margin. Use your adjusted margin to pay off the next smallest balance. Continue until all balances are paid off.
+* [Debt Avalanche Method](https://www.nerdwallet.com/finance/learn/what-is-a-debt-avalanche) - Use this method to pay off the card with the highest rate first. Then once it's paid off, focus upon the card with the next highest rate. Repeat until all cards are paid off.
+
+Avalanche is the most efficient, but Snowball provides more motivation, since progress is more visible as card debt is retired more quickly.
+Hopefully, the two methods align in that debt with the smallest balance is also at the highest rate.
+
+I use my credit card all the time.
+It's convenient.
+It provides a level of protection.
+And I earn rewards.
+
+However, I pay my credit card debt in full each month.
+Do the same.
+Once consumer debt is eliminated, do not go back into credit card debt.
+Your spending plan and emergency fund should keep you out of credit card debt, but if it cannot, then you may need to remove credit cards from regular use until you have sufficient margin to pay off your credit cards each month.
+
+### What about Non-Credit Card Consumer Debt
 
 ## Invest for Retirement
 
