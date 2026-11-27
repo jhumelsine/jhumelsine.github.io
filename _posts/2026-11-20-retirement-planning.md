@@ -202,6 +202,10 @@ Once consumer debt is eliminated, do not go back into credit card debt.
 Your spending plan and emergency fund should keep you out of credit card debt, but if it cannot, then you may need to remove credit cards from regular use until you have sufficient margin to pay off your credit cards each month.
 
 ### What about Non-Credit Card Consumer Debt
+Retiring credit card debt is a no-brainer, since the interest rates are so high.
+But what about non-credit card consumer debt, such as student loans, car loans or even a mortage?
+
+
 
 ## Invest for Retirement
 
